@@ -1,158 +1,133 @@
-import { BaseCommand } from '../../base-command.js';
-import { CloudGraph } from '../../cloud-graph/index.js';
-import { DatacenterRecord } from '../../datacenters/index.js';
-import { Environment, parseEnvironment } from '../../environments/index.js';
-import { Pipeline } from '../../pipeline/index.js';
-import { Flags } from '@oclif/core';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { DatacenterRecord } from '../../datacenters/index.ts';
+import { Environment, parseEnvironment } from '../../environments/index.ts';
+import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
-import inquirer from 'inquirer';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { Select } from 'cliffy/prompt/mod.ts';
 
-export class CreateEnvironmentCmd extends BaseCommand {
-  static description = 'Create a new environment';
+type CreateEnvironmentOptions = {
+  datacenter?: string;
+  verbose?: boolean;
+} & GlobalOptions;
 
-  static flags = {
-    datacenter: Flags.string({
-      char: 'd',
-      description: 'Name of the datacenter to create the environment on',
-    }),
+const CreateEnvironmentCommand = BaseCommand()
+  .description('Create a new environment')
+  .option('-d, --datacenter <datacenter:string>', 'Name of the datacenter to create the environment on')
+  .option('-v, --verbose', 'Turn on verbose logs')
+  .arguments('<name:string> [config_path:string]')
+  .action(create_environment_action);
 
-    verbose: Flags.boolean({
-      char: 'v',
-      description: 'Turn on verbose logs',
-    }),
-  };
+async function create_environment_action(options: CreateEnvironmentOptions, name: string, config_path?: string) {
+  const command_helper = new CommandHelper(options);
 
-  static args = [
-    {
-      name: 'name',
-      description: 'Name of the new environment',
-      required: true,
-    },
-    {
-      name: 'config_path',
-      description: 'Path to the environment config file',
-    },
-  ];
-
-  private async promptForDatacenter(name?: string): Promise<DatacenterRecord> {
-    const datacenterRecords = await this.datacenterStore.find();
-    if (datacenterRecords.length <= 0) {
-      this.error('No datacenters to create environments in');
-    }
-
-    const selected = datacenterRecords.find((d) => d.name === name);
-    const { datacenter } = await inquirer.prompt(
-      [
-        {
-          name: 'datacenter',
-          type: 'list',
-          message: 'Select a datacenter to host the environment',
-          choices: datacenterRecords.map((r) => ({
-            name: r.name,
-            value: r,
-          })),
-        },
-      ],
-      { datacenter: selected },
-    );
-
-    return datacenter;
+  const existing = await command_helper.environmentStore.get(name);
+  if (existing) {
+    console.error(`An environment named ${name} already exists`);
+    Deno.exit(1);
   }
 
-  async run(): Promise<void> {
-    const { args, flags } = await this.parse(CreateEnvironmentCmd);
+  try {
+    const datacenterRecord = await promptForDatacenter(command_helper, options.datacenter);
+    const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
 
-    const existing = await this.environmentStore.get(args.name);
-    if (existing) {
-      this.error(`An environment named ${args.name} already exists`);
+    let environment: Environment | undefined;
+    let environmentGraph = new CloudGraph();
+    if (config_path) {
+      environment = await parseEnvironment(config_path);
+      environmentGraph = await environment.getGraph(name, command_helper.componentStore);
     }
 
-    try {
-      const datacenterRecord = await this.promptForDatacenter(flags.datacenter);
-      const lastPipeline = await this.getPipelineForDatacenter(
-        datacenterRecord,
-      );
+    const targetGraph = await datacenterRecord.config.enrichGraph(environmentGraph, name);
 
-      let environment: Environment | undefined;
-      let environmentGraph = new CloudGraph();
-      if (args.config_path) {
-        environment = await parseEnvironment(args.config_path);
-        environmentGraph = await environment.getGraph(
-          args.name,
-          this.componentStore,
-        );
-      }
+    const pipeline = Pipeline.plan({
+      before: lastPipeline,
+      after: targetGraph,
+    });
 
-      const targetGraph = await datacenterRecord.config.enrichGraph(
-        environmentGraph,
-        args.name,
-      );
+    pipeline.validate();
 
-      const pipeline = Pipeline.plan({
-        before: lastPipeline,
-        after: targetGraph,
+    let interval: number;
+    if (!options.verbose) {
+      interval = setInterval(() => {
+        command_helper.renderPipeline(pipeline, { clear: true });
+      }, 1000 / cliSpinners.dots.frames.length);
+    }
+
+    let logger: Logger | undefined;
+    if (options.verbose) {
+      command_helper.renderPipeline(pipeline);
+      logger = winston.createLogger({
+        level: 'info',
+        format: winston.format.printf(({ message }) => message),
+        transports: [new winston.transports.Console()],
       });
+    }
 
-      pipeline.validate();
-
-      let interval: NodeJS.Timer;
-      if (!flags.verbose) {
-        interval = setInterval(() => {
-          this.renderPipeline(pipeline, { clear: true });
-        }, 1000 / cliSpinners.dots.frames.length);
-      }
-
-      let logger: Logger | undefined;
-      if (flags.verbose) {
-        this.renderPipeline(pipeline);
-        logger = winston.createLogger({
-          level: 'info',
-          format: winston.format.printf(({ message }) => message),
-          transports: [new winston.transports.Console()],
+    return pipeline
+      .apply({
+        providerStore: command_helper.providerStore,
+        logger: logger,
+        cwd: path.resolve(path.join('./.terraform', datacenterRecord.name)),
+      })
+      .then(async () => {
+        await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+        await command_helper.environmentStore.save({
+          datacenter: datacenterRecord.name,
+          name: name,
+          config: environment,
         });
+        command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+        clearInterval(interval);
+        console.log('Environment created successfully');
+      })
+      .catch(async (err) => {
+        await command_helper.saveDatacenter(datacenterRecord.name, datacenterRecord.config, pipeline);
+        command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+        clearInterval(interval);
+        console.error(err);
+        Deno.exit(1);
+      });
+  } catch (err: any) {
+    if (Array.isArray(err)) {
+      for (const e of err) {
+        console.log(e);
       }
-
-      return pipeline
-        .apply({
-          providerStore: this.providerStore,
-          logger: logger,
-          cwd: path.resolve(path.join('./.terraform', datacenterRecord.name)),
-        })
-        .then(async () => {
-          await this.saveDatacenter(
-            datacenterRecord.name,
-            datacenterRecord.config,
-            pipeline,
-          );
-          await this.environmentStore.save({
-            datacenter: datacenterRecord.name,
-            name: args.name,
-            config: environment,
-          });
-          this.renderPipeline(pipeline, { clear: !flags.verbose });
-          clearInterval(interval);
-          this.log('Environment created successfully');
-        })
-        .catch(async (err) => {
-          await this.saveDatacenter(
-            datacenterRecord.name,
-            datacenterRecord.config,
-            pipeline,
-          );
-          this.renderPipeline(pipeline, { clear: !flags.verbose });
-          clearInterval(interval);
-          this.error(err);
-        });
-    } catch (err: any) {
-      if (Array.isArray(err)) {
-        for (const e of err) {
-          this.log(e);
-        }
-      } else {
-        this.error(err);
-      }
+    } else {
+      console.error(err);
+      Deno.exit(1);
     }
   }
 }
+
+async function promptForDatacenter(command_helper: CommandHelper, name?: string): Promise<DatacenterRecord> {
+  const datacenterRecords = await command_helper.datacenterStore.find();
+  if (datacenterRecords.length <= 0) {
+    console.error('No datacenters to create environments in');
+    Deno.exit(1);
+  }
+
+  let selected = datacenterRecords.find((d) => d.name === name);
+  // { datacenter: selected },
+  if (!selected) {
+    const datacenter = await Select.prompt({
+      message: 'Select a datacenter to host the environment',
+      options: datacenterRecords.map((r) => ({
+        name: r.name,
+        value: r.name,
+      })),
+    });
+    selected = datacenterRecords.find((d) => d.name === datacenter);
+
+    if (!selected) {
+      console.log(`Unable to find datacenter: ${datacenter}`);
+      Deno.exit(1);
+    }
+  }
+
+  return selected;
+}
+
+export default CreateEnvironmentCommand;

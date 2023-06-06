@@ -1,5 +1,5 @@
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.js';
-import { GraphContext } from '../component.js';
+import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { GraphContext } from '../component.ts';
 
 const parseSecretRefs = <T extends CloudNode>(
   graph: CloudGraph,

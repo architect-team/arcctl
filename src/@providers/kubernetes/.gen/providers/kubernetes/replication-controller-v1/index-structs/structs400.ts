@@ -1,73 +1,84 @@
+import {
+  ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExec,
+  replicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference,
+  ReplicationControllerV1SpecTemplateSpecInitContainerEnv,
+  replicationControllerV1SpecTemplateSpecInitContainerEnvToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerEnvList,
+  ReplicationControllerV1SpecTemplateSpecInitContainerEnvFrom,
+  replicationControllerV1SpecTemplateSpecInitContainerEnvFromToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerEnvFromList,
+  ReplicationControllerV1SpecTemplateSpecInitContainerLifecycle,
+  replicationControllerV1SpecTemplateSpecInitContainerLifecycleToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerLifecycleOutputReference,
+  ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbe,
+  replicationControllerV1SpecTemplateSpecInitContainerLivenessProbeToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbeOutputReference,
+  ReplicationControllerV1SpecTemplateSpecInitContainerPort,
+  replicationControllerV1SpecTemplateSpecInitContainerPortToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerPortList,
+  ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbe,
+  replicationControllerV1SpecTemplateSpecInitContainerReadinessProbeToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbeOutputReference,
+  ReplicationControllerV1SpecTemplateSpecInitContainerResources,
+  replicationControllerV1SpecTemplateSpecInitContainerResourcesToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerResourcesOutputReference,
+  ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContext,
+  replicationControllerV1SpecTemplateSpecInitContainerSecurityContextToTerraform,
+  ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContextOutputReference,
+  ReplicationControllerV1SpecTemplateSpecAffinity,
+  replicationControllerV1SpecTemplateSpecAffinityToTerraform,
+  ReplicationControllerV1SpecTemplateSpecAffinityOutputReference,
+  ReplicationControllerV1SpecTemplateSpecContainer,
+  replicationControllerV1SpecTemplateSpecContainerToTerraform,
+  ReplicationControllerV1SpecTemplateSpecContainerList,
+  ReplicationControllerV1SpecTemplateSpecDnsConfig,
+  replicationControllerV1SpecTemplateSpecDnsConfigToTerraform,
+  ReplicationControllerV1SpecTemplateSpecDnsConfigOutputReference,
+  ReplicationControllerV1SpecTemplateSpecHostAliases,
+  replicationControllerV1SpecTemplateSpecHostAliasesToTerraform,
+  ReplicationControllerV1SpecTemplateSpecHostAliasesList,
+  ReplicationControllerV1SpecTemplateSpecImagePullSecrets,
+  replicationControllerV1SpecTemplateSpecImagePullSecretsToTerraform,
+  ReplicationControllerV1SpecTemplateSpecImagePullSecretsList,
+  ReplicationControllerV1SpecTemplateMetadata,
+  replicationControllerV1SpecTemplateMetadataToTerraform,
+  ReplicationControllerV1SpecTemplateMetadataOutputReference,
+} from './structs0.ts';
 import * as cdktf from 'cdktf';
-import { ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExec,
-replicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference,
-ReplicationControllerV1SpecTemplateSpecInitContainerEnv,
-replicationControllerV1SpecTemplateSpecInitContainerEnvToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerEnvList,
-ReplicationControllerV1SpecTemplateSpecInitContainerEnvFrom,
-replicationControllerV1SpecTemplateSpecInitContainerEnvFromToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerEnvFromList,
-ReplicationControllerV1SpecTemplateSpecInitContainerLifecycle,
-replicationControllerV1SpecTemplateSpecInitContainerLifecycleToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerLifecycleOutputReference,
-ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbe,
-replicationControllerV1SpecTemplateSpecInitContainerLivenessProbeToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbeOutputReference,
-ReplicationControllerV1SpecTemplateSpecInitContainerPort,
-replicationControllerV1SpecTemplateSpecInitContainerPortToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerPortList,
-ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbe,
-replicationControllerV1SpecTemplateSpecInitContainerReadinessProbeToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbeOutputReference,
-ReplicationControllerV1SpecTemplateSpecInitContainerResources,
-replicationControllerV1SpecTemplateSpecInitContainerResourcesToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerResourcesOutputReference,
-ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContext,
-replicationControllerV1SpecTemplateSpecInitContainerSecurityContextToTerraform,
-ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContextOutputReference,
-ReplicationControllerV1SpecTemplateSpecAffinity,
-replicationControllerV1SpecTemplateSpecAffinityToTerraform,
-ReplicationControllerV1SpecTemplateSpecAffinityOutputReference,
-ReplicationControllerV1SpecTemplateSpecContainer,
-replicationControllerV1SpecTemplateSpecContainerToTerraform,
-ReplicationControllerV1SpecTemplateSpecContainerList,
-ReplicationControllerV1SpecTemplateSpecDnsConfig,
-replicationControllerV1SpecTemplateSpecDnsConfigToTerraform,
-ReplicationControllerV1SpecTemplateSpecDnsConfigOutputReference,
-ReplicationControllerV1SpecTemplateSpecHostAliases,
-replicationControllerV1SpecTemplateSpecHostAliasesToTerraform,
-ReplicationControllerV1SpecTemplateSpecHostAliasesList,
-ReplicationControllerV1SpecTemplateSpecImagePullSecrets,
-replicationControllerV1SpecTemplateSpecImagePullSecretsToTerraform,
-ReplicationControllerV1SpecTemplateSpecImagePullSecretsList,
-ReplicationControllerV1SpecTemplateMetadata,
-replicationControllerV1SpecTemplateMetadataToTerraform,
-ReplicationControllerV1SpecTemplateMetadataOutputReference } from './structs0'
+
 export interface ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc {
   /**
-  * Number of the port to access on the container. Number must be in the range 1 to 65535.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
-  */
+   * Number of the port to access on the container. Number must be in the range 1 to 65535.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
+   */
   readonly port: number;
   /**
-  * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#service ReplicationControllerV1#service}
-  */
+   * Name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the default behavior is defined by gRPC.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#service ReplicationControllerV1#service}
+   */
   readonly service?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.numberToTerraform(struct!.port),
     service: cdktf.stringToTerraform(struct!.service),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference extends cdktf.ComplexObject {
@@ -75,16 +86,29 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -101,18 +125,21 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
       this._service = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -121,7 +148,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrp
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -134,7 +161,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrp
   }
 
   // service - computed: false, optional: true, required: false
-  private _service?: string; 
+  private _service?: string;
   public get service() {
     return this.getStringAttribute('service');
   }
@@ -151,48 +178,69 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrp
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader {
   /**
-  * The header field name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * The header field name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * The header field value
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#value ReplicationControllerV1#value}
-  */
+   * The header field value
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#value ReplicationControllerV1#value}
+   */
   readonly value?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference extends cdktf.ComplexObject {
@@ -200,16 +248,29 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -226,18 +287,21 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -246,7 +310,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -262,7 +326,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -279,83 +343,114 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet {
   /**
-  * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host ReplicationControllerV1#host}
-  */
+   * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host ReplicationControllerV1#host}
+   */
   readonly host?: string;
   /**
-  * Path to access on the HTTP server.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path to access on the HTTP server.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
   /**
-  * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
-  */
+   * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
+   */
   readonly port?: string;
   /**
-  * Scheme to use for connecting to the host.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#scheme ReplicationControllerV1#scheme}
-  */
+   * Scheme to use for connecting to the host.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#scheme ReplicationControllerV1#scheme}
+   */
   readonly scheme?: string;
   /**
-  * http_header block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#http_header ReplicationControllerV1#http_header}
-  */
-  readonly httpHeader?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable;
+   * http_header block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#http_header ReplicationControllerV1#http_header}
+   */
+  readonly httpHeader?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     path: cdktf.stringToTerraform(struct!.path),
     port: cdktf.stringToTerraform(struct!.port),
     scheme: cdktf.stringToTerraform(struct!.scheme),
-    http_header: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform, true)(struct!.httpHeader),
-  }
+    http_header: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderToTerraform,
+      true,
+    )(struct!.httpHeader),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._host !== undefined) {
@@ -381,7 +476,11 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
@@ -389,8 +488,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
       this._port = undefined;
       this._scheme = undefined;
       this._httpHeader.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._path = value.path;
@@ -401,7 +499,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -417,7 +515,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -433,7 +531,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -449,7 +547,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // scheme - computed: false, optional: true, required: false
-  private _scheme?: string; 
+  private _scheme?: string;
   public get scheme() {
     return this.getStringAttribute('scheme');
   }
@@ -465,11 +563,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
   }
 
   // http_header - computed: false, optional: true, required: false
-  private _httpHeader = new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList(this, "http_header", false);
+  private _httpHeader =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeaderList(
+      this,
+      'http_header',
+      false,
+    );
   public get httpHeader() {
     return this._httpHeader;
   }
-  public putHttpHeader(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[] | cdktf.IResolvable) {
+  public putHttpHeader(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetHttpHeader[]
+      | cdktf.IResolvable,
+  ) {
     this._httpHeader.internalValue = value;
   }
   public resetHttpHeader() {
@@ -482,21 +589,29 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHtt
 }
 export interface ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket {
   /**
-  * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
-  */
+   * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
+   */
   readonly port: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     port: cdktf.stringToTerraform(struct!.port),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference extends cdktf.ComplexObject {
@@ -504,16 +619,29 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -526,17 +654,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._port = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._port = value.port;
@@ -544,7 +675,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcp
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: string; 
+  private _port?: string;
   public get port() {
     return this.getStringAttribute('port');
   }
@@ -558,85 +689,110 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcp
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe {
   /**
-  * Minimum consecutive failures for the probe to be considered failed after having succeeded.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#failure_threshold ReplicationControllerV1#failure_threshold}
-  */
+   * Minimum consecutive failures for the probe to be considered failed after having succeeded.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#failure_threshold ReplicationControllerV1#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#initial_delay_seconds ReplicationControllerV1#initial_delay_seconds}
-  */
+   * Number of seconds after the container has started before liveness probes are initiated. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#initial_delay_seconds ReplicationControllerV1#initial_delay_seconds}
+   */
   readonly initialDelaySeconds?: number;
   /**
-  * How often (in seconds) to perform the probe
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#period_seconds ReplicationControllerV1#period_seconds}
-  */
+   * How often (in seconds) to perform the probe
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#period_seconds ReplicationControllerV1#period_seconds}
+   */
   readonly periodSeconds?: number;
   /**
-  * Minimum consecutive successes for the probe to be considered successful after having failed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#success_threshold ReplicationControllerV1#success_threshold}
-  */
+   * Minimum consecutive successes for the probe to be considered successful after having failed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#success_threshold ReplicationControllerV1#success_threshold}
+   */
   readonly successThreshold?: number;
   /**
-  * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#timeout_seconds ReplicationControllerV1#timeout_seconds}
-  */
+   * Number of seconds after which the probe times out. More info: http://kubernetes.io/docs/user-guide/pod-states#container-probes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#timeout_seconds ReplicationControllerV1#timeout_seconds}
+   */
   readonly timeoutSeconds?: number;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#exec ReplicationControllerV1#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#exec ReplicationControllerV1#exec}
+   */
   readonly exec?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExec;
   /**
-  * grpc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#grpc ReplicationControllerV1#grpc}
-  */
-  readonly grpc?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable;
+   * grpc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#grpc ReplicationControllerV1#grpc}
+   */
+  readonly grpc?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc[]
+    | cdktf.IResolvable;
   /**
-  * http_get block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#http_get ReplicationControllerV1#http_get}
-  */
+   * http_get block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#http_get ReplicationControllerV1#http_get}
+   */
   readonly httpGet?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet;
   /**
-  * tcp_socket block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#tcp_socket ReplicationControllerV1#tcp_socket}
-  */
-  readonly tcpSocket?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable;
+   * tcp_socket block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#tcp_socket ReplicationControllerV1#tcp_socket}
+   */
+  readonly tcpSocket?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOutputReference | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbeToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOutputReference
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
@@ -644,25 +800,41 @@ export function replicationControllerV1SpecTemplateSpecInitContainerStartupProbe
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     success_threshold: cdktf.numberToTerraform(struct!.successThreshold),
     timeout_seconds: cdktf.numberToTerraform(struct!.timeoutSeconds),
-    exec: replicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform(struct!.exec),
-    grpc: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform, true)(struct!.grpc),
-    http_get: replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(struct!.httpGet),
-    tcp_socket: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform, true)(struct!.tcpSocket),
-  }
+    exec: replicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecToTerraform(
+      struct!.exec,
+    ),
+    grpc: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcToTerraform,
+      true,
+    )(struct!.grpc),
+    http_get:
+      replicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetToTerraform(
+        struct!.httpGet,
+      ),
+    tcp_socket: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketToTerraform,
+      true,
+    )(struct!.tcpSocket),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -704,7 +876,11 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
@@ -716,8 +892,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
       this._grpc.internalValue = undefined;
       this._httpGet.internalValue = undefined;
       this._tcpSocket.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._initialDelaySeconds = value.initialDelaySeconds;
@@ -732,7 +907,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -748,7 +923,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // initial_delay_seconds - computed: false, optional: true, required: false
-  private _initialDelaySeconds?: number; 
+  private _initialDelaySeconds?: number;
   public get initialDelaySeconds() {
     return this.getNumberAttribute('initial_delay_seconds');
   }
@@ -764,7 +939,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // period_seconds - computed: false, optional: true, required: false
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -780,7 +955,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // success_threshold - computed: false, optional: true, required: false
-  private _successThreshold?: number; 
+  private _successThreshold?: number;
   public get successThreshold() {
     return this.getNumberAttribute('success_threshold');
   }
@@ -796,7 +971,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // timeout_seconds - computed: false, optional: true, required: false
-  private _timeoutSeconds?: number; 
+  private _timeoutSeconds?: number;
   public get timeoutSeconds() {
     return this.getNumberAttribute('timeout_seconds');
   }
@@ -812,11 +987,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // exec - computed: false, optional: true, required: false
-  private _exec = new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference(this, "exec");
+  private _exec =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExecOutputReference(
+      this,
+      'exec',
+    );
   public get exec() {
     return this._exec;
   }
-  public putExec(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExec) {
+  public putExec(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeExec,
+  ) {
     this._exec.internalValue = value;
   }
   public resetExec() {
@@ -828,11 +1009,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // grpc - computed: false, optional: true, required: false
-  private _grpc = new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcList(this, "grpc", false);
+  private _grpc =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpcList(
+      this,
+      'grpc',
+      false,
+    );
   public get grpc() {
     return this._grpc;
   }
-  public putGrpc(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc[] | cdktf.IResolvable) {
+  public putGrpc(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeGrpc[]
+      | cdktf.IResolvable,
+  ) {
     this._grpc.internalValue = value;
   }
   public resetGrpc() {
@@ -844,11 +1034,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // http_get - computed: false, optional: true, required: false
-  private _httpGet = new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference(this, "http_get");
+  private _httpGet =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGetOutputReference(
+      this,
+      'http_get',
+    );
   public get httpGet() {
     return this._httpGet;
   }
-  public putHttpGet(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet) {
+  public putHttpGet(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeHttpGet,
+  ) {
     this._httpGet.internalValue = value;
   }
   public resetHttpGet() {
@@ -860,11 +1056,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
   }
 
   // tcp_socket - computed: false, optional: true, required: false
-  private _tcpSocket = new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketList(this, "tcp_socket", false);
+  private _tcpSocket =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocketList(
+      this,
+      'tcp_socket',
+      false,
+    );
   public get tcpSocket() {
     return this._tcpSocket;
   }
-  public putTcpSocket(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[] | cdktf.IResolvable) {
+  public putTcpSocket(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeTcpSocket[]
+      | cdktf.IResolvable,
+  ) {
     this._tcpSocket.internalValue = value;
   }
   public resetTcpSocket() {
@@ -877,41 +1082,49 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOut
 }
 export interface ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount {
   /**
-  * Path within the container at which the volume should be mounted. Must not contain ':'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mount_path ReplicationControllerV1#mount_path}
-  */
+   * Path within the container at which the volume should be mounted. Must not contain ':'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mount_path ReplicationControllerV1#mount_path}
+   */
   readonly mountPath: string;
   /**
-  * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mount_propagation ReplicationControllerV1#mount_propagation}
-  */
+   * Mount propagation mode. mount_propagation determines how mounts are propagated from the host to container and the other way around. Valid values are None (default), HostToContainer and Bidirectional.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mount_propagation ReplicationControllerV1#mount_propagation}
+   */
   readonly mountPropagation?: string;
   /**
-  * This must match the Name of a Volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * This must match the Name of a Volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name: string;
   /**
-  * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#sub_path ReplicationControllerV1#sub_path}
-  */
+   * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#sub_path ReplicationControllerV1#sub_path}
+   */
   readonly subPath?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerVolumeMountToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerVolumeMountToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mount_path: cdktf.stringToTerraform(struct!.mountPath),
@@ -919,7 +1132,7 @@ export function replicationControllerV1SpecTemplateSpecInitContainerVolumeMountT
     name: cdktf.stringToTerraform(struct!.name),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     sub_path: cdktf.stringToTerraform(struct!.subPath),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutputReference extends cdktf.ComplexObject {
@@ -927,16 +1140,29 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -965,7 +1191,12 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -974,12 +1205,10 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
       this._name = undefined;
       this._readOnly = undefined;
       this._subPath = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mountPath = value.mountPath;
@@ -991,7 +1220,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
   }
 
   // mount_path - computed: false, optional: false, required: true
-  private _mountPath?: string; 
+  private _mountPath?: string;
   public get mountPath() {
     return this.getStringAttribute('mount_path');
   }
@@ -1004,7 +1233,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
   }
 
   // mount_propagation - computed: false, optional: true, required: false
-  private _mountPropagation?: string; 
+  private _mountPropagation?: string;
   public get mountPropagation() {
     return this.getStringAttribute('mount_propagation');
   }
@@ -1020,7 +1249,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1033,7 +1262,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1049,7 +1278,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
   }
 
   // sub_path - computed: false, optional: true, required: false
-  private _subPath?: string; 
+  private _subPath?: string;
   public get subPath() {
     return this.getStringAttribute('sub_path');
   }
@@ -1066,157 +1295,186 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutp
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecInitContainer {
   /**
-  * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#args ReplicationControllerV1#args}
-  */
+   * Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#args ReplicationControllerV1#args}
+   */
   readonly args?: string[];
   /**
-  * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#command ReplicationControllerV1#command}
-  */
+   * Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/containers#containers-and-commands
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#command ReplicationControllerV1#command}
+   */
   readonly command?: string[];
   /**
-  * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#image ReplicationControllerV1#image}
-  */
+   * Docker image name. More info: http://kubernetes.io/docs/user-guide/images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#image ReplicationControllerV1#image}
+   */
   readonly image?: string;
   /**
-  * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#image_pull_policy ReplicationControllerV1#image_pull_policy}
-  */
+   * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/images#updating-images
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#image_pull_policy ReplicationControllerV1#image_pull_policy}
+   */
   readonly imagePullPolicy?: string;
   /**
-  * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name: string;
   /**
-  * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#stdin ReplicationControllerV1#stdin}
-  */
+   * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#stdin ReplicationControllerV1#stdin}
+   */
   readonly stdin?: boolean | cdktf.IResolvable;
   /**
-  * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#stdin_once ReplicationControllerV1#stdin_once}
-  */
+   * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#stdin_once ReplicationControllerV1#stdin_once}
+   */
   readonly stdinOnce?: boolean | cdktf.IResolvable;
   /**
-  * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#termination_message_path ReplicationControllerV1#termination_message_path}
-  */
+   * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#termination_message_path ReplicationControllerV1#termination_message_path}
+   */
   readonly terminationMessagePath?: string;
   /**
-  * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#termination_message_policy ReplicationControllerV1#termination_message_policy}
-  */
+   * Optional: Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#termination_message_policy ReplicationControllerV1#termination_message_policy}
+   */
   readonly terminationMessagePolicy?: string;
   /**
-  * Whether this container should allocate a TTY for itself
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#tty ReplicationControllerV1#tty}
-  */
+   * Whether this container should allocate a TTY for itself
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#tty ReplicationControllerV1#tty}
+   */
   readonly tty?: boolean | cdktf.IResolvable;
   /**
-  * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#working_dir ReplicationControllerV1#working_dir}
-  */
+   * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#working_dir ReplicationControllerV1#working_dir}
+   */
   readonly workingDir?: string;
   /**
-  * env block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#env ReplicationControllerV1#env}
-  */
-  readonly env?: ReplicationControllerV1SpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable;
+   * env block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#env ReplicationControllerV1#env}
+   */
+  readonly env?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerEnv[]
+    | cdktf.IResolvable;
   /**
-  * env_from block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#env_from ReplicationControllerV1#env_from}
-  */
-  readonly envFrom?: ReplicationControllerV1SpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable;
+   * env_from block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#env_from ReplicationControllerV1#env_from}
+   */
+  readonly envFrom?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerEnvFrom[]
+    | cdktf.IResolvable;
   /**
-  * lifecycle block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#lifecycle ReplicationControllerV1#lifecycle}
-  */
+   * lifecycle block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#lifecycle ReplicationControllerV1#lifecycle}
+   */
   readonly lifecycle?: ReplicationControllerV1SpecTemplateSpecInitContainerLifecycle;
   /**
-  * liveness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#liveness_probe ReplicationControllerV1#liveness_probe}
-  */
+   * liveness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#liveness_probe ReplicationControllerV1#liveness_probe}
+   */
   readonly livenessProbe?: ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbe;
   /**
-  * port block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
-  */
-  readonly port?: ReplicationControllerV1SpecTemplateSpecInitContainerPort[] | cdktf.IResolvable;
+   * port block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#port ReplicationControllerV1#port}
+   */
+  readonly port?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerPort[]
+    | cdktf.IResolvable;
   /**
-  * readiness_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#readiness_probe ReplicationControllerV1#readiness_probe}
-  */
+   * readiness_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#readiness_probe ReplicationControllerV1#readiness_probe}
+   */
   readonly readinessProbe?: ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbe;
   /**
-  * resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resources ReplicationControllerV1#resources}
-  */
+   * resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resources ReplicationControllerV1#resources}
+   */
   readonly resources?: ReplicationControllerV1SpecTemplateSpecInitContainerResources;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#security_context ReplicationControllerV1#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#security_context ReplicationControllerV1#security_context}
+   */
   readonly securityContext?: ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContext;
   /**
-  * startup_probe block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#startup_probe ReplicationControllerV1#startup_probe}
-  */
+   * startup_probe block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#startup_probe ReplicationControllerV1#startup_probe}
+   */
   readonly startupProbe?: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe;
   /**
-  * volume_mount block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_mount ReplicationControllerV1#volume_mount}
-  */
-  readonly volumeMount?: ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable;
+   * volume_mount block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_mount ReplicationControllerV1#volume_mount}
+   */
+  readonly volumeMount?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecInitContainerToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecInitContainer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecInitContainerToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainer
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     args: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.args),
@@ -1226,21 +1484,55 @@ export function replicationControllerV1SpecTemplateSpecInitContainerToTerraform(
     name: cdktf.stringToTerraform(struct!.name),
     stdin: cdktf.booleanToTerraform(struct!.stdin),
     stdin_once: cdktf.booleanToTerraform(struct!.stdinOnce),
-    termination_message_path: cdktf.stringToTerraform(struct!.terminationMessagePath),
-    termination_message_policy: cdktf.stringToTerraform(struct!.terminationMessagePolicy),
+    termination_message_path: cdktf.stringToTerraform(
+      struct!.terminationMessagePath,
+    ),
+    termination_message_policy: cdktf.stringToTerraform(
+      struct!.terminationMessagePolicy,
+    ),
     tty: cdktf.booleanToTerraform(struct!.tty),
     working_dir: cdktf.stringToTerraform(struct!.workingDir),
-    env: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerEnvToTerraform, true)(struct!.env),
-    env_from: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerEnvFromToTerraform, true)(struct!.envFrom),
-    lifecycle: replicationControllerV1SpecTemplateSpecInitContainerLifecycleToTerraform(struct!.lifecycle),
-    liveness_probe: replicationControllerV1SpecTemplateSpecInitContainerLivenessProbeToTerraform(struct!.livenessProbe),
-    port: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerPortToTerraform, true)(struct!.port),
-    readiness_probe: replicationControllerV1SpecTemplateSpecInitContainerReadinessProbeToTerraform(struct!.readinessProbe),
-    resources: replicationControllerV1SpecTemplateSpecInitContainerResourcesToTerraform(struct!.resources),
-    security_context: replicationControllerV1SpecTemplateSpecInitContainerSecurityContextToTerraform(struct!.securityContext),
-    startup_probe: replicationControllerV1SpecTemplateSpecInitContainerStartupProbeToTerraform(struct!.startupProbe),
-    volume_mount: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerVolumeMountToTerraform, true)(struct!.volumeMount),
-  }
+    env: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerEnvToTerraform,
+      true,
+    )(struct!.env),
+    env_from: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerEnvFromToTerraform,
+      true,
+    )(struct!.envFrom),
+    lifecycle:
+      replicationControllerV1SpecTemplateSpecInitContainerLifecycleToTerraform(
+        struct!.lifecycle,
+      ),
+    liveness_probe:
+      replicationControllerV1SpecTemplateSpecInitContainerLivenessProbeToTerraform(
+        struct!.livenessProbe,
+      ),
+    port: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerPortToTerraform,
+      true,
+    )(struct!.port),
+    readiness_probe:
+      replicationControllerV1SpecTemplateSpecInitContainerReadinessProbeToTerraform(
+        struct!.readinessProbe,
+      ),
+    resources:
+      replicationControllerV1SpecTemplateSpecInitContainerResourcesToTerraform(
+        struct!.resources,
+      ),
+    security_context:
+      replicationControllerV1SpecTemplateSpecInitContainerSecurityContextToTerraform(
+        struct!.securityContext,
+      ),
+    startup_probe:
+      replicationControllerV1SpecTemplateSpecInitContainerStartupProbeToTerraform(
+        struct!.startupProbe,
+      ),
+    volume_mount: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerVolumeMountToTerraform,
+      true,
+    )(struct!.volumeMount),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference extends cdktf.ComplexObject {
@@ -1248,16 +1540,29 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecInitContainer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecInitContainer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1297,7 +1602,8 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
     }
     if (this._terminationMessagePolicy !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationMessagePolicy = this._terminationMessagePolicy;
+      internalValueResult.terminationMessagePolicy =
+        this._terminationMessagePolicy;
     }
     if (this._tty !== undefined) {
       hasAnyValues = true;
@@ -1337,7 +1643,8 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._startupProbe?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1350,7 +1657,12 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecInitContainer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainer
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1375,12 +1687,10 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
       this._securityContext.internalValue = undefined;
       this._startupProbe.internalValue = undefined;
       this._volumeMount.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._args = value.args;
@@ -1408,7 +1718,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // args - computed: false, optional: true, required: false
-  private _args?: string[]; 
+  private _args?: string[];
   public get args() {
     return this.getListAttribute('args');
   }
@@ -1424,7 +1734,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -1440,7 +1750,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // image - computed: false, optional: true, required: false
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -1456,7 +1766,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // image_pull_policy - computed: true, optional: true, required: false
-  private _imagePullPolicy?: string; 
+  private _imagePullPolicy?: string;
   public get imagePullPolicy() {
     return this.getStringAttribute('image_pull_policy');
   }
@@ -1472,7 +1782,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1485,7 +1795,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // stdin - computed: false, optional: true, required: false
-  private _stdin?: boolean | cdktf.IResolvable; 
+  private _stdin?: boolean | cdktf.IResolvable;
   public get stdin() {
     return this.getBooleanAttribute('stdin');
   }
@@ -1501,7 +1811,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // stdin_once - computed: false, optional: true, required: false
-  private _stdinOnce?: boolean | cdktf.IResolvable; 
+  private _stdinOnce?: boolean | cdktf.IResolvable;
   public get stdinOnce() {
     return this.getBooleanAttribute('stdin_once');
   }
@@ -1517,7 +1827,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // termination_message_path - computed: false, optional: true, required: false
-  private _terminationMessagePath?: string; 
+  private _terminationMessagePath?: string;
   public get terminationMessagePath() {
     return this.getStringAttribute('termination_message_path');
   }
@@ -1533,7 +1843,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // termination_message_policy - computed: true, optional: true, required: false
-  private _terminationMessagePolicy?: string; 
+  private _terminationMessagePolicy?: string;
   public get terminationMessagePolicy() {
     return this.getStringAttribute('termination_message_policy');
   }
@@ -1549,7 +1859,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // tty - computed: false, optional: true, required: false
-  private _tty?: boolean | cdktf.IResolvable; 
+  private _tty?: boolean | cdktf.IResolvable;
   public get tty() {
     return this.getBooleanAttribute('tty');
   }
@@ -1565,7 +1875,7 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // working_dir - computed: false, optional: true, required: false
-  private _workingDir?: string; 
+  private _workingDir?: string;
   public get workingDir() {
     return this.getStringAttribute('working_dir');
   }
@@ -1581,11 +1891,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // env - computed: false, optional: true, required: false
-  private _env = new ReplicationControllerV1SpecTemplateSpecInitContainerEnvList(this, "env", false);
+  private _env =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerEnvList(
+      this,
+      'env',
+      false,
+    );
   public get env() {
     return this._env;
   }
-  public putEnv(value: ReplicationControllerV1SpecTemplateSpecInitContainerEnv[] | cdktf.IResolvable) {
+  public putEnv(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerEnv[]
+      | cdktf.IResolvable,
+  ) {
     this._env.internalValue = value;
   }
   public resetEnv() {
@@ -1597,11 +1916,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // env_from - computed: false, optional: true, required: false
-  private _envFrom = new ReplicationControllerV1SpecTemplateSpecInitContainerEnvFromList(this, "env_from", false);
+  private _envFrom =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerEnvFromList(
+      this,
+      'env_from',
+      false,
+    );
   public get envFrom() {
     return this._envFrom;
   }
-  public putEnvFrom(value: ReplicationControllerV1SpecTemplateSpecInitContainerEnvFrom[] | cdktf.IResolvable) {
+  public putEnvFrom(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerEnvFrom[]
+      | cdktf.IResolvable,
+  ) {
     this._envFrom.internalValue = value;
   }
   public resetEnvFrom() {
@@ -1613,11 +1941,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // lifecycle - computed: false, optional: true, required: false
-  private _lifecycle = new ReplicationControllerV1SpecTemplateSpecInitContainerLifecycleOutputReference(this, "lifecycle");
+  private _lifecycle =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerLifecycleOutputReference(
+      this,
+      'lifecycle',
+    );
   public get lifecycle() {
     return this._lifecycle;
   }
-  public putLifecycle(value: ReplicationControllerV1SpecTemplateSpecInitContainerLifecycle) {
+  public putLifecycle(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerLifecycle,
+  ) {
     this._lifecycle.internalValue = value;
   }
   public resetLifecycle() {
@@ -1629,11 +1963,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // liveness_probe - computed: false, optional: true, required: false
-  private _livenessProbe = new ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbeOutputReference(this, "liveness_probe");
+  private _livenessProbe =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbeOutputReference(
+      this,
+      'liveness_probe',
+    );
   public get livenessProbe() {
     return this._livenessProbe;
   }
-  public putLivenessProbe(value: ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbe) {
+  public putLivenessProbe(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerLivenessProbe,
+  ) {
     this._livenessProbe.internalValue = value;
   }
   public resetLivenessProbe() {
@@ -1645,11 +1985,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // port - computed: false, optional: true, required: false
-  private _port = new ReplicationControllerV1SpecTemplateSpecInitContainerPortList(this, "port", false);
+  private _port =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerPortList(
+      this,
+      'port',
+      false,
+    );
   public get port() {
     return this._port;
   }
-  public putPort(value: ReplicationControllerV1SpecTemplateSpecInitContainerPort[] | cdktf.IResolvable) {
+  public putPort(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerPort[]
+      | cdktf.IResolvable,
+  ) {
     this._port.internalValue = value;
   }
   public resetPort() {
@@ -1661,11 +2010,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // readiness_probe - computed: false, optional: true, required: false
-  private _readinessProbe = new ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbeOutputReference(this, "readiness_probe");
+  private _readinessProbe =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbeOutputReference(
+      this,
+      'readiness_probe',
+    );
   public get readinessProbe() {
     return this._readinessProbe;
   }
-  public putReadinessProbe(value: ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbe) {
+  public putReadinessProbe(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerReadinessProbe,
+  ) {
     this._readinessProbe.internalValue = value;
   }
   public resetReadinessProbe() {
@@ -1677,11 +2032,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources = new ReplicationControllerV1SpecTemplateSpecInitContainerResourcesOutputReference(this, "resources");
+  private _resources =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerResourcesOutputReference(
+      this,
+      'resources',
+    );
   public get resources() {
     return this._resources;
   }
-  public putResources(value: ReplicationControllerV1SpecTemplateSpecInitContainerResources) {
+  public putResources(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerResources,
+  ) {
     this._resources.internalValue = value;
   }
   public resetResources() {
@@ -1693,11 +2054,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
-  public putSecurityContext(value: ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContext) {
+  public putSecurityContext(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerSecurityContext,
+  ) {
     this._securityContext.internalValue = value;
   }
   public resetSecurityContext() {
@@ -1709,11 +2076,17 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // startup_probe - computed: false, optional: true, required: false
-  private _startupProbe = new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOutputReference(this, "startup_probe");
+  private _startupProbe =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbeOutputReference(
+      this,
+      'startup_probe',
+    );
   public get startupProbe() {
     return this._startupProbe;
   }
-  public putStartupProbe(value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe) {
+  public putStartupProbe(
+    value: ReplicationControllerV1SpecTemplateSpecInitContainerStartupProbe,
+  ) {
     this._startupProbe.internalValue = value;
   }
   public resetStartupProbe() {
@@ -1725,11 +2098,20 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
   }
 
   // volume_mount - computed: false, optional: true, required: false
-  private _volumeMount = new ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountList(this, "volume_mount", false);
+  private _volumeMount =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMountList(
+      this,
+      'volume_mount',
+      false,
+    );
   public get volumeMount() {
     return this._volumeMount;
   }
-  public putVolumeMount(value: ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount[] | cdktf.IResolvable) {
+  public putVolumeMount(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainerVolumeMount[]
+      | cdktf.IResolvable,
+  ) {
     this._volumeMount.internalValue = value;
   }
   public resetVolumeMount() {
@@ -1742,41 +2124,62 @@ export class ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference
 }
 
 export class ReplicationControllerV1SpecTemplateSpecInitContainerList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainer[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecInitContainerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecReadinessGate {
   /**
-  * refers to a condition in the pod's condition list with matching type.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#condition_type ReplicationControllerV1#condition_type}
-  */
+   * refers to a condition in the pod's condition list with matching type.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#condition_type ReplicationControllerV1#condition_type}
+   */
   readonly conditionType: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecReadinessGateToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecReadinessGate | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecReadinessGateToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecReadinessGate
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     condition_type: cdktf.stringToTerraform(struct!.conditionType),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference extends cdktf.ComplexObject {
@@ -1784,16 +2187,29 @@ export class ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecReadinessGate | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecReadinessGate
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1806,17 +2222,20 @@ export class ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecReadinessGate | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecReadinessGate
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._conditionType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._conditionType = value.conditionType;
@@ -1824,7 +2243,7 @@ export class ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference
   }
 
   // condition_type - computed: false, optional: false, required: true
-  private _conditionType?: string; 
+  private _conditionType?: string;
   public get conditionType() {
     return this.getStringAttribute('condition_type');
   }
@@ -1838,76 +2257,102 @@ export class ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference
 }
 
 export class ReplicationControllerV1SpecTemplateSpecReadinessGateList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecReadinessGate[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecReadinessGateOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions {
   /**
-  * Level is SELinux level label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#level ReplicationControllerV1#level}
-  */
+   * Level is SELinux level label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#level ReplicationControllerV1#level}
+   */
   readonly level?: string;
   /**
-  * Role is a SELinux role label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#role ReplicationControllerV1#role}
-  */
+   * Role is a SELinux role label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#role ReplicationControllerV1#role}
+   */
   readonly role?: string;
   /**
-  * Type is a SELinux type label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#type ReplicationControllerV1#type}
-  */
+   * Type is a SELinux type label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#type ReplicationControllerV1#type}
+   */
   readonly type?: string;
   /**
-  * User is a SELinux user label that applies to the container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#user ReplicationControllerV1#user}
-  */
+   * User is a SELinux user label that applies to the container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#user ReplicationControllerV1#user}
+   */
   readonly user?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference | ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     level: cdktf.stringToTerraform(struct!.level),
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._level !== undefined) {
@@ -1929,15 +2374,18 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOption
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._level = undefined;
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._level = value.level;
       this._role = value.role;
@@ -1947,7 +2395,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOption
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -1963,7 +2411,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOption
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -1979,7 +2427,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOption
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1995,7 +2443,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOption
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -2012,42 +2460,55 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOption
 }
 export interface ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile {
   /**
-  * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#localhost_profile ReplicationControllerV1#localhost_profile}
-  */
+   * Localhost Profile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#localhost_profile ReplicationControllerV1#localhost_profile}
+   */
   readonly localhostProfile?: string;
   /**
-  * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#type ReplicationControllerV1#type}
-  */
+   * Type indicates which kind of seccomp profile will be applied. Valid options are: Localhost, RuntimeDefault, Unconfined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#type ReplicationControllerV1#type}
+   */
   readonly type?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference | ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     localhost_profile: cdktf.stringToTerraform(struct!.localhostProfile),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._localhostProfile !== undefined) {
@@ -2061,13 +2522,16 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfil
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._localhostProfile = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._localhostProfile = value.localhostProfile;
       this._type = value.type;
@@ -2075,7 +2539,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfil
   }
 
   // localhost_profile - computed: false, optional: true, required: false
-  private _localhostProfile?: string; 
+  private _localhostProfile?: string;
   public get localhostProfile() {
     return this.getStringAttribute('localhost_profile');
   }
@@ -2091,7 +2555,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfil
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2108,28 +2572,36 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfil
 }
 export interface ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl {
   /**
-  * Name of a property to set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of a property to set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name: string;
   /**
-  * Value of a property to set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#value ReplicationControllerV1#value}
-  */
+   * Value of a property to set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#value ReplicationControllerV1#value}
+   */
   readonly value: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecSecurityContextSysctlToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecSecurityContextSysctlToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputReference extends cdktf.ComplexObject {
@@ -2137,16 +2609,29 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputR
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2163,18 +2648,21 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -2183,7 +2671,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputR
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2196,7 +2684,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputR
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2210,111 +2698,153 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputR
 }
 
 export class ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecSecurityContext {
   /**
-  * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- If unset, the Kubelet will not modify the ownership and permissions of any volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_group ReplicationControllerV1#fs_group}
-  */
+   * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- If unset, the Kubelet will not modify the ownership and permissions of any volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_group ReplicationControllerV1#fs_group}
+   */
   readonly fsGroup?: string;
   /**
-  * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_group_change_policy ReplicationControllerV1#fs_group_change_policy}
-  */
+   * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_group_change_policy ReplicationControllerV1#fs_group_change_policy}
+   */
   readonly fsGroupChangePolicy?: string;
   /**
-  * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#run_as_group ReplicationControllerV1#run_as_group}
-  */
+   * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#run_as_group ReplicationControllerV1#run_as_group}
+   */
   readonly runAsGroup?: string;
   /**
-  * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#run_as_non_root ReplicationControllerV1#run_as_non_root}
-  */
+   * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#run_as_non_root ReplicationControllerV1#run_as_non_root}
+   */
   readonly runAsNonRoot?: boolean | cdktf.IResolvable;
   /**
-  * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#run_as_user ReplicationControllerV1#run_as_user}
-  */
+   * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#run_as_user ReplicationControllerV1#run_as_user}
+   */
   readonly runAsUser?: string;
   /**
-  * A list of groups applied to the first process run in each container, in addition to the container's primary GID. If unspecified, no groups will be added to any container.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#supplemental_groups ReplicationControllerV1#supplemental_groups}
-  */
+   * A list of groups applied to the first process run in each container, in addition to the container's primary GID. If unspecified, no groups will be added to any container.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#supplemental_groups ReplicationControllerV1#supplemental_groups}
+   */
   readonly supplementalGroups?: number[];
   /**
-  * se_linux_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#se_linux_options ReplicationControllerV1#se_linux_options}
-  */
+   * se_linux_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#se_linux_options ReplicationControllerV1#se_linux_options}
+   */
   readonly seLinuxOptions?: ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions;
   /**
-  * seccomp_profile block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#seccomp_profile ReplicationControllerV1#seccomp_profile}
-  */
+   * seccomp_profile block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#seccomp_profile ReplicationControllerV1#seccomp_profile}
+   */
   readonly seccompProfile?: ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile;
   /**
-  * sysctl block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#sysctl ReplicationControllerV1#sysctl}
-  */
-  readonly sysctl?: ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable;
+   * sysctl block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#sysctl ReplicationControllerV1#sysctl}
+   */
+  readonly sysctl?:
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecSecurityContextToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReference | ReplicationControllerV1SpecTemplateSpecSecurityContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecSecurityContextToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReference
+    | ReplicationControllerV1SpecTemplateSpecSecurityContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_group: cdktf.stringToTerraform(struct!.fsGroup),
-    fs_group_change_policy: cdktf.stringToTerraform(struct!.fsGroupChangePolicy),
+    fs_group_change_policy: cdktf.stringToTerraform(
+      struct!.fsGroupChangePolicy,
+    ),
     run_as_group: cdktf.stringToTerraform(struct!.runAsGroup),
     run_as_non_root: cdktf.booleanToTerraform(struct!.runAsNonRoot),
     run_as_user: cdktf.stringToTerraform(struct!.runAsUser),
-    supplemental_groups: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.supplementalGroups),
-    se_linux_options: replicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(struct!.seLinuxOptions),
-    seccomp_profile: replicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(struct!.seccompProfile),
-    sysctl: cdktf.listMapper(replicationControllerV1SpecTemplateSpecSecurityContextSysctlToTerraform, true)(struct!.sysctl),
-  }
+    supplemental_groups: cdktf.listMapper(
+      cdktf.numberToTerraform,
+      false,
+    )(struct!.supplementalGroups),
+    se_linux_options:
+      replicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsToTerraform(
+        struct!.seLinuxOptions,
+      ),
+    seccomp_profile:
+      replicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileToTerraform(
+        struct!.seccompProfile,
+      ),
+    sysctl: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecSecurityContextSysctlToTerraform,
+      true,
+    )(struct!.sysctl),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecSecurityContext | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecSecurityContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsGroup !== undefined) {
@@ -2356,7 +2886,9 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecSecurityContext | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecSecurityContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsGroup = undefined;
@@ -2368,8 +2900,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
       this._seLinuxOptions.internalValue = undefined;
       this._seccompProfile.internalValue = undefined;
       this._sysctl.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsGroup = value.fsGroup;
       this._fsGroupChangePolicy = value.fsGroupChangePolicy;
@@ -2384,7 +2915,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // fs_group - computed: false, optional: true, required: false
-  private _fsGroup?: string; 
+  private _fsGroup?: string;
   public get fsGroup() {
     return this.getStringAttribute('fs_group');
   }
@@ -2400,7 +2931,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // fs_group_change_policy - computed: false, optional: true, required: false
-  private _fsGroupChangePolicy?: string; 
+  private _fsGroupChangePolicy?: string;
   public get fsGroupChangePolicy() {
     return this.getStringAttribute('fs_group_change_policy');
   }
@@ -2416,7 +2947,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // run_as_group - computed: false, optional: true, required: false
-  private _runAsGroup?: string; 
+  private _runAsGroup?: string;
   public get runAsGroup() {
     return this.getStringAttribute('run_as_group');
   }
@@ -2432,7 +2963,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // run_as_non_root - computed: false, optional: true, required: false
-  private _runAsNonRoot?: boolean | cdktf.IResolvable; 
+  private _runAsNonRoot?: boolean | cdktf.IResolvable;
   public get runAsNonRoot() {
     return this.getBooleanAttribute('run_as_non_root');
   }
@@ -2448,7 +2979,7 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // run_as_user - computed: false, optional: true, required: false
-  private _runAsUser?: string; 
+  private _runAsUser?: string;
   public get runAsUser() {
     return this.getStringAttribute('run_as_user');
   }
@@ -2464,9 +2995,11 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // supplemental_groups - computed: false, optional: true, required: false
-  private _supplementalGroups?: number[]; 
+  private _supplementalGroups?: number[];
   public get supplementalGroups() {
-    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('supplemental_groups')));
+    return cdktf.Token.asNumberList(
+      cdktf.Fn.tolist(this.getNumberListAttribute('supplemental_groups')),
+    );
   }
   public set supplementalGroups(value: number[]) {
     this._supplementalGroups = value;
@@ -2480,11 +3013,17 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // se_linux_options - computed: false, optional: true, required: false
-  private _seLinuxOptions = new ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference(this, "se_linux_options");
+  private _seLinuxOptions =
+    new ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptionsOutputReference(
+      this,
+      'se_linux_options',
+    );
   public get seLinuxOptions() {
     return this._seLinuxOptions;
   }
-  public putSeLinuxOptions(value: ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions) {
+  public putSeLinuxOptions(
+    value: ReplicationControllerV1SpecTemplateSpecSecurityContextSeLinuxOptions,
+  ) {
     this._seLinuxOptions.internalValue = value;
   }
   public resetSeLinuxOptions() {
@@ -2496,11 +3035,17 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // seccomp_profile - computed: false, optional: true, required: false
-  private _seccompProfile = new ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference(this, "seccomp_profile");
+  private _seccompProfile =
+    new ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfileOutputReference(
+      this,
+      'seccomp_profile',
+    );
   public get seccompProfile() {
     return this._seccompProfile;
   }
-  public putSeccompProfile(value: ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile) {
+  public putSeccompProfile(
+    value: ReplicationControllerV1SpecTemplateSpecSecurityContextSeccompProfile,
+  ) {
     this._seccompProfile.internalValue = value;
   }
   public resetSeccompProfile() {
@@ -2512,11 +3057,20 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
   }
 
   // sysctl - computed: false, optional: true, required: false
-  private _sysctl = new ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlList(this, "sysctl", false);
+  private _sysctl =
+    new ReplicationControllerV1SpecTemplateSpecSecurityContextSysctlList(
+      this,
+      'sysctl',
+      false,
+    );
   public get sysctl() {
     return this._sysctl;
   }
-  public putSysctl(value: ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl[] | cdktf.IResolvable) {
+  public putSysctl(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecSecurityContextSysctl[]
+      | cdktf.IResolvable,
+  ) {
     this._sysctl.internalValue = value;
   }
   public resetSysctl() {
@@ -2529,41 +3083,49 @@ export class ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReferen
 }
 export interface ReplicationControllerV1SpecTemplateSpecToleration {
   /**
-  * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#effect ReplicationControllerV1#effect}
-  */
+   * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#effect ReplicationControllerV1#effect}
+   */
   readonly effect?: string;
   /**
-  * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
-  */
+   * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
+   */
   readonly key?: string;
   /**
-  * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#operator ReplicationControllerV1#operator}
-  */
+   * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#operator ReplicationControllerV1#operator}
+   */
   readonly operator?: string;
   /**
-  * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#toleration_seconds ReplicationControllerV1#toleration_seconds}
-  */
+   * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#toleration_seconds ReplicationControllerV1#toleration_seconds}
+   */
   readonly tolerationSeconds?: string;
   /**
-  * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#value ReplicationControllerV1#value}
-  */
+   * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#value ReplicationControllerV1#value}
+   */
   readonly value?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecTolerationToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecToleration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecTolerationToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecToleration
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     effect: cdktf.stringToTerraform(struct!.effect),
@@ -2571,7 +3133,7 @@ export function replicationControllerV1SpecTemplateSpecTolerationToTerraform(str
     operator: cdktf.stringToTerraform(struct!.operator),
     toleration_seconds: cdktf.stringToTerraform(struct!.tolerationSeconds),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference extends cdktf.ComplexObject {
@@ -2579,16 +3141,29 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecToleration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecToleration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2617,7 +3192,12 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecToleration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecToleration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2626,12 +3206,10 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
       this._operator = undefined;
       this._tolerationSeconds = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._effect = value.effect;
@@ -2643,7 +3221,7 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
   }
 
   // effect - computed: false, optional: true, required: false
-  private _effect?: string; 
+  private _effect?: string;
   public get effect() {
     return this.getStringAttribute('effect');
   }
@@ -2659,7 +3237,7 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2675,7 +3253,7 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2691,7 +3269,7 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
   }
 
   // toleration_seconds - computed: false, optional: true, required: false
-  private _tolerationSeconds?: string; 
+  private _tolerationSeconds?: string;
   public get tolerationSeconds() {
     return this.getStringAttribute('toleration_seconds');
   }
@@ -2707,7 +3285,7 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2724,55 +3302,76 @@ export class ReplicationControllerV1SpecTemplateSpecTolerationOutputReference ex
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTolerationList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecToleration[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecToleration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecTolerationOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecTolerationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecTolerationOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecTolerationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#operator ReplicationControllerV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#operator ReplicationControllerV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#values ReplicationControllerV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#values ReplicationControllerV1#values}
+   */
   readonly values?: string[];
 }
 
-export function replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -2780,16 +3379,29 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2810,19 +3422,22 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2832,7 +3447,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2848,7 +3463,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2864,7 +3479,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2881,48 +3496,76 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#match_labels ReplicationControllerV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#match_labels ReplicationControllerV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#match_expressions ReplicationControllerV1#match_expressions}
-  */
-  readonly matchExpressions?: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#match_expressions ReplicationControllerV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference extends cdktf.ComplexObject {
@@ -2930,16 +3573,29 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2951,23 +3607,27 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -2976,7 +3636,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2992,11 +3652,20 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -3009,62 +3678,88 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabe
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint {
   /**
-  * describes the degree to which pods may be unevenly distributed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#max_skew ReplicationControllerV1#max_skew}
-  */
+   * describes the degree to which pods may be unevenly distributed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#max_skew ReplicationControllerV1#max_skew}
+   */
   readonly maxSkew?: number;
   /**
-  * the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#topology_key ReplicationControllerV1#topology_key}
-  */
+   * the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#topology_key ReplicationControllerV1#topology_key}
+   */
   readonly topologyKey?: string;
   /**
-  * indicates how to deal with a pod if it doesn't satisfy the spread constraint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#when_unsatisfiable ReplicationControllerV1#when_unsatisfiable}
-  */
+   * indicates how to deal with a pod if it doesn't satisfy the spread constraint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#when_unsatisfiable ReplicationControllerV1#when_unsatisfiable}
+   */
   readonly whenUnsatisfiable?: string;
   /**
-  * label_selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#label_selector ReplicationControllerV1#label_selector}
-  */
-  readonly labelSelector?: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable;
+   * label_selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#label_selector ReplicationControllerV1#label_selector}
+   */
+  readonly labelSelector?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecTopologySpreadConstraintToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecTopologySpreadConstraintToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max_skew: cdktf.numberToTerraform(struct!.maxSkew),
     topology_key: cdktf.stringToTerraform(struct!.topologyKey),
     when_unsatisfiable: cdktf.stringToTerraform(struct!.whenUnsatisfiable),
-    label_selector: cdktf.listMapper(replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform, true)(struct!.labelSelector),
-  }
+    label_selector: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorToTerraform,
+      true,
+    )(struct!.labelSelector),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutputReference extends cdktf.ComplexObject {
@@ -3072,16 +3767,29 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3106,7 +3814,12 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3114,12 +3827,10 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
       this._topologyKey = undefined;
       this._whenUnsatisfiable = undefined;
       this._labelSelector.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._maxSkew = value.maxSkew;
@@ -3130,7 +3841,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
   }
 
   // max_skew - computed: false, optional: true, required: false
-  private _maxSkew?: number; 
+  private _maxSkew?: number;
   public get maxSkew() {
     return this.getNumberAttribute('max_skew');
   }
@@ -3146,7 +3857,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
   }
 
   // topology_key - computed: false, optional: true, required: false
-  private _topologyKey?: string; 
+  private _topologyKey?: string;
   public get topologyKey() {
     return this.getStringAttribute('topology_key');
   }
@@ -3162,7 +3873,7 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
   }
 
   // when_unsatisfiable - computed: false, optional: true, required: false
-  private _whenUnsatisfiable?: string; 
+  private _whenUnsatisfiable?: string;
   public get whenUnsatisfiable() {
     return this.getStringAttribute('when_unsatisfiable');
   }
@@ -3178,11 +3889,20 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
   }
 
   // label_selector - computed: false, optional: true, required: false
-  private _labelSelector = new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorList(this, "label_selector", false);
+  private _labelSelector =
+    new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelectorList(
+      this,
+      'label_selector',
+      false,
+    );
   public get labelSelector() {
     return this._labelSelector;
   }
-  public putLabelSelector(value: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[] | cdktf.IResolvable) {
+  public putLabelSelector(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintLabelSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._labelSelector.internalValue = value;
   }
   public resetLabelSelector() {
@@ -3195,76 +3915,102 @@ export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutp
 }
 
 export class ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#partition ReplicationControllerV1#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#partition ReplicationControllerV1#partition}
+   */
   readonly partition?: number;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_id ReplicationControllerV1#volume_id}
-  */
+   * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_id ReplicationControllerV1#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -3286,15 +4032,18 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -3304,7 +4053,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOu
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3320,7 +4069,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOu
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -3336,7 +4085,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOu
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3352,7 +4101,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOu
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -3366,47 +4115,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOu
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk {
   /**
-  * Host Caching mode: None, Read Only, Read Write.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#caching_mode ReplicationControllerV1#caching_mode}
-  */
+   * Host Caching mode: None, Read Only, Read Write.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#caching_mode ReplicationControllerV1#caching_mode}
+   */
   readonly cachingMode: string;
   /**
-  * The URI the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#data_disk_uri ReplicationControllerV1#data_disk_uri}
-  */
+   * The URI the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#data_disk_uri ReplicationControllerV1#data_disk_uri}
+   */
   readonly dataDiskUri: string;
   /**
-  * The Name of the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#disk_name ReplicationControllerV1#disk_name}
-  */
+   * The Name of the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#disk_name ReplicationControllerV1#disk_name}
+   */
   readonly diskName: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#kind ReplicationControllerV1#kind}
-  */
+   * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#kind ReplicationControllerV1#kind}
+   */
   readonly kind?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeAzureDiskToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeAzureDiskToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     caching_mode: cdktf.stringToTerraform(struct!.cachingMode),
@@ -3415,21 +4172,26 @@ export function replicationControllerV1SpecTemplateSpecVolumeAzureDiskToTerrafor
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     kind: cdktf.stringToTerraform(struct!.kind),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cachingMode !== undefined) {
@@ -3459,7 +4221,9 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cachingMode = undefined;
@@ -3468,8 +4232,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
       this._fsType = undefined;
       this._kind = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cachingMode = value.cachingMode;
       this._dataDiskUri = value.dataDiskUri;
@@ -3481,7 +4244,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
   }
 
   // caching_mode - computed: false, optional: false, required: true
-  private _cachingMode?: string; 
+  private _cachingMode?: string;
   public get cachingMode() {
     return this.getStringAttribute('caching_mode');
   }
@@ -3494,7 +4257,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
   }
 
   // data_disk_uri - computed: false, optional: false, required: true
-  private _dataDiskUri?: string; 
+  private _dataDiskUri?: string;
   public get dataDiskUri() {
     return this.getStringAttribute('data_disk_uri');
   }
@@ -3507,7 +4270,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
   }
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string; 
+  private _diskName?: string;
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -3520,7 +4283,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3536,7 +4299,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
   }
 
   // kind - computed: true, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -3552,7 +4315,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3569,56 +4332,69 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReferen
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeAzureFile {
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The name of secret that contains Azure Storage Account Name and Key
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_name ReplicationControllerV1#secret_name}
-  */
+   * The name of secret that contains Azure Storage Account Name and Key
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_name ReplicationControllerV1#secret_name}
+   */
   readonly secretName: string;
   /**
-  * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_namespace ReplicationControllerV1#secret_namespace}
-  */
+   * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_namespace ReplicationControllerV1#secret_namespace}
+   */
   readonly secretNamespace?: string;
   /**
-  * Share Name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#share_name ReplicationControllerV1#share_name}
-  */
+   * Share Name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#share_name ReplicationControllerV1#share_name}
+   */
   readonly shareName: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeAzureFileToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeAzureFile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeAzureFileToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeAzureFile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
     secret_namespace: cdktf.stringToTerraform(struct!.secretNamespace),
     share_name: cdktf.stringToTerraform(struct!.shareName),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeAzureFile | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeAzureFile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._readOnly !== undefined) {
@@ -3640,15 +4416,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeAzureFile | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeAzureFile | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._readOnly = undefined;
       this._secretName = undefined;
       this._secretNamespace = undefined;
       this._shareName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._readOnly = value.readOnly;
       this._secretName = value.secretName;
@@ -3658,7 +4435,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReferen
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3674,7 +4451,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReferen
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -3687,7 +4464,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReferen
   }
 
   // secret_namespace - computed: false, optional: true, required: false
-  private _secretNamespace?: string; 
+  private _secretNamespace?: string;
   public get secretNamespace() {
     return this.getStringAttribute('secret_namespace');
   }
@@ -3703,7 +4480,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReferen
   }
 
   // share_name - computed: false, optional: false, required: true
-  private _shareName?: string; 
+  private _shareName?: string;
   public get shareName() {
     return this.getStringAttribute('share_name');
   }
@@ -3717,42 +4494,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReferen
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#namespace ReplicationControllerV1#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#namespace ReplicationControllerV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -3766,13 +4556,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -3780,7 +4573,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputR
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3796,7 +4589,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputR
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -3813,70 +4606,89 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputR
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeCephFs {
   /**
-  * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#monitors ReplicationControllerV1#monitors}
-  */
+   * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#monitors ReplicationControllerV1#monitors}
+   */
   readonly monitors: string[];
   /**
-  * Used as the mounted root, rather than the full Ceph tree, default is /
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Used as the mounted root, rather than the full Ceph tree, default is /
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_file ReplicationControllerV1#secret_file}
-  */
+   * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_file ReplicationControllerV1#secret_file}
+   */
   readonly secretFile?: string;
   /**
-  * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#user ReplicationControllerV1#user}
-  */
+   * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#user ReplicationControllerV1#user}
+   */
   readonly user?: string;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_ref ReplicationControllerV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_ref ReplicationControllerV1#secret_ref}
+   */
   readonly secretRef?: ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeCephFsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeCephFs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeCephFsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeCephFs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.monitors),
+    monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.monitors),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_file: cdktf.stringToTerraform(struct!.secretFile),
     user: cdktf.stringToTerraform(struct!.user),
-    secret_ref: replicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      replicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeCephFs | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeCephFs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._monitors !== undefined) {
@@ -3906,7 +4718,9 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeCephFs | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeCephFs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._monitors = undefined;
@@ -3915,8 +4729,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
       this._secretFile = undefined;
       this._user = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._monitors = value.monitors;
       this._path = value.path;
@@ -3928,7 +4741,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
   }
 
   // monitors - computed: false, optional: false, required: true
-  private _monitors?: string[]; 
+  private _monitors?: string[];
   public get monitors() {
     return cdktf.Fn.tolist(this.getListAttribute('monitors'));
   }
@@ -3941,7 +4754,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3957,7 +4770,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3973,7 +4786,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
   }
 
   // secret_file - computed: false, optional: true, required: false
-  private _secretFile?: string; 
+  private _secretFile?: string;
   public get secretFile() {
     return this.getStringAttribute('secret_file');
   }
@@ -3989,7 +4802,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -4005,11 +4818,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef) {
+  public putSecretRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeCephFsSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -4022,49 +4841,62 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference 
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeCinder {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_id ReplicationControllerV1#volume_id}
-  */
+   * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_id ReplicationControllerV1#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeCinderToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeCinder): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeCinderToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeCinder,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeCinder | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeCinder
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -4082,14 +4914,15 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeCinder | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeCinder | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._readOnly = value.readOnly;
@@ -4098,7 +4931,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference 
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4114,7 +4947,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4130,7 +4963,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference 
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -4144,35 +4977,43 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference 
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeConfigMapItemsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeConfigMapItemsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputReference extends cdktf.ComplexObject {
@@ -4180,16 +5021,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputRe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4210,19 +5064,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -4232,7 +5089,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputRe
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -4248,7 +5105,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputRe
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -4264,7 +5121,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputRe
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -4281,76 +5138,107 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputRe
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeConfigMap {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the ConfigMap or its keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
-  */
+   * Optional: Specify whether the ConfigMap or its keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
-  */
-  readonly items?: ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
+   */
+  readonly items?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeConfigMapToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeConfigMap): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeConfigMapToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMap,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeConfigMapItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeConfigMapItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeConfigMap | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeConfigMap
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -4372,15 +5260,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeConfigMap | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeConfigMap | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._name = value.name;
@@ -4390,7 +5279,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReferen
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -4406,7 +5295,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReferen
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4422,7 +5311,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReferen
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -4438,11 +5327,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReferen
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsList(this, "items", false);
+  private _items =
+    new ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeConfigMapItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -4455,35 +5353,48 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReferen
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4493,19 +5404,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4522,63 +5436,81 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRe
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeCsi {
   /**
-  * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#driver ReplicationControllerV1#driver}
-  */
+   * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#driver ReplicationControllerV1#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Attributes of the volume to publish.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_attributes ReplicationControllerV1#volume_attributes}
-  */
+   * Attributes of the volume to publish.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_attributes ReplicationControllerV1#volume_attributes}
+   */
   readonly volumeAttributes?: { [key: string]: string };
   /**
-  * node_publish_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#node_publish_secret_ref ReplicationControllerV1#node_publish_secret_ref}
-  */
+   * node_publish_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#node_publish_secret_ref ReplicationControllerV1#node_publish_secret_ref}
+   */
   readonly nodePublishSecretRef?: ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeCsiToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeCsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeCsiToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeCsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.volumeAttributes),
-    node_publish_secret_ref: replicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(struct!.nodePublishSecretRef),
-  }
+    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.volumeAttributes,
+    ),
+    node_publish_secret_ref:
+      replicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefToTerraform(
+        struct!.nodePublishSecretRef,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeCsi | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeCsi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -4599,12 +5531,15 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
     }
     if (this._nodePublishSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodePublishSecretRef = this._nodePublishSecretRef?.internalValue;
+      internalValueResult.nodePublishSecretRef =
+        this._nodePublishSecretRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeCsi | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeCsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -4612,8 +5547,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
       this._readOnly = undefined;
       this._volumeAttributes = undefined;
       this._nodePublishSecretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -4624,7 +5558,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -4637,7 +5571,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4653,7 +5587,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4669,7 +5603,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
   }
 
   // volume_attributes - computed: false, optional: true, required: false
-  private _volumeAttributes?: { [key: string]: string }; 
+  private _volumeAttributes?: { [key: string]: string };
   public get volumeAttributes() {
     return this.getStringMapAttribute('volume_attributes');
   }
@@ -4685,11 +5619,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
   }
 
   // node_publish_secret_ref - computed: false, optional: true, required: false
-  private _nodePublishSecretRef = new ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference(this, "node_publish_secret_ref");
+  private _nodePublishSecretRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRefOutputReference(
+      this,
+      'node_publish_secret_ref',
+    );
   public get nodePublishSecretRef() {
     return this._nodePublishSecretRef;
   }
-  public putNodePublishSecretRef(value: ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef) {
+  public putNodePublishSecretRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeCsiNodePublishSecretRef,
+  ) {
     this._nodePublishSecretRef.internalValue = value;
   }
   public resetNodePublishSecretRef() {
@@ -4702,42 +5642,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference ext
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to "v1".
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#api_version ReplicationControllerV1#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#api_version ReplicationControllerV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_path ReplicationControllerV1#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_path ReplicationControllerV1#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -4751,13 +5704,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -4765,7 +5721,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldR
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -4781,7 +5737,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldR
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -4798,45 +5754,58 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldR
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#container_name ReplicationControllerV1#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#container_name ReplicationControllerV1#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#divisor ReplicationControllerV1#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#divisor ReplicationControllerV1#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource ReplicationControllerV1#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource ReplicationControllerV1#resource}
+   */
   readonly resource: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -4854,14 +5823,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResour
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -4870,7 +5842,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResour
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -4883,7 +5855,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResour
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -4899,7 +5871,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResour
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -4913,42 +5885,56 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResour
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems {
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
+   */
   readonly mode?: string;
   /**
-  * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path: string;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_ref ReplicationControllerV1#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_ref ReplicationControllerV1#field_ref}
+   */
   readonly fieldRef: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource_field_ref ReplicationControllerV1#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource_field_ref ReplicationControllerV1#resource_field_ref}
+   */
   readonly resourceFieldRef?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-    field_ref: replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(struct!.resourceFieldRef),
-  }
+    field_ref:
+      replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference extends cdktf.ComplexObject {
@@ -4956,16 +5942,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4985,12 +5984,18 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -4998,12 +6003,10 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
       this._path = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mode = value.mode;
@@ -5014,7 +6017,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -5030,7 +6033,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -5043,11 +6046,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
   }
 
   // field_ref - computed: false, optional: false, required: true
-  private _fieldRef = new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef) {
+  public putFieldRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -5056,11 +6065,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef) {
+  public putResourceFieldRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -5073,62 +6088,93 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutput
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
-  */
-  readonly items?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
+   */
+  readonly items?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeDownwardApiToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
-    items: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -5142,13 +6188,14 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._items.internalValue = value.items;
@@ -5156,7 +6203,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputRefer
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -5172,11 +6219,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputRefer
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsList(this, "items", false);
+  private _items =
+    new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -5189,42 +6245,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputRefer
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir {
   /**
-  * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#medium ReplicationControllerV1#medium}
-  */
+   * What type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#medium ReplicationControllerV1#medium}
+   */
   readonly medium?: string;
   /**
-  * Total amount of local storage required for this EmptyDir volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#size_limit ReplicationControllerV1#size_limit}
-  */
+   * Total amount of local storage required for this EmptyDir volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#size_limit ReplicationControllerV1#size_limit}
+   */
   readonly sizeLimit?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeEmptyDirToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeEmptyDirToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     medium: cdktf.stringToTerraform(struct!.medium),
     size_limit: cdktf.stringToTerraform(struct!.sizeLimit),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._medium !== undefined) {
@@ -5238,13 +6307,14 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._medium = undefined;
       this._sizeLimit = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._medium = value.medium;
       this._sizeLimit = value.sizeLimit;
@@ -5252,7 +6322,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReferenc
   }
 
   // medium - computed: false, optional: true, required: false
-  private _medium?: string; 
+  private _medium?: string;
   public get medium() {
     return this.getStringAttribute('medium');
   }
@@ -5268,7 +6338,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReferenc
   }
 
   // size_limit - computed: false, optional: true, required: false
-  private _sizeLimit?: string; 
+  private _sizeLimit?: string;
   public get sizeLimit() {
     return this.getStringAttribute('size_limit');
   }
@@ -5285,56 +6355,72 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReferenc
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeFc {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * FC target lun number
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#lun ReplicationControllerV1#lun}
-  */
+   * FC target lun number
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#lun ReplicationControllerV1#lun}
+   */
   readonly lun: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * FC target worldwide names (WWNs)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#target_ww_ns ReplicationControllerV1#target_ww_ns}
-  */
+   * FC target worldwide names (WWNs)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#target_ww_ns ReplicationControllerV1#target_ww_ns}
+   */
   readonly targetWwNs: string[];
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeFcToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeFc): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeFcToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeFc,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    target_ww_ns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.targetWwNs),
-  }
+    target_ww_ns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.targetWwNs),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeFc | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeFc
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -5356,15 +6442,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeFc | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeFc | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetWwNs = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._lun = value.lun;
@@ -5374,7 +6461,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference exte
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -5390,7 +6477,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference exte
   }
 
   // lun - computed: false, optional: false, required: true
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -5403,7 +6490,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference exte
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -5419,7 +6506,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference exte
   }
 
   // target_ww_ns - computed: false, optional: false, required: true
-  private _targetWwNs?: string[]; 
+  private _targetWwNs?: string[];
   public get targetWwNs() {
     return cdktf.Fn.tolist(this.getListAttribute('target_ww_ns'));
   }
@@ -5433,42 +6520,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference exte
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#namespace ReplicationControllerV1#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#namespace ReplicationControllerV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -5482,13 +6582,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -5496,7 +6599,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOut
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5512,7 +6615,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOut
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -5529,63 +6632,79 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOut
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume {
   /**
-  * Driver is the name of the driver to use for this volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#driver ReplicationControllerV1#driver}
-  */
+   * Driver is the name of the driver to use for this volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#driver ReplicationControllerV1#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Extra command options if any.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#options ReplicationControllerV1#options}
-  */
+   * Extra command options if any.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#options ReplicationControllerV1#options}
+   */
   readonly options?: { [key: string]: string };
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_ref ReplicationControllerV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_ref ReplicationControllerV1#secret_ref}
+   */
   readonly secretRef?: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeFlexVolumeToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeFlexVolumeToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     options: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.options),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: replicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      replicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -5611,7 +6730,9 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -5619,8 +6740,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
       this._options = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -5631,7 +6751,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -5644,7 +6764,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -5660,7 +6780,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -5676,7 +6796,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -5692,11 +6812,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef) {
+  public putSecretRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -5709,42 +6835,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputRefere
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeFlocker {
   /**
-  * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dataset_name ReplicationControllerV1#dataset_name}
-  */
+   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dataset_name ReplicationControllerV1#dataset_name}
+   */
   readonly datasetName?: string;
   /**
-  * UUID of the dataset. This is unique identifier of a Flocker dataset
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dataset_uuid ReplicationControllerV1#dataset_uuid}
-  */
+   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dataset_uuid ReplicationControllerV1#dataset_uuid}
+   */
   readonly datasetUuid?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeFlockerToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeFlocker): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeFlockerToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlocker,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dataset_name: cdktf.stringToTerraform(struct!.datasetName),
     dataset_uuid: cdktf.stringToTerraform(struct!.datasetUuid),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeFlocker | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeFlocker
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._datasetName !== undefined) {
@@ -5758,13 +6897,14 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeFlocker | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeFlocker | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._datasetName = undefined;
       this._datasetUuid = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._datasetName = value.datasetName;
       this._datasetUuid = value.datasetUuid;
@@ -5772,7 +6912,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference
   }
 
   // dataset_name - computed: false, optional: true, required: false
-  private _datasetName?: string; 
+  private _datasetName?: string;
   public get datasetName() {
     return this.getStringAttribute('dataset_name');
   }
@@ -5788,7 +6928,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference
   }
 
   // dataset_uuid - computed: false, optional: true, required: false
-  private _datasetUuid?: string; 
+  private _datasetUuid?: string;
   public get datasetUuid() {
     return this.getStringAttribute('dataset_uuid');
   }
@@ -5805,56 +6945,69 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#partition ReplicationControllerV1#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#partition ReplicationControllerV1#partition}
+   */
   readonly partition?: number;
   /**
-  * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#pd_name ReplicationControllerV1#pd_name}
-  */
+   * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#pd_name ReplicationControllerV1#pd_name}
+   */
   readonly pdName: string;
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     pd_name: cdktf.stringToTerraform(struct!.pdName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -5876,15 +7029,18 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._pdName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -5894,7 +7050,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutpu
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -5910,7 +7066,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutpu
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -5926,7 +7082,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutpu
   }
 
   // pd_name - computed: false, optional: false, required: true
-  private _pdName?: string; 
+  private _pdName?: string;
   public get pdName() {
     return this.getStringAttribute('pd_name');
   }
@@ -5939,7 +7095,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutpu
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -5956,49 +7112,62 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutpu
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeGitRepo {
   /**
-  * Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#directory ReplicationControllerV1#directory}
-  */
+   * Target directory name. Must not contain or start with '..'. If '.' is supplied, the volume directory will be the git repository. Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#directory ReplicationControllerV1#directory}
+   */
   readonly directory?: string;
   /**
-  * Repository URL
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#repository ReplicationControllerV1#repository}
-  */
+   * Repository URL
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#repository ReplicationControllerV1#repository}
+   */
   readonly repository?: string;
   /**
-  * Commit hash for the specified revision.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#revision ReplicationControllerV1#revision}
-  */
+   * Commit hash for the specified revision.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#revision ReplicationControllerV1#revision}
+   */
   readonly revision?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeGitRepoToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeGitRepo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeGitRepoToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeGitRepo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     directory: cdktf.stringToTerraform(struct!.directory),
     repository: cdktf.stringToTerraform(struct!.repository),
     revision: cdktf.stringToTerraform(struct!.revision),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeGitRepo | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeGitRepo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._directory !== undefined) {
@@ -6016,14 +7185,15 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeGitRepo | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeGitRepo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._directory = undefined;
       this._repository = undefined;
       this._revision = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._directory = value.directory;
       this._repository = value.repository;
@@ -6032,7 +7202,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference
   }
 
   // directory - computed: false, optional: true, required: false
-  private _directory?: string; 
+  private _directory?: string;
   public get directory() {
     return this.getStringAttribute('directory');
   }
@@ -6048,7 +7218,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference
   }
 
   // repository - computed: false, optional: true, required: false
-  private _repository?: string; 
+  private _repository?: string;
   public get repository() {
     return this.getStringAttribute('repository');
   }
@@ -6064,7 +7234,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference
   }
 
   // revision - computed: false, optional: true, required: false
-  private _revision?: string; 
+  private _revision?: string;
   public get revision() {
     return this.getStringAttribute('revision');
   }
@@ -6081,49 +7251,62 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs {
   /**
-  * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#endpoints_name ReplicationControllerV1#endpoints_name}
-  */
+   * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#endpoints_name ReplicationControllerV1#endpoints_name}
+   */
   readonly endpointsName: string;
   /**
-  * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeGlusterfsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeGlusterfsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     endpoints_name: cdktf.stringToTerraform(struct!.endpointsName),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpointsName !== undefined) {
@@ -6141,14 +7324,15 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpointsName = undefined;
       this._path = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpointsName = value.endpointsName;
       this._path = value.path;
@@ -6157,7 +7341,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReferen
   }
 
   // endpoints_name - computed: false, optional: false, required: true
-  private _endpointsName?: string; 
+  private _endpointsName?: string;
   public get endpointsName() {
     return this.getStringAttribute('endpoints_name');
   }
@@ -6170,7 +7354,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReferen
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6183,7 +7367,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReferen
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6200,42 +7384,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReferen
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeHostPath {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
   /**
-  * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#type ReplicationControllerV1#type}
-  */
+   * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#type ReplicationControllerV1#type}
+   */
   readonly type?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeHostPathToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeHostPath): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeHostPathToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeHostPath,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeHostPath | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeHostPath
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -6249,13 +7446,14 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeHostPath | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeHostPath | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._type = value.type;
@@ -6263,7 +7461,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReferenc
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6279,7 +7477,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReferenc
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -6296,47 +7494,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReferenc
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeIscsi {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Target iSCSI Qualified Name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#iqn ReplicationControllerV1#iqn}
-  */
+   * Target iSCSI Qualified Name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#iqn ReplicationControllerV1#iqn}
+   */
   readonly iqn: string;
   /**
-  * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#iscsi_interface ReplicationControllerV1#iscsi_interface}
-  */
+   * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#iscsi_interface ReplicationControllerV1#iscsi_interface}
+   */
   readonly iscsiInterface?: string;
   /**
-  * iSCSI target lun number.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#lun ReplicationControllerV1#lun}
-  */
+   * iSCSI target lun number.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#lun ReplicationControllerV1#lun}
+   */
   readonly lun?: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#target_portal ReplicationControllerV1#target_portal}
-  */
+   * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#target_portal ReplicationControllerV1#target_portal}
+   */
   readonly targetPortal: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeIscsiToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeIscsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeIscsiToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeIscsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
@@ -6345,21 +7551,26 @@ export function replicationControllerV1SpecTemplateSpecVolumeIscsiToTerraform(st
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     target_portal: cdktf.stringToTerraform(struct!.targetPortal),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeIscsi | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeIscsi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -6389,7 +7600,9 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeIscsi | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeIscsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
@@ -6398,8 +7611,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetPortal = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._iqn = value.iqn;
@@ -6411,7 +7623,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6427,7 +7639,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
   }
 
   // iqn - computed: false, optional: false, required: true
-  private _iqn?: string; 
+  private _iqn?: string;
   public get iqn() {
     return this.getStringAttribute('iqn');
   }
@@ -6440,7 +7652,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
   }
 
   // iscsi_interface - computed: false, optional: true, required: false
-  private _iscsiInterface?: string; 
+  private _iscsiInterface?: string;
   public get iscsiInterface() {
     return this.getStringAttribute('iscsi_interface');
   }
@@ -6456,7 +7668,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
   }
 
   // lun - computed: false, optional: true, required: false
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -6472,7 +7684,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6488,7 +7700,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
   }
 
   // target_portal - computed: false, optional: false, required: true
-  private _targetPortal?: string; 
+  private _targetPortal?: string;
   public get targetPortal() {
     return this.getStringAttribute('target_portal');
   }
@@ -6502,35 +7714,48 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference e
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeLocal {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeLocalToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeLocal): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeLocalToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeLocal,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeLocal | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeLocal
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -6540,19 +7765,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeLocal | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeLocal | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
     }
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6569,49 +7795,62 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference e
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeNfs {
   /**
-  * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#server ReplicationControllerV1#server}
-  */
+   * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#server ReplicationControllerV1#server}
+   */
   readonly server: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeNfsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeNfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeNfsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeNfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     server: cdktf.stringToTerraform(struct!.server),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeNfs | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeNfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -6629,14 +7868,15 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeNfs | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeNfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._readOnly = undefined;
       this._server = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._readOnly = value.readOnly;
@@ -6645,7 +7885,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference ext
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -6658,7 +7898,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference ext
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6674,7 +7914,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference ext
   }
 
   // server - computed: false, optional: false, required: true
-  private _server?: string; 
+  private _server?: string;
   public get server() {
     return this.getStringAttribute('server');
   }
@@ -6688,42 +7928,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference ext
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim {
   /**
-  * ClaimName is the name of a PersistentVolumeClaim in the same 
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#claim_name ReplicationControllerV1#claim_name}
-  */
+   * ClaimName is the name of a PersistentVolumeClaim in the same
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#claim_name ReplicationControllerV1#claim_name}
+   */
   readonly claimName?: string;
   /**
-  * Will force the ReadOnly setting in VolumeMounts.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Will force the ReadOnly setting in VolumeMounts.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference | ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     claim_name: cdktf.stringToTerraform(struct!.claimName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._claimName !== undefined) {
@@ -6737,13 +7990,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._claimName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._claimName = value.claimName;
       this._readOnly = value.readOnly;
@@ -6751,7 +8007,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimO
   }
 
   // claim_name - computed: false, optional: true, required: false
-  private _claimName?: string; 
+  private _claimName?: string;
   public get claimName() {
     return this.getStringAttribute('claim_name');
   }
@@ -6767,7 +8023,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimO
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -6784,42 +8040,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimO
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * ID that identifies Photon Controller persistent disk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#pd_id ReplicationControllerV1#pd_id}
-  */
+   * ID that identifies Photon Controller persistent disk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#pd_id ReplicationControllerV1#pd_id}
+   */
   readonly pdId: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference | ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     pd_id: cdktf.stringToTerraform(struct!.pdId),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -6833,13 +8102,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._pdId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._pdId = value.pdId;
@@ -6847,7 +8119,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOu
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -6863,7 +8135,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOu
   }
 
   // pd_id - computed: false, optional: false, required: true
-  private _pdId?: string; 
+  private _pdId?: string;
   public get pdId() {
     return this.getStringAttribute('pd_id');
   }
@@ -6877,35 +8149,43 @@ export class ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOu
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference extends cdktf.ComplexObject {
@@ -6913,16 +8193,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -6943,19 +8236,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -6965,7 +8261,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -6981,7 +8277,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -6997,7 +8293,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7014,55 +8310,81 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the ConfigMap or it's keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
-  */
+   * Optional: Specify whether the ConfigMap or it's keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
-  */
-  readonly items?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
+   */
+  readonly items?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference extends cdktf.ComplexObject {
@@ -7070,16 +8392,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7100,19 +8435,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -7122,7 +8460,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7138,7 +8476,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -7154,11 +8492,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList(this, "items", false);
+  private _items =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -7171,62 +8518,88 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfig
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef {
   /**
-  * Version of the schema the FieldPath is written in terms of, defaults to 'v1'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#api_version ReplicationControllerV1#api_version}
-  */
+   * Version of the schema the FieldPath is written in terms of, defaults to 'v1'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#api_version ReplicationControllerV1#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Path of the field to select in the specified API version
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_path ReplicationControllerV1#field_path}
-  */
+   * Path of the field to select in the specified API version
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_path ReplicationControllerV1#field_path}
+   */
   readonly fieldPath?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     field_path: cdktf.stringToTerraform(struct!.fieldPath),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -7240,13 +8613,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._fieldPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._fieldPath = value.fieldPath;
@@ -7254,7 +8630,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -7270,7 +8646,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // field_path - computed: false, optional: true, required: false
-  private _fieldPath?: string; 
+  private _fieldPath?: string;
   public get fieldPath() {
     return this.getStringAttribute('field_path');
   }
@@ -7287,45 +8663,58 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#container_name ReplicationControllerV1#container_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#container_name ReplicationControllerV1#container_name}
+   */
   readonly containerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#divisor ReplicationControllerV1#divisor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#divisor ReplicationControllerV1#divisor}
+   */
   readonly divisor?: string;
   /**
-  * Resource to select
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource ReplicationControllerV1#resource}
-  */
+   * Resource to select
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource ReplicationControllerV1#resource}
+   */
   readonly resource: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_name: cdktf.stringToTerraform(struct!.containerName),
     divisor: cdktf.stringToTerraform(struct!.divisor),
     resource: cdktf.stringToTerraform(struct!.resource),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._containerName !== undefined) {
@@ -7343,14 +8732,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._containerName = undefined;
       this._divisor = undefined;
       this._resource = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerName = value.containerName;
       this._divisor = value.divisor;
@@ -7359,7 +8751,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string; 
+  private _containerName?: string;
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -7372,7 +8764,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // divisor - computed: false, optional: true, required: false
-  private _divisor?: string; 
+  private _divisor?: string;
   public get divisor() {
     return this.getStringAttribute('divisor');
   }
@@ -7388,7 +8780,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // resource - computed: false, optional: false, required: true
-  private _resource?: string; 
+  private _resource?: string;
   public get resource() {
     return this.getStringAttribute('resource');
   }
@@ -7402,42 +8794,56 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems {
   /**
-  * Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
-  */
+   * Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
+   */
   readonly mode?: string;
   /**
-  * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path: string;
   /**
-  * field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_ref ReplicationControllerV1#field_ref}
-  */
+   * field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#field_ref ReplicationControllerV1#field_ref}
+   */
   readonly fieldRef?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef;
   /**
-  * resource_field_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource_field_ref ReplicationControllerV1#resource_field_ref}
-  */
+   * resource_field_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#resource_field_ref ReplicationControllerV1#resource_field_ref}
+   */
   readonly resourceFieldRef?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-    field_ref: replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(struct!.fieldRef),
-    resource_field_ref: replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(struct!.resourceFieldRef),
-  }
+    field_ref:
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefToTerraform(
+        struct!.fieldRef,
+      ),
+    resource_field_ref:
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefToTerraform(
+        struct!.resourceFieldRef,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference extends cdktf.ComplexObject {
@@ -7445,16 +8851,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7474,12 +8893,18 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
     }
     if (this._resourceFieldRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.resourceFieldRef = this._resourceFieldRef?.internalValue;
+      internalValueResult.resourceFieldRef =
+        this._resourceFieldRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -7487,12 +8912,10 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
       this._path = undefined;
       this._fieldRef.internalValue = undefined;
       this._resourceFieldRef.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._mode = value.mode;
@@ -7503,7 +8926,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -7519,7 +8942,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7532,11 +8955,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // field_ref - computed: false, optional: true, required: false
-  private _fieldRef = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference(this, "field_ref");
+  private _fieldRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRefOutputReference(
+      this,
+      'field_ref',
+    );
   public get fieldRef() {
     return this._fieldRef;
   }
-  public putFieldRef(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef) {
+  public putFieldRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsFieldRef,
+  ) {
     this._fieldRef.internalValue = value;
   }
   public resetFieldRef() {
@@ -7548,11 +8977,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
   }
 
   // resource_field_ref - computed: false, optional: true, required: false
-  private _resourceFieldRef = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference(this, "resource_field_ref");
+  private _resourceFieldRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRefOutputReference(
+      this,
+      'resource_field_ref',
+    );
   public get resourceFieldRef() {
     return this._resourceFieldRef;
   }
-  public putResourceFieldRef(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef) {
+  public putResourceFieldRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsResourceFieldRef,
+  ) {
     this._resourceFieldRef.internalValue = value;
   }
   public resetResourceFieldRef() {
@@ -7565,55 +9000,86 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi {
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
-  */
-  readonly items?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
+   */
+  readonly items?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    items: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items?.internalValue !== undefined) {
@@ -7623,23 +9089,35 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items.internalValue = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList(this, "items", false);
+  private _items =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -7652,35 +9130,43 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwa
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference extends cdktf.ComplexObject {
@@ -7688,16 +9174,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7718,19 +9217,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -7740,7 +9242,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -7756,7 +9258,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -7772,7 +9274,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -7789,55 +9291,81 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret {
   /**
-  * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * Optional: Specify whether the Secret or it's keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
-  */
+   * Optional: Specify whether the Secret or it's keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
-  */
-  readonly items?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
+   */
+  readonly items?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     optional: cdktf.booleanToTerraform(struct!.optional),
-    items: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference extends cdktf.ComplexObject {
@@ -7845,16 +9373,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -7875,19 +9416,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._optional = undefined;
       this._items.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -7897,7 +9441,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7913,7 +9457,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -7929,11 +9473,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsList(this, "items", false);
+  private _items =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -7946,69 +9499,95 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken {
   /**
-  * Audience is the intended audience of the token
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#audience ReplicationControllerV1#audience}
-  */
+   * Audience is the intended audience of the token
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#audience ReplicationControllerV1#audience}
+   */
   readonly audience?: string;
   /**
-  * ExpirationSeconds is the expected duration of validity of the service account token. It defaults to 1 hour and must be at least 10 minutes (600 seconds).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#expiration_seconds ReplicationControllerV1#expiration_seconds}
-  */
+   * ExpirationSeconds is the expected duration of validity of the service account token. It defaults to 1 hour and must be at least 10 minutes (600 seconds).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#expiration_seconds ReplicationControllerV1#expiration_seconds}
+   */
   readonly expirationSeconds?: number;
   /**
-  * Path specifies a relative path to the mount point of the projected volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * Path specifies a relative path to the mount point of the projected volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     audience: cdktf.stringToTerraform(struct!.audience),
     expiration_seconds: cdktf.numberToTerraform(struct!.expirationSeconds),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._audience !== undefined) {
@@ -8026,14 +9605,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServic
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._audience = undefined;
       this._expirationSeconds = undefined;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._audience = value.audience;
       this._expirationSeconds = value.expirationSeconds;
@@ -8042,7 +9624,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServic
   }
 
   // audience - computed: false, optional: true, required: false
-  private _audience?: string; 
+  private _audience?: string;
   public get audience() {
     return this.getStringAttribute('audience');
   }
@@ -8058,7 +9640,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServic
   }
 
   // expiration_seconds - computed: false, optional: true, required: false
-  private _expirationSeconds?: number; 
+  private _expirationSeconds?: number;
   public get expirationSeconds() {
     return this.getNumberAttribute('expiration_seconds');
   }
@@ -8074,7 +9656,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServic
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -8088,42 +9670,66 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServic
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources {
   /**
-  * config_map block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#config_map ReplicationControllerV1#config_map}
-  */
-  readonly configMap?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable;
+   * config_map block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#config_map ReplicationControllerV1#config_map}
+   */
+  readonly configMap?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+    | cdktf.IResolvable;
   /**
-  * downward_api block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#downward_api ReplicationControllerV1#downward_api}
-  */
+   * downward_api block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#downward_api ReplicationControllerV1#downward_api}
+   */
   readonly downwardApi?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret ReplicationControllerV1#secret}
-  */
-  readonly secret?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable;
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret ReplicationControllerV1#secret}
+   */
+  readonly secret?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret[]
+    | cdktf.IResolvable;
   /**
-  * service_account_token block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#service_account_token ReplicationControllerV1#service_account_token}
-  */
+   * service_account_token block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#service_account_token ReplicationControllerV1#service_account_token}
+   */
   readonly serviceAccountToken?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    config_map: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform, true)(struct!.configMap),
-    downward_api: replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(struct!.downwardApi),
-    secret: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform, true)(struct!.secret),
-    service_account_token: replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(struct!.serviceAccountToken),
-  }
+    config_map: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapToTerraform,
+      true,
+    )(struct!.configMap),
+    downward_api:
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiToTerraform(
+        struct!.downwardApi,
+      ),
+    secret: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretToTerraform,
+      true,
+    )(struct!.secret),
+    service_account_token:
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenToTerraform(
+        struct!.serviceAccountToken,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutputReference extends cdktf.ComplexObject {
@@ -8131,16 +9737,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8160,12 +9779,18 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
     }
     if (this._serviceAccountToken?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.serviceAccountToken = this._serviceAccountToken?.internalValue;
+      internalValueResult.serviceAccountToken =
+        this._serviceAccountToken?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -8173,12 +9798,10 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
       this._downwardApi.internalValue = undefined;
       this._secret.internalValue = undefined;
       this._serviceAccountToken.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._configMap.internalValue = value.configMap;
@@ -8189,11 +9812,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
   }
 
   // config_map - computed: false, optional: true, required: false
-  private _configMap = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapList(this, "config_map", false);
+  private _configMap =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMapList(
+      this,
+      'config_map',
+      false,
+    );
   public get configMap() {
     return this._configMap;
   }
-  public putConfigMap(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[] | cdktf.IResolvable) {
+  public putConfigMap(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesConfigMap[]
+      | cdktf.IResolvable,
+  ) {
     this._configMap.internalValue = value;
   }
   public resetConfigMap() {
@@ -8205,11 +9837,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
   }
 
   // downward_api - computed: false, optional: true, required: false
-  private _downwardApi = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference(this, "downward_api");
+  private _downwardApi =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApiOutputReference(
+      this,
+      'downward_api',
+    );
   public get downwardApi() {
     return this._downwardApi;
   }
-  public putDownwardApi(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi) {
+  public putDownwardApi(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesDownwardApi,
+  ) {
     this._downwardApi.internalValue = value;
   }
   public resetDownwardApi() {
@@ -8221,11 +9859,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretList(this, "secret", false);
+  private _secret =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecretList(
+      this,
+      'secret',
+      false,
+    );
   public get secret() {
     return this._secret;
   }
-  public putSecret(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret[] | cdktf.IResolvable) {
+  public putSecret(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesSecret[]
+      | cdktf.IResolvable,
+  ) {
     this._secret.internalValue = value;
   }
   public resetSecret() {
@@ -8237,11 +9884,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
   }
 
   // service_account_token - computed: false, optional: true, required: false
-  private _serviceAccountToken = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference(this, "service_account_token");
+  private _serviceAccountToken =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountTokenOutputReference(
+      this,
+      'service_account_token',
+    );
   public get serviceAccountToken() {
     return this._serviceAccountToken;
   }
-  public putServiceAccountToken(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken) {
+  public putServiceAccountToken(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesServiceAccountToken,
+  ) {
     this._serviceAccountToken.internalValue = value;
   }
   public resetServiceAccountToken() {
@@ -8254,48 +9907,74 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutput
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeProjected {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * sources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#sources ReplicationControllerV1#sources}
-  */
-  readonly sources: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable;
+   * sources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#sources ReplicationControllerV1#sources}
+   */
+  readonly sources:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeProjectedToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeProjectedToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjected
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
-    sources: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesToTerraform, true)(struct!.sources),
-  }
+    sources: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedSourcesToTerraform,
+      true,
+    )(struct!.sources),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReference extends cdktf.ComplexObject {
@@ -8303,16 +9982,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReferen
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjected
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -8329,18 +10021,21 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeProjected | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjected
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._defaultMode = undefined;
       this._sources.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._defaultMode = value.defaultMode;
@@ -8349,7 +10044,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReferen
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -8365,11 +10060,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReferen
   }
 
   // sources - computed: false, optional: false, required: true
-  private _sources = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesList(this, "sources", false);
+  private _sources =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedSourcesList(
+      this,
+      'sources',
+      false,
+    );
   public get sources() {
     return this._sources;
   }
-  public putSources(value: ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources[] | cdktf.IResolvable) {
+  public putSources(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjectedSources[]
+      | cdktf.IResolvable,
+  ) {
     this._sources.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -8379,61 +10083,82 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReferen
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeProjectedList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjected[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeProjectedOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeQuobyte {
   /**
-  * Group to map volume access to Default is no group
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#group ReplicationControllerV1#group}
-  */
+   * Group to map volume access to Default is no group
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#group ReplicationControllerV1#group}
+   */
   readonly group?: string;
   /**
-  * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#registry ReplicationControllerV1#registry}
-  */
+   * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#registry ReplicationControllerV1#registry}
+   */
   readonly registry: string;
   /**
-  * User to map volume access to Defaults to serivceaccount user
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#user ReplicationControllerV1#user}
-  */
+   * User to map volume access to Defaults to serivceaccount user
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#user ReplicationControllerV1#user}
+   */
   readonly user?: string;
   /**
-  * Volume is a string that references an already created Quobyte volume by name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume ReplicationControllerV1#volume}
-  */
+   * Volume is a string that references an already created Quobyte volume by name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume ReplicationControllerV1#volume}
+   */
   readonly volume: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeQuobyteToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeQuobyte): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeQuobyteToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeQuobyte,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     group: cdktf.stringToTerraform(struct!.group),
@@ -8441,21 +10166,26 @@ export function replicationControllerV1SpecTemplateSpecVolumeQuobyteToTerraform(
     registry: cdktf.stringToTerraform(struct!.registry),
     user: cdktf.stringToTerraform(struct!.user),
     volume: cdktf.stringToTerraform(struct!.volume),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeQuobyte | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeQuobyte
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._group !== undefined) {
@@ -8481,7 +10211,9 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeQuobyte | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeQuobyte | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._group = undefined;
@@ -8489,8 +10221,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
       this._registry = undefined;
       this._user = undefined;
       this._volume = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._group = value.group;
       this._readOnly = value.readOnly;
@@ -8501,7 +10232,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -8517,7 +10248,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -8533,7 +10264,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
   }
 
   // registry - computed: false, optional: false, required: true
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -8546,7 +10277,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -8562,7 +10293,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
   }
 
   // volume - computed: false, optional: false, required: true
-  private _volume?: string; 
+  private _volume?: string;
   public get volume() {
     return this.getStringAttribute('volume');
   }
@@ -8576,42 +10307,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#namespace ReplicationControllerV1#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#namespace ReplicationControllerV1#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -8625,13 +10369,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -8639,7 +10386,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputRefe
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -8655,7 +10402,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputRefe
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -8672,84 +10419,103 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputRefe
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeRbd {
   /**
-  * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#ceph_monitors ReplicationControllerV1#ceph_monitors}
-  */
+   * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#ceph_monitors ReplicationControllerV1#ceph_monitors}
+   */
   readonly cephMonitors: string[];
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#keyring ReplicationControllerV1#keyring}
-  */
+   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#keyring ReplicationControllerV1#keyring}
+   */
   readonly keyring?: string;
   /**
-  * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rados_user ReplicationControllerV1#rados_user}
-  */
+   * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rados_user ReplicationControllerV1#rados_user}
+   */
   readonly radosUser?: string;
   /**
-  * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rbd_image ReplicationControllerV1#rbd_image}
-  */
+   * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rbd_image ReplicationControllerV1#rbd_image}
+   */
   readonly rbdImage: string;
   /**
-  * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rbd_pool ReplicationControllerV1#rbd_pool}
-  */
+   * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rbd_pool ReplicationControllerV1#rbd_pool}
+   */
   readonly rbdPool?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#read_only ReplicationControllerV1#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_ref ReplicationControllerV1#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_ref ReplicationControllerV1#secret_ref}
+   */
   readonly secretRef?: ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeRbdToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeRbd): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeRbdToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeRbd,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ceph_monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cephMonitors),
+    ceph_monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cephMonitors),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     keyring: cdktf.stringToTerraform(struct!.keyring),
     rados_user: cdktf.stringToTerraform(struct!.radosUser),
     rbd_image: cdktf.stringToTerraform(struct!.rbdImage),
     rbd_pool: cdktf.stringToTerraform(struct!.rbdPool),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: replicationControllerV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      replicationControllerV1SpecTemplateSpecVolumeRbdSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeRbd | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeRbd
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cephMonitors !== undefined) {
@@ -8787,7 +10553,9 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeRbd | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeRbd | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cephMonitors = undefined;
@@ -8798,8 +10566,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
       this._rbdPool = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cephMonitors = value.cephMonitors;
       this._fsType = value.fsType;
@@ -8813,7 +10580,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // ceph_monitors - computed: false, optional: false, required: true
-  private _cephMonitors?: string[]; 
+  private _cephMonitors?: string[];
   public get cephMonitors() {
     return cdktf.Fn.tolist(this.getListAttribute('ceph_monitors'));
   }
@@ -8826,7 +10593,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -8842,7 +10609,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // keyring - computed: true, optional: true, required: false
-  private _keyring?: string; 
+  private _keyring?: string;
   public get keyring() {
     return this.getStringAttribute('keyring');
   }
@@ -8858,7 +10625,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // rados_user - computed: false, optional: true, required: false
-  private _radosUser?: string; 
+  private _radosUser?: string;
   public get radosUser() {
     return this.getStringAttribute('rados_user');
   }
@@ -8874,7 +10641,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // rbd_image - computed: false, optional: false, required: true
-  private _rbdImage?: string; 
+  private _rbdImage?: string;
   public get rbdImage() {
     return this.getStringAttribute('rbd_image');
   }
@@ -8887,7 +10654,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // rbd_pool - computed: false, optional: true, required: false
-  private _rbdPool?: string; 
+  private _rbdPool?: string;
   public get rbdPool() {
     return this.getStringAttribute('rbd_pool');
   }
@@ -8903,7 +10670,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -8919,11 +10686,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef) {
+  public putSecretRef(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeRbdSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -8936,35 +10709,43 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference ext
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeSecretItems {
   /**
-  * The key to project.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
-  */
+   * The key to project.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#key ReplicationControllerV1#key}
+   */
   readonly key?: string;
   /**
-  * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
-  */
+   * Optional: mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#mode ReplicationControllerV1#mode}
+   */
   readonly mode?: string;
   /**
-  * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
-  */
+   * The relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#path ReplicationControllerV1#path}
+   */
   readonly path?: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeSecretItemsToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeSecretItemsToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecretItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     mode: cdktf.stringToTerraform(struct!.mode),
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputReference extends cdktf.ComplexObject {
@@ -8972,16 +10753,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecretItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9002,19 +10796,22 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeSecretItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeSecretItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._mode = undefined;
       this._path = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -9024,7 +10821,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputRefer
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -9040,7 +10837,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputRefer
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -9056,7 +10853,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputRefer
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -9073,76 +10870,107 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputRefer
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecretItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeSecret {
   /**
-  * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
-  */
+   * Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#default_mode ReplicationControllerV1#default_mode}
+   */
   readonly defaultMode?: string;
   /**
-  * Optional: Specify whether the Secret or its keys must be defined.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
-  */
+   * Optional: Specify whether the Secret or its keys must be defined.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#optional ReplicationControllerV1#optional}
+   */
   readonly optional?: boolean | cdktf.IResolvable;
   /**
-  * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_name ReplicationControllerV1#secret_name}
-  */
+   * Name of the secret in the pod's namespace to use. More info: http://kubernetes.io/docs/user-guide/volumes#secrets
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret_name ReplicationControllerV1#secret_name}
+   */
   readonly secretName?: string;
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
-  */
-  readonly items?: ReplicationControllerV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#items ReplicationControllerV1#items}
+   */
+  readonly items?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecretItems[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeSecretToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeSecret): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeSecretToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecret,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_mode: cdktf.stringToTerraform(struct!.defaultMode),
     optional: cdktf.booleanToTerraform(struct!.optional),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
-    items: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeSecretItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeSecretItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeSecret | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeSecret
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultMode !== undefined) {
@@ -9164,15 +10992,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeSecret | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeSecret | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultMode = undefined;
       this._optional = undefined;
       this._secretName = undefined;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultMode = value.defaultMode;
       this._optional = value.optional;
@@ -9182,7 +11011,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference 
   }
 
   // default_mode - computed: false, optional: true, required: false
-  private _defaultMode?: string; 
+  private _defaultMode?: string;
   public get defaultMode() {
     return this.getStringAttribute('default_mode');
   }
@@ -9198,7 +11027,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference 
   }
 
   // optional - computed: false, optional: true, required: false
-  private _optional?: boolean | cdktf.IResolvable; 
+  private _optional?: boolean | cdktf.IResolvable;
   public get optional() {
     return this.getBooleanAttribute('optional');
   }
@@ -9214,7 +11043,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference 
   }
 
   // secret_name - computed: false, optional: true, required: false
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -9230,11 +11059,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference 
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsList(this, "items", false);
+  private _items =
+    new ReplicationControllerV1SpecTemplateSpecVolumeSecretItemsList(
+      this,
+      'items',
+      false,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: ReplicationControllerV1SpecTemplateSpecVolumeSecretItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeSecretItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -9247,42 +11085,55 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference 
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fs_type ReplicationControllerV1#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Path that identifies vSphere volume vmdk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_path ReplicationControllerV1#volume_path}
-  */
+   * Path that identifies vSphere volume vmdk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume_path ReplicationControllerV1#volume_path}
+   */
   readonly volumePath: string;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputReference | ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputReference
+    | ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     volume_path: cdktf.stringToTerraform(struct!.volumePath),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -9296,13 +11147,16 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._volumePath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._volumePath = value.volumePath;
@@ -9310,7 +11164,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputRef
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -9326,7 +11180,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputRef
   }
 
   // volume_path - computed: false, optional: false, required: true
-  private _volumePath?: string; 
+  private _volumePath?: string;
   public get volumePath() {
     return this.getStringAttribute('volume_path');
   }
@@ -9340,203 +11194,273 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputRef
 }
 export interface ReplicationControllerV1SpecTemplateSpecVolume {
   /**
-  * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
-  */
+   * Volume's name. Must be a DNS_LABEL and unique within the pod. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#name ReplicationControllerV1#name}
+   */
   readonly name?: string;
   /**
-  * aws_elastic_block_store block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#aws_elastic_block_store ReplicationControllerV1#aws_elastic_block_store}
-  */
+   * aws_elastic_block_store block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#aws_elastic_block_store ReplicationControllerV1#aws_elastic_block_store}
+   */
   readonly awsElasticBlockStore?: ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore;
   /**
-  * azure_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#azure_disk ReplicationControllerV1#azure_disk}
-  */
+   * azure_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#azure_disk ReplicationControllerV1#azure_disk}
+   */
   readonly azureDisk?: ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk;
   /**
-  * azure_file block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#azure_file ReplicationControllerV1#azure_file}
-  */
+   * azure_file block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#azure_file ReplicationControllerV1#azure_file}
+   */
   readonly azureFile?: ReplicationControllerV1SpecTemplateSpecVolumeAzureFile;
   /**
-  * ceph_fs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#ceph_fs ReplicationControllerV1#ceph_fs}
-  */
+   * ceph_fs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#ceph_fs ReplicationControllerV1#ceph_fs}
+   */
   readonly cephFs?: ReplicationControllerV1SpecTemplateSpecVolumeCephFs;
   /**
-  * cinder block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#cinder ReplicationControllerV1#cinder}
-  */
+   * cinder block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#cinder ReplicationControllerV1#cinder}
+   */
   readonly cinder?: ReplicationControllerV1SpecTemplateSpecVolumeCinder;
   /**
-  * config_map block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#config_map ReplicationControllerV1#config_map}
-  */
+   * config_map block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#config_map ReplicationControllerV1#config_map}
+   */
   readonly configMap?: ReplicationControllerV1SpecTemplateSpecVolumeConfigMap;
   /**
-  * csi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#csi ReplicationControllerV1#csi}
-  */
+   * csi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#csi ReplicationControllerV1#csi}
+   */
   readonly csi?: ReplicationControllerV1SpecTemplateSpecVolumeCsi;
   /**
-  * downward_api block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#downward_api ReplicationControllerV1#downward_api}
-  */
+   * downward_api block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#downward_api ReplicationControllerV1#downward_api}
+   */
   readonly downwardApi?: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi;
   /**
-  * empty_dir block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#empty_dir ReplicationControllerV1#empty_dir}
-  */
+   * empty_dir block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#empty_dir ReplicationControllerV1#empty_dir}
+   */
   readonly emptyDir?: ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir;
   /**
-  * fc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fc ReplicationControllerV1#fc}
-  */
+   * fc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#fc ReplicationControllerV1#fc}
+   */
   readonly fc?: ReplicationControllerV1SpecTemplateSpecVolumeFc;
   /**
-  * flex_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#flex_volume ReplicationControllerV1#flex_volume}
-  */
+   * flex_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#flex_volume ReplicationControllerV1#flex_volume}
+   */
   readonly flexVolume?: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume;
   /**
-  * flocker block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#flocker ReplicationControllerV1#flocker}
-  */
+   * flocker block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#flocker ReplicationControllerV1#flocker}
+   */
   readonly flocker?: ReplicationControllerV1SpecTemplateSpecVolumeFlocker;
   /**
-  * gce_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#gce_persistent_disk ReplicationControllerV1#gce_persistent_disk}
-  */
+   * gce_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#gce_persistent_disk ReplicationControllerV1#gce_persistent_disk}
+   */
   readonly gcePersistentDisk?: ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk;
   /**
-  * git_repo block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#git_repo ReplicationControllerV1#git_repo}
-  */
+   * git_repo block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#git_repo ReplicationControllerV1#git_repo}
+   */
   readonly gitRepo?: ReplicationControllerV1SpecTemplateSpecVolumeGitRepo;
   /**
-  * glusterfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#glusterfs ReplicationControllerV1#glusterfs}
-  */
+   * glusterfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#glusterfs ReplicationControllerV1#glusterfs}
+   */
   readonly glusterfs?: ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs;
   /**
-  * host_path block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_path ReplicationControllerV1#host_path}
-  */
+   * host_path block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_path ReplicationControllerV1#host_path}
+   */
   readonly hostPath?: ReplicationControllerV1SpecTemplateSpecVolumeHostPath;
   /**
-  * iscsi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#iscsi ReplicationControllerV1#iscsi}
-  */
+   * iscsi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#iscsi ReplicationControllerV1#iscsi}
+   */
   readonly iscsi?: ReplicationControllerV1SpecTemplateSpecVolumeIscsi;
   /**
-  * local block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#local ReplicationControllerV1#local}
-  */
+   * local block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#local ReplicationControllerV1#local}
+   */
   readonly local?: ReplicationControllerV1SpecTemplateSpecVolumeLocal;
   /**
-  * nfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#nfs ReplicationControllerV1#nfs}
-  */
+   * nfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#nfs ReplicationControllerV1#nfs}
+   */
   readonly nfs?: ReplicationControllerV1SpecTemplateSpecVolumeNfs;
   /**
-  * persistent_volume_claim block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#persistent_volume_claim ReplicationControllerV1#persistent_volume_claim}
-  */
+   * persistent_volume_claim block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#persistent_volume_claim ReplicationControllerV1#persistent_volume_claim}
+   */
   readonly persistentVolumeClaim?: ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim;
   /**
-  * photon_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#photon_persistent_disk ReplicationControllerV1#photon_persistent_disk}
-  */
+   * photon_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#photon_persistent_disk ReplicationControllerV1#photon_persistent_disk}
+   */
   readonly photonPersistentDisk?: ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk;
   /**
-  * projected block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#projected ReplicationControllerV1#projected}
-  */
-  readonly projected?: ReplicationControllerV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable;
+   * projected block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#projected ReplicationControllerV1#projected}
+   */
+  readonly projected?:
+    | ReplicationControllerV1SpecTemplateSpecVolumeProjected[]
+    | cdktf.IResolvable;
   /**
-  * quobyte block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#quobyte ReplicationControllerV1#quobyte}
-  */
+   * quobyte block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#quobyte ReplicationControllerV1#quobyte}
+   */
   readonly quobyte?: ReplicationControllerV1SpecTemplateSpecVolumeQuobyte;
   /**
-  * rbd block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rbd ReplicationControllerV1#rbd}
-  */
+   * rbd block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#rbd ReplicationControllerV1#rbd}
+   */
   readonly rbd?: ReplicationControllerV1SpecTemplateSpecVolumeRbd;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret ReplicationControllerV1#secret}
-  */
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#secret ReplicationControllerV1#secret}
+   */
   readonly secret?: ReplicationControllerV1SpecTemplateSpecVolumeSecret;
   /**
-  * vsphere_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#vsphere_volume ReplicationControllerV1#vsphere_volume}
-  */
+   * vsphere_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#vsphere_volume ReplicationControllerV1#vsphere_volume}
+   */
   readonly vsphereVolume?: ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume;
 }
 
-export function replicationControllerV1SpecTemplateSpecVolumeToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecVolume | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecVolumeToTerraform(
+  struct?: ReplicationControllerV1SpecTemplateSpecVolume | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    aws_elastic_block_store: replicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(struct!.awsElasticBlockStore),
-    azure_disk: replicationControllerV1SpecTemplateSpecVolumeAzureDiskToTerraform(struct!.azureDisk),
-    azure_file: replicationControllerV1SpecTemplateSpecVolumeAzureFileToTerraform(struct!.azureFile),
-    ceph_fs: replicationControllerV1SpecTemplateSpecVolumeCephFsToTerraform(struct!.cephFs),
-    cinder: replicationControllerV1SpecTemplateSpecVolumeCinderToTerraform(struct!.cinder),
-    config_map: replicationControllerV1SpecTemplateSpecVolumeConfigMapToTerraform(struct!.configMap),
-    csi: replicationControllerV1SpecTemplateSpecVolumeCsiToTerraform(struct!.csi),
-    downward_api: replicationControllerV1SpecTemplateSpecVolumeDownwardApiToTerraform(struct!.downwardApi),
-    empty_dir: replicationControllerV1SpecTemplateSpecVolumeEmptyDirToTerraform(struct!.emptyDir),
+    aws_elastic_block_store:
+      replicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreToTerraform(
+        struct!.awsElasticBlockStore,
+      ),
+    azure_disk:
+      replicationControllerV1SpecTemplateSpecVolumeAzureDiskToTerraform(
+        struct!.azureDisk,
+      ),
+    azure_file:
+      replicationControllerV1SpecTemplateSpecVolumeAzureFileToTerraform(
+        struct!.azureFile,
+      ),
+    ceph_fs: replicationControllerV1SpecTemplateSpecVolumeCephFsToTerraform(
+      struct!.cephFs,
+    ),
+    cinder: replicationControllerV1SpecTemplateSpecVolumeCinderToTerraform(
+      struct!.cinder,
+    ),
+    config_map:
+      replicationControllerV1SpecTemplateSpecVolumeConfigMapToTerraform(
+        struct!.configMap,
+      ),
+    csi: replicationControllerV1SpecTemplateSpecVolumeCsiToTerraform(
+      struct!.csi,
+    ),
+    downward_api:
+      replicationControllerV1SpecTemplateSpecVolumeDownwardApiToTerraform(
+        struct!.downwardApi,
+      ),
+    empty_dir: replicationControllerV1SpecTemplateSpecVolumeEmptyDirToTerraform(
+      struct!.emptyDir,
+    ),
     fc: replicationControllerV1SpecTemplateSpecVolumeFcToTerraform(struct!.fc),
-    flex_volume: replicationControllerV1SpecTemplateSpecVolumeFlexVolumeToTerraform(struct!.flexVolume),
-    flocker: replicationControllerV1SpecTemplateSpecVolumeFlockerToTerraform(struct!.flocker),
-    gce_persistent_disk: replicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(struct!.gcePersistentDisk),
-    git_repo: replicationControllerV1SpecTemplateSpecVolumeGitRepoToTerraform(struct!.gitRepo),
-    glusterfs: replicationControllerV1SpecTemplateSpecVolumeGlusterfsToTerraform(struct!.glusterfs),
-    host_path: replicationControllerV1SpecTemplateSpecVolumeHostPathToTerraform(struct!.hostPath),
-    iscsi: replicationControllerV1SpecTemplateSpecVolumeIscsiToTerraform(struct!.iscsi),
-    local: replicationControllerV1SpecTemplateSpecVolumeLocalToTerraform(struct!.local),
-    nfs: replicationControllerV1SpecTemplateSpecVolumeNfsToTerraform(struct!.nfs),
-    persistent_volume_claim: replicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(struct!.persistentVolumeClaim),
-    photon_persistent_disk: replicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(struct!.photonPersistentDisk),
-    projected: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeProjectedToTerraform, true)(struct!.projected),
-    quobyte: replicationControllerV1SpecTemplateSpecVolumeQuobyteToTerraform(struct!.quobyte),
-    rbd: replicationControllerV1SpecTemplateSpecVolumeRbdToTerraform(struct!.rbd),
-    secret: replicationControllerV1SpecTemplateSpecVolumeSecretToTerraform(struct!.secret),
-    vsphere_volume: replicationControllerV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(struct!.vsphereVolume),
-  }
+    flex_volume:
+      replicationControllerV1SpecTemplateSpecVolumeFlexVolumeToTerraform(
+        struct!.flexVolume,
+      ),
+    flocker: replicationControllerV1SpecTemplateSpecVolumeFlockerToTerraform(
+      struct!.flocker,
+    ),
+    gce_persistent_disk:
+      replicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskToTerraform(
+        struct!.gcePersistentDisk,
+      ),
+    git_repo: replicationControllerV1SpecTemplateSpecVolumeGitRepoToTerraform(
+      struct!.gitRepo,
+    ),
+    glusterfs:
+      replicationControllerV1SpecTemplateSpecVolumeGlusterfsToTerraform(
+        struct!.glusterfs,
+      ),
+    host_path: replicationControllerV1SpecTemplateSpecVolumeHostPathToTerraform(
+      struct!.hostPath,
+    ),
+    iscsi: replicationControllerV1SpecTemplateSpecVolumeIscsiToTerraform(
+      struct!.iscsi,
+    ),
+    local: replicationControllerV1SpecTemplateSpecVolumeLocalToTerraform(
+      struct!.local,
+    ),
+    nfs: replicationControllerV1SpecTemplateSpecVolumeNfsToTerraform(
+      struct!.nfs,
+    ),
+    persistent_volume_claim:
+      replicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimToTerraform(
+        struct!.persistentVolumeClaim,
+      ),
+    photon_persistent_disk:
+      replicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskToTerraform(
+        struct!.photonPersistentDisk,
+      ),
+    projected: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeProjectedToTerraform,
+      true,
+    )(struct!.projected),
+    quobyte: replicationControllerV1SpecTemplateSpecVolumeQuobyteToTerraform(
+      struct!.quobyte,
+    ),
+    rbd: replicationControllerV1SpecTemplateSpecVolumeRbdToTerraform(
+      struct!.rbd,
+    ),
+    secret: replicationControllerV1SpecTemplateSpecVolumeSecretToTerraform(
+      struct!.secret,
+    ),
+    vsphere_volume:
+      replicationControllerV1SpecTemplateSpecVolumeVsphereVolumeToTerraform(
+        struct!.vsphereVolume,
+      ),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extends cdktf.ComplexObject {
@@ -9544,16 +11468,29 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpecVolume | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpecVolume
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -9565,7 +11502,8 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
     }
     if (this._awsElasticBlockStore?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.awsElasticBlockStore = this._awsElasticBlockStore?.internalValue;
+      internalValueResult.awsElasticBlockStore =
+        this._awsElasticBlockStore?.internalValue;
     }
     if (this._azureDisk?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -9613,7 +11551,8 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
     }
     if (this._gcePersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.gcePersistentDisk = this._gcePersistentDisk?.internalValue;
+      internalValueResult.gcePersistentDisk =
+        this._gcePersistentDisk?.internalValue;
     }
     if (this._gitRepo?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -9641,11 +11580,13 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
     }
     if (this._persistentVolumeClaim?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.persistentVolumeClaim = this._persistentVolumeClaim?.internalValue;
+      internalValueResult.persistentVolumeClaim =
+        this._persistentVolumeClaim?.internalValue;
     }
     if (this._photonPersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.photonPersistentDisk = this._photonPersistentDisk?.internalValue;
+      internalValueResult.photonPersistentDisk =
+        this._photonPersistentDisk?.internalValue;
     }
     if (this._projected?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -9670,7 +11611,12 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpecVolume | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolume
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -9701,12 +11647,10 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
       this._rbd.internalValue = undefined;
       this._secret.internalValue = undefined;
       this._vsphereVolume.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -9740,7 +11684,7 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -9756,11 +11700,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // aws_elastic_block_store - computed: false, optional: true, required: false
-  private _awsElasticBlockStore = new ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference(this, "aws_elastic_block_store");
+  private _awsElasticBlockStore =
+    new ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStoreOutputReference(
+      this,
+      'aws_elastic_block_store',
+    );
   public get awsElasticBlockStore() {
     return this._awsElasticBlockStore;
   }
-  public putAwsElasticBlockStore(value: ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore) {
+  public putAwsElasticBlockStore(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeAwsElasticBlockStore,
+  ) {
     this._awsElasticBlockStore.internalValue = value;
   }
   public resetAwsElasticBlockStore() {
@@ -9772,11 +11722,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // azure_disk - computed: false, optional: true, required: false
-  private _azureDisk = new ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReference(this, "azure_disk");
+  private _azureDisk =
+    new ReplicationControllerV1SpecTemplateSpecVolumeAzureDiskOutputReference(
+      this,
+      'azure_disk',
+    );
   public get azureDisk() {
     return this._azureDisk;
   }
-  public putAzureDisk(value: ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk) {
+  public putAzureDisk(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeAzureDisk,
+  ) {
     this._azureDisk.internalValue = value;
   }
   public resetAzureDisk() {
@@ -9788,11 +11744,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // azure_file - computed: false, optional: true, required: false
-  private _azureFile = new ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReference(this, "azure_file");
+  private _azureFile =
+    new ReplicationControllerV1SpecTemplateSpecVolumeAzureFileOutputReference(
+      this,
+      'azure_file',
+    );
   public get azureFile() {
     return this._azureFile;
   }
-  public putAzureFile(value: ReplicationControllerV1SpecTemplateSpecVolumeAzureFile) {
+  public putAzureFile(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeAzureFile,
+  ) {
     this._azureFile.internalValue = value;
   }
   public resetAzureFile() {
@@ -9804,7 +11766,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // ceph_fs - computed: false, optional: true, required: false
-  private _cephFs = new ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference(this, "ceph_fs");
+  private _cephFs =
+    new ReplicationControllerV1SpecTemplateSpecVolumeCephFsOutputReference(
+      this,
+      'ceph_fs',
+    );
   public get cephFs() {
     return this._cephFs;
   }
@@ -9820,7 +11786,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // cinder - computed: false, optional: true, required: false
-  private _cinder = new ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference(this, "cinder");
+  private _cinder =
+    new ReplicationControllerV1SpecTemplateSpecVolumeCinderOutputReference(
+      this,
+      'cinder',
+    );
   public get cinder() {
     return this._cinder;
   }
@@ -9836,11 +11806,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // config_map - computed: false, optional: true, required: false
-  private _configMap = new ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReference(this, "config_map");
+  private _configMap =
+    new ReplicationControllerV1SpecTemplateSpecVolumeConfigMapOutputReference(
+      this,
+      'config_map',
+    );
   public get configMap() {
     return this._configMap;
   }
-  public putConfigMap(value: ReplicationControllerV1SpecTemplateSpecVolumeConfigMap) {
+  public putConfigMap(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeConfigMap,
+  ) {
     this._configMap.internalValue = value;
   }
   public resetConfigMap() {
@@ -9852,7 +11828,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // csi - computed: false, optional: true, required: false
-  private _csi = new ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference(this, "csi");
+  private _csi =
+    new ReplicationControllerV1SpecTemplateSpecVolumeCsiOutputReference(
+      this,
+      'csi',
+    );
   public get csi() {
     return this._csi;
   }
@@ -9868,11 +11848,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // downward_api - computed: false, optional: true, required: false
-  private _downwardApi = new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputReference(this, "downward_api");
+  private _downwardApi =
+    new ReplicationControllerV1SpecTemplateSpecVolumeDownwardApiOutputReference(
+      this,
+      'downward_api',
+    );
   public get downwardApi() {
     return this._downwardApi;
   }
-  public putDownwardApi(value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi) {
+  public putDownwardApi(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeDownwardApi,
+  ) {
     this._downwardApi.internalValue = value;
   }
   public resetDownwardApi() {
@@ -9884,11 +11870,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // empty_dir - computed: false, optional: true, required: false
-  private _emptyDir = new ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReference(this, "empty_dir");
+  private _emptyDir =
+    new ReplicationControllerV1SpecTemplateSpecVolumeEmptyDirOutputReference(
+      this,
+      'empty_dir',
+    );
   public get emptyDir() {
     return this._emptyDir;
   }
-  public putEmptyDir(value: ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir) {
+  public putEmptyDir(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeEmptyDir,
+  ) {
     this._emptyDir.internalValue = value;
   }
   public resetEmptyDir() {
@@ -9900,7 +11892,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // fc - computed: false, optional: true, required: false
-  private _fc = new ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference(this, "fc");
+  private _fc =
+    new ReplicationControllerV1SpecTemplateSpecVolumeFcOutputReference(
+      this,
+      'fc',
+    );
   public get fc() {
     return this._fc;
   }
@@ -9916,11 +11912,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // flex_volume - computed: false, optional: true, required: false
-  private _flexVolume = new ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputReference(this, "flex_volume");
+  private _flexVolume =
+    new ReplicationControllerV1SpecTemplateSpecVolumeFlexVolumeOutputReference(
+      this,
+      'flex_volume',
+    );
   public get flexVolume() {
     return this._flexVolume;
   }
-  public putFlexVolume(value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume) {
+  public putFlexVolume(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeFlexVolume,
+  ) {
     this._flexVolume.internalValue = value;
   }
   public resetFlexVolume() {
@@ -9932,11 +11934,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // flocker - computed: false, optional: true, required: false
-  private _flocker = new ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference(this, "flocker");
+  private _flocker =
+    new ReplicationControllerV1SpecTemplateSpecVolumeFlockerOutputReference(
+      this,
+      'flocker',
+    );
   public get flocker() {
     return this._flocker;
   }
-  public putFlocker(value: ReplicationControllerV1SpecTemplateSpecVolumeFlocker) {
+  public putFlocker(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeFlocker,
+  ) {
     this._flocker.internalValue = value;
   }
   public resetFlocker() {
@@ -9948,11 +11956,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // gce_persistent_disk - computed: false, optional: true, required: false
-  private _gcePersistentDisk = new ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference(this, "gce_persistent_disk");
+  private _gcePersistentDisk =
+    new ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDiskOutputReference(
+      this,
+      'gce_persistent_disk',
+    );
   public get gcePersistentDisk() {
     return this._gcePersistentDisk;
   }
-  public putGcePersistentDisk(value: ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk) {
+  public putGcePersistentDisk(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeGcePersistentDisk,
+  ) {
     this._gcePersistentDisk.internalValue = value;
   }
   public resetGcePersistentDisk() {
@@ -9964,11 +11978,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // git_repo - computed: false, optional: true, required: false
-  private _gitRepo = new ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference(this, "git_repo");
+  private _gitRepo =
+    new ReplicationControllerV1SpecTemplateSpecVolumeGitRepoOutputReference(
+      this,
+      'git_repo',
+    );
   public get gitRepo() {
     return this._gitRepo;
   }
-  public putGitRepo(value: ReplicationControllerV1SpecTemplateSpecVolumeGitRepo) {
+  public putGitRepo(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeGitRepo,
+  ) {
     this._gitRepo.internalValue = value;
   }
   public resetGitRepo() {
@@ -9980,11 +12000,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // glusterfs - computed: false, optional: true, required: false
-  private _glusterfs = new ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReference(this, "glusterfs");
+  private _glusterfs =
+    new ReplicationControllerV1SpecTemplateSpecVolumeGlusterfsOutputReference(
+      this,
+      'glusterfs',
+    );
   public get glusterfs() {
     return this._glusterfs;
   }
-  public putGlusterfs(value: ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs) {
+  public putGlusterfs(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeGlusterfs,
+  ) {
     this._glusterfs.internalValue = value;
   }
   public resetGlusterfs() {
@@ -9996,11 +12022,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // host_path - computed: false, optional: true, required: false
-  private _hostPath = new ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReference(this, "host_path");
+  private _hostPath =
+    new ReplicationControllerV1SpecTemplateSpecVolumeHostPathOutputReference(
+      this,
+      'host_path',
+    );
   public get hostPath() {
     return this._hostPath;
   }
-  public putHostPath(value: ReplicationControllerV1SpecTemplateSpecVolumeHostPath) {
+  public putHostPath(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeHostPath,
+  ) {
     this._hostPath.internalValue = value;
   }
   public resetHostPath() {
@@ -10012,7 +12044,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // iscsi - computed: false, optional: true, required: false
-  private _iscsi = new ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference(this, "iscsi");
+  private _iscsi =
+    new ReplicationControllerV1SpecTemplateSpecVolumeIscsiOutputReference(
+      this,
+      'iscsi',
+    );
   public get iscsi() {
     return this._iscsi;
   }
@@ -10028,7 +12064,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // local - computed: false, optional: true, required: false
-  private _local = new ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference(this, "local");
+  private _local =
+    new ReplicationControllerV1SpecTemplateSpecVolumeLocalOutputReference(
+      this,
+      'local',
+    );
   public get local() {
     return this._local;
   }
@@ -10044,7 +12084,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // nfs - computed: false, optional: true, required: false
-  private _nfs = new ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference(this, "nfs");
+  private _nfs =
+    new ReplicationControllerV1SpecTemplateSpecVolumeNfsOutputReference(
+      this,
+      'nfs',
+    );
   public get nfs() {
     return this._nfs;
   }
@@ -10060,11 +12104,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // persistent_volume_claim - computed: false, optional: true, required: false
-  private _persistentVolumeClaim = new ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference(this, "persistent_volume_claim");
+  private _persistentVolumeClaim =
+    new ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaimOutputReference(
+      this,
+      'persistent_volume_claim',
+    );
   public get persistentVolumeClaim() {
     return this._persistentVolumeClaim;
   }
-  public putPersistentVolumeClaim(value: ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim) {
+  public putPersistentVolumeClaim(
+    value: ReplicationControllerV1SpecTemplateSpecVolumePersistentVolumeClaim,
+  ) {
     this._persistentVolumeClaim.internalValue = value;
   }
   public resetPersistentVolumeClaim() {
@@ -10076,11 +12126,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // photon_persistent_disk - computed: false, optional: true, required: false
-  private _photonPersistentDisk = new ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference(this, "photon_persistent_disk");
+  private _photonPersistentDisk =
+    new ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDiskOutputReference(
+      this,
+      'photon_persistent_disk',
+    );
   public get photonPersistentDisk() {
     return this._photonPersistentDisk;
   }
-  public putPhotonPersistentDisk(value: ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk) {
+  public putPhotonPersistentDisk(
+    value: ReplicationControllerV1SpecTemplateSpecVolumePhotonPersistentDisk,
+  ) {
     this._photonPersistentDisk.internalValue = value;
   }
   public resetPhotonPersistentDisk() {
@@ -10092,11 +12148,20 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // projected - computed: false, optional: true, required: false
-  private _projected = new ReplicationControllerV1SpecTemplateSpecVolumeProjectedList(this, "projected", false);
+  private _projected =
+    new ReplicationControllerV1SpecTemplateSpecVolumeProjectedList(
+      this,
+      'projected',
+      false,
+    );
   public get projected() {
     return this._projected;
   }
-  public putProjected(value: ReplicationControllerV1SpecTemplateSpecVolumeProjected[] | cdktf.IResolvable) {
+  public putProjected(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecVolumeProjected[]
+      | cdktf.IResolvable,
+  ) {
     this._projected.internalValue = value;
   }
   public resetProjected() {
@@ -10108,11 +12173,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // quobyte - computed: false, optional: true, required: false
-  private _quobyte = new ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference(this, "quobyte");
+  private _quobyte =
+    new ReplicationControllerV1SpecTemplateSpecVolumeQuobyteOutputReference(
+      this,
+      'quobyte',
+    );
   public get quobyte() {
     return this._quobyte;
   }
-  public putQuobyte(value: ReplicationControllerV1SpecTemplateSpecVolumeQuobyte) {
+  public putQuobyte(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeQuobyte,
+  ) {
     this._quobyte.internalValue = value;
   }
   public resetQuobyte() {
@@ -10124,7 +12195,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // rbd - computed: false, optional: true, required: false
-  private _rbd = new ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference(this, "rbd");
+  private _rbd =
+    new ReplicationControllerV1SpecTemplateSpecVolumeRbdOutputReference(
+      this,
+      'rbd',
+    );
   public get rbd() {
     return this._rbd;
   }
@@ -10140,7 +12215,11 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // secret - computed: false, optional: true, required: false
-  private _secret = new ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference(this, "secret");
+  private _secret =
+    new ReplicationControllerV1SpecTemplateSpecVolumeSecretOutputReference(
+      this,
+      'secret',
+    );
   public get secret() {
     return this._secret;
   }
@@ -10156,11 +12235,17 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
   }
 
   // vsphere_volume - computed: false, optional: true, required: false
-  private _vsphereVolume = new ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputReference(this, "vsphere_volume");
+  private _vsphereVolume =
+    new ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolumeOutputReference(
+      this,
+      'vsphere_volume',
+    );
   public get vsphereVolume() {
     return this._vsphereVolume;
   }
-  public putVsphereVolume(value: ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume) {
+  public putVsphereVolume(
+    value: ReplicationControllerV1SpecTemplateSpecVolumeVsphereVolume,
+  ) {
     this._vsphereVolume.internalValue = value;
   }
   public resetVsphereVolume() {
@@ -10173,203 +12258,244 @@ export class ReplicationControllerV1SpecTemplateSpecVolumeOutputReference extend
 }
 
 export class ReplicationControllerV1SpecTemplateSpecVolumeList extends cdktf.ComplexList {
-  public internalValue? : ReplicationControllerV1SpecTemplateSpecVolume[] | cdktf.IResolvable
+  public internalValue?:
+    | ReplicationControllerV1SpecTemplateSpecVolume[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ReplicationControllerV1SpecTemplateSpecVolumeOutputReference {
-    return new ReplicationControllerV1SpecTemplateSpecVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ReplicationControllerV1SpecTemplateSpecVolumeOutputReference {
+    return new ReplicationControllerV1SpecTemplateSpecVolumeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ReplicationControllerV1SpecTemplateSpec {
   /**
-  * Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#active_deadline_seconds ReplicationControllerV1#active_deadline_seconds}
-  */
+   * Optional duration in seconds the pod may be active on the node relative to StartTime before the system will actively try to mark it failed and kill associated containers. Value must be a positive integer.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#active_deadline_seconds ReplicationControllerV1#active_deadline_seconds}
+   */
   readonly activeDeadlineSeconds?: number;
   /**
-  * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#automount_service_account_token ReplicationControllerV1#automount_service_account_token}
-  */
+   * AutomountServiceAccountToken indicates whether a service account token should be automatically mounted.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#automount_service_account_token ReplicationControllerV1#automount_service_account_token}
+   */
   readonly automountServiceAccountToken?: boolean | cdktf.IResolvable;
   /**
-  * Set DNS policy for containers within the pod. Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'. Optional: Defaults to 'ClusterFirst', see [Kubernetes reference](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dns_policy ReplicationControllerV1#dns_policy}
-  */
+   * Set DNS policy for containers within the pod. Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'. Optional: Defaults to 'ClusterFirst', see [Kubernetes reference](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dns_policy ReplicationControllerV1#dns_policy}
+   */
   readonly dnsPolicy?: string;
   /**
-  * Enables generating environment variables for service discovery. Defaults to true.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#enable_service_links ReplicationControllerV1#enable_service_links}
-  */
+   * Enables generating environment variables for service discovery. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#enable_service_links ReplicationControllerV1#enable_service_links}
+   */
   readonly enableServiceLinks?: boolean | cdktf.IResolvable;
   /**
-  * Use the host's ipc namespace. Optional: Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_ipc ReplicationControllerV1#host_ipc}
-  */
+   * Use the host's ipc namespace. Optional: Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_ipc ReplicationControllerV1#host_ipc}
+   */
   readonly hostIpc?: boolean | cdktf.IResolvable;
   /**
-  * Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_network ReplicationControllerV1#host_network}
-  */
+   * Host networking requested for this pod. Use the host's network namespace. If this option is set, the ports that will be used must be specified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_network ReplicationControllerV1#host_network}
+   */
   readonly hostNetwork?: boolean | cdktf.IResolvable;
   /**
-  * Use the host's pid namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_pid ReplicationControllerV1#host_pid}
-  */
+   * Use the host's pid namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_pid ReplicationControllerV1#host_pid}
+   */
   readonly hostPid?: boolean | cdktf.IResolvable;
   /**
-  * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#hostname ReplicationControllerV1#hostname}
-  */
+   * Specifies the hostname of the Pod If not specified, the pod's hostname will be set to a system-defined value.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#hostname ReplicationControllerV1#hostname}
+   */
   readonly hostname?: string;
   /**
-  * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#node_name ReplicationControllerV1#node_name}
-  */
+   * NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#node_name ReplicationControllerV1#node_name}
+   */
   readonly nodeName?: string;
   /**
-  * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#node_selector ReplicationControllerV1#node_selector}
-  */
+   * NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://kubernetes.io/docs/user-guide/node-selection.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#node_selector ReplicationControllerV1#node_selector}
+   */
   readonly nodeSelector?: { [key: string]: string };
   /**
-  * If specified, indicates the pod's priority. "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#priority_class_name ReplicationControllerV1#priority_class_name}
-  */
+   * If specified, indicates the pod's priority. "system-node-critical" and "system-cluster-critical" are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#priority_class_name ReplicationControllerV1#priority_class_name}
+   */
   readonly priorityClassName?: string;
   /**
-  * Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#restart_policy ReplicationControllerV1#restart_policy}
-  */
+   * Restart policy for all containers within the pod. One of Always, OnFailure, Never. More info: http://kubernetes.io/docs/user-guide/pod-states#restartpolicy.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#restart_policy ReplicationControllerV1#restart_policy}
+   */
   readonly restartPolicy?: string;
   /**
-  * RuntimeClassName is a feature for selecting the container runtime configuration. The container runtime configuration is used to run a Pod's containers. More info: https://kubernetes.io/docs/concepts/containers/runtime-class
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#runtime_class_name ReplicationControllerV1#runtime_class_name}
-  */
+   * RuntimeClassName is a feature for selecting the container runtime configuration. The container runtime configuration is used to run a Pod's containers. More info: https://kubernetes.io/docs/concepts/containers/runtime-class
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#runtime_class_name ReplicationControllerV1#runtime_class_name}
+   */
   readonly runtimeClassName?: string;
   /**
-  * ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#service_account_name ReplicationControllerV1#service_account_name}
-  */
+   * ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: http://releases.k8s.io/HEAD/docs/design/service_accounts.md.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#service_account_name ReplicationControllerV1#service_account_name}
+   */
   readonly serviceAccountName?: string;
   /**
-  * Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#share_process_namespace ReplicationControllerV1#share_process_namespace}
-  */
+   * Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#share_process_namespace ReplicationControllerV1#share_process_namespace}
+   */
   readonly shareProcessNamespace?: boolean | cdktf.IResolvable;
   /**
-  * If specified, the fully qualified Pod hostname will be "...svc.". If not specified, the pod will not have a domainname at all..
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#subdomain ReplicationControllerV1#subdomain}
-  */
+   * If specified, the fully qualified Pod hostname will be "...svc.". If not specified, the pod will not have a domainname at all..
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#subdomain ReplicationControllerV1#subdomain}
+   */
   readonly subdomain?: string;
   /**
-  * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#termination_grace_period_seconds ReplicationControllerV1#termination_grace_period_seconds}
-  */
+   * Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#termination_grace_period_seconds ReplicationControllerV1#termination_grace_period_seconds}
+   */
   readonly terminationGracePeriodSeconds?: number;
   /**
-  * affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#affinity ReplicationControllerV1#affinity}
-  */
+   * affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#affinity ReplicationControllerV1#affinity}
+   */
   readonly affinity?: ReplicationControllerV1SpecTemplateSpecAffinity;
   /**
-  * container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#container ReplicationControllerV1#container}
-  */
-  readonly container?: ReplicationControllerV1SpecTemplateSpecContainer[] | cdktf.IResolvable;
+   * container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#container ReplicationControllerV1#container}
+   */
+  readonly container?:
+    | ReplicationControllerV1SpecTemplateSpecContainer[]
+    | cdktf.IResolvable;
   /**
-  * dns_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dns_config ReplicationControllerV1#dns_config}
-  */
+   * dns_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#dns_config ReplicationControllerV1#dns_config}
+   */
   readonly dnsConfig?: ReplicationControllerV1SpecTemplateSpecDnsConfig;
   /**
-  * host_aliases block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_aliases ReplicationControllerV1#host_aliases}
-  */
-  readonly hostAliases?: ReplicationControllerV1SpecTemplateSpecHostAliases[] | cdktf.IResolvable;
+   * host_aliases block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#host_aliases ReplicationControllerV1#host_aliases}
+   */
+  readonly hostAliases?:
+    | ReplicationControllerV1SpecTemplateSpecHostAliases[]
+    | cdktf.IResolvable;
   /**
-  * image_pull_secrets block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#image_pull_secrets ReplicationControllerV1#image_pull_secrets}
-  */
-  readonly imagePullSecrets?: ReplicationControllerV1SpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable;
+   * image_pull_secrets block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#image_pull_secrets ReplicationControllerV1#image_pull_secrets}
+   */
+  readonly imagePullSecrets?:
+    | ReplicationControllerV1SpecTemplateSpecImagePullSecrets[]
+    | cdktf.IResolvable;
   /**
-  * init_container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#init_container ReplicationControllerV1#init_container}
-  */
-  readonly initContainer?: ReplicationControllerV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable;
+   * init_container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#init_container ReplicationControllerV1#init_container}
+   */
+  readonly initContainer?:
+    | ReplicationControllerV1SpecTemplateSpecInitContainer[]
+    | cdktf.IResolvable;
   /**
-  * readiness_gate block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#readiness_gate ReplicationControllerV1#readiness_gate}
-  */
-  readonly readinessGate?: ReplicationControllerV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable;
+   * readiness_gate block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#readiness_gate ReplicationControllerV1#readiness_gate}
+   */
+  readonly readinessGate?:
+    | ReplicationControllerV1SpecTemplateSpecReadinessGate[]
+    | cdktf.IResolvable;
   /**
-  * security_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#security_context ReplicationControllerV1#security_context}
-  */
+   * security_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#security_context ReplicationControllerV1#security_context}
+   */
   readonly securityContext?: ReplicationControllerV1SpecTemplateSpecSecurityContext;
   /**
-  * toleration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#toleration ReplicationControllerV1#toleration}
-  */
-  readonly toleration?: ReplicationControllerV1SpecTemplateSpecToleration[] | cdktf.IResolvable;
+   * toleration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#toleration ReplicationControllerV1#toleration}
+   */
+  readonly toleration?:
+    | ReplicationControllerV1SpecTemplateSpecToleration[]
+    | cdktf.IResolvable;
   /**
-  * topology_spread_constraint block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#topology_spread_constraint ReplicationControllerV1#topology_spread_constraint}
-  */
-  readonly topologySpreadConstraint?: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable;
+   * topology_spread_constraint block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#topology_spread_constraint ReplicationControllerV1#topology_spread_constraint}
+   */
+  readonly topologySpreadConstraint?:
+    | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint[]
+    | cdktf.IResolvable;
   /**
-  * volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume ReplicationControllerV1#volume}
-  */
-  readonly volume?: ReplicationControllerV1SpecTemplateSpecVolume[] | cdktf.IResolvable;
+   * volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#volume ReplicationControllerV1#volume}
+   */
+  readonly volume?:
+    | ReplicationControllerV1SpecTemplateSpecVolume[]
+    | cdktf.IResolvable;
 }
 
-export function replicationControllerV1SpecTemplateSpecToTerraform(struct?: ReplicationControllerV1SpecTemplateSpecOutputReference | ReplicationControllerV1SpecTemplateSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateSpecToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateSpecOutputReference
+    | ReplicationControllerV1SpecTemplateSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    active_deadline_seconds: cdktf.numberToTerraform(struct!.activeDeadlineSeconds),
-    automount_service_account_token: cdktf.booleanToTerraform(struct!.automountServiceAccountToken),
+    active_deadline_seconds: cdktf.numberToTerraform(
+      struct!.activeDeadlineSeconds,
+    ),
+    automount_service_account_token: cdktf.booleanToTerraform(
+      struct!.automountServiceAccountToken,
+    ),
     dns_policy: cdktf.stringToTerraform(struct!.dnsPolicy),
     enable_service_links: cdktf.booleanToTerraform(struct!.enableServiceLinks),
     host_ipc: cdktf.booleanToTerraform(struct!.hostIpc),
@@ -10377,40 +12503,82 @@ export function replicationControllerV1SpecTemplateSpecToTerraform(struct?: Repl
     host_pid: cdktf.booleanToTerraform(struct!.hostPid),
     hostname: cdktf.stringToTerraform(struct!.hostname),
     node_name: cdktf.stringToTerraform(struct!.nodeName),
-    node_selector: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.nodeSelector),
+    node_selector: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.nodeSelector,
+    ),
     priority_class_name: cdktf.stringToTerraform(struct!.priorityClassName),
     restart_policy: cdktf.stringToTerraform(struct!.restartPolicy),
     runtime_class_name: cdktf.stringToTerraform(struct!.runtimeClassName),
     service_account_name: cdktf.stringToTerraform(struct!.serviceAccountName),
-    share_process_namespace: cdktf.booleanToTerraform(struct!.shareProcessNamespace),
+    share_process_namespace: cdktf.booleanToTerraform(
+      struct!.shareProcessNamespace,
+    ),
     subdomain: cdktf.stringToTerraform(struct!.subdomain),
-    termination_grace_period_seconds: cdktf.numberToTerraform(struct!.terminationGracePeriodSeconds),
-    affinity: replicationControllerV1SpecTemplateSpecAffinityToTerraform(struct!.affinity),
-    container: cdktf.listMapper(replicationControllerV1SpecTemplateSpecContainerToTerraform, true)(struct!.container),
-    dns_config: replicationControllerV1SpecTemplateSpecDnsConfigToTerraform(struct!.dnsConfig),
-    host_aliases: cdktf.listMapper(replicationControllerV1SpecTemplateSpecHostAliasesToTerraform, true)(struct!.hostAliases),
-    image_pull_secrets: cdktf.listMapper(replicationControllerV1SpecTemplateSpecImagePullSecretsToTerraform, true)(struct!.imagePullSecrets),
-    init_container: cdktf.listMapper(replicationControllerV1SpecTemplateSpecInitContainerToTerraform, true)(struct!.initContainer),
-    readiness_gate: cdktf.listMapper(replicationControllerV1SpecTemplateSpecReadinessGateToTerraform, true)(struct!.readinessGate),
-    security_context: replicationControllerV1SpecTemplateSpecSecurityContextToTerraform(struct!.securityContext),
-    toleration: cdktf.listMapper(replicationControllerV1SpecTemplateSpecTolerationToTerraform, true)(struct!.toleration),
-    topology_spread_constraint: cdktf.listMapper(replicationControllerV1SpecTemplateSpecTopologySpreadConstraintToTerraform, true)(struct!.topologySpreadConstraint),
-    volume: cdktf.listMapper(replicationControllerV1SpecTemplateSpecVolumeToTerraform, true)(struct!.volume),
-  }
+    termination_grace_period_seconds: cdktf.numberToTerraform(
+      struct!.terminationGracePeriodSeconds,
+    ),
+    affinity: replicationControllerV1SpecTemplateSpecAffinityToTerraform(
+      struct!.affinity,
+    ),
+    container: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecContainerToTerraform,
+      true,
+    )(struct!.container),
+    dns_config: replicationControllerV1SpecTemplateSpecDnsConfigToTerraform(
+      struct!.dnsConfig,
+    ),
+    host_aliases: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecHostAliasesToTerraform,
+      true,
+    )(struct!.hostAliases),
+    image_pull_secrets: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecImagePullSecretsToTerraform,
+      true,
+    )(struct!.imagePullSecrets),
+    init_container: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecInitContainerToTerraform,
+      true,
+    )(struct!.initContainer),
+    readiness_gate: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecReadinessGateToTerraform,
+      true,
+    )(struct!.readinessGate),
+    security_context:
+      replicationControllerV1SpecTemplateSpecSecurityContextToTerraform(
+        struct!.securityContext,
+      ),
+    toleration: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecTolerationToTerraform,
+      true,
+    )(struct!.toleration),
+    topology_spread_constraint: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecTopologySpreadConstraintToTerraform,
+      true,
+    )(struct!.topologySpreadConstraint),
+    volume: cdktf.listMapper(
+      replicationControllerV1SpecTemplateSpecVolumeToTerraform,
+      true,
+    )(struct!.volume),
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1SpecTemplateSpec | undefined {
+  public get internalValue():
+    | ReplicationControllerV1SpecTemplateSpec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._activeDeadlineSeconds !== undefined) {
@@ -10419,7 +12587,8 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
     }
     if (this._automountServiceAccountToken !== undefined) {
       hasAnyValues = true;
-      internalValueResult.automountServiceAccountToken = this._automountServiceAccountToken;
+      internalValueResult.automountServiceAccountToken =
+        this._automountServiceAccountToken;
     }
     if (this._dnsPolicy !== undefined) {
       hasAnyValues = true;
@@ -10479,7 +12648,8 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
     }
     if (this._terminationGracePeriodSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationGracePeriodSeconds = this._terminationGracePeriodSeconds;
+      internalValueResult.terminationGracePeriodSeconds =
+        this._terminationGracePeriodSeconds;
     }
     if (this._affinity?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10499,7 +12669,8 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
     }
     if (this._imagePullSecrets?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.imagePullSecrets = this._imagePullSecrets?.internalValue;
+      internalValueResult.imagePullSecrets =
+        this._imagePullSecrets?.internalValue;
     }
     if (this._initContainer?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10511,7 +12682,8 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
     }
     if (this._securityContext?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityContext = this._securityContext?.internalValue;
+      internalValueResult.securityContext =
+        this._securityContext?.internalValue;
     }
     if (this._toleration?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10519,7 +12691,8 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
     }
     if (this._topologySpreadConstraint?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.topologySpreadConstraint = this._topologySpreadConstraint?.internalValue;
+      internalValueResult.topologySpreadConstraint =
+        this._topologySpreadConstraint?.internalValue;
     }
     if (this._volume?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -10528,7 +12701,9 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplateSpec | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplateSpec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._activeDeadlineSeconds = undefined;
@@ -10559,8 +12734,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
       this._toleration.internalValue = undefined;
       this._topologySpreadConstraint.internalValue = undefined;
       this._volume.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._activeDeadlineSeconds = value.activeDeadlineSeconds;
       this._automountServiceAccountToken = value.automountServiceAccountToken;
@@ -10588,13 +12762,14 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
       this._readinessGate.internalValue = value.readinessGate;
       this._securityContext.internalValue = value.securityContext;
       this._toleration.internalValue = value.toleration;
-      this._topologySpreadConstraint.internalValue = value.topologySpreadConstraint;
+      this._topologySpreadConstraint.internalValue =
+        value.topologySpreadConstraint;
       this._volume.internalValue = value.volume;
     }
   }
 
   // active_deadline_seconds - computed: true, optional: true, required: false
-  private _activeDeadlineSeconds?: number; 
+  private _activeDeadlineSeconds?: number;
   public get activeDeadlineSeconds() {
     return this.getNumberAttribute('active_deadline_seconds');
   }
@@ -10610,7 +12785,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // automount_service_account_token - computed: false, optional: true, required: false
-  private _automountServiceAccountToken?: boolean | cdktf.IResolvable; 
+  private _automountServiceAccountToken?: boolean | cdktf.IResolvable;
   public get automountServiceAccountToken() {
     return this.getBooleanAttribute('automount_service_account_token');
   }
@@ -10626,7 +12801,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // dns_policy - computed: true, optional: true, required: false
-  private _dnsPolicy?: string; 
+  private _dnsPolicy?: string;
   public get dnsPolicy() {
     return this.getStringAttribute('dns_policy');
   }
@@ -10642,7 +12817,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // enable_service_links - computed: false, optional: true, required: false
-  private _enableServiceLinks?: boolean | cdktf.IResolvable; 
+  private _enableServiceLinks?: boolean | cdktf.IResolvable;
   public get enableServiceLinks() {
     return this.getBooleanAttribute('enable_service_links');
   }
@@ -10658,7 +12833,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // host_ipc - computed: true, optional: true, required: false
-  private _hostIpc?: boolean | cdktf.IResolvable; 
+  private _hostIpc?: boolean | cdktf.IResolvable;
   public get hostIpc() {
     return this.getBooleanAttribute('host_ipc');
   }
@@ -10674,7 +12849,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // host_network - computed: true, optional: true, required: false
-  private _hostNetwork?: boolean | cdktf.IResolvable; 
+  private _hostNetwork?: boolean | cdktf.IResolvable;
   public get hostNetwork() {
     return this.getBooleanAttribute('host_network');
   }
@@ -10690,7 +12865,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // host_pid - computed: true, optional: true, required: false
-  private _hostPid?: boolean | cdktf.IResolvable; 
+  private _hostPid?: boolean | cdktf.IResolvable;
   public get hostPid() {
     return this.getBooleanAttribute('host_pid');
   }
@@ -10706,7 +12881,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // hostname - computed: true, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -10722,7 +12897,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // node_name - computed: true, optional: true, required: false
-  private _nodeName?: string; 
+  private _nodeName?: string;
   public get nodeName() {
     return this.getStringAttribute('node_name');
   }
@@ -10738,7 +12913,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // node_selector - computed: true, optional: true, required: false
-  private _nodeSelector?: { [key: string]: string }; 
+  private _nodeSelector?: { [key: string]: string };
   public get nodeSelector() {
     return this.getStringMapAttribute('node_selector');
   }
@@ -10754,7 +12929,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // priority_class_name - computed: true, optional: true, required: false
-  private _priorityClassName?: string; 
+  private _priorityClassName?: string;
   public get priorityClassName() {
     return this.getStringAttribute('priority_class_name');
   }
@@ -10770,7 +12945,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // restart_policy - computed: true, optional: true, required: false
-  private _restartPolicy?: string; 
+  private _restartPolicy?: string;
   public get restartPolicy() {
     return this.getStringAttribute('restart_policy');
   }
@@ -10786,7 +12961,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // runtime_class_name - computed: true, optional: true, required: false
-  private _runtimeClassName?: string; 
+  private _runtimeClassName?: string;
   public get runtimeClassName() {
     return this.getStringAttribute('runtime_class_name');
   }
@@ -10802,7 +12977,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // service_account_name - computed: true, optional: true, required: false
-  private _serviceAccountName?: string; 
+  private _serviceAccountName?: string;
   public get serviceAccountName() {
     return this.getStringAttribute('service_account_name');
   }
@@ -10818,7 +12993,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // share_process_namespace - computed: false, optional: true, required: false
-  private _shareProcessNamespace?: boolean | cdktf.IResolvable; 
+  private _shareProcessNamespace?: boolean | cdktf.IResolvable;
   public get shareProcessNamespace() {
     return this.getBooleanAttribute('share_process_namespace');
   }
@@ -10834,7 +13009,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // subdomain - computed: true, optional: true, required: false
-  private _subdomain?: string; 
+  private _subdomain?: string;
   public get subdomain() {
     return this.getStringAttribute('subdomain');
   }
@@ -10850,7 +13025,7 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // termination_grace_period_seconds - computed: true, optional: true, required: false
-  private _terminationGracePeriodSeconds?: number; 
+  private _terminationGracePeriodSeconds?: number;
   public get terminationGracePeriodSeconds() {
     return this.getNumberAttribute('termination_grace_period_seconds');
   }
@@ -10866,7 +13041,11 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // affinity - computed: false, optional: true, required: false
-  private _affinity = new ReplicationControllerV1SpecTemplateSpecAffinityOutputReference(this, "affinity");
+  private _affinity =
+    new ReplicationControllerV1SpecTemplateSpecAffinityOutputReference(
+      this,
+      'affinity',
+    );
   public get affinity() {
     return this._affinity;
   }
@@ -10882,11 +13061,19 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // container - computed: false, optional: true, required: false
-  private _container = new ReplicationControllerV1SpecTemplateSpecContainerList(this, "container", false);
+  private _container = new ReplicationControllerV1SpecTemplateSpecContainerList(
+    this,
+    'container',
+    false,
+  );
   public get container() {
     return this._container;
   }
-  public putContainer(value: ReplicationControllerV1SpecTemplateSpecContainer[] | cdktf.IResolvable) {
+  public putContainer(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecContainer[]
+      | cdktf.IResolvable,
+  ) {
     this._container.internalValue = value;
   }
   public resetContainer() {
@@ -10898,7 +13085,11 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // dns_config - computed: false, optional: true, required: false
-  private _dnsConfig = new ReplicationControllerV1SpecTemplateSpecDnsConfigOutputReference(this, "dns_config");
+  private _dnsConfig =
+    new ReplicationControllerV1SpecTemplateSpecDnsConfigOutputReference(
+      this,
+      'dns_config',
+    );
   public get dnsConfig() {
     return this._dnsConfig;
   }
@@ -10914,11 +13105,20 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // host_aliases - computed: false, optional: true, required: false
-  private _hostAliases = new ReplicationControllerV1SpecTemplateSpecHostAliasesList(this, "host_aliases", false);
+  private _hostAliases =
+    new ReplicationControllerV1SpecTemplateSpecHostAliasesList(
+      this,
+      'host_aliases',
+      false,
+    );
   public get hostAliases() {
     return this._hostAliases;
   }
-  public putHostAliases(value: ReplicationControllerV1SpecTemplateSpecHostAliases[] | cdktf.IResolvable) {
+  public putHostAliases(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecHostAliases[]
+      | cdktf.IResolvable,
+  ) {
     this._hostAliases.internalValue = value;
   }
   public resetHostAliases() {
@@ -10930,11 +13130,20 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // image_pull_secrets - computed: false, optional: true, required: false
-  private _imagePullSecrets = new ReplicationControllerV1SpecTemplateSpecImagePullSecretsList(this, "image_pull_secrets", false);
+  private _imagePullSecrets =
+    new ReplicationControllerV1SpecTemplateSpecImagePullSecretsList(
+      this,
+      'image_pull_secrets',
+      false,
+    );
   public get imagePullSecrets() {
     return this._imagePullSecrets;
   }
-  public putImagePullSecrets(value: ReplicationControllerV1SpecTemplateSpecImagePullSecrets[] | cdktf.IResolvable) {
+  public putImagePullSecrets(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecImagePullSecrets[]
+      | cdktf.IResolvable,
+  ) {
     this._imagePullSecrets.internalValue = value;
   }
   public resetImagePullSecrets() {
@@ -10946,11 +13155,20 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // init_container - computed: false, optional: true, required: false
-  private _initContainer = new ReplicationControllerV1SpecTemplateSpecInitContainerList(this, "init_container", false);
+  private _initContainer =
+    new ReplicationControllerV1SpecTemplateSpecInitContainerList(
+      this,
+      'init_container',
+      false,
+    );
   public get initContainer() {
     return this._initContainer;
   }
-  public putInitContainer(value: ReplicationControllerV1SpecTemplateSpecInitContainer[] | cdktf.IResolvable) {
+  public putInitContainer(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecInitContainer[]
+      | cdktf.IResolvable,
+  ) {
     this._initContainer.internalValue = value;
   }
   public resetInitContainer() {
@@ -10962,11 +13180,20 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // readiness_gate - computed: false, optional: true, required: false
-  private _readinessGate = new ReplicationControllerV1SpecTemplateSpecReadinessGateList(this, "readiness_gate", false);
+  private _readinessGate =
+    new ReplicationControllerV1SpecTemplateSpecReadinessGateList(
+      this,
+      'readiness_gate',
+      false,
+    );
   public get readinessGate() {
     return this._readinessGate;
   }
-  public putReadinessGate(value: ReplicationControllerV1SpecTemplateSpecReadinessGate[] | cdktf.IResolvable) {
+  public putReadinessGate(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecReadinessGate[]
+      | cdktf.IResolvable,
+  ) {
     this._readinessGate.internalValue = value;
   }
   public resetReadinessGate() {
@@ -10978,11 +13205,17 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // security_context - computed: false, optional: true, required: false
-  private _securityContext = new ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReference(this, "security_context");
+  private _securityContext =
+    new ReplicationControllerV1SpecTemplateSpecSecurityContextOutputReference(
+      this,
+      'security_context',
+    );
   public get securityContext() {
     return this._securityContext;
   }
-  public putSecurityContext(value: ReplicationControllerV1SpecTemplateSpecSecurityContext) {
+  public putSecurityContext(
+    value: ReplicationControllerV1SpecTemplateSpecSecurityContext,
+  ) {
     this._securityContext.internalValue = value;
   }
   public resetSecurityContext() {
@@ -10994,11 +13227,20 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // toleration - computed: false, optional: true, required: false
-  private _toleration = new ReplicationControllerV1SpecTemplateSpecTolerationList(this, "toleration", false);
+  private _toleration =
+    new ReplicationControllerV1SpecTemplateSpecTolerationList(
+      this,
+      'toleration',
+      false,
+    );
   public get toleration() {
     return this._toleration;
   }
-  public putToleration(value: ReplicationControllerV1SpecTemplateSpecToleration[] | cdktf.IResolvable) {
+  public putToleration(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecToleration[]
+      | cdktf.IResolvable,
+  ) {
     this._toleration.internalValue = value;
   }
   public resetToleration() {
@@ -11010,11 +13252,20 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // topology_spread_constraint - computed: false, optional: true, required: false
-  private _topologySpreadConstraint = new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintList(this, "topology_spread_constraint", false);
+  private _topologySpreadConstraint =
+    new ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraintList(
+      this,
+      'topology_spread_constraint',
+      false,
+    );
   public get topologySpreadConstraint() {
     return this._topologySpreadConstraint;
   }
-  public putTopologySpreadConstraint(value: ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint[] | cdktf.IResolvable) {
+  public putTopologySpreadConstraint(
+    value:
+      | ReplicationControllerV1SpecTemplateSpecTopologySpreadConstraint[]
+      | cdktf.IResolvable,
+  ) {
     this._topologySpreadConstraint.internalValue = value;
   }
   public resetTopologySpreadConstraint() {
@@ -11026,11 +13277,17 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
   }
 
   // volume - computed: false, optional: true, required: false
-  private _volume = new ReplicationControllerV1SpecTemplateSpecVolumeList(this, "volume", false);
+  private _volume = new ReplicationControllerV1SpecTemplateSpecVolumeList(
+    this,
+    'volume',
+    false,
+  );
   public get volume() {
     return this._volume;
   }
-  public putVolume(value: ReplicationControllerV1SpecTemplateSpecVolume[] | cdktf.IResolvable) {
+  public putVolume(
+    value: ReplicationControllerV1SpecTemplateSpecVolume[] | cdktf.IResolvable,
+  ) {
     this._volume.internalValue = value;
   }
   public resetVolume() {
@@ -11043,38 +13300,51 @@ export class ReplicationControllerV1SpecTemplateSpecOutputReference extends cdkt
 }
 export interface ReplicationControllerV1SpecTemplate {
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#metadata ReplicationControllerV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#metadata ReplicationControllerV1#metadata}
+   */
   readonly metadata: ReplicationControllerV1SpecTemplateMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#spec ReplicationControllerV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#spec ReplicationControllerV1#spec}
+   */
   readonly spec: ReplicationControllerV1SpecTemplateSpec;
 }
 
-export function replicationControllerV1SpecTemplateToTerraform(struct?: ReplicationControllerV1SpecTemplateOutputReference | ReplicationControllerV1SpecTemplate): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecTemplateToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecTemplateOutputReference
+    | ReplicationControllerV1SpecTemplate,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    metadata: replicationControllerV1SpecTemplateMetadataToTerraform(struct!.metadata),
+    metadata: replicationControllerV1SpecTemplateMetadataToTerraform(
+      struct!.metadata,
+    ),
     spec: replicationControllerV1SpecTemplateSpecToTerraform(struct!.spec),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecTemplateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11092,13 +13362,14 @@ export class ReplicationControllerV1SpecTemplateOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1SpecTemplate | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1SpecTemplate | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._metadata.internalValue = undefined;
       this._spec.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._metadata.internalValue = value.metadata;
       this._spec.internalValue = value.spec;
@@ -11106,7 +13377,11 @@ export class ReplicationControllerV1SpecTemplateOutputReference extends cdktf.Co
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new ReplicationControllerV1SpecTemplateMetadataOutputReference(this, "metadata");
+  private _metadata =
+    new ReplicationControllerV1SpecTemplateMetadataOutputReference(
+      this,
+      'metadata',
+    );
   public get metadata() {
     return this._metadata;
   }
@@ -11119,7 +13394,10 @@ export class ReplicationControllerV1SpecTemplateOutputReference extends cdktf.Co
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new ReplicationControllerV1SpecTemplateSpecOutputReference(this, "spec");
+  private _spec = new ReplicationControllerV1SpecTemplateSpecOutputReference(
+    this,
+    'spec',
+  );
   public get spec() {
     return this._spec;
   }
@@ -11133,52 +13411,63 @@ export class ReplicationControllerV1SpecTemplateOutputReference extends cdktf.Co
 }
 export interface ReplicationControllerV1Spec {
   /**
-  * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#min_ready_seconds ReplicationControllerV1#min_ready_seconds}
-  */
+   * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#min_ready_seconds ReplicationControllerV1#min_ready_seconds}
+   */
   readonly minReadySeconds?: number;
   /**
-  * The number of desired replicas. Defaults to 1. More info: http://kubernetes.io/docs/user-guide/replication-controller#what-is-a-replication-controller
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#replicas ReplicationControllerV1#replicas}
-  */
+   * The number of desired replicas. Defaults to 1. More info: http://kubernetes.io/docs/user-guide/replication-controller#what-is-a-replication-controller
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#replicas ReplicationControllerV1#replicas}
+   */
   readonly replicas?: number;
   /**
-  * A label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#selector ReplicationControllerV1#selector}
-  */
+   * A label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#selector ReplicationControllerV1#selector}
+   */
   readonly selector: { [key: string]: string };
   /**
-  * template block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#template ReplicationControllerV1#template}
-  */
+   * template block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#template ReplicationControllerV1#template}
+   */
   readonly template: ReplicationControllerV1SpecTemplate;
 }
 
-export function replicationControllerV1SpecToTerraform(struct?: ReplicationControllerV1SpecOutputReference | ReplicationControllerV1Spec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1SpecToTerraform(
+  struct?:
+    | ReplicationControllerV1SpecOutputReference
+    | ReplicationControllerV1Spec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     min_ready_seconds: cdktf.numberToTerraform(struct!.minReadySeconds),
     replicas: cdktf.numberToTerraform(struct!.replicas),
     selector: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.selector),
     template: replicationControllerV1SpecTemplateToTerraform(struct!.template),
-  }
+  };
 }
 
 export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -11211,8 +13500,7 @@ export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObj
       this._replicas = undefined;
       this._selector = undefined;
       this._template.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._minReadySeconds = value.minReadySeconds;
       this._replicas = value.replicas;
@@ -11222,7 +13510,7 @@ export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObj
   }
 
   // min_ready_seconds - computed: false, optional: true, required: false
-  private _minReadySeconds?: number; 
+  private _minReadySeconds?: number;
   public get minReadySeconds() {
     return this.getNumberAttribute('min_ready_seconds');
   }
@@ -11238,7 +13526,7 @@ export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObj
   }
 
   // replicas - computed: false, optional: true, required: false
-  private _replicas?: number; 
+  private _replicas?: number;
   public get replicas() {
     return this.getNumberAttribute('replicas');
   }
@@ -11254,7 +13542,7 @@ export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObj
   }
 
   // selector - computed: false, optional: false, required: true
-  private _selector?: { [key: string]: string }; 
+  private _selector?: { [key: string]: string };
   public get selector() {
     return this.getStringMapAttribute('selector');
   }
@@ -11267,7 +13555,10 @@ export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObj
   }
 
   // template - computed: false, optional: false, required: true
-  private _template = new ReplicationControllerV1SpecTemplateOutputReference(this, "template");
+  private _template = new ReplicationControllerV1SpecTemplateOutputReference(
+    this,
+    'template',
+  );
   public get template() {
     return this._template;
   }
@@ -11281,29 +13572,38 @@ export class ReplicationControllerV1SpecOutputReference extends cdktf.ComplexObj
 }
 export interface ReplicationControllerV1Timeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#create ReplicationControllerV1#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#create ReplicationControllerV1#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#delete ReplicationControllerV1#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#delete ReplicationControllerV1#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#update ReplicationControllerV1#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/replication_controller_v1#update ReplicationControllerV1#update}
+   */
   readonly update?: string;
 }
 
-export function replicationControllerV1TimeoutsToTerraform(struct?: ReplicationControllerV1TimeoutsOutputReference | ReplicationControllerV1Timeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function replicationControllerV1TimeoutsToTerraform(
+  struct?:
+    | ReplicationControllerV1TimeoutsOutputReference
+    | ReplicationControllerV1Timeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ReplicationControllerV1TimeoutsOutputReference extends cdktf.ComplexObject {
@@ -11311,14 +13611,20 @@ export class ReplicationControllerV1TimeoutsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ReplicationControllerV1Timeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ReplicationControllerV1Timeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -11339,19 +13645,19 @@ export class ReplicationControllerV1TimeoutsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ReplicationControllerV1Timeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ReplicationControllerV1Timeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -11361,7 +13667,7 @@ export class ReplicationControllerV1TimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -11377,7 +13683,7 @@ export class ReplicationControllerV1TimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -11393,7 +13699,7 @@ export class ReplicationControllerV1TimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }

@@ -1,47 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/d/kendra_index
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DataAwsKendraIndexConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kendra_index#id DataAwsKendraIndex#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kendra_index#id DataAwsKendraIndex#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kendra_index#tags DataAwsKendraIndex#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kendra_index#tags DataAwsKendraIndex#tags}
+   */
   readonly tags?: { [key: string]: string };
 }
-export interface DataAwsKendraIndexCapacityUnits {
-}
+export interface DataAwsKendraIndexCapacityUnits {}
 
-export function dataAwsKendraIndexCapacityUnitsToTerraform(struct?: DataAwsKendraIndexCapacityUnits): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexCapacityUnitsToTerraform(
+  struct?: DataAwsKendraIndexCapacityUnits,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexCapacityUnitsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsKendraIndexCapacityUnits | undefined {
@@ -53,8 +66,7 @@ export class DataAwsKendraIndexCapacityUnitsOutputReference extends cdktf.Comple
   public set internalValue(value: DataAwsKendraIndexCapacityUnits | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -71,59 +83,86 @@ export class DataAwsKendraIndexCapacityUnitsOutputReference extends cdktf.Comple
 }
 
 export class DataAwsKendraIndexCapacityUnitsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsKendraIndexCapacityUnitsOutputReference {
-    return new DataAwsKendraIndexCapacityUnitsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsKendraIndexCapacityUnitsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance {
-}
+export interface DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance {}
 
-export function dataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceToTerraform(struct?: DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceToTerraform(
+  struct?: DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevance
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -149,66 +188,98 @@ export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceOutp
   }
 
   // values_importance_map - computed: true, optional: false, required: false
-  private _valuesImportanceMap = new cdktf.NumberMap(this, "values_importance_map");
+  private _valuesImportanceMap = new cdktf.NumberMap(
+    this,
+    'values_importance_map',
+  );
   public get valuesImportanceMap() {
     return this._valuesImportanceMap;
   }
 }
 
 export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceOutputReference {
-    return new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceOutputReference {
+    return new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch {
-}
+export interface DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch {}
 
-export function dataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchToTerraform(struct?: DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchToTerraform(
+  struct?: DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearch
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -235,59 +306,86 @@ export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchOutputR
 }
 
 export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchOutputReference {
-    return new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchOutputReference {
+    return new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexDocumentMetadataConfigurationUpdates {
-}
+export interface DataAwsKendraIndexDocumentMetadataConfigurationUpdates {}
 
-export function dataAwsKendraIndexDocumentMetadataConfigurationUpdatesToTerraform(struct?: DataAwsKendraIndexDocumentMetadataConfigurationUpdates): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexDocumentMetadataConfigurationUpdatesToTerraform(
+  struct?: DataAwsKendraIndexDocumentMetadataConfigurationUpdates,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexDocumentMetadataConfigurationUpdates | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexDocumentMetadataConfigurationUpdates
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexDocumentMetadataConfigurationUpdates | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexDocumentMetadataConfigurationUpdates | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -298,13 +396,23 @@ export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReferen
   }
 
   // relevance - computed: true, optional: false, required: false
-  private _relevance = new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceList(this, "relevance", false);
+  private _relevance =
+    new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesRelevanceList(
+      this,
+      'relevance',
+      false,
+    );
   public get relevance() {
     return this._relevance;
   }
 
   // search - computed: true, optional: false, required: false
-  private _search = new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchList(this, "search", false);
+  private _search =
+    new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesSearchList(
+      this,
+      'search',
+      false,
+    );
   public get search() {
     return this._search;
   }
@@ -316,59 +424,86 @@ export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReferen
 }
 
 export class DataAwsKendraIndexDocumentMetadataConfigurationUpdatesList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReference {
-    return new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReference {
+    return new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexIndexStatisticsFaqStatistics {
-}
+export interface DataAwsKendraIndexIndexStatisticsFaqStatistics {}
 
-export function dataAwsKendraIndexIndexStatisticsFaqStatisticsToTerraform(struct?: DataAwsKendraIndexIndexStatisticsFaqStatistics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexIndexStatisticsFaqStatisticsToTerraform(
+  struct?: DataAwsKendraIndexIndexStatisticsFaqStatistics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexIndexStatisticsFaqStatisticsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexIndexStatisticsFaqStatistics | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexIndexStatisticsFaqStatistics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexIndexStatisticsFaqStatistics | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexIndexStatisticsFaqStatistics | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -380,59 +515,86 @@ export class DataAwsKendraIndexIndexStatisticsFaqStatisticsOutputReference exten
 }
 
 export class DataAwsKendraIndexIndexStatisticsFaqStatisticsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexIndexStatisticsFaqStatisticsOutputReference {
-    return new DataAwsKendraIndexIndexStatisticsFaqStatisticsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexIndexStatisticsFaqStatisticsOutputReference {
+    return new DataAwsKendraIndexIndexStatisticsFaqStatisticsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexIndexStatisticsTextDocumentStatistics {
-}
+export interface DataAwsKendraIndexIndexStatisticsTextDocumentStatistics {}
 
-export function dataAwsKendraIndexIndexStatisticsTextDocumentStatisticsToTerraform(struct?: DataAwsKendraIndexIndexStatisticsTextDocumentStatistics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexIndexStatisticsTextDocumentStatisticsToTerraform(
+  struct?: DataAwsKendraIndexIndexStatisticsTextDocumentStatistics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexIndexStatisticsTextDocumentStatistics | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexIndexStatisticsTextDocumentStatistics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexIndexStatisticsTextDocumentStatistics | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexIndexStatisticsTextDocumentStatistics | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -449,46 +611,70 @@ export class DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsOutputRefere
 }
 
 export class DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsOutputReference {
-    return new DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsOutputReference {
+    return new DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexIndexStatistics {
-}
+export interface DataAwsKendraIndexIndexStatistics {}
 
-export function dataAwsKendraIndexIndexStatisticsToTerraform(struct?: DataAwsKendraIndexIndexStatistics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexIndexStatisticsToTerraform(
+  struct?: DataAwsKendraIndexIndexStatistics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexIndexStatisticsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsKendraIndexIndexStatistics | undefined {
@@ -497,82 +683,118 @@ export class DataAwsKendraIndexIndexStatisticsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexIndexStatistics | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexIndexStatistics | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // faq_statistics - computed: true, optional: false, required: false
-  private _faqStatistics = new DataAwsKendraIndexIndexStatisticsFaqStatisticsList(this, "faq_statistics", false);
+  private _faqStatistics =
+    new DataAwsKendraIndexIndexStatisticsFaqStatisticsList(
+      this,
+      'faq_statistics',
+      false,
+    );
   public get faqStatistics() {
     return this._faqStatistics;
   }
 
   // text_document_statistics - computed: true, optional: false, required: false
-  private _textDocumentStatistics = new DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsList(this, "text_document_statistics", false);
+  private _textDocumentStatistics =
+    new DataAwsKendraIndexIndexStatisticsTextDocumentStatisticsList(
+      this,
+      'text_document_statistics',
+      false,
+    );
   public get textDocumentStatistics() {
     return this._textDocumentStatistics;
   }
 }
 
 export class DataAwsKendraIndexIndexStatisticsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsKendraIndexIndexStatisticsOutputReference {
-    return new DataAwsKendraIndexIndexStatisticsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsKendraIndexIndexStatisticsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexServerSideEncryptionConfiguration {
-}
+export interface DataAwsKendraIndexServerSideEncryptionConfiguration {}
 
-export function dataAwsKendraIndexServerSideEncryptionConfigurationToTerraform(struct?: DataAwsKendraIndexServerSideEncryptionConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexServerSideEncryptionConfigurationToTerraform(
+  struct?: DataAwsKendraIndexServerSideEncryptionConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexServerSideEncryptionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexServerSideEncryptionConfiguration | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexServerSideEncryptionConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexServerSideEncryptionConfiguration | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexServerSideEncryptionConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -584,59 +806,86 @@ export class DataAwsKendraIndexServerSideEncryptionConfigurationOutputReference 
 }
 
 export class DataAwsKendraIndexServerSideEncryptionConfigurationList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexServerSideEncryptionConfigurationOutputReference {
-    return new DataAwsKendraIndexServerSideEncryptionConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexServerSideEncryptionConfigurationOutputReference {
+    return new DataAwsKendraIndexServerSideEncryptionConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexUserGroupResolutionConfiguration {
-}
+export interface DataAwsKendraIndexUserGroupResolutionConfiguration {}
 
-export function dataAwsKendraIndexUserGroupResolutionConfigurationToTerraform(struct?: DataAwsKendraIndexUserGroupResolutionConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexUserGroupResolutionConfigurationToTerraform(
+  struct?: DataAwsKendraIndexUserGroupResolutionConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexUserGroupResolutionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexUserGroupResolutionConfiguration | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexUserGroupResolutionConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexUserGroupResolutionConfiguration | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexUserGroupResolutionConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -648,59 +897,88 @@ export class DataAwsKendraIndexUserGroupResolutionConfigurationOutputReference e
 }
 
 export class DataAwsKendraIndexUserGroupResolutionConfigurationList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexUserGroupResolutionConfigurationOutputReference {
-    return new DataAwsKendraIndexUserGroupResolutionConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexUserGroupResolutionConfigurationOutputReference {
+    return new DataAwsKendraIndexUserGroupResolutionConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration {
-}
+export interface DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration {}
 
-export function dataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationToTerraform(struct?: DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationToTerraform(
+  struct?: DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -717,59 +995,88 @@ export class DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfiguration
 }
 
 export class DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationOutputReference {
-    return new DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationOutputReference {
+    return new DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration {
-}
+export interface DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration {}
 
-export function dataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationToTerraform(struct?: DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationToTerraform(
+  struct?: DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfiguration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -811,123 +1118,173 @@ export class DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationO
 }
 
 export class DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationOutputReference {
-    return new DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationOutputReference {
+    return new DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsKendraIndexUserTokenConfigurations {
-}
+export interface DataAwsKendraIndexUserTokenConfigurations {}
 
-export function dataAwsKendraIndexUserTokenConfigurationsToTerraform(struct?: DataAwsKendraIndexUserTokenConfigurations): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKendraIndexUserTokenConfigurationsToTerraform(
+  struct?: DataAwsKendraIndexUserTokenConfigurations,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsKendraIndexUserTokenConfigurationsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKendraIndexUserTokenConfigurations | undefined {
+  public get internalValue():
+    | DataAwsKendraIndexUserTokenConfigurations
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKendraIndexUserTokenConfigurations | undefined) {
+  public set internalValue(
+    value: DataAwsKendraIndexUserTokenConfigurations | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // json_token_type_configuration - computed: true, optional: false, required: false
-  private _jsonTokenTypeConfiguration = new DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationList(this, "json_token_type_configuration", false);
+  private _jsonTokenTypeConfiguration =
+    new DataAwsKendraIndexUserTokenConfigurationsJsonTokenTypeConfigurationList(
+      this,
+      'json_token_type_configuration',
+      false,
+    );
   public get jsonTokenTypeConfiguration() {
     return this._jsonTokenTypeConfiguration;
   }
 
   // jwt_token_type_configuration - computed: true, optional: false, required: false
-  private _jwtTokenTypeConfiguration = new DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationList(this, "jwt_token_type_configuration", false);
+  private _jwtTokenTypeConfiguration =
+    new DataAwsKendraIndexUserTokenConfigurationsJwtTokenTypeConfigurationList(
+      this,
+      'jwt_token_type_configuration',
+      false,
+    );
   public get jwtTokenTypeConfiguration() {
     return this._jwtTokenTypeConfiguration;
   }
 }
 
 export class DataAwsKendraIndexUserTokenConfigurationsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsKendraIndexUserTokenConfigurationsOutputReference {
-    return new DataAwsKendraIndexUserTokenConfigurationsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsKendraIndexUserTokenConfigurationsOutputReference {
+    return new DataAwsKendraIndexUserTokenConfigurationsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/kendra_index aws_kendra_index}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/kendra_index aws_kendra_index}
+ */
 export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_kendra_index";
+  public static readonly tfResourceType = 'aws_kendra_index';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/kendra_index aws_kendra_index} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsKendraIndexConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsKendraIndexConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/kendra_index aws_kendra_index} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsKendraIndexConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsKendraIndexConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_kendra_index',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -935,7 +1292,7 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._tags = config.tags;
@@ -951,7 +1308,11 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // capacity_units - computed: true, optional: false, required: false
-  private _capacityUnits = new DataAwsKendraIndexCapacityUnitsList(this, "capacity_units", false);
+  private _capacityUnits = new DataAwsKendraIndexCapacityUnitsList(
+    this,
+    'capacity_units',
+    false,
+  );
   public get capacityUnits() {
     return this._capacityUnits;
   }
@@ -967,7 +1328,12 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // document_metadata_configuration_updates - computed: true, optional: false, required: false
-  private _documentMetadataConfigurationUpdates = new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesList(this, "document_metadata_configuration_updates", true);
+  private _documentMetadataConfigurationUpdates =
+    new DataAwsKendraIndexDocumentMetadataConfigurationUpdatesList(
+      this,
+      'document_metadata_configuration_updates',
+      true,
+    );
   public get documentMetadataConfigurationUpdates() {
     return this._documentMetadataConfigurationUpdates;
   }
@@ -983,7 +1349,7 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -996,7 +1362,11 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // index_statistics - computed: true, optional: false, required: false
-  private _indexStatistics = new DataAwsKendraIndexIndexStatisticsList(this, "index_statistics", false);
+  private _indexStatistics = new DataAwsKendraIndexIndexStatisticsList(
+    this,
+    'index_statistics',
+    false,
+  );
   public get indexStatistics() {
     return this._indexStatistics;
   }
@@ -1012,7 +1382,12 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // server_side_encryption_configuration - computed: true, optional: false, required: false
-  private _serverSideEncryptionConfiguration = new DataAwsKendraIndexServerSideEncryptionConfigurationList(this, "server_side_encryption_configuration", false);
+  private _serverSideEncryptionConfiguration =
+    new DataAwsKendraIndexServerSideEncryptionConfigurationList(
+      this,
+      'server_side_encryption_configuration',
+      false,
+    );
   public get serverSideEncryptionConfiguration() {
     return this._serverSideEncryptionConfiguration;
   }
@@ -1023,7 +1398,7 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1049,13 +1424,23 @@ export class DataAwsKendraIndex extends cdktf.TerraformDataSource {
   }
 
   // user_group_resolution_configuration - computed: true, optional: false, required: false
-  private _userGroupResolutionConfiguration = new DataAwsKendraIndexUserGroupResolutionConfigurationList(this, "user_group_resolution_configuration", false);
+  private _userGroupResolutionConfiguration =
+    new DataAwsKendraIndexUserGroupResolutionConfigurationList(
+      this,
+      'user_group_resolution_configuration',
+      false,
+    );
   public get userGroupResolutionConfiguration() {
     return this._userGroupResolutionConfiguration;
   }
 
   // user_token_configurations - computed: true, optional: false, required: false
-  private _userTokenConfigurations = new DataAwsKendraIndexUserTokenConfigurationsList(this, "user_token_configurations", false);
+  private _userTokenConfigurations =
+    new DataAwsKendraIndexUserTokenConfigurationsList(
+      this,
+      'user_token_configurations',
+      false,
+    );
   public get userTokenConfigurations() {
     return this._userTokenConfigurations;
   }

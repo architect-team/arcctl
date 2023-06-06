@@ -1,16 +1,13 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { ResourcePresets } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsDatabaseModule } from '../modules/database.js';
-import AwsUtils from '../utils.js';
-import { AwsRegionService } from './region.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourcePresets } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsDatabaseModule } from '../modules/database.ts';
+import AwsUtils from '../utils.ts';
+import { AwsRegionService } from './region.ts';
 
-export class AwsDatabaseService extends TerraformResourceService<
-  'database',
-  AwsCredentials
-> {
+export class AwsDatabaseService extends TerraformResourceService<'database', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }

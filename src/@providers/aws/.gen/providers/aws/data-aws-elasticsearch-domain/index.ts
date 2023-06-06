@@ -1,64 +1,81 @@
 // https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsElasticsearchDomainConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsElasticsearchDomainConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain#domain_name DataAwsElasticsearchDomain#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain#domain_name DataAwsElasticsearchDomain#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain#id DataAwsElasticsearchDomain#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain#id DataAwsElasticsearchDomain#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain#tags DataAwsElasticsearchDomain#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain#tags DataAwsElasticsearchDomain#tags}
+   */
   readonly tags?: { [key: string]: string };
 }
-export interface DataAwsElasticsearchDomainAdvancedSecurityOptions {
-}
+export interface DataAwsElasticsearchDomainAdvancedSecurityOptions {}
 
-export function dataAwsElasticsearchDomainAdvancedSecurityOptionsToTerraform(struct?: DataAwsElasticsearchDomainAdvancedSecurityOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainAdvancedSecurityOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainAdvancedSecurityOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainAdvancedSecurityOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainAdvancedSecurityOptions | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainAdvancedSecurityOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainAdvancedSecurityOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainAdvancedSecurityOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -75,59 +92,88 @@ export class DataAwsElasticsearchDomainAdvancedSecurityOptionsOutputReference ex
 }
 
 export class DataAwsElasticsearchDomainAdvancedSecurityOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainAdvancedSecurityOptionsOutputReference {
-    return new DataAwsElasticsearchDomainAdvancedSecurityOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainAdvancedSecurityOptionsOutputReference {
+    return new DataAwsElasticsearchDomainAdvancedSecurityOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration {
-}
+export interface DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration {}
 
-export function dataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationToTerraform(struct?: DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationToTerraform(
+  struct?: DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuration
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -144,59 +190,88 @@ export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDuratio
 }
 
 export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputReference {
-    return new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputReference {
+    return new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule {
-}
+export interface DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule {}
 
-export function dataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleToTerraform(struct?: DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleToTerraform(
+  struct?: DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceSchedule
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -207,7 +282,12 @@ export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputR
   }
 
   // duration - computed: true, optional: false, required: false
-  private _duration = new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationList(this, "duration", false);
+  private _duration =
+    new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleDurationList(
+      this,
+      'duration',
+      false,
+    );
   public get duration() {
     return this._duration;
   }
@@ -219,59 +299,86 @@ export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputR
 }
 
 export class DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference {
-    return new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference {
+    return new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainAutoTuneOptions {
-}
+export interface DataAwsElasticsearchDomainAutoTuneOptions {}
 
-export function dataAwsElasticsearchDomainAutoTuneOptionsToTerraform(struct?: DataAwsElasticsearchDomainAutoTuneOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainAutoTuneOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainAutoTuneOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainAutoTuneOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainAutoTuneOptions | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainAutoTuneOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainAutoTuneOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainAutoTuneOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -282,7 +389,12 @@ export class DataAwsElasticsearchDomainAutoTuneOptionsOutputReference extends cd
   }
 
   // maintenance_schedule - computed: true, optional: false, required: false
-  private _maintenanceSchedule = new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleList(this, "maintenance_schedule", true);
+  private _maintenanceSchedule =
+    new DataAwsElasticsearchDomainAutoTuneOptionsMaintenanceScheduleList(
+      this,
+      'maintenance_schedule',
+      true,
+    );
   public get maintenanceSchedule() {
     return this._maintenanceSchedule;
   }
@@ -294,59 +406,88 @@ export class DataAwsElasticsearchDomainAutoTuneOptionsOutputReference extends cd
 }
 
 export class DataAwsElasticsearchDomainAutoTuneOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainAutoTuneOptionsOutputReference {
-    return new DataAwsElasticsearchDomainAutoTuneOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainAutoTuneOptionsOutputReference {
+    return new DataAwsElasticsearchDomainAutoTuneOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainClusterConfigColdStorageOptions {
-}
+export interface DataAwsElasticsearchDomainClusterConfigColdStorageOptions {}
 
-export function dataAwsElasticsearchDomainClusterConfigColdStorageOptionsToTerraform(struct?: DataAwsElasticsearchDomainClusterConfigColdStorageOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainClusterConfigColdStorageOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainClusterConfigColdStorageOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainClusterConfigColdStorageOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainClusterConfigColdStorageOptions | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainClusterConfigColdStorageOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainClusterConfigColdStorageOptions | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsElasticsearchDomainClusterConfigColdStorageOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -358,59 +499,88 @@ export class DataAwsElasticsearchDomainClusterConfigColdStorageOptionsOutputRefe
 }
 
 export class DataAwsElasticsearchDomainClusterConfigColdStorageOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainClusterConfigColdStorageOptionsOutputReference {
-    return new DataAwsElasticsearchDomainClusterConfigColdStorageOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainClusterConfigColdStorageOptionsOutputReference {
+    return new DataAwsElasticsearchDomainClusterConfigColdStorageOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig {
-}
+export interface DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig {}
 
-export function dataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigToTerraform(struct?: DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigToTerraform(
+  struct?: DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -422,65 +592,97 @@ export class DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigOutputRef
 }
 
 export class DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigOutputReference {
-    return new DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigOutputReference {
+    return new DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainClusterConfig {
-}
+export interface DataAwsElasticsearchDomainClusterConfig {}
 
-export function dataAwsElasticsearchDomainClusterConfigToTerraform(struct?: DataAwsElasticsearchDomainClusterConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainClusterConfigToTerraform(
+  struct?: DataAwsElasticsearchDomainClusterConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainClusterConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainClusterConfig | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainClusterConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainClusterConfig | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainClusterConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // cold_storage_options - computed: true, optional: false, required: false
-  private _coldStorageOptions = new DataAwsElasticsearchDomainClusterConfigColdStorageOptionsList(this, "cold_storage_options", false);
+  private _coldStorageOptions =
+    new DataAwsElasticsearchDomainClusterConfigColdStorageOptionsList(
+      this,
+      'cold_storage_options',
+      false,
+    );
   public get coldStorageOptions() {
     return this._coldStorageOptions;
   }
@@ -526,7 +728,12 @@ export class DataAwsElasticsearchDomainClusterConfigOutputReference extends cdkt
   }
 
   // zone_awareness_config - computed: true, optional: false, required: false
-  private _zoneAwarenessConfig = new DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigList(this, "zone_awareness_config", false);
+  private _zoneAwarenessConfig =
+    new DataAwsElasticsearchDomainClusterConfigZoneAwarenessConfigList(
+      this,
+      'zone_awareness_config',
+      false,
+    );
   public get zoneAwarenessConfig() {
     return this._zoneAwarenessConfig;
   }
@@ -538,59 +745,86 @@ export class DataAwsElasticsearchDomainClusterConfigOutputReference extends cdkt
 }
 
 export class DataAwsElasticsearchDomainClusterConfigList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainClusterConfigOutputReference {
-    return new DataAwsElasticsearchDomainClusterConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainClusterConfigOutputReference {
+    return new DataAwsElasticsearchDomainClusterConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainCognitoOptions {
-}
+export interface DataAwsElasticsearchDomainCognitoOptions {}
 
-export function dataAwsElasticsearchDomainCognitoOptionsToTerraform(struct?: DataAwsElasticsearchDomainCognitoOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainCognitoOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainCognitoOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainCognitoOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainCognitoOptions | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainCognitoOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainCognitoOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainCognitoOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -617,46 +851,70 @@ export class DataAwsElasticsearchDomainCognitoOptionsOutputReference extends cdk
 }
 
 export class DataAwsElasticsearchDomainCognitoOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainCognitoOptionsOutputReference {
-    return new DataAwsElasticsearchDomainCognitoOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainCognitoOptionsOutputReference {
+    return new DataAwsElasticsearchDomainCognitoOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainEbsOptions {
-}
+export interface DataAwsElasticsearchDomainEbsOptions {}
 
-export function dataAwsElasticsearchDomainEbsOptionsToTerraform(struct?: DataAwsElasticsearchDomainEbsOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainEbsOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainEbsOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainEbsOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsElasticsearchDomainEbsOptions | undefined {
@@ -665,11 +923,12 @@ export class DataAwsElasticsearchDomainEbsOptionsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainEbsOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainEbsOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -701,59 +960,86 @@ export class DataAwsElasticsearchDomainEbsOptionsOutputReference extends cdktf.C
 }
 
 export class DataAwsElasticsearchDomainEbsOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainEbsOptionsOutputReference {
-    return new DataAwsElasticsearchDomainEbsOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainEbsOptionsOutputReference {
+    return new DataAwsElasticsearchDomainEbsOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainEncryptionAtRest {
-}
+export interface DataAwsElasticsearchDomainEncryptionAtRest {}
 
-export function dataAwsElasticsearchDomainEncryptionAtRestToTerraform(struct?: DataAwsElasticsearchDomainEncryptionAtRest): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainEncryptionAtRestToTerraform(
+  struct?: DataAwsElasticsearchDomainEncryptionAtRest,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainEncryptionAtRestOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainEncryptionAtRest | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainEncryptionAtRest
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainEncryptionAtRest | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainEncryptionAtRest | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -770,59 +1056,86 @@ export class DataAwsElasticsearchDomainEncryptionAtRestOutputReference extends c
 }
 
 export class DataAwsElasticsearchDomainEncryptionAtRestList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainEncryptionAtRestOutputReference {
-    return new DataAwsElasticsearchDomainEncryptionAtRestOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainEncryptionAtRestOutputReference {
+    return new DataAwsElasticsearchDomainEncryptionAtRestOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainLogPublishingOptions {
-}
+export interface DataAwsElasticsearchDomainLogPublishingOptions {}
 
-export function dataAwsElasticsearchDomainLogPublishingOptionsToTerraform(struct?: DataAwsElasticsearchDomainLogPublishingOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainLogPublishingOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainLogPublishingOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainLogPublishingOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainLogPublishingOptions | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainLogPublishingOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainLogPublishingOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainLogPublishingOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -844,59 +1157,86 @@ export class DataAwsElasticsearchDomainLogPublishingOptionsOutputReference exten
 }
 
 export class DataAwsElasticsearchDomainLogPublishingOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainLogPublishingOptionsOutputReference {
-    return new DataAwsElasticsearchDomainLogPublishingOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainLogPublishingOptionsOutputReference {
+    return new DataAwsElasticsearchDomainLogPublishingOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainNodeToNodeEncryption {
-}
+export interface DataAwsElasticsearchDomainNodeToNodeEncryption {}
 
-export function dataAwsElasticsearchDomainNodeToNodeEncryptionToTerraform(struct?: DataAwsElasticsearchDomainNodeToNodeEncryption): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainNodeToNodeEncryptionToTerraform(
+  struct?: DataAwsElasticsearchDomainNodeToNodeEncryption,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainNodeToNodeEncryptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainNodeToNodeEncryption | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainNodeToNodeEncryption
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainNodeToNodeEncryption | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainNodeToNodeEncryption | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -908,59 +1248,86 @@ export class DataAwsElasticsearchDomainNodeToNodeEncryptionOutputReference exten
 }
 
 export class DataAwsElasticsearchDomainNodeToNodeEncryptionList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainNodeToNodeEncryptionOutputReference {
-    return new DataAwsElasticsearchDomainNodeToNodeEncryptionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainNodeToNodeEncryptionOutputReference {
+    return new DataAwsElasticsearchDomainNodeToNodeEncryptionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainSnapshotOptions {
-}
+export interface DataAwsElasticsearchDomainSnapshotOptions {}
 
-export function dataAwsElasticsearchDomainSnapshotOptionsToTerraform(struct?: DataAwsElasticsearchDomainSnapshotOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainSnapshotOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainSnapshotOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainSnapshotOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsElasticsearchDomainSnapshotOptions | undefined {
+  public get internalValue():
+    | DataAwsElasticsearchDomainSnapshotOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainSnapshotOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainSnapshotOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -972,46 +1339,70 @@ export class DataAwsElasticsearchDomainSnapshotOptionsOutputReference extends cd
 }
 
 export class DataAwsElasticsearchDomainSnapshotOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainSnapshotOptionsOutputReference {
-    return new DataAwsElasticsearchDomainSnapshotOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainSnapshotOptionsOutputReference {
+    return new DataAwsElasticsearchDomainSnapshotOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
-export interface DataAwsElasticsearchDomainVpcOptions {
-}
+export interface DataAwsElasticsearchDomainVpcOptions {}
 
-export function dataAwsElasticsearchDomainVpcOptionsToTerraform(struct?: DataAwsElasticsearchDomainVpcOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsElasticsearchDomainVpcOptionsToTerraform(
+  struct?: DataAwsElasticsearchDomainVpcOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsElasticsearchDomainVpcOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsElasticsearchDomainVpcOptions | undefined {
@@ -1020,11 +1411,12 @@ export class DataAwsElasticsearchDomainVpcOptionsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsElasticsearchDomainVpcOptions | undefined) {
+  public set internalValue(
+    value: DataAwsElasticsearchDomainVpcOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1051,52 +1443,65 @@ export class DataAwsElasticsearchDomainVpcOptionsOutputReference extends cdktf.C
 }
 
 export class DataAwsElasticsearchDomainVpcOptionsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsElasticsearchDomainVpcOptionsOutputReference {
-    return new DataAwsElasticsearchDomainVpcOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsElasticsearchDomainVpcOptionsOutputReference {
+    return new DataAwsElasticsearchDomainVpcOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain aws_elasticsearch_domain}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain aws_elasticsearch_domain}
+ */
 export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_elasticsearch_domain";
+  public static readonly tfResourceType = 'aws_elasticsearch_domain';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain aws_elasticsearch_domain} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsElasticsearchDomainConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsElasticsearchDomainConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/elasticsearch_domain aws_elasticsearch_domain} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsElasticsearchDomainConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsElasticsearchDomainConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_elasticsearch_domain',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1104,7 +1509,7 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._domainName = config.domainName;
     this._id = config.id;
@@ -1121,13 +1526,18 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // advanced_options - computed: true, optional: false, required: false
-  private _advancedOptions = new cdktf.StringMap(this, "advanced_options");
+  private _advancedOptions = new cdktf.StringMap(this, 'advanced_options');
   public get advancedOptions() {
     return this._advancedOptions;
   }
 
   // advanced_security_options - computed: true, optional: false, required: false
-  private _advancedSecurityOptions = new DataAwsElasticsearchDomainAdvancedSecurityOptionsList(this, "advanced_security_options", false);
+  private _advancedSecurityOptions =
+    new DataAwsElasticsearchDomainAdvancedSecurityOptionsList(
+      this,
+      'advanced_security_options',
+      false,
+    );
   public get advancedSecurityOptions() {
     return this._advancedSecurityOptions;
   }
@@ -1138,19 +1548,31 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // auto_tune_options - computed: true, optional: false, required: false
-  private _autoTuneOptions = new DataAwsElasticsearchDomainAutoTuneOptionsList(this, "auto_tune_options", false);
+  private _autoTuneOptions = new DataAwsElasticsearchDomainAutoTuneOptionsList(
+    this,
+    'auto_tune_options',
+    false,
+  );
   public get autoTuneOptions() {
     return this._autoTuneOptions;
   }
 
   // cluster_config - computed: true, optional: false, required: false
-  private _clusterConfig = new DataAwsElasticsearchDomainClusterConfigList(this, "cluster_config", false);
+  private _clusterConfig = new DataAwsElasticsearchDomainClusterConfigList(
+    this,
+    'cluster_config',
+    false,
+  );
   public get clusterConfig() {
     return this._clusterConfig;
   }
 
   // cognito_options - computed: true, optional: false, required: false
-  private _cognitoOptions = new DataAwsElasticsearchDomainCognitoOptionsList(this, "cognito_options", false);
+  private _cognitoOptions = new DataAwsElasticsearchDomainCognitoOptionsList(
+    this,
+    'cognito_options',
+    false,
+  );
   public get cognitoOptions() {
     return this._cognitoOptions;
   }
@@ -1171,7 +1593,7 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -1184,7 +1606,11 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // ebs_options - computed: true, optional: false, required: false
-  private _ebsOptions = new DataAwsElasticsearchDomainEbsOptionsList(this, "ebs_options", false);
+  private _ebsOptions = new DataAwsElasticsearchDomainEbsOptionsList(
+    this,
+    'ebs_options',
+    false,
+  );
   public get ebsOptions() {
     return this._ebsOptions;
   }
@@ -1195,7 +1621,12 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // encryption_at_rest - computed: true, optional: false, required: false
-  private _encryptionAtRest = new DataAwsElasticsearchDomainEncryptionAtRestList(this, "encryption_at_rest", false);
+  private _encryptionAtRest =
+    new DataAwsElasticsearchDomainEncryptionAtRestList(
+      this,
+      'encryption_at_rest',
+      false,
+    );
   public get encryptionAtRest() {
     return this._encryptionAtRest;
   }
@@ -1206,7 +1637,7 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1227,13 +1658,23 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // log_publishing_options - computed: true, optional: false, required: false
-  private _logPublishingOptions = new DataAwsElasticsearchDomainLogPublishingOptionsList(this, "log_publishing_options", true);
+  private _logPublishingOptions =
+    new DataAwsElasticsearchDomainLogPublishingOptionsList(
+      this,
+      'log_publishing_options',
+      true,
+    );
   public get logPublishingOptions() {
     return this._logPublishingOptions;
   }
 
   // node_to_node_encryption - computed: true, optional: false, required: false
-  private _nodeToNodeEncryption = new DataAwsElasticsearchDomainNodeToNodeEncryptionList(this, "node_to_node_encryption", false);
+  private _nodeToNodeEncryption =
+    new DataAwsElasticsearchDomainNodeToNodeEncryptionList(
+      this,
+      'node_to_node_encryption',
+      false,
+    );
   public get nodeToNodeEncryption() {
     return this._nodeToNodeEncryption;
   }
@@ -1244,13 +1685,17 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // snapshot_options - computed: true, optional: false, required: false
-  private _snapshotOptions = new DataAwsElasticsearchDomainSnapshotOptionsList(this, "snapshot_options", false);
+  private _snapshotOptions = new DataAwsElasticsearchDomainSnapshotOptionsList(
+    this,
+    'snapshot_options',
+    false,
+  );
   public get snapshotOptions() {
     return this._snapshotOptions;
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1266,7 +1711,11 @@ export class DataAwsElasticsearchDomain extends cdktf.TerraformDataSource {
   }
 
   // vpc_options - computed: true, optional: false, required: false
-  private _vpcOptions = new DataAwsElasticsearchDomainVpcOptionsList(this, "vpc_options", false);
+  private _vpcOptions = new DataAwsElasticsearchDomainVpcOptionsList(
+    this,
+    'vpc_options',
+    false,
+  );
   public get vpcOptions() {
     return this._vpcOptions;
   }

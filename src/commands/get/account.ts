@@ -1,47 +1,41 @@
-import { ResourceType } from '../../@resources/index.js';
-import { BaseCommand } from '../../base-command.js';
-import { createTable } from '../../utils/table.js';
+import { ResourceType } from '../../@resources/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { createTable } from '../../utils/table.ts';
 
-export default class GetAccountCommand extends BaseCommand {
-  static description = 'Get the details of an account by name';
+const GetAccountCommand = BaseCommand()
+  .description('Get the details of an account by name')
+  .arguments('[name:string]')
+  .action(get_account_action);
 
-  static aliases: string[] = ['get:accounts'];
+async function get_account_action(options: GlobalOptions, name?: string) {
+  const command_helper = new CommandHelper(options);
 
-  static args = [
-    {
-      name: 'name',
-      description: 'The name of the account to get',
-    },
-  ];
+  const account = await command_helper.promptForAccount({
+    account: name,
+  });
 
-  async run(): Promise<void> {
-    const { args } = await this.parse(GetAccountCommand);
+  const table1 = createTable({ head: ['Name', 'Type'] });
+  table1.push([account.name, account.type]);
+  console.log(`${table1.toString()}\n`);
 
-    const account = await this.promptForAccount({
-      account: args.name,
-    });
+  const table2 = createTable({
+    head: ['Capabilities', ''],
+  });
 
-    const table1 = createTable({ head: ['Name', 'Type'] });
-    table1.push([account.name, account.type]);
-    this.log(`${table1.toString()}\n`);
+  const capabilities: { [key in ResourceType]?: string[] } = {};
+  for (const [type, impl] of account.getResourceEntries()) {
+    capabilities[type] = capabilities[type] || ['list', 'get'];
 
-    const table2 = createTable({
-      head: ['Capabilities', ''],
-    });
-
-    const capabilities: { [key in ResourceType]?: string[] } = {};
-    for (const [type, impl] of account.getResourceEntries()) {
-      capabilities[type] = capabilities[type] || ['list', 'get'];
-
-      if ('construct' in impl || 'create' in impl) {
-        capabilities[type]?.push('create', 'update', 'delete');
-      }
+    if ('construct' in impl || 'create' in impl) {
+      capabilities[type]?.push('create', 'update', 'delete');
     }
-
-    for (const [key, actions] of Object.entries(capabilities)) {
-      table2.push([key, actions?.join(', ') || '']);
-    }
-
-    this.log(table2.toString());
   }
+
+  for (const [key, actions] of Object.entries(capabilities)) {
+    table2.push([key, actions?.join(', ') || '']);
+  }
+
+  console.log(table2.toString());
 }
+
+export default GetAccountCommand;

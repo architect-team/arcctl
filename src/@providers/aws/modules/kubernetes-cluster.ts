@@ -1,23 +1,20 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import KubernetesUtils from '../../kubernetes.js';
-import { ResourceModule } from '../../module.js';
-import { ProviderStore } from '../../store.js';
-import { SupportedProviders } from '../../supported-providers.js';
-import { Eks } from '../.gen/modules/eks.js';
-import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.js';
-import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.js';
-import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.js';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
-import { Sleep } from '../.gen/providers/time/sleep/index.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import KubernetesUtils from '../../kubernetes.ts';
+import { ResourceModule } from '../../module.ts';
+import { ProviderStore } from '../../store.ts';
+import { SupportedProviders } from '../../supported-providers.ts';
+import { Eks } from '../.gen/modules/eks.ts';
+import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.ts';
+import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.ts';
+import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.ts';
+import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { Sleep } from '../.gen/providers/time/sleep/index.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
 import { TerraformOutput } from 'cdktf';
 import { Construct } from 'constructs';
 
-export class AwsKubernetesClusterModule extends ResourceModule<
-  'kubernetesCluster',
-  AwsCredentials
-> {
+export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluster', AwsCredentials> {
   private eks: Eks;
   private subnet_ids: DataAwsSubnets;
   private dataAwsEksCluster: DataAwsEksCluster;
@@ -28,23 +25,15 @@ export class AwsKubernetesClusterModule extends ResourceModule<
   private readonly clusterEndpointOutput: TerraformOutput;
   private readonly clusterCaOutput: TerraformOutput;
 
-  constructor(
-    scope: Construct,
-    private id: string,
-    inputs: ResourceInputs['kubernetesCluster'],
-  ) {
+  constructor(scope: Construct, private id: string, inputs: ResourceInputs['kubernetesCluster']) {
     super(scope, id, inputs);
 
     if (inputs.region) {
-      const aws_provider = this.scope.node.children.find(
-        (child) => child instanceof AwsProvider,
-      ) as any;
+      const aws_provider = this.scope.node.children.find((child) => child instanceof AwsProvider) as any;
       aws_provider.region = inputs.region;
     }
 
-    const vpc_parts = inputs.vpc
-      ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/)
-      : [];
+    const vpc_parts = inputs.vpc ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/) : [];
     if (!vpc_parts && this.inputs.name) {
       throw new Error('VPC must be of the format, <region>/<vpc_id>');
     }
@@ -84,14 +73,14 @@ export class AwsKubernetesClusterModule extends ResourceModule<
 
     const nodeGroups = this.inputs.nodePools
       ? this.inputs.nodePools.map((nodePool) => ({
-          desired_size: 1,
-          instance_types: [nodePool.nodeSize],
-          max_size: nodePool.count,
-          min_size: 1,
-          name: nodePool.name,
-        }))
+        desired_size: 1,
+        instance_types: [nodePool.nodeSize],
+        max_size: nodePool.count,
+        min_size: 1,
+        name: nodePool.name,
+      }))
       : [];
-    const managedNodeGroups: Record<string, typeof nodeGroups[number]> = {};
+    const managedNodeGroups: Record<string, (typeof nodeGroups)[number]> = {};
     for (const nodeGroup of nodeGroups) {
       managedNodeGroups[nodeGroup.name] = nodeGroup;
     }
@@ -156,10 +145,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: AwsCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
+  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
     const match = resourceId.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
       throw new Error('ID must be of the format, <region>/<uuid>');
@@ -206,8 +192,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
       // Security Group Rules
       [`${moduleId}.aws_security_group_rule.cluster["ingress_nodes_443"]`]:
         ids.securityGroupRules.clusterIngressNode443,
-      [`${moduleId}.aws_security_group_rule.node["ingress_cluster_443"]`]:
-        ids.securityGroupRules.nodeIngressCluster443,
+      [`${moduleId}.aws_security_group_rule.node["ingress_cluster_443"]`]: ids.securityGroupRules.nodeIngressCluster443,
       [`${moduleId}.aws_security_group_rule.node["ingress_cluster_kubelet"]`]:
         ids.securityGroupRules.nodeIngressClusterKubelet,
       [`${moduleId}.aws_security_group_rule.node["ingress_self_coredns_tcp"]`]:
@@ -217,20 +202,15 @@ export class AwsKubernetesClusterModule extends ResourceModule<
     };
 
     for (const [key, id] of Object.entries(ids.nodePoolSg)) {
-      results[
-        `${moduleId}.module.eks_managed_node_group["${key}"].aws_security_group.this[0]`
-      ] = id;
+      results[`${moduleId}.module.eks_managed_node_group["${key}"].aws_security_group.this[0]`] = id;
     }
 
     const node_groups = [];
     for (let i = 0; i < ids.nodeGroups.length; i++) {
       const nodeGroup = ids.nodeGroups[i];
-      results[
-        `${moduleId}.module.eks_managed_node_group["${i}"].aws_eks_node_group.this[0]`
-      ] = nodeGroup.id;
-      results[
-        `${moduleId}.module.eks_managed_node_group["${i}"].aws_launch_template.this[0]`
-      ] = nodeGroup.launchTemplate;
+      results[`${moduleId}.module.eks_managed_node_group["${i}"].aws_eks_node_group.this[0]`] = nodeGroup.id;
+      results[`${moduleId}.module.eks_managed_node_group["${i}"].aws_launch_template.this[0]`] =
+        nodeGroup.launchTemplate;
 
       node_groups.push({
         desired_size: 1,
@@ -268,9 +248,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<
       getOutputValue: (id: string) => Promise<any>,
     ) => {
       const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
-      const endpoint = await getOutputValue(
-        this.clusterEndpointOutput.friendlyUniqueId,
-      );
+      const endpoint = await getOutputValue(this.clusterEndpointOutput.friendlyUniqueId);
       const credentialsYaml = `apiVersion: v1
 clusters:
 - cluster:
@@ -299,10 +277,7 @@ users:
       - ${this.inputs.name}
       command: aws`;
       await KubernetesUtils.createProvider(this.inputs.name, credentialsYaml);
-      const configFilePath = providerStore.saveFile(
-        `kubernetesCluster-${this.inputs.name}.yml`,
-        credentialsYaml,
-      );
+      const configFilePath = providerStore.saveFile(`kubernetesCluster-${this.inputs.name}.yml`, credentialsYaml);
       providerStore.saveProvider(
         new SupportedProviders.kubernetes(
           `kubernetesCluster-${this.inputs.name}`,

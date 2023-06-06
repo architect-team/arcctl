@@ -1,29 +1,20 @@
-import { Environment } from './environment.js';
-import { buildEnvironment, EnvironmentSchema } from './schema.js';
+import { Environment } from './environment.ts';
+import { buildEnvironment, EnvironmentSchema } from './schema.ts';
 import Ajv2019 from 'ajv/dist/2019.js';
-import fs from 'fs/promises';
 import yaml from 'js-yaml';
-import path from 'path';
-import url from 'url';
+import * as path from 'std/path/mod.ts';
 
 const DEFAULT_SCHEMA_VERSION = 'v1';
 const ajv = new Ajv2019({ strict: false, discriminator: true });
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
 
-const environment_schema_contents = await fs.readFile(
-  path.join(__dirname, './environment.schema.json'),
-  'utf-8',
-);
-const validateEnvironment = ajv.compile<EnvironmentSchema>(
-  JSON.parse(environment_schema_contents),
-);
+const environment_schema_contents = Deno.readTextFileSync(path.join(__dirname, './environment.schema.json'));
+const environment_validator = ajv.compile<EnvironmentSchema>(JSON.parse(environment_schema_contents));
 
-export const parseEnvironment = async (
-  input: Record<string, unknown> | string,
-): Promise<Environment> => {
+export const parseEnvironment = async (input: Record<string, unknown> | string): Promise<Environment> => {
   let raw_obj: any;
   if (typeof input === 'string') {
-    const raw_contents = await fs.readFile(input, 'utf8');
+    const raw_contents = await Deno.readTextFile(input);
     if (input.endsWith('.json')) {
       raw_obj = JSON.parse(raw_contents);
     } else {
@@ -37,8 +28,8 @@ export const parseEnvironment = async (
     raw_obj.version = DEFAULT_SCHEMA_VERSION;
   }
 
-  if (!validateEnvironment(raw_obj)) {
-    throw validateEnvironment.errors;
+  if (!environment_validator(raw_obj)) {
+    throw environment_validator.errors;
   }
 
   return buildEnvironment(raw_obj);

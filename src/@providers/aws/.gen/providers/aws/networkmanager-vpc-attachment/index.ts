@@ -1,82 +1,95 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface NetworkmanagerVpcAttachmentConfig extends cdktf.TerraformMetaArguments {
+export interface NetworkmanagerVpcAttachmentConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#core_network_id NetworkmanagerVpcAttachment#core_network_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#core_network_id NetworkmanagerVpcAttachment#core_network_id}
+   */
   readonly coreNetworkId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#id NetworkmanagerVpcAttachment#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#id NetworkmanagerVpcAttachment#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#subnet_arns NetworkmanagerVpcAttachment#subnet_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#subnet_arns NetworkmanagerVpcAttachment#subnet_arns}
+   */
   readonly subnetArns: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#tags NetworkmanagerVpcAttachment#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#tags NetworkmanagerVpcAttachment#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#tags_all NetworkmanagerVpcAttachment#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#tags_all NetworkmanagerVpcAttachment#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#vpc_arn NetworkmanagerVpcAttachment#vpc_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#vpc_arn NetworkmanagerVpcAttachment#vpc_arn}
+   */
   readonly vpcArn: string;
   /**
-  * options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#options NetworkmanagerVpcAttachment#options}
-  */
+   * options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#options NetworkmanagerVpcAttachment#options}
+   */
   readonly options?: NetworkmanagerVpcAttachmentOptions;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#timeouts NetworkmanagerVpcAttachment#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#timeouts NetworkmanagerVpcAttachment#timeouts}
+   */
   readonly timeouts?: NetworkmanagerVpcAttachmentTimeouts;
 }
 export interface NetworkmanagerVpcAttachmentOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#appliance_mode_support NetworkmanagerVpcAttachment#appliance_mode_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#appliance_mode_support NetworkmanagerVpcAttachment#appliance_mode_support}
+   */
   readonly applianceModeSupport?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#ipv6_support NetworkmanagerVpcAttachment#ipv6_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#ipv6_support NetworkmanagerVpcAttachment#ipv6_support}
+   */
   readonly ipv6Support?: boolean | cdktf.IResolvable;
 }
 
-export function networkmanagerVpcAttachmentOptionsToTerraform(struct?: NetworkmanagerVpcAttachmentOptionsOutputReference | NetworkmanagerVpcAttachmentOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkmanagerVpcAttachmentOptionsToTerraform(
+  struct?:
+    | NetworkmanagerVpcAttachmentOptionsOutputReference
+    | NetworkmanagerVpcAttachmentOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    appliance_mode_support: cdktf.booleanToTerraform(struct!.applianceModeSupport),
+    appliance_mode_support: cdktf.booleanToTerraform(
+      struct!.applianceModeSupport,
+    ),
     ipv6_support: cdktf.booleanToTerraform(struct!.ipv6Support),
-  }
+  };
 }
 
 export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -94,13 +107,14 @@ export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkmanagerVpcAttachmentOptions | undefined) {
+  public set internalValue(
+    value: NetworkmanagerVpcAttachmentOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._applianceModeSupport = undefined;
       this._ipv6Support = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._applianceModeSupport = value.applianceModeSupport;
       this._ipv6Support = value.ipv6Support;
@@ -108,7 +122,7 @@ export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.Com
   }
 
   // appliance_mode_support - computed: false, optional: true, required: false
-  private _applianceModeSupport?: boolean | cdktf.IResolvable; 
+  private _applianceModeSupport?: boolean | cdktf.IResolvable;
   public get applianceModeSupport() {
     return this.getBooleanAttribute('appliance_mode_support');
   }
@@ -124,7 +138,7 @@ export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.Com
   }
 
   // ipv6_support - computed: false, optional: true, required: false
-  private _ipv6Support?: boolean | cdktf.IResolvable; 
+  private _ipv6Support?: boolean | cdktf.IResolvable;
   public get ipv6Support() {
     return this.getBooleanAttribute('ipv6_support');
   }
@@ -141,29 +155,38 @@ export class NetworkmanagerVpcAttachmentOptionsOutputReference extends cdktf.Com
 }
 export interface NetworkmanagerVpcAttachmentTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#create NetworkmanagerVpcAttachment#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#create NetworkmanagerVpcAttachment#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#delete NetworkmanagerVpcAttachment#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#delete NetworkmanagerVpcAttachment#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#update NetworkmanagerVpcAttachment#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment#update NetworkmanagerVpcAttachment#update}
+   */
   readonly update?: string;
 }
 
-export function networkmanagerVpcAttachmentTimeoutsToTerraform(struct?: NetworkmanagerVpcAttachmentTimeoutsOutputReference | NetworkmanagerVpcAttachmentTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkmanagerVpcAttachmentTimeoutsToTerraform(
+  struct?:
+    | NetworkmanagerVpcAttachmentTimeoutsOutputReference
+    | NetworkmanagerVpcAttachmentTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -171,14 +194,20 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): NetworkmanagerVpcAttachmentTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | NetworkmanagerVpcAttachmentTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -199,19 +228,19 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkmanagerVpcAttachmentTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: NetworkmanagerVpcAttachmentTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -221,7 +250,7 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -237,7 +266,7 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -253,7 +282,7 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -270,33 +299,36 @@ export class NetworkmanagerVpcAttachmentTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment aws_networkmanager_vpc_attachment}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment aws_networkmanager_vpc_attachment}
+ */
 export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_networkmanager_vpc_attachment";
+  public static readonly tfResourceType = 'aws_networkmanager_vpc_attachment';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment aws_networkmanager_vpc_attachment} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options NetworkmanagerVpcAttachmentConfig
-  */
-  public constructor(scope: Construct, id: string, config: NetworkmanagerVpcAttachmentConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_vpc_attachment aws_networkmanager_vpc_attachment} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options NetworkmanagerVpcAttachmentConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: NetworkmanagerVpcAttachmentConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_networkmanager_vpc_attachment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -304,7 +336,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._coreNetworkId = config.coreNetworkId;
     this._id = config.id;
@@ -341,7 +373,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // core_network_id - computed: false, optional: false, required: true
-  private _coreNetworkId?: string; 
+  private _coreNetworkId?: string;
   public get coreNetworkId() {
     return this.getStringAttribute('core_network_id');
   }
@@ -359,7 +391,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -395,7 +427,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // subnet_arns - computed: false, optional: false, required: true
-  private _subnetArns?: string[]; 
+  private _subnetArns?: string[];
   public get subnetArns() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_arns'));
   }
@@ -408,7 +440,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -424,7 +456,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -440,7 +472,7 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // vpc_arn - computed: false, optional: false, required: true
-  private _vpcArn?: string; 
+  private _vpcArn?: string;
   public get vpcArn() {
     return this.getStringAttribute('vpc_arn');
   }
@@ -453,7 +485,10 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // options - computed: false, optional: true, required: false
-  private _options = new NetworkmanagerVpcAttachmentOptionsOutputReference(this, "options");
+  private _options = new NetworkmanagerVpcAttachmentOptionsOutputReference(
+    this,
+    'options',
+  );
   public get options() {
     return this._options;
   }
@@ -469,7 +504,10 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new NetworkmanagerVpcAttachmentTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new NetworkmanagerVpcAttachmentTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -492,12 +530,19 @@ export class NetworkmanagerVpcAttachment extends cdktf.TerraformResource {
     return {
       core_network_id: cdktf.stringToTerraform(this._coreNetworkId),
       id: cdktf.stringToTerraform(this._id),
-      subnet_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetArns),
+      subnet_arns: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetArns),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       vpc_arn: cdktf.stringToTerraform(this._vpcArn),
-      options: networkmanagerVpcAttachmentOptionsToTerraform(this._options.internalValue),
-      timeouts: networkmanagerVpcAttachmentTimeoutsToTerraform(this._timeouts.internalValue),
+      options: networkmanagerVpcAttachmentOptionsToTerraform(
+        this._options.internalValue,
+      ),
+      timeouts: networkmanagerVpcAttachmentTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

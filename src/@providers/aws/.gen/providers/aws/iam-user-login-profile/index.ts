@@ -1,65 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface IamUserLoginProfileConfig extends cdktf.TerraformMetaArguments {
+export interface IamUserLoginProfileConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#id IamUserLoginProfile#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#id IamUserLoginProfile#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#password_length IamUserLoginProfile#password_length}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#password_length IamUserLoginProfile#password_length}
+   */
   readonly passwordLength?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#password_reset_required IamUserLoginProfile#password_reset_required}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#password_reset_required IamUserLoginProfile#password_reset_required}
+   */
   readonly passwordResetRequired?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#pgp_key IamUserLoginProfile#pgp_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#pgp_key IamUserLoginProfile#pgp_key}
+   */
   readonly pgpKey?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#user IamUserLoginProfile#user}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile#user IamUserLoginProfile#user}
+   */
   readonly user: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile aws_iam_user_login_profile}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile aws_iam_user_login_profile}
+ */
 export class IamUserLoginProfile extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_iam_user_login_profile";
+  public static readonly tfResourceType = 'aws_iam_user_login_profile';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile aws_iam_user_login_profile} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options IamUserLoginProfileConfig
-  */
-  public constructor(scope: Construct, id: string, config: IamUserLoginProfileConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_user_login_profile aws_iam_user_login_profile} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options IamUserLoginProfileConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: IamUserLoginProfileConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_user_login_profile',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +70,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._passwordLength = config.passwordLength;
@@ -86,7 +89,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +115,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // password_length - computed: false, optional: true, required: false
-  private _passwordLength?: number; 
+  private _passwordLength?: number;
   public get passwordLength() {
     return this.getNumberAttribute('password_length');
   }
@@ -128,7 +131,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // password_reset_required - computed: true, optional: true, required: false
-  private _passwordResetRequired?: boolean | cdktf.IResolvable; 
+  private _passwordResetRequired?: boolean | cdktf.IResolvable;
   public get passwordResetRequired() {
     return this.getBooleanAttribute('password_reset_required');
   }
@@ -144,7 +147,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // pgp_key - computed: false, optional: true, required: false
-  private _pgpKey?: string; 
+  private _pgpKey?: string;
   public get pgpKey() {
     return this.getStringAttribute('pgp_key');
   }
@@ -160,7 +163,7 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
   }
 
   // user - computed: false, optional: false, required: true
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -180,7 +183,9 @@ export class IamUserLoginProfile extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       password_length: cdktf.numberToTerraform(this._passwordLength),
-      password_reset_required: cdktf.booleanToTerraform(this._passwordResetRequired),
+      password_reset_required: cdktf.booleanToTerraform(
+        this._passwordResetRequired,
+      ),
       pgp_key: cdktf.stringToTerraform(this._pgpKey),
       user: cdktf.stringToTerraform(this._user),
     };

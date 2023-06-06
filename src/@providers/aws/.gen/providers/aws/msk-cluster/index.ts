@@ -1,119 +1,131 @@
 // https://www.terraform.io/docs/providers/aws/r/msk_cluster
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface MskClusterConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#cluster_name MskCluster#cluster_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#cluster_name MskCluster#cluster_name}
+   */
   readonly clusterName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enhanced_monitoring MskCluster#enhanced_monitoring}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enhanced_monitoring MskCluster#enhanced_monitoring}
+   */
   readonly enhancedMonitoring?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#id MskCluster#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#id MskCluster#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#kafka_version MskCluster#kafka_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#kafka_version MskCluster#kafka_version}
+   */
   readonly kafkaVersion: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#number_of_broker_nodes MskCluster#number_of_broker_nodes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#number_of_broker_nodes MskCluster#number_of_broker_nodes}
+   */
   readonly numberOfBrokerNodes: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#storage_mode MskCluster#storage_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#storage_mode MskCluster#storage_mode}
+   */
   readonly storageMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tags MskCluster#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tags MskCluster#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tags_all MskCluster#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tags_all MskCluster#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * broker_node_group_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#broker_node_group_info MskCluster#broker_node_group_info}
-  */
+   * broker_node_group_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#broker_node_group_info MskCluster#broker_node_group_info}
+   */
   readonly brokerNodeGroupInfo: MskClusterBrokerNodeGroupInfo;
   /**
-  * client_authentication block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_authentication MskCluster#client_authentication}
-  */
+   * client_authentication block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_authentication MskCluster#client_authentication}
+   */
   readonly clientAuthentication?: MskClusterClientAuthentication;
   /**
-  * configuration_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#configuration_info MskCluster#configuration_info}
-  */
+   * configuration_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#configuration_info MskCluster#configuration_info}
+   */
   readonly configurationInfo?: MskClusterConfigurationInfo;
   /**
-  * encryption_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_info MskCluster#encryption_info}
-  */
+   * encryption_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_info MskCluster#encryption_info}
+   */
   readonly encryptionInfo?: MskClusterEncryptionInfo;
   /**
-  * logging_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#logging_info MskCluster#logging_info}
-  */
+   * logging_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#logging_info MskCluster#logging_info}
+   */
   readonly loggingInfo?: MskClusterLoggingInfo;
   /**
-  * open_monitoring block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#open_monitoring MskCluster#open_monitoring}
-  */
+   * open_monitoring block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#open_monitoring MskCluster#open_monitoring}
+   */
   readonly openMonitoring?: MskClusterOpenMonitoring;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#timeouts MskCluster#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#timeouts MskCluster#timeouts}
+   */
   readonly timeouts?: MskClusterTimeouts;
 }
 export interface MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#type MskCluster#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#type MskCluster#type}
+   */
   readonly type?: string;
 }
 
-export function mskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessToTerraform(struct?: MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputReference | MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessToTerraform(
+  struct?:
+    | MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputReference
+    | MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess | undefined {
+  public get internalValue():
+    | MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._type !== undefined) {
@@ -123,19 +135,22 @@ export class MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess | undefined) {
+  public set internalValue(
+    value:
+      | MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._type = value.type;
     }
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -152,35 +167,51 @@ export class MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputRefe
 }
 export interface MskClusterBrokerNodeGroupInfoConnectivityInfo {
   /**
-  * public_access block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#public_access MskCluster#public_access}
-  */
+   * public_access block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#public_access MskCluster#public_access}
+   */
   readonly publicAccess?: MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
 }
 
-export function mskClusterBrokerNodeGroupInfoConnectivityInfoToTerraform(struct?: MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference | MskClusterBrokerNodeGroupInfoConnectivityInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterBrokerNodeGroupInfoConnectivityInfoToTerraform(
+  struct?:
+    | MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference
+    | MskClusterBrokerNodeGroupInfoConnectivityInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    public_access: mskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessToTerraform(struct!.publicAccess),
-  }
+    public_access:
+      mskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessToTerraform(
+        struct!.publicAccess,
+      ),
+  };
 }
 
 export class MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterBrokerNodeGroupInfoConnectivityInfo | undefined {
+  public get internalValue():
+    | MskClusterBrokerNodeGroupInfoConnectivityInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._publicAccess?.internalValue !== undefined) {
@@ -190,23 +221,30 @@ export class MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterBrokerNodeGroupInfoConnectivityInfo | undefined) {
+  public set internalValue(
+    value: MskClusterBrokerNodeGroupInfoConnectivityInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._publicAccess.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._publicAccess.internalValue = value.publicAccess;
     }
   }
 
   // public_access - computed: false, optional: true, required: false
-  private _publicAccess = new MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputReference(this, "public_access");
+  private _publicAccess =
+    new MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputReference(
+      this,
+      'public_access',
+    );
   public get publicAccess() {
     return this._publicAccess;
   }
-  public putPublicAccess(value: MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) {
+  public putPublicAccess(
+    value: MskClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess,
+  ) {
     this._publicAccess.internalValue = value;
   }
   public resetPublicAccess() {
@@ -219,38 +257,51 @@ export class MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference extend
 }
 export interface MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#volume_throughput MskCluster#volume_throughput}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#volume_throughput MskCluster#volume_throughput}
+   */
   readonly volumeThroughput?: number;
 }
 
-export function mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputToTerraform(struct?: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputReference | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputToTerraform(
+  struct?:
+    | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputReference
+    | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     volume_throughput: cdktf.numberToTerraform(struct!.volumeThroughput),
-  }
+  };
 }
 
 export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput | undefined {
+  public get internalValue():
+    | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -264,13 +315,16 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedTh
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput | undefined) {
+  public set internalValue(
+    value:
+      | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._volumeThroughput = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._volumeThroughput = value.volumeThroughput;
@@ -278,7 +332,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedTh
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -294,7 +348,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedTh
   }
 
   // volume_throughput - computed: false, optional: true, required: false
-  private _volumeThroughput?: number; 
+  private _volumeThroughput?: number;
   public get volumeThroughput() {
     return this.getNumberAttribute('volume_throughput');
   }
@@ -311,40 +365,56 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedTh
 }
 export interface MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#volume_size MskCluster#volume_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#volume_size MskCluster#volume_size}
+   */
   readonly volumeSize?: number;
   /**
-  * provisioned_throughput block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#provisioned_throughput MskCluster#provisioned_throughput}
-  */
+   * provisioned_throughput block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#provisioned_throughput MskCluster#provisioned_throughput}
+   */
   readonly provisionedThroughput?: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput;
 }
 
-export function mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoToTerraform(struct?: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReference | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoToTerraform(
+  struct?:
+    | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReference
+    | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
-    provisioned_throughput: mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputToTerraform(struct!.provisionedThroughput),
-  }
+    provisioned_throughput:
+      mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputToTerraform(
+        struct!.provisionedThroughput,
+      ),
+  };
 }
 
 export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo | undefined {
+  public get internalValue():
+    | MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._volumeSize !== undefined) {
@@ -353,18 +423,20 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReferen
     }
     if (this._provisionedThroughput?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.provisionedThroughput = this._provisionedThroughput?.internalValue;
+      internalValueResult.provisionedThroughput =
+        this._provisionedThroughput?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo | undefined) {
+  public set internalValue(
+    value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._volumeSize = undefined;
       this._provisionedThroughput.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._volumeSize = value.volumeSize;
       this._provisionedThroughput.internalValue = value.provisionedThroughput;
@@ -372,7 +444,7 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReferen
   }
 
   // volume_size - computed: false, optional: true, required: false
-  private _volumeSize?: number; 
+  private _volumeSize?: number;
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -388,11 +460,17 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReferen
   }
 
   // provisioned_throughput - computed: false, optional: true, required: false
-  private _provisionedThroughput = new MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputReference(this, "provisioned_throughput");
+  private _provisionedThroughput =
+    new MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputReference(
+      this,
+      'provisioned_throughput',
+    );
   public get provisionedThroughput() {
     return this._provisionedThroughput;
   }
-  public putProvisionedThroughput(value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) {
+  public putProvisionedThroughput(
+    value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput,
+  ) {
     this._provisionedThroughput.internalValue = value;
   }
   public resetProvisionedThroughput() {
@@ -405,35 +483,51 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReferen
 }
 export interface MskClusterBrokerNodeGroupInfoStorageInfo {
   /**
-  * ebs_storage_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#ebs_storage_info MskCluster#ebs_storage_info}
-  */
+   * ebs_storage_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#ebs_storage_info MskCluster#ebs_storage_info}
+   */
   readonly ebsStorageInfo?: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo;
 }
 
-export function mskClusterBrokerNodeGroupInfoStorageInfoToTerraform(struct?: MskClusterBrokerNodeGroupInfoStorageInfoOutputReference | MskClusterBrokerNodeGroupInfoStorageInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterBrokerNodeGroupInfoStorageInfoToTerraform(
+  struct?:
+    | MskClusterBrokerNodeGroupInfoStorageInfoOutputReference
+    | MskClusterBrokerNodeGroupInfoStorageInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ebs_storage_info: mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoToTerraform(struct!.ebsStorageInfo),
-  }
+    ebs_storage_info:
+      mskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoToTerraform(
+        struct!.ebsStorageInfo,
+      ),
+  };
 }
 
 export class MskClusterBrokerNodeGroupInfoStorageInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterBrokerNodeGroupInfoStorageInfo | undefined {
+  public get internalValue():
+    | MskClusterBrokerNodeGroupInfoStorageInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._ebsStorageInfo?.internalValue !== undefined) {
@@ -443,23 +537,30 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterBrokerNodeGroupInfoStorageInfo | undefined) {
+  public set internalValue(
+    value: MskClusterBrokerNodeGroupInfoStorageInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._ebsStorageInfo.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._ebsStorageInfo.internalValue = value.ebsStorageInfo;
     }
   }
 
   // ebs_storage_info - computed: false, optional: true, required: false
-  private _ebsStorageInfo = new MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReference(this, "ebs_storage_info");
+  private _ebsStorageInfo =
+    new MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputReference(
+      this,
+      'ebs_storage_info',
+    );
   public get ebsStorageInfo() {
     return this._ebsStorageInfo;
   }
-  public putEbsStorageInfo(value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) {
+  public putEbsStorageInfo(
+    value: MskClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo,
+  ) {
     this._ebsStorageInfo.internalValue = value;
   }
   public resetEbsStorageInfo() {
@@ -472,63 +573,84 @@ export class MskClusterBrokerNodeGroupInfoStorageInfoOutputReference extends cdk
 }
 export interface MskClusterBrokerNodeGroupInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#az_distribution MskCluster#az_distribution}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#az_distribution MskCluster#az_distribution}
+   */
   readonly azDistribution?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_subnets MskCluster#client_subnets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_subnets MskCluster#client_subnets}
+   */
   readonly clientSubnets: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#ebs_volume_size MskCluster#ebs_volume_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#ebs_volume_size MskCluster#ebs_volume_size}
+   */
   readonly ebsVolumeSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#instance_type MskCluster#instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#instance_type MskCluster#instance_type}
+   */
   readonly instanceType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#security_groups MskCluster#security_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#security_groups MskCluster#security_groups}
+   */
   readonly securityGroups: string[];
   /**
-  * connectivity_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#connectivity_info MskCluster#connectivity_info}
-  */
+   * connectivity_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#connectivity_info MskCluster#connectivity_info}
+   */
   readonly connectivityInfo?: MskClusterBrokerNodeGroupInfoConnectivityInfo;
   /**
-  * storage_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#storage_info MskCluster#storage_info}
-  */
+   * storage_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#storage_info MskCluster#storage_info}
+   */
   readonly storageInfo?: MskClusterBrokerNodeGroupInfoStorageInfo;
 }
 
-export function mskClusterBrokerNodeGroupInfoToTerraform(struct?: MskClusterBrokerNodeGroupInfoOutputReference | MskClusterBrokerNodeGroupInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterBrokerNodeGroupInfoToTerraform(
+  struct?:
+    | MskClusterBrokerNodeGroupInfoOutputReference
+    | MskClusterBrokerNodeGroupInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     az_distribution: cdktf.stringToTerraform(struct!.azDistribution),
-    client_subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.clientSubnets),
+    client_subnets: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.clientSubnets),
     ebs_volume_size: cdktf.numberToTerraform(struct!.ebsVolumeSize),
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
-    security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroups),
-    connectivity_info: mskClusterBrokerNodeGroupInfoConnectivityInfoToTerraform(struct!.connectivityInfo),
-    storage_info: mskClusterBrokerNodeGroupInfoStorageInfoToTerraform(struct!.storageInfo),
-  }
+    security_groups: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroups),
+    connectivity_info: mskClusterBrokerNodeGroupInfoConnectivityInfoToTerraform(
+      struct!.connectivityInfo,
+    ),
+    storage_info: mskClusterBrokerNodeGroupInfoStorageInfoToTerraform(
+      struct!.storageInfo,
+    ),
+  };
 }
 
 export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -557,7 +679,8 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
     }
     if (this._connectivityInfo?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.connectivityInfo = this._connectivityInfo?.internalValue;
+      internalValueResult.connectivityInfo =
+        this._connectivityInfo?.internalValue;
     }
     if (this._storageInfo?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -576,8 +699,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
       this._securityGroups = undefined;
       this._connectivityInfo.internalValue = undefined;
       this._storageInfo.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._azDistribution = value.azDistribution;
       this._clientSubnets = value.clientSubnets;
@@ -590,7 +712,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // az_distribution - computed: false, optional: true, required: false
-  private _azDistribution?: string; 
+  private _azDistribution?: string;
   public get azDistribution() {
     return this.getStringAttribute('az_distribution');
   }
@@ -606,7 +728,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // client_subnets - computed: false, optional: false, required: true
-  private _clientSubnets?: string[]; 
+  private _clientSubnets?: string[];
   public get clientSubnets() {
     return cdktf.Fn.tolist(this.getListAttribute('client_subnets'));
   }
@@ -619,7 +741,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // ebs_volume_size - computed: true, optional: true, required: false
-  private _ebsVolumeSize?: number; 
+  private _ebsVolumeSize?: number;
   public get ebsVolumeSize() {
     return this.getNumberAttribute('ebs_volume_size');
   }
@@ -635,7 +757,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -648,7 +770,7 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // security_groups - computed: false, optional: false, required: true
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -661,11 +783,17 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // connectivity_info - computed: false, optional: true, required: false
-  private _connectivityInfo = new MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference(this, "connectivity_info");
+  private _connectivityInfo =
+    new MskClusterBrokerNodeGroupInfoConnectivityInfoOutputReference(
+      this,
+      'connectivity_info',
+    );
   public get connectivityInfo() {
     return this._connectivityInfo;
   }
-  public putConnectivityInfo(value: MskClusterBrokerNodeGroupInfoConnectivityInfo) {
+  public putConnectivityInfo(
+    value: MskClusterBrokerNodeGroupInfoConnectivityInfo,
+  ) {
     this._connectivityInfo.internalValue = value;
   }
   public resetConnectivityInfo() {
@@ -677,7 +805,11 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
   }
 
   // storage_info - computed: false, optional: true, required: false
-  private _storageInfo = new MskClusterBrokerNodeGroupInfoStorageInfoOutputReference(this, "storage_info");
+  private _storageInfo =
+    new MskClusterBrokerNodeGroupInfoStorageInfoOutputReference(
+      this,
+      'storage_info',
+    );
   public get storageInfo() {
     return this._storageInfo;
   }
@@ -694,34 +826,45 @@ export class MskClusterBrokerNodeGroupInfoOutputReference extends cdktf.ComplexO
 }
 export interface MskClusterClientAuthenticationSasl {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#iam MskCluster#iam}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#iam MskCluster#iam}
+   */
   readonly iam?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#scram MskCluster#scram}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#scram MskCluster#scram}
+   */
   readonly scram?: boolean | cdktf.IResolvable;
 }
 
-export function mskClusterClientAuthenticationSaslToTerraform(struct?: MskClusterClientAuthenticationSaslOutputReference | MskClusterClientAuthenticationSasl): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterClientAuthenticationSaslToTerraform(
+  struct?:
+    | MskClusterClientAuthenticationSaslOutputReference
+    | MskClusterClientAuthenticationSasl,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     iam: cdktf.booleanToTerraform(struct!.iam),
     scram: cdktf.booleanToTerraform(struct!.scram),
-  }
+  };
 }
 
 export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -739,13 +882,14 @@ export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterClientAuthenticationSasl | undefined) {
+  public set internalValue(
+    value: MskClusterClientAuthenticationSasl | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._iam = undefined;
       this._scram = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._iam = value.iam;
       this._scram = value.scram;
@@ -753,7 +897,7 @@ export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.Com
   }
 
   // iam - computed: false, optional: true, required: false
-  private _iam?: boolean | cdktf.IResolvable; 
+  private _iam?: boolean | cdktf.IResolvable;
   public get iam() {
     return this.getBooleanAttribute('iam');
   }
@@ -769,7 +913,7 @@ export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.Com
   }
 
   // scram - computed: false, optional: true, required: false
-  private _scram?: boolean | cdktf.IResolvable; 
+  private _scram?: boolean | cdktf.IResolvable;
   public get scram() {
     return this.getBooleanAttribute('scram');
   }
@@ -786,29 +930,43 @@ export class MskClusterClientAuthenticationSaslOutputReference extends cdktf.Com
 }
 export interface MskClusterClientAuthenticationTls {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#certificate_authority_arns MskCluster#certificate_authority_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#certificate_authority_arns MskCluster#certificate_authority_arns}
+   */
   readonly certificateAuthorityArns?: string[];
 }
 
-export function mskClusterClientAuthenticationTlsToTerraform(struct?: MskClusterClientAuthenticationTlsOutputReference | MskClusterClientAuthenticationTls): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterClientAuthenticationTlsToTerraform(
+  struct?:
+    | MskClusterClientAuthenticationTlsOutputReference
+    | MskClusterClientAuthenticationTls,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    certificate_authority_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.certificateAuthorityArns),
-  }
+    certificate_authority_arns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.certificateAuthorityArns),
+  };
 }
 
 export class MskClusterClientAuthenticationTlsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -817,24 +975,26 @@ export class MskClusterClientAuthenticationTlsOutputReference extends cdktf.Comp
     const internalValueResult: any = {};
     if (this._certificateAuthorityArns !== undefined) {
       hasAnyValues = true;
-      internalValueResult.certificateAuthorityArns = this._certificateAuthorityArns;
+      internalValueResult.certificateAuthorityArns =
+        this._certificateAuthorityArns;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterClientAuthenticationTls | undefined) {
+  public set internalValue(
+    value: MskClusterClientAuthenticationTls | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._certificateAuthorityArns = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._certificateAuthorityArns = value.certificateAuthorityArns;
     }
   }
 
   // certificate_authority_arns - computed: false, optional: true, required: false
-  private _certificateAuthorityArns?: string[]; 
+  private _certificateAuthorityArns?: string[];
   public get certificateAuthorityArns() {
     return cdktf.Fn.tolist(this.getListAttribute('certificate_authority_arns'));
   }
@@ -851,43 +1011,54 @@ export class MskClusterClientAuthenticationTlsOutputReference extends cdktf.Comp
 }
 export interface MskClusterClientAuthentication {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#unauthenticated MskCluster#unauthenticated}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#unauthenticated MskCluster#unauthenticated}
+   */
   readonly unauthenticated?: boolean | cdktf.IResolvable;
   /**
-  * sasl block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#sasl MskCluster#sasl}
-  */
+   * sasl block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#sasl MskCluster#sasl}
+   */
   readonly sasl?: MskClusterClientAuthenticationSasl;
   /**
-  * tls block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tls MskCluster#tls}
-  */
+   * tls block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#tls MskCluster#tls}
+   */
   readonly tls?: MskClusterClientAuthenticationTls;
 }
 
-export function mskClusterClientAuthenticationToTerraform(struct?: MskClusterClientAuthenticationOutputReference | MskClusterClientAuthentication): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterClientAuthenticationToTerraform(
+  struct?:
+    | MskClusterClientAuthenticationOutputReference
+    | MskClusterClientAuthentication,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     unauthenticated: cdktf.booleanToTerraform(struct!.unauthenticated),
     sasl: mskClusterClientAuthenticationSaslToTerraform(struct!.sasl),
     tls: mskClusterClientAuthenticationTlsToTerraform(struct!.tls),
-  }
+  };
 }
 
 export class MskClusterClientAuthenticationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -915,8 +1086,7 @@ export class MskClusterClientAuthenticationOutputReference extends cdktf.Complex
       this._unauthenticated = undefined;
       this._sasl.internalValue = undefined;
       this._tls.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._unauthenticated = value.unauthenticated;
       this._sasl.internalValue = value.sasl;
@@ -925,7 +1095,7 @@ export class MskClusterClientAuthenticationOutputReference extends cdktf.Complex
   }
 
   // unauthenticated - computed: false, optional: true, required: false
-  private _unauthenticated?: boolean | cdktf.IResolvable; 
+  private _unauthenticated?: boolean | cdktf.IResolvable;
   public get unauthenticated() {
     return this.getBooleanAttribute('unauthenticated');
   }
@@ -941,7 +1111,10 @@ export class MskClusterClientAuthenticationOutputReference extends cdktf.Complex
   }
 
   // sasl - computed: false, optional: true, required: false
-  private _sasl = new MskClusterClientAuthenticationSaslOutputReference(this, "sasl");
+  private _sasl = new MskClusterClientAuthenticationSaslOutputReference(
+    this,
+    'sasl',
+  );
   public get sasl() {
     return this._sasl;
   }
@@ -957,7 +1130,10 @@ export class MskClusterClientAuthenticationOutputReference extends cdktf.Complex
   }
 
   // tls - computed: false, optional: true, required: false
-  private _tls = new MskClusterClientAuthenticationTlsOutputReference(this, "tls");
+  private _tls = new MskClusterClientAuthenticationTlsOutputReference(
+    this,
+    'tls',
+  );
   public get tls() {
     return this._tls;
   }
@@ -974,34 +1150,45 @@ export class MskClusterClientAuthenticationOutputReference extends cdktf.Complex
 }
 export interface MskClusterConfigurationInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#arn MskCluster#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#arn MskCluster#arn}
+   */
   readonly arn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#revision MskCluster#revision}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#revision MskCluster#revision}
+   */
   readonly revision: number;
 }
 
-export function mskClusterConfigurationInfoToTerraform(struct?: MskClusterConfigurationInfoOutputReference | MskClusterConfigurationInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterConfigurationInfoToTerraform(
+  struct?:
+    | MskClusterConfigurationInfoOutputReference
+    | MskClusterConfigurationInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
     revision: cdktf.numberToTerraform(struct!.revision),
-  }
+  };
 }
 
 export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1024,8 +1211,7 @@ export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObj
       this.isEmptyObject = false;
       this._arn = undefined;
       this._revision = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
       this._revision = value.revision;
@@ -1033,7 +1219,7 @@ export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObj
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1046,7 +1232,7 @@ export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObj
   }
 
   // revision - computed: false, optional: false, required: true
-  private _revision?: number; 
+  private _revision?: number;
   public get revision() {
     return this.getNumberAttribute('revision');
   }
@@ -1060,38 +1246,51 @@ export class MskClusterConfigurationInfoOutputReference extends cdktf.ComplexObj
 }
 export interface MskClusterEncryptionInfoEncryptionInTransit {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_broker MskCluster#client_broker}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#client_broker MskCluster#client_broker}
+   */
   readonly clientBroker?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#in_cluster MskCluster#in_cluster}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#in_cluster MskCluster#in_cluster}
+   */
   readonly inCluster?: boolean | cdktf.IResolvable;
 }
 
-export function mskClusterEncryptionInfoEncryptionInTransitToTerraform(struct?: MskClusterEncryptionInfoEncryptionInTransitOutputReference | MskClusterEncryptionInfoEncryptionInTransit): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterEncryptionInfoEncryptionInTransitToTerraform(
+  struct?:
+    | MskClusterEncryptionInfoEncryptionInTransitOutputReference
+    | MskClusterEncryptionInfoEncryptionInTransit,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     client_broker: cdktf.stringToTerraform(struct!.clientBroker),
     in_cluster: cdktf.booleanToTerraform(struct!.inCluster),
-  }
+  };
 }
 
 export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterEncryptionInfoEncryptionInTransit | undefined {
+  public get internalValue():
+    | MskClusterEncryptionInfoEncryptionInTransit
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._clientBroker !== undefined) {
@@ -1105,13 +1304,14 @@ export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterEncryptionInfoEncryptionInTransit | undefined) {
+  public set internalValue(
+    value: MskClusterEncryptionInfoEncryptionInTransit | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._clientBroker = undefined;
       this._inCluster = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._clientBroker = value.clientBroker;
       this._inCluster = value.inCluster;
@@ -1119,7 +1319,7 @@ export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends 
   }
 
   // client_broker - computed: false, optional: true, required: false
-  private _clientBroker?: string; 
+  private _clientBroker?: string;
   public get clientBroker() {
     return this.getStringAttribute('client_broker');
   }
@@ -1135,7 +1335,7 @@ export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends 
   }
 
   // in_cluster - computed: false, optional: true, required: false
-  private _inCluster?: boolean | cdktf.IResolvable; 
+  private _inCluster?: boolean | cdktf.IResolvable;
   public get inCluster() {
     return this.getBooleanAttribute('in_cluster');
   }
@@ -1152,36 +1352,50 @@ export class MskClusterEncryptionInfoEncryptionInTransitOutputReference extends 
 }
 export interface MskClusterEncryptionInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_at_rest_kms_key_arn MskCluster#encryption_at_rest_kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_at_rest_kms_key_arn MskCluster#encryption_at_rest_kms_key_arn}
+   */
   readonly encryptionAtRestKmsKeyArn?: string;
   /**
-  * encryption_in_transit block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_in_transit MskCluster#encryption_in_transit}
-  */
+   * encryption_in_transit block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#encryption_in_transit MskCluster#encryption_in_transit}
+   */
   readonly encryptionInTransit?: MskClusterEncryptionInfoEncryptionInTransit;
 }
 
-export function mskClusterEncryptionInfoToTerraform(struct?: MskClusterEncryptionInfoOutputReference | MskClusterEncryptionInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterEncryptionInfoToTerraform(
+  struct?: MskClusterEncryptionInfoOutputReference | MskClusterEncryptionInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    encryption_at_rest_kms_key_arn: cdktf.stringToTerraform(struct!.encryptionAtRestKmsKeyArn),
-    encryption_in_transit: mskClusterEncryptionInfoEncryptionInTransitToTerraform(struct!.encryptionInTransit),
-  }
+    encryption_at_rest_kms_key_arn: cdktf.stringToTerraform(
+      struct!.encryptionAtRestKmsKeyArn,
+    ),
+    encryption_in_transit:
+      mskClusterEncryptionInfoEncryptionInTransitToTerraform(
+        struct!.encryptionInTransit,
+      ),
+  };
 }
 
 export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1190,11 +1404,13 @@ export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject
     const internalValueResult: any = {};
     if (this._encryptionAtRestKmsKeyArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.encryptionAtRestKmsKeyArn = this._encryptionAtRestKmsKeyArn;
+      internalValueResult.encryptionAtRestKmsKeyArn =
+        this._encryptionAtRestKmsKeyArn;
     }
     if (this._encryptionInTransit?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.encryptionInTransit = this._encryptionInTransit?.internalValue;
+      internalValueResult.encryptionInTransit =
+        this._encryptionInTransit?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -1204,8 +1420,7 @@ export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject
       this.isEmptyObject = false;
       this._encryptionAtRestKmsKeyArn = undefined;
       this._encryptionInTransit.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._encryptionAtRestKmsKeyArn = value.encryptionAtRestKmsKeyArn;
       this._encryptionInTransit.internalValue = value.encryptionInTransit;
@@ -1213,7 +1428,7 @@ export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject
   }
 
   // encryption_at_rest_kms_key_arn - computed: true, optional: true, required: false
-  private _encryptionAtRestKmsKeyArn?: string; 
+  private _encryptionAtRestKmsKeyArn?: string;
   public get encryptionAtRestKmsKeyArn() {
     return this.getStringAttribute('encryption_at_rest_kms_key_arn');
   }
@@ -1229,11 +1444,17 @@ export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject
   }
 
   // encryption_in_transit - computed: false, optional: true, required: false
-  private _encryptionInTransit = new MskClusterEncryptionInfoEncryptionInTransitOutputReference(this, "encryption_in_transit");
+  private _encryptionInTransit =
+    new MskClusterEncryptionInfoEncryptionInTransitOutputReference(
+      this,
+      'encryption_in_transit',
+    );
   public get encryptionInTransit() {
     return this._encryptionInTransit;
   }
-  public putEncryptionInTransit(value: MskClusterEncryptionInfoEncryptionInTransit) {
+  public putEncryptionInTransit(
+    value: MskClusterEncryptionInfoEncryptionInTransit,
+  ) {
     this._encryptionInTransit.internalValue = value;
   }
   public resetEncryptionInTransit() {
@@ -1246,38 +1467,51 @@ export class MskClusterEncryptionInfoOutputReference extends cdktf.ComplexObject
 }
 export interface MskClusterLoggingInfoBrokerLogsCloudwatchLogs {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#log_group MskCluster#log_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#log_group MskCluster#log_group}
+   */
   readonly logGroup?: string;
 }
 
-export function mskClusterLoggingInfoBrokerLogsCloudwatchLogsToTerraform(struct?: MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference | MskClusterLoggingInfoBrokerLogsCloudwatchLogs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterLoggingInfoBrokerLogsCloudwatchLogsToTerraform(
+  struct?:
+    | MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference
+    | MskClusterLoggingInfoBrokerLogsCloudwatchLogs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     log_group: cdktf.stringToTerraform(struct!.logGroup),
-  }
+  };
 }
 
 export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterLoggingInfoBrokerLogsCloudwatchLogs | undefined {
+  public get internalValue():
+    | MskClusterLoggingInfoBrokerLogsCloudwatchLogs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -1291,13 +1525,14 @@ export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterLoggingInfoBrokerLogsCloudwatchLogs | undefined) {
+  public set internalValue(
+    value: MskClusterLoggingInfoBrokerLogsCloudwatchLogs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._logGroup = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._logGroup = value.logGroup;
@@ -1305,7 +1540,7 @@ export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extend
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1318,7 +1553,7 @@ export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extend
   }
 
   // log_group - computed: false, optional: true, required: false
-  private _logGroup?: string; 
+  private _logGroup?: string;
   public get logGroup() {
     return this.getStringAttribute('log_group');
   }
@@ -1335,38 +1570,51 @@ export class MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference extend
 }
 export interface MskClusterLoggingInfoBrokerLogsFirehose {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#delivery_stream MskCluster#delivery_stream}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#delivery_stream MskCluster#delivery_stream}
+   */
   readonly deliveryStream?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
 }
 
-export function mskClusterLoggingInfoBrokerLogsFirehoseToTerraform(struct?: MskClusterLoggingInfoBrokerLogsFirehoseOutputReference | MskClusterLoggingInfoBrokerLogsFirehose): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterLoggingInfoBrokerLogsFirehoseToTerraform(
+  struct?:
+    | MskClusterLoggingInfoBrokerLogsFirehoseOutputReference
+    | MskClusterLoggingInfoBrokerLogsFirehose,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delivery_stream: cdktf.stringToTerraform(struct!.deliveryStream),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterLoggingInfoBrokerLogsFirehose | undefined {
+  public get internalValue():
+    | MskClusterLoggingInfoBrokerLogsFirehose
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._deliveryStream !== undefined) {
@@ -1380,13 +1628,14 @@ export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterLoggingInfoBrokerLogsFirehose | undefined) {
+  public set internalValue(
+    value: MskClusterLoggingInfoBrokerLogsFirehose | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deliveryStream = undefined;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deliveryStream = value.deliveryStream;
       this._enabled = value.enabled;
@@ -1394,7 +1643,7 @@ export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdkt
   }
 
   // delivery_stream - computed: false, optional: true, required: false
-  private _deliveryStream?: string; 
+  private _deliveryStream?: string;
   public get deliveryStream() {
     return this.getStringAttribute('delivery_stream');
   }
@@ -1410,7 +1659,7 @@ export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdkt
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1424,39 +1673,50 @@ export class MskClusterLoggingInfoBrokerLogsFirehoseOutputReference extends cdkt
 }
 export interface MskClusterLoggingInfoBrokerLogsS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#bucket MskCluster#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#bucket MskCluster#bucket}
+   */
   readonly bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled MskCluster#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#prefix MskCluster#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#prefix MskCluster#prefix}
+   */
   readonly prefix?: string;
 }
 
-export function mskClusterLoggingInfoBrokerLogsS3ToTerraform(struct?: MskClusterLoggingInfoBrokerLogsS3OutputReference | MskClusterLoggingInfoBrokerLogsS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterLoggingInfoBrokerLogsS3ToTerraform(
+  struct?:
+    | MskClusterLoggingInfoBrokerLogsS3OutputReference
+    | MskClusterLoggingInfoBrokerLogsS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-  }
+  };
 }
 
 export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1478,14 +1738,15 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterLoggingInfoBrokerLogsS3 | undefined) {
+  public set internalValue(
+    value: MskClusterLoggingInfoBrokerLogsS3 | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
       this._enabled = undefined;
       this._prefix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._enabled = value.enabled;
@@ -1494,7 +1755,7 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
   }
 
   // bucket - computed: false, optional: true, required: false
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1510,7 +1771,7 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1523,7 +1784,7 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1540,45 +1801,60 @@ export class MskClusterLoggingInfoBrokerLogsS3OutputReference extends cdktf.Comp
 }
 export interface MskClusterLoggingInfoBrokerLogs {
   /**
-  * cloudwatch_logs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#cloudwatch_logs MskCluster#cloudwatch_logs}
-  */
+   * cloudwatch_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#cloudwatch_logs MskCluster#cloudwatch_logs}
+   */
   readonly cloudwatchLogs?: MskClusterLoggingInfoBrokerLogsCloudwatchLogs;
   /**
-  * firehose block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#firehose MskCluster#firehose}
-  */
+   * firehose block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#firehose MskCluster#firehose}
+   */
   readonly firehose?: MskClusterLoggingInfoBrokerLogsFirehose;
   /**
-  * s3 block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#s3 MskCluster#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#s3 MskCluster#s3}
+   */
   readonly s3?: MskClusterLoggingInfoBrokerLogsS3;
 }
 
-export function mskClusterLoggingInfoBrokerLogsToTerraform(struct?: MskClusterLoggingInfoBrokerLogsOutputReference | MskClusterLoggingInfoBrokerLogs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterLoggingInfoBrokerLogsToTerraform(
+  struct?:
+    | MskClusterLoggingInfoBrokerLogsOutputReference
+    | MskClusterLoggingInfoBrokerLogs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cloudwatch_logs: mskClusterLoggingInfoBrokerLogsCloudwatchLogsToTerraform(struct!.cloudwatchLogs),
-    firehose: mskClusterLoggingInfoBrokerLogsFirehoseToTerraform(struct!.firehose),
+    cloudwatch_logs: mskClusterLoggingInfoBrokerLogsCloudwatchLogsToTerraform(
+      struct!.cloudwatchLogs,
+    ),
+    firehose: mskClusterLoggingInfoBrokerLogsFirehoseToTerraform(
+      struct!.firehose,
+    ),
     s3: mskClusterLoggingInfoBrokerLogsS3ToTerraform(struct!.s3),
-  }
+  };
 }
 
 export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1606,8 +1882,7 @@ export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.Comple
       this._cloudwatchLogs.internalValue = undefined;
       this._firehose.internalValue = undefined;
       this._s3.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchLogs.internalValue = value.cloudwatchLogs;
       this._firehose.internalValue = value.firehose;
@@ -1616,11 +1891,17 @@ export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.Comple
   }
 
   // cloudwatch_logs - computed: false, optional: true, required: false
-  private _cloudwatchLogs = new MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference(this, "cloudwatch_logs");
+  private _cloudwatchLogs =
+    new MskClusterLoggingInfoBrokerLogsCloudwatchLogsOutputReference(
+      this,
+      'cloudwatch_logs',
+    );
   public get cloudwatchLogs() {
     return this._cloudwatchLogs;
   }
-  public putCloudwatchLogs(value: MskClusterLoggingInfoBrokerLogsCloudwatchLogs) {
+  public putCloudwatchLogs(
+    value: MskClusterLoggingInfoBrokerLogsCloudwatchLogs,
+  ) {
     this._cloudwatchLogs.internalValue = value;
   }
   public resetCloudwatchLogs() {
@@ -1632,7 +1913,11 @@ export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.Comple
   }
 
   // firehose - computed: false, optional: true, required: false
-  private _firehose = new MskClusterLoggingInfoBrokerLogsFirehoseOutputReference(this, "firehose");
+  private _firehose =
+    new MskClusterLoggingInfoBrokerLogsFirehoseOutputReference(
+      this,
+      'firehose',
+    );
   public get firehose() {
     return this._firehose;
   }
@@ -1648,7 +1933,10 @@ export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.Comple
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3 = new MskClusterLoggingInfoBrokerLogsS3OutputReference(this, "s3");
+  private _s3 = new MskClusterLoggingInfoBrokerLogsS3OutputReference(
+    this,
+    's3',
+  );
   public get s3() {
     return this._s3;
   }
@@ -1665,31 +1953,40 @@ export class MskClusterLoggingInfoBrokerLogsOutputReference extends cdktf.Comple
 }
 export interface MskClusterLoggingInfo {
   /**
-  * broker_logs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#broker_logs MskCluster#broker_logs}
-  */
+   * broker_logs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#broker_logs MskCluster#broker_logs}
+   */
   readonly brokerLogs: MskClusterLoggingInfoBrokerLogs;
 }
 
-export function mskClusterLoggingInfoToTerraform(struct?: MskClusterLoggingInfoOutputReference | MskClusterLoggingInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterLoggingInfoToTerraform(
+  struct?: MskClusterLoggingInfoOutputReference | MskClusterLoggingInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     broker_logs: mskClusterLoggingInfoBrokerLogsToTerraform(struct!.brokerLogs),
-  }
+  };
 }
 
 export class MskClusterLoggingInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1707,15 +2004,17 @@ export class MskClusterLoggingInfoOutputReference extends cdktf.ComplexObject {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._brokerLogs.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._brokerLogs.internalValue = value.brokerLogs;
     }
   }
 
   // broker_logs - computed: false, optional: false, required: true
-  private _brokerLogs = new MskClusterLoggingInfoBrokerLogsOutputReference(this, "broker_logs");
+  private _brokerLogs = new MskClusterLoggingInfoBrokerLogsOutputReference(
+    this,
+    'broker_logs',
+  );
   public get brokerLogs() {
     return this._brokerLogs;
   }
@@ -1729,33 +2028,46 @@ export class MskClusterLoggingInfoOutputReference extends cdktf.ComplexObject {
 }
 export interface MskClusterOpenMonitoringPrometheusJmxExporter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled_in_broker MskCluster#enabled_in_broker}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled_in_broker MskCluster#enabled_in_broker}
+   */
   readonly enabledInBroker: boolean | cdktf.IResolvable;
 }
 
-export function mskClusterOpenMonitoringPrometheusJmxExporterToTerraform(struct?: MskClusterOpenMonitoringPrometheusJmxExporterOutputReference | MskClusterOpenMonitoringPrometheusJmxExporter): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterOpenMonitoringPrometheusJmxExporterToTerraform(
+  struct?:
+    | MskClusterOpenMonitoringPrometheusJmxExporterOutputReference
+    | MskClusterOpenMonitoringPrometheusJmxExporter,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled_in_broker: cdktf.booleanToTerraform(struct!.enabledInBroker),
-  }
+  };
 }
 
 export class MskClusterOpenMonitoringPrometheusJmxExporterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterOpenMonitoringPrometheusJmxExporter | undefined {
+  public get internalValue():
+    | MskClusterOpenMonitoringPrometheusJmxExporter
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabledInBroker !== undefined) {
@@ -1765,19 +2077,20 @@ export class MskClusterOpenMonitoringPrometheusJmxExporterOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterOpenMonitoringPrometheusJmxExporter | undefined) {
+  public set internalValue(
+    value: MskClusterOpenMonitoringPrometheusJmxExporter | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabledInBroker = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabledInBroker = value.enabledInBroker;
     }
   }
 
   // enabled_in_broker - computed: false, optional: false, required: true
-  private _enabledInBroker?: boolean | cdktf.IResolvable; 
+  private _enabledInBroker?: boolean | cdktf.IResolvable;
   public get enabledInBroker() {
     return this.getBooleanAttribute('enabled_in_broker');
   }
@@ -1791,33 +2104,46 @@ export class MskClusterOpenMonitoringPrometheusJmxExporterOutputReference extend
 }
 export interface MskClusterOpenMonitoringPrometheusNodeExporter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled_in_broker MskCluster#enabled_in_broker}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#enabled_in_broker MskCluster#enabled_in_broker}
+   */
   readonly enabledInBroker: boolean | cdktf.IResolvable;
 }
 
-export function mskClusterOpenMonitoringPrometheusNodeExporterToTerraform(struct?: MskClusterOpenMonitoringPrometheusNodeExporterOutputReference | MskClusterOpenMonitoringPrometheusNodeExporter): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterOpenMonitoringPrometheusNodeExporterToTerraform(
+  struct?:
+    | MskClusterOpenMonitoringPrometheusNodeExporterOutputReference
+    | MskClusterOpenMonitoringPrometheusNodeExporter,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled_in_broker: cdktf.booleanToTerraform(struct!.enabledInBroker),
-  }
+  };
 }
 
 export class MskClusterOpenMonitoringPrometheusNodeExporterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterOpenMonitoringPrometheusNodeExporter | undefined {
+  public get internalValue():
+    | MskClusterOpenMonitoringPrometheusNodeExporter
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabledInBroker !== undefined) {
@@ -1827,19 +2153,20 @@ export class MskClusterOpenMonitoringPrometheusNodeExporterOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterOpenMonitoringPrometheusNodeExporter | undefined) {
+  public set internalValue(
+    value: MskClusterOpenMonitoringPrometheusNodeExporter | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabledInBroker = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabledInBroker = value.enabledInBroker;
     }
   }
 
   // enabled_in_broker - computed: false, optional: false, required: true
-  private _enabledInBroker?: boolean | cdktf.IResolvable; 
+  private _enabledInBroker?: boolean | cdktf.IResolvable;
   public get enabledInBroker() {
     return this.getBooleanAttribute('enabled_in_broker');
   }
@@ -1853,38 +2180,53 @@ export class MskClusterOpenMonitoringPrometheusNodeExporterOutputReference exten
 }
 export interface MskClusterOpenMonitoringPrometheus {
   /**
-  * jmx_exporter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#jmx_exporter MskCluster#jmx_exporter}
-  */
+   * jmx_exporter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#jmx_exporter MskCluster#jmx_exporter}
+   */
   readonly jmxExporter?: MskClusterOpenMonitoringPrometheusJmxExporter;
   /**
-  * node_exporter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#node_exporter MskCluster#node_exporter}
-  */
+   * node_exporter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#node_exporter MskCluster#node_exporter}
+   */
   readonly nodeExporter?: MskClusterOpenMonitoringPrometheusNodeExporter;
 }
 
-export function mskClusterOpenMonitoringPrometheusToTerraform(struct?: MskClusterOpenMonitoringPrometheusOutputReference | MskClusterOpenMonitoringPrometheus): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterOpenMonitoringPrometheusToTerraform(
+  struct?:
+    | MskClusterOpenMonitoringPrometheusOutputReference
+    | MskClusterOpenMonitoringPrometheus,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    jmx_exporter: mskClusterOpenMonitoringPrometheusJmxExporterToTerraform(struct!.jmxExporter),
-    node_exporter: mskClusterOpenMonitoringPrometheusNodeExporterToTerraform(struct!.nodeExporter),
-  }
+    jmx_exporter: mskClusterOpenMonitoringPrometheusJmxExporterToTerraform(
+      struct!.jmxExporter,
+    ),
+    node_exporter: mskClusterOpenMonitoringPrometheusNodeExporterToTerraform(
+      struct!.nodeExporter,
+    ),
+  };
 }
 
 export class MskClusterOpenMonitoringPrometheusOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1902,13 +2244,14 @@ export class MskClusterOpenMonitoringPrometheusOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterOpenMonitoringPrometheus | undefined) {
+  public set internalValue(
+    value: MskClusterOpenMonitoringPrometheus | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._jmxExporter.internalValue = undefined;
       this._nodeExporter.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._jmxExporter.internalValue = value.jmxExporter;
       this._nodeExporter.internalValue = value.nodeExporter;
@@ -1916,7 +2259,11 @@ export class MskClusterOpenMonitoringPrometheusOutputReference extends cdktf.Com
   }
 
   // jmx_exporter - computed: false, optional: true, required: false
-  private _jmxExporter = new MskClusterOpenMonitoringPrometheusJmxExporterOutputReference(this, "jmx_exporter");
+  private _jmxExporter =
+    new MskClusterOpenMonitoringPrometheusJmxExporterOutputReference(
+      this,
+      'jmx_exporter',
+    );
   public get jmxExporter() {
     return this._jmxExporter;
   }
@@ -1932,11 +2279,17 @@ export class MskClusterOpenMonitoringPrometheusOutputReference extends cdktf.Com
   }
 
   // node_exporter - computed: false, optional: true, required: false
-  private _nodeExporter = new MskClusterOpenMonitoringPrometheusNodeExporterOutputReference(this, "node_exporter");
+  private _nodeExporter =
+    new MskClusterOpenMonitoringPrometheusNodeExporterOutputReference(
+      this,
+      'node_exporter',
+    );
   public get nodeExporter() {
     return this._nodeExporter;
   }
-  public putNodeExporter(value: MskClusterOpenMonitoringPrometheusNodeExporter) {
+  public putNodeExporter(
+    value: MskClusterOpenMonitoringPrometheusNodeExporter,
+  ) {
     this._nodeExporter.internalValue = value;
   }
   public resetNodeExporter() {
@@ -1949,31 +2302,42 @@ export class MskClusterOpenMonitoringPrometheusOutputReference extends cdktf.Com
 }
 export interface MskClusterOpenMonitoring {
   /**
-  * prometheus block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#prometheus MskCluster#prometheus}
-  */
+   * prometheus block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#prometheus MskCluster#prometheus}
+   */
   readonly prometheus: MskClusterOpenMonitoringPrometheus;
 }
 
-export function mskClusterOpenMonitoringToTerraform(struct?: MskClusterOpenMonitoringOutputReference | MskClusterOpenMonitoring): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterOpenMonitoringToTerraform(
+  struct?: MskClusterOpenMonitoringOutputReference | MskClusterOpenMonitoring,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    prometheus: mskClusterOpenMonitoringPrometheusToTerraform(struct!.prometheus),
-  }
+    prometheus: mskClusterOpenMonitoringPrometheusToTerraform(
+      struct!.prometheus,
+    ),
+  };
 }
 
 export class MskClusterOpenMonitoringOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1991,15 +2355,17 @@ export class MskClusterOpenMonitoringOutputReference extends cdktf.ComplexObject
     if (value === undefined) {
       this.isEmptyObject = false;
       this._prometheus.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._prometheus.internalValue = value.prometheus;
     }
   }
 
   // prometheus - computed: false, optional: false, required: true
-  private _prometheus = new MskClusterOpenMonitoringPrometheusOutputReference(this, "prometheus");
+  private _prometheus = new MskClusterOpenMonitoringPrometheusOutputReference(
+    this,
+    'prometheus',
+  );
   public get prometheus() {
     return this._prometheus;
   }
@@ -2013,29 +2379,38 @@ export class MskClusterOpenMonitoringOutputReference extends cdktf.ComplexObject
 }
 export interface MskClusterTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#create MskCluster#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#create MskCluster#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#delete MskCluster#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#delete MskCluster#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#update MskCluster#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster#update MskCluster#update}
+   */
   readonly update?: string;
 }
 
-export function mskClusterTimeoutsToTerraform(struct?: MskClusterTimeoutsOutputReference | MskClusterTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskClusterTimeoutsToTerraform(
+  struct?:
+    | MskClusterTimeoutsOutputReference
+    | MskClusterTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -2043,14 +2418,20 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskClusterTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | MskClusterTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2071,19 +2452,19 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskClusterTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: MskClusterTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -2093,7 +2474,7 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -2109,7 +2490,7 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -2125,7 +2506,7 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -2142,33 +2523,32 @@ export class MskClusterTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster aws_msk_cluster}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster aws_msk_cluster}
+ */
 export class MskCluster extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_msk_cluster";
+  public static readonly tfResourceType = 'aws_msk_cluster';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster aws_msk_cluster} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options MskClusterConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/msk_cluster aws_msk_cluster} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options MskClusterConfig
+   */
   public constructor(scope: Construct, id: string, config: MskClusterConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_msk_cluster',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2176,7 +2556,7 @@ export class MskCluster extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clusterName = config.clusterName;
     this._enhancedMonitoring = config.enhancedMonitoring;
@@ -2240,7 +2620,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -2258,7 +2638,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // enhanced_monitoring - computed: false, optional: true, required: false
-  private _enhancedMonitoring?: string; 
+  private _enhancedMonitoring?: string;
   public get enhancedMonitoring() {
     return this.getStringAttribute('enhanced_monitoring');
   }
@@ -2274,7 +2654,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2290,7 +2670,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // kafka_version - computed: false, optional: false, required: true
-  private _kafkaVersion?: string; 
+  private _kafkaVersion?: string;
   public get kafkaVersion() {
     return this.getStringAttribute('kafka_version');
   }
@@ -2303,7 +2683,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // number_of_broker_nodes - computed: false, optional: false, required: true
-  private _numberOfBrokerNodes?: number; 
+  private _numberOfBrokerNodes?: number;
   public get numberOfBrokerNodes() {
     return this.getNumberAttribute('number_of_broker_nodes');
   }
@@ -2316,7 +2696,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // storage_mode - computed: true, optional: true, required: false
-  private _storageMode?: string; 
+  private _storageMode?: string;
   public get storageMode() {
     return this.getStringAttribute('storage_mode');
   }
@@ -2332,7 +2712,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2348,7 +2728,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -2374,7 +2754,11 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // broker_node_group_info - computed: false, optional: false, required: true
-  private _brokerNodeGroupInfo = new MskClusterBrokerNodeGroupInfoOutputReference(this, "broker_node_group_info");
+  private _brokerNodeGroupInfo =
+    new MskClusterBrokerNodeGroupInfoOutputReference(
+      this,
+      'broker_node_group_info',
+    );
   public get brokerNodeGroupInfo() {
     return this._brokerNodeGroupInfo;
   }
@@ -2387,7 +2771,11 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // client_authentication - computed: false, optional: true, required: false
-  private _clientAuthentication = new MskClusterClientAuthenticationOutputReference(this, "client_authentication");
+  private _clientAuthentication =
+    new MskClusterClientAuthenticationOutputReference(
+      this,
+      'client_authentication',
+    );
   public get clientAuthentication() {
     return this._clientAuthentication;
   }
@@ -2403,7 +2791,10 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // configuration_info - computed: false, optional: true, required: false
-  private _configurationInfo = new MskClusterConfigurationInfoOutputReference(this, "configuration_info");
+  private _configurationInfo = new MskClusterConfigurationInfoOutputReference(
+    this,
+    'configuration_info',
+  );
   public get configurationInfo() {
     return this._configurationInfo;
   }
@@ -2419,7 +2810,10 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // encryption_info - computed: false, optional: true, required: false
-  private _encryptionInfo = new MskClusterEncryptionInfoOutputReference(this, "encryption_info");
+  private _encryptionInfo = new MskClusterEncryptionInfoOutputReference(
+    this,
+    'encryption_info',
+  );
   public get encryptionInfo() {
     return this._encryptionInfo;
   }
@@ -2435,7 +2829,10 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // logging_info - computed: false, optional: true, required: false
-  private _loggingInfo = new MskClusterLoggingInfoOutputReference(this, "logging_info");
+  private _loggingInfo = new MskClusterLoggingInfoOutputReference(
+    this,
+    'logging_info',
+  );
   public get loggingInfo() {
     return this._loggingInfo;
   }
@@ -2451,7 +2848,10 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // open_monitoring - computed: false, optional: true, required: false
-  private _openMonitoring = new MskClusterOpenMonitoringOutputReference(this, "open_monitoring");
+  private _openMonitoring = new MskClusterOpenMonitoringOutputReference(
+    this,
+    'open_monitoring',
+  );
   public get openMonitoring() {
     return this._openMonitoring;
   }
@@ -2467,7 +2867,7 @@ export class MskCluster extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new MskClusterTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new MskClusterTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -2492,16 +2892,30 @@ export class MskCluster extends cdktf.TerraformResource {
       enhanced_monitoring: cdktf.stringToTerraform(this._enhancedMonitoring),
       id: cdktf.stringToTerraform(this._id),
       kafka_version: cdktf.stringToTerraform(this._kafkaVersion),
-      number_of_broker_nodes: cdktf.numberToTerraform(this._numberOfBrokerNodes),
+      number_of_broker_nodes: cdktf.numberToTerraform(
+        this._numberOfBrokerNodes,
+      ),
       storage_mode: cdktf.stringToTerraform(this._storageMode),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      broker_node_group_info: mskClusterBrokerNodeGroupInfoToTerraform(this._brokerNodeGroupInfo.internalValue),
-      client_authentication: mskClusterClientAuthenticationToTerraform(this._clientAuthentication.internalValue),
-      configuration_info: mskClusterConfigurationInfoToTerraform(this._configurationInfo.internalValue),
-      encryption_info: mskClusterEncryptionInfoToTerraform(this._encryptionInfo.internalValue),
-      logging_info: mskClusterLoggingInfoToTerraform(this._loggingInfo.internalValue),
-      open_monitoring: mskClusterOpenMonitoringToTerraform(this._openMonitoring.internalValue),
+      broker_node_group_info: mskClusterBrokerNodeGroupInfoToTerraform(
+        this._brokerNodeGroupInfo.internalValue,
+      ),
+      client_authentication: mskClusterClientAuthenticationToTerraform(
+        this._clientAuthentication.internalValue,
+      ),
+      configuration_info: mskClusterConfigurationInfoToTerraform(
+        this._configurationInfo.internalValue,
+      ),
+      encryption_info: mskClusterEncryptionInfoToTerraform(
+        this._encryptionInfo.internalValue,
+      ),
+      logging_info: mskClusterLoggingInfoToTerraform(
+        this._loggingInfo.internalValue,
+      ),
+      open_monitoring: mskClusterOpenMonitoringToTerraform(
+        this._openMonitoring.internalValue,
+      ),
       timeouts: mskClusterTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

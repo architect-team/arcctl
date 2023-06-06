@@ -1,48 +1,35 @@
-import { BaseCommand } from '../base-command.js';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
-import { execa } from 'execa';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
+import { exec } from '../utils/command.ts';
 
-export class TagComponentCmd extends BaseCommand {
-  static description = 'Tag a component and its associated build artifacts';
+const TagCommand = BaseCommand()
+  .description('Tag a component and its associated build artifacts')
+  .arguments('<source:string> <target:string>')
+  .action(tag_action);
 
-  static args = [
-    {
-      name: 'source',
-      description: 'Source tag to map to the new tag',
-      required: true,
-    },
-    {
-      name: 'target',
-      description: 'Target tag to apply to the component',
-      required: true,
-    },
-  ];
+async function tag_action(options: GlobalOptions, source: string, target: string) {
+  const command_helper = new CommandHelper(options);
 
-  async run(): Promise<void> {
-    const { args } = await this.parse(TagComponentCmd);
+  try {
+    const component = await command_helper.componentStore.getComponentConfig(source);
+    console.log(component);
 
-    try {
-      const component = await this.componentStore.getComponentConfig(
-        args.source,
-      );
+    component.tag(async (sourceRef: string, targetName: string) => {
+      const imageRepository = new ImageRepository(target);
+      const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
+      const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
 
-      component.tag(async (sourceRef: string, targetName: string) => {
-        const imageRepository = new ImageRepository(args.target);
-        const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-        const targetRef = path.join(
-          imageRepository.registry,
-          `${targetName}${suffix}`,
-        );
+      await exec('docker', { args: ['tag', sourceRef, targetRef] });
+      return targetRef;
+    });
 
-        await execa('docker', ['tag', sourceRef, targetRef]);
-        return targetRef;
-      });
-
-      this.componentStore.tag(args.source, args.target);
-      this.log(`Tagged: ${args.target}`);
-    } catch (err: any) {
-      this.error(err);
-    }
+    command_helper.componentStore.tag(source, target);
+    console.log(`Tagged: ${target}`);
+  } catch (err) {
+    console.error(err);
+    Deno.exit(1);
   }
 }
+
+export default TagCommand;

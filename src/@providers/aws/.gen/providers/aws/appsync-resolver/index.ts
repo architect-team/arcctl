@@ -1,110 +1,123 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_resolver
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface AppsyncResolverConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#api_id AppsyncResolver#api_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#api_id AppsyncResolver#api_id}
+   */
   readonly apiId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#code AppsyncResolver#code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#code AppsyncResolver#code}
+   */
   readonly code?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#data_source AppsyncResolver#data_source}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#data_source AppsyncResolver#data_source}
+   */
   readonly dataSource?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#field AppsyncResolver#field}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#field AppsyncResolver#field}
+   */
   readonly field: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#id AppsyncResolver#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#id AppsyncResolver#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#kind AppsyncResolver#kind}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#kind AppsyncResolver#kind}
+   */
   readonly kind?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#max_batch_size AppsyncResolver#max_batch_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#max_batch_size AppsyncResolver#max_batch_size}
+   */
   readonly maxBatchSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#request_template AppsyncResolver#request_template}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#request_template AppsyncResolver#request_template}
+   */
   readonly requestTemplate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#response_template AppsyncResolver#response_template}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#response_template AppsyncResolver#response_template}
+   */
   readonly responseTemplate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#type AppsyncResolver#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#type AppsyncResolver#type}
+   */
   readonly type: string;
   /**
-  * caching_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#caching_config AppsyncResolver#caching_config}
-  */
+   * caching_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#caching_config AppsyncResolver#caching_config}
+   */
   readonly cachingConfig?: AppsyncResolverCachingConfig;
   /**
-  * pipeline_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#pipeline_config AppsyncResolver#pipeline_config}
-  */
+   * pipeline_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#pipeline_config AppsyncResolver#pipeline_config}
+   */
   readonly pipelineConfig?: AppsyncResolverPipelineConfig;
   /**
-  * runtime block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#runtime AppsyncResolver#runtime}
-  */
+   * runtime block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#runtime AppsyncResolver#runtime}
+   */
   readonly runtime?: AppsyncResolverRuntime;
   /**
-  * sync_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#sync_config AppsyncResolver#sync_config}
-  */
+   * sync_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#sync_config AppsyncResolver#sync_config}
+   */
   readonly syncConfig?: AppsyncResolverSyncConfig;
 }
 export interface AppsyncResolverCachingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#caching_keys AppsyncResolver#caching_keys}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#caching_keys AppsyncResolver#caching_keys}
+   */
   readonly cachingKeys?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#ttl AppsyncResolver#ttl}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#ttl AppsyncResolver#ttl}
+   */
   readonly ttl?: number;
 }
 
-export function appsyncResolverCachingConfigToTerraform(struct?: AppsyncResolverCachingConfigOutputReference | AppsyncResolverCachingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appsyncResolverCachingConfigToTerraform(
+  struct?:
+    | AppsyncResolverCachingConfigOutputReference
+    | AppsyncResolverCachingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    caching_keys: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cachingKeys),
+    caching_keys: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cachingKeys),
     ttl: cdktf.numberToTerraform(struct!.ttl),
-  }
+  };
 }
 
 export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -127,8 +140,7 @@ export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexOb
       this.isEmptyObject = false;
       this._cachingKeys = undefined;
       this._ttl = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cachingKeys = value.cachingKeys;
       this._ttl = value.ttl;
@@ -136,7 +148,7 @@ export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexOb
   }
 
   // caching_keys - computed: false, optional: true, required: false
-  private _cachingKeys?: string[]; 
+  private _cachingKeys?: string[];
   public get cachingKeys() {
     return cdktf.Fn.tolist(this.getListAttribute('caching_keys'));
   }
@@ -152,7 +164,7 @@ export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexOb
   }
 
   // ttl - computed: false, optional: true, required: false
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }
@@ -169,29 +181,43 @@ export class AppsyncResolverCachingConfigOutputReference extends cdktf.ComplexOb
 }
 export interface AppsyncResolverPipelineConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#functions AppsyncResolver#functions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#functions AppsyncResolver#functions}
+   */
   readonly functions?: string[];
 }
 
-export function appsyncResolverPipelineConfigToTerraform(struct?: AppsyncResolverPipelineConfigOutputReference | AppsyncResolverPipelineConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appsyncResolverPipelineConfigToTerraform(
+  struct?:
+    | AppsyncResolverPipelineConfigOutputReference
+    | AppsyncResolverPipelineConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    functions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.functions),
-  }
+    functions: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.functions),
+  };
 }
 
 export class AppsyncResolverPipelineConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -209,15 +235,14 @@ export class AppsyncResolverPipelineConfigOutputReference extends cdktf.ComplexO
     if (value === undefined) {
       this.isEmptyObject = false;
       this._functions = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._functions = value.functions;
     }
   }
 
   // functions - computed: false, optional: true, required: false
-  private _functions?: string[]; 
+  private _functions?: string[];
   public get functions() {
     return this.getListAttribute('functions');
   }
@@ -234,34 +259,43 @@ export class AppsyncResolverPipelineConfigOutputReference extends cdktf.ComplexO
 }
 export interface AppsyncResolverRuntime {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#name AppsyncResolver#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#name AppsyncResolver#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#runtime_version AppsyncResolver#runtime_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#runtime_version AppsyncResolver#runtime_version}
+   */
   readonly runtimeVersion: string;
 }
 
-export function appsyncResolverRuntimeToTerraform(struct?: AppsyncResolverRuntimeOutputReference | AppsyncResolverRuntime): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appsyncResolverRuntimeToTerraform(
+  struct?: AppsyncResolverRuntimeOutputReference | AppsyncResolverRuntime,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     runtime_version: cdktf.stringToTerraform(struct!.runtimeVersion),
-  }
+  };
 }
 
 export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -284,8 +318,7 @@ export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._name = undefined;
       this._runtimeVersion = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._runtimeVersion = value.runtimeVersion;
@@ -293,7 +326,7 @@ export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -306,7 +339,7 @@ export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // runtime_version - computed: false, optional: false, required: true
-  private _runtimeVersion?: string; 
+  private _runtimeVersion?: string;
   public get runtimeVersion() {
     return this.getStringAttribute('runtime_version');
   }
@@ -320,55 +353,72 @@ export class AppsyncResolverRuntimeOutputReference extends cdktf.ComplexObject {
 }
 export interface AppsyncResolverSyncConfigLambdaConflictHandlerConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#lambda_conflict_handler_arn AppsyncResolver#lambda_conflict_handler_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#lambda_conflict_handler_arn AppsyncResolver#lambda_conflict_handler_arn}
+   */
   readonly lambdaConflictHandlerArn?: string;
 }
 
-export function appsyncResolverSyncConfigLambdaConflictHandlerConfigToTerraform(struct?: AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference | AppsyncResolverSyncConfigLambdaConflictHandlerConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appsyncResolverSyncConfigLambdaConflictHandlerConfigToTerraform(
+  struct?:
+    | AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference
+    | AppsyncResolverSyncConfigLambdaConflictHandlerConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    lambda_conflict_handler_arn: cdktf.stringToTerraform(struct!.lambdaConflictHandlerArn),
-  }
+    lambda_conflict_handler_arn: cdktf.stringToTerraform(
+      struct!.lambdaConflictHandlerArn,
+    ),
+  };
 }
 
 export class AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppsyncResolverSyncConfigLambdaConflictHandlerConfig | undefined {
+  public get internalValue():
+    | AppsyncResolverSyncConfigLambdaConflictHandlerConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lambdaConflictHandlerArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaConflictHandlerArn = this._lambdaConflictHandlerArn;
+      internalValueResult.lambdaConflictHandlerArn =
+        this._lambdaConflictHandlerArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppsyncResolverSyncConfigLambdaConflictHandlerConfig | undefined) {
+  public set internalValue(
+    value: AppsyncResolverSyncConfigLambdaConflictHandlerConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lambdaConflictHandlerArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lambdaConflictHandlerArn = value.lambdaConflictHandlerArn;
     }
   }
 
   // lambda_conflict_handler_arn - computed: false, optional: true, required: false
-  private _lambdaConflictHandlerArn?: string; 
+  private _lambdaConflictHandlerArn?: string;
   public get lambdaConflictHandlerArn() {
     return this.getStringAttribute('lambda_conflict_handler_arn');
   }
@@ -385,41 +435,53 @@ export class AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference
 }
 export interface AppsyncResolverSyncConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#conflict_detection AppsyncResolver#conflict_detection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#conflict_detection AppsyncResolver#conflict_detection}
+   */
   readonly conflictDetection?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#conflict_handler AppsyncResolver#conflict_handler}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#conflict_handler AppsyncResolver#conflict_handler}
+   */
   readonly conflictHandler?: string;
   /**
-  * lambda_conflict_handler_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#lambda_conflict_handler_config AppsyncResolver#lambda_conflict_handler_config}
-  */
+   * lambda_conflict_handler_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver#lambda_conflict_handler_config AppsyncResolver#lambda_conflict_handler_config}
+   */
   readonly lambdaConflictHandlerConfig?: AppsyncResolverSyncConfigLambdaConflictHandlerConfig;
 }
 
-export function appsyncResolverSyncConfigToTerraform(struct?: AppsyncResolverSyncConfigOutputReference | AppsyncResolverSyncConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appsyncResolverSyncConfigToTerraform(
+  struct?: AppsyncResolverSyncConfigOutputReference | AppsyncResolverSyncConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     conflict_detection: cdktf.stringToTerraform(struct!.conflictDetection),
     conflict_handler: cdktf.stringToTerraform(struct!.conflictHandler),
-    lambda_conflict_handler_config: appsyncResolverSyncConfigLambdaConflictHandlerConfigToTerraform(struct!.lambdaConflictHandlerConfig),
-  }
+    lambda_conflict_handler_config:
+      appsyncResolverSyncConfigLambdaConflictHandlerConfigToTerraform(
+        struct!.lambdaConflictHandlerConfig,
+      ),
+  };
 }
 
 export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -436,7 +498,8 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
     }
     if (this._lambdaConflictHandlerConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaConflictHandlerConfig = this._lambdaConflictHandlerConfig?.internalValue;
+      internalValueResult.lambdaConflictHandlerConfig =
+        this._lambdaConflictHandlerConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -447,17 +510,17 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
       this._conflictDetection = undefined;
       this._conflictHandler = undefined;
       this._lambdaConflictHandlerConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._conflictDetection = value.conflictDetection;
       this._conflictHandler = value.conflictHandler;
-      this._lambdaConflictHandlerConfig.internalValue = value.lambdaConflictHandlerConfig;
+      this._lambdaConflictHandlerConfig.internalValue =
+        value.lambdaConflictHandlerConfig;
     }
   }
 
   // conflict_detection - computed: false, optional: true, required: false
-  private _conflictDetection?: string; 
+  private _conflictDetection?: string;
   public get conflictDetection() {
     return this.getStringAttribute('conflict_detection');
   }
@@ -473,7 +536,7 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // conflict_handler - computed: false, optional: true, required: false
-  private _conflictHandler?: string; 
+  private _conflictHandler?: string;
   public get conflictHandler() {
     return this.getStringAttribute('conflict_handler');
   }
@@ -489,11 +552,17 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // lambda_conflict_handler_config - computed: false, optional: true, required: false
-  private _lambdaConflictHandlerConfig = new AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference(this, "lambda_conflict_handler_config");
+  private _lambdaConflictHandlerConfig =
+    new AppsyncResolverSyncConfigLambdaConflictHandlerConfigOutputReference(
+      this,
+      'lambda_conflict_handler_config',
+    );
   public get lambdaConflictHandlerConfig() {
     return this._lambdaConflictHandlerConfig;
   }
-  public putLambdaConflictHandlerConfig(value: AppsyncResolverSyncConfigLambdaConflictHandlerConfig) {
+  public putLambdaConflictHandlerConfig(
+    value: AppsyncResolverSyncConfigLambdaConflictHandlerConfig,
+  ) {
     this._lambdaConflictHandlerConfig.internalValue = value;
   }
   public resetLambdaConflictHandlerConfig() {
@@ -506,33 +575,36 @@ export class AppsyncResolverSyncConfigOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver aws_appsync_resolver}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver aws_appsync_resolver}
+ */
 export class AppsyncResolver extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_appsync_resolver";
+  public static readonly tfResourceType = 'aws_appsync_resolver';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver aws_appsync_resolver} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AppsyncResolverConfig
-  */
-  public constructor(scope: Construct, id: string, config: AppsyncResolverConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_resolver aws_appsync_resolver} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AppsyncResolverConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AppsyncResolverConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_appsync_resolver',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -540,7 +612,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._apiId = config.apiId;
     this._code = config.code;
@@ -563,7 +635,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -581,7 +653,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // code - computed: false, optional: true, required: false
-  private _code?: string; 
+  private _code?: string;
   public get code() {
     return this.getStringAttribute('code');
   }
@@ -597,7 +669,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // data_source - computed: false, optional: true, required: false
-  private _dataSource?: string; 
+  private _dataSource?: string;
   public get dataSource() {
     return this.getStringAttribute('data_source');
   }
@@ -613,7 +685,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // field - computed: false, optional: false, required: true
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -626,7 +698,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -642,7 +714,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // kind - computed: false, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -658,7 +730,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // max_batch_size - computed: false, optional: true, required: false
-  private _maxBatchSize?: number; 
+  private _maxBatchSize?: number;
   public get maxBatchSize() {
     return this.getNumberAttribute('max_batch_size');
   }
@@ -674,7 +746,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // request_template - computed: false, optional: true, required: false
-  private _requestTemplate?: string; 
+  private _requestTemplate?: string;
   public get requestTemplate() {
     return this.getStringAttribute('request_template');
   }
@@ -690,7 +762,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // response_template - computed: false, optional: true, required: false
-  private _responseTemplate?: string; 
+  private _responseTemplate?: string;
   public get responseTemplate() {
     return this.getStringAttribute('response_template');
   }
@@ -706,7 +778,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -719,7 +791,10 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // caching_config - computed: false, optional: true, required: false
-  private _cachingConfig = new AppsyncResolverCachingConfigOutputReference(this, "caching_config");
+  private _cachingConfig = new AppsyncResolverCachingConfigOutputReference(
+    this,
+    'caching_config',
+  );
   public get cachingConfig() {
     return this._cachingConfig;
   }
@@ -735,7 +810,10 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // pipeline_config - computed: false, optional: true, required: false
-  private _pipelineConfig = new AppsyncResolverPipelineConfigOutputReference(this, "pipeline_config");
+  private _pipelineConfig = new AppsyncResolverPipelineConfigOutputReference(
+    this,
+    'pipeline_config',
+  );
   public get pipelineConfig() {
     return this._pipelineConfig;
   }
@@ -751,7 +829,7 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // runtime - computed: false, optional: true, required: false
-  private _runtime = new AppsyncResolverRuntimeOutputReference(this, "runtime");
+  private _runtime = new AppsyncResolverRuntimeOutputReference(this, 'runtime');
   public get runtime() {
     return this._runtime;
   }
@@ -767,7 +845,10 @@ export class AppsyncResolver extends cdktf.TerraformResource {
   }
 
   // sync_config - computed: false, optional: true, required: false
-  private _syncConfig = new AppsyncResolverSyncConfigOutputReference(this, "sync_config");
+  private _syncConfig = new AppsyncResolverSyncConfigOutputReference(
+    this,
+    'sync_config',
+  );
   public get syncConfig() {
     return this._syncConfig;
   }
@@ -798,10 +879,16 @@ export class AppsyncResolver extends cdktf.TerraformResource {
       request_template: cdktf.stringToTerraform(this._requestTemplate),
       response_template: cdktf.stringToTerraform(this._responseTemplate),
       type: cdktf.stringToTerraform(this._type),
-      caching_config: appsyncResolverCachingConfigToTerraform(this._cachingConfig.internalValue),
-      pipeline_config: appsyncResolverPipelineConfigToTerraform(this._pipelineConfig.internalValue),
+      caching_config: appsyncResolverCachingConfigToTerraform(
+        this._cachingConfig.internalValue,
+      ),
+      pipeline_config: appsyncResolverPipelineConfigToTerraform(
+        this._pipelineConfig.internalValue,
+      ),
       runtime: appsyncResolverRuntimeToTerraform(this._runtime.internalValue),
-      sync_config: appsyncResolverSyncConfigToTerraform(this._syncConfig.internalValue),
+      sync_config: appsyncResolverSyncConfigToTerraform(
+        this._syncConfig.internalValue,
+      ),
     };
   }
 }

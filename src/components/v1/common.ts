@@ -7,15 +7,15 @@ type BuildSchemaV1 = {
 
 type DockerSchemaV1 =
   | {
-      image: string;
-    }
+    image: string;
+  }
   | {
-      build: BuildSchemaV1;
-    }
+    build: BuildSchemaV1;
+  }
   | {
-      image: string;
-      build: BuildSchemaV1;
-    };
+    image: string;
+    build: BuildSchemaV1;
+  };
 
 export type RuntimeSchemaV1 = DockerSchemaV1 & {
   command?: string | string[];

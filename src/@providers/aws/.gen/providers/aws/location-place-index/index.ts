@@ -1,75 +1,87 @@
 // https://www.terraform.io/docs/providers/aws/r/location_place_index
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface LocationPlaceIndexConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#data_source LocationPlaceIndex#data_source}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#data_source LocationPlaceIndex#data_source}
+   */
   readonly dataSource: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#description LocationPlaceIndex#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#description LocationPlaceIndex#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#id LocationPlaceIndex#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#id LocationPlaceIndex#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#index_name LocationPlaceIndex#index_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#index_name LocationPlaceIndex#index_name}
+   */
   readonly indexName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#tags LocationPlaceIndex#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#tags LocationPlaceIndex#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#tags_all LocationPlaceIndex#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#tags_all LocationPlaceIndex#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * data_source_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#data_source_configuration LocationPlaceIndex#data_source_configuration}
-  */
+   * data_source_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#data_source_configuration LocationPlaceIndex#data_source_configuration}
+   */
   readonly dataSourceConfiguration?: LocationPlaceIndexDataSourceConfiguration;
 }
 export interface LocationPlaceIndexDataSourceConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#intended_use LocationPlaceIndex#intended_use}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/location_place_index#intended_use LocationPlaceIndex#intended_use}
+   */
   readonly intendedUse?: string;
 }
 
-export function locationPlaceIndexDataSourceConfigurationToTerraform(struct?: LocationPlaceIndexDataSourceConfigurationOutputReference | LocationPlaceIndexDataSourceConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function locationPlaceIndexDataSourceConfigurationToTerraform(
+  struct?:
+    | LocationPlaceIndexDataSourceConfigurationOutputReference
+    | LocationPlaceIndexDataSourceConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     intended_use: cdktf.stringToTerraform(struct!.intendedUse),
-  }
+  };
 }
 
 export class LocationPlaceIndexDataSourceConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LocationPlaceIndexDataSourceConfiguration | undefined {
+  public get internalValue():
+    | LocationPlaceIndexDataSourceConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._intendedUse !== undefined) {
@@ -79,19 +91,20 @@ export class LocationPlaceIndexDataSourceConfigurationOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LocationPlaceIndexDataSourceConfiguration | undefined) {
+  public set internalValue(
+    value: LocationPlaceIndexDataSourceConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._intendedUse = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._intendedUse = value.intendedUse;
     }
   }
 
   // intended_use - computed: false, optional: true, required: false
-  private _intendedUse?: string; 
+  private _intendedUse?: string;
   public get intendedUse() {
     return this.getStringAttribute('intended_use');
   }
@@ -108,33 +121,36 @@ export class LocationPlaceIndexDataSourceConfigurationOutputReference extends cd
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/location_place_index aws_location_place_index}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/location_place_index aws_location_place_index}
+ */
 export class LocationPlaceIndex extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_location_place_index";
+  public static readonly tfResourceType = 'aws_location_place_index';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/location_place_index aws_location_place_index} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LocationPlaceIndexConfig
-  */
-  public constructor(scope: Construct, id: string, config: LocationPlaceIndexConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/location_place_index aws_location_place_index} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LocationPlaceIndexConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LocationPlaceIndexConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_location_place_index',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -142,7 +158,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dataSource = config.dataSource;
     this._description = config.description;
@@ -150,7 +166,8 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
     this._indexName = config.indexName;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._dataSourceConfiguration.internalValue = config.dataSourceConfiguration;
+    this._dataSourceConfiguration.internalValue =
+      config.dataSourceConfiguration;
   }
 
   // ==========
@@ -163,7 +180,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // data_source - computed: false, optional: false, required: true
-  private _dataSource?: string; 
+  private _dataSource?: string;
   public get dataSource() {
     return this.getStringAttribute('data_source');
   }
@@ -176,7 +193,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -192,7 +209,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -213,7 +230,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // index_name - computed: false, optional: false, required: true
-  private _indexName?: string; 
+  private _indexName?: string;
   public get indexName() {
     return this.getStringAttribute('index_name');
   }
@@ -226,7 +243,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -242,7 +259,7 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -263,11 +280,17 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
   }
 
   // data_source_configuration - computed: false, optional: true, required: false
-  private _dataSourceConfiguration = new LocationPlaceIndexDataSourceConfigurationOutputReference(this, "data_source_configuration");
+  private _dataSourceConfiguration =
+    new LocationPlaceIndexDataSourceConfigurationOutputReference(
+      this,
+      'data_source_configuration',
+    );
   public get dataSourceConfiguration() {
     return this._dataSourceConfiguration;
   }
-  public putDataSourceConfiguration(value: LocationPlaceIndexDataSourceConfiguration) {
+  public putDataSourceConfiguration(
+    value: LocationPlaceIndexDataSourceConfiguration,
+  ) {
     this._dataSourceConfiguration.internalValue = value;
   }
   public resetDataSourceConfiguration() {
@@ -290,7 +313,10 @@ export class LocationPlaceIndex extends cdktf.TerraformResource {
       index_name: cdktf.stringToTerraform(this._indexName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      data_source_configuration: locationPlaceIndexDataSourceConfigurationToTerraform(this._dataSourceConfiguration.internalValue),
+      data_source_configuration:
+        locationPlaceIndexDataSourceConfigurationToTerraform(
+          this._dataSourceConfiguration.internalValue,
+        ),
     };
   }
 }

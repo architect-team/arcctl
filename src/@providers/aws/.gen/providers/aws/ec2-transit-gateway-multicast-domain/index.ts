@@ -1,70 +1,79 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Ec2TransitGatewayMulticastDomainConfig extends cdktf.TerraformMetaArguments {
+export interface Ec2TransitGatewayMulticastDomainConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#auto_accept_shared_associations Ec2TransitGatewayMulticastDomain#auto_accept_shared_associations}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#auto_accept_shared_associations Ec2TransitGatewayMulticastDomain#auto_accept_shared_associations}
+   */
   readonly autoAcceptSharedAssociations?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#id Ec2TransitGatewayMulticastDomain#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#id Ec2TransitGatewayMulticastDomain#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#igmpv2_support Ec2TransitGatewayMulticastDomain#igmpv2_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#igmpv2_support Ec2TransitGatewayMulticastDomain#igmpv2_support}
+   */
   readonly igmpv2Support?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#static_sources_support Ec2TransitGatewayMulticastDomain#static_sources_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#static_sources_support Ec2TransitGatewayMulticastDomain#static_sources_support}
+   */
   readonly staticSourcesSupport?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#tags Ec2TransitGatewayMulticastDomain#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#tags Ec2TransitGatewayMulticastDomain#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#tags_all Ec2TransitGatewayMulticastDomain#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#tags_all Ec2TransitGatewayMulticastDomain#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#transit_gateway_id Ec2TransitGatewayMulticastDomain#transit_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#transit_gateway_id Ec2TransitGatewayMulticastDomain#transit_gateway_id}
+   */
   readonly transitGatewayId: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#timeouts Ec2TransitGatewayMulticastDomain#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#timeouts Ec2TransitGatewayMulticastDomain#timeouts}
+   */
   readonly timeouts?: Ec2TransitGatewayMulticastDomainTimeouts;
 }
 export interface Ec2TransitGatewayMulticastDomainTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#create Ec2TransitGatewayMulticastDomain#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#create Ec2TransitGatewayMulticastDomain#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#delete Ec2TransitGatewayMulticastDomain#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain#delete Ec2TransitGatewayMulticastDomain#delete}
+   */
   readonly delete?: string;
 }
 
-export function ec2TransitGatewayMulticastDomainTimeoutsToTerraform(struct?: Ec2TransitGatewayMulticastDomainTimeoutsOutputReference | Ec2TransitGatewayMulticastDomainTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2TransitGatewayMulticastDomainTimeoutsToTerraform(
+  struct?:
+    | Ec2TransitGatewayMulticastDomainTimeoutsOutputReference
+    | Ec2TransitGatewayMulticastDomainTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class Ec2TransitGatewayMulticastDomainTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -72,14 +81,20 @@ export class Ec2TransitGatewayMulticastDomainTimeoutsOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2TransitGatewayMulticastDomainTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Ec2TransitGatewayMulticastDomainTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -96,18 +111,21 @@ export class Ec2TransitGatewayMulticastDomainTimeoutsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2TransitGatewayMulticastDomainTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | Ec2TransitGatewayMulticastDomainTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -116,7 +134,7 @@ export class Ec2TransitGatewayMulticastDomainTimeoutsOutputReference extends cdk
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -132,7 +150,7 @@ export class Ec2TransitGatewayMulticastDomainTimeoutsOutputReference extends cdk
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -149,33 +167,37 @@ export class Ec2TransitGatewayMulticastDomainTimeoutsOutputReference extends cdk
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain aws_ec2_transit_gateway_multicast_domain}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain aws_ec2_transit_gateway_multicast_domain}
+ */
 export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_transit_gateway_multicast_domain";
+  public static readonly tfResourceType =
+    'aws_ec2_transit_gateway_multicast_domain';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain aws_ec2_transit_gateway_multicast_domain} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2TransitGatewayMulticastDomainConfig
-  */
-  public constructor(scope: Construct, id: string, config: Ec2TransitGatewayMulticastDomainConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_domain aws_ec2_transit_gateway_multicast_domain} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2TransitGatewayMulticastDomainConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Ec2TransitGatewayMulticastDomainConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_transit_gateway_multicast_domain',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -183,7 +205,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoAcceptSharedAssociations = config.autoAcceptSharedAssociations;
     this._id = config.id;
@@ -205,7 +227,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // auto_accept_shared_associations - computed: false, optional: true, required: false
-  private _autoAcceptSharedAssociations?: string; 
+  private _autoAcceptSharedAssociations?: string;
   public get autoAcceptSharedAssociations() {
     return this.getStringAttribute('auto_accept_shared_associations');
   }
@@ -221,7 +243,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -237,7 +259,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // igmpv2_support - computed: false, optional: true, required: false
-  private _igmpv2Support?: string; 
+  private _igmpv2Support?: string;
   public get igmpv2Support() {
     return this.getStringAttribute('igmpv2_support');
   }
@@ -258,7 +280,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // static_sources_support - computed: false, optional: true, required: false
-  private _staticSourcesSupport?: string; 
+  private _staticSourcesSupport?: string;
   public get staticSourcesSupport() {
     return this.getStringAttribute('static_sources_support');
   }
@@ -274,7 +296,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -290,7 +312,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -306,7 +328,7 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // transit_gateway_id - computed: false, optional: false, required: true
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -319,7 +341,11 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Ec2TransitGatewayMulticastDomainTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new Ec2TransitGatewayMulticastDomainTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -340,14 +366,20 @@ export class Ec2TransitGatewayMulticastDomain extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      auto_accept_shared_associations: cdktf.stringToTerraform(this._autoAcceptSharedAssociations),
+      auto_accept_shared_associations: cdktf.stringToTerraform(
+        this._autoAcceptSharedAssociations,
+      ),
       id: cdktf.stringToTerraform(this._id),
       igmpv2_support: cdktf.stringToTerraform(this._igmpv2Support),
-      static_sources_support: cdktf.stringToTerraform(this._staticSourcesSupport),
+      static_sources_support: cdktf.stringToTerraform(
+        this._staticSourcesSupport,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       transit_gateway_id: cdktf.stringToTerraform(this._transitGatewayId),
-      timeouts: ec2TransitGatewayMulticastDomainTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: ec2TransitGatewayMulticastDomainTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -1,57 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Route53HostedZoneDnssecConfig extends cdktf.TerraformMetaArguments {
+export interface Route53HostedZoneDnssecConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec#hosted_zone_id Route53HostedZoneDnssec#hosted_zone_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec#hosted_zone_id Route53HostedZoneDnssec#hosted_zone_id}
+   */
   readonly hostedZoneId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec#id Route53HostedZoneDnssec#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec#id Route53HostedZoneDnssec#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec#signing_status Route53HostedZoneDnssec#signing_status}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec#signing_status Route53HostedZoneDnssec#signing_status}
+   */
   readonly signingStatus?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec aws_route53_hosted_zone_dnssec}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec aws_route53_hosted_zone_dnssec}
+ */
 export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53_hosted_zone_dnssec";
+  public static readonly tfResourceType = 'aws_route53_hosted_zone_dnssec';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec aws_route53_hosted_zone_dnssec} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Route53HostedZoneDnssecConfig
-  */
-  public constructor(scope: Construct, id: string, config: Route53HostedZoneDnssecConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_hosted_zone_dnssec aws_route53_hosted_zone_dnssec} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Route53HostedZoneDnssecConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Route53HostedZoneDnssecConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_hosted_zone_dnssec',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +62,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._hostedZoneId = config.hostedZoneId;
     this._id = config.id;
@@ -71,7 +74,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
   // ==========
 
   // hosted_zone_id - computed: false, optional: false, required: true
-  private _hostedZoneId?: string; 
+  private _hostedZoneId?: string;
   public get hostedZoneId() {
     return this.getStringAttribute('hosted_zone_id');
   }
@@ -84,7 +87,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -100,7 +103,7 @@ export class Route53HostedZoneDnssec extends cdktf.TerraformResource {
   }
 
   // signing_status - computed: false, optional: true, required: false
-  private _signingStatus?: string; 
+  private _signingStatus?: string;
   public get signingStatus() {
     return this.getStringAttribute('signing_status');
   }

@@ -1,73 +1,77 @@
 // https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ChimeVoiceConnectorTerminationConfig extends cdktf.TerraformMetaArguments {
+export interface ChimeVoiceConnectorTerminationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#calling_regions ChimeVoiceConnectorTermination#calling_regions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#calling_regions ChimeVoiceConnectorTermination#calling_regions}
+   */
   readonly callingRegions: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#cidr_allow_list ChimeVoiceConnectorTermination#cidr_allow_list}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#cidr_allow_list ChimeVoiceConnectorTermination#cidr_allow_list}
+   */
   readonly cidrAllowList: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#cps_limit ChimeVoiceConnectorTermination#cps_limit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#cps_limit ChimeVoiceConnectorTermination#cps_limit}
+   */
   readonly cpsLimit?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#default_phone_number ChimeVoiceConnectorTermination#default_phone_number}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#default_phone_number ChimeVoiceConnectorTermination#default_phone_number}
+   */
   readonly defaultPhoneNumber?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#disabled ChimeVoiceConnectorTermination#disabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#disabled ChimeVoiceConnectorTermination#disabled}
+   */
   readonly disabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#id ChimeVoiceConnectorTermination#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#id ChimeVoiceConnectorTermination#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#voice_connector_id ChimeVoiceConnectorTermination#voice_connector_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination#voice_connector_id ChimeVoiceConnectorTermination#voice_connector_id}
+   */
   readonly voiceConnectorId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination aws_chime_voice_connector_termination}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination aws_chime_voice_connector_termination}
+ */
 export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_chime_voice_connector_termination";
+  public static readonly tfResourceType =
+    'aws_chime_voice_connector_termination';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination aws_chime_voice_connector_termination} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ChimeVoiceConnectorTerminationConfig
-  */
-  public constructor(scope: Construct, id: string, config: ChimeVoiceConnectorTerminationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination aws_chime_voice_connector_termination} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ChimeVoiceConnectorTerminationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ChimeVoiceConnectorTerminationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_chime_voice_connector_termination',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +79,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._callingRegions = config.callingRegions;
     this._cidrAllowList = config.cidrAllowList;
@@ -91,7 +95,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   // ==========
 
   // calling_regions - computed: false, optional: false, required: true
-  private _callingRegions?: string[]; 
+  private _callingRegions?: string[];
   public get callingRegions() {
     return cdktf.Fn.tolist(this.getListAttribute('calling_regions'));
   }
@@ -104,7 +108,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   }
 
   // cidr_allow_list - computed: false, optional: false, required: true
-  private _cidrAllowList?: string[]; 
+  private _cidrAllowList?: string[];
   public get cidrAllowList() {
     return cdktf.Fn.tolist(this.getListAttribute('cidr_allow_list'));
   }
@@ -117,7 +121,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   }
 
   // cps_limit - computed: false, optional: true, required: false
-  private _cpsLimit?: number; 
+  private _cpsLimit?: number;
   public get cpsLimit() {
     return this.getNumberAttribute('cps_limit');
   }
@@ -133,7 +137,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   }
 
   // default_phone_number - computed: false, optional: true, required: false
-  private _defaultPhoneNumber?: string; 
+  private _defaultPhoneNumber?: string;
   public get defaultPhoneNumber() {
     return this.getStringAttribute('default_phone_number');
   }
@@ -149,7 +153,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   }
 
   // disabled - computed: false, optional: true, required: false
-  private _disabled?: boolean | cdktf.IResolvable; 
+  private _disabled?: boolean | cdktf.IResolvable;
   public get disabled() {
     return this.getBooleanAttribute('disabled');
   }
@@ -165,7 +169,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -181,7 +185,7 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
   }
 
   // voice_connector_id - computed: false, optional: false, required: true
-  private _voiceConnectorId?: string; 
+  private _voiceConnectorId?: string;
   public get voiceConnectorId() {
     return this.getStringAttribute('voice_connector_id');
   }
@@ -199,8 +203,14 @@ export class ChimeVoiceConnectorTermination extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      calling_regions: cdktf.listMapper(cdktf.stringToTerraform, false)(this._callingRegions),
-      cidr_allow_list: cdktf.listMapper(cdktf.stringToTerraform, false)(this._cidrAllowList),
+      calling_regions: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._callingRegions),
+      cidr_allow_list: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._cidrAllowList),
       cps_limit: cdktf.numberToTerraform(this._cpsLimit),
       default_phone_number: cdktf.stringToTerraform(this._defaultPhoneNumber),
       disabled: cdktf.booleanToTerraform(this._disabled),

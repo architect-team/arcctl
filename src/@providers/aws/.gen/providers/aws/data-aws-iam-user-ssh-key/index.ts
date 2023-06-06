@@ -1,61 +1,64 @@
 // https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsIamUserSshKeyConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsIamUserSshKeyConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#encoding DataAwsIamUserSshKey#encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#encoding DataAwsIamUserSshKey#encoding}
+   */
   readonly encoding: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#id DataAwsIamUserSshKey#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#id DataAwsIamUserSshKey#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#ssh_public_key_id DataAwsIamUserSshKey#ssh_public_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#ssh_public_key_id DataAwsIamUserSshKey#ssh_public_key_id}
+   */
   readonly sshPublicKeyId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#username DataAwsIamUserSshKey#username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key#username DataAwsIamUserSshKey#username}
+   */
   readonly username: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key aws_iam_user_ssh_key}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key aws_iam_user_ssh_key}
+ */
 export class DataAwsIamUserSshKey extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_iam_user_ssh_key";
+  public static readonly tfResourceType = 'aws_iam_user_ssh_key';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key aws_iam_user_ssh_key} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsIamUserSshKeyConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsIamUserSshKeyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/iam_user_ssh_key aws_iam_user_ssh_key} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsIamUserSshKeyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsIamUserSshKeyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_user_ssh_key',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +66,7 @@ export class DataAwsIamUserSshKey extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._encoding = config.encoding;
     this._id = config.id;
@@ -76,7 +79,7 @@ export class DataAwsIamUserSshKey extends cdktf.TerraformDataSource {
   // ==========
 
   // encoding - computed: false, optional: false, required: true
-  private _encoding?: string; 
+  private _encoding?: string;
   public get encoding() {
     return this.getStringAttribute('encoding');
   }
@@ -94,7 +97,7 @@ export class DataAwsIamUserSshKey extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +118,7 @@ export class DataAwsIamUserSshKey extends cdktf.TerraformDataSource {
   }
 
   // ssh_public_key_id - computed: false, optional: false, required: true
-  private _sshPublicKeyId?: string; 
+  private _sshPublicKeyId?: string;
   public get sshPublicKeyId() {
     return this.getStringAttribute('ssh_public_key_id');
   }
@@ -133,7 +136,7 @@ export class DataAwsIamUserSshKey extends cdktf.TerraformDataSource {
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }

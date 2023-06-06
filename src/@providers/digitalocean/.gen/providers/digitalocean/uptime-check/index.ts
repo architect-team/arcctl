@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/r/uptime_check
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,37 +10,37 @@ export interface UptimeCheckConfig extends cdktf.TerraformMetaArguments {
   /**
   * A boolean value indicating whether the check is enabled/disabled.
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#enabled UptimeCheck#enabled}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check#enabled UptimeCheck#enabled}
   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
   * A human-friendly display name for the check.
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#name UptimeCheck#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check#name UptimeCheck#name}
   */
   readonly name: string;
   /**
   * An array containing the selected regions to perform healthchecks from.
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#regions UptimeCheck#regions}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check#regions UptimeCheck#regions}
   */
   readonly regions?: string[];
   /**
   * The endpoint to perform healthchecks on.
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#target UptimeCheck#target}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check#target UptimeCheck#target}
   */
   readonly target: string;
   /**
   * The type of health check to perform. Enum: 'ping' 'http' 'https'
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check#type UptimeCheck#type}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check#type UptimeCheck#type}
   */
   readonly type?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check digitalocean_uptime_check}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check digitalocean_uptime_check}
 */
 export class UptimeCheck extends cdktf.TerraformResource {
 
@@ -54,7 +54,7 @@ export class UptimeCheck extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_check digitalocean_uptime_check} Resource
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_check digitalocean_uptime_check} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

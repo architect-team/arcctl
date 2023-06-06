@@ -1,15 +1,12 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { InputValidators } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDnsZoneModule } from '../modules/dns-zone.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDnsZoneModule } from '../modules/dns-zone.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDnsZoneService extends TerraformResourceService<
-  'dnsZone',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZone', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(private readonly credentials: DigitaloceanCredentials) {

@@ -1,7 +1,7 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { BaseService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { BaseService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanNodeSizeService extends BaseService<'nodeSize'> {
@@ -19,8 +19,8 @@ export class DigitaloceanNodeSizeService extends BaseService<'nodeSize'> {
     const match = options.sizes.find((size) => size.slug === id);
     return match
       ? {
-          id: match.slug,
-        }
+        id: match.slug,
+      }
       : undefined;
   }
 

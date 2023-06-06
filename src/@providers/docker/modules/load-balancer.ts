@@ -1,6 +1,6 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { DockerCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { DockerCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class DockerLoadBalancerModule extends ResourceModule<

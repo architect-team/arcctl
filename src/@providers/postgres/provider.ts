@@ -1,13 +1,10 @@
-import { Provider, ProviderResources } from '../provider.js';
-import { PostgresqlProvider } from './.gen/providers/postgresql/provider/index.js';
-import {
-  PostgresCredentials,
-  PostgresCredentialsSchema,
-} from './credentials.js';
-import { PostgresDatabaseSchemaService } from './services/database-schema.js';
-import { PostgresDatabaseUserService } from './services/database-user.js';
+import { Provider, ProviderResources } from '../provider.ts';
+import { PostgresqlProvider } from './.gen/providers/postgresql/provider/index.ts';
+import { PostgresCredentials, PostgresCredentialsSchema } from './credentials.ts';
+import { PostgresDatabaseSchemaService } from './services/database-schema.ts';
+import { PostgresDatabaseUserService } from './services/database-user.ts';
 import { Construct } from 'constructs';
-import pg from 'pg';
+import { pg } from 'deps';
 
 export default class PostgresProvider extends Provider<PostgresCredentials> {
   readonly type = 'postgres';

@@ -1,89 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface RedshiftserverlessNamespaceConfig extends cdktf.TerraformMetaArguments {
+export interface RedshiftserverlessNamespaceConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#admin_user_password RedshiftserverlessNamespace#admin_user_password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#admin_user_password RedshiftserverlessNamespace#admin_user_password}
+   */
   readonly adminUserPassword?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#admin_username RedshiftserverlessNamespace#admin_username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#admin_username RedshiftserverlessNamespace#admin_username}
+   */
   readonly adminUsername?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#db_name RedshiftserverlessNamespace#db_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#db_name RedshiftserverlessNamespace#db_name}
+   */
   readonly dbName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#default_iam_role_arn RedshiftserverlessNamespace#default_iam_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#default_iam_role_arn RedshiftserverlessNamespace#default_iam_role_arn}
+   */
   readonly defaultIamRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#iam_roles RedshiftserverlessNamespace#iam_roles}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#iam_roles RedshiftserverlessNamespace#iam_roles}
+   */
   readonly iamRoles?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#id RedshiftserverlessNamespace#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#id RedshiftserverlessNamespace#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#kms_key_id RedshiftserverlessNamespace#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#kms_key_id RedshiftserverlessNamespace#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#log_exports RedshiftserverlessNamespace#log_exports}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#log_exports RedshiftserverlessNamespace#log_exports}
+   */
   readonly logExports?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#namespace_name RedshiftserverlessNamespace#namespace_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#namespace_name RedshiftserverlessNamespace#namespace_name}
+   */
   readonly namespaceName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#tags RedshiftserverlessNamespace#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#tags RedshiftserverlessNamespace#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#tags_all RedshiftserverlessNamespace#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace#tags_all RedshiftserverlessNamespace#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace aws_redshiftserverless_namespace}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace aws_redshiftserverless_namespace}
+ */
 export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_redshiftserverless_namespace";
+  public static readonly tfResourceType = 'aws_redshiftserverless_namespace';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace aws_redshiftserverless_namespace} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RedshiftserverlessNamespaceConfig
-  */
-  public constructor(scope: Construct, id: string, config: RedshiftserverlessNamespaceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshiftserverless_namespace aws_redshiftserverless_namespace} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RedshiftserverlessNamespaceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RedshiftserverlessNamespaceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_redshiftserverless_namespace',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -91,7 +94,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._adminUserPassword = config.adminUserPassword;
     this._adminUsername = config.adminUsername;
@@ -111,7 +114,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   // ==========
 
   // admin_user_password - computed: false, optional: true, required: false
-  private _adminUserPassword?: string; 
+  private _adminUserPassword?: string;
   public get adminUserPassword() {
     return this.getStringAttribute('admin_user_password');
   }
@@ -127,7 +130,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // admin_username - computed: true, optional: true, required: false
-  private _adminUsername?: string; 
+  private _adminUsername?: string;
   public get adminUsername() {
     return this.getStringAttribute('admin_username');
   }
@@ -148,7 +151,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // db_name - computed: true, optional: true, required: false
-  private _dbName?: string; 
+  private _dbName?: string;
   public get dbName() {
     return this.getStringAttribute('db_name');
   }
@@ -164,7 +167,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // default_iam_role_arn - computed: false, optional: true, required: false
-  private _defaultIamRoleArn?: string; 
+  private _defaultIamRoleArn?: string;
   public get defaultIamRoleArn() {
     return this.getStringAttribute('default_iam_role_arn');
   }
@@ -180,7 +183,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // iam_roles - computed: true, optional: true, required: false
-  private _iamRoles?: string[]; 
+  private _iamRoles?: string[];
   public get iamRoles() {
     return cdktf.Fn.tolist(this.getListAttribute('iam_roles'));
   }
@@ -196,7 +199,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -212,7 +215,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -228,7 +231,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // log_exports - computed: false, optional: true, required: false
-  private _logExports?: string[]; 
+  private _logExports?: string[];
   public get logExports() {
     return cdktf.Fn.tolist(this.getListAttribute('log_exports'));
   }
@@ -249,7 +252,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // namespace_name - computed: false, optional: false, required: true
-  private _namespaceName?: string; 
+  private _namespaceName?: string;
   public get namespaceName() {
     return this.getStringAttribute('namespace_name');
   }
@@ -262,7 +265,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -278,7 +281,7 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -303,10 +306,16 @@ export class RedshiftserverlessNamespace extends cdktf.TerraformResource {
       admin_username: cdktf.stringToTerraform(this._adminUsername),
       db_name: cdktf.stringToTerraform(this._dbName),
       default_iam_role_arn: cdktf.stringToTerraform(this._defaultIamRoleArn),
-      iam_roles: cdktf.listMapper(cdktf.stringToTerraform, false)(this._iamRoles),
+      iam_roles: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._iamRoles),
       id: cdktf.stringToTerraform(this._id),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
-      log_exports: cdktf.listMapper(cdktf.stringToTerraform, false)(this._logExports),
+      log_exports: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._logExports),
       namespace_name: cdktf.stringToTerraform(this._namespaceName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),

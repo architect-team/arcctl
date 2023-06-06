@@ -1,46 +1,49 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Route53CidrCollectionConfig extends cdktf.TerraformMetaArguments {
+export interface Route53CidrCollectionConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection#name Route53CidrCollection#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection#name Route53CidrCollection#name}
+   */
   readonly name: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection aws_route53_cidr_collection}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection aws_route53_cidr_collection}
+ */
 export class Route53CidrCollection extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53_cidr_collection";
+  public static readonly tfResourceType = 'aws_route53_cidr_collection';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection aws_route53_cidr_collection} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Route53CidrCollectionConfig
-  */
-  public constructor(scope: Construct, id: string, config: Route53CidrCollectionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_collection aws_route53_cidr_collection} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Route53CidrCollectionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Route53CidrCollectionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_cidr_collection',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -48,7 +51,7 @@ export class Route53CidrCollection extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._name = config.name;
   }
@@ -68,7 +71,7 @@ export class Route53CidrCollection extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

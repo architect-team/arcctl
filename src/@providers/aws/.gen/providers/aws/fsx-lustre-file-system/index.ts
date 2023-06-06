@@ -1,146 +1,157 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface FsxLustreFileSystemConfig extends cdktf.TerraformMetaArguments {
+export interface FsxLustreFileSystemConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#auto_import_policy FsxLustreFileSystem#auto_import_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#auto_import_policy FsxLustreFileSystem#auto_import_policy}
+   */
   readonly autoImportPolicy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#automatic_backup_retention_days FsxLustreFileSystem#automatic_backup_retention_days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#automatic_backup_retention_days FsxLustreFileSystem#automatic_backup_retention_days}
+   */
   readonly automaticBackupRetentionDays?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#backup_id FsxLustreFileSystem#backup_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#backup_id FsxLustreFileSystem#backup_id}
+   */
   readonly backupId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#copy_tags_to_backups FsxLustreFileSystem#copy_tags_to_backups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#copy_tags_to_backups FsxLustreFileSystem#copy_tags_to_backups}
+   */
   readonly copyTagsToBackups?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#daily_automatic_backup_start_time FsxLustreFileSystem#daily_automatic_backup_start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#daily_automatic_backup_start_time FsxLustreFileSystem#daily_automatic_backup_start_time}
+   */
   readonly dailyAutomaticBackupStartTime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#data_compression_type FsxLustreFileSystem#data_compression_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#data_compression_type FsxLustreFileSystem#data_compression_type}
+   */
   readonly dataCompressionType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#deployment_type FsxLustreFileSystem#deployment_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#deployment_type FsxLustreFileSystem#deployment_type}
+   */
   readonly deploymentType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#drive_cache_type FsxLustreFileSystem#drive_cache_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#drive_cache_type FsxLustreFileSystem#drive_cache_type}
+   */
   readonly driveCacheType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#export_path FsxLustreFileSystem#export_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#export_path FsxLustreFileSystem#export_path}
+   */
   readonly exportPath?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#file_system_type_version FsxLustreFileSystem#file_system_type_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#file_system_type_version FsxLustreFileSystem#file_system_type_version}
+   */
   readonly fileSystemTypeVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#id FsxLustreFileSystem#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#id FsxLustreFileSystem#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#import_path FsxLustreFileSystem#import_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#import_path FsxLustreFileSystem#import_path}
+   */
   readonly importPath?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#imported_file_chunk_size FsxLustreFileSystem#imported_file_chunk_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#imported_file_chunk_size FsxLustreFileSystem#imported_file_chunk_size}
+   */
   readonly importedFileChunkSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#kms_key_id FsxLustreFileSystem#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#kms_key_id FsxLustreFileSystem#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#per_unit_storage_throughput FsxLustreFileSystem#per_unit_storage_throughput}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#per_unit_storage_throughput FsxLustreFileSystem#per_unit_storage_throughput}
+   */
   readonly perUnitStorageThroughput?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#security_group_ids FsxLustreFileSystem#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#security_group_ids FsxLustreFileSystem#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#storage_capacity FsxLustreFileSystem#storage_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#storage_capacity FsxLustreFileSystem#storage_capacity}
+   */
   readonly storageCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#storage_type FsxLustreFileSystem#storage_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#storage_type FsxLustreFileSystem#storage_type}
+   */
   readonly storageType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#subnet_ids FsxLustreFileSystem#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#subnet_ids FsxLustreFileSystem#subnet_ids}
+   */
   readonly subnetIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#tags FsxLustreFileSystem#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#tags FsxLustreFileSystem#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#tags_all FsxLustreFileSystem#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#tags_all FsxLustreFileSystem#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#weekly_maintenance_start_time FsxLustreFileSystem#weekly_maintenance_start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#weekly_maintenance_start_time FsxLustreFileSystem#weekly_maintenance_start_time}
+   */
   readonly weeklyMaintenanceStartTime?: string;
   /**
-  * log_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#log_configuration FsxLustreFileSystem#log_configuration}
-  */
+   * log_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#log_configuration FsxLustreFileSystem#log_configuration}
+   */
   readonly logConfiguration?: FsxLustreFileSystemLogConfiguration;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#timeouts FsxLustreFileSystem#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#timeouts FsxLustreFileSystem#timeouts}
+   */
   readonly timeouts?: FsxLustreFileSystemTimeouts;
 }
 export interface FsxLustreFileSystemLogConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#destination FsxLustreFileSystem#destination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#destination FsxLustreFileSystem#destination}
+   */
   readonly destination?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#level FsxLustreFileSystem#level}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#level FsxLustreFileSystem#level}
+   */
   readonly level?: string;
 }
 
-export function fsxLustreFileSystemLogConfigurationToTerraform(struct?: FsxLustreFileSystemLogConfigurationOutputReference | FsxLustreFileSystemLogConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function fsxLustreFileSystemLogConfigurationToTerraform(
+  struct?:
+    | FsxLustreFileSystemLogConfigurationOutputReference
+    | FsxLustreFileSystemLogConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     destination: cdktf.stringToTerraform(struct!.destination),
     level: cdktf.stringToTerraform(struct!.level),
-  }
+  };
 }
 
 export class FsxLustreFileSystemLogConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -158,13 +169,14 @@ export class FsxLustreFileSystemLogConfigurationOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: FsxLustreFileSystemLogConfiguration | undefined) {
+  public set internalValue(
+    value: FsxLustreFileSystemLogConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._destination = undefined;
       this._level = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._destination = value.destination;
       this._level = value.level;
@@ -172,7 +184,7 @@ export class FsxLustreFileSystemLogConfigurationOutputReference extends cdktf.Co
   }
 
   // destination - computed: true, optional: true, required: false
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -188,7 +200,7 @@ export class FsxLustreFileSystemLogConfigurationOutputReference extends cdktf.Co
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -205,29 +217,38 @@ export class FsxLustreFileSystemLogConfigurationOutputReference extends cdktf.Co
 }
 export interface FsxLustreFileSystemTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#create FsxLustreFileSystem#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#create FsxLustreFileSystem#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#delete FsxLustreFileSystem#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#delete FsxLustreFileSystem#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#update FsxLustreFileSystem#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system#update FsxLustreFileSystem#update}
+   */
   readonly update?: string;
 }
 
-export function fsxLustreFileSystemTimeoutsToTerraform(struct?: FsxLustreFileSystemTimeoutsOutputReference | FsxLustreFileSystemTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function fsxLustreFileSystemTimeoutsToTerraform(
+  struct?:
+    | FsxLustreFileSystemTimeoutsOutputReference
+    | FsxLustreFileSystemTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -235,14 +256,20 @@ export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): FsxLustreFileSystemTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | FsxLustreFileSystemTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -263,19 +290,19 @@ export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: FsxLustreFileSystemTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: FsxLustreFileSystemTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -285,7 +312,7 @@ export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -301,7 +328,7 @@ export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -317,7 +344,7 @@ export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -334,33 +361,36 @@ export class FsxLustreFileSystemTimeoutsOutputReference extends cdktf.ComplexObj
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system aws_fsx_lustre_file_system}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system aws_fsx_lustre_file_system}
+ */
 export class FsxLustreFileSystem extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_fsx_lustre_file_system";
+  public static readonly tfResourceType = 'aws_fsx_lustre_file_system';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system aws_fsx_lustre_file_system} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options FsxLustreFileSystemConfig
-  */
-  public constructor(scope: Construct, id: string, config: FsxLustreFileSystemConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/fsx_lustre_file_system aws_fsx_lustre_file_system} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options FsxLustreFileSystemConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: FsxLustreFileSystemConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_fsx_lustre_file_system',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -368,7 +398,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._autoImportPolicy = config.autoImportPolicy;
     this._automaticBackupRetentionDays = config.automaticBackupRetentionDays;
@@ -406,7 +436,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // auto_import_policy - computed: true, optional: true, required: false
-  private _autoImportPolicy?: string; 
+  private _autoImportPolicy?: string;
   public get autoImportPolicy() {
     return this.getStringAttribute('auto_import_policy');
   }
@@ -422,7 +452,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // automatic_backup_retention_days - computed: true, optional: true, required: false
-  private _automaticBackupRetentionDays?: number; 
+  private _automaticBackupRetentionDays?: number;
   public get automaticBackupRetentionDays() {
     return this.getNumberAttribute('automatic_backup_retention_days');
   }
@@ -438,7 +468,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // backup_id - computed: false, optional: true, required: false
-  private _backupId?: string; 
+  private _backupId?: string;
   public get backupId() {
     return this.getStringAttribute('backup_id');
   }
@@ -454,7 +484,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // copy_tags_to_backups - computed: false, optional: true, required: false
-  private _copyTagsToBackups?: boolean | cdktf.IResolvable; 
+  private _copyTagsToBackups?: boolean | cdktf.IResolvable;
   public get copyTagsToBackups() {
     return this.getBooleanAttribute('copy_tags_to_backups');
   }
@@ -470,7 +500,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // daily_automatic_backup_start_time - computed: true, optional: true, required: false
-  private _dailyAutomaticBackupStartTime?: string; 
+  private _dailyAutomaticBackupStartTime?: string;
   public get dailyAutomaticBackupStartTime() {
     return this.getStringAttribute('daily_automatic_backup_start_time');
   }
@@ -486,7 +516,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // data_compression_type - computed: false, optional: true, required: false
-  private _dataCompressionType?: string; 
+  private _dataCompressionType?: string;
   public get dataCompressionType() {
     return this.getStringAttribute('data_compression_type');
   }
@@ -502,7 +532,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // deployment_type - computed: false, optional: true, required: false
-  private _deploymentType?: string; 
+  private _deploymentType?: string;
   public get deploymentType() {
     return this.getStringAttribute('deployment_type');
   }
@@ -523,7 +553,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // drive_cache_type - computed: false, optional: true, required: false
-  private _driveCacheType?: string; 
+  private _driveCacheType?: string;
   public get driveCacheType() {
     return this.getStringAttribute('drive_cache_type');
   }
@@ -539,7 +569,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // export_path - computed: true, optional: true, required: false
-  private _exportPath?: string; 
+  private _exportPath?: string;
   public get exportPath() {
     return this.getStringAttribute('export_path');
   }
@@ -555,7 +585,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // file_system_type_version - computed: true, optional: true, required: false
-  private _fileSystemTypeVersion?: string; 
+  private _fileSystemTypeVersion?: string;
   public get fileSystemTypeVersion() {
     return this.getStringAttribute('file_system_type_version');
   }
@@ -571,7 +601,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -587,7 +617,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // import_path - computed: false, optional: true, required: false
-  private _importPath?: string; 
+  private _importPath?: string;
   public get importPath() {
     return this.getStringAttribute('import_path');
   }
@@ -603,7 +633,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // imported_file_chunk_size - computed: true, optional: true, required: false
-  private _importedFileChunkSize?: number; 
+  private _importedFileChunkSize?: number;
   public get importedFileChunkSize() {
     return this.getNumberAttribute('imported_file_chunk_size');
   }
@@ -619,7 +649,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -650,7 +680,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // per_unit_storage_throughput - computed: false, optional: true, required: false
-  private _perUnitStorageThroughput?: number; 
+  private _perUnitStorageThroughput?: number;
   public get perUnitStorageThroughput() {
     return this.getNumberAttribute('per_unit_storage_throughput');
   }
@@ -666,7 +696,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -682,7 +712,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // storage_capacity - computed: false, optional: true, required: false
-  private _storageCapacity?: number; 
+  private _storageCapacity?: number;
   public get storageCapacity() {
     return this.getNumberAttribute('storage_capacity');
   }
@@ -698,7 +728,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // storage_type - computed: false, optional: true, required: false
-  private _storageType?: string; 
+  private _storageType?: string;
   public get storageType() {
     return this.getStringAttribute('storage_type');
   }
@@ -714,7 +744,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return this.getListAttribute('subnet_ids');
   }
@@ -727,7 +757,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -743,7 +773,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -764,7 +794,7 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // weekly_maintenance_start_time - computed: true, optional: true, required: false
-  private _weeklyMaintenanceStartTime?: string; 
+  private _weeklyMaintenanceStartTime?: string;
   public get weeklyMaintenanceStartTime() {
     return this.getStringAttribute('weekly_maintenance_start_time');
   }
@@ -780,7 +810,11 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // log_configuration - computed: false, optional: true, required: false
-  private _logConfiguration = new FsxLustreFileSystemLogConfigurationOutputReference(this, "log_configuration");
+  private _logConfiguration =
+    new FsxLustreFileSystemLogConfigurationOutputReference(
+      this,
+      'log_configuration',
+    );
   public get logConfiguration() {
     return this._logConfiguration;
   }
@@ -796,7 +830,10 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new FsxLustreFileSystemTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new FsxLustreFileSystemTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -818,29 +855,51 @@ export class FsxLustreFileSystem extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       auto_import_policy: cdktf.stringToTerraform(this._autoImportPolicy),
-      automatic_backup_retention_days: cdktf.numberToTerraform(this._automaticBackupRetentionDays),
+      automatic_backup_retention_days: cdktf.numberToTerraform(
+        this._automaticBackupRetentionDays,
+      ),
       backup_id: cdktf.stringToTerraform(this._backupId),
       copy_tags_to_backups: cdktf.booleanToTerraform(this._copyTagsToBackups),
-      daily_automatic_backup_start_time: cdktf.stringToTerraform(this._dailyAutomaticBackupStartTime),
+      daily_automatic_backup_start_time: cdktf.stringToTerraform(
+        this._dailyAutomaticBackupStartTime,
+      ),
       data_compression_type: cdktf.stringToTerraform(this._dataCompressionType),
       deployment_type: cdktf.stringToTerraform(this._deploymentType),
       drive_cache_type: cdktf.stringToTerraform(this._driveCacheType),
       export_path: cdktf.stringToTerraform(this._exportPath),
-      file_system_type_version: cdktf.stringToTerraform(this._fileSystemTypeVersion),
+      file_system_type_version: cdktf.stringToTerraform(
+        this._fileSystemTypeVersion,
+      ),
       id: cdktf.stringToTerraform(this._id),
       import_path: cdktf.stringToTerraform(this._importPath),
-      imported_file_chunk_size: cdktf.numberToTerraform(this._importedFileChunkSize),
+      imported_file_chunk_size: cdktf.numberToTerraform(
+        this._importedFileChunkSize,
+      ),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
-      per_unit_storage_throughput: cdktf.numberToTerraform(this._perUnitStorageThroughput),
-      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
+      per_unit_storage_throughput: cdktf.numberToTerraform(
+        this._perUnitStorageThroughput,
+      ),
+      security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupIds),
       storage_capacity: cdktf.numberToTerraform(this._storageCapacity),
       storage_type: cdktf.stringToTerraform(this._storageType),
-      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
+      subnet_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      weekly_maintenance_start_time: cdktf.stringToTerraform(this._weeklyMaintenanceStartTime),
-      log_configuration: fsxLustreFileSystemLogConfigurationToTerraform(this._logConfiguration.internalValue),
-      timeouts: fsxLustreFileSystemTimeoutsToTerraform(this._timeouts.internalValue),
+      weekly_maintenance_start_time: cdktf.stringToTerraform(
+        this._weeklyMaintenanceStartTime,
+      ),
+      log_configuration: fsxLustreFileSystemLogConfigurationToTerraform(
+        this._logConfiguration.internalValue,
+      ),
+      timeouts: fsxLustreFileSystemTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

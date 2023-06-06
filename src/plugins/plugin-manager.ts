@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import path from 'path';
-import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.js';
-import PluginUtils from './plugin-utils.js';
+import * as path from 'std/path/mod.ts';
+import { existsSync } from 'std/fs/exists.ts';
+import { ArchitectPlugin, PluginArchitecture, PluginBundleType, PluginPlatform } from './plugin-types.ts';
+import PluginUtils from './plugin-utils.ts';
 
 type Dictionary<T> = { [key: string]: T };
 
@@ -9,39 +9,45 @@ export default class PluginManager {
   private static readonly plugins: Dictionary<ArchitectPlugin> = {};
 
   private static readonly ARCHITECTUREMAP: Dictionary<PluginArchitecture> = {
-    'x64': PluginArchitecture.AMD64,
-    'arm64': PluginArchitecture.ARM64,
+    x86_64: PluginArchitecture.AMD64,
+    aarch64: PluginArchitecture.ARM64,
   };
 
   private static readonly OPERATINSYSTEMMAP: Dictionary<PluginPlatform> = {
-    'win32': PluginPlatform.WINDOWS,
-    'darwin': PluginPlatform.DARWIN,
-    'linux': PluginPlatform.LINUX,
+    windows: PluginPlatform.WINDOWS,
+    darwin: PluginPlatform.DARWIN,
+    linux: PluginPlatform.LINUX,
   };
 
   private static getPlatform(): PluginPlatform {
-    return this.OPERATINSYSTEMMAP[process.platform];
+    return this.OPERATINSYSTEMMAP[Deno.build.os];
   }
 
   private static getArchitecture(): PluginArchitecture {
-    return this.ARCHITECTUREMAP[process.arch];
+    return this.ARCHITECTUREMAP[Deno.build.arch];
   }
 
   private static async removeOldPluginVersions(pluginDirectory: string, plugin: ArchitectPlugin) {
-    if (!fs.existsSync(pluginDirectory)) {
+    if (!existsSync(pluginDirectory)) {
       return;
     }
     const usedVersions = Object.keys(plugin.versions);
-    const downloadedVersions = await fs.promises.readdir(pluginDirectory);
-    for (const downloadedVersion of downloadedVersions) {
-      if (usedVersions.includes(downloadedVersion)) {
+    const downloadedVersions = await Deno.readDir(pluginDirectory);
+    for await (const downloadedVersion of downloadedVersions) {
+      if (usedVersions.includes(downloadedVersion.name)) {
         continue;
       }
-      await fs.promises.rmdir(path.join(pluginDirectory, downloadedVersion), { recursive: true });
+      await Deno.remove(path.join(pluginDirectory, downloadedVersion.name), {
+        recursive: true,
+      });
     }
   }
 
-  static async getPlugin<T extends ArchitectPlugin>(configDirectory: string, version: string, ctor: { new(): T; }): Promise<T> {
+  static async getPlugin<T extends ArchitectPlugin>(
+    configDirectory: string,
+    version: string,
+    ctor: { new (): T },
+  ): Promise<T> {
     const id = `${ctor.name}_${version}`;
     if (this.plugins[id]) {
       return this.plugins[id] as T;
@@ -55,20 +61,26 @@ export default class PluginManager {
     const versionPath = path.join(currentPluginDirectory, `/${version}`);
 
     await this.removeOldPluginVersions(currentPluginDirectory, plugin);
-    await fs.promises.mkdir(versionPath, { recursive: true });
+    await Deno.mkdir(versionPath, { recursive: true });
 
     const binary = PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture());
-    const downloadedFilePath = path.join(versionPath, `/${plugin.name}.${binary.bundleType === PluginBundleType.ZIP ? 'zip' : 'tar.gz'}`);
+    const downloadedFilePath = path.join(
+      versionPath,
+      `/${plugin.name}.${binary.bundleType === PluginBundleType.ZIP ? 'zip' : 'tar.gz'}`,
+    );
 
     const executablePath = path.join(versionPath, `/${binary.executablePath}`);
-    if (!fs.existsSync(executablePath)) {
+    if (!existsSync(executablePath)) {
       await PluginUtils.downloadFile(binary.url, downloadedFilePath, binary.sha256);
       await PluginUtils.extractFile(downloadedFilePath, versionPath, binary.bundleType);
-      await fs.promises.chmod(executablePath, '755');
-      await fs.promises.rm(downloadedFilePath);
+      await Deno.chmod(executablePath, 0o755);
+      await Deno.remove(downloadedFilePath);
     }
 
-    await plugin.setup(versionPath, PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture()));
+    await plugin.setup(
+      versionPath,
+      PluginUtils.getBinary(plugin.versions[version], this.getPlatform(), this.getArchitecture()),
+    );
 
     this.plugins[id] = plugin;
     return plugin as T;

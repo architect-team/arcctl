@@ -1,33 +1,27 @@
-import axios from 'axios';
-import * as crypto from 'crypto';
-import * as fs from 'fs';
-import * as os from 'os';
-import path from 'path';
-import { finished } from 'stream';
-import { promisify } from 'util';
-import { v4 } from 'uuid';
-import { PluginArchitecture, PluginBundleType, PluginPlatform } from '../../src/plugins/plugin-types.js';
-import TerraformPlugin from '../../src/plugins/terraform-plugin.js';
+import {
+  PluginArchitecture,
+  PluginBundleType,
+  PluginPlatform,
+} from '../../src/plugins/plugin-types.ts';
+import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 
-const tmpDirectory = os.tmpdir();
+const tmpDirectory = Deno.makeTempDirSync({ prefix: crypto.randomUUID() });
 
 const plugin = new TerraformPlugin();
 const versions = plugin.versions;
 
 const downloadFile = (url: string) => {
-  const location = path.join(tmpDirectory, '/' + v4());
-  const writer = fs.createWriteStream(location);
-  return axios({
-    method: 'get',
-    url: url,
-    responseType: 'stream',
-  }).then(async response => {
-    response.data.pipe(writer);
-    await promisify(finished)(writer);
-    const fileBuffer = await fs.promises.readFile(location);
+  return fetch(url).then(async (response) => {
+    // Write the file
+    const file = await Deno.create(tmpDirectory);
+    await response.body?.pipeTo(file.writable);
+
+    // Create and return the hash
+    const fileBuffer = await Deno.readFile(tmpDirectory);
     const hashSum = crypto.createHash('sha256');
     hashSum.update(fileBuffer);
-    return hashSum.digest('hex');
+    return hashSum.setEncoding('utf-8').digest('hex') as string;
   });
 };
 
@@ -37,7 +31,8 @@ for (const [_, items] of Object.entries(versions)) {
     console.log(hash);
     item.sha256 = hash;
     item.platform = 'PluginPlatform.' + PluginPlatform[item.platform];
-    item.architecture = 'PluginArchitecture.' + PluginArchitecture[item.architecture];
+    item.architecture =
+      'PluginArchitecture.' + PluginArchitecture[item.architecture];
     item.bundleType = 'PluginBundleType.' + PluginBundleType[item.bundleType];
   }
 }

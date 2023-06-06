@@ -1,14 +1,11 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDatabaseUserModule } from '../modules/database-user.js';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDatabaseUserModule } from '../modules/database-user.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDatabaseUserService extends TerraformResourceService<
-  'databaseUser',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseUserService extends TerraformResourceService<'databaseUser', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {

@@ -1,60 +1,70 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsEc2LocalGatewayVirtualInterfaceGroupConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsEc2LocalGatewayVirtualInterfaceGroupConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#id DataAwsEc2LocalGatewayVirtualInterfaceGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#id DataAwsEc2LocalGatewayVirtualInterfaceGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#local_gateway_id DataAwsEc2LocalGatewayVirtualInterfaceGroup#local_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#local_gateway_id DataAwsEc2LocalGatewayVirtualInterfaceGroup#local_gateway_id}
+   */
   readonly localGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#tags DataAwsEc2LocalGatewayVirtualInterfaceGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#tags DataAwsEc2LocalGatewayVirtualInterfaceGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * filter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#filter DataAwsEc2LocalGatewayVirtualInterfaceGroup#filter}
-  */
-  readonly filter?: DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter[] | cdktf.IResolvable;
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#filter DataAwsEc2LocalGatewayVirtualInterfaceGroup#filter}
+   */
+  readonly filter?:
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter[]
+    | cdktf.IResolvable;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#timeouts DataAwsEc2LocalGatewayVirtualInterfaceGroup#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#timeouts DataAwsEc2LocalGatewayVirtualInterfaceGroup#timeouts}
+   */
   readonly timeouts?: DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts;
 }
 export interface DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#name DataAwsEc2LocalGatewayVirtualInterfaceGroup#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#name DataAwsEc2LocalGatewayVirtualInterfaceGroup#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#values DataAwsEc2LocalGatewayVirtualInterfaceGroup#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#values DataAwsEc2LocalGatewayVirtualInterfaceGroup#values}
+   */
   readonly values: string[];
 }
 
-export function dataAwsEc2LocalGatewayVirtualInterfaceGroupFilterToTerraform(struct?: DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsEc2LocalGatewayVirtualInterfaceGroupFilterToTerraform(
+  struct?:
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference extends cdktf.ComplexObject {
@@ -62,16 +72,29 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -88,18 +111,21 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -108,7 +134,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference ex
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -121,7 +147,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference ex
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -135,39 +161,61 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference ex
 }
 
 export class DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterList extends cdktf.ComplexList {
-  public internalValue? : DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference {
-    return new DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference {
+    return new DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#read DataAwsEc2LocalGatewayVirtualInterfaceGroup#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group#read DataAwsEc2LocalGatewayVirtualInterfaceGroup#read}
+   */
   readonly read?: string;
 }
 
-export function dataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsToTerraform(struct?: DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference | DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsToTerraform(
+  struct?:
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -175,14 +223,20 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -195,17 +249,20 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -213,7 +270,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference 
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -230,33 +287,37 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group aws_ec2_local_gateway_virtual_interface_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group aws_ec2_local_gateway_virtual_interface_group}
+ */
 export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_local_gateway_virtual_interface_group";
+  public static readonly tfResourceType =
+    'aws_ec2_local_gateway_virtual_interface_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group aws_ec2_local_gateway_virtual_interface_group} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsEc2LocalGatewayVirtualInterfaceGroupConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsEc2LocalGatewayVirtualInterfaceGroupConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_virtual_interface_group aws_ec2_local_gateway_virtual_interface_group} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsEc2LocalGatewayVirtualInterfaceGroupConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsEc2LocalGatewayVirtualInterfaceGroupConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_local_gateway_virtual_interface_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -264,7 +325,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._localGatewayId = config.localGatewayId;
@@ -278,7 +339,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -294,7 +355,7 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
   }
 
   // local_gateway_id - computed: true, optional: true, required: false
-  private _localGatewayId?: string; 
+  private _localGatewayId?: string;
   public get localGatewayId() {
     return this.getStringAttribute('local_gateway_id');
   }
@@ -311,11 +372,13 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
 
   // local_gateway_virtual_interface_ids - computed: true, optional: false, required: false
   public get localGatewayVirtualInterfaceIds() {
-    return cdktf.Fn.tolist(this.getListAttribute('local_gateway_virtual_interface_ids'));
+    return cdktf.Fn.tolist(
+      this.getListAttribute('local_gateway_virtual_interface_ids'),
+    );
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -331,11 +394,19 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterList(this, "filter", true);
+  private _filter = new DataAwsEc2LocalGatewayVirtualInterfaceGroupFilterList(
+    this,
+    'filter',
+    true,
+  );
   public get filter() {
     return this._filter;
   }
-  public putFilter(value: DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter[] | cdktf.IResolvable) {
+  public putFilter(
+    value:
+      | DataAwsEc2LocalGatewayVirtualInterfaceGroupFilter[]
+      | cdktf.IResolvable,
+  ) {
     this._filter.internalValue = value;
   }
   public resetFilter() {
@@ -347,11 +418,17 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
-  public putTimeouts(value: DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts) {
+  public putTimeouts(
+    value: DataAwsEc2LocalGatewayVirtualInterfaceGroupTimeouts,
+  ) {
     this._timeouts.internalValue = value;
   }
   public resetTimeouts() {
@@ -371,8 +448,13 @@ export class DataAwsEc2LocalGatewayVirtualInterfaceGroup extends cdktf.Terraform
       id: cdktf.stringToTerraform(this._id),
       local_gateway_id: cdktf.stringToTerraform(this._localGatewayId),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
-      filter: cdktf.listMapper(dataAwsEc2LocalGatewayVirtualInterfaceGroupFilterToTerraform, true)(this._filter.internalValue),
-      timeouts: dataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsToTerraform(this._timeouts.internalValue),
+      filter: cdktf.listMapper(
+        dataAwsEc2LocalGatewayVirtualInterfaceGroupFilterToTerraform,
+        true,
+      )(this._filter.internalValue),
+      timeouts: dataAwsEc2LocalGatewayVirtualInterfaceGroupTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

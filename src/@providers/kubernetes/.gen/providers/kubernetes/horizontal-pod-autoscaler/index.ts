@@ -1,69 +1,77 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface HorizontalPodAutoscalerConfig extends cdktf.TerraformMetaArguments {
+export interface HorizontalPodAutoscalerConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#id HorizontalPodAutoscaler#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#id HorizontalPodAutoscaler#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metadata HorizontalPodAutoscaler#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metadata HorizontalPodAutoscaler#metadata}
+   */
   readonly metadata: HorizontalPodAutoscalerMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#spec HorizontalPodAutoscaler#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#spec HorizontalPodAutoscaler#spec}
+   */
   readonly spec: HorizontalPodAutoscalerSpec;
 }
 export interface HorizontalPodAutoscalerMetadata {
   /**
-  * An unstructured key value map stored with the horizontal pod autoscaler that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#annotations HorizontalPodAutoscaler#annotations}
-  */
+   * An unstructured key value map stored with the horizontal pod autoscaler that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#annotations HorizontalPodAutoscaler#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#generate_name HorizontalPodAutoscaler#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#generate_name HorizontalPodAutoscaler#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the horizontal pod autoscaler. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#labels HorizontalPodAutoscaler#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the horizontal pod autoscaler. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#labels HorizontalPodAutoscaler#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the horizontal pod autoscaler, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * Name of the horizontal pod autoscaler, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name?: string;
   /**
-  * Namespace defines the space within which name of the horizontal pod autoscaler must be unique.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#namespace HorizontalPodAutoscaler#namespace}
-  */
+   * Namespace defines the space within which name of the horizontal pod autoscaler must be unique.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#namespace HorizontalPodAutoscaler#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function horizontalPodAutoscalerMetadataToTerraform(struct?: HorizontalPodAutoscalerMetadataOutputReference | HorizontalPodAutoscalerMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerMetadataToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerMetadataOutputReference
+    | HorizontalPodAutoscalerMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
@@ -71,17 +79,20 @@ export function horizontalPodAutoscalerMetadataToTerraform(struct?: HorizontalPo
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -119,8 +130,7 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
       this._labels = undefined;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -131,7 +141,7 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -147,7 +157,7 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -168,7 +178,7 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -184,7 +194,7 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -200,7 +210,7 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -227,35 +237,43 @@ export class HorizontalPodAutoscalerMetadataOutputReference extends cdktf.Comple
 }
 export interface HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy {
   /**
-  * Period specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#period_seconds HorizontalPodAutoscaler#period_seconds}
-  */
+   * Period specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#period_seconds HorizontalPodAutoscaler#period_seconds}
+   */
   readonly periodSeconds: number;
   /**
-  * Type is used to specify the scaling policy: Percent or Pods
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * Type is used to specify the scaling policy: Percent or Pods
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * Value contains the amount of change which is permitted by the policy. It must be greater than zero.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * Value contains the amount of change which is permitted by the policy. It must be greater than zero.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value: number;
 }
 
-export function horizontalPodAutoscalerSpecBehaviorScaleDownPolicyToTerraform(struct?: HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecBehaviorScaleDownPolicyToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.numberToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference extends cdktf.ComplexObject {
@@ -263,16 +281,29 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -293,19 +324,22 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._periodSeconds = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._periodSeconds = value.periodSeconds;
@@ -315,7 +349,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference e
   }
 
   // period_seconds - computed: false, optional: false, required: true
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -328,7 +362,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference e
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -341,7 +375,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference e
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -355,55 +389,81 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference e
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference {
-    return new HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference {
+    return new HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecBehaviorScaleDown {
   /**
-  * Used to specify which policy should be used. If not set, the default value Max is used.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#select_policy HorizontalPodAutoscaler#select_policy}
-  */
+   * Used to specify which policy should be used. If not set, the default value Max is used.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#select_policy HorizontalPodAutoscaler#select_policy}
+   */
   readonly selectPolicy?: string;
   /**
-  * Number of seconds for which past recommendations should be considered while scaling up or scaling down. This value must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#stabilization_window_seconds HorizontalPodAutoscaler#stabilization_window_seconds}
-  */
+   * Number of seconds for which past recommendations should be considered while scaling up or scaling down. This value must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#stabilization_window_seconds HorizontalPodAutoscaler#stabilization_window_seconds}
+   */
   readonly stabilizationWindowSeconds?: number;
   /**
-  * policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#policy HorizontalPodAutoscaler#policy}
-  */
-  readonly policy: HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy[] | cdktf.IResolvable;
+   * policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#policy HorizontalPodAutoscaler#policy}
+   */
+  readonly policy:
+    | HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecBehaviorScaleDownToTerraform(struct?: HorizontalPodAutoscalerSpecBehaviorScaleDown | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecBehaviorScaleDownToTerraform(
+  struct?: HorizontalPodAutoscalerSpecBehaviorScaleDown | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     select_policy: cdktf.stringToTerraform(struct!.selectPolicy),
-    stabilization_window_seconds: cdktf.numberToTerraform(struct!.stabilizationWindowSeconds),
-    policy: cdktf.listMapper(horizontalPodAutoscalerSpecBehaviorScaleDownPolicyToTerraform, true)(struct!.policy),
-  }
+    stabilization_window_seconds: cdktf.numberToTerraform(
+      struct!.stabilizationWindowSeconds,
+    ),
+    policy: cdktf.listMapper(
+      horizontalPodAutoscalerSpecBehaviorScaleDownPolicyToTerraform,
+      true,
+    )(struct!.policy),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends cdktf.ComplexObject {
@@ -411,16 +471,29 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecBehaviorScaleDown | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecBehaviorScaleDown
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -432,7 +505,8 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
     }
     if (this._stabilizationWindowSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.stabilizationWindowSeconds = this._stabilizationWindowSeconds;
+      internalValueResult.stabilizationWindowSeconds =
+        this._stabilizationWindowSeconds;
     }
     if (this._policy?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -441,19 +515,22 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecBehaviorScaleDown | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecBehaviorScaleDown
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._selectPolicy = undefined;
       this._stabilizationWindowSeconds = undefined;
       this._policy.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._selectPolicy = value.selectPolicy;
@@ -463,7 +540,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
   }
 
   // select_policy - computed: false, optional: true, required: false
-  private _selectPolicy?: string; 
+  private _selectPolicy?: string;
   public get selectPolicy() {
     return this.getStringAttribute('select_policy');
   }
@@ -479,7 +556,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
   }
 
   // stabilization_window_seconds - computed: false, optional: true, required: false
-  private _stabilizationWindowSeconds?: number; 
+  private _stabilizationWindowSeconds?: number;
   public get stabilizationWindowSeconds() {
     return this.getNumberAttribute('stabilization_window_seconds');
   }
@@ -495,11 +572,19 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy = new HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyList(this, "policy", false);
+  private _policy = new HorizontalPodAutoscalerSpecBehaviorScaleDownPolicyList(
+    this,
+    'policy',
+    false,
+  );
   public get policy() {
     return this._policy;
   }
-  public putPolicy(value: HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy[] | cdktf.IResolvable) {
+  public putPolicy(
+    value:
+      | HorizontalPodAutoscalerSpecBehaviorScaleDownPolicy[]
+      | cdktf.IResolvable,
+  ) {
     this._policy.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -509,55 +594,74 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference extends
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleDownList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecBehaviorScaleDown[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleDown[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference {
-    return new HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference {
+    return new HorizontalPodAutoscalerSpecBehaviorScaleDownOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy {
   /**
-  * Period specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#period_seconds HorizontalPodAutoscaler#period_seconds}
-  */
+   * Period specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#period_seconds HorizontalPodAutoscaler#period_seconds}
+   */
   readonly periodSeconds: number;
   /**
-  * Type is used to specify the scaling policy: Percent or Pods
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * Type is used to specify the scaling policy: Percent or Pods
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * Value contains the amount of change which is permitted by the policy. It must be greater than zero.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * Value contains the amount of change which is permitted by the policy. It must be greater than zero.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value: number;
 }
 
-export function horizontalPodAutoscalerSpecBehaviorScaleUpPolicyToTerraform(struct?: HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecBehaviorScaleUpPolicyToTerraform(
+  struct?: HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     period_seconds: cdktf.numberToTerraform(struct!.periodSeconds),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.numberToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference extends cdktf.ComplexObject {
@@ -565,16 +669,29 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference ext
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -595,19 +712,22 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._periodSeconds = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._periodSeconds = value.periodSeconds;
@@ -617,7 +737,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference ext
   }
 
   // period_seconds - computed: false, optional: false, required: true
-  private _periodSeconds?: number; 
+  private _periodSeconds?: number;
   public get periodSeconds() {
     return this.getNumberAttribute('period_seconds');
   }
@@ -630,7 +750,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference ext
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -643,7 +763,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference ext
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: number; 
+  private _value?: number;
   public get value() {
     return this.getNumberAttribute('value');
   }
@@ -657,55 +777,81 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference ext
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference {
-    return new HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference {
+    return new HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecBehaviorScaleUp {
   /**
-  * Used to specify which policy should be used. If not set, the default value Max is used.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#select_policy HorizontalPodAutoscaler#select_policy}
-  */
+   * Used to specify which policy should be used. If not set, the default value Max is used.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#select_policy HorizontalPodAutoscaler#select_policy}
+   */
   readonly selectPolicy?: string;
   /**
-  * Number of seconds for which past recommendations should be considered while scaling up or scaling down. This value must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#stabilization_window_seconds HorizontalPodAutoscaler#stabilization_window_seconds}
-  */
+   * Number of seconds for which past recommendations should be considered while scaling up or scaling down. This value must be greater than or equal to zero and less than or equal to 3600 (one hour). If not set, use the default values: - For scale up: 0 (i.e. no stabilization is done). - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#stabilization_window_seconds HorizontalPodAutoscaler#stabilization_window_seconds}
+   */
   readonly stabilizationWindowSeconds?: number;
   /**
-  * policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#policy HorizontalPodAutoscaler#policy}
-  */
-  readonly policy: HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy[] | cdktf.IResolvable;
+   * policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#policy HorizontalPodAutoscaler#policy}
+   */
+  readonly policy:
+    | HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecBehaviorScaleUpToTerraform(struct?: HorizontalPodAutoscalerSpecBehaviorScaleUp | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecBehaviorScaleUpToTerraform(
+  struct?: HorizontalPodAutoscalerSpecBehaviorScaleUp | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     select_policy: cdktf.stringToTerraform(struct!.selectPolicy),
-    stabilization_window_seconds: cdktf.numberToTerraform(struct!.stabilizationWindowSeconds),
-    policy: cdktf.listMapper(horizontalPodAutoscalerSpecBehaviorScaleUpPolicyToTerraform, true)(struct!.policy),
-  }
+    stabilization_window_seconds: cdktf.numberToTerraform(
+      struct!.stabilizationWindowSeconds,
+    ),
+    policy: cdktf.listMapper(
+      horizontalPodAutoscalerSpecBehaviorScaleUpPolicyToTerraform,
+      true,
+    )(struct!.policy),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends cdktf.ComplexObject {
@@ -713,16 +859,29 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecBehaviorScaleUp | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecBehaviorScaleUp
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -734,7 +893,8 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
     }
     if (this._stabilizationWindowSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.stabilizationWindowSeconds = this._stabilizationWindowSeconds;
+      internalValueResult.stabilizationWindowSeconds =
+        this._stabilizationWindowSeconds;
     }
     if (this._policy?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -743,19 +903,22 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecBehaviorScaleUp | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecBehaviorScaleUp
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._selectPolicy = undefined;
       this._stabilizationWindowSeconds = undefined;
       this._policy.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._selectPolicy = value.selectPolicy;
@@ -765,7 +928,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
   }
 
   // select_policy - computed: false, optional: true, required: false
-  private _selectPolicy?: string; 
+  private _selectPolicy?: string;
   public get selectPolicy() {
     return this.getStringAttribute('select_policy');
   }
@@ -781,7 +944,7 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
   }
 
   // stabilization_window_seconds - computed: false, optional: true, required: false
-  private _stabilizationWindowSeconds?: number; 
+  private _stabilizationWindowSeconds?: number;
   public get stabilizationWindowSeconds() {
     return this.getNumberAttribute('stabilization_window_seconds');
   }
@@ -797,11 +960,19 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
   }
 
   // policy - computed: false, optional: false, required: true
-  private _policy = new HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyList(this, "policy", false);
+  private _policy = new HorizontalPodAutoscalerSpecBehaviorScaleUpPolicyList(
+    this,
+    'policy',
+    false,
+  );
   public get policy() {
     return this._policy;
   }
-  public putPolicy(value: HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy[] | cdktf.IResolvable) {
+  public putPolicy(
+    value:
+      | HorizontalPodAutoscalerSpecBehaviorScaleUpPolicy[]
+      | cdktf.IResolvable,
+  ) {
     this._policy.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -811,58 +982,92 @@ export class HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference extends c
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorScaleUpList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecBehaviorScaleUp[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleUp[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference {
-    return new HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference {
+    return new HorizontalPodAutoscalerSpecBehaviorScaleUpOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecBehavior {
   /**
-  * scale_down block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#scale_down HorizontalPodAutoscaler#scale_down}
-  */
-  readonly scaleDown?: HorizontalPodAutoscalerSpecBehaviorScaleDown[] | cdktf.IResolvable;
+   * scale_down block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#scale_down HorizontalPodAutoscaler#scale_down}
+   */
+  readonly scaleDown?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleDown[]
+    | cdktf.IResolvable;
   /**
-  * scale_up block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#scale_up HorizontalPodAutoscaler#scale_up}
-  */
-  readonly scaleUp?: HorizontalPodAutoscalerSpecBehaviorScaleUp[] | cdktf.IResolvable;
+   * scale_up block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#scale_up HorizontalPodAutoscaler#scale_up}
+   */
+  readonly scaleUp?:
+    | HorizontalPodAutoscalerSpecBehaviorScaleUp[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecBehaviorToTerraform(struct?: HorizontalPodAutoscalerSpecBehaviorOutputReference | HorizontalPodAutoscalerSpecBehavior): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecBehaviorToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecBehaviorOutputReference
+    | HorizontalPodAutoscalerSpecBehavior,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    scale_down: cdktf.listMapper(horizontalPodAutoscalerSpecBehaviorScaleDownToTerraform, true)(struct!.scaleDown),
-    scale_up: cdktf.listMapper(horizontalPodAutoscalerSpecBehaviorScaleUpToTerraform, true)(struct!.scaleUp),
-  }
+    scale_down: cdktf.listMapper(
+      horizontalPodAutoscalerSpecBehaviorScaleDownToTerraform,
+      true,
+    )(struct!.scaleDown),
+    scale_up: cdktf.listMapper(
+      horizontalPodAutoscalerSpecBehaviorScaleUpToTerraform,
+      true,
+    )(struct!.scaleUp),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecBehaviorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -880,13 +1085,14 @@ export class HorizontalPodAutoscalerSpecBehaviorOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecBehavior | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecBehavior | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._scaleDown.internalValue = undefined;
       this._scaleUp.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._scaleDown.internalValue = value.scaleDown;
       this._scaleUp.internalValue = value.scaleUp;
@@ -894,11 +1100,17 @@ export class HorizontalPodAutoscalerSpecBehaviorOutputReference extends cdktf.Co
   }
 
   // scale_down - computed: false, optional: true, required: false
-  private _scaleDown = new HorizontalPodAutoscalerSpecBehaviorScaleDownList(this, "scale_down", false);
+  private _scaleDown = new HorizontalPodAutoscalerSpecBehaviorScaleDownList(
+    this,
+    'scale_down',
+    false,
+  );
   public get scaleDown() {
     return this._scaleDown;
   }
-  public putScaleDown(value: HorizontalPodAutoscalerSpecBehaviorScaleDown[] | cdktf.IResolvable) {
+  public putScaleDown(
+    value: HorizontalPodAutoscalerSpecBehaviorScaleDown[] | cdktf.IResolvable,
+  ) {
     this._scaleDown.internalValue = value;
   }
   public resetScaleDown() {
@@ -910,11 +1122,17 @@ export class HorizontalPodAutoscalerSpecBehaviorOutputReference extends cdktf.Co
   }
 
   // scale_up - computed: false, optional: true, required: false
-  private _scaleUp = new HorizontalPodAutoscalerSpecBehaviorScaleUpList(this, "scale_up", false);
+  private _scaleUp = new HorizontalPodAutoscalerSpecBehaviorScaleUpList(
+    this,
+    'scale_up',
+    false,
+  );
   public get scaleUp() {
     return this._scaleUp;
   }
-  public putScaleUp(value: HorizontalPodAutoscalerSpecBehaviorScaleUp[] | cdktf.IResolvable) {
+  public putScaleUp(
+    value: HorizontalPodAutoscalerSpecBehaviorScaleUp[] | cdktf.IResolvable,
+  ) {
     this._scaleUp.internalValue = value;
   }
   public resetScaleUp() {
@@ -927,56 +1145,69 @@ export class HorizontalPodAutoscalerSpecBehaviorOutputReference extends cdktf.Co
 }
 export interface HorizontalPodAutoscalerSpecMetricContainerResourceTarget {
   /**
-  * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
-  */
+   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
+   */
   readonly averageUtilization?: number;
   /**
-  * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
-  */
+   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
+   */
   readonly averageValue?: string;
   /**
-  * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * type represents whether the metric type is Utilization, Value, or AverageValue
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * value is the target value of the metric (as a quantity).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * value is the target value of the metric (as a quantity).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value?: string;
 }
 
-export function horizontalPodAutoscalerSpecMetricContainerResourceTargetToTerraform(struct?: HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputReference | HorizontalPodAutoscalerSpecMetricContainerResourceTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricContainerResourceTargetToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputReference
+    | HorizontalPodAutoscalerSpecMetricContainerResourceTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     average_utilization: cdktf.numberToTerraform(struct!.averageUtilization),
     average_value: cdktf.stringToTerraform(struct!.averageValue),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricContainerResourceTarget | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricContainerResourceTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._averageUtilization !== undefined) {
@@ -998,15 +1229,16 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricContainerResourceTarget | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricContainerResourceTarget | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._averageUtilization = undefined;
       this._averageValue = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._averageUtilization = value.averageUtilization;
       this._averageValue = value.averageValue;
@@ -1016,7 +1248,7 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputRefer
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -1032,7 +1264,7 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputRefer
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -1048,7 +1280,7 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputRefer
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1061,7 +1293,7 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputRefer
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1078,49 +1310,64 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputRefer
 }
 export interface HorizontalPodAutoscalerSpecMetricContainerResource {
   /**
-  * name of the container in the pods of the scaling target
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#container HorizontalPodAutoscaler#container}
-  */
+   * name of the container in the pods of the scaling target
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#container HorizontalPodAutoscaler#container}
+   */
   readonly container: string;
   /**
-  * name of the resource in question
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * name of the resource in question
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
   /**
-  * target block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
+   */
   readonly target?: HorizontalPodAutoscalerSpecMetricContainerResourceTarget;
 }
 
-export function horizontalPodAutoscalerSpecMetricContainerResourceToTerraform(struct?: HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference | HorizontalPodAutoscalerSpecMetricContainerResource): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricContainerResourceToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference
+    | HorizontalPodAutoscalerSpecMetricContainerResource,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container: cdktf.stringToTerraform(struct!.container),
     name: cdktf.stringToTerraform(struct!.name),
-    target: horizontalPodAutoscalerSpecMetricContainerResourceTargetToTerraform(struct!.target),
-  }
+    target: horizontalPodAutoscalerSpecMetricContainerResourceTargetToTerraform(
+      struct!.target,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricContainerResource | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricContainerResource
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._container !== undefined) {
@@ -1138,14 +1385,15 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricContainerResource | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricContainerResource | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._container = undefined;
       this._name = undefined;
       this._target.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._container = value.container;
       this._name = value.name;
@@ -1154,7 +1402,7 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference e
   }
 
   // container - computed: false, optional: false, required: true
-  private _container?: string; 
+  private _container?: string;
   public get container() {
     return this.getStringAttribute('container');
   }
@@ -1167,7 +1415,7 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference e
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1180,11 +1428,17 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference e
   }
 
   // target - computed: false, optional: true, required: false
-  private _target = new HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputReference(this, "target");
+  private _target =
+    new HorizontalPodAutoscalerSpecMetricContainerResourceTargetOutputReference(
+      this,
+      'target',
+    );
   public get target() {
     return this._target;
   }
-  public putTarget(value: HorizontalPodAutoscalerSpecMetricContainerResourceTarget) {
+  public putTarget(
+    value: HorizontalPodAutoscalerSpecMetricContainerResourceTarget,
+  ) {
     this._target.internalValue = value;
   }
   public resetTarget() {
@@ -1197,35 +1451,43 @@ export class HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference e
 }
 export interface HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#key HorizontalPodAutoscaler#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#key HorizontalPodAutoscaler#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#operator HorizontalPodAutoscaler#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#operator HorizontalPodAutoscaler#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#values HorizontalPodAutoscaler#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#values HorizontalPodAutoscaler#values}
+   */
   readonly values?: string[];
 }
 
-export function horizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsToTerraform(struct?: HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -1233,16 +1495,29 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpress
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1263,19 +1538,22 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpress
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -1285,7 +1563,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpress
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1301,7 +1579,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpress
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -1317,7 +1595,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpress
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1334,48 +1612,76 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpress
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsOutputReference {
+    return new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecMetricExternalMetricSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_labels HorizontalPodAutoscaler#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_labels HorizontalPodAutoscaler#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_expressions HorizontalPodAutoscaler#match_expressions}
-  */
-  readonly matchExpressions?: HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_expressions HorizontalPodAutoscaler#match_expressions}
+   */
+  readonly matchExpressions?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecMetricExternalMetricSelectorToTerraform(struct?: HorizontalPodAutoscalerSpecMetricExternalMetricSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricExternalMetricSelectorToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(horizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputReference extends cdktf.ComplexObject {
@@ -1383,16 +1689,29 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputRefere
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricExternalMetricSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1404,23 +1723,27 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputRefere
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricExternalMetricSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecMetricExternalMetricSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -1429,7 +1752,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputRefere
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -1445,11 +1768,20 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputRefere
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | HorizontalPodAutoscalerSpecMetricExternalMetricSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -1462,62 +1794,93 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputRefere
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalMetricSelectorList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetricExternalMetricSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputReference {
+    return new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecMetricExternalMetric {
   /**
-  * name is the name of the given metric
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * name is the name of the given metric
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
   /**
-  * selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#selector HorizontalPodAutoscaler#selector}
-  */
-  readonly selector?: HorizontalPodAutoscalerSpecMetricExternalMetricSelector[] | cdktf.IResolvable;
+   * selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#selector HorizontalPodAutoscaler#selector}
+   */
+  readonly selector?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricSelector[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecMetricExternalMetricToTerraform(struct?: HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference | HorizontalPodAutoscalerSpecMetricExternalMetric): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricExternalMetricToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference
+    | HorizontalPodAutoscalerSpecMetricExternalMetric,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    selector: cdktf.listMapper(horizontalPodAutoscalerSpecMetricExternalMetricSelectorToTerraform, true)(struct!.selector),
-  }
+    selector: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricExternalMetricSelectorToTerraform,
+      true,
+    )(struct!.selector),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricExternalMetric | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricExternalMetric
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -1531,13 +1894,14 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricExternalMetric | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricExternalMetric | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._selector.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._selector.internalValue = value.selector;
@@ -1545,7 +1909,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference exte
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1558,11 +1922,20 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference exte
   }
 
   // selector - computed: false, optional: true, required: false
-  private _selector = new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorList(this, "selector", false);
+  private _selector =
+    new HorizontalPodAutoscalerSpecMetricExternalMetricSelectorList(
+      this,
+      'selector',
+      false,
+    );
   public get selector() {
     return this._selector;
   }
-  public putSelector(value: HorizontalPodAutoscalerSpecMetricExternalMetricSelector[] | cdktf.IResolvable) {
+  public putSelector(
+    value:
+      | HorizontalPodAutoscalerSpecMetricExternalMetricSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._selector.internalValue = value;
   }
   public resetSelector() {
@@ -1575,56 +1948,69 @@ export class HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference exte
 }
 export interface HorizontalPodAutoscalerSpecMetricExternalTarget {
   /**
-  * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
-  */
+   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
+   */
   readonly averageUtilization?: number;
   /**
-  * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
-  */
+   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
+   */
   readonly averageValue?: string;
   /**
-  * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * type represents whether the metric type is Utilization, Value, or AverageValue
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * value is the target value of the metric (as a quantity).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * value is the target value of the metric (as a quantity).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value?: string;
 }
 
-export function horizontalPodAutoscalerSpecMetricExternalTargetToTerraform(struct?: HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference | HorizontalPodAutoscalerSpecMetricExternalTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricExternalTargetToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference
+    | HorizontalPodAutoscalerSpecMetricExternalTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     average_utilization: cdktf.numberToTerraform(struct!.averageUtilization),
     average_value: cdktf.stringToTerraform(struct!.averageValue),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricExternalTarget | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricExternalTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._averageUtilization !== undefined) {
@@ -1646,15 +2032,16 @@ export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricExternalTarget | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricExternalTarget | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._averageUtilization = undefined;
       this._averageValue = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._averageUtilization = value.averageUtilization;
       this._averageValue = value.averageValue;
@@ -1664,7 +2051,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference exte
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -1680,7 +2067,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference exte
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -1696,7 +2083,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1709,7 +2096,7 @@ export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference exte
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1726,42 +2113,59 @@ export class HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference exte
 }
 export interface HorizontalPodAutoscalerSpecMetricExternal {
   /**
-  * metric block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
-  */
+   * metric block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
+   */
   readonly metric: HorizontalPodAutoscalerSpecMetricExternalMetric;
   /**
-  * target block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
+   */
   readonly target?: HorizontalPodAutoscalerSpecMetricExternalTarget;
 }
 
-export function horizontalPodAutoscalerSpecMetricExternalToTerraform(struct?: HorizontalPodAutoscalerSpecMetricExternalOutputReference | HorizontalPodAutoscalerSpecMetricExternal): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricExternalToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricExternalOutputReference
+    | HorizontalPodAutoscalerSpecMetricExternal,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    metric: horizontalPodAutoscalerSpecMetricExternalMetricToTerraform(struct!.metric),
-    target: horizontalPodAutoscalerSpecMetricExternalTargetToTerraform(struct!.target),
-  }
+    metric: horizontalPodAutoscalerSpecMetricExternalMetricToTerraform(
+      struct!.metric,
+    ),
+    target: horizontalPodAutoscalerSpecMetricExternalTargetToTerraform(
+      struct!.target,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricExternalOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricExternal | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricExternal
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._metric?.internalValue !== undefined) {
@@ -1775,13 +2179,14 @@ export class HorizontalPodAutoscalerSpecMetricExternalOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricExternal | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricExternal | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._metric.internalValue = undefined;
       this._target.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._metric.internalValue = value.metric;
       this._target.internalValue = value.target;
@@ -1789,7 +2194,11 @@ export class HorizontalPodAutoscalerSpecMetricExternalOutputReference extends cd
   }
 
   // metric - computed: false, optional: false, required: true
-  private _metric = new HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference(this, "metric");
+  private _metric =
+    new HorizontalPodAutoscalerSpecMetricExternalMetricOutputReference(
+      this,
+      'metric',
+    );
   public get metric() {
     return this._metric;
   }
@@ -1802,7 +2211,11 @@ export class HorizontalPodAutoscalerSpecMetricExternalOutputReference extends cd
   }
 
   // target - computed: false, optional: true, required: false
-  private _target = new HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference(this, "target");
+  private _target =
+    new HorizontalPodAutoscalerSpecMetricExternalTargetOutputReference(
+      this,
+      'target',
+    );
   public get target() {
     return this._target;
   }
@@ -1819,49 +2232,62 @@ export class HorizontalPodAutoscalerSpecMetricExternalOutputReference extends cd
 }
 export interface HorizontalPodAutoscalerSpecMetricObjectDescribedObject {
   /**
-  * API version of the referent
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#api_version HorizontalPodAutoscaler#api_version}
-  */
+   * API version of the referent
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#api_version HorizontalPodAutoscaler#api_version}
+   */
   readonly apiVersion: string;
   /**
-  * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#kind HorizontalPodAutoscaler#kind}
-  */
+   * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#kind HorizontalPodAutoscaler#kind}
+   */
   readonly kind: string;
   /**
-  * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
 }
 
-export function horizontalPodAutoscalerSpecMetricObjectDescribedObjectToTerraform(struct?: HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReference | HorizontalPodAutoscalerSpecMetricObjectDescribedObject): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricObjectDescribedObjectToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReference
+    | HorizontalPodAutoscalerSpecMetricObjectDescribedObject,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     kind: cdktf.stringToTerraform(struct!.kind),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricObjectDescribedObject | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricObjectDescribedObject
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -1879,14 +2305,15 @@ export class HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricObjectDescribedObject | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricObjectDescribedObject | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._kind = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._kind = value.kind;
@@ -1895,7 +2322,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReferen
   }
 
   // api_version - computed: false, optional: false, required: true
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -1908,7 +2335,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReferen
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -1921,7 +2348,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReferen
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1935,35 +2362,43 @@ export class HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReferen
 }
 export interface HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#key HorizontalPodAutoscaler#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#key HorizontalPodAutoscaler#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#operator HorizontalPodAutoscaler#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#operator HorizontalPodAutoscaler#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#values HorizontalPodAutoscaler#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#values HorizontalPodAutoscaler#values}
+   */
   readonly values?: string[];
 }
 
-export function horizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsToTerraform(struct?: HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -1971,16 +2406,29 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressio
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2001,19 +2449,22 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressio
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2023,7 +2474,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressio
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2039,7 +2490,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressio
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2055,7 +2506,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressio
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2072,48 +2523,76 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressio
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsOutputReference {
+    return new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecMetricObjectMetricSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_labels HorizontalPodAutoscaler#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_labels HorizontalPodAutoscaler#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_expressions HorizontalPodAutoscaler#match_expressions}
-  */
-  readonly matchExpressions?: HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_expressions HorizontalPodAutoscaler#match_expressions}
+   */
+  readonly matchExpressions?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecMetricObjectMetricSelectorToTerraform(struct?: HorizontalPodAutoscalerSpecMetricObjectMetricSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricObjectMetricSelectorToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(horizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReference extends cdktf.ComplexObject {
@@ -2121,16 +2600,29 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricObjectMetricSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2142,23 +2634,27 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReferenc
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricObjectMetricSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecMetricObjectMetricSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -2167,7 +2663,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReferenc
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2183,11 +2679,20 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReferenc
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | HorizontalPodAutoscalerSpecMetricObjectMetricSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -2200,62 +2705,93 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReferenc
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectMetricSelectorList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetricObjectMetricSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReference {
+    return new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecMetricObjectMetric {
   /**
-  * name is the name of the given metric
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * name is the name of the given metric
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
   /**
-  * selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#selector HorizontalPodAutoscaler#selector}
-  */
-  readonly selector?: HorizontalPodAutoscalerSpecMetricObjectMetricSelector[] | cdktf.IResolvable;
+   * selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#selector HorizontalPodAutoscaler#selector}
+   */
+  readonly selector?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricSelector[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecMetricObjectMetricToTerraform(struct?: HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference | HorizontalPodAutoscalerSpecMetricObjectMetric): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricObjectMetricToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference
+    | HorizontalPodAutoscalerSpecMetricObjectMetric,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    selector: cdktf.listMapper(horizontalPodAutoscalerSpecMetricObjectMetricSelectorToTerraform, true)(struct!.selector),
-  }
+    selector: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricObjectMetricSelectorToTerraform,
+      true,
+    )(struct!.selector),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricObjectMetric | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricObjectMetric
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -2269,13 +2805,14 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricObjectMetric | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricObjectMetric | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._selector.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._selector.internalValue = value.selector;
@@ -2283,7 +2820,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2296,11 +2833,20 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference extend
   }
 
   // selector - computed: false, optional: true, required: false
-  private _selector = new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorList(this, "selector", false);
+  private _selector =
+    new HorizontalPodAutoscalerSpecMetricObjectMetricSelectorList(
+      this,
+      'selector',
+      false,
+    );
   public get selector() {
     return this._selector;
   }
-  public putSelector(value: HorizontalPodAutoscalerSpecMetricObjectMetricSelector[] | cdktf.IResolvable) {
+  public putSelector(
+    value:
+      | HorizontalPodAutoscalerSpecMetricObjectMetricSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._selector.internalValue = value;
   }
   public resetSelector() {
@@ -2313,56 +2859,69 @@ export class HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference extend
 }
 export interface HorizontalPodAutoscalerSpecMetricObjectTarget {
   /**
-  * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
-  */
+   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
+   */
   readonly averageUtilization?: number;
   /**
-  * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
-  */
+   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
+   */
   readonly averageValue?: string;
   /**
-  * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * type represents whether the metric type is Utilization, Value, or AverageValue
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * value is the target value of the metric (as a quantity).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * value is the target value of the metric (as a quantity).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value?: string;
 }
 
-export function horizontalPodAutoscalerSpecMetricObjectTargetToTerraform(struct?: HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference | HorizontalPodAutoscalerSpecMetricObjectTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricObjectTargetToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference
+    | HorizontalPodAutoscalerSpecMetricObjectTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     average_utilization: cdktf.numberToTerraform(struct!.averageUtilization),
     average_value: cdktf.stringToTerraform(struct!.averageValue),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricObjectTarget | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricObjectTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._averageUtilization !== undefined) {
@@ -2384,15 +2943,16 @@ export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricObjectTarget | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricObjectTarget | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._averageUtilization = undefined;
       this._averageValue = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._averageUtilization = value.averageUtilization;
       this._averageValue = value.averageValue;
@@ -2402,7 +2962,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extend
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -2418,7 +2978,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extend
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -2434,7 +2994,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extend
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2447,7 +3007,7 @@ export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extend
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2464,54 +3024,75 @@ export class HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference extend
 }
 export interface HorizontalPodAutoscalerSpecMetricObject {
   /**
-  * described_object block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#described_object HorizontalPodAutoscaler#described_object}
-  */
+   * described_object block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#described_object HorizontalPodAutoscaler#described_object}
+   */
   readonly describedObject: HorizontalPodAutoscalerSpecMetricObjectDescribedObject;
   /**
-  * metric block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
-  */
+   * metric block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
+   */
   readonly metric: HorizontalPodAutoscalerSpecMetricObjectMetric;
   /**
-  * target block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
+   */
   readonly target?: HorizontalPodAutoscalerSpecMetricObjectTarget;
 }
 
-export function horizontalPodAutoscalerSpecMetricObjectToTerraform(struct?: HorizontalPodAutoscalerSpecMetricObjectOutputReference | HorizontalPodAutoscalerSpecMetricObject): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricObjectToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricObjectOutputReference
+    | HorizontalPodAutoscalerSpecMetricObject,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    described_object: horizontalPodAutoscalerSpecMetricObjectDescribedObjectToTerraform(struct!.describedObject),
-    metric: horizontalPodAutoscalerSpecMetricObjectMetricToTerraform(struct!.metric),
-    target: horizontalPodAutoscalerSpecMetricObjectTargetToTerraform(struct!.target),
-  }
+    described_object:
+      horizontalPodAutoscalerSpecMetricObjectDescribedObjectToTerraform(
+        struct!.describedObject,
+      ),
+    metric: horizontalPodAutoscalerSpecMetricObjectMetricToTerraform(
+      struct!.metric,
+    ),
+    target: horizontalPodAutoscalerSpecMetricObjectTargetToTerraform(
+      struct!.target,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricObjectOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricObject | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricObject
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._describedObject?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.describedObject = this._describedObject?.internalValue;
+      internalValueResult.describedObject =
+        this._describedObject?.internalValue;
     }
     if (this._metric?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2524,14 +3105,15 @@ export class HorizontalPodAutoscalerSpecMetricObjectOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricObject | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricObject | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._describedObject.internalValue = undefined;
       this._metric.internalValue = undefined;
       this._target.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._describedObject.internalValue = value.describedObject;
       this._metric.internalValue = value.metric;
@@ -2540,11 +3122,17 @@ export class HorizontalPodAutoscalerSpecMetricObjectOutputReference extends cdkt
   }
 
   // described_object - computed: false, optional: false, required: true
-  private _describedObject = new HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReference(this, "described_object");
+  private _describedObject =
+    new HorizontalPodAutoscalerSpecMetricObjectDescribedObjectOutputReference(
+      this,
+      'described_object',
+    );
   public get describedObject() {
     return this._describedObject;
   }
-  public putDescribedObject(value: HorizontalPodAutoscalerSpecMetricObjectDescribedObject) {
+  public putDescribedObject(
+    value: HorizontalPodAutoscalerSpecMetricObjectDescribedObject,
+  ) {
     this._describedObject.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2553,7 +3141,11 @@ export class HorizontalPodAutoscalerSpecMetricObjectOutputReference extends cdkt
   }
 
   // metric - computed: false, optional: false, required: true
-  private _metric = new HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference(this, "metric");
+  private _metric =
+    new HorizontalPodAutoscalerSpecMetricObjectMetricOutputReference(
+      this,
+      'metric',
+    );
   public get metric() {
     return this._metric;
   }
@@ -2566,7 +3158,11 @@ export class HorizontalPodAutoscalerSpecMetricObjectOutputReference extends cdkt
   }
 
   // target - computed: false, optional: true, required: false
-  private _target = new HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference(this, "target");
+  private _target =
+    new HorizontalPodAutoscalerSpecMetricObjectTargetOutputReference(
+      this,
+      'target',
+    );
   public get target() {
     return this._target;
   }
@@ -2583,35 +3179,43 @@ export class HorizontalPodAutoscalerSpecMetricObjectOutputReference extends cdkt
 }
 export interface HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#key HorizontalPodAutoscaler#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#key HorizontalPodAutoscaler#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#operator HorizontalPodAutoscaler#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#operator HorizontalPodAutoscaler#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#values HorizontalPodAutoscaler#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#values HorizontalPodAutoscaler#values}
+   */
   readonly values?: string[];
 }
 
-export function horizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsToTerraform(struct?: HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -2619,16 +3223,29 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2649,19 +3266,22 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2671,7 +3291,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2687,7 +3307,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -2703,7 +3323,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2720,48 +3340,76 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsOutputReference {
+    return new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecMetricPodsMetricSelector {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_labels HorizontalPodAutoscaler#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_labels HorizontalPodAutoscaler#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_expressions HorizontalPodAutoscaler#match_expressions}
-  */
-  readonly matchExpressions?: HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#match_expressions HorizontalPodAutoscaler#match_expressions}
+   */
+  readonly matchExpressions?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecMetricPodsMetricSelectorToTerraform(struct?: HorizontalPodAutoscalerSpecMetricPodsMetricSelector | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricPodsMetricSelectorToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelector
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(horizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference extends cdktf.ComplexObject {
@@ -2769,16 +3417,29 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricPodsMetricSelector | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelector
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2790,23 +3451,27 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference 
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricPodsMetricSelector | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | HorizontalPodAutoscalerSpecMetricPodsMetricSelector
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -2815,7 +3480,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference 
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -2831,11 +3496,20 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference 
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | HorizontalPodAutoscalerSpecMetricPodsMetricSelectorMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -2848,62 +3522,93 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference 
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsMetricSelectorList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetricPodsMetricSelector[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelector[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference {
+    return new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecMetricPodsMetric {
   /**
-  * name is the name of the given metric
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * name is the name of the given metric
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
   /**
-  * selector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#selector HorizontalPodAutoscaler#selector}
-  */
-  readonly selector?: HorizontalPodAutoscalerSpecMetricPodsMetricSelector[] | cdktf.IResolvable;
+   * selector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#selector HorizontalPodAutoscaler#selector}
+   */
+  readonly selector?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricSelector[]
+    | cdktf.IResolvable;
 }
 
-export function horizontalPodAutoscalerSpecMetricPodsMetricToTerraform(struct?: HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference | HorizontalPodAutoscalerSpecMetricPodsMetric): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricPodsMetricToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference
+    | HorizontalPodAutoscalerSpecMetricPodsMetric,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    selector: cdktf.listMapper(horizontalPodAutoscalerSpecMetricPodsMetricSelectorToTerraform, true)(struct!.selector),
-  }
+    selector: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricPodsMetricSelectorToTerraform,
+      true,
+    )(struct!.selector),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricPodsMetric | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricPodsMetric
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -2917,13 +3622,14 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricPodsMetric | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricPodsMetric | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._selector.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._selector.internalValue = value.selector;
@@ -2931,7 +3637,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2944,11 +3650,20 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference extends 
   }
 
   // selector - computed: false, optional: true, required: false
-  private _selector = new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorList(this, "selector", false);
+  private _selector =
+    new HorizontalPodAutoscalerSpecMetricPodsMetricSelectorList(
+      this,
+      'selector',
+      false,
+    );
   public get selector() {
     return this._selector;
   }
-  public putSelector(value: HorizontalPodAutoscalerSpecMetricPodsMetricSelector[] | cdktf.IResolvable) {
+  public putSelector(
+    value:
+      | HorizontalPodAutoscalerSpecMetricPodsMetricSelector[]
+      | cdktf.IResolvable,
+  ) {
     this._selector.internalValue = value;
   }
   public resetSelector() {
@@ -2961,56 +3676,69 @@ export class HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference extends 
 }
 export interface HorizontalPodAutoscalerSpecMetricPodsTarget {
   /**
-  * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
-  */
+   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
+   */
   readonly averageUtilization?: number;
   /**
-  * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
-  */
+   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
+   */
   readonly averageValue?: string;
   /**
-  * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * type represents whether the metric type is Utilization, Value, or AverageValue
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * value is the target value of the metric (as a quantity).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * value is the target value of the metric (as a quantity).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value?: string;
 }
 
-export function horizontalPodAutoscalerSpecMetricPodsTargetToTerraform(struct?: HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference | HorizontalPodAutoscalerSpecMetricPodsTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricPodsTargetToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference
+    | HorizontalPodAutoscalerSpecMetricPodsTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     average_utilization: cdktf.numberToTerraform(struct!.averageUtilization),
     average_value: cdktf.stringToTerraform(struct!.averageValue),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricPodsTarget | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricPodsTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._averageUtilization !== undefined) {
@@ -3032,15 +3760,16 @@ export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricPodsTarget | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricPodsTarget | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._averageUtilization = undefined;
       this._averageValue = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._averageUtilization = value.averageUtilization;
       this._averageValue = value.averageValue;
@@ -3050,7 +3779,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends 
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -3066,7 +3795,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends 
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -3082,7 +3811,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends 
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3095,7 +3824,7 @@ export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends 
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3112,42 +3841,59 @@ export class HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference extends 
 }
 export interface HorizontalPodAutoscalerSpecMetricPods {
   /**
-  * metric block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
-  */
+   * metric block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
+   */
   readonly metric: HorizontalPodAutoscalerSpecMetricPodsMetric;
   /**
-  * target block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
+   */
   readonly target?: HorizontalPodAutoscalerSpecMetricPodsTarget;
 }
 
-export function horizontalPodAutoscalerSpecMetricPodsToTerraform(struct?: HorizontalPodAutoscalerSpecMetricPodsOutputReference | HorizontalPodAutoscalerSpecMetricPods): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricPodsToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricPodsOutputReference
+    | HorizontalPodAutoscalerSpecMetricPods,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    metric: horizontalPodAutoscalerSpecMetricPodsMetricToTerraform(struct!.metric),
-    target: horizontalPodAutoscalerSpecMetricPodsTargetToTerraform(struct!.target),
-  }
+    metric: horizontalPodAutoscalerSpecMetricPodsMetricToTerraform(
+      struct!.metric,
+    ),
+    target: horizontalPodAutoscalerSpecMetricPodsTargetToTerraform(
+      struct!.target,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricPodsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricPods | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricPods
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._metric?.internalValue !== undefined) {
@@ -3161,13 +3907,14 @@ export class HorizontalPodAutoscalerSpecMetricPodsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricPods | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricPods | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._metric.internalValue = undefined;
       this._target.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._metric.internalValue = value.metric;
       this._target.internalValue = value.target;
@@ -3175,7 +3922,11 @@ export class HorizontalPodAutoscalerSpecMetricPodsOutputReference extends cdktf.
   }
 
   // metric - computed: false, optional: false, required: true
-  private _metric = new HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference(this, "metric");
+  private _metric =
+    new HorizontalPodAutoscalerSpecMetricPodsMetricOutputReference(
+      this,
+      'metric',
+    );
   public get metric() {
     return this._metric;
   }
@@ -3188,7 +3939,11 @@ export class HorizontalPodAutoscalerSpecMetricPodsOutputReference extends cdktf.
   }
 
   // target - computed: false, optional: true, required: false
-  private _target = new HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference(this, "target");
+  private _target =
+    new HorizontalPodAutoscalerSpecMetricPodsTargetOutputReference(
+      this,
+      'target',
+    );
   public get target() {
     return this._target;
   }
@@ -3205,56 +3960,69 @@ export class HorizontalPodAutoscalerSpecMetricPodsOutputReference extends cdktf.
 }
 export interface HorizontalPodAutoscalerSpecMetricResourceTarget {
   /**
-  * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
-  */
+   * averageUtilization is the target value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods. Currently only valid for Resource metric source type
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_utilization HorizontalPodAutoscaler#average_utilization}
+   */
   readonly averageUtilization?: number;
   /**
-  * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
-  */
+   * averageValue is the target value of the average of the metric across all relevant pods (as a quantity)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#average_value HorizontalPodAutoscaler#average_value}
+   */
   readonly averageValue?: string;
   /**
-  * type represents whether the metric type is Utilization, Value, or AverageValue
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * type represents whether the metric type is Utilization, Value, or AverageValue
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * value is the target value of the metric (as a quantity).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
-  */
+   * value is the target value of the metric (as a quantity).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#value HorizontalPodAutoscaler#value}
+   */
   readonly value?: string;
 }
 
-export function horizontalPodAutoscalerSpecMetricResourceTargetToTerraform(struct?: HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference | HorizontalPodAutoscalerSpecMetricResourceTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricResourceTargetToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference
+    | HorizontalPodAutoscalerSpecMetricResourceTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     average_utilization: cdktf.numberToTerraform(struct!.averageUtilization),
     average_value: cdktf.stringToTerraform(struct!.averageValue),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricResourceTarget | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricResourceTarget
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._averageUtilization !== undefined) {
@@ -3276,15 +4044,16 @@ export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricResourceTarget | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricResourceTarget | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._averageUtilization = undefined;
       this._averageValue = undefined;
       this._type = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._averageUtilization = value.averageUtilization;
       this._averageValue = value.averageValue;
@@ -3294,7 +4063,7 @@ export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference exte
   }
 
   // average_utilization - computed: false, optional: true, required: false
-  private _averageUtilization?: number; 
+  private _averageUtilization?: number;
   public get averageUtilization() {
     return this.getNumberAttribute('average_utilization');
   }
@@ -3310,7 +4079,7 @@ export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference exte
   }
 
   // average_value - computed: false, optional: true, required: false
-  private _averageValue?: string; 
+  private _averageValue?: string;
   public get averageValue() {
     return this.getStringAttribute('average_value');
   }
@@ -3326,7 +4095,7 @@ export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3339,7 +4108,7 @@ export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference exte
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3356,42 +4125,57 @@ export class HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference exte
 }
 export interface HorizontalPodAutoscalerSpecMetricResource {
   /**
-  * name is the name of the resource in question.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * name is the name of the resource in question.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
   /**
-  * target block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target HorizontalPodAutoscaler#target}
+   */
   readonly target?: HorizontalPodAutoscalerSpecMetricResourceTarget;
 }
 
-export function horizontalPodAutoscalerSpecMetricResourceToTerraform(struct?: HorizontalPodAutoscalerSpecMetricResourceOutputReference | HorizontalPodAutoscalerSpecMetricResource): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricResourceToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecMetricResourceOutputReference
+    | HorizontalPodAutoscalerSpecMetricResource,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    target: horizontalPodAutoscalerSpecMetricResourceTargetToTerraform(struct!.target),
-  }
+    target: horizontalPodAutoscalerSpecMetricResourceTargetToTerraform(
+      struct!.target,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricResourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetricResource | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetricResource
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -3405,13 +4189,14 @@ export class HorizontalPodAutoscalerSpecMetricResourceOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetricResource | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetricResource | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._target.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._target.internalValue = value.target;
@@ -3419,7 +4204,7 @@ export class HorizontalPodAutoscalerSpecMetricResourceOutputReference extends cd
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3432,7 +4217,11 @@ export class HorizontalPodAutoscalerSpecMetricResourceOutputReference extends cd
   }
 
   // target - computed: false, optional: true, required: false
-  private _target = new HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference(this, "target");
+  private _target =
+    new HorizontalPodAutoscalerSpecMetricResourceTargetOutputReference(
+      this,
+      'target',
+    );
   public get target() {
     return this._target;
   }
@@ -3449,56 +4238,69 @@ export class HorizontalPodAutoscalerSpecMetricResourceOutputReference extends cd
 }
 export interface HorizontalPodAutoscalerSpecMetric {
   /**
-  * type is the type of metric source. It should be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each mapping to a matching field in the object. Note: "ContainerResource" type is available on when the feature-gate HPAContainerMetrics is enabled
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
-  */
+   * type is the type of metric source. It should be one of "ContainerResource", "External", "Object", "Pods" or "Resource", each mapping to a matching field in the object. Note: "ContainerResource" type is available on when the feature-gate HPAContainerMetrics is enabled
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#type HorizontalPodAutoscaler#type}
+   */
   readonly type: string;
   /**
-  * container_resource block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#container_resource HorizontalPodAutoscaler#container_resource}
-  */
+   * container_resource block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#container_resource HorizontalPodAutoscaler#container_resource}
+   */
   readonly containerResource?: HorizontalPodAutoscalerSpecMetricContainerResource;
   /**
-  * external block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#external HorizontalPodAutoscaler#external}
-  */
+   * external block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#external HorizontalPodAutoscaler#external}
+   */
   readonly external?: HorizontalPodAutoscalerSpecMetricExternal;
   /**
-  * object block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#object HorizontalPodAutoscaler#object}
-  */
+   * object block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#object HorizontalPodAutoscaler#object}
+   */
   readonly object?: HorizontalPodAutoscalerSpecMetricObject;
   /**
-  * pods block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#pods HorizontalPodAutoscaler#pods}
-  */
+   * pods block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#pods HorizontalPodAutoscaler#pods}
+   */
   readonly pods?: HorizontalPodAutoscalerSpecMetricPods;
   /**
-  * resource block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#resource HorizontalPodAutoscaler#resource}
-  */
+   * resource block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#resource HorizontalPodAutoscaler#resource}
+   */
   readonly resource?: HorizontalPodAutoscalerSpecMetricResource;
 }
 
-export function horizontalPodAutoscalerSpecMetricToTerraform(struct?: HorizontalPodAutoscalerSpecMetric | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecMetricToTerraform(
+  struct?: HorizontalPodAutoscalerSpecMetric | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-    container_resource: horizontalPodAutoscalerSpecMetricContainerResourceToTerraform(struct!.containerResource),
-    external: horizontalPodAutoscalerSpecMetricExternalToTerraform(struct!.external),
+    container_resource:
+      horizontalPodAutoscalerSpecMetricContainerResourceToTerraform(
+        struct!.containerResource,
+      ),
+    external: horizontalPodAutoscalerSpecMetricExternalToTerraform(
+      struct!.external,
+    ),
     object: horizontalPodAutoscalerSpecMetricObjectToTerraform(struct!.object),
     pods: horizontalPodAutoscalerSpecMetricPodsToTerraform(struct!.pods),
-    resource: horizontalPodAutoscalerSpecMetricResourceToTerraform(struct!.resource),
-  }
+    resource: horizontalPodAutoscalerSpecMetricResourceToTerraform(
+      struct!.resource,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.ComplexObject {
@@ -3506,16 +4308,29 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecMetric | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecMetric
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3527,7 +4342,8 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
     }
     if (this._containerResource?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.containerResource = this._containerResource?.internalValue;
+      internalValueResult.containerResource =
+        this._containerResource?.internalValue;
     }
     if (this._external?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3548,7 +4364,9 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecMetric | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecMetric | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3558,12 +4376,10 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
       this._object.internalValue = undefined;
       this._pods.internalValue = undefined;
       this._resource.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -3576,7 +4392,7 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3589,11 +4405,17 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   }
 
   // container_resource - computed: false, optional: true, required: false
-  private _containerResource = new HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference(this, "container_resource");
+  private _containerResource =
+    new HorizontalPodAutoscalerSpecMetricContainerResourceOutputReference(
+      this,
+      'container_resource',
+    );
   public get containerResource() {
     return this._containerResource;
   }
-  public putContainerResource(value: HorizontalPodAutoscalerSpecMetricContainerResource) {
+  public putContainerResource(
+    value: HorizontalPodAutoscalerSpecMetricContainerResource,
+  ) {
     this._containerResource.internalValue = value;
   }
   public resetContainerResource() {
@@ -3605,7 +4427,11 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   }
 
   // external - computed: false, optional: true, required: false
-  private _external = new HorizontalPodAutoscalerSpecMetricExternalOutputReference(this, "external");
+  private _external =
+    new HorizontalPodAutoscalerSpecMetricExternalOutputReference(
+      this,
+      'external',
+    );
   public get external() {
     return this._external;
   }
@@ -3621,7 +4447,10 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   }
 
   // object - computed: false, optional: true, required: false
-  private _object = new HorizontalPodAutoscalerSpecMetricObjectOutputReference(this, "object");
+  private _object = new HorizontalPodAutoscalerSpecMetricObjectOutputReference(
+    this,
+    'object',
+  );
   public get object() {
     return this._object;
   }
@@ -3637,7 +4466,10 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   }
 
   // pods - computed: false, optional: true, required: false
-  private _pods = new HorizontalPodAutoscalerSpecMetricPodsOutputReference(this, "pods");
+  private _pods = new HorizontalPodAutoscalerSpecMetricPodsOutputReference(
+    this,
+    'pods',
+  );
   public get pods() {
     return this._pods;
   }
@@ -3653,7 +4485,11 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
   }
 
   // resource - computed: false, optional: true, required: false
-  private _resource = new HorizontalPodAutoscalerSpecMetricResourceOutputReference(this, "resource");
+  private _resource =
+    new HorizontalPodAutoscalerSpecMetricResourceOutputReference(
+      this,
+      'resource',
+    );
   public get resource() {
     return this._resource;
   }
@@ -3670,69 +4506,93 @@ export class HorizontalPodAutoscalerSpecMetricOutputReference extends cdktf.Comp
 }
 
 export class HorizontalPodAutoscalerSpecMetricList extends cdktf.ComplexList {
-  public internalValue? : HorizontalPodAutoscalerSpecMetric[] | cdktf.IResolvable
+  public internalValue?:
+    | HorizontalPodAutoscalerSpecMetric[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): HorizontalPodAutoscalerSpecMetricOutputReference {
-    return new HorizontalPodAutoscalerSpecMetricOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new HorizontalPodAutoscalerSpecMetricOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface HorizontalPodAutoscalerSpecScaleTargetRef {
   /**
-  * API version of the referent
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#api_version HorizontalPodAutoscaler#api_version}
-  */
+   * API version of the referent
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#api_version HorizontalPodAutoscaler#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Kind of the referent. e.g. `ReplicationController`. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#kind HorizontalPodAutoscaler#kind}
-  */
+   * Kind of the referent. e.g. `ReplicationController`. More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#kind HorizontalPodAutoscaler#kind}
+   */
   readonly kind: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#name HorizontalPodAutoscaler#name}
+   */
   readonly name: string;
 }
 
-export function horizontalPodAutoscalerSpecScaleTargetRefToTerraform(struct?: HorizontalPodAutoscalerSpecScaleTargetRefOutputReference | HorizontalPodAutoscalerSpecScaleTargetRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecScaleTargetRefToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecScaleTargetRefOutputReference
+    | HorizontalPodAutoscalerSpecScaleTargetRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     kind: cdktf.stringToTerraform(struct!.kind),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class HorizontalPodAutoscalerSpecScaleTargetRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): HorizontalPodAutoscalerSpecScaleTargetRef | undefined {
+  public get internalValue():
+    | HorizontalPodAutoscalerSpecScaleTargetRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._apiVersion !== undefined) {
@@ -3750,14 +4610,15 @@ export class HorizontalPodAutoscalerSpecScaleTargetRefOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: HorizontalPodAutoscalerSpecScaleTargetRef | undefined) {
+  public set internalValue(
+    value: HorizontalPodAutoscalerSpecScaleTargetRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._apiVersion = undefined;
       this._kind = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._kind = value.kind;
@@ -3766,7 +4627,7 @@ export class HorizontalPodAutoscalerSpecScaleTargetRefOutputReference extends cd
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -3782,7 +4643,7 @@ export class HorizontalPodAutoscalerSpecScaleTargetRefOutputReference extends cd
   }
 
   // kind - computed: false, optional: false, required: true
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -3795,7 +4656,7 @@ export class HorizontalPodAutoscalerSpecScaleTargetRefOutputReference extends cd
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3809,66 +4670,84 @@ export class HorizontalPodAutoscalerSpecScaleTargetRefOutputReference extends cd
 }
 export interface HorizontalPodAutoscalerSpec {
   /**
-  * Upper limit for the number of pods that can be set by the autoscaler.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#max_replicas HorizontalPodAutoscaler#max_replicas}
-  */
+   * Upper limit for the number of pods that can be set by the autoscaler.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#max_replicas HorizontalPodAutoscaler#max_replicas}
+   */
   readonly maxReplicas: number;
   /**
-  * Lower limit for the number of pods that can be set by the autoscaler, defaults to `1`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#min_replicas HorizontalPodAutoscaler#min_replicas}
-  */
+   * Lower limit for the number of pods that can be set by the autoscaler, defaults to `1`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#min_replicas HorizontalPodAutoscaler#min_replicas}
+   */
   readonly minReplicas?: number;
   /**
-  * Target average CPU utilization (represented as a percentage of requested CPU) over all the pods. If not specified the default autoscaling policy will be used.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target_cpu_utilization_percentage HorizontalPodAutoscaler#target_cpu_utilization_percentage}
-  */
+   * Target average CPU utilization (represented as a percentage of requested CPU) over all the pods. If not specified the default autoscaling policy will be used.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#target_cpu_utilization_percentage HorizontalPodAutoscaler#target_cpu_utilization_percentage}
+   */
   readonly targetCpuUtilizationPercentage?: number;
   /**
-  * behavior block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#behavior HorizontalPodAutoscaler#behavior}
-  */
+   * behavior block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#behavior HorizontalPodAutoscaler#behavior}
+   */
   readonly behavior?: HorizontalPodAutoscalerSpecBehavior;
   /**
-  * metric block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
-  */
+   * metric block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#metric HorizontalPodAutoscaler#metric}
+   */
   readonly metric?: HorizontalPodAutoscalerSpecMetric[] | cdktf.IResolvable;
   /**
-  * scale_target_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#scale_target_ref HorizontalPodAutoscaler#scale_target_ref}
-  */
+   * scale_target_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler#scale_target_ref HorizontalPodAutoscaler#scale_target_ref}
+   */
   readonly scaleTargetRef: HorizontalPodAutoscalerSpecScaleTargetRef;
 }
 
-export function horizontalPodAutoscalerSpecToTerraform(struct?: HorizontalPodAutoscalerSpecOutputReference | HorizontalPodAutoscalerSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function horizontalPodAutoscalerSpecToTerraform(
+  struct?:
+    | HorizontalPodAutoscalerSpecOutputReference
+    | HorizontalPodAutoscalerSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max_replicas: cdktf.numberToTerraform(struct!.maxReplicas),
     min_replicas: cdktf.numberToTerraform(struct!.minReplicas),
-    target_cpu_utilization_percentage: cdktf.numberToTerraform(struct!.targetCpuUtilizationPercentage),
+    target_cpu_utilization_percentage: cdktf.numberToTerraform(
+      struct!.targetCpuUtilizationPercentage,
+    ),
     behavior: horizontalPodAutoscalerSpecBehaviorToTerraform(struct!.behavior),
-    metric: cdktf.listMapper(horizontalPodAutoscalerSpecMetricToTerraform, true)(struct!.metric),
-    scale_target_ref: horizontalPodAutoscalerSpecScaleTargetRefToTerraform(struct!.scaleTargetRef),
-  }
+    metric: cdktf.listMapper(
+      horizontalPodAutoscalerSpecMetricToTerraform,
+      true,
+    )(struct!.metric),
+    scale_target_ref: horizontalPodAutoscalerSpecScaleTargetRefToTerraform(
+      struct!.scaleTargetRef,
+    ),
+  };
 }
 
 export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3885,7 +4764,8 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
     }
     if (this._targetCpuUtilizationPercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.targetCpuUtilizationPercentage = this._targetCpuUtilizationPercentage;
+      internalValueResult.targetCpuUtilizationPercentage =
+        this._targetCpuUtilizationPercentage;
     }
     if (this._behavior?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3911,12 +4791,12 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
       this._behavior.internalValue = undefined;
       this._metric.internalValue = undefined;
       this._scaleTargetRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._maxReplicas = value.maxReplicas;
       this._minReplicas = value.minReplicas;
-      this._targetCpuUtilizationPercentage = value.targetCpuUtilizationPercentage;
+      this._targetCpuUtilizationPercentage =
+        value.targetCpuUtilizationPercentage;
       this._behavior.internalValue = value.behavior;
       this._metric.internalValue = value.metric;
       this._scaleTargetRef.internalValue = value.scaleTargetRef;
@@ -3924,7 +4804,7 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
   }
 
   // max_replicas - computed: false, optional: false, required: true
-  private _maxReplicas?: number; 
+  private _maxReplicas?: number;
   public get maxReplicas() {
     return this.getNumberAttribute('max_replicas');
   }
@@ -3937,7 +4817,7 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
   }
 
   // min_replicas - computed: false, optional: true, required: false
-  private _minReplicas?: number; 
+  private _minReplicas?: number;
   public get minReplicas() {
     return this.getNumberAttribute('min_replicas');
   }
@@ -3953,7 +4833,7 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
   }
 
   // target_cpu_utilization_percentage - computed: true, optional: true, required: false
-  private _targetCpuUtilizationPercentage?: number; 
+  private _targetCpuUtilizationPercentage?: number;
   public get targetCpuUtilizationPercentage() {
     return this.getNumberAttribute('target_cpu_utilization_percentage');
   }
@@ -3969,7 +4849,10 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
   }
 
   // behavior - computed: false, optional: true, required: false
-  private _behavior = new HorizontalPodAutoscalerSpecBehaviorOutputReference(this, "behavior");
+  private _behavior = new HorizontalPodAutoscalerSpecBehaviorOutputReference(
+    this,
+    'behavior',
+  );
   public get behavior() {
     return this._behavior;
   }
@@ -3985,11 +4868,17 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
   }
 
   // metric - computed: false, optional: true, required: false
-  private _metric = new HorizontalPodAutoscalerSpecMetricList(this, "metric", false);
+  private _metric = new HorizontalPodAutoscalerSpecMetricList(
+    this,
+    'metric',
+    false,
+  );
   public get metric() {
     return this._metric;
   }
-  public putMetric(value: HorizontalPodAutoscalerSpecMetric[] | cdktf.IResolvable) {
+  public putMetric(
+    value: HorizontalPodAutoscalerSpecMetric[] | cdktf.IResolvable,
+  ) {
     this._metric.internalValue = value;
   }
   public resetMetric() {
@@ -4001,7 +4890,11 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
   }
 
   // scale_target_ref - computed: false, optional: false, required: true
-  private _scaleTargetRef = new HorizontalPodAutoscalerSpecScaleTargetRefOutputReference(this, "scale_target_ref");
+  private _scaleTargetRef =
+    new HorizontalPodAutoscalerSpecScaleTargetRefOutputReference(
+      this,
+      'scale_target_ref',
+    );
   public get scaleTargetRef() {
     return this._scaleTargetRef;
   }
@@ -4015,33 +4908,37 @@ export class HorizontalPodAutoscalerSpecOutputReference extends cdktf.ComplexObj
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler kubernetes_horizontal_pod_autoscaler}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler kubernetes_horizontal_pod_autoscaler}
+ */
 export class HorizontalPodAutoscaler extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_horizontal_pod_autoscaler";
+  public static readonly tfResourceType =
+    'kubernetes_horizontal_pod_autoscaler';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler kubernetes_horizontal_pod_autoscaler} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options HorizontalPodAutoscalerConfig
-  */
-  public constructor(scope: Construct, id: string, config: HorizontalPodAutoscalerConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/horizontal_pod_autoscaler kubernetes_horizontal_pod_autoscaler} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options HorizontalPodAutoscalerConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: HorizontalPodAutoscalerConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_horizontal_pod_autoscaler',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -4049,7 +4946,7 @@ export class HorizontalPodAutoscaler extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -4061,7 +4958,7 @@ export class HorizontalPodAutoscaler extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -4077,7 +4974,10 @@ export class HorizontalPodAutoscaler extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new HorizontalPodAutoscalerMetadataOutputReference(this, "metadata");
+  private _metadata = new HorizontalPodAutoscalerMetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -4090,7 +4990,7 @@ export class HorizontalPodAutoscaler extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new HorizontalPodAutoscalerSpecOutputReference(this, "spec");
+  private _spec = new HorizontalPodAutoscalerSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -4109,7 +5009,9 @@ export class HorizontalPodAutoscaler extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      metadata: horizontalPodAutoscalerMetadataToTerraform(this._metadata.internalValue),
+      metadata: horizontalPodAutoscalerMetadataToTerraform(
+        this._metadata.internalValue,
+      ),
       spec: horizontalPodAutoscalerSpecToTerraform(this._spec.internalValue),
     };
   }

@@ -1,6 +1,6 @@
-import { ResourceType } from '../../../@resources/types.js';
-import { CldctlTest } from '../../tests.js';
-import { DigitaloceanCredentials } from '../credentials';
+import { ResourceType } from '../../../@resources/types.ts';
+import { CldctlTest } from '../../tests.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 
 export class DigitalOceanDatabaseTest implements CldctlTest<DigitaloceanCredentials> {
   name = 'Basic Database Test';
@@ -26,8 +26,8 @@ export class DigitalOceanDatabaseTest implements CldctlTest<DigitaloceanCredenti
             provider: 'digitalocean',
           },
           serviceType: 'vpc' as ResourceType,
-        }
-      ]
+        },
+      ],
     },
   ];
 }

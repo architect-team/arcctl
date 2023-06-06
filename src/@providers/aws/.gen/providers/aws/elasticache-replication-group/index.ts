@@ -1,220 +1,237 @@
 // https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ElasticacheReplicationGroupConfig extends cdktf.TerraformMetaArguments {
+export interface ElasticacheReplicationGroupConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#apply_immediately ElasticacheReplicationGroup#apply_immediately}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#apply_immediately ElasticacheReplicationGroup#apply_immediately}
+   */
   readonly applyImmediately?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#at_rest_encryption_enabled ElasticacheReplicationGroup#at_rest_encryption_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#at_rest_encryption_enabled ElasticacheReplicationGroup#at_rest_encryption_enabled}
+   */
   readonly atRestEncryptionEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#auth_token ElasticacheReplicationGroup#auth_token}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#auth_token ElasticacheReplicationGroup#auth_token}
+   */
   readonly authToken?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#auto_minor_version_upgrade ElasticacheReplicationGroup#auto_minor_version_upgrade}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#auto_minor_version_upgrade ElasticacheReplicationGroup#auto_minor_version_upgrade}
+   */
   readonly autoMinorVersionUpgrade?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#automatic_failover_enabled ElasticacheReplicationGroup#automatic_failover_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#automatic_failover_enabled ElasticacheReplicationGroup#automatic_failover_enabled}
+   */
   readonly automaticFailoverEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#availability_zones ElasticacheReplicationGroup#availability_zones}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#availability_zones ElasticacheReplicationGroup#availability_zones}
+   */
   readonly availabilityZones?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#data_tiering_enabled ElasticacheReplicationGroup#data_tiering_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#data_tiering_enabled ElasticacheReplicationGroup#data_tiering_enabled}
+   */
   readonly dataTieringEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#description ElasticacheReplicationGroup#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#description ElasticacheReplicationGroup#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#engine ElasticacheReplicationGroup#engine}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#engine ElasticacheReplicationGroup#engine}
+   */
   readonly engine?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#engine_version ElasticacheReplicationGroup#engine_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#engine_version ElasticacheReplicationGroup#engine_version}
+   */
   readonly engineVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#final_snapshot_identifier ElasticacheReplicationGroup#final_snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#final_snapshot_identifier ElasticacheReplicationGroup#final_snapshot_identifier}
+   */
   readonly finalSnapshotIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#global_replication_group_id ElasticacheReplicationGroup#global_replication_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#global_replication_group_id ElasticacheReplicationGroup#global_replication_group_id}
+   */
   readonly globalReplicationGroupId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#id ElasticacheReplicationGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#id ElasticacheReplicationGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#kms_key_id ElasticacheReplicationGroup#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#kms_key_id ElasticacheReplicationGroup#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#maintenance_window ElasticacheReplicationGroup#maintenance_window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#maintenance_window ElasticacheReplicationGroup#maintenance_window}
+   */
   readonly maintenanceWindow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#multi_az_enabled ElasticacheReplicationGroup#multi_az_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#multi_az_enabled ElasticacheReplicationGroup#multi_az_enabled}
+   */
   readonly multiAzEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#node_type ElasticacheReplicationGroup#node_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#node_type ElasticacheReplicationGroup#node_type}
+   */
   readonly nodeType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#notification_topic_arn ElasticacheReplicationGroup#notification_topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#notification_topic_arn ElasticacheReplicationGroup#notification_topic_arn}
+   */
   readonly notificationTopicArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#num_cache_clusters ElasticacheReplicationGroup#num_cache_clusters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#num_cache_clusters ElasticacheReplicationGroup#num_cache_clusters}
+   */
   readonly numCacheClusters?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#num_node_groups ElasticacheReplicationGroup#num_node_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#num_node_groups ElasticacheReplicationGroup#num_node_groups}
+   */
   readonly numNodeGroups?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#number_cache_clusters ElasticacheReplicationGroup#number_cache_clusters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#number_cache_clusters ElasticacheReplicationGroup#number_cache_clusters}
+   */
   readonly numberCacheClusters?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#parameter_group_name ElasticacheReplicationGroup#parameter_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#parameter_group_name ElasticacheReplicationGroup#parameter_group_name}
+   */
   readonly parameterGroupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#port ElasticacheReplicationGroup#port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#port ElasticacheReplicationGroup#port}
+   */
   readonly port?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#preferred_cache_cluster_azs ElasticacheReplicationGroup#preferred_cache_cluster_azs}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#preferred_cache_cluster_azs ElasticacheReplicationGroup#preferred_cache_cluster_azs}
+   */
   readonly preferredCacheClusterAzs?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replicas_per_node_group ElasticacheReplicationGroup#replicas_per_node_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replicas_per_node_group ElasticacheReplicationGroup#replicas_per_node_group}
+   */
   readonly replicasPerNodeGroup?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replication_group_description ElasticacheReplicationGroup#replication_group_description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replication_group_description ElasticacheReplicationGroup#replication_group_description}
+   */
   readonly replicationGroupDescription?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replication_group_id ElasticacheReplicationGroup#replication_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replication_group_id ElasticacheReplicationGroup#replication_group_id}
+   */
   readonly replicationGroupId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#security_group_ids ElasticacheReplicationGroup#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#security_group_ids ElasticacheReplicationGroup#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#security_group_names ElasticacheReplicationGroup#security_group_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#security_group_names ElasticacheReplicationGroup#security_group_names}
+   */
   readonly securityGroupNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_arns ElasticacheReplicationGroup#snapshot_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_arns ElasticacheReplicationGroup#snapshot_arns}
+   */
   readonly snapshotArns?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_name ElasticacheReplicationGroup#snapshot_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_name ElasticacheReplicationGroup#snapshot_name}
+   */
   readonly snapshotName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_retention_limit ElasticacheReplicationGroup#snapshot_retention_limit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_retention_limit ElasticacheReplicationGroup#snapshot_retention_limit}
+   */
   readonly snapshotRetentionLimit?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_window ElasticacheReplicationGroup#snapshot_window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#snapshot_window ElasticacheReplicationGroup#snapshot_window}
+   */
   readonly snapshotWindow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#subnet_group_name ElasticacheReplicationGroup#subnet_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#subnet_group_name ElasticacheReplicationGroup#subnet_group_name}
+   */
   readonly subnetGroupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#tags ElasticacheReplicationGroup#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#tags ElasticacheReplicationGroup#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#tags_all ElasticacheReplicationGroup#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#tags_all ElasticacheReplicationGroup#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#transit_encryption_enabled ElasticacheReplicationGroup#transit_encryption_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#transit_encryption_enabled ElasticacheReplicationGroup#transit_encryption_enabled}
+   */
   readonly transitEncryptionEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#user_group_ids ElasticacheReplicationGroup#user_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#user_group_ids ElasticacheReplicationGroup#user_group_ids}
+   */
   readonly userGroupIds?: string[];
   /**
-  * cluster_mode block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#cluster_mode ElasticacheReplicationGroup#cluster_mode}
-  */
+   * cluster_mode block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#cluster_mode ElasticacheReplicationGroup#cluster_mode}
+   */
   readonly clusterMode?: ElasticacheReplicationGroupClusterMode;
   /**
-  * log_delivery_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#log_delivery_configuration ElasticacheReplicationGroup#log_delivery_configuration}
-  */
-  readonly logDeliveryConfiguration?: ElasticacheReplicationGroupLogDeliveryConfiguration[] | cdktf.IResolvable;
+   * log_delivery_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#log_delivery_configuration ElasticacheReplicationGroup#log_delivery_configuration}
+   */
+  readonly logDeliveryConfiguration?:
+    | ElasticacheReplicationGroupLogDeliveryConfiguration[]
+    | cdktf.IResolvable;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#timeouts ElasticacheReplicationGroup#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#timeouts ElasticacheReplicationGroup#timeouts}
+   */
   readonly timeouts?: ElasticacheReplicationGroupTimeouts;
 }
 export interface ElasticacheReplicationGroupClusterMode {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#num_node_groups ElasticacheReplicationGroup#num_node_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#num_node_groups ElasticacheReplicationGroup#num_node_groups}
+   */
   readonly numNodeGroups?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replicas_per_node_group ElasticacheReplicationGroup#replicas_per_node_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#replicas_per_node_group ElasticacheReplicationGroup#replicas_per_node_group}
+   */
   readonly replicasPerNodeGroup?: number;
 }
 
-export function elasticacheReplicationGroupClusterModeToTerraform(struct?: ElasticacheReplicationGroupClusterModeOutputReference | ElasticacheReplicationGroupClusterMode): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elasticacheReplicationGroupClusterModeToTerraform(
+  struct?:
+    | ElasticacheReplicationGroupClusterModeOutputReference
+    | ElasticacheReplicationGroupClusterMode,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     num_node_groups: cdktf.numberToTerraform(struct!.numNodeGroups),
-    replicas_per_node_group: cdktf.numberToTerraform(struct!.replicasPerNodeGroup),
-  }
+    replicas_per_node_group: cdktf.numberToTerraform(
+      struct!.replicasPerNodeGroup,
+    ),
+  };
 }
 
 export class ElasticacheReplicationGroupClusterModeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ElasticacheReplicationGroupClusterMode | undefined {
+  public get internalValue():
+    | ElasticacheReplicationGroupClusterMode
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._numNodeGroups !== undefined) {
@@ -228,13 +245,14 @@ export class ElasticacheReplicationGroupClusterModeOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElasticacheReplicationGroupClusterMode | undefined) {
+  public set internalValue(
+    value: ElasticacheReplicationGroupClusterMode | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._numNodeGroups = undefined;
       this._replicasPerNodeGroup = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._numNodeGroups = value.numNodeGroups;
       this._replicasPerNodeGroup = value.replicasPerNodeGroup;
@@ -242,7 +260,7 @@ export class ElasticacheReplicationGroupClusterModeOutputReference extends cdktf
   }
 
   // num_node_groups - computed: true, optional: true, required: false
-  private _numNodeGroups?: number; 
+  private _numNodeGroups?: number;
   public get numNodeGroups() {
     return this.getNumberAttribute('num_node_groups');
   }
@@ -258,7 +276,7 @@ export class ElasticacheReplicationGroupClusterModeOutputReference extends cdktf
   }
 
   // replicas_per_node_group - computed: true, optional: true, required: false
-  private _replicasPerNodeGroup?: number; 
+  private _replicasPerNodeGroup?: number;
   public get replicasPerNodeGroup() {
     return this.getNumberAttribute('replicas_per_node_group');
   }
@@ -275,34 +293,42 @@ export class ElasticacheReplicationGroupClusterModeOutputReference extends cdktf
 }
 export interface ElasticacheReplicationGroupLogDeliveryConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#destination ElasticacheReplicationGroup#destination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#destination ElasticacheReplicationGroup#destination}
+   */
   readonly destination: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#destination_type ElasticacheReplicationGroup#destination_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#destination_type ElasticacheReplicationGroup#destination_type}
+   */
   readonly destinationType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#log_format ElasticacheReplicationGroup#log_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#log_format ElasticacheReplicationGroup#log_format}
+   */
   readonly logFormat: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#log_type ElasticacheReplicationGroup#log_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#log_type ElasticacheReplicationGroup#log_type}
+   */
   readonly logType: string;
 }
 
-export function elasticacheReplicationGroupLogDeliveryConfigurationToTerraform(struct?: ElasticacheReplicationGroupLogDeliveryConfiguration | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elasticacheReplicationGroupLogDeliveryConfigurationToTerraform(
+  struct?:
+    | ElasticacheReplicationGroupLogDeliveryConfiguration
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     destination: cdktf.stringToTerraform(struct!.destination),
     destination_type: cdktf.stringToTerraform(struct!.destinationType),
     log_format: cdktf.stringToTerraform(struct!.logFormat),
     log_type: cdktf.stringToTerraform(struct!.logType),
-  }
+  };
 }
 
 export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference extends cdktf.ComplexObject {
@@ -310,16 +336,29 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ElasticacheReplicationGroupLogDeliveryConfiguration | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ElasticacheReplicationGroupLogDeliveryConfiguration
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -344,7 +383,12 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElasticacheReplicationGroupLogDeliveryConfiguration | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ElasticacheReplicationGroupLogDeliveryConfiguration
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -352,12 +396,10 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
       this._destinationType = undefined;
       this._logFormat = undefined;
       this._logType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._destination = value.destination;
@@ -368,7 +410,7 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination?: string; 
+  private _destination?: string;
   public get destination() {
     return this.getStringAttribute('destination');
   }
@@ -381,7 +423,7 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
   }
 
   // destination_type - computed: false, optional: false, required: true
-  private _destinationType?: string; 
+  private _destinationType?: string;
   public get destinationType() {
     return this.getStringAttribute('destination_type');
   }
@@ -394,7 +436,7 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
   }
 
   // log_format - computed: false, optional: false, required: true
-  private _logFormat?: string; 
+  private _logFormat?: string;
   public get logFormat() {
     return this.getStringAttribute('log_format');
   }
@@ -407,7 +449,7 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
   }
 
   // log_type - computed: false, optional: false, required: true
-  private _logType?: string; 
+  private _logType?: string;
   public get logType() {
     return this.getStringAttribute('log_type');
   }
@@ -421,49 +463,71 @@ export class ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference 
 }
 
 export class ElasticacheReplicationGroupLogDeliveryConfigurationList extends cdktf.ComplexList {
-  public internalValue? : ElasticacheReplicationGroupLogDeliveryConfiguration[] | cdktf.IResolvable
+  public internalValue?:
+    | ElasticacheReplicationGroupLogDeliveryConfiguration[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference {
-    return new ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference {
+    return new ElasticacheReplicationGroupLogDeliveryConfigurationOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ElasticacheReplicationGroupTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#create ElasticacheReplicationGroup#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#create ElasticacheReplicationGroup#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#delete ElasticacheReplicationGroup#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#delete ElasticacheReplicationGroup#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#update ElasticacheReplicationGroup#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group#update ElasticacheReplicationGroup#update}
+   */
   readonly update?: string;
 }
 
-export function elasticacheReplicationGroupTimeoutsToTerraform(struct?: ElasticacheReplicationGroupTimeoutsOutputReference | ElasticacheReplicationGroupTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function elasticacheReplicationGroupTimeoutsToTerraform(
+  struct?:
+    | ElasticacheReplicationGroupTimeoutsOutputReference
+    | ElasticacheReplicationGroupTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -471,14 +535,20 @@ export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ElasticacheReplicationGroupTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ElasticacheReplicationGroupTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -499,19 +569,19 @@ export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ElasticacheReplicationGroupTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ElasticacheReplicationGroupTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -521,7 +591,7 @@ export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -537,7 +607,7 @@ export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -553,7 +623,7 @@ export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.Co
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -570,33 +640,36 @@ export class ElasticacheReplicationGroupTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group aws_elasticache_replication_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group aws_elasticache_replication_group}
+ */
 export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_elasticache_replication_group";
+  public static readonly tfResourceType = 'aws_elasticache_replication_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group aws_elasticache_replication_group} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ElasticacheReplicationGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: ElasticacheReplicationGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group aws_elasticache_replication_group} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ElasticacheReplicationGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ElasticacheReplicationGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_elasticache_replication_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -604,7 +677,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._applyImmediately = config.applyImmediately;
     this._atRestEncryptionEnabled = config.atRestEncryptionEnabled;
@@ -645,7 +718,8 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
     this._transitEncryptionEnabled = config.transitEncryptionEnabled;
     this._userGroupIds = config.userGroupIds;
     this._clusterMode.internalValue = config.clusterMode;
-    this._logDeliveryConfiguration.internalValue = config.logDeliveryConfiguration;
+    this._logDeliveryConfiguration.internalValue =
+      config.logDeliveryConfiguration;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -654,7 +728,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   // ==========
 
   // apply_immediately - computed: true, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -675,7 +749,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // at_rest_encryption_enabled - computed: true, optional: true, required: false
-  private _atRestEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _atRestEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get atRestEncryptionEnabled() {
     return this.getBooleanAttribute('at_rest_encryption_enabled');
   }
@@ -691,7 +765,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // auth_token - computed: false, optional: true, required: false
-  private _authToken?: string; 
+  private _authToken?: string;
   public get authToken() {
     return this.getStringAttribute('auth_token');
   }
@@ -707,7 +781,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // auto_minor_version_upgrade - computed: true, optional: true, required: false
-  private _autoMinorVersionUpgrade?: string; 
+  private _autoMinorVersionUpgrade?: string;
   public get autoMinorVersionUpgrade() {
     return this.getStringAttribute('auto_minor_version_upgrade');
   }
@@ -723,7 +797,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // automatic_failover_enabled - computed: false, optional: true, required: false
-  private _automaticFailoverEnabled?: boolean | cdktf.IResolvable; 
+  private _automaticFailoverEnabled?: boolean | cdktf.IResolvable;
   public get automaticFailoverEnabled() {
     return this.getBooleanAttribute('automatic_failover_enabled');
   }
@@ -739,7 +813,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // availability_zones - computed: false, optional: true, required: false
-  private _availabilityZones?: string[]; 
+  private _availabilityZones?: string[];
   public get availabilityZones() {
     return cdktf.Fn.tolist(this.getListAttribute('availability_zones'));
   }
@@ -765,7 +839,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // data_tiering_enabled - computed: true, optional: true, required: false
-  private _dataTieringEnabled?: boolean | cdktf.IResolvable; 
+  private _dataTieringEnabled?: boolean | cdktf.IResolvable;
   public get dataTieringEnabled() {
     return this.getBooleanAttribute('data_tiering_enabled');
   }
@@ -781,7 +855,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -797,7 +871,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // engine - computed: false, optional: true, required: false
-  private _engine?: string; 
+  private _engine?: string;
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -813,7 +887,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string; 
+  private _engineVersion?: string;
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -834,7 +908,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // final_snapshot_identifier - computed: false, optional: true, required: false
-  private _finalSnapshotIdentifier?: string; 
+  private _finalSnapshotIdentifier?: string;
   public get finalSnapshotIdentifier() {
     return this.getStringAttribute('final_snapshot_identifier');
   }
@@ -850,7 +924,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // global_replication_group_id - computed: true, optional: true, required: false
-  private _globalReplicationGroupId?: string; 
+  private _globalReplicationGroupId?: string;
   public get globalReplicationGroupId() {
     return this.getStringAttribute('global_replication_group_id');
   }
@@ -866,7 +940,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -882,7 +956,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -898,7 +972,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // maintenance_window - computed: true, optional: true, required: false
-  private _maintenanceWindow?: string; 
+  private _maintenanceWindow?: string;
   public get maintenanceWindow() {
     return this.getStringAttribute('maintenance_window');
   }
@@ -919,7 +993,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // multi_az_enabled - computed: false, optional: true, required: false
-  private _multiAzEnabled?: boolean | cdktf.IResolvable; 
+  private _multiAzEnabled?: boolean | cdktf.IResolvable;
   public get multiAzEnabled() {
     return this.getBooleanAttribute('multi_az_enabled');
   }
@@ -935,7 +1009,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // node_type - computed: true, optional: true, required: false
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -951,7 +1025,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // notification_topic_arn - computed: false, optional: true, required: false
-  private _notificationTopicArn?: string; 
+  private _notificationTopicArn?: string;
   public get notificationTopicArn() {
     return this.getStringAttribute('notification_topic_arn');
   }
@@ -967,7 +1041,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // num_cache_clusters - computed: true, optional: true, required: false
-  private _numCacheClusters?: number; 
+  private _numCacheClusters?: number;
   public get numCacheClusters() {
     return this.getNumberAttribute('num_cache_clusters');
   }
@@ -983,7 +1057,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // num_node_groups - computed: true, optional: true, required: false
-  private _numNodeGroups?: number; 
+  private _numNodeGroups?: number;
   public get numNodeGroups() {
     return this.getNumberAttribute('num_node_groups');
   }
@@ -999,7 +1073,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // number_cache_clusters - computed: true, optional: true, required: false
-  private _numberCacheClusters?: number; 
+  private _numberCacheClusters?: number;
   public get numberCacheClusters() {
     return this.getNumberAttribute('number_cache_clusters');
   }
@@ -1015,7 +1089,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // parameter_group_name - computed: true, optional: true, required: false
-  private _parameterGroupName?: string; 
+  private _parameterGroupName?: string;
   public get parameterGroupName() {
     return this.getStringAttribute('parameter_group_name');
   }
@@ -1031,7 +1105,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number; 
+  private _port?: number;
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1047,7 +1121,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // preferred_cache_cluster_azs - computed: false, optional: true, required: false
-  private _preferredCacheClusterAzs?: string[]; 
+  private _preferredCacheClusterAzs?: string[];
   public get preferredCacheClusterAzs() {
     return this.getListAttribute('preferred_cache_cluster_azs');
   }
@@ -1073,7 +1147,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // replicas_per_node_group - computed: true, optional: true, required: false
-  private _replicasPerNodeGroup?: number; 
+  private _replicasPerNodeGroup?: number;
   public get replicasPerNodeGroup() {
     return this.getNumberAttribute('replicas_per_node_group');
   }
@@ -1089,7 +1163,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // replication_group_description - computed: true, optional: true, required: false
-  private _replicationGroupDescription?: string; 
+  private _replicationGroupDescription?: string;
   public get replicationGroupDescription() {
     return this.getStringAttribute('replication_group_description');
   }
@@ -1105,7 +1179,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // replication_group_id - computed: false, optional: false, required: true
-  private _replicationGroupId?: string; 
+  private _replicationGroupId?: string;
   public get replicationGroupId() {
     return this.getStringAttribute('replication_group_id');
   }
@@ -1118,7 +1192,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -1134,7 +1208,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // security_group_names - computed: true, optional: true, required: false
-  private _securityGroupNames?: string[]; 
+  private _securityGroupNames?: string[];
   public get securityGroupNames() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_names'));
   }
@@ -1150,7 +1224,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // snapshot_arns - computed: false, optional: true, required: false
-  private _snapshotArns?: string[]; 
+  private _snapshotArns?: string[];
   public get snapshotArns() {
     return cdktf.Fn.tolist(this.getListAttribute('snapshot_arns'));
   }
@@ -1166,7 +1240,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // snapshot_name - computed: false, optional: true, required: false
-  private _snapshotName?: string; 
+  private _snapshotName?: string;
   public get snapshotName() {
     return this.getStringAttribute('snapshot_name');
   }
@@ -1182,7 +1256,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // snapshot_retention_limit - computed: false, optional: true, required: false
-  private _snapshotRetentionLimit?: number; 
+  private _snapshotRetentionLimit?: number;
   public get snapshotRetentionLimit() {
     return this.getNumberAttribute('snapshot_retention_limit');
   }
@@ -1198,7 +1272,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // snapshot_window - computed: true, optional: true, required: false
-  private _snapshotWindow?: string; 
+  private _snapshotWindow?: string;
   public get snapshotWindow() {
     return this.getStringAttribute('snapshot_window');
   }
@@ -1214,7 +1288,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // subnet_group_name - computed: true, optional: true, required: false
-  private _subnetGroupName?: string; 
+  private _subnetGroupName?: string;
   public get subnetGroupName() {
     return this.getStringAttribute('subnet_group_name');
   }
@@ -1230,7 +1304,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1246,7 +1320,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1262,7 +1336,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // transit_encryption_enabled - computed: true, optional: true, required: false
-  private _transitEncryptionEnabled?: boolean | cdktf.IResolvable; 
+  private _transitEncryptionEnabled?: boolean | cdktf.IResolvable;
   public get transitEncryptionEnabled() {
     return this.getBooleanAttribute('transit_encryption_enabled');
   }
@@ -1278,7 +1352,7 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // user_group_ids - computed: false, optional: true, required: false
-  private _userGroupIds?: string[]; 
+  private _userGroupIds?: string[];
   public get userGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('user_group_ids'));
   }
@@ -1294,7 +1368,11 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // cluster_mode - computed: false, optional: true, required: false
-  private _clusterMode = new ElasticacheReplicationGroupClusterModeOutputReference(this, "cluster_mode");
+  private _clusterMode =
+    new ElasticacheReplicationGroupClusterModeOutputReference(
+      this,
+      'cluster_mode',
+    );
   public get clusterMode() {
     return this._clusterMode;
   }
@@ -1310,11 +1388,20 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // log_delivery_configuration - computed: false, optional: true, required: false
-  private _logDeliveryConfiguration = new ElasticacheReplicationGroupLogDeliveryConfigurationList(this, "log_delivery_configuration", true);
+  private _logDeliveryConfiguration =
+    new ElasticacheReplicationGroupLogDeliveryConfigurationList(
+      this,
+      'log_delivery_configuration',
+      true,
+    );
   public get logDeliveryConfiguration() {
     return this._logDeliveryConfiguration;
   }
-  public putLogDeliveryConfiguration(value: ElasticacheReplicationGroupLogDeliveryConfiguration[] | cdktf.IResolvable) {
+  public putLogDeliveryConfiguration(
+    value:
+      | ElasticacheReplicationGroupLogDeliveryConfiguration[]
+      | cdktf.IResolvable,
+  ) {
     this._logDeliveryConfiguration.internalValue = value;
   }
   public resetLogDeliveryConfiguration() {
@@ -1326,7 +1413,10 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ElasticacheReplicationGroupTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ElasticacheReplicationGroupTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -1348,46 +1438,91 @@ export class ElasticacheReplicationGroup extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       apply_immediately: cdktf.booleanToTerraform(this._applyImmediately),
-      at_rest_encryption_enabled: cdktf.booleanToTerraform(this._atRestEncryptionEnabled),
+      at_rest_encryption_enabled: cdktf.booleanToTerraform(
+        this._atRestEncryptionEnabled,
+      ),
       auth_token: cdktf.stringToTerraform(this._authToken),
-      auto_minor_version_upgrade: cdktf.stringToTerraform(this._autoMinorVersionUpgrade),
-      automatic_failover_enabled: cdktf.booleanToTerraform(this._automaticFailoverEnabled),
-      availability_zones: cdktf.listMapper(cdktf.stringToTerraform, false)(this._availabilityZones),
+      auto_minor_version_upgrade: cdktf.stringToTerraform(
+        this._autoMinorVersionUpgrade,
+      ),
+      automatic_failover_enabled: cdktf.booleanToTerraform(
+        this._automaticFailoverEnabled,
+      ),
+      availability_zones: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._availabilityZones),
       data_tiering_enabled: cdktf.booleanToTerraform(this._dataTieringEnabled),
       description: cdktf.stringToTerraform(this._description),
       engine: cdktf.stringToTerraform(this._engine),
       engine_version: cdktf.stringToTerraform(this._engineVersion),
-      final_snapshot_identifier: cdktf.stringToTerraform(this._finalSnapshotIdentifier),
-      global_replication_group_id: cdktf.stringToTerraform(this._globalReplicationGroupId),
+      final_snapshot_identifier: cdktf.stringToTerraform(
+        this._finalSnapshotIdentifier,
+      ),
+      global_replication_group_id: cdktf.stringToTerraform(
+        this._globalReplicationGroupId,
+      ),
       id: cdktf.stringToTerraform(this._id),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
       maintenance_window: cdktf.stringToTerraform(this._maintenanceWindow),
       multi_az_enabled: cdktf.booleanToTerraform(this._multiAzEnabled),
       node_type: cdktf.stringToTerraform(this._nodeType),
-      notification_topic_arn: cdktf.stringToTerraform(this._notificationTopicArn),
+      notification_topic_arn: cdktf.stringToTerraform(
+        this._notificationTopicArn,
+      ),
       num_cache_clusters: cdktf.numberToTerraform(this._numCacheClusters),
       num_node_groups: cdktf.numberToTerraform(this._numNodeGroups),
       number_cache_clusters: cdktf.numberToTerraform(this._numberCacheClusters),
       parameter_group_name: cdktf.stringToTerraform(this._parameterGroupName),
       port: cdktf.numberToTerraform(this._port),
-      preferred_cache_cluster_azs: cdktf.listMapper(cdktf.stringToTerraform, false)(this._preferredCacheClusterAzs),
-      replicas_per_node_group: cdktf.numberToTerraform(this._replicasPerNodeGroup),
-      replication_group_description: cdktf.stringToTerraform(this._replicationGroupDescription),
+      preferred_cache_cluster_azs: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._preferredCacheClusterAzs),
+      replicas_per_node_group: cdktf.numberToTerraform(
+        this._replicasPerNodeGroup,
+      ),
+      replication_group_description: cdktf.stringToTerraform(
+        this._replicationGroupDescription,
+      ),
       replication_group_id: cdktf.stringToTerraform(this._replicationGroupId),
-      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
-      security_group_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupNames),
-      snapshot_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._snapshotArns),
+      security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupIds),
+      security_group_names: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupNames),
+      snapshot_arns: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._snapshotArns),
       snapshot_name: cdktf.stringToTerraform(this._snapshotName),
-      snapshot_retention_limit: cdktf.numberToTerraform(this._snapshotRetentionLimit),
+      snapshot_retention_limit: cdktf.numberToTerraform(
+        this._snapshotRetentionLimit,
+      ),
       snapshot_window: cdktf.stringToTerraform(this._snapshotWindow),
       subnet_group_name: cdktf.stringToTerraform(this._subnetGroupName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      transit_encryption_enabled: cdktf.booleanToTerraform(this._transitEncryptionEnabled),
-      user_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._userGroupIds),
-      cluster_mode: elasticacheReplicationGroupClusterModeToTerraform(this._clusterMode.internalValue),
-      log_delivery_configuration: cdktf.listMapper(elasticacheReplicationGroupLogDeliveryConfigurationToTerraform, true)(this._logDeliveryConfiguration.internalValue),
-      timeouts: elasticacheReplicationGroupTimeoutsToTerraform(this._timeouts.internalValue),
+      transit_encryption_enabled: cdktf.booleanToTerraform(
+        this._transitEncryptionEnabled,
+      ),
+      user_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._userGroupIds),
+      cluster_mode: elasticacheReplicationGroupClusterModeToTerraform(
+        this._clusterMode.internalValue,
+      ),
+      log_delivery_configuration: cdktf.listMapper(
+        elasticacheReplicationGroupLogDeliveryConfigurationToTerraform,
+        true,
+      )(this._logDeliveryConfiguration.internalValue),
+      timeouts: elasticacheReplicationGroupTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

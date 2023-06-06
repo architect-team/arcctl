@@ -1,53 +1,58 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsRoute53ResolverFirewallRuleGroupAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsRoute53ResolverFirewallRuleGroupAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association#firewall_rule_group_association_id DataAwsRoute53ResolverFirewallRuleGroupAssociation#firewall_rule_group_association_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association#firewall_rule_group_association_id DataAwsRoute53ResolverFirewallRuleGroupAssociation#firewall_rule_group_association_id}
+   */
   readonly firewallRuleGroupAssociationId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association#id DataAwsRoute53ResolverFirewallRuleGroupAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association#id DataAwsRoute53ResolverFirewallRuleGroupAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association aws_route53_resolver_firewall_rule_group_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association aws_route53_resolver_firewall_rule_group_association}
+ */
 export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53_resolver_firewall_rule_group_association";
+  public static readonly tfResourceType =
+    'aws_route53_resolver_firewall_rule_group_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association aws_route53_resolver_firewall_rule_group_association} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsRoute53ResolverFirewallRuleGroupAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsRoute53ResolverFirewallRuleGroupAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_rule_group_association aws_route53_resolver_firewall_rule_group_association} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsRoute53ResolverFirewallRuleGroupAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsRoute53ResolverFirewallRuleGroupAssociationConfig,
+  ) {
     super(scope, id, {
-      terraformResourceType: 'aws_route53_resolver_firewall_rule_group_association',
+      terraformResourceType:
+        'aws_route53_resolver_firewall_rule_group_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -55,9 +60,10 @@ export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.Te
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
-    this._firewallRuleGroupAssociationId = config.firewallRuleGroupAssociationId;
+    this._firewallRuleGroupAssociationId =
+      config.firewallRuleGroupAssociationId;
     this._id = config.id;
   }
 
@@ -81,7 +87,7 @@ export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.Te
   }
 
   // firewall_rule_group_association_id - computed: false, optional: false, required: true
-  private _firewallRuleGroupAssociationId?: string; 
+  private _firewallRuleGroupAssociationId?: string;
   public get firewallRuleGroupAssociationId() {
     return this.getStringAttribute('firewall_rule_group_association_id');
   }
@@ -99,7 +105,7 @@ export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.Te
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -160,7 +166,9 @@ export class DataAwsRoute53ResolverFirewallRuleGroupAssociation extends cdktf.Te
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      firewall_rule_group_association_id: cdktf.stringToTerraform(this._firewallRuleGroupAssociationId),
+      firewall_rule_group_association_id: cdktf.stringToTerraform(
+        this._firewallRuleGroupAssociationId,
+      ),
       id: cdktf.stringToTerraform(this._id),
     };
   }

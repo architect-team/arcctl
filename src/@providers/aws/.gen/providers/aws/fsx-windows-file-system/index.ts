@@ -1,149 +1,166 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface FsxWindowsFileSystemConfig extends cdktf.TerraformMetaArguments {
+export interface FsxWindowsFileSystemConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#active_directory_id FsxWindowsFileSystem#active_directory_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#active_directory_id FsxWindowsFileSystem#active_directory_id}
+   */
   readonly activeDirectoryId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#aliases FsxWindowsFileSystem#aliases}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#aliases FsxWindowsFileSystem#aliases}
+   */
   readonly aliases?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#automatic_backup_retention_days FsxWindowsFileSystem#automatic_backup_retention_days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#automatic_backup_retention_days FsxWindowsFileSystem#automatic_backup_retention_days}
+   */
   readonly automaticBackupRetentionDays?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#backup_id FsxWindowsFileSystem#backup_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#backup_id FsxWindowsFileSystem#backup_id}
+   */
   readonly backupId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#copy_tags_to_backups FsxWindowsFileSystem#copy_tags_to_backups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#copy_tags_to_backups FsxWindowsFileSystem#copy_tags_to_backups}
+   */
   readonly copyTagsToBackups?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#daily_automatic_backup_start_time FsxWindowsFileSystem#daily_automatic_backup_start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#daily_automatic_backup_start_time FsxWindowsFileSystem#daily_automatic_backup_start_time}
+   */
   readonly dailyAutomaticBackupStartTime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#deployment_type FsxWindowsFileSystem#deployment_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#deployment_type FsxWindowsFileSystem#deployment_type}
+   */
   readonly deploymentType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#id FsxWindowsFileSystem#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#id FsxWindowsFileSystem#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#kms_key_id FsxWindowsFileSystem#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#kms_key_id FsxWindowsFileSystem#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#preferred_subnet_id FsxWindowsFileSystem#preferred_subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#preferred_subnet_id FsxWindowsFileSystem#preferred_subnet_id}
+   */
   readonly preferredSubnetId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#security_group_ids FsxWindowsFileSystem#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#security_group_ids FsxWindowsFileSystem#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#skip_final_backup FsxWindowsFileSystem#skip_final_backup}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#skip_final_backup FsxWindowsFileSystem#skip_final_backup}
+   */
   readonly skipFinalBackup?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#storage_capacity FsxWindowsFileSystem#storage_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#storage_capacity FsxWindowsFileSystem#storage_capacity}
+   */
   readonly storageCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#storage_type FsxWindowsFileSystem#storage_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#storage_type FsxWindowsFileSystem#storage_type}
+   */
   readonly storageType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#subnet_ids FsxWindowsFileSystem#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#subnet_ids FsxWindowsFileSystem#subnet_ids}
+   */
   readonly subnetIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#tags FsxWindowsFileSystem#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#tags FsxWindowsFileSystem#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#tags_all FsxWindowsFileSystem#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#tags_all FsxWindowsFileSystem#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#throughput_capacity FsxWindowsFileSystem#throughput_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#throughput_capacity FsxWindowsFileSystem#throughput_capacity}
+   */
   readonly throughputCapacity: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#weekly_maintenance_start_time FsxWindowsFileSystem#weekly_maintenance_start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#weekly_maintenance_start_time FsxWindowsFileSystem#weekly_maintenance_start_time}
+   */
   readonly weeklyMaintenanceStartTime?: string;
   /**
-  * audit_log_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#audit_log_configuration FsxWindowsFileSystem#audit_log_configuration}
-  */
+   * audit_log_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#audit_log_configuration FsxWindowsFileSystem#audit_log_configuration}
+   */
   readonly auditLogConfiguration?: FsxWindowsFileSystemAuditLogConfiguration;
   /**
-  * self_managed_active_directory block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#self_managed_active_directory FsxWindowsFileSystem#self_managed_active_directory}
-  */
+   * self_managed_active_directory block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#self_managed_active_directory FsxWindowsFileSystem#self_managed_active_directory}
+   */
   readonly selfManagedActiveDirectory?: FsxWindowsFileSystemSelfManagedActiveDirectory;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#timeouts FsxWindowsFileSystem#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#timeouts FsxWindowsFileSystem#timeouts}
+   */
   readonly timeouts?: FsxWindowsFileSystemTimeouts;
 }
 export interface FsxWindowsFileSystemAuditLogConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#audit_log_destination FsxWindowsFileSystem#audit_log_destination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#audit_log_destination FsxWindowsFileSystem#audit_log_destination}
+   */
   readonly auditLogDestination?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#file_access_audit_log_level FsxWindowsFileSystem#file_access_audit_log_level}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#file_access_audit_log_level FsxWindowsFileSystem#file_access_audit_log_level}
+   */
   readonly fileAccessAuditLogLevel?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#file_share_access_audit_log_level FsxWindowsFileSystem#file_share_access_audit_log_level}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#file_share_access_audit_log_level FsxWindowsFileSystem#file_share_access_audit_log_level}
+   */
   readonly fileShareAccessAuditLogLevel?: string;
 }
 
-export function fsxWindowsFileSystemAuditLogConfigurationToTerraform(struct?: FsxWindowsFileSystemAuditLogConfigurationOutputReference | FsxWindowsFileSystemAuditLogConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function fsxWindowsFileSystemAuditLogConfigurationToTerraform(
+  struct?:
+    | FsxWindowsFileSystemAuditLogConfigurationOutputReference
+    | FsxWindowsFileSystemAuditLogConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     audit_log_destination: cdktf.stringToTerraform(struct!.auditLogDestination),
-    file_access_audit_log_level: cdktf.stringToTerraform(struct!.fileAccessAuditLogLevel),
-    file_share_access_audit_log_level: cdktf.stringToTerraform(struct!.fileShareAccessAuditLogLevel),
-  }
+    file_access_audit_log_level: cdktf.stringToTerraform(
+      struct!.fileAccessAuditLogLevel,
+    ),
+    file_share_access_audit_log_level: cdktf.stringToTerraform(
+      struct!.fileShareAccessAuditLogLevel,
+    ),
+  };
 }
 
 export class FsxWindowsFileSystemAuditLogConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): FsxWindowsFileSystemAuditLogConfiguration | undefined {
+  public get internalValue():
+    | FsxWindowsFileSystemAuditLogConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._auditLogDestination !== undefined) {
@@ -152,23 +169,26 @@ export class FsxWindowsFileSystemAuditLogConfigurationOutputReference extends cd
     }
     if (this._fileAccessAuditLogLevel !== undefined) {
       hasAnyValues = true;
-      internalValueResult.fileAccessAuditLogLevel = this._fileAccessAuditLogLevel;
+      internalValueResult.fileAccessAuditLogLevel =
+        this._fileAccessAuditLogLevel;
     }
     if (this._fileShareAccessAuditLogLevel !== undefined) {
       hasAnyValues = true;
-      internalValueResult.fileShareAccessAuditLogLevel = this._fileShareAccessAuditLogLevel;
+      internalValueResult.fileShareAccessAuditLogLevel =
+        this._fileShareAccessAuditLogLevel;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: FsxWindowsFileSystemAuditLogConfiguration | undefined) {
+  public set internalValue(
+    value: FsxWindowsFileSystemAuditLogConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._auditLogDestination = undefined;
       this._fileAccessAuditLogLevel = undefined;
       this._fileShareAccessAuditLogLevel = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._auditLogDestination = value.auditLogDestination;
       this._fileAccessAuditLogLevel = value.fileAccessAuditLogLevel;
@@ -177,7 +197,7 @@ export class FsxWindowsFileSystemAuditLogConfigurationOutputReference extends cd
   }
 
   // audit_log_destination - computed: true, optional: true, required: false
-  private _auditLogDestination?: string; 
+  private _auditLogDestination?: string;
   public get auditLogDestination() {
     return this.getStringAttribute('audit_log_destination');
   }
@@ -193,7 +213,7 @@ export class FsxWindowsFileSystemAuditLogConfigurationOutputReference extends cd
   }
 
   // file_access_audit_log_level - computed: false, optional: true, required: false
-  private _fileAccessAuditLogLevel?: string; 
+  private _fileAccessAuditLogLevel?: string;
   public get fileAccessAuditLogLevel() {
     return this.getStringAttribute('file_access_audit_log_level');
   }
@@ -209,7 +229,7 @@ export class FsxWindowsFileSystemAuditLogConfigurationOutputReference extends cd
   }
 
   // file_share_access_audit_log_level - computed: false, optional: true, required: false
-  private _fileShareAccessAuditLogLevel?: string; 
+  private _fileShareAccessAuditLogLevel?: string;
   public get fileShareAccessAuditLogLevel() {
     return this.getStringAttribute('file_share_access_audit_log_level');
   }
@@ -226,58 +246,75 @@ export class FsxWindowsFileSystemAuditLogConfigurationOutputReference extends cd
 }
 export interface FsxWindowsFileSystemSelfManagedActiveDirectory {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#dns_ips FsxWindowsFileSystem#dns_ips}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#dns_ips FsxWindowsFileSystem#dns_ips}
+   */
   readonly dnsIps: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#domain_name FsxWindowsFileSystem#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#domain_name FsxWindowsFileSystem#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#file_system_administrators_group FsxWindowsFileSystem#file_system_administrators_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#file_system_administrators_group FsxWindowsFileSystem#file_system_administrators_group}
+   */
   readonly fileSystemAdministratorsGroup?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#organizational_unit_distinguished_name FsxWindowsFileSystem#organizational_unit_distinguished_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#organizational_unit_distinguished_name FsxWindowsFileSystem#organizational_unit_distinguished_name}
+   */
   readonly organizationalUnitDistinguishedName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#password FsxWindowsFileSystem#password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#password FsxWindowsFileSystem#password}
+   */
   readonly password: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#username FsxWindowsFileSystem#username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#username FsxWindowsFileSystem#username}
+   */
   readonly username: string;
 }
 
-export function fsxWindowsFileSystemSelfManagedActiveDirectoryToTerraform(struct?: FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference | FsxWindowsFileSystemSelfManagedActiveDirectory): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function fsxWindowsFileSystemSelfManagedActiveDirectoryToTerraform(
+  struct?:
+    | FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference
+    | FsxWindowsFileSystemSelfManagedActiveDirectory,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dns_ips: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.dnsIps),
     domain_name: cdktf.stringToTerraform(struct!.domainName),
-    file_system_administrators_group: cdktf.stringToTerraform(struct!.fileSystemAdministratorsGroup),
-    organizational_unit_distinguished_name: cdktf.stringToTerraform(struct!.organizationalUnitDistinguishedName),
+    file_system_administrators_group: cdktf.stringToTerraform(
+      struct!.fileSystemAdministratorsGroup,
+    ),
+    organizational_unit_distinguished_name: cdktf.stringToTerraform(
+      struct!.organizationalUnitDistinguishedName,
+    ),
     password: cdktf.stringToTerraform(struct!.password),
     username: cdktf.stringToTerraform(struct!.username),
-  }
+  };
 }
 
 export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): FsxWindowsFileSystemSelfManagedActiveDirectory | undefined {
+  public get internalValue():
+    | FsxWindowsFileSystemSelfManagedActiveDirectory
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dnsIps !== undefined) {
@@ -290,11 +327,13 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
     }
     if (this._fileSystemAdministratorsGroup !== undefined) {
       hasAnyValues = true;
-      internalValueResult.fileSystemAdministratorsGroup = this._fileSystemAdministratorsGroup;
+      internalValueResult.fileSystemAdministratorsGroup =
+        this._fileSystemAdministratorsGroup;
     }
     if (this._organizationalUnitDistinguishedName !== undefined) {
       hasAnyValues = true;
-      internalValueResult.organizationalUnitDistinguishedName = this._organizationalUnitDistinguishedName;
+      internalValueResult.organizationalUnitDistinguishedName =
+        this._organizationalUnitDistinguishedName;
     }
     if (this._password !== undefined) {
       hasAnyValues = true;
@@ -307,7 +346,9 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: FsxWindowsFileSystemSelfManagedActiveDirectory | undefined) {
+  public set internalValue(
+    value: FsxWindowsFileSystemSelfManagedActiveDirectory | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dnsIps = undefined;
@@ -316,20 +357,20 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
       this._organizationalUnitDistinguishedName = undefined;
       this._password = undefined;
       this._username = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dnsIps = value.dnsIps;
       this._domainName = value.domainName;
       this._fileSystemAdministratorsGroup = value.fileSystemAdministratorsGroup;
-      this._organizationalUnitDistinguishedName = value.organizationalUnitDistinguishedName;
+      this._organizationalUnitDistinguishedName =
+        value.organizationalUnitDistinguishedName;
       this._password = value.password;
       this._username = value.username;
     }
   }
 
   // dns_ips - computed: false, optional: false, required: true
-  private _dnsIps?: string[]; 
+  private _dnsIps?: string[];
   public get dnsIps() {
     return cdktf.Fn.tolist(this.getListAttribute('dns_ips'));
   }
@@ -342,7 +383,7 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -355,7 +396,7 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
   }
 
   // file_system_administrators_group - computed: false, optional: true, required: false
-  private _fileSystemAdministratorsGroup?: string; 
+  private _fileSystemAdministratorsGroup?: string;
   public get fileSystemAdministratorsGroup() {
     return this.getStringAttribute('file_system_administrators_group');
   }
@@ -371,7 +412,7 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
   }
 
   // organizational_unit_distinguished_name - computed: false, optional: true, required: false
-  private _organizationalUnitDistinguishedName?: string; 
+  private _organizationalUnitDistinguishedName?: string;
   public get organizationalUnitDistinguishedName() {
     return this.getStringAttribute('organizational_unit_distinguished_name');
   }
@@ -387,7 +428,7 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -400,7 +441,7 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -414,29 +455,38 @@ export class FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference exten
 }
 export interface FsxWindowsFileSystemTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#create FsxWindowsFileSystem#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#create FsxWindowsFileSystem#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#delete FsxWindowsFileSystem#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#delete FsxWindowsFileSystem#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#update FsxWindowsFileSystem#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system#update FsxWindowsFileSystem#update}
+   */
   readonly update?: string;
 }
 
-export function fsxWindowsFileSystemTimeoutsToTerraform(struct?: FsxWindowsFileSystemTimeoutsOutputReference | FsxWindowsFileSystemTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function fsxWindowsFileSystemTimeoutsToTerraform(
+  struct?:
+    | FsxWindowsFileSystemTimeoutsOutputReference
+    | FsxWindowsFileSystemTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -444,14 +494,20 @@ export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): FsxWindowsFileSystemTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | FsxWindowsFileSystemTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -472,19 +528,19 @@ export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: FsxWindowsFileSystemTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: FsxWindowsFileSystemTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -494,7 +550,7 @@ export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -510,7 +566,7 @@ export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -526,7 +582,7 @@ export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -543,33 +599,36 @@ export class FsxWindowsFileSystemTimeoutsOutputReference extends cdktf.ComplexOb
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system aws_fsx_windows_file_system}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system aws_fsx_windows_file_system}
+ */
 export class FsxWindowsFileSystem extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_fsx_windows_file_system";
+  public static readonly tfResourceType = 'aws_fsx_windows_file_system';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system aws_fsx_windows_file_system} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options FsxWindowsFileSystemConfig
-  */
-  public constructor(scope: Construct, id: string, config: FsxWindowsFileSystemConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/fsx_windows_file_system aws_fsx_windows_file_system} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options FsxWindowsFileSystemConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: FsxWindowsFileSystemConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_fsx_windows_file_system',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -577,7 +636,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._activeDirectoryId = config.activeDirectoryId;
     this._aliases = config.aliases;
@@ -599,7 +658,8 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
     this._throughputCapacity = config.throughputCapacity;
     this._weeklyMaintenanceStartTime = config.weeklyMaintenanceStartTime;
     this._auditLogConfiguration.internalValue = config.auditLogConfiguration;
-    this._selfManagedActiveDirectory.internalValue = config.selfManagedActiveDirectory;
+    this._selfManagedActiveDirectory.internalValue =
+      config.selfManagedActiveDirectory;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -608,7 +668,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   // ==========
 
   // active_directory_id - computed: false, optional: true, required: false
-  private _activeDirectoryId?: string; 
+  private _activeDirectoryId?: string;
   public get activeDirectoryId() {
     return this.getStringAttribute('active_directory_id');
   }
@@ -624,7 +684,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // aliases - computed: false, optional: true, required: false
-  private _aliases?: string[]; 
+  private _aliases?: string[];
   public get aliases() {
     return cdktf.Fn.tolist(this.getListAttribute('aliases'));
   }
@@ -645,7 +705,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // automatic_backup_retention_days - computed: false, optional: true, required: false
-  private _automaticBackupRetentionDays?: number; 
+  private _automaticBackupRetentionDays?: number;
   public get automaticBackupRetentionDays() {
     return this.getNumberAttribute('automatic_backup_retention_days');
   }
@@ -661,7 +721,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // backup_id - computed: false, optional: true, required: false
-  private _backupId?: string; 
+  private _backupId?: string;
   public get backupId() {
     return this.getStringAttribute('backup_id');
   }
@@ -677,7 +737,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // copy_tags_to_backups - computed: false, optional: true, required: false
-  private _copyTagsToBackups?: boolean | cdktf.IResolvable; 
+  private _copyTagsToBackups?: boolean | cdktf.IResolvable;
   public get copyTagsToBackups() {
     return this.getBooleanAttribute('copy_tags_to_backups');
   }
@@ -693,7 +753,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // daily_automatic_backup_start_time - computed: true, optional: true, required: false
-  private _dailyAutomaticBackupStartTime?: string; 
+  private _dailyAutomaticBackupStartTime?: string;
   public get dailyAutomaticBackupStartTime() {
     return this.getStringAttribute('daily_automatic_backup_start_time');
   }
@@ -709,7 +769,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // deployment_type - computed: false, optional: true, required: false
-  private _deploymentType?: string; 
+  private _deploymentType?: string;
   public get deploymentType() {
     return this.getStringAttribute('deployment_type');
   }
@@ -730,7 +790,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -746,7 +806,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -777,7 +837,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // preferred_subnet_id - computed: true, optional: true, required: false
-  private _preferredSubnetId?: string; 
+  private _preferredSubnetId?: string;
   public get preferredSubnetId() {
     return this.getStringAttribute('preferred_subnet_id');
   }
@@ -798,7 +858,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -814,7 +874,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // skip_final_backup - computed: false, optional: true, required: false
-  private _skipFinalBackup?: boolean | cdktf.IResolvable; 
+  private _skipFinalBackup?: boolean | cdktf.IResolvable;
   public get skipFinalBackup() {
     return this.getBooleanAttribute('skip_final_backup');
   }
@@ -830,7 +890,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // storage_capacity - computed: true, optional: true, required: false
-  private _storageCapacity?: number; 
+  private _storageCapacity?: number;
   public get storageCapacity() {
     return this.getNumberAttribute('storage_capacity');
   }
@@ -846,7 +906,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // storage_type - computed: false, optional: true, required: false
-  private _storageType?: string; 
+  private _storageType?: string;
   public get storageType() {
     return this.getStringAttribute('storage_type');
   }
@@ -862,7 +922,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return this.getListAttribute('subnet_ids');
   }
@@ -875,7 +935,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -891,7 +951,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -907,7 +967,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // throughput_capacity - computed: false, optional: false, required: true
-  private _throughputCapacity?: number; 
+  private _throughputCapacity?: number;
   public get throughputCapacity() {
     return this.getNumberAttribute('throughput_capacity');
   }
@@ -925,7 +985,7 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // weekly_maintenance_start_time - computed: true, optional: true, required: false
-  private _weeklyMaintenanceStartTime?: string; 
+  private _weeklyMaintenanceStartTime?: string;
   public get weeklyMaintenanceStartTime() {
     return this.getStringAttribute('weekly_maintenance_start_time');
   }
@@ -941,11 +1001,17 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // audit_log_configuration - computed: false, optional: true, required: false
-  private _auditLogConfiguration = new FsxWindowsFileSystemAuditLogConfigurationOutputReference(this, "audit_log_configuration");
+  private _auditLogConfiguration =
+    new FsxWindowsFileSystemAuditLogConfigurationOutputReference(
+      this,
+      'audit_log_configuration',
+    );
   public get auditLogConfiguration() {
     return this._auditLogConfiguration;
   }
-  public putAuditLogConfiguration(value: FsxWindowsFileSystemAuditLogConfiguration) {
+  public putAuditLogConfiguration(
+    value: FsxWindowsFileSystemAuditLogConfiguration,
+  ) {
     this._auditLogConfiguration.internalValue = value;
   }
   public resetAuditLogConfiguration() {
@@ -957,11 +1023,17 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // self_managed_active_directory - computed: false, optional: true, required: false
-  private _selfManagedActiveDirectory = new FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference(this, "self_managed_active_directory");
+  private _selfManagedActiveDirectory =
+    new FsxWindowsFileSystemSelfManagedActiveDirectoryOutputReference(
+      this,
+      'self_managed_active_directory',
+    );
   public get selfManagedActiveDirectory() {
     return this._selfManagedActiveDirectory;
   }
-  public putSelfManagedActiveDirectory(value: FsxWindowsFileSystemSelfManagedActiveDirectory) {
+  public putSelfManagedActiveDirectory(
+    value: FsxWindowsFileSystemSelfManagedActiveDirectory,
+  ) {
     this._selfManagedActiveDirectory.internalValue = value;
   }
   public resetSelfManagedActiveDirectory() {
@@ -973,7 +1045,10 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new FsxWindowsFileSystemTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new FsxWindowsFileSystemTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -996,26 +1071,46 @@ export class FsxWindowsFileSystem extends cdktf.TerraformResource {
     return {
       active_directory_id: cdktf.stringToTerraform(this._activeDirectoryId),
       aliases: cdktf.listMapper(cdktf.stringToTerraform, false)(this._aliases),
-      automatic_backup_retention_days: cdktf.numberToTerraform(this._automaticBackupRetentionDays),
+      automatic_backup_retention_days: cdktf.numberToTerraform(
+        this._automaticBackupRetentionDays,
+      ),
       backup_id: cdktf.stringToTerraform(this._backupId),
       copy_tags_to_backups: cdktf.booleanToTerraform(this._copyTagsToBackups),
-      daily_automatic_backup_start_time: cdktf.stringToTerraform(this._dailyAutomaticBackupStartTime),
+      daily_automatic_backup_start_time: cdktf.stringToTerraform(
+        this._dailyAutomaticBackupStartTime,
+      ),
       deployment_type: cdktf.stringToTerraform(this._deploymentType),
       id: cdktf.stringToTerraform(this._id),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
       preferred_subnet_id: cdktf.stringToTerraform(this._preferredSubnetId),
-      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
+      security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupIds),
       skip_final_backup: cdktf.booleanToTerraform(this._skipFinalBackup),
       storage_capacity: cdktf.numberToTerraform(this._storageCapacity),
       storage_type: cdktf.stringToTerraform(this._storageType),
-      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
+      subnet_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       throughput_capacity: cdktf.numberToTerraform(this._throughputCapacity),
-      weekly_maintenance_start_time: cdktf.stringToTerraform(this._weeklyMaintenanceStartTime),
-      audit_log_configuration: fsxWindowsFileSystemAuditLogConfigurationToTerraform(this._auditLogConfiguration.internalValue),
-      self_managed_active_directory: fsxWindowsFileSystemSelfManagedActiveDirectoryToTerraform(this._selfManagedActiveDirectory.internalValue),
-      timeouts: fsxWindowsFileSystemTimeoutsToTerraform(this._timeouts.internalValue),
+      weekly_maintenance_start_time: cdktf.stringToTerraform(
+        this._weeklyMaintenanceStartTime,
+      ),
+      audit_log_configuration:
+        fsxWindowsFileSystemAuditLogConfigurationToTerraform(
+          this._auditLogConfiguration.internalValue,
+        ),
+      self_managed_active_directory:
+        fsxWindowsFileSystemSelfManagedActiveDirectoryToTerraform(
+          this._selfManagedActiveDirectory.internalValue,
+        ),
+      timeouts: fsxWindowsFileSystemTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

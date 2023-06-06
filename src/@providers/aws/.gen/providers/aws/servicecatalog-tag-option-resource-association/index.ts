@@ -1,59 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ServicecatalogTagOptionResourceAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface ServicecatalogTagOptionResourceAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#id ServicecatalogTagOptionResourceAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#id ServicecatalogTagOptionResourceAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#resource_id ServicecatalogTagOptionResourceAssociation#resource_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#resource_id ServicecatalogTagOptionResourceAssociation#resource_id}
+   */
   readonly resourceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#tag_option_id ServicecatalogTagOptionResourceAssociation#tag_option_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#tag_option_id ServicecatalogTagOptionResourceAssociation#tag_option_id}
+   */
   readonly tagOptionId: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#timeouts ServicecatalogTagOptionResourceAssociation#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#timeouts ServicecatalogTagOptionResourceAssociation#timeouts}
+   */
   readonly timeouts?: ServicecatalogTagOptionResourceAssociationTimeouts;
 }
 export interface ServicecatalogTagOptionResourceAssociationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#create ServicecatalogTagOptionResourceAssociation#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#create ServicecatalogTagOptionResourceAssociation#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#delete ServicecatalogTagOptionResourceAssociation#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#delete ServicecatalogTagOptionResourceAssociation#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#read ServicecatalogTagOptionResourceAssociation#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association#read ServicecatalogTagOptionResourceAssociation#read}
+   */
   readonly read?: string;
 }
 
-export function servicecatalogTagOptionResourceAssociationTimeoutsToTerraform(struct?: ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference | ServicecatalogTagOptionResourceAssociationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogTagOptionResourceAssociationTimeoutsToTerraform(
+  struct?:
+    | ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference
+    | ServicecatalogTagOptionResourceAssociationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -61,14 +70,20 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServicecatalogTagOptionResourceAssociationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServicecatalogTagOptionResourceAssociationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -89,19 +104,22 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogTagOptionResourceAssociationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServicecatalogTagOptionResourceAssociationTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -111,7 +129,7 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -127,7 +145,7 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -143,7 +161,7 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -160,33 +178,38 @@ export class ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference e
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association aws_servicecatalog_tag_option_resource_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association aws_servicecatalog_tag_option_resource_association}
+ */
 export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_servicecatalog_tag_option_resource_association";
+  public static readonly tfResourceType =
+    'aws_servicecatalog_tag_option_resource_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association aws_servicecatalog_tag_option_resource_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServicecatalogTagOptionResourceAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: ServicecatalogTagOptionResourceAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_tag_option_resource_association aws_servicecatalog_tag_option_resource_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServicecatalogTagOptionResourceAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServicecatalogTagOptionResourceAssociationConfig,
+  ) {
     super(scope, id, {
-      terraformResourceType: 'aws_servicecatalog_tag_option_resource_association',
+      terraformResourceType:
+        'aws_servicecatalog_tag_option_resource_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -194,7 +217,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._resourceId = config.resourceId;
@@ -207,7 +230,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -238,7 +261,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -256,7 +279,7 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   }
 
   // tag_option_id - computed: false, optional: false, required: true
-  private _tagOptionId?: string; 
+  private _tagOptionId?: string;
   public get tagOptionId() {
     return this.getStringAttribute('tag_option_id');
   }
@@ -269,11 +292,17 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new ServicecatalogTagOptionResourceAssociationTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
-  public putTimeouts(value: ServicecatalogTagOptionResourceAssociationTimeouts) {
+  public putTimeouts(
+    value: ServicecatalogTagOptionResourceAssociationTimeouts,
+  ) {
     this._timeouts.internalValue = value;
   }
   public resetTimeouts() {
@@ -293,7 +322,9 @@ export class ServicecatalogTagOptionResourceAssociation extends cdktf.TerraformR
       id: cdktf.stringToTerraform(this._id),
       resource_id: cdktf.stringToTerraform(this._resourceId),
       tag_option_id: cdktf.stringToTerraform(this._tagOptionId),
-      timeouts: servicecatalogTagOptionResourceAssociationTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: servicecatalogTagOptionResourceAssociationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

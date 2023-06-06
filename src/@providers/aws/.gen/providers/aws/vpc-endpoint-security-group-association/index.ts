@@ -1,61 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface VpcEndpointSecurityGroupAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface VpcEndpointSecurityGroupAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#id VpcEndpointSecurityGroupAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#id VpcEndpointSecurityGroupAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#replace_default_association VpcEndpointSecurityGroupAssociation#replace_default_association}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#replace_default_association VpcEndpointSecurityGroupAssociation#replace_default_association}
+   */
   readonly replaceDefaultAssociation?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#security_group_id VpcEndpointSecurityGroupAssociation#security_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#security_group_id VpcEndpointSecurityGroupAssociation#security_group_id}
+   */
   readonly securityGroupId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#vpc_endpoint_id VpcEndpointSecurityGroupAssociation#vpc_endpoint_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association#vpc_endpoint_id VpcEndpointSecurityGroupAssociation#vpc_endpoint_id}
+   */
   readonly vpcEndpointId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association aws_vpc_endpoint_security_group_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association aws_vpc_endpoint_security_group_association}
+ */
 export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_vpc_endpoint_security_group_association";
+  public static readonly tfResourceType =
+    'aws_vpc_endpoint_security_group_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association aws_vpc_endpoint_security_group_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options VpcEndpointSecurityGroupAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: VpcEndpointSecurityGroupAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_security_group_association aws_vpc_endpoint_security_group_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options VpcEndpointSecurityGroupAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: VpcEndpointSecurityGroupAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_endpoint_security_group_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._replaceDefaultAssociation = config.replaceDefaultAssociation;
@@ -76,7 +80,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +96,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   }
 
   // replace_default_association - computed: false, optional: true, required: false
-  private _replaceDefaultAssociation?: boolean | cdktf.IResolvable; 
+  private _replaceDefaultAssociation?: boolean | cdktf.IResolvable;
   public get replaceDefaultAssociation() {
     return this.getBooleanAttribute('replace_default_association');
   }
@@ -108,7 +112,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   }
 
   // security_group_id - computed: false, optional: false, required: true
-  private _securityGroupId?: string; 
+  private _securityGroupId?: string;
   public get securityGroupId() {
     return this.getStringAttribute('security_group_id');
   }
@@ -121,7 +125,7 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   }
 
   // vpc_endpoint_id - computed: false, optional: false, required: true
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }
@@ -140,7 +144,9 @@ export class VpcEndpointSecurityGroupAssociation extends cdktf.TerraformResource
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      replace_default_association: cdktf.booleanToTerraform(this._replaceDefaultAssociation),
+      replace_default_association: cdktf.booleanToTerraform(
+        this._replaceDefaultAssociation,
+      ),
       security_group_id: cdktf.stringToTerraform(this._securityGroupId),
       vpc_endpoint_id: cdktf.stringToTerraform(this._vpcEndpointId),
     };

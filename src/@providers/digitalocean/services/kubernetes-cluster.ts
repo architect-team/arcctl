@@ -1,9 +1,9 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { InputValidators, ResourcePresets } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators, ResourcePresets } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
@@ -17,9 +17,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
     this.client = createApiClient({ token: credentials.token });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     try {
       const {
         data: { kubernetes_cluster },
@@ -48,10 +46,9 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
       data: { meta, kubernetes_clusters },
     } = await this.client.kubernetes.listKubernetesClusters({
       per_page: pagingOptions?.limit,
-      page:
-        pagingOptions?.offset && pagingOptions.limit
-          ? Math.floor(pagingOptions.offset / pagingOptions.limit)
-          : undefined,
+      page: pagingOptions?.offset && pagingOptions.limit
+        ? Math.floor(pagingOptions.offset / pagingOptions.limit)
+        : undefined,
     });
 
     return {
@@ -75,10 +72,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
       // 'nodePools.name': (input: string) =>
       //   /^[\d.A-Za-z-]+$/.test(input) ||
       //   'Must be unique and contain alphanumeric characters, dashes, and periods only.',
-      description: (input?: string) =>
-        !input ||
-        input.length <= 255 ||
-        'Description must be less than 255 characters',
+      description: (input?: string) => !input || input.length <= 255 || 'Description must be less than 255 characters',
     };
   }
 

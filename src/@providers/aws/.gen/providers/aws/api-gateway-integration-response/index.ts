@@ -1,81 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ApiGatewayIntegrationResponseConfig extends cdktf.TerraformMetaArguments {
+export interface ApiGatewayIntegrationResponseConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#content_handling ApiGatewayIntegrationResponse#content_handling}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#content_handling ApiGatewayIntegrationResponse#content_handling}
+   */
   readonly contentHandling?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#http_method ApiGatewayIntegrationResponse#http_method}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#http_method ApiGatewayIntegrationResponse#http_method}
+   */
   readonly httpMethod: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#id ApiGatewayIntegrationResponse#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#id ApiGatewayIntegrationResponse#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#resource_id ApiGatewayIntegrationResponse#resource_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#resource_id ApiGatewayIntegrationResponse#resource_id}
+   */
   readonly resourceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#response_parameters ApiGatewayIntegrationResponse#response_parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#response_parameters ApiGatewayIntegrationResponse#response_parameters}
+   */
   readonly responseParameters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#response_templates ApiGatewayIntegrationResponse#response_templates}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#response_templates ApiGatewayIntegrationResponse#response_templates}
+   */
   readonly responseTemplates?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#rest_api_id ApiGatewayIntegrationResponse#rest_api_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#rest_api_id ApiGatewayIntegrationResponse#rest_api_id}
+   */
   readonly restApiId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#selection_pattern ApiGatewayIntegrationResponse#selection_pattern}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#selection_pattern ApiGatewayIntegrationResponse#selection_pattern}
+   */
   readonly selectionPattern?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#status_code ApiGatewayIntegrationResponse#status_code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response#status_code ApiGatewayIntegrationResponse#status_code}
+   */
   readonly statusCode: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response aws_api_gateway_integration_response}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response aws_api_gateway_integration_response}
+ */
 export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_api_gateway_integration_response";
+  public static readonly tfResourceType =
+    'aws_api_gateway_integration_response';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response aws_api_gateway_integration_response} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ApiGatewayIntegrationResponseConfig
-  */
-  public constructor(scope: Construct, id: string, config: ApiGatewayIntegrationResponseConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration_response aws_api_gateway_integration_response} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ApiGatewayIntegrationResponseConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ApiGatewayIntegrationResponseConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_integration_response',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -83,7 +87,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._contentHandling = config.contentHandling;
     this._httpMethod = config.httpMethod;
@@ -101,7 +105,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   // ==========
 
   // content_handling - computed: false, optional: true, required: false
-  private _contentHandling?: string; 
+  private _contentHandling?: string;
   public get contentHandling() {
     return this.getStringAttribute('content_handling');
   }
@@ -117,7 +121,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // http_method - computed: false, optional: false, required: true
-  private _httpMethod?: string; 
+  private _httpMethod?: string;
   public get httpMethod() {
     return this.getStringAttribute('http_method');
   }
@@ -130,7 +134,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -146,7 +150,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -159,7 +163,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // response_parameters - computed: false, optional: true, required: false
-  private _responseParameters?: { [key: string]: string }; 
+  private _responseParameters?: { [key: string]: string };
   public get responseParameters() {
     return this.getStringMapAttribute('response_parameters');
   }
@@ -175,7 +179,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // response_templates - computed: false, optional: true, required: false
-  private _responseTemplates?: { [key: string]: string }; 
+  private _responseTemplates?: { [key: string]: string };
   public get responseTemplates() {
     return this.getStringMapAttribute('response_templates');
   }
@@ -191,7 +195,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -204,7 +208,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // selection_pattern - computed: false, optional: true, required: false
-  private _selectionPattern?: string; 
+  private _selectionPattern?: string;
   public get selectionPattern() {
     return this.getStringAttribute('selection_pattern');
   }
@@ -220,7 +224,7 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
   }
 
   // status_code - computed: false, optional: false, required: true
-  private _statusCode?: string; 
+  private _statusCode?: string;
   public get statusCode() {
     return this.getStringAttribute('status_code');
   }
@@ -242,8 +246,12 @@ export class ApiGatewayIntegrationResponse extends cdktf.TerraformResource {
       http_method: cdktf.stringToTerraform(this._httpMethod),
       id: cdktf.stringToTerraform(this._id),
       resource_id: cdktf.stringToTerraform(this._resourceId),
-      response_parameters: cdktf.hashMapper(cdktf.stringToTerraform)(this._responseParameters),
-      response_templates: cdktf.hashMapper(cdktf.stringToTerraform)(this._responseTemplates),
+      response_parameters: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._responseParameters,
+      ),
+      response_templates: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._responseTemplates,
+      ),
       rest_api_id: cdktf.stringToTerraform(this._restApiId),
       selection_pattern: cdktf.stringToTerraform(this._selectionPattern),
       status_code: cdktf.stringToTerraform(this._statusCode),

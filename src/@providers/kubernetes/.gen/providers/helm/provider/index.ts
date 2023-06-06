@@ -1,231 +1,257 @@
 // https://www.terraform.io/docs/providers/helm
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface HelmProviderConfig {
   /**
-  * Helm burst limit. Increase this if you have a cluster with many CRDs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#burst_limit HelmProvider#burst_limit}
-  */
+   * Helm burst limit. Increase this if you have a cluster with many CRDs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#burst_limit HelmProvider#burst_limit}
+   */
   readonly burstLimit?: number;
   /**
-  * Debug indicates whether or not Helm is running in Debug mode.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#debug HelmProvider#debug}
-  */
+   * Debug indicates whether or not Helm is running in Debug mode.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#debug HelmProvider#debug}
+   */
   readonly debug?: boolean | cdktf.IResolvable;
   /**
-  * The backend storage driver. Values are: configmap, secret, memory, sql
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#helm_driver HelmProvider#helm_driver}
-  */
+   * The backend storage driver. Values are: configmap, secret, memory, sql
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#helm_driver HelmProvider#helm_driver}
+   */
   readonly helmDriver?: string;
   /**
-  * The path to the helm plugins directory
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#plugins_path HelmProvider#plugins_path}
-  */
+   * The path to the helm plugins directory
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#plugins_path HelmProvider#plugins_path}
+   */
   readonly pluginsPath?: string;
   /**
-  * The path to the registry config file
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#registry_config_path HelmProvider#registry_config_path}
-  */
+   * The path to the registry config file
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#registry_config_path HelmProvider#registry_config_path}
+   */
   readonly registryConfigPath?: string;
   /**
-  * The path to the file containing cached repository indexes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#repository_cache HelmProvider#repository_cache}
-  */
+   * The path to the file containing cached repository indexes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#repository_cache HelmProvider#repository_cache}
+   */
   readonly repositoryCache?: string;
   /**
-  * The path to the file containing repository names and URLs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#repository_config_path HelmProvider#repository_config_path}
-  */
+   * The path to the file containing repository names and URLs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#repository_config_path HelmProvider#repository_config_path}
+   */
   readonly repositoryConfigPath?: string;
   /**
-  * Alias name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#alias HelmProvider#alias}
-  */
+   * Alias name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#alias HelmProvider#alias}
+   */
   readonly alias?: string;
   /**
-  * experiments block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#experiments HelmProvider#experiments}
-  */
+   * experiments block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#experiments HelmProvider#experiments}
+   */
   readonly experiments?: HelmProviderExperiments;
   /**
-  * kubernetes block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#kubernetes HelmProvider#kubernetes}
-  */
+   * kubernetes block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#kubernetes HelmProvider#kubernetes}
+   */
   readonly kubernetes?: HelmProviderKubernetes;
   /**
-  * registry block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#registry HelmProvider#registry}
-  */
+   * registry block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#registry HelmProvider#registry}
+   */
   readonly registry?: HelmProviderRegistry[] | cdktf.IResolvable;
 }
 export interface HelmProviderExperiments {
   /**
-  * Enable full diff by storing the rendered manifest in the state.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#manifest HelmProvider#manifest}
-  */
+   * Enable full diff by storing the rendered manifest in the state.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#manifest HelmProvider#manifest}
+   */
   readonly manifest?: boolean | cdktf.IResolvable;
 }
 
-export function helmProviderExperimentsToTerraform(struct?: HelmProviderExperiments): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function helmProviderExperimentsToTerraform(
+  struct?: HelmProviderExperiments,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     manifest: cdktf.booleanToTerraform(struct!.manifest),
-  }
+  };
 }
 
 export interface HelmProviderKubernetesExec {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#api_version HelmProvider#api_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#api_version HelmProvider#api_version}
+   */
   readonly apiVersion: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#args HelmProvider#args}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#args HelmProvider#args}
+   */
   readonly args?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#command HelmProvider#command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#command HelmProvider#command}
+   */
   readonly command: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#env HelmProvider#env}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#env HelmProvider#env}
+   */
   readonly env?: { [key: string]: string };
 }
 
-export function helmProviderKubernetesExecToTerraform(struct?: HelmProviderKubernetesExec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function helmProviderKubernetesExecToTerraform(
+  struct?: HelmProviderKubernetesExec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
     args: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.args),
     command: cdktf.stringToTerraform(struct!.command),
     env: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.env),
-  }
+  };
 }
 
 export interface HelmProviderKubernetes {
   /**
-  * PEM-encoded client certificate for TLS authentication.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#client_certificate HelmProvider#client_certificate}
-  */
+   * PEM-encoded client certificate for TLS authentication.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#client_certificate HelmProvider#client_certificate}
+   */
   readonly clientCertificate?: string;
   /**
-  * PEM-encoded client certificate key for TLS authentication.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#client_key HelmProvider#client_key}
-  */
+   * PEM-encoded client certificate key for TLS authentication.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#client_key HelmProvider#client_key}
+   */
   readonly clientKey?: string;
   /**
-  * PEM-encoded root certificates bundle for TLS authentication.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#cluster_ca_certificate HelmProvider#cluster_ca_certificate}
-  */
+   * PEM-encoded root certificates bundle for TLS authentication.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#cluster_ca_certificate HelmProvider#cluster_ca_certificate}
+   */
   readonly clusterCaCertificate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_context HelmProvider#config_context}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_context HelmProvider#config_context}
+   */
   readonly configContext?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_context_auth_info HelmProvider#config_context_auth_info}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_context_auth_info HelmProvider#config_context_auth_info}
+   */
   readonly configContextAuthInfo?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_context_cluster HelmProvider#config_context_cluster}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_context_cluster HelmProvider#config_context_cluster}
+   */
   readonly configContextCluster?: string;
   /**
-  * Path to the kube config file. Can be set with KUBE_CONFIG_PATH.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_path HelmProvider#config_path}
-  */
+   * Path to the kube config file. Can be set with KUBE_CONFIG_PATH.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_path HelmProvider#config_path}
+   */
   readonly configPath?: string;
   /**
-  * A list of paths to kube config files. Can be set with KUBE_CONFIG_PATHS environment variable.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_paths HelmProvider#config_paths}
-  */
+   * A list of paths to kube config files. Can be set with KUBE_CONFIG_PATHS environment variable.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#config_paths HelmProvider#config_paths}
+   */
   readonly configPaths?: string[];
   /**
-  * The hostname (in form of URI) of Kubernetes master.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#host HelmProvider#host}
-  */
+   * The hostname (in form of URI) of Kubernetes master.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#host HelmProvider#host}
+   */
   readonly host?: string;
   /**
-  * Whether server should be accessed without verifying the TLS certificate.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#insecure HelmProvider#insecure}
-  */
+   * Whether server should be accessed without verifying the TLS certificate.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#insecure HelmProvider#insecure}
+   */
   readonly insecure?: boolean | cdktf.IResolvable;
   /**
-  * The password to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#password HelmProvider#password}
-  */
+   * The password to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#password HelmProvider#password}
+   */
   readonly password?: string;
   /**
-  * URL to the proxy to be used for all API requests
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#proxy_url HelmProvider#proxy_url}
-  */
+   * URL to the proxy to be used for all API requests
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#proxy_url HelmProvider#proxy_url}
+   */
   readonly proxyUrl?: string;
   /**
-  * Token to authenticate an service account
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#token HelmProvider#token}
-  */
+   * Token to authenticate an service account
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#token HelmProvider#token}
+   */
   readonly token?: string;
   /**
-  * The username to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#username HelmProvider#username}
-  */
+   * The username to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#username HelmProvider#username}
+   */
   readonly username?: string;
   /**
-  * exec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#exec HelmProvider#exec}
-  */
+   * exec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#exec HelmProvider#exec}
+   */
   readonly exec?: HelmProviderKubernetesExec;
 }
 
-export function helmProviderKubernetesToTerraform(struct?: HelmProviderKubernetes): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function helmProviderKubernetesToTerraform(
+  struct?: HelmProviderKubernetes,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     client_certificate: cdktf.stringToTerraform(struct!.clientCertificate),
     client_key: cdktf.stringToTerraform(struct!.clientKey),
-    cluster_ca_certificate: cdktf.stringToTerraform(struct!.clusterCaCertificate),
+    cluster_ca_certificate: cdktf.stringToTerraform(
+      struct!.clusterCaCertificate,
+    ),
     config_context: cdktf.stringToTerraform(struct!.configContext),
-    config_context_auth_info: cdktf.stringToTerraform(struct!.configContextAuthInfo),
-    config_context_cluster: cdktf.stringToTerraform(struct!.configContextCluster),
+    config_context_auth_info: cdktf.stringToTerraform(
+      struct!.configContextAuthInfo,
+    ),
+    config_context_cluster: cdktf.stringToTerraform(
+      struct!.configContextCluster,
+    ),
     config_path: cdktf.stringToTerraform(struct!.configPath),
-    config_paths: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.configPaths),
+    config_paths: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.configPaths),
     host: cdktf.stringToTerraform(struct!.host),
     insecure: cdktf.booleanToTerraform(struct!.insecure),
     password: cdktf.stringToTerraform(struct!.password),
@@ -233,73 +259,81 @@ export function helmProviderKubernetesToTerraform(struct?: HelmProviderKubernete
     token: cdktf.stringToTerraform(struct!.token),
     username: cdktf.stringToTerraform(struct!.username),
     exec: helmProviderKubernetesExecToTerraform(struct!.exec),
-  }
+  };
 }
 
 export interface HelmProviderRegistry {
   /**
-  * The password to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#password HelmProvider#password}
-  */
+   * The password to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#password HelmProvider#password}
+   */
   readonly password: string;
   /**
-  * OCI URL in form of oci://host:port or oci://host
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#url HelmProvider#url}
-  */
+   * OCI URL in form of oci://host:port or oci://host
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#url HelmProvider#url}
+   */
   readonly url: string;
   /**
-  * The username to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#username HelmProvider#username}
-  */
+   * The username to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/helm#username HelmProvider#username}
+   */
   readonly username: string;
 }
 
-export function helmProviderRegistryToTerraform(struct?: HelmProviderRegistry | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function helmProviderRegistryToTerraform(
+  struct?: HelmProviderRegistry | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     password: cdktf.stringToTerraform(struct!.password),
     url: cdktf.stringToTerraform(struct!.url),
     username: cdktf.stringToTerraform(struct!.username),
-  }
+  };
 }
 
-
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/helm helm}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/helm helm}
+ */
 export class HelmProvider extends cdktf.TerraformProvider {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "helm";
+  public static readonly tfResourceType = 'helm';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/helm helm} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options HelmProviderConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: HelmProviderConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/helm helm} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options HelmProviderConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: HelmProviderConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'helm',
       terraformGeneratorMetadata: {
         providerName: 'helm',
         providerVersion: '2.9.0',
-        providerVersionConstraint: '2.9.0'
+        providerVersionConstraint: '2.9.0',
       },
-      terraformProviderSource: 'hashicorp/helm'
+      terraformProviderSource: 'hashicorp/helm',
     });
     this._burstLimit = config.burstLimit;
     this._debug = config.debug;
@@ -319,7 +353,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   // ==========
 
   // burst_limit - computed: false, optional: true, required: false
-  private _burstLimit?: number; 
+  private _burstLimit?: number;
   public get burstLimit() {
     return this._burstLimit;
   }
@@ -335,7 +369,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // debug - computed: false, optional: true, required: false
-  private _debug?: boolean | cdktf.IResolvable; 
+  private _debug?: boolean | cdktf.IResolvable;
   public get debug() {
     return this._debug;
   }
@@ -351,7 +385,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // helm_driver - computed: false, optional: true, required: false
-  private _helmDriver?: string; 
+  private _helmDriver?: string;
   public get helmDriver() {
     return this._helmDriver;
   }
@@ -367,7 +401,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // plugins_path - computed: false, optional: true, required: false
-  private _pluginsPath?: string; 
+  private _pluginsPath?: string;
   public get pluginsPath() {
     return this._pluginsPath;
   }
@@ -383,7 +417,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // registry_config_path - computed: false, optional: true, required: false
-  private _registryConfigPath?: string; 
+  private _registryConfigPath?: string;
   public get registryConfigPath() {
     return this._registryConfigPath;
   }
@@ -399,7 +433,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // repository_cache - computed: false, optional: true, required: false
-  private _repositoryCache?: string; 
+  private _repositoryCache?: string;
   public get repositoryCache() {
     return this._repositoryCache;
   }
@@ -415,7 +449,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // repository_config_path - computed: false, optional: true, required: false
-  private _repositoryConfigPath?: string; 
+  private _repositoryConfigPath?: string;
   public get repositoryConfigPath() {
     return this._repositoryConfigPath;
   }
@@ -431,7 +465,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // alias - computed: false, optional: true, required: false
-  private _alias?: string; 
+  private _alias?: string;
   public get alias() {
     return this._alias;
   }
@@ -447,7 +481,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // experiments - computed: false, optional: true, required: false
-  private _experiments?: HelmProviderExperiments; 
+  private _experiments?: HelmProviderExperiments;
   public get experiments() {
     return this._experiments;
   }
@@ -463,7 +497,7 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // kubernetes - computed: false, optional: true, required: false
-  private _kubernetes?: HelmProviderKubernetes; 
+  private _kubernetes?: HelmProviderKubernetes;
   public get kubernetes() {
     return this._kubernetes;
   }
@@ -479,11 +513,13 @@ export class HelmProvider extends cdktf.TerraformProvider {
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: HelmProviderRegistry[] | cdktf.IResolvable; 
+  private _registry?: HelmProviderRegistry[] | cdktf.IResolvable;
   public get registry() {
     return this._registry;
   }
-  public set registry(value: HelmProviderRegistry[] | cdktf.IResolvable | undefined) {
+  public set registry(
+    value: HelmProviderRegistry[] | cdktf.IResolvable | undefined,
+  ) {
     this._registry = value;
   }
   public resetRegistry() {
@@ -506,11 +542,16 @@ export class HelmProvider extends cdktf.TerraformProvider {
       plugins_path: cdktf.stringToTerraform(this._pluginsPath),
       registry_config_path: cdktf.stringToTerraform(this._registryConfigPath),
       repository_cache: cdktf.stringToTerraform(this._repositoryCache),
-      repository_config_path: cdktf.stringToTerraform(this._repositoryConfigPath),
+      repository_config_path: cdktf.stringToTerraform(
+        this._repositoryConfigPath,
+      ),
       alias: cdktf.stringToTerraform(this._alias),
       experiments: helmProviderExperimentsToTerraform(this._experiments),
       kubernetes: helmProviderKubernetesToTerraform(this._kubernetes),
-      registry: cdktf.listMapper(helmProviderRegistryToTerraform, true)(this._registry),
+      registry: cdktf.listMapper(
+        helmProviderRegistryToTerraform,
+        true,
+      )(this._registry),
     };
   }
 }

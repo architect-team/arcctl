@@ -1,75 +1,88 @@
 // https://www.terraform.io/docs/providers/aws/r/config_delivery_channel
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ConfigDeliveryChannelConfig extends cdktf.TerraformMetaArguments {
+export interface ConfigDeliveryChannelConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#id ConfigDeliveryChannel#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#id ConfigDeliveryChannel#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#name ConfigDeliveryChannel#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#name ConfigDeliveryChannel#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#s3_bucket_name ConfigDeliveryChannel#s3_bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#s3_bucket_name ConfigDeliveryChannel#s3_bucket_name}
+   */
   readonly s3BucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#s3_key_prefix ConfigDeliveryChannel#s3_key_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#s3_key_prefix ConfigDeliveryChannel#s3_key_prefix}
+   */
   readonly s3KeyPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#s3_kms_key_arn ConfigDeliveryChannel#s3_kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#s3_kms_key_arn ConfigDeliveryChannel#s3_kms_key_arn}
+   */
   readonly s3KmsKeyArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#sns_topic_arn ConfigDeliveryChannel#sns_topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#sns_topic_arn ConfigDeliveryChannel#sns_topic_arn}
+   */
   readonly snsTopicArn?: string;
   /**
-  * snapshot_delivery_properties block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#snapshot_delivery_properties ConfigDeliveryChannel#snapshot_delivery_properties}
-  */
+   * snapshot_delivery_properties block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#snapshot_delivery_properties ConfigDeliveryChannel#snapshot_delivery_properties}
+   */
   readonly snapshotDeliveryProperties?: ConfigDeliveryChannelSnapshotDeliveryProperties;
 }
 export interface ConfigDeliveryChannelSnapshotDeliveryProperties {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#delivery_frequency ConfigDeliveryChannel#delivery_frequency}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel#delivery_frequency ConfigDeliveryChannel#delivery_frequency}
+   */
   readonly deliveryFrequency?: string;
 }
 
-export function configDeliveryChannelSnapshotDeliveryPropertiesToTerraform(struct?: ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference | ConfigDeliveryChannelSnapshotDeliveryProperties): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function configDeliveryChannelSnapshotDeliveryPropertiesToTerraform(
+  struct?:
+    | ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference
+    | ConfigDeliveryChannelSnapshotDeliveryProperties,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delivery_frequency: cdktf.stringToTerraform(struct!.deliveryFrequency),
-  }
+  };
 }
 
 export class ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ConfigDeliveryChannelSnapshotDeliveryProperties | undefined {
+  public get internalValue():
+    | ConfigDeliveryChannelSnapshotDeliveryProperties
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._deliveryFrequency !== undefined) {
@@ -79,19 +92,20 @@ export class ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ConfigDeliveryChannelSnapshotDeliveryProperties | undefined) {
+  public set internalValue(
+    value: ConfigDeliveryChannelSnapshotDeliveryProperties | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deliveryFrequency = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deliveryFrequency = value.deliveryFrequency;
     }
   }
 
   // delivery_frequency - computed: false, optional: true, required: false
-  private _deliveryFrequency?: string; 
+  private _deliveryFrequency?: string;
   public get deliveryFrequency() {
     return this.getStringAttribute('delivery_frequency');
   }
@@ -108,33 +122,36 @@ export class ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference exte
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel aws_config_delivery_channel}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel aws_config_delivery_channel}
+ */
 export class ConfigDeliveryChannel extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_config_delivery_channel";
+  public static readonly tfResourceType = 'aws_config_delivery_channel';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel aws_config_delivery_channel} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ConfigDeliveryChannelConfig
-  */
-  public constructor(scope: Construct, id: string, config: ConfigDeliveryChannelConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_delivery_channel aws_config_delivery_channel} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ConfigDeliveryChannelConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ConfigDeliveryChannelConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_config_delivery_channel',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -142,7 +159,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -150,7 +167,8 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
     this._s3KeyPrefix = config.s3KeyPrefix;
     this._s3KmsKeyArn = config.s3KmsKeyArn;
     this._snsTopicArn = config.snsTopicArn;
-    this._snapshotDeliveryProperties.internalValue = config.snapshotDeliveryProperties;
+    this._snapshotDeliveryProperties.internalValue =
+      config.snapshotDeliveryProperties;
   }
 
   // ==========
@@ -158,7 +176,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -174,7 +192,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -190,7 +208,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // s3_bucket_name - computed: false, optional: false, required: true
-  private _s3BucketName?: string; 
+  private _s3BucketName?: string;
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -203,7 +221,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // s3_key_prefix - computed: false, optional: true, required: false
-  private _s3KeyPrefix?: string; 
+  private _s3KeyPrefix?: string;
   public get s3KeyPrefix() {
     return this.getStringAttribute('s3_key_prefix');
   }
@@ -219,7 +237,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // s3_kms_key_arn - computed: false, optional: true, required: false
-  private _s3KmsKeyArn?: string; 
+  private _s3KmsKeyArn?: string;
   public get s3KmsKeyArn() {
     return this.getStringAttribute('s3_kms_key_arn');
   }
@@ -235,7 +253,7 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // sns_topic_arn - computed: false, optional: true, required: false
-  private _snsTopicArn?: string; 
+  private _snsTopicArn?: string;
   public get snsTopicArn() {
     return this.getStringAttribute('sns_topic_arn');
   }
@@ -251,11 +269,17 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
   }
 
   // snapshot_delivery_properties - computed: false, optional: true, required: false
-  private _snapshotDeliveryProperties = new ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference(this, "snapshot_delivery_properties");
+  private _snapshotDeliveryProperties =
+    new ConfigDeliveryChannelSnapshotDeliveryPropertiesOutputReference(
+      this,
+      'snapshot_delivery_properties',
+    );
   public get snapshotDeliveryProperties() {
     return this._snapshotDeliveryProperties;
   }
-  public putSnapshotDeliveryProperties(value: ConfigDeliveryChannelSnapshotDeliveryProperties) {
+  public putSnapshotDeliveryProperties(
+    value: ConfigDeliveryChannelSnapshotDeliveryProperties,
+  ) {
     this._snapshotDeliveryProperties.internalValue = value;
   }
   public resetSnapshotDeliveryProperties() {
@@ -278,7 +302,10 @@ export class ConfigDeliveryChannel extends cdktf.TerraformResource {
       s3_key_prefix: cdktf.stringToTerraform(this._s3KeyPrefix),
       s3_kms_key_arn: cdktf.stringToTerraform(this._s3KmsKeyArn),
       sns_topic_arn: cdktf.stringToTerraform(this._snsTopicArn),
-      snapshot_delivery_properties: configDeliveryChannelSnapshotDeliveryPropertiesToTerraform(this._snapshotDeliveryProperties.internalValue),
+      snapshot_delivery_properties:
+        configDeliveryChannelSnapshotDeliveryPropertiesToTerraform(
+          this._snapshotDeliveryProperties.internalValue,
+        ),
     };
   }
 }

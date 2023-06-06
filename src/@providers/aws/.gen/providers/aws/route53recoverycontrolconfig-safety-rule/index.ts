@@ -1,89 +1,102 @@
 // https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Route53RecoverycontrolconfigSafetyRuleConfig extends cdktf.TerraformMetaArguments {
+export interface Route53RecoverycontrolconfigSafetyRuleConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#asserted_controls Route53RecoverycontrolconfigSafetyRule#asserted_controls}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#asserted_controls Route53RecoverycontrolconfigSafetyRule#asserted_controls}
+   */
   readonly assertedControls?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#control_panel_arn Route53RecoverycontrolconfigSafetyRule#control_panel_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#control_panel_arn Route53RecoverycontrolconfigSafetyRule#control_panel_arn}
+   */
   readonly controlPanelArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#gating_controls Route53RecoverycontrolconfigSafetyRule#gating_controls}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#gating_controls Route53RecoverycontrolconfigSafetyRule#gating_controls}
+   */
   readonly gatingControls?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#id Route53RecoverycontrolconfigSafetyRule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#id Route53RecoverycontrolconfigSafetyRule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#name Route53RecoverycontrolconfigSafetyRule#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#name Route53RecoverycontrolconfigSafetyRule#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#target_controls Route53RecoverycontrolconfigSafetyRule#target_controls}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#target_controls Route53RecoverycontrolconfigSafetyRule#target_controls}
+   */
   readonly targetControls?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#wait_period_ms Route53RecoverycontrolconfigSafetyRule#wait_period_ms}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#wait_period_ms Route53RecoverycontrolconfigSafetyRule#wait_period_ms}
+   */
   readonly waitPeriodMs: number;
   /**
-  * rule_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#rule_config Route53RecoverycontrolconfigSafetyRule#rule_config}
-  */
+   * rule_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#rule_config Route53RecoverycontrolconfigSafetyRule#rule_config}
+   */
   readonly ruleConfig: Route53RecoverycontrolconfigSafetyRuleRuleConfig;
 }
 export interface Route53RecoverycontrolconfigSafetyRuleRuleConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#inverted Route53RecoverycontrolconfigSafetyRule#inverted}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#inverted Route53RecoverycontrolconfigSafetyRule#inverted}
+   */
   readonly inverted: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#threshold Route53RecoverycontrolconfigSafetyRule#threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#threshold Route53RecoverycontrolconfigSafetyRule#threshold}
+   */
   readonly threshold: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#type Route53RecoverycontrolconfigSafetyRule#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule#type Route53RecoverycontrolconfigSafetyRule#type}
+   */
   readonly type: string;
 }
 
-export function route53RecoverycontrolconfigSafetyRuleRuleConfigToTerraform(struct?: Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference | Route53RecoverycontrolconfigSafetyRuleRuleConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function route53RecoverycontrolconfigSafetyRuleRuleConfigToTerraform(
+  struct?:
+    | Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference
+    | Route53RecoverycontrolconfigSafetyRuleRuleConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     inverted: cdktf.booleanToTerraform(struct!.inverted),
     threshold: cdktf.numberToTerraform(struct!.threshold),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Route53RecoverycontrolconfigSafetyRuleRuleConfig | undefined {
+  public get internalValue():
+    | Route53RecoverycontrolconfigSafetyRuleRuleConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._inverted !== undefined) {
@@ -101,14 +114,15 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Route53RecoverycontrolconfigSafetyRuleRuleConfig | undefined) {
+  public set internalValue(
+    value: Route53RecoverycontrolconfigSafetyRuleRuleConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._inverted = undefined;
       this._threshold = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._inverted = value.inverted;
       this._threshold = value.threshold;
@@ -117,7 +131,7 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
   }
 
   // inverted - computed: false, optional: false, required: true
-  private _inverted?: boolean | cdktf.IResolvable; 
+  private _inverted?: boolean | cdktf.IResolvable;
   public get inverted() {
     return this.getBooleanAttribute('inverted');
   }
@@ -130,7 +144,7 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
   }
 
   // threshold - computed: false, optional: false, required: true
-  private _threshold?: number; 
+  private _threshold?: number;
   public get threshold() {
     return this.getNumberAttribute('threshold');
   }
@@ -143,7 +157,7 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -157,33 +171,37 @@ export class Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference ext
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule aws_route53recoverycontrolconfig_safety_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule aws_route53recoverycontrolconfig_safety_rule}
+ */
 export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53recoverycontrolconfig_safety_rule";
+  public static readonly tfResourceType =
+    'aws_route53recoverycontrolconfig_safety_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule aws_route53recoverycontrolconfig_safety_rule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Route53RecoverycontrolconfigSafetyRuleConfig
-  */
-  public constructor(scope: Construct, id: string, config: Route53RecoverycontrolconfigSafetyRuleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53recoverycontrolconfig_safety_rule aws_route53recoverycontrolconfig_safety_rule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Route53RecoverycontrolconfigSafetyRuleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Route53RecoverycontrolconfigSafetyRuleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_route53recoverycontrolconfig_safety_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -191,7 +209,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._assertedControls = config.assertedControls;
     this._controlPanelArn = config.controlPanelArn;
@@ -213,7 +231,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // asserted_controls - computed: false, optional: true, required: false
-  private _assertedControls?: string[]; 
+  private _assertedControls?: string[];
   public get assertedControls() {
     return this.getListAttribute('asserted_controls');
   }
@@ -229,7 +247,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // control_panel_arn - computed: false, optional: false, required: true
-  private _controlPanelArn?: string; 
+  private _controlPanelArn?: string;
   public get controlPanelArn() {
     return this.getStringAttribute('control_panel_arn');
   }
@@ -242,7 +260,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // gating_controls - computed: false, optional: true, required: false
-  private _gatingControls?: string[]; 
+  private _gatingControls?: string[];
   public get gatingControls() {
     return this.getListAttribute('gating_controls');
   }
@@ -258,7 +276,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -274,7 +292,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -292,7 +310,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // target_controls - computed: false, optional: true, required: false
-  private _targetControls?: string[]; 
+  private _targetControls?: string[];
   public get targetControls() {
     return this.getListAttribute('target_controls');
   }
@@ -308,7 +326,7 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // wait_period_ms - computed: false, optional: false, required: true
-  private _waitPeriodMs?: number; 
+  private _waitPeriodMs?: number;
   public get waitPeriodMs() {
     return this.getNumberAttribute('wait_period_ms');
   }
@@ -321,11 +339,17 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
   }
 
   // rule_config - computed: false, optional: false, required: true
-  private _ruleConfig = new Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference(this, "rule_config");
+  private _ruleConfig =
+    new Route53RecoverycontrolconfigSafetyRuleRuleConfigOutputReference(
+      this,
+      'rule_config',
+    );
   public get ruleConfig() {
     return this._ruleConfig;
   }
-  public putRuleConfig(value: Route53RecoverycontrolconfigSafetyRuleRuleConfig) {
+  public putRuleConfig(
+    value: Route53RecoverycontrolconfigSafetyRuleRuleConfig,
+  ) {
     this._ruleConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -339,14 +363,25 @@ export class Route53RecoverycontrolconfigSafetyRule extends cdktf.TerraformResou
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      asserted_controls: cdktf.listMapper(cdktf.stringToTerraform, false)(this._assertedControls),
+      asserted_controls: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._assertedControls),
       control_panel_arn: cdktf.stringToTerraform(this._controlPanelArn),
-      gating_controls: cdktf.listMapper(cdktf.stringToTerraform, false)(this._gatingControls),
+      gating_controls: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._gatingControls),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      target_controls: cdktf.listMapper(cdktf.stringToTerraform, false)(this._targetControls),
+      target_controls: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._targetControls),
       wait_period_ms: cdktf.numberToTerraform(this._waitPeriodMs),
-      rule_config: route53RecoverycontrolconfigSafetyRuleRuleConfigToTerraform(this._ruleConfig.internalValue),
+      rule_config: route53RecoverycontrolconfigSafetyRuleRuleConfigToTerraform(
+        this._ruleConfig.internalValue,
+      ),
     };
   }
 }

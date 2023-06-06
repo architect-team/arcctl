@@ -1,117 +1,139 @@
 // https://www.terraform.io/docs/providers/aws/r/rum_app_monitor
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface RumAppMonitorConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#cw_log_enabled RumAppMonitor#cw_log_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#cw_log_enabled RumAppMonitor#cw_log_enabled}
+   */
   readonly cwLogEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#domain RumAppMonitor#domain}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#domain RumAppMonitor#domain}
+   */
   readonly domain: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#id RumAppMonitor#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#id RumAppMonitor#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#name RumAppMonitor#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#name RumAppMonitor#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#tags RumAppMonitor#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#tags RumAppMonitor#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#tags_all RumAppMonitor#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#tags_all RumAppMonitor#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * app_monitor_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#app_monitor_configuration RumAppMonitor#app_monitor_configuration}
-  */
+   * app_monitor_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#app_monitor_configuration RumAppMonitor#app_monitor_configuration}
+   */
   readonly appMonitorConfiguration?: RumAppMonitorAppMonitorConfiguration;
   /**
-  * custom_events block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#custom_events RumAppMonitor#custom_events}
-  */
+   * custom_events block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#custom_events RumAppMonitor#custom_events}
+   */
   readonly customEvents?: RumAppMonitorCustomEvents;
 }
 export interface RumAppMonitorAppMonitorConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#allow_cookies RumAppMonitor#allow_cookies}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#allow_cookies RumAppMonitor#allow_cookies}
+   */
   readonly allowCookies?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#enable_xray RumAppMonitor#enable_xray}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#enable_xray RumAppMonitor#enable_xray}
+   */
   readonly enableXray?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#excluded_pages RumAppMonitor#excluded_pages}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#excluded_pages RumAppMonitor#excluded_pages}
+   */
   readonly excludedPages?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#favorite_pages RumAppMonitor#favorite_pages}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#favorite_pages RumAppMonitor#favorite_pages}
+   */
   readonly favoritePages?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#guest_role_arn RumAppMonitor#guest_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#guest_role_arn RumAppMonitor#guest_role_arn}
+   */
   readonly guestRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#identity_pool_id RumAppMonitor#identity_pool_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#identity_pool_id RumAppMonitor#identity_pool_id}
+   */
   readonly identityPoolId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#included_pages RumAppMonitor#included_pages}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#included_pages RumAppMonitor#included_pages}
+   */
   readonly includedPages?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#session_sample_rate RumAppMonitor#session_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#session_sample_rate RumAppMonitor#session_sample_rate}
+   */
   readonly sessionSampleRate?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#telemetries RumAppMonitor#telemetries}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#telemetries RumAppMonitor#telemetries}
+   */
   readonly telemetries?: string[];
 }
 
-export function rumAppMonitorAppMonitorConfigurationToTerraform(struct?: RumAppMonitorAppMonitorConfigurationOutputReference | RumAppMonitorAppMonitorConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function rumAppMonitorAppMonitorConfigurationToTerraform(
+  struct?:
+    | RumAppMonitorAppMonitorConfigurationOutputReference
+    | RumAppMonitorAppMonitorConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     allow_cookies: cdktf.booleanToTerraform(struct!.allowCookies),
     enable_xray: cdktf.booleanToTerraform(struct!.enableXray),
-    excluded_pages: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.excludedPages),
-    favorite_pages: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.favoritePages),
+    excluded_pages: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.excludedPages),
+    favorite_pages: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.favoritePages),
     guest_role_arn: cdktf.stringToTerraform(struct!.guestRoleArn),
     identity_pool_id: cdktf.stringToTerraform(struct!.identityPoolId),
-    included_pages: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.includedPages),
+    included_pages: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.includedPages),
     session_sample_rate: cdktf.numberToTerraform(struct!.sessionSampleRate),
-    telemetries: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.telemetries),
-  }
+    telemetries: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.telemetries),
+  };
 }
 
 export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -157,7 +179,9 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: RumAppMonitorAppMonitorConfiguration | undefined) {
+  public set internalValue(
+    value: RumAppMonitorAppMonitorConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._allowCookies = undefined;
@@ -169,8 +193,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
       this._includedPages = undefined;
       this._sessionSampleRate = undefined;
       this._telemetries = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowCookies = value.allowCookies;
       this._enableXray = value.enableXray;
@@ -185,7 +208,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // allow_cookies - computed: false, optional: true, required: false
-  private _allowCookies?: boolean | cdktf.IResolvable; 
+  private _allowCookies?: boolean | cdktf.IResolvable;
   public get allowCookies() {
     return this.getBooleanAttribute('allow_cookies');
   }
@@ -201,7 +224,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // enable_xray - computed: false, optional: true, required: false
-  private _enableXray?: boolean | cdktf.IResolvable; 
+  private _enableXray?: boolean | cdktf.IResolvable;
   public get enableXray() {
     return this.getBooleanAttribute('enable_xray');
   }
@@ -217,7 +240,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // excluded_pages - computed: false, optional: true, required: false
-  private _excludedPages?: string[]; 
+  private _excludedPages?: string[];
   public get excludedPages() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_pages'));
   }
@@ -233,7 +256,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // favorite_pages - computed: false, optional: true, required: false
-  private _favoritePages?: string[]; 
+  private _favoritePages?: string[];
   public get favoritePages() {
     return cdktf.Fn.tolist(this.getListAttribute('favorite_pages'));
   }
@@ -249,7 +272,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // guest_role_arn - computed: false, optional: true, required: false
-  private _guestRoleArn?: string; 
+  private _guestRoleArn?: string;
   public get guestRoleArn() {
     return this.getStringAttribute('guest_role_arn');
   }
@@ -265,7 +288,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // identity_pool_id - computed: false, optional: true, required: false
-  private _identityPoolId?: string; 
+  private _identityPoolId?: string;
   public get identityPoolId() {
     return this.getStringAttribute('identity_pool_id');
   }
@@ -281,7 +304,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // included_pages - computed: false, optional: true, required: false
-  private _includedPages?: string[]; 
+  private _includedPages?: string[];
   public get includedPages() {
     return cdktf.Fn.tolist(this.getListAttribute('included_pages'));
   }
@@ -297,7 +320,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // session_sample_rate - computed: false, optional: true, required: false
-  private _sessionSampleRate?: number; 
+  private _sessionSampleRate?: number;
   public get sessionSampleRate() {
     return this.getNumberAttribute('session_sample_rate');
   }
@@ -313,7 +336,7 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
   }
 
   // telemetries - computed: false, optional: true, required: false
-  private _telemetries?: string[]; 
+  private _telemetries?: string[];
   public get telemetries() {
     return cdktf.Fn.tolist(this.getListAttribute('telemetries'));
   }
@@ -330,29 +353,38 @@ export class RumAppMonitorAppMonitorConfigurationOutputReference extends cdktf.C
 }
 export interface RumAppMonitorCustomEvents {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#status RumAppMonitor#status}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor#status RumAppMonitor#status}
+   */
   readonly status?: string;
 }
 
-export function rumAppMonitorCustomEventsToTerraform(struct?: RumAppMonitorCustomEventsOutputReference | RumAppMonitorCustomEvents): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function rumAppMonitorCustomEventsToTerraform(
+  struct?: RumAppMonitorCustomEventsOutputReference | RumAppMonitorCustomEvents,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     status: cdktf.stringToTerraform(struct!.status),
-  }
+  };
 }
 
 export class RumAppMonitorCustomEventsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -370,15 +402,14 @@ export class RumAppMonitorCustomEventsOutputReference extends cdktf.ComplexObjec
     if (value === undefined) {
       this.isEmptyObject = false;
       this._status = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._status = value.status;
     }
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string; 
+  private _status?: string;
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -395,33 +426,36 @@ export class RumAppMonitorCustomEventsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor aws_rum_app_monitor}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor aws_rum_app_monitor}
+ */
 export class RumAppMonitor extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_rum_app_monitor";
+  public static readonly tfResourceType = 'aws_rum_app_monitor';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor aws_rum_app_monitor} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RumAppMonitorConfig
-  */
-  public constructor(scope: Construct, id: string, config: RumAppMonitorConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rum_app_monitor aws_rum_app_monitor} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RumAppMonitorConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RumAppMonitorConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_rum_app_monitor',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -429,7 +463,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cwLogEnabled = config.cwLogEnabled;
     this._domain = config.domain;
@@ -437,7 +471,8 @@ export class RumAppMonitor extends cdktf.TerraformResource {
     this._name = config.name;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._appMonitorConfiguration.internalValue = config.appMonitorConfiguration;
+    this._appMonitorConfiguration.internalValue =
+      config.appMonitorConfiguration;
     this._customEvents.internalValue = config.customEvents;
   }
 
@@ -456,7 +491,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // cw_log_enabled - computed: false, optional: true, required: false
-  private _cwLogEnabled?: boolean | cdktf.IResolvable; 
+  private _cwLogEnabled?: boolean | cdktf.IResolvable;
   public get cwLogEnabled() {
     return this.getBooleanAttribute('cw_log_enabled');
   }
@@ -477,7 +512,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string; 
+  private _domain?: string;
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -490,7 +525,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -506,7 +541,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -519,7 +554,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -535,7 +570,7 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -551,11 +586,17 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // app_monitor_configuration - computed: false, optional: true, required: false
-  private _appMonitorConfiguration = new RumAppMonitorAppMonitorConfigurationOutputReference(this, "app_monitor_configuration");
+  private _appMonitorConfiguration =
+    new RumAppMonitorAppMonitorConfigurationOutputReference(
+      this,
+      'app_monitor_configuration',
+    );
   public get appMonitorConfiguration() {
     return this._appMonitorConfiguration;
   }
-  public putAppMonitorConfiguration(value: RumAppMonitorAppMonitorConfiguration) {
+  public putAppMonitorConfiguration(
+    value: RumAppMonitorAppMonitorConfiguration,
+  ) {
     this._appMonitorConfiguration.internalValue = value;
   }
   public resetAppMonitorConfiguration() {
@@ -567,7 +608,10 @@ export class RumAppMonitor extends cdktf.TerraformResource {
   }
 
   // custom_events - computed: false, optional: true, required: false
-  private _customEvents = new RumAppMonitorCustomEventsOutputReference(this, "custom_events");
+  private _customEvents = new RumAppMonitorCustomEventsOutputReference(
+    this,
+    'custom_events',
+  );
   public get customEvents() {
     return this._customEvents;
   }
@@ -594,8 +638,13 @@ export class RumAppMonitor extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      app_monitor_configuration: rumAppMonitorAppMonitorConfigurationToTerraform(this._appMonitorConfiguration.internalValue),
-      custom_events: rumAppMonitorCustomEventsToTerraform(this._customEvents.internalValue),
+      app_monitor_configuration:
+        rumAppMonitorAppMonitorConfigurationToTerraform(
+          this._appMonitorConfiguration.internalValue,
+        ),
+      custom_events: rumAppMonitorCustomEventsToTerraform(
+        this._customEvents.internalValue,
+      ),
     };
   }
 }

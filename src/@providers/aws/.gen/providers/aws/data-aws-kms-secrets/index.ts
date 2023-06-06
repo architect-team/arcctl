@@ -1,66 +1,74 @@
 // https://www.terraform.io/docs/providers/aws/d/kms_secrets
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DataAwsKmsSecretsConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#id DataAwsKmsSecrets#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#id DataAwsKmsSecrets#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * secret block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#secret DataAwsKmsSecrets#secret}
-  */
+   * secret block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#secret DataAwsKmsSecrets#secret}
+   */
   readonly secret: DataAwsKmsSecretsSecret[] | cdktf.IResolvable;
 }
 export interface DataAwsKmsSecretsSecret {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#context DataAwsKmsSecrets#context}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#context DataAwsKmsSecrets#context}
+   */
   readonly context?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#encryption_algorithm DataAwsKmsSecrets#encryption_algorithm}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#encryption_algorithm DataAwsKmsSecrets#encryption_algorithm}
+   */
   readonly encryptionAlgorithm?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#grant_tokens DataAwsKmsSecrets#grant_tokens}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#grant_tokens DataAwsKmsSecrets#grant_tokens}
+   */
   readonly grantTokens?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#key_id DataAwsKmsSecrets#key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#key_id DataAwsKmsSecrets#key_id}
+   */
   readonly keyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#name DataAwsKmsSecrets#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#name DataAwsKmsSecrets#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#payload DataAwsKmsSecrets#payload}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets#payload DataAwsKmsSecrets#payload}
+   */
   readonly payload: string;
 }
 
-export function dataAwsKmsSecretsSecretToTerraform(struct?: DataAwsKmsSecretsSecret | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsKmsSecretsSecretToTerraform(
+  struct?: DataAwsKmsSecretsSecret | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     context: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.context),
     encryption_algorithm: cdktf.stringToTerraform(struct!.encryptionAlgorithm),
-    grant_tokens: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.grantTokens),
+    grant_tokens: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.grantTokens),
     key_id: cdktf.stringToTerraform(struct!.keyId),
     name: cdktf.stringToTerraform(struct!.name),
     payload: cdktf.stringToTerraform(struct!.payload),
-  }
+  };
 }
 
 export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject {
@@ -68,16 +76,29 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsKmsSecretsSecret | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsKmsSecretsSecret
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -110,7 +131,9 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsKmsSecretsSecret | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DataAwsKmsSecretsSecret | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -120,12 +143,10 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
       this._keyId = undefined;
       this._name = undefined;
       this._payload = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._context = value.context;
@@ -138,7 +159,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // context - computed: false, optional: true, required: false
-  private _context?: { [key: string]: string }; 
+  private _context?: { [key: string]: string };
   public get context() {
     return this.getStringMapAttribute('context');
   }
@@ -154,7 +175,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // encryption_algorithm - computed: false, optional: true, required: false
-  private _encryptionAlgorithm?: string; 
+  private _encryptionAlgorithm?: string;
   public get encryptionAlgorithm() {
     return this.getStringAttribute('encryption_algorithm');
   }
@@ -170,7 +191,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // grant_tokens - computed: false, optional: true, required: false
-  private _grantTokens?: string[]; 
+  private _grantTokens?: string[];
   public get grantTokens() {
     return this.getListAttribute('grant_tokens');
   }
@@ -186,7 +207,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // key_id - computed: false, optional: true, required: false
-  private _keyId?: string; 
+  private _keyId?: string;
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -202,7 +223,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -215,7 +236,7 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
   }
 
   // payload - computed: false, optional: false, required: true
-  private _payload?: string; 
+  private _payload?: string;
   public get payload() {
     return this.getStringAttribute('payload');
   }
@@ -229,53 +250,65 @@ export class DataAwsKmsSecretsSecretOutputReference extends cdktf.ComplexObject 
 }
 
 export class DataAwsKmsSecretsSecretList extends cdktf.ComplexList {
-  public internalValue? : DataAwsKmsSecretsSecret[] | cdktf.IResolvable
+  public internalValue?: DataAwsKmsSecretsSecret[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataAwsKmsSecretsSecretOutputReference {
-    return new DataAwsKmsSecretsSecretOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataAwsKmsSecretsSecretOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets aws_kms_secrets}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets aws_kms_secrets}
+ */
 export class DataAwsKmsSecrets extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_kms_secrets";
+  public static readonly tfResourceType = 'aws_kms_secrets';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets aws_kms_secrets} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsKmsSecretsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsKmsSecretsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/kms_secrets aws_kms_secrets} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsKmsSecretsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsKmsSecretsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_kms_secrets',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -283,7 +316,7 @@ export class DataAwsKmsSecrets extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._secret.internalValue = config.secret;
@@ -294,7 +327,7 @@ export class DataAwsKmsSecrets extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -310,13 +343,13 @@ export class DataAwsKmsSecrets extends cdktf.TerraformDataSource {
   }
 
   // plaintext - computed: true, optional: false, required: false
-  private _plaintext = new cdktf.StringMap(this, "plaintext");
+  private _plaintext = new cdktf.StringMap(this, 'plaintext');
   public get plaintext() {
     return this._plaintext;
   }
 
   // secret - computed: false, optional: false, required: true
-  private _secret = new DataAwsKmsSecretsSecretList(this, "secret", true);
+  private _secret = new DataAwsKmsSecretsSecretList(this, 'secret', true);
   public get secret() {
     return this._secret;
   }
@@ -335,7 +368,10 @@ export class DataAwsKmsSecrets extends cdktf.TerraformDataSource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      secret: cdktf.listMapper(dataAwsKmsSecretsSecretToTerraform, true)(this._secret.internalValue),
+      secret: cdktf.listMapper(
+        dataAwsKmsSecretsSecretToTerraform,
+        true,
+      )(this._secret.internalValue),
     };
   }
 }

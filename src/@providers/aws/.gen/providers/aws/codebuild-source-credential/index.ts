@@ -1,65 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface CodebuildSourceCredentialConfig extends cdktf.TerraformMetaArguments {
+export interface CodebuildSourceCredentialConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#auth_type CodebuildSourceCredential#auth_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#auth_type CodebuildSourceCredential#auth_type}
+   */
   readonly authType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#id CodebuildSourceCredential#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#id CodebuildSourceCredential#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#server_type CodebuildSourceCredential#server_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#server_type CodebuildSourceCredential#server_type}
+   */
   readonly serverType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#token CodebuildSourceCredential#token}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#token CodebuildSourceCredential#token}
+   */
   readonly token: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#user_name CodebuildSourceCredential#user_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential#user_name CodebuildSourceCredential#user_name}
+   */
   readonly userName?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential aws_codebuild_source_credential}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential aws_codebuild_source_credential}
+ */
 export class CodebuildSourceCredential extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_codebuild_source_credential";
+  public static readonly tfResourceType = 'aws_codebuild_source_credential';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential aws_codebuild_source_credential} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CodebuildSourceCredentialConfig
-  */
-  public constructor(scope: Construct, id: string, config: CodebuildSourceCredentialConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codebuild_source_credential aws_codebuild_source_credential} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CodebuildSourceCredentialConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CodebuildSourceCredentialConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_codebuild_source_credential',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +70,7 @@ export class CodebuildSourceCredential extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._authType = config.authType;
     this._id = config.id;
@@ -86,7 +89,7 @@ export class CodebuildSourceCredential extends cdktf.TerraformResource {
   }
 
   // auth_type - computed: false, optional: false, required: true
-  private _authType?: string; 
+  private _authType?: string;
   public get authType() {
     return this.getStringAttribute('auth_type');
   }
@@ -99,7 +102,7 @@ export class CodebuildSourceCredential extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +118,7 @@ export class CodebuildSourceCredential extends cdktf.TerraformResource {
   }
 
   // server_type - computed: false, optional: false, required: true
-  private _serverType?: string; 
+  private _serverType?: string;
   public get serverType() {
     return this.getStringAttribute('server_type');
   }
@@ -128,7 +131,7 @@ export class CodebuildSourceCredential extends cdktf.TerraformResource {
   }
 
   // token - computed: false, optional: false, required: true
-  private _token?: string; 
+  private _token?: string;
   public get token() {
     return this.getStringAttribute('token');
   }
@@ -141,7 +144,7 @@ export class CodebuildSourceCredential extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: true, required: false
-  private _userName?: string; 
+  private _userName?: string;
   public get userName() {
     return this.getStringAttribute('user_name');
   }

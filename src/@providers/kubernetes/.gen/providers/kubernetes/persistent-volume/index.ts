@@ -1,79 +1,87 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface PersistentVolumeConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#id PersistentVolume#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#id PersistentVolume#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#metadata PersistentVolume#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#metadata PersistentVolume#metadata}
+   */
   readonly metadata: PersistentVolumeMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#spec PersistentVolume#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#spec PersistentVolume#spec}
+   */
   readonly spec: PersistentVolumeSpec[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#timeouts PersistentVolume#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#timeouts PersistentVolume#timeouts}
+   */
   readonly timeouts?: PersistentVolumeTimeouts;
 }
 export interface PersistentVolumeMetadata {
   /**
-  * An unstructured key value map stored with the persistent volume that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#annotations PersistentVolume#annotations}
-  */
+   * An unstructured key value map stored with the persistent volume that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#annotations PersistentVolume#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the persistent volume. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#labels PersistentVolume#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the persistent volume. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#labels PersistentVolume#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the persistent volume, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the persistent volume, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
 }
 
-export function persistentVolumeMetadataToTerraform(struct?: PersistentVolumeMetadataOutputReference | PersistentVolumeMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeMetadataToTerraform(
+  struct?: PersistentVolumeMetadataOutputReference | PersistentVolumeMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class PersistentVolumeMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -101,8 +109,7 @@ export class PersistentVolumeMetadataOutputReference extends cdktf.ComplexObject
       this._annotations = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._labels = value.labels;
@@ -111,7 +118,7 @@ export class PersistentVolumeMetadataOutputReference extends cdktf.ComplexObject
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -132,7 +139,7 @@ export class PersistentVolumeMetadataOutputReference extends cdktf.ComplexObject
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -148,7 +155,7 @@ export class PersistentVolumeMetadataOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -175,38 +182,49 @@ export class PersistentVolumeMetadataOutputReference extends cdktf.ComplexObject
 }
 export interface PersistentVolumeSpecClaimRef {
   /**
-  * The name of the PersistentVolumeClaim
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * The name of the PersistentVolumeClaim
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name: string;
   /**
-  * The namespace of the PersistentVolumeClaim. Uses 'default' namespace if none is specified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * The namespace of the PersistentVolumeClaim. Uses 'default' namespace if none is specified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecClaimRefToTerraform(struct?: PersistentVolumeSpecClaimRefOutputReference | PersistentVolumeSpecClaimRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecClaimRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecClaimRefOutputReference
+    | PersistentVolumeSpecClaimRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecClaimRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -229,8 +247,7 @@ export class PersistentVolumeSpecClaimRefOutputReference extends cdktf.ComplexOb
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -238,7 +255,7 @@ export class PersistentVolumeSpecClaimRefOutputReference extends cdktf.ComplexOb
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -251,7 +268,7 @@ export class PersistentVolumeSpecClaimRefOutputReference extends cdktf.ComplexOb
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -268,35 +285,43 @@ export class PersistentVolumeSpecClaimRefOutputReference extends cdktf.ComplexOb
 }
 export interface PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#key PersistentVolume#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#key PersistentVolume#key}
+   */
   readonly key: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#operator PersistentVolume#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#operator PersistentVolume#operator}
+   */
   readonly operator: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#values PersistentVolume#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#values PersistentVolume#values}
+   */
   readonly values?: string[];
 }
 
-export function persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsToTerraform(struct?: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsToTerraform(
+  struct?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -304,16 +329,29 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpres
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -334,19 +372,22 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpres
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -356,7 +397,7 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpres
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -369,7 +410,7 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpres
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -382,7 +423,7 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpres
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -399,55 +440,76 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpres
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsOutputReference {
-    return new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsOutputReference {
+    return new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#key PersistentVolume#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#key PersistentVolume#key}
+   */
   readonly key: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#operator PersistentVolume#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#operator PersistentVolume#operator}
+   */
   readonly operator: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#values PersistentVolume#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#values PersistentVolume#values}
+   */
   readonly values?: string[];
 }
 
-export function persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsToTerraform(struct?: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsToTerraform(
+  struct?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsOutputReference extends cdktf.ComplexObject {
@@ -455,16 +517,29 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -485,19 +560,22 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -507,7 +585,7 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -520,7 +598,7 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
   }
 
   // operator - computed: false, optional: false, required: true
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -533,7 +611,7 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -550,48 +628,79 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsList extends cdktf.ComplexList {
-  public internalValue? : PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields[] | cdktf.IResolvable
+  public internalValue?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsOutputReference {
-    return new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsOutputReference {
+    return new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm {
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#match_expressions PersistentVolume#match_expressions}
-  */
-  readonly matchExpressions?: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#match_expressions PersistentVolume#match_expressions}
+   */
+  readonly matchExpressions?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[]
+    | cdktf.IResolvable;
   /**
-  * match_fields block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#match_fields PersistentVolume#match_fields}
-  */
-  readonly matchFields?: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields[] | cdktf.IResolvable;
+   * match_fields block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#match_fields PersistentVolume#match_fields}
+   */
+  readonly matchFields?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields[]
+    | cdktf.IResolvable;
 }
 
-export function persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermToTerraform(struct?: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermToTerraform(
+  struct?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_expressions: cdktf.listMapper(persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-    match_fields: cdktf.listMapper(persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsToTerraform, true)(struct!.matchFields),
-  }
+    match_expressions: cdktf.listMapper(
+      persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+    match_fields: cdktf.listMapper(
+      persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsToTerraform,
+      true,
+    )(struct!.matchFields),
+  };
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputReference extends cdktf.ComplexObject {
@@ -599,16 +708,29 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -616,7 +738,8 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputRefer
     const internalValueResult: any = {};
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     if (this._matchFields?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -625,18 +748,21 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchExpressions.internalValue = undefined;
       this._matchFields.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchExpressions.internalValue = value.matchExpressions;
@@ -645,11 +771,20 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputRefer
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -661,11 +796,20 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputRefer
   }
 
   // match_fields - computed: false, optional: true, required: false
-  private _matchFields = new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsList(this, "match_fields", false);
+  private _matchFields =
+    new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFieldsList(
+      this,
+      'match_fields',
+      false,
+    );
   public get matchFields() {
     return this._matchFields;
   }
-  public putMatchFields(value: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields[] | cdktf.IResolvable) {
+  public putMatchFields(
+    value:
+      | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermMatchFields[]
+      | cdktf.IResolvable,
+  ) {
     this._matchFields.internalValue = value;
   }
   public resetMatchFields() {
@@ -678,81 +822,123 @@ export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputRefer
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermList extends cdktf.ComplexList {
-  public internalValue? : PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm[] | cdktf.IResolvable
+  public internalValue?:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputReference {
-    return new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputReference {
+    return new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PersistentVolumeSpecNodeAffinityRequired {
   /**
-  * node_selector_term block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_selector_term PersistentVolume#node_selector_term}
-  */
-  readonly nodeSelectorTerm: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm[] | cdktf.IResolvable;
+   * node_selector_term block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_selector_term PersistentVolume#node_selector_term}
+   */
+  readonly nodeSelectorTerm:
+    | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm[]
+    | cdktf.IResolvable;
 }
 
-export function persistentVolumeSpecNodeAffinityRequiredToTerraform(struct?: PersistentVolumeSpecNodeAffinityRequiredOutputReference | PersistentVolumeSpecNodeAffinityRequired): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecNodeAffinityRequiredToTerraform(
+  struct?:
+    | PersistentVolumeSpecNodeAffinityRequiredOutputReference
+    | PersistentVolumeSpecNodeAffinityRequired,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    node_selector_term: cdktf.listMapper(persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermToTerraform, true)(struct!.nodeSelectorTerm),
-  }
+    node_selector_term: cdktf.listMapper(
+      persistentVolumeSpecNodeAffinityRequiredNodeSelectorTermToTerraform,
+      true,
+    )(struct!.nodeSelectorTerm),
+  };
 }
 
 export class PersistentVolumeSpecNodeAffinityRequiredOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecNodeAffinityRequired | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecNodeAffinityRequired
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._nodeSelectorTerm?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodeSelectorTerm = this._nodeSelectorTerm?.internalValue;
+      internalValueResult.nodeSelectorTerm =
+        this._nodeSelectorTerm?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecNodeAffinityRequired | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecNodeAffinityRequired | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._nodeSelectorTerm.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._nodeSelectorTerm.internalValue = value.nodeSelectorTerm;
     }
   }
 
   // node_selector_term - computed: false, optional: false, required: true
-  private _nodeSelectorTerm = new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermList(this, "node_selector_term", false);
+  private _nodeSelectorTerm =
+    new PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTermList(
+      this,
+      'node_selector_term',
+      false,
+    );
   public get nodeSelectorTerm() {
     return this._nodeSelectorTerm;
   }
-  public putNodeSelectorTerm(value: PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm[] | cdktf.IResolvable) {
+  public putNodeSelectorTerm(
+    value:
+      | PersistentVolumeSpecNodeAffinityRequiredNodeSelectorTerm[]
+      | cdktf.IResolvable,
+  ) {
     this._nodeSelectorTerm.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -762,31 +948,44 @@ export class PersistentVolumeSpecNodeAffinityRequiredOutputReference extends cdk
 }
 export interface PersistentVolumeSpecNodeAffinity {
   /**
-  * required block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#required PersistentVolume#required}
-  */
+   * required block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#required PersistentVolume#required}
+   */
   readonly required?: PersistentVolumeSpecNodeAffinityRequired;
 }
 
-export function persistentVolumeSpecNodeAffinityToTerraform(struct?: PersistentVolumeSpecNodeAffinityOutputReference | PersistentVolumeSpecNodeAffinity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecNodeAffinityToTerraform(
+  struct?:
+    | PersistentVolumeSpecNodeAffinityOutputReference
+    | PersistentVolumeSpecNodeAffinity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    required: persistentVolumeSpecNodeAffinityRequiredToTerraform(struct!.required),
-  }
+    required: persistentVolumeSpecNodeAffinityRequiredToTerraform(
+      struct!.required,
+    ),
+  };
 }
 
 export class PersistentVolumeSpecNodeAffinityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -800,19 +999,24 @@ export class PersistentVolumeSpecNodeAffinityOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecNodeAffinity | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecNodeAffinity | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._required.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._required.internalValue = value.required;
     }
   }
 
   // required - computed: false, optional: true, required: false
-  private _required = new PersistentVolumeSpecNodeAffinityRequiredOutputReference(this, "required");
+  private _required =
+    new PersistentVolumeSpecNodeAffinityRequiredOutputReference(
+      this,
+      'required',
+    );
   public get required() {
     return this._required;
   }
@@ -829,56 +1033,69 @@ export class PersistentVolumeSpecNodeAffinityOutputReference extends cdktf.Compl
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#partition PersistentVolume#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#partition PersistentVolume#partition}
+   */
   readonly partition?: number;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_id PersistentVolume#volume_id}
-  */
+   * Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_id PersistentVolume#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutputReference | PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -900,15 +1117,18 @@ export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -918,7 +1138,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutpu
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -934,7 +1154,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutpu
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -950,7 +1170,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutpu
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -966,7 +1186,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutpu
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -980,47 +1200,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutpu
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceAzureDisk {
   /**
-  * Host Caching mode: None, Read Only, Read Write.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#caching_mode PersistentVolume#caching_mode}
-  */
+   * Host Caching mode: None, Read Only, Read Write.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#caching_mode PersistentVolume#caching_mode}
+   */
   readonly cachingMode: string;
   /**
-  * The URI the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#data_disk_uri PersistentVolume#data_disk_uri}
-  */
+   * The URI the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#data_disk_uri PersistentVolume#data_disk_uri}
+   */
   readonly dataDiskUri: string;
   /**
-  * The Name of the data disk in the blob storage
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#disk_name PersistentVolume#disk_name}
-  */
+   * The Name of the data disk in the blob storage
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#disk_name PersistentVolume#disk_name}
+   */
   readonly diskName: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#kind PersistentVolume#kind}
-  */
+   * The type for the data disk. Expected values: Shared, Dedicated, Managed. Defaults to Shared
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#kind PersistentVolume#kind}
+   */
   readonly kind?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceAzureDiskToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference | PersistentVolumeSpecPersistentVolumeSourceAzureDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceAzureDiskToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceAzureDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     caching_mode: cdktf.stringToTerraform(struct!.cachingMode),
@@ -1029,21 +1257,26 @@ export function persistentVolumeSpecPersistentVolumeSourceAzureDiskToTerraform(s
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     kind: cdktf.stringToTerraform(struct!.kind),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceAzureDisk | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceAzureDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cachingMode !== undefined) {
@@ -1073,7 +1306,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceAzureDisk | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceAzureDisk | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cachingMode = undefined;
@@ -1082,8 +1317,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
       this._fsType = undefined;
       this._kind = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cachingMode = value.cachingMode;
       this._dataDiskUri = value.dataDiskUri;
@@ -1095,7 +1329,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
   }
 
   // caching_mode - computed: false, optional: false, required: true
-  private _cachingMode?: string; 
+  private _cachingMode?: string;
   public get cachingMode() {
     return this.getStringAttribute('caching_mode');
   }
@@ -1108,7 +1342,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
   }
 
   // data_disk_uri - computed: false, optional: false, required: true
-  private _dataDiskUri?: string; 
+  private _dataDiskUri?: string;
   public get dataDiskUri() {
     return this.getStringAttribute('data_disk_uri');
   }
@@ -1121,7 +1355,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
   }
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string; 
+  private _diskName?: string;
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -1134,7 +1368,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -1150,7 +1384,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
   }
 
   // kind - computed: true, optional: true, required: false
-  private _kind?: string; 
+  private _kind?: string;
   public get kind() {
     return this.getStringAttribute('kind');
   }
@@ -1166,7 +1400,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1183,56 +1417,69 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference 
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceAzureFile {
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The name of secret that contains Azure Storage Account Name and Key
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_name PersistentVolume#secret_name}
-  */
+   * The name of secret that contains Azure Storage Account Name and Key
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_name PersistentVolume#secret_name}
+   */
   readonly secretName: string;
   /**
-  * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_namespace PersistentVolume#secret_namespace}
-  */
+   * The namespace of the secret that contains Azure Storage Account Name and Key. For Kubernetes up to 1.18.x the default is the same as the Pod. For Kubernetes 1.19.x and later the default is "default" namespace.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_namespace PersistentVolume#secret_namespace}
+   */
   readonly secretNamespace?: string;
   /**
-  * Share Name
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#share_name PersistentVolume#share_name}
-  */
+   * Share Name
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#share_name PersistentVolume#share_name}
+   */
   readonly shareName: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceAzureFileToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference | PersistentVolumeSpecPersistentVolumeSourceAzureFile): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceAzureFileToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceAzureFile,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
     secret_namespace: cdktf.stringToTerraform(struct!.secretNamespace),
     share_name: cdktf.stringToTerraform(struct!.shareName),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceAzureFile | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceAzureFile
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._readOnly !== undefined) {
@@ -1254,15 +1501,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceAzureFile | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceAzureFile | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._readOnly = undefined;
       this._secretName = undefined;
       this._secretNamespace = undefined;
       this._shareName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._readOnly = value.readOnly;
       this._secretName = value.secretName;
@@ -1272,7 +1520,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1288,7 +1536,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference 
   }
 
   // secret_name - computed: false, optional: false, required: true
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -1301,7 +1549,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference 
   }
 
   // secret_namespace - computed: false, optional: true, required: false
-  private _secretNamespace?: string; 
+  private _secretNamespace?: string;
   public get secretNamespace() {
     return this.getStringAttribute('secret_namespace');
   }
@@ -1317,7 +1565,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference 
   }
 
   // share_name - computed: false, optional: false, required: true
-  private _shareName?: string; 
+  private _shareName?: string;
   public get shareName() {
     return this.getStringAttribute('share_name');
   }
@@ -1331,42 +1579,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference 
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCephFsSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCephFsSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -1380,13 +1641,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -1394,7 +1658,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputRefe
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1410,7 +1674,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputRefe
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1427,70 +1691,89 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputRefe
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCephFs {
   /**
-  * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#monitors PersistentVolume#monitors}
-  */
+   * Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#monitors PersistentVolume#monitors}
+   */
   readonly monitors: string[];
   /**
-  * Used as the mounted root, rather than the full Ceph tree, default is /
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
-  */
+   * Used as the mounted root, rather than the full Ceph tree, default is /
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
+   */
   readonly path?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_file PersistentVolume#secret_file}
-  */
+   * The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_file PersistentVolume#secret_file}
+   */
   readonly secretFile?: string;
   /**
-  * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#user PersistentVolume#user}
-  */
+   * User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#user PersistentVolume#user}
+   */
   readonly user?: string;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_ref PersistentVolume#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_ref PersistentVolume#secret_ref}
+   */
   readonly secretRef?: PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCephFsToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference | PersistentVolumeSpecPersistentVolumeSourceCephFs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCephFsToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCephFs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.monitors),
+    monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.monitors),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     secret_file: cdktf.stringToTerraform(struct!.secretFile),
     user: cdktf.stringToTerraform(struct!.user),
-    secret_ref: persistentVolumeSpecPersistentVolumeSourceCephFsSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceCephFsSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCephFs | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCephFs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._monitors !== undefined) {
@@ -1520,7 +1803,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCephFs | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceCephFs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._monitors = undefined;
@@ -1529,8 +1814,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
       this._secretFile = undefined;
       this._user = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._monitors = value.monitors;
       this._path = value.path;
@@ -1542,7 +1826,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
   }
 
   // monitors - computed: false, optional: false, required: true
-  private _monitors?: string[]; 
+  private _monitors?: string[];
   public get monitors() {
     return cdktf.Fn.tolist(this.getListAttribute('monitors'));
   }
@@ -1555,7 +1839,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -1571,7 +1855,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1587,7 +1871,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
   }
 
   // secret_file - computed: false, optional: true, required: false
-  private _secretFile?: string; 
+  private _secretFile?: string;
   public get secretFile() {
     return this.getStringAttribute('secret_file');
   }
@@ -1603,7 +1887,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -1619,11 +1903,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef) {
+  public putSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceCephFsSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -1636,49 +1926,62 @@ export class PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference ext
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCinder {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_id PersistentVolume#volume_id}
-  */
+   * Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_id PersistentVolume#volume_id}
+   */
   readonly volumeId: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCinderToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference | PersistentVolumeSpecPersistentVolumeSourceCinder): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCinderToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCinder,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     volume_id: cdktf.stringToTerraform(struct!.volumeId),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCinder | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCinder
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -1696,14 +1999,15 @@ export class PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCinder | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceCinder | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._readOnly = undefined;
       this._volumeId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._readOnly = value.readOnly;
@@ -1712,7 +2016,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference ext
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -1728,7 +2032,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference ext
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -1744,7 +2048,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference ext
   }
 
   // volume_id - computed: false, optional: false, required: true
-  private _volumeId?: string; 
+  private _volumeId?: string;
   public get volumeId() {
     return this.getStringAttribute('volume_id');
   }
@@ -1758,42 +2062,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference ext
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -1807,13 +2124,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecret
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -1821,7 +2141,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecret
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1837,7 +2157,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecret
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1854,42 +2174,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecret
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -1903,13 +2236,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecre
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -1917,7 +2253,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecre
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1933,7 +2269,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecre
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -1950,42 +2286,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecre
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -1999,13 +2348,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -2013,7 +2365,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOu
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2029,7 +2381,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOu
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -2046,42 +2398,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOu
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -2095,13 +2460,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -2109,7 +2477,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2125,7 +2493,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutp
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -2142,91 +2510,118 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutp
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceCsi {
   /**
-  * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#driver PersistentVolume#driver}
-  */
+   * the name of the volume driver to use. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#driver PersistentVolume#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Attributes of the volume to publish.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_attributes PersistentVolume#volume_attributes}
-  */
+   * Attributes of the volume to publish.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_attributes PersistentVolume#volume_attributes}
+   */
   readonly volumeAttributes?: { [key: string]: string };
   /**
-  * A string value that uniquely identifies the volume. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_handle PersistentVolume#volume_handle}
-  */
+   * A string value that uniquely identifies the volume. More info: https://kubernetes.io/docs/concepts/storage/volumes/#csi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_handle PersistentVolume#volume_handle}
+   */
   readonly volumeHandle: string;
   /**
-  * controller_expand_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#controller_expand_secret_ref PersistentVolume#controller_expand_secret_ref}
-  */
+   * controller_expand_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#controller_expand_secret_ref PersistentVolume#controller_expand_secret_ref}
+   */
   readonly controllerExpandSecretRef?: PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef;
   /**
-  * controller_publish_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#controller_publish_secret_ref PersistentVolume#controller_publish_secret_ref}
-  */
+   * controller_publish_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#controller_publish_secret_ref PersistentVolume#controller_publish_secret_ref}
+   */
   readonly controllerPublishSecretRef?: PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef;
   /**
-  * node_publish_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_publish_secret_ref PersistentVolume#node_publish_secret_ref}
-  */
+   * node_publish_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_publish_secret_ref PersistentVolume#node_publish_secret_ref}
+   */
   readonly nodePublishSecretRef?: PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef;
   /**
-  * node_stage_secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_stage_secret_ref PersistentVolume#node_stage_secret_ref}
-  */
+   * node_stage_secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_stage_secret_ref PersistentVolume#node_stage_secret_ref}
+   */
   readonly nodeStageSecretRef?: PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceCsiToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference | PersistentVolumeSpecPersistentVolumeSourceCsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceCsiToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceCsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.volumeAttributes),
+    volume_attributes: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.volumeAttributes,
+    ),
     volume_handle: cdktf.stringToTerraform(struct!.volumeHandle),
-    controller_expand_secret_ref: persistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefToTerraform(struct!.controllerExpandSecretRef),
-    controller_publish_secret_ref: persistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefToTerraform(struct!.controllerPublishSecretRef),
-    node_publish_secret_ref: persistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefToTerraform(struct!.nodePublishSecretRef),
-    node_stage_secret_ref: persistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefToTerraform(struct!.nodeStageSecretRef),
-  }
+    controller_expand_secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefToTerraform(
+        struct!.controllerExpandSecretRef,
+      ),
+    controller_publish_secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefToTerraform(
+        struct!.controllerPublishSecretRef,
+      ),
+    node_publish_secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefToTerraform(
+        struct!.nodePublishSecretRef,
+      ),
+    node_stage_secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefToTerraform(
+        struct!.nodeStageSecretRef,
+      ),
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceCsi | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceCsi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -2251,24 +2646,30 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
     }
     if (this._controllerExpandSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.controllerExpandSecretRef = this._controllerExpandSecretRef?.internalValue;
+      internalValueResult.controllerExpandSecretRef =
+        this._controllerExpandSecretRef?.internalValue;
     }
     if (this._controllerPublishSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.controllerPublishSecretRef = this._controllerPublishSecretRef?.internalValue;
+      internalValueResult.controllerPublishSecretRef =
+        this._controllerPublishSecretRef?.internalValue;
     }
     if (this._nodePublishSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodePublishSecretRef = this._nodePublishSecretRef?.internalValue;
+      internalValueResult.nodePublishSecretRef =
+        this._nodePublishSecretRef?.internalValue;
     }
     if (this._nodeStageSecretRef?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.nodeStageSecretRef = this._nodeStageSecretRef?.internalValue;
+      internalValueResult.nodeStageSecretRef =
+        this._nodeStageSecretRef?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceCsi | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceCsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -2280,23 +2681,24 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
       this._controllerPublishSecretRef.internalValue = undefined;
       this._nodePublishSecretRef.internalValue = undefined;
       this._nodeStageSecretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
       this._readOnly = value.readOnly;
       this._volumeAttributes = value.volumeAttributes;
       this._volumeHandle = value.volumeHandle;
-      this._controllerExpandSecretRef.internalValue = value.controllerExpandSecretRef;
-      this._controllerPublishSecretRef.internalValue = value.controllerPublishSecretRef;
+      this._controllerExpandSecretRef.internalValue =
+        value.controllerExpandSecretRef;
+      this._controllerPublishSecretRef.internalValue =
+        value.controllerPublishSecretRef;
       this._nodePublishSecretRef.internalValue = value.nodePublishSecretRef;
       this._nodeStageSecretRef.internalValue = value.nodeStageSecretRef;
     }
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -2309,7 +2711,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -2325,7 +2727,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2341,7 +2743,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // volume_attributes - computed: false, optional: true, required: false
-  private _volumeAttributes?: { [key: string]: string }; 
+  private _volumeAttributes?: { [key: string]: string };
   public get volumeAttributes() {
     return this.getStringMapAttribute('volume_attributes');
   }
@@ -2357,7 +2759,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // volume_handle - computed: false, optional: false, required: true
-  private _volumeHandle?: string; 
+  private _volumeHandle?: string;
   public get volumeHandle() {
     return this.getStringAttribute('volume_handle');
   }
@@ -2370,11 +2772,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // controller_expand_secret_ref - computed: false, optional: true, required: false
-  private _controllerExpandSecretRef = new PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefOutputReference(this, "controller_expand_secret_ref");
+  private _controllerExpandSecretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRefOutputReference(
+      this,
+      'controller_expand_secret_ref',
+    );
   public get controllerExpandSecretRef() {
     return this._controllerExpandSecretRef;
   }
-  public putControllerExpandSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef) {
+  public putControllerExpandSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceCsiControllerExpandSecretRef,
+  ) {
     this._controllerExpandSecretRef.internalValue = value;
   }
   public resetControllerExpandSecretRef() {
@@ -2386,11 +2794,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // controller_publish_secret_ref - computed: false, optional: true, required: false
-  private _controllerPublishSecretRef = new PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefOutputReference(this, "controller_publish_secret_ref");
+  private _controllerPublishSecretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRefOutputReference(
+      this,
+      'controller_publish_secret_ref',
+    );
   public get controllerPublishSecretRef() {
     return this._controllerPublishSecretRef;
   }
-  public putControllerPublishSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef) {
+  public putControllerPublishSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceCsiControllerPublishSecretRef,
+  ) {
     this._controllerPublishSecretRef.internalValue = value;
   }
   public resetControllerPublishSecretRef() {
@@ -2402,11 +2816,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // node_publish_secret_ref - computed: false, optional: true, required: false
-  private _nodePublishSecretRef = new PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOutputReference(this, "node_publish_secret_ref");
+  private _nodePublishSecretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRefOutputReference(
+      this,
+      'node_publish_secret_ref',
+    );
   public get nodePublishSecretRef() {
     return this._nodePublishSecretRef;
   }
-  public putNodePublishSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef) {
+  public putNodePublishSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceCsiNodePublishSecretRef,
+  ) {
     this._nodePublishSecretRef.internalValue = value;
   }
   public resetNodePublishSecretRef() {
@@ -2418,11 +2838,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
   }
 
   // node_stage_secret_ref - computed: false, optional: true, required: false
-  private _nodeStageSecretRef = new PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutputReference(this, "node_stage_secret_ref");
+  private _nodeStageSecretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRefOutputReference(
+      this,
+      'node_stage_secret_ref',
+    );
   public get nodeStageSecretRef() {
     return this._nodeStageSecretRef;
   }
-  public putNodeStageSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef) {
+  public putNodeStageSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceCsiNodeStageSecretRef,
+  ) {
     this._nodeStageSecretRef.internalValue = value;
   }
   public resetNodeStageSecretRef() {
@@ -2435,56 +2861,72 @@ export class PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference extend
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceFc {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * FC target lun number
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#lun PersistentVolume#lun}
-  */
+   * FC target lun number
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#lun PersistentVolume#lun}
+   */
   readonly lun: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * FC target worldwide names (WWNs)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#target_ww_ns PersistentVolume#target_ww_ns}
-  */
+   * FC target worldwide names (WWNs)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#target_ww_ns PersistentVolume#target_ww_ns}
+   */
   readonly targetWwNs: string[];
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceFcToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceFcOutputReference | PersistentVolumeSpecPersistentVolumeSourceFc): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceFcToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceFcOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceFc,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    target_ww_ns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.targetWwNs),
-  }
+    target_ww_ns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.targetWwNs),
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceFc | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceFc
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -2506,15 +2948,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceFc | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceFc | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetWwNs = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._lun = value.lun;
@@ -2524,7 +2967,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -2540,7 +2983,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends
   }
 
   // lun - computed: false, optional: false, required: true
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -2553,7 +2996,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2569,7 +3012,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends
   }
 
   // target_ww_ns - computed: false, optional: false, required: true
-  private _targetWwNs?: string[]; 
+  private _targetWwNs?: string[];
   public get targetWwNs() {
     return cdktf.Fn.tolist(this.getListAttribute('target_ww_ns'));
   }
@@ -2583,42 +3026,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceFcOutputReference extends
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -2632,13 +3088,16 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -2646,7 +3105,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutput
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2662,7 +3121,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutput
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -2679,63 +3138,79 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutput
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceFlexVolume {
   /**
-  * Driver is the name of the driver to use for this volume.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#driver PersistentVolume#driver}
-  */
+   * Driver is the name of the driver to use for this volume.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#driver PersistentVolume#driver}
+   */
   readonly driver: string;
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Extra command options if any.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#options PersistentVolume#options}
-  */
+   * Extra command options if any.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#options PersistentVolume#options}
+   */
   readonly options?: { [key: string]: string };
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_ref PersistentVolume#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_ref PersistentVolume#secret_ref}
+   */
   readonly secretRef?: PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceFlexVolumeToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference | PersistentVolumeSpecPersistentVolumeSourceFlexVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceFlexVolumeToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceFlexVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver: cdktf.stringToTerraform(struct!.driver),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     options: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.options),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: persistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceFlexVolume | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceFlexVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driver !== undefined) {
@@ -2761,7 +3236,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceFlexVolume | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceFlexVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driver = undefined;
@@ -2769,8 +3246,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
       this._options = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driver = value.driver;
       this._fsType = value.fsType;
@@ -2781,7 +3257,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
   }
 
   // driver - computed: false, optional: false, required: true
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -2794,7 +3270,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -2810,7 +3286,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -2826,7 +3302,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2842,11 +3318,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef) {
+  public putSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceFlexVolumeSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -2859,42 +3341,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceFlocker {
   /**
-  * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#dataset_name PersistentVolume#dataset_name}
-  */
+   * Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#dataset_name PersistentVolume#dataset_name}
+   */
   readonly datasetName?: string;
   /**
-  * UUID of the dataset. This is unique identifier of a Flocker dataset
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#dataset_uuid PersistentVolume#dataset_uuid}
-  */
+   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#dataset_uuid PersistentVolume#dataset_uuid}
+   */
   readonly datasetUuid?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceFlockerToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference | PersistentVolumeSpecPersistentVolumeSourceFlocker): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceFlockerToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceFlocker,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     dataset_name: cdktf.stringToTerraform(struct!.datasetName),
     dataset_uuid: cdktf.stringToTerraform(struct!.datasetUuid),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceFlocker | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceFlocker
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._datasetName !== undefined) {
@@ -2908,13 +3403,14 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceFlocker | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceFlocker | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._datasetName = undefined;
       this._datasetUuid = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._datasetName = value.datasetName;
       this._datasetUuid = value.datasetUuid;
@@ -2922,7 +3418,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference ex
   }
 
   // dataset_name - computed: false, optional: true, required: false
-  private _datasetName?: string; 
+  private _datasetName?: string;
   public get datasetName() {
     return this.getStringAttribute('dataset_name');
   }
@@ -2938,7 +3434,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference ex
   }
 
   // dataset_uuid - computed: false, optional: true, required: false
-  private _datasetUuid?: string; 
+  private _datasetUuid?: string;
   public get datasetUuid() {
     return this.getStringAttribute('dataset_uuid');
   }
@@ -2955,56 +3451,69 @@ export class PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference ex
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#partition PersistentVolume#partition}
-  */
+   * The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#partition PersistentVolume#partition}
+   */
   readonly partition?: number;
   /**
-  * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#pd_name PersistentVolume#pd_name}
-  */
+   * Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#pd_name PersistentVolume#pd_name}
+   */
   readonly pdName: string;
   /**
-  * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceGcePersistentDiskToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputReference | PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceGcePersistentDiskToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     partition: cdktf.numberToTerraform(struct!.partition),
     pd_name: cdktf.stringToTerraform(struct!.pdName),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -3026,15 +3535,18 @@ export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._partition = undefined;
       this._pdName = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._partition = value.partition;
@@ -3044,7 +3556,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputRe
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3060,7 +3572,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputRe
   }
 
   // partition - computed: false, optional: true, required: false
-  private _partition?: number; 
+  private _partition?: number;
   public get partition() {
     return this.getNumberAttribute('partition');
   }
@@ -3076,7 +3588,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputRe
   }
 
   // pd_name - computed: false, optional: false, required: true
-  private _pdName?: string; 
+  private _pdName?: string;
   public get pdName() {
     return this.getStringAttribute('pd_name');
   }
@@ -3089,7 +3601,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputRe
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3106,49 +3618,62 @@ export class PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputRe
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceGlusterfs {
   /**
-  * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#endpoints_name PersistentVolume#endpoints_name}
-  */
+   * The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#endpoints_name PersistentVolume#endpoints_name}
+   */
   readonly endpointsName: string;
   /**
-  * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
-  */
+   * The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceGlusterfsToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference | PersistentVolumeSpecPersistentVolumeSourceGlusterfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceGlusterfsToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceGlusterfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     endpoints_name: cdktf.stringToTerraform(struct!.endpointsName),
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceGlusterfs | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceGlusterfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._endpointsName !== undefined) {
@@ -3166,14 +3691,15 @@ export class PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceGlusterfs | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceGlusterfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._endpointsName = undefined;
       this._path = undefined;
       this._readOnly = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._endpointsName = value.endpointsName;
       this._path = value.path;
@@ -3182,7 +3708,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference 
   }
 
   // endpoints_name - computed: false, optional: false, required: true
-  private _endpointsName?: string; 
+  private _endpointsName?: string;
   public get endpointsName() {
     return this.getStringAttribute('endpoints_name');
   }
@@ -3195,7 +3721,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference 
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3208,7 +3734,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference 
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3225,42 +3751,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference 
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceHostPath {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
+   */
   readonly path?: string;
   /**
-  * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#type PersistentVolume#type}
-  */
+   * Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#type PersistentVolume#type}
+   */
   readonly type?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceHostPathToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference | PersistentVolumeSpecPersistentVolumeSourceHostPath): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceHostPathToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceHostPath,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceHostPath | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceHostPath
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -3274,13 +3813,14 @@ export class PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceHostPath | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceHostPath | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._type = value.type;
@@ -3288,7 +3828,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference e
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3304,7 +3844,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference e
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3321,47 +3861,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference e
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceIscsi {
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Target iSCSI Qualified Name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#iqn PersistentVolume#iqn}
-  */
+   * Target iSCSI Qualified Name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#iqn PersistentVolume#iqn}
+   */
   readonly iqn: string;
   /**
-  * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#iscsi_interface PersistentVolume#iscsi_interface}
-  */
+   * iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#iscsi_interface PersistentVolume#iscsi_interface}
+   */
   readonly iscsiInterface?: string;
   /**
-  * iSCSI target lun number.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#lun PersistentVolume#lun}
-  */
+   * iSCSI target lun number.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#lun PersistentVolume#lun}
+   */
   readonly lun?: number;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#target_portal PersistentVolume#target_portal}
-  */
+   * iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#target_portal PersistentVolume#target_portal}
+   */
   readonly targetPortal: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceIscsiToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference | PersistentVolumeSpecPersistentVolumeSourceIscsi): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceIscsiToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceIscsi,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
@@ -3370,21 +3918,26 @@ export function persistentVolumeSpecPersistentVolumeSourceIscsiToTerraform(struc
     lun: cdktf.numberToTerraform(struct!.lun),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     target_portal: cdktf.stringToTerraform(struct!.targetPortal),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceIscsi | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceIscsi
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -3414,7 +3967,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceIscsi | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceIscsi | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
@@ -3423,8 +3978,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
       this._lun = undefined;
       this._readOnly = undefined;
       this._targetPortal = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._iqn = value.iqn;
@@ -3436,7 +3990,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3452,7 +4006,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
   }
 
   // iqn - computed: false, optional: false, required: true
-  private _iqn?: string; 
+  private _iqn?: string;
   public get iqn() {
     return this.getStringAttribute('iqn');
   }
@@ -3465,7 +4019,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
   }
 
   // iscsi_interface - computed: false, optional: true, required: false
-  private _iscsiInterface?: string; 
+  private _iscsiInterface?: string;
   public get iscsiInterface() {
     return this.getStringAttribute('iscsi_interface');
   }
@@ -3481,7 +4035,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
   }
 
   // lun - computed: false, optional: true, required: false
-  private _lun?: number; 
+  private _lun?: number;
   public get lun() {
     return this.getNumberAttribute('lun');
   }
@@ -3497,7 +4051,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3513,7 +4067,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
   }
 
   // target_portal - computed: false, optional: false, required: true
-  private _targetPortal?: string; 
+  private _targetPortal?: string;
   public get targetPortal() {
     return this.getStringAttribute('target_portal');
   }
@@ -3527,35 +4081,48 @@ export class PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference exte
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceLocal {
   /**
-  * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
-  */
+   * Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
+   */
   readonly path?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceLocalToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference | PersistentVolumeSpecPersistentVolumeSourceLocal): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceLocalToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceLocal,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceLocal | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceLocal
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -3565,19 +4132,20 @@ export class PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceLocal | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceLocal | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
     }
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3594,49 +4162,62 @@ export class PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference exte
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceNfs {
   /**
-  * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
-  */
+   * Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#path PersistentVolume#path}
+   */
   readonly path: string;
   /**
-  * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#server PersistentVolume#server}
-  */
+   * Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#server PersistentVolume#server}
+   */
   readonly server: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceNfsToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference | PersistentVolumeSpecPersistentVolumeSourceNfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceNfsToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceNfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     server: cdktf.stringToTerraform(struct!.server),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceNfs | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceNfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._path !== undefined) {
@@ -3654,14 +4235,15 @@ export class PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceNfs | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceNfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._path = undefined;
       this._readOnly = undefined;
       this._server = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._readOnly = value.readOnly;
@@ -3670,7 +4252,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference extend
   }
 
   // path - computed: false, optional: false, required: true
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -3683,7 +4265,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference extend
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3699,7 +4281,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference extend
   }
 
   // server - computed: false, optional: false, required: true
-  private _server?: string; 
+  private _server?: string;
   public get server() {
     return this.getStringAttribute('server');
   }
@@ -3713,42 +4295,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference extend
 }
 export interface PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * ID that identifies Photon Controller persistent disk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#pd_id PersistentVolume#pd_id}
-  */
+   * ID that identifies Photon Controller persistent disk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#pd_id PersistentVolume#pd_id}
+   */
   readonly pdId: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutputReference | PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     pd_id: cdktf.stringToTerraform(struct!.pdId),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -3762,13 +4357,16 @@ export class PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk | undefined) {
+  public set internalValue(
+    value:
+      | PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._pdId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._pdId = value.pdId;
@@ -3776,7 +4374,7 @@ export class PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutpu
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -3792,7 +4390,7 @@ export class PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutpu
   }
 
   // pd_id - computed: false, optional: false, required: true
-  private _pdId?: string; 
+  private _pdId?: string;
   public get pdId() {
     return this.getStringAttribute('pd_id');
   }
@@ -3806,41 +4404,49 @@ export class PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutpu
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceQuobyte {
   /**
-  * Group to map volume access to Default is no group
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#group PersistentVolume#group}
-  */
+   * Group to map volume access to Default is no group
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#group PersistentVolume#group}
+   */
   readonly group?: string;
   /**
-  * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#registry PersistentVolume#registry}
-  */
+   * Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#registry PersistentVolume#registry}
+   */
   readonly registry: string;
   /**
-  * User to map volume access to Defaults to serivceaccount user
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#user PersistentVolume#user}
-  */
+   * User to map volume access to Defaults to serivceaccount user
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#user PersistentVolume#user}
+   */
   readonly user?: string;
   /**
-  * Volume is a string that references an already created Quobyte volume by name.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume PersistentVolume#volume}
-  */
+   * Volume is a string that references an already created Quobyte volume by name.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume PersistentVolume#volume}
+   */
   readonly volume: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceQuobyteToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference | PersistentVolumeSpecPersistentVolumeSourceQuobyte): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceQuobyteToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceQuobyte,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     group: cdktf.stringToTerraform(struct!.group),
@@ -3848,21 +4454,26 @@ export function persistentVolumeSpecPersistentVolumeSourceQuobyteToTerraform(str
     registry: cdktf.stringToTerraform(struct!.registry),
     user: cdktf.stringToTerraform(struct!.user),
     volume: cdktf.stringToTerraform(struct!.volume),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceQuobyte | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceQuobyte
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._group !== undefined) {
@@ -3888,7 +4499,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceQuobyte | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceQuobyte | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._group = undefined;
@@ -3896,8 +4509,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
       this._registry = undefined;
       this._user = undefined;
       this._volume = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._group = value.group;
       this._readOnly = value.readOnly;
@@ -3908,7 +4520,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -3924,7 +4536,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3940,7 +4552,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
   }
 
   // registry - computed: false, optional: false, required: true
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -3953,7 +4565,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -3969,7 +4581,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
   }
 
   // volume - computed: false, optional: false, required: true
-  private _volume?: string; 
+  private _volume?: string;
   public get volume() {
     return this.getStringAttribute('volume');
   }
@@ -3983,42 +4595,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference ex
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef {
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#name PersistentVolume#name}
+   */
   readonly name?: string;
   /**
-  * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
-  */
+   * Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#namespace PersistentVolume#namespace}
+   */
   readonly namespace?: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceRbdSecretRefToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReference | PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceRbdSecretRefToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -4032,13 +4657,14 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._namespace = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._namespace = value.namespace;
@@ -4046,7 +4672,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReferen
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4062,7 +4688,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReferen
   }
 
   // namespace - computed: true, optional: true, required: false
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -4079,84 +4705,103 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReferen
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceRbd {
   /**
-  * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#ceph_monitors PersistentVolume#ceph_monitors}
-  */
+   * A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#ceph_monitors PersistentVolume#ceph_monitors}
+   */
   readonly cephMonitors: string[];
   /**
-  * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#keyring PersistentVolume#keyring}
-  */
+   * Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#keyring PersistentVolume#keyring}
+   */
   readonly keyring?: string;
   /**
-  * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rados_user PersistentVolume#rados_user}
-  */
+   * The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rados_user PersistentVolume#rados_user}
+   */
   readonly radosUser?: string;
   /**
-  * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rbd_image PersistentVolume#rbd_image}
-  */
+   * The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rbd_image PersistentVolume#rbd_image}
+   */
   readonly rbdImage: string;
   /**
-  * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rbd_pool PersistentVolume#rbd_pool}
-  */
+   * The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rbd_pool PersistentVolume#rbd_pool}
+   */
   readonly rbdPool?: string;
   /**
-  * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
-  */
+   * Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#read_only PersistentVolume#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * secret_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_ref PersistentVolume#secret_ref}
-  */
+   * secret_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#secret_ref PersistentVolume#secret_ref}
+   */
   readonly secretRef?: PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceRbdToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference | PersistentVolumeSpecPersistentVolumeSourceRbd): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceRbdToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceRbd,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ceph_monitors: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cephMonitors),
+    ceph_monitors: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cephMonitors),
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     keyring: cdktf.stringToTerraform(struct!.keyring),
     rados_user: cdktf.stringToTerraform(struct!.radosUser),
     rbd_image: cdktf.stringToTerraform(struct!.rbdImage),
     rbd_pool: cdktf.stringToTerraform(struct!.rbdPool),
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
-    secret_ref: persistentVolumeSpecPersistentVolumeSourceRbdSecretRefToTerraform(struct!.secretRef),
-  }
+    secret_ref:
+      persistentVolumeSpecPersistentVolumeSourceRbdSecretRefToTerraform(
+        struct!.secretRef,
+      ),
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceRbd | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceRbd
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cephMonitors !== undefined) {
@@ -4194,7 +4839,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceRbd | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceRbd | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cephMonitors = undefined;
@@ -4205,8 +4852,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
       this._rbdPool = undefined;
       this._readOnly = undefined;
       this._secretRef.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cephMonitors = value.cephMonitors;
       this._fsType = value.fsType;
@@ -4220,7 +4866,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // ceph_monitors - computed: false, optional: false, required: true
-  private _cephMonitors?: string[]; 
+  private _cephMonitors?: string[];
   public get cephMonitors() {
     return cdktf.Fn.tolist(this.getListAttribute('ceph_monitors'));
   }
@@ -4233,7 +4879,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4249,7 +4895,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // keyring - computed: true, optional: true, required: false
-  private _keyring?: string; 
+  private _keyring?: string;
   public get keyring() {
     return this.getStringAttribute('keyring');
   }
@@ -4265,7 +4911,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // rados_user - computed: false, optional: true, required: false
-  private _radosUser?: string; 
+  private _radosUser?: string;
   public get radosUser() {
     return this.getStringAttribute('rados_user');
   }
@@ -4281,7 +4927,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // rbd_image - computed: false, optional: false, required: true
-  private _rbdImage?: string; 
+  private _rbdImage?: string;
   public get rbdImage() {
     return this.getStringAttribute('rbd_image');
   }
@@ -4294,7 +4940,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // rbd_pool - computed: false, optional: true, required: false
-  private _rbdPool?: string; 
+  private _rbdPool?: string;
   public get rbdPool() {
     return this.getStringAttribute('rbd_pool');
   }
@@ -4310,7 +4956,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -4326,11 +4972,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
   }
 
   // secret_ref - computed: false, optional: true, required: false
-  private _secretRef = new PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReference(this, "secret_ref");
+  private _secretRef =
+    new PersistentVolumeSpecPersistentVolumeSourceRbdSecretRefOutputReference(
+      this,
+      'secret_ref',
+    );
   public get secretRef() {
     return this._secretRef;
   }
-  public putSecretRef(value: PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef) {
+  public putSecretRef(
+    value: PersistentVolumeSpecPersistentVolumeSourceRbdSecretRef,
+  ) {
     this._secretRef.internalValue = value;
   }
   public resetSecretRef() {
@@ -4343,42 +4995,55 @@ export class PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference extend
 }
 export interface PersistentVolumeSpecPersistentVolumeSourceVsphereVolume {
   /**
-  * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
-  */
+   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fs_type PersistentVolume#fs_type}
+   */
   readonly fsType?: string;
   /**
-  * Path that identifies vSphere volume vmdk
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_path PersistentVolume#volume_path}
-  */
+   * Path that identifies vSphere volume vmdk
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_path PersistentVolume#volume_path}
+   */
   readonly volumePath: string;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceVsphereVolumeToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputReference | PersistentVolumeSpecPersistentVolumeSourceVsphereVolume): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceVsphereVolumeToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputReference
+    | PersistentVolumeSpecPersistentVolumeSourceVsphereVolume,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fs_type: cdktf.stringToTerraform(struct!.fsType),
     volume_path: cdktf.stringToTerraform(struct!.volumePath),
-  }
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSourceVsphereVolume | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSourceVsphereVolume
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fsType !== undefined) {
@@ -4392,13 +5057,14 @@ export class PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSourceVsphereVolume | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSourceVsphereVolume | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fsType = undefined;
       this._volumePath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fsType = value.fsType;
       this._volumePath = value.volumePath;
@@ -4406,7 +5072,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputRefere
   }
 
   // fs_type - computed: false, optional: true, required: false
-  private _fsType?: string; 
+  private _fsType?: string;
   public get fsType() {
     return this.getStringAttribute('fs_type');
   }
@@ -4422,7 +5088,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputRefere
   }
 
   // volume_path - computed: false, optional: false, required: true
-  private _volumePath?: string; 
+  private _volumePath?: string;
   public get volumePath() {
     return this.getStringAttribute('volume_path');
   }
@@ -4436,166 +5102,215 @@ export class PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputRefere
 }
 export interface PersistentVolumeSpecPersistentVolumeSource {
   /**
-  * aws_elastic_block_store block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#aws_elastic_block_store PersistentVolume#aws_elastic_block_store}
-  */
+   * aws_elastic_block_store block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#aws_elastic_block_store PersistentVolume#aws_elastic_block_store}
+   */
   readonly awsElasticBlockStore?: PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore;
   /**
-  * azure_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#azure_disk PersistentVolume#azure_disk}
-  */
+   * azure_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#azure_disk PersistentVolume#azure_disk}
+   */
   readonly azureDisk?: PersistentVolumeSpecPersistentVolumeSourceAzureDisk;
   /**
-  * azure_file block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#azure_file PersistentVolume#azure_file}
-  */
+   * azure_file block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#azure_file PersistentVolume#azure_file}
+   */
   readonly azureFile?: PersistentVolumeSpecPersistentVolumeSourceAzureFile;
   /**
-  * ceph_fs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#ceph_fs PersistentVolume#ceph_fs}
-  */
+   * ceph_fs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#ceph_fs PersistentVolume#ceph_fs}
+   */
   readonly cephFs?: PersistentVolumeSpecPersistentVolumeSourceCephFs;
   /**
-  * cinder block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#cinder PersistentVolume#cinder}
-  */
+   * cinder block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#cinder PersistentVolume#cinder}
+   */
   readonly cinder?: PersistentVolumeSpecPersistentVolumeSourceCinder;
   /**
-  * csi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#csi PersistentVolume#csi}
-  */
+   * csi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#csi PersistentVolume#csi}
+   */
   readonly csi?: PersistentVolumeSpecPersistentVolumeSourceCsi;
   /**
-  * fc block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fc PersistentVolume#fc}
-  */
+   * fc block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#fc PersistentVolume#fc}
+   */
   readonly fc?: PersistentVolumeSpecPersistentVolumeSourceFc;
   /**
-  * flex_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#flex_volume PersistentVolume#flex_volume}
-  */
+   * flex_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#flex_volume PersistentVolume#flex_volume}
+   */
   readonly flexVolume?: PersistentVolumeSpecPersistentVolumeSourceFlexVolume;
   /**
-  * flocker block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#flocker PersistentVolume#flocker}
-  */
+   * flocker block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#flocker PersistentVolume#flocker}
+   */
   readonly flocker?: PersistentVolumeSpecPersistentVolumeSourceFlocker;
   /**
-  * gce_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#gce_persistent_disk PersistentVolume#gce_persistent_disk}
-  */
+   * gce_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#gce_persistent_disk PersistentVolume#gce_persistent_disk}
+   */
   readonly gcePersistentDisk?: PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk;
   /**
-  * glusterfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#glusterfs PersistentVolume#glusterfs}
-  */
+   * glusterfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#glusterfs PersistentVolume#glusterfs}
+   */
   readonly glusterfs?: PersistentVolumeSpecPersistentVolumeSourceGlusterfs;
   /**
-  * host_path block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#host_path PersistentVolume#host_path}
-  */
+   * host_path block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#host_path PersistentVolume#host_path}
+   */
   readonly hostPath?: PersistentVolumeSpecPersistentVolumeSourceHostPath;
   /**
-  * iscsi block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#iscsi PersistentVolume#iscsi}
-  */
+   * iscsi block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#iscsi PersistentVolume#iscsi}
+   */
   readonly iscsi?: PersistentVolumeSpecPersistentVolumeSourceIscsi;
   /**
-  * local block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#local PersistentVolume#local}
-  */
+   * local block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#local PersistentVolume#local}
+   */
   readonly local?: PersistentVolumeSpecPersistentVolumeSourceLocal;
   /**
-  * nfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#nfs PersistentVolume#nfs}
-  */
+   * nfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#nfs PersistentVolume#nfs}
+   */
   readonly nfs?: PersistentVolumeSpecPersistentVolumeSourceNfs;
   /**
-  * photon_persistent_disk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#photon_persistent_disk PersistentVolume#photon_persistent_disk}
-  */
+   * photon_persistent_disk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#photon_persistent_disk PersistentVolume#photon_persistent_disk}
+   */
   readonly photonPersistentDisk?: PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk;
   /**
-  * quobyte block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#quobyte PersistentVolume#quobyte}
-  */
+   * quobyte block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#quobyte PersistentVolume#quobyte}
+   */
   readonly quobyte?: PersistentVolumeSpecPersistentVolumeSourceQuobyte;
   /**
-  * rbd block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rbd PersistentVolume#rbd}
-  */
+   * rbd block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#rbd PersistentVolume#rbd}
+   */
   readonly rbd?: PersistentVolumeSpecPersistentVolumeSourceRbd;
   /**
-  * vsphere_volume block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#vsphere_volume PersistentVolume#vsphere_volume}
-  */
+   * vsphere_volume block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#vsphere_volume PersistentVolume#vsphere_volume}
+   */
   readonly vsphereVolume?: PersistentVolumeSpecPersistentVolumeSourceVsphereVolume;
 }
 
-export function persistentVolumeSpecPersistentVolumeSourceToTerraform(struct?: PersistentVolumeSpecPersistentVolumeSourceOutputReference | PersistentVolumeSpecPersistentVolumeSource): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecPersistentVolumeSourceToTerraform(
+  struct?:
+    | PersistentVolumeSpecPersistentVolumeSourceOutputReference
+    | PersistentVolumeSpecPersistentVolumeSource,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    aws_elastic_block_store: persistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreToTerraform(struct!.awsElasticBlockStore),
-    azure_disk: persistentVolumeSpecPersistentVolumeSourceAzureDiskToTerraform(struct!.azureDisk),
-    azure_file: persistentVolumeSpecPersistentVolumeSourceAzureFileToTerraform(struct!.azureFile),
-    ceph_fs: persistentVolumeSpecPersistentVolumeSourceCephFsToTerraform(struct!.cephFs),
-    cinder: persistentVolumeSpecPersistentVolumeSourceCinderToTerraform(struct!.cinder),
+    aws_elastic_block_store:
+      persistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreToTerraform(
+        struct!.awsElasticBlockStore,
+      ),
+    azure_disk: persistentVolumeSpecPersistentVolumeSourceAzureDiskToTerraform(
+      struct!.azureDisk,
+    ),
+    azure_file: persistentVolumeSpecPersistentVolumeSourceAzureFileToTerraform(
+      struct!.azureFile,
+    ),
+    ceph_fs: persistentVolumeSpecPersistentVolumeSourceCephFsToTerraform(
+      struct!.cephFs,
+    ),
+    cinder: persistentVolumeSpecPersistentVolumeSourceCinderToTerraform(
+      struct!.cinder,
+    ),
     csi: persistentVolumeSpecPersistentVolumeSourceCsiToTerraform(struct!.csi),
     fc: persistentVolumeSpecPersistentVolumeSourceFcToTerraform(struct!.fc),
-    flex_volume: persistentVolumeSpecPersistentVolumeSourceFlexVolumeToTerraform(struct!.flexVolume),
-    flocker: persistentVolumeSpecPersistentVolumeSourceFlockerToTerraform(struct!.flocker),
-    gce_persistent_disk: persistentVolumeSpecPersistentVolumeSourceGcePersistentDiskToTerraform(struct!.gcePersistentDisk),
-    glusterfs: persistentVolumeSpecPersistentVolumeSourceGlusterfsToTerraform(struct!.glusterfs),
-    host_path: persistentVolumeSpecPersistentVolumeSourceHostPathToTerraform(struct!.hostPath),
-    iscsi: persistentVolumeSpecPersistentVolumeSourceIscsiToTerraform(struct!.iscsi),
-    local: persistentVolumeSpecPersistentVolumeSourceLocalToTerraform(struct!.local),
+    flex_volume:
+      persistentVolumeSpecPersistentVolumeSourceFlexVolumeToTerraform(
+        struct!.flexVolume,
+      ),
+    flocker: persistentVolumeSpecPersistentVolumeSourceFlockerToTerraform(
+      struct!.flocker,
+    ),
+    gce_persistent_disk:
+      persistentVolumeSpecPersistentVolumeSourceGcePersistentDiskToTerraform(
+        struct!.gcePersistentDisk,
+      ),
+    glusterfs: persistentVolumeSpecPersistentVolumeSourceGlusterfsToTerraform(
+      struct!.glusterfs,
+    ),
+    host_path: persistentVolumeSpecPersistentVolumeSourceHostPathToTerraform(
+      struct!.hostPath,
+    ),
+    iscsi: persistentVolumeSpecPersistentVolumeSourceIscsiToTerraform(
+      struct!.iscsi,
+    ),
+    local: persistentVolumeSpecPersistentVolumeSourceLocalToTerraform(
+      struct!.local,
+    ),
     nfs: persistentVolumeSpecPersistentVolumeSourceNfsToTerraform(struct!.nfs),
-    photon_persistent_disk: persistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskToTerraform(struct!.photonPersistentDisk),
-    quobyte: persistentVolumeSpecPersistentVolumeSourceQuobyteToTerraform(struct!.quobyte),
+    photon_persistent_disk:
+      persistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskToTerraform(
+        struct!.photonPersistentDisk,
+      ),
+    quobyte: persistentVolumeSpecPersistentVolumeSourceQuobyteToTerraform(
+      struct!.quobyte,
+    ),
     rbd: persistentVolumeSpecPersistentVolumeSourceRbdToTerraform(struct!.rbd),
-    vsphere_volume: persistentVolumeSpecPersistentVolumeSourceVsphereVolumeToTerraform(struct!.vsphereVolume),
-  }
+    vsphere_volume:
+      persistentVolumeSpecPersistentVolumeSourceVsphereVolumeToTerraform(
+        struct!.vsphereVolume,
+      ),
+  };
 }
 
 export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeSpecPersistentVolumeSource | undefined {
+  public get internalValue():
+    | PersistentVolumeSpecPersistentVolumeSource
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._awsElasticBlockStore?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.awsElasticBlockStore = this._awsElasticBlockStore?.internalValue;
+      internalValueResult.awsElasticBlockStore =
+        this._awsElasticBlockStore?.internalValue;
     }
     if (this._azureDisk?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4631,7 +5346,8 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
     }
     if (this._gcePersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.gcePersistentDisk = this._gcePersistentDisk?.internalValue;
+      internalValueResult.gcePersistentDisk =
+        this._gcePersistentDisk?.internalValue;
     }
     if (this._glusterfs?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4655,7 +5371,8 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
     }
     if (this._photonPersistentDisk?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.photonPersistentDisk = this._photonPersistentDisk?.internalValue;
+      internalValueResult.photonPersistentDisk =
+        this._photonPersistentDisk?.internalValue;
     }
     if (this._quobyte?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4672,7 +5389,9 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpecPersistentVolumeSource | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpecPersistentVolumeSource | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._awsElasticBlockStore.internalValue = undefined;
@@ -4694,8 +5413,7 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
       this._quobyte.internalValue = undefined;
       this._rbd.internalValue = undefined;
       this._vsphereVolume.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._awsElasticBlockStore.internalValue = value.awsElasticBlockStore;
       this._azureDisk.internalValue = value.azureDisk;
@@ -4720,11 +5438,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // aws_elastic_block_store - computed: false, optional: true, required: false
-  private _awsElasticBlockStore = new PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutputReference(this, "aws_elastic_block_store");
+  private _awsElasticBlockStore =
+    new PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStoreOutputReference(
+      this,
+      'aws_elastic_block_store',
+    );
   public get awsElasticBlockStore() {
     return this._awsElasticBlockStore;
   }
-  public putAwsElasticBlockStore(value: PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore) {
+  public putAwsElasticBlockStore(
+    value: PersistentVolumeSpecPersistentVolumeSourceAwsElasticBlockStore,
+  ) {
     this._awsElasticBlockStore.internalValue = value;
   }
   public resetAwsElasticBlockStore() {
@@ -4736,11 +5460,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // azure_disk - computed: false, optional: true, required: false
-  private _azureDisk = new PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference(this, "azure_disk");
+  private _azureDisk =
+    new PersistentVolumeSpecPersistentVolumeSourceAzureDiskOutputReference(
+      this,
+      'azure_disk',
+    );
   public get azureDisk() {
     return this._azureDisk;
   }
-  public putAzureDisk(value: PersistentVolumeSpecPersistentVolumeSourceAzureDisk) {
+  public putAzureDisk(
+    value: PersistentVolumeSpecPersistentVolumeSourceAzureDisk,
+  ) {
     this._azureDisk.internalValue = value;
   }
   public resetAzureDisk() {
@@ -4752,11 +5482,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // azure_file - computed: false, optional: true, required: false
-  private _azureFile = new PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference(this, "azure_file");
+  private _azureFile =
+    new PersistentVolumeSpecPersistentVolumeSourceAzureFileOutputReference(
+      this,
+      'azure_file',
+    );
   public get azureFile() {
     return this._azureFile;
   }
-  public putAzureFile(value: PersistentVolumeSpecPersistentVolumeSourceAzureFile) {
+  public putAzureFile(
+    value: PersistentVolumeSpecPersistentVolumeSourceAzureFile,
+  ) {
     this._azureFile.internalValue = value;
   }
   public resetAzureFile() {
@@ -4768,7 +5504,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // ceph_fs - computed: false, optional: true, required: false
-  private _cephFs = new PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference(this, "ceph_fs");
+  private _cephFs =
+    new PersistentVolumeSpecPersistentVolumeSourceCephFsOutputReference(
+      this,
+      'ceph_fs',
+    );
   public get cephFs() {
     return this._cephFs;
   }
@@ -4784,7 +5524,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // cinder - computed: false, optional: true, required: false
-  private _cinder = new PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference(this, "cinder");
+  private _cinder =
+    new PersistentVolumeSpecPersistentVolumeSourceCinderOutputReference(
+      this,
+      'cinder',
+    );
   public get cinder() {
     return this._cinder;
   }
@@ -4800,7 +5544,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // csi - computed: false, optional: true, required: false
-  private _csi = new PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference(this, "csi");
+  private _csi =
+    new PersistentVolumeSpecPersistentVolumeSourceCsiOutputReference(
+      this,
+      'csi',
+    );
   public get csi() {
     return this._csi;
   }
@@ -4816,7 +5564,10 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // fc - computed: false, optional: true, required: false
-  private _fc = new PersistentVolumeSpecPersistentVolumeSourceFcOutputReference(this, "fc");
+  private _fc = new PersistentVolumeSpecPersistentVolumeSourceFcOutputReference(
+    this,
+    'fc',
+  );
   public get fc() {
     return this._fc;
   }
@@ -4832,11 +5583,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // flex_volume - computed: false, optional: true, required: false
-  private _flexVolume = new PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference(this, "flex_volume");
+  private _flexVolume =
+    new PersistentVolumeSpecPersistentVolumeSourceFlexVolumeOutputReference(
+      this,
+      'flex_volume',
+    );
   public get flexVolume() {
     return this._flexVolume;
   }
-  public putFlexVolume(value: PersistentVolumeSpecPersistentVolumeSourceFlexVolume) {
+  public putFlexVolume(
+    value: PersistentVolumeSpecPersistentVolumeSourceFlexVolume,
+  ) {
     this._flexVolume.internalValue = value;
   }
   public resetFlexVolume() {
@@ -4848,7 +5605,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // flocker - computed: false, optional: true, required: false
-  private _flocker = new PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference(this, "flocker");
+  private _flocker =
+    new PersistentVolumeSpecPersistentVolumeSourceFlockerOutputReference(
+      this,
+      'flocker',
+    );
   public get flocker() {
     return this._flocker;
   }
@@ -4864,11 +5625,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // gce_persistent_disk - computed: false, optional: true, required: false
-  private _gcePersistentDisk = new PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputReference(this, "gce_persistent_disk");
+  private _gcePersistentDisk =
+    new PersistentVolumeSpecPersistentVolumeSourceGcePersistentDiskOutputReference(
+      this,
+      'gce_persistent_disk',
+    );
   public get gcePersistentDisk() {
     return this._gcePersistentDisk;
   }
-  public putGcePersistentDisk(value: PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk) {
+  public putGcePersistentDisk(
+    value: PersistentVolumeSpecPersistentVolumeSourceGcePersistentDisk,
+  ) {
     this._gcePersistentDisk.internalValue = value;
   }
   public resetGcePersistentDisk() {
@@ -4880,11 +5647,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // glusterfs - computed: false, optional: true, required: false
-  private _glusterfs = new PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference(this, "glusterfs");
+  private _glusterfs =
+    new PersistentVolumeSpecPersistentVolumeSourceGlusterfsOutputReference(
+      this,
+      'glusterfs',
+    );
   public get glusterfs() {
     return this._glusterfs;
   }
-  public putGlusterfs(value: PersistentVolumeSpecPersistentVolumeSourceGlusterfs) {
+  public putGlusterfs(
+    value: PersistentVolumeSpecPersistentVolumeSourceGlusterfs,
+  ) {
     this._glusterfs.internalValue = value;
   }
   public resetGlusterfs() {
@@ -4896,11 +5669,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // host_path - computed: false, optional: true, required: false
-  private _hostPath = new PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference(this, "host_path");
+  private _hostPath =
+    new PersistentVolumeSpecPersistentVolumeSourceHostPathOutputReference(
+      this,
+      'host_path',
+    );
   public get hostPath() {
     return this._hostPath;
   }
-  public putHostPath(value: PersistentVolumeSpecPersistentVolumeSourceHostPath) {
+  public putHostPath(
+    value: PersistentVolumeSpecPersistentVolumeSourceHostPath,
+  ) {
     this._hostPath.internalValue = value;
   }
   public resetHostPath() {
@@ -4912,7 +5691,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // iscsi - computed: false, optional: true, required: false
-  private _iscsi = new PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference(this, "iscsi");
+  private _iscsi =
+    new PersistentVolumeSpecPersistentVolumeSourceIscsiOutputReference(
+      this,
+      'iscsi',
+    );
   public get iscsi() {
     return this._iscsi;
   }
@@ -4928,7 +5711,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // local - computed: false, optional: true, required: false
-  private _local = new PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference(this, "local");
+  private _local =
+    new PersistentVolumeSpecPersistentVolumeSourceLocalOutputReference(
+      this,
+      'local',
+    );
   public get local() {
     return this._local;
   }
@@ -4944,7 +5731,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // nfs - computed: false, optional: true, required: false
-  private _nfs = new PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference(this, "nfs");
+  private _nfs =
+    new PersistentVolumeSpecPersistentVolumeSourceNfsOutputReference(
+      this,
+      'nfs',
+    );
   public get nfs() {
     return this._nfs;
   }
@@ -4960,11 +5751,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // photon_persistent_disk - computed: false, optional: true, required: false
-  private _photonPersistentDisk = new PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutputReference(this, "photon_persistent_disk");
+  private _photonPersistentDisk =
+    new PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDiskOutputReference(
+      this,
+      'photon_persistent_disk',
+    );
   public get photonPersistentDisk() {
     return this._photonPersistentDisk;
   }
-  public putPhotonPersistentDisk(value: PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk) {
+  public putPhotonPersistentDisk(
+    value: PersistentVolumeSpecPersistentVolumeSourcePhotonPersistentDisk,
+  ) {
     this._photonPersistentDisk.internalValue = value;
   }
   public resetPhotonPersistentDisk() {
@@ -4976,7 +5773,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // quobyte - computed: false, optional: true, required: false
-  private _quobyte = new PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference(this, "quobyte");
+  private _quobyte =
+    new PersistentVolumeSpecPersistentVolumeSourceQuobyteOutputReference(
+      this,
+      'quobyte',
+    );
   public get quobyte() {
     return this._quobyte;
   }
@@ -4992,7 +5793,11 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // rbd - computed: false, optional: true, required: false
-  private _rbd = new PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference(this, "rbd");
+  private _rbd =
+    new PersistentVolumeSpecPersistentVolumeSourceRbdOutputReference(
+      this,
+      'rbd',
+    );
   public get rbd() {
     return this._rbd;
   }
@@ -5008,11 +5813,17 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
   }
 
   // vsphere_volume - computed: false, optional: true, required: false
-  private _vsphereVolume = new PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputReference(this, "vsphere_volume");
+  private _vsphereVolume =
+    new PersistentVolumeSpecPersistentVolumeSourceVsphereVolumeOutputReference(
+      this,
+      'vsphere_volume',
+    );
   public get vsphereVolume() {
     return this._vsphereVolume;
   }
-  public putVsphereVolume(value: PersistentVolumeSpecPersistentVolumeSourceVsphereVolume) {
+  public putVsphereVolume(
+    value: PersistentVolumeSpecPersistentVolumeSourceVsphereVolume,
+  ) {
     this._vsphereVolume.internalValue = value;
   }
   public resetVsphereVolume() {
@@ -5025,77 +5836,96 @@ export class PersistentVolumeSpecPersistentVolumeSourceOutputReference extends c
 }
 export interface PersistentVolumeSpec {
   /**
-  * Contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#access_modes PersistentVolume#access_modes}
-  */
+   * Contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#access_modes PersistentVolume#access_modes}
+   */
   readonly accessModes: string[];
   /**
-  * A description of the persistent volume's resources and capacity. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#capacity
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#capacity PersistentVolume#capacity}
-  */
+   * A description of the persistent volume's resources and capacity. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#capacity
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#capacity PersistentVolume#capacity}
+   */
   readonly capacity: { [key: string]: string };
   /**
-  * A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#mount_options PersistentVolume#mount_options}
-  */
+   * A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#mount_options PersistentVolume#mount_options}
+   */
   readonly mountOptions?: string[];
   /**
-  * What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recycling must be supported by the volume plugin underlying this persistent volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#recycling-policy
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#persistent_volume_reclaim_policy PersistentVolume#persistent_volume_reclaim_policy}
-  */
+   * What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recycling must be supported by the volume plugin underlying this persistent volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#recycling-policy
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#persistent_volume_reclaim_policy PersistentVolume#persistent_volume_reclaim_policy}
+   */
   readonly persistentVolumeReclaimPolicy?: string;
   /**
-  * A description of the persistent volume's class. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#storage_class_name PersistentVolume#storage_class_name}
-  */
+   * A description of the persistent volume's class. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#storage_class_name PersistentVolume#storage_class_name}
+   */
   readonly storageClassName?: string;
   /**
-  * Defines if a volume is intended to be used with a formatted filesystem. or to remain in raw block state.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_mode PersistentVolume#volume_mode}
-  */
+   * Defines if a volume is intended to be used with a formatted filesystem. or to remain in raw block state.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#volume_mode PersistentVolume#volume_mode}
+   */
   readonly volumeMode?: string;
   /**
-  * claim_ref block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#claim_ref PersistentVolume#claim_ref}
-  */
+   * claim_ref block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#claim_ref PersistentVolume#claim_ref}
+   */
   readonly claimRef?: PersistentVolumeSpecClaimRef;
   /**
-  * node_affinity block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_affinity PersistentVolume#node_affinity}
-  */
+   * node_affinity block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#node_affinity PersistentVolume#node_affinity}
+   */
   readonly nodeAffinity?: PersistentVolumeSpecNodeAffinity;
   /**
-  * persistent_volume_source block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#persistent_volume_source PersistentVolume#persistent_volume_source}
-  */
+   * persistent_volume_source block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#persistent_volume_source PersistentVolume#persistent_volume_source}
+   */
   readonly persistentVolumeSource: PersistentVolumeSpecPersistentVolumeSource;
 }
 
-export function persistentVolumeSpecToTerraform(struct?: PersistentVolumeSpec | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeSpecToTerraform(
+  struct?: PersistentVolumeSpec | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    access_modes: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.accessModes),
+    access_modes: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.accessModes),
     capacity: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.capacity),
-    mount_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.mountOptions),
-    persistent_volume_reclaim_policy: cdktf.stringToTerraform(struct!.persistentVolumeReclaimPolicy),
+    mount_options: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.mountOptions),
+    persistent_volume_reclaim_policy: cdktf.stringToTerraform(
+      struct!.persistentVolumeReclaimPolicy,
+    ),
     storage_class_name: cdktf.stringToTerraform(struct!.storageClassName),
     volume_mode: cdktf.stringToTerraform(struct!.volumeMode),
     claim_ref: persistentVolumeSpecClaimRefToTerraform(struct!.claimRef),
-    node_affinity: persistentVolumeSpecNodeAffinityToTerraform(struct!.nodeAffinity),
-    persistent_volume_source: persistentVolumeSpecPersistentVolumeSourceToTerraform(struct!.persistentVolumeSource),
-  }
+    node_affinity: persistentVolumeSpecNodeAffinityToTerraform(
+      struct!.nodeAffinity,
+    ),
+    persistent_volume_source:
+      persistentVolumeSpecPersistentVolumeSourceToTerraform(
+        struct!.persistentVolumeSource,
+      ),
+  };
 }
 
 export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
@@ -5103,16 +5933,29 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): PersistentVolumeSpec | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PersistentVolumeSpec
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5132,7 +5975,8 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
     }
     if (this._persistentVolumeReclaimPolicy !== undefined) {
       hasAnyValues = true;
-      internalValueResult.persistentVolumeReclaimPolicy = this._persistentVolumeReclaimPolicy;
+      internalValueResult.persistentVolumeReclaimPolicy =
+        this._persistentVolumeReclaimPolicy;
     }
     if (this._storageClassName !== undefined) {
       hasAnyValues = true;
@@ -5152,12 +5996,15 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
     }
     if (this._persistentVolumeSource?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.persistentVolumeSource = this._persistentVolumeSource?.internalValue;
+      internalValueResult.persistentVolumeSource =
+        this._persistentVolumeSource?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeSpec | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: PersistentVolumeSpec | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -5170,12 +6017,10 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
       this._claimRef.internalValue = undefined;
       this._nodeAffinity.internalValue = undefined;
       this._persistentVolumeSource.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._accessModes = value.accessModes;
@@ -5191,7 +6036,7 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // access_modes - computed: false, optional: false, required: true
-  private _accessModes?: string[]; 
+  private _accessModes?: string[];
   public get accessModes() {
     return cdktf.Fn.tolist(this.getListAttribute('access_modes'));
   }
@@ -5204,7 +6049,7 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // capacity - computed: false, optional: false, required: true
-  private _capacity?: { [key: string]: string }; 
+  private _capacity?: { [key: string]: string };
   public get capacity() {
     return this.getStringMapAttribute('capacity');
   }
@@ -5217,7 +6062,7 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // mount_options - computed: false, optional: true, required: false
-  private _mountOptions?: string[]; 
+  private _mountOptions?: string[];
   public get mountOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('mount_options'));
   }
@@ -5233,7 +6078,7 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // persistent_volume_reclaim_policy - computed: false, optional: true, required: false
-  private _persistentVolumeReclaimPolicy?: string; 
+  private _persistentVolumeReclaimPolicy?: string;
   public get persistentVolumeReclaimPolicy() {
     return this.getStringAttribute('persistent_volume_reclaim_policy');
   }
@@ -5249,7 +6094,7 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // storage_class_name - computed: false, optional: true, required: false
-  private _storageClassName?: string; 
+  private _storageClassName?: string;
   public get storageClassName() {
     return this.getStringAttribute('storage_class_name');
   }
@@ -5265,7 +6110,7 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_mode - computed: false, optional: true, required: false
-  private _volumeMode?: string; 
+  private _volumeMode?: string;
   public get volumeMode() {
     return this.getStringAttribute('volume_mode');
   }
@@ -5281,7 +6126,10 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // claim_ref - computed: false, optional: true, required: false
-  private _claimRef = new PersistentVolumeSpecClaimRefOutputReference(this, "claim_ref");
+  private _claimRef = new PersistentVolumeSpecClaimRefOutputReference(
+    this,
+    'claim_ref',
+  );
   public get claimRef() {
     return this._claimRef;
   }
@@ -5297,7 +6145,10 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // node_affinity - computed: false, optional: true, required: false
-  private _nodeAffinity = new PersistentVolumeSpecNodeAffinityOutputReference(this, "node_affinity");
+  private _nodeAffinity = new PersistentVolumeSpecNodeAffinityOutputReference(
+    this,
+    'node_affinity',
+  );
   public get nodeAffinity() {
     return this._nodeAffinity;
   }
@@ -5313,11 +6164,17 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // persistent_volume_source - computed: false, optional: false, required: true
-  private _persistentVolumeSource = new PersistentVolumeSpecPersistentVolumeSourceOutputReference(this, "persistent_volume_source");
+  private _persistentVolumeSource =
+    new PersistentVolumeSpecPersistentVolumeSourceOutputReference(
+      this,
+      'persistent_volume_source',
+    );
   public get persistentVolumeSource() {
     return this._persistentVolumeSource;
   }
-  public putPersistentVolumeSource(value: PersistentVolumeSpecPersistentVolumeSource) {
+  public putPersistentVolumeSource(
+    value: PersistentVolumeSpecPersistentVolumeSource,
+  ) {
     this._persistentVolumeSource.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -5327,39 +6184,57 @@ export class PersistentVolumeSpecOutputReference extends cdktf.ComplexObject {
 }
 
 export class PersistentVolumeSpecList extends cdktf.ComplexList {
-  public internalValue? : PersistentVolumeSpec[] | cdktf.IResolvable
+  public internalValue?: PersistentVolumeSpec[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): PersistentVolumeSpecOutputReference {
-    return new PersistentVolumeSpecOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new PersistentVolumeSpecOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface PersistentVolumeTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#create PersistentVolume#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume#create PersistentVolume#create}
+   */
   readonly create?: string;
 }
 
-export function persistentVolumeTimeoutsToTerraform(struct?: PersistentVolumeTimeoutsOutputReference | PersistentVolumeTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function persistentVolumeTimeoutsToTerraform(
+  struct?:
+    | PersistentVolumeTimeoutsOutputReference
+    | PersistentVolumeTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class PersistentVolumeTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -5367,14 +6242,20 @@ export class PersistentVolumeTimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): PersistentVolumeTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | PersistentVolumeTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5387,17 +6268,17 @@ export class PersistentVolumeTimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: PersistentVolumeTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: PersistentVolumeTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -5405,7 +6286,7 @@ export class PersistentVolumeTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -5422,33 +6303,36 @@ export class PersistentVolumeTimeoutsOutputReference extends cdktf.ComplexObject
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume kubernetes_persistent_volume}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume kubernetes_persistent_volume}
+ */
 export class PersistentVolume extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_persistent_volume";
+  public static readonly tfResourceType = 'kubernetes_persistent_volume';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume kubernetes_persistent_volume} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options PersistentVolumeConfig
-  */
-  public constructor(scope: Construct, id: string, config: PersistentVolumeConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/persistent_volume kubernetes_persistent_volume} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options PersistentVolumeConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: PersistentVolumeConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_persistent_volume',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -5456,7 +6340,7 @@ export class PersistentVolume extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -5469,7 +6353,7 @@ export class PersistentVolume extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -5485,7 +6369,10 @@ export class PersistentVolume extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new PersistentVolumeMetadataOutputReference(this, "metadata");
+  private _metadata = new PersistentVolumeMetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -5498,7 +6385,7 @@ export class PersistentVolume extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new PersistentVolumeSpecList(this, "spec", false);
+  private _spec = new PersistentVolumeSpecList(this, 'spec', false);
   public get spec() {
     return this._spec;
   }
@@ -5511,7 +6398,10 @@ export class PersistentVolume extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new PersistentVolumeTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new PersistentVolumeTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -5533,9 +6423,16 @@ export class PersistentVolume extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      metadata: persistentVolumeMetadataToTerraform(this._metadata.internalValue),
-      spec: cdktf.listMapper(persistentVolumeSpecToTerraform, true)(this._spec.internalValue),
-      timeouts: persistentVolumeTimeoutsToTerraform(this._timeouts.internalValue),
+      metadata: persistentVolumeMetadataToTerraform(
+        this._metadata.internalValue,
+      ),
+      spec: cdktf.listMapper(
+        persistentVolumeSpecToTerraform,
+        true,
+      )(this._spec.internalValue),
+      timeouts: persistentVolumeTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

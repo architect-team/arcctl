@@ -1,10 +1,10 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Vpc } from '../.gen/modules/vpc.js';
-import { DataAwsAvailabilityZones } from '../.gen/providers/aws/data-aws-availability-zones/index.js';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Vpc } from '../.gen/modules/vpc.ts';
+import { DataAwsAvailabilityZones } from '../.gen/providers/aws/data-aws-availability-zones/index.ts';
+import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
 import { Construct } from 'constructs';
 
 export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
@@ -117,8 +117,7 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
       [`${moduleId}.aws_subnet.private[0]`]: subnetIds.private[0],
       [`${moduleId}.aws_subnet.private[1]`]: subnetIds.private[1],
       [`${moduleId}.aws_subnet.private[2]`]: subnetIds.private[2],
-      [`${moduleId}.aws_internet_gateway.this[0]`]:
-        routeIds.publicGatewayIds[0],
+      [`${moduleId}.aws_internet_gateway.this[0]`]: routeIds.publicGatewayIds[0],
       [`${moduleId}.aws_nat_gateway.this[0]`]: natGateways[0],
       [`${moduleId}.aws_eip.nat[0]`]: eipId,
     };

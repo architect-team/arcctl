@@ -1,97 +1,95 @@
 // https://www.terraform.io/docs/providers/aws/r/kms_key
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface KmsKeyConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#bypass_policy_lockout_safety_check KmsKey#bypass_policy_lockout_safety_check}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#bypass_policy_lockout_safety_check KmsKey#bypass_policy_lockout_safety_check}
+   */
   readonly bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#custom_key_store_id KmsKey#custom_key_store_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#custom_key_store_id KmsKey#custom_key_store_id}
+   */
   readonly customKeyStoreId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#customer_master_key_spec KmsKey#customer_master_key_spec}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#customer_master_key_spec KmsKey#customer_master_key_spec}
+   */
   readonly customerMasterKeySpec?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#deletion_window_in_days KmsKey#deletion_window_in_days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#deletion_window_in_days KmsKey#deletion_window_in_days}
+   */
   readonly deletionWindowInDays?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#description KmsKey#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#description KmsKey#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#enable_key_rotation KmsKey#enable_key_rotation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#enable_key_rotation KmsKey#enable_key_rotation}
+   */
   readonly enableKeyRotation?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#id KmsKey#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#id KmsKey#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#is_enabled KmsKey#is_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#is_enabled KmsKey#is_enabled}
+   */
   readonly isEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#key_usage KmsKey#key_usage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#key_usage KmsKey#key_usage}
+   */
   readonly keyUsage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#multi_region KmsKey#multi_region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#multi_region KmsKey#multi_region}
+   */
   readonly multiRegion?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#policy KmsKey#policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#policy KmsKey#policy}
+   */
   readonly policy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#tags KmsKey#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#tags KmsKey#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#tags_all KmsKey#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/kms_key#tags_all KmsKey#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/kms_key aws_kms_key}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/kms_key aws_kms_key}
+ */
 export class KmsKey extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_kms_key";
+  public static readonly tfResourceType = 'aws_kms_key';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kms_key aws_kms_key} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options KmsKeyConfig = {}
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/kms_key aws_kms_key} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options KmsKeyConfig = {}
+   */
   public constructor(scope: Construct, id: string, config: KmsKeyConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_kms_key',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -99,9 +97,10 @@ export class KmsKey extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
-    this._bypassPolicyLockoutSafetyCheck = config.bypassPolicyLockoutSafetyCheck;
+    this._bypassPolicyLockoutSafetyCheck =
+      config.bypassPolicyLockoutSafetyCheck;
     this._customKeyStoreId = config.customKeyStoreId;
     this._customerMasterKeySpec = config.customerMasterKeySpec;
     this._deletionWindowInDays = config.deletionWindowInDays;
@@ -126,11 +125,13 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // bypass_policy_lockout_safety_check - computed: false, optional: true, required: false
-  private _bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable; 
+  private _bypassPolicyLockoutSafetyCheck?: boolean | cdktf.IResolvable;
   public get bypassPolicyLockoutSafetyCheck() {
     return this.getBooleanAttribute('bypass_policy_lockout_safety_check');
   }
-  public set bypassPolicyLockoutSafetyCheck(value: boolean | cdktf.IResolvable) {
+  public set bypassPolicyLockoutSafetyCheck(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._bypassPolicyLockoutSafetyCheck = value;
   }
   public resetBypassPolicyLockoutSafetyCheck() {
@@ -142,7 +143,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // custom_key_store_id - computed: false, optional: true, required: false
-  private _customKeyStoreId?: string; 
+  private _customKeyStoreId?: string;
   public get customKeyStoreId() {
     return this.getStringAttribute('custom_key_store_id');
   }
@@ -158,7 +159,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // customer_master_key_spec - computed: false, optional: true, required: false
-  private _customerMasterKeySpec?: string; 
+  private _customerMasterKeySpec?: string;
   public get customerMasterKeySpec() {
     return this.getStringAttribute('customer_master_key_spec');
   }
@@ -174,7 +175,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // deletion_window_in_days - computed: false, optional: true, required: false
-  private _deletionWindowInDays?: number; 
+  private _deletionWindowInDays?: number;
   public get deletionWindowInDays() {
     return this.getNumberAttribute('deletion_window_in_days');
   }
@@ -190,7 +191,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -206,7 +207,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // enable_key_rotation - computed: false, optional: true, required: false
-  private _enableKeyRotation?: boolean | cdktf.IResolvable; 
+  private _enableKeyRotation?: boolean | cdktf.IResolvable;
   public get enableKeyRotation() {
     return this.getBooleanAttribute('enable_key_rotation');
   }
@@ -222,7 +223,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -238,7 +239,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // is_enabled - computed: false, optional: true, required: false
-  private _isEnabled?: boolean | cdktf.IResolvable; 
+  private _isEnabled?: boolean | cdktf.IResolvable;
   public get isEnabled() {
     return this.getBooleanAttribute('is_enabled');
   }
@@ -259,7 +260,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // key_usage - computed: false, optional: true, required: false
-  private _keyUsage?: string; 
+  private _keyUsage?: string;
   public get keyUsage() {
     return this.getStringAttribute('key_usage');
   }
@@ -275,7 +276,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // multi_region - computed: true, optional: true, required: false
-  private _multiRegion?: boolean | cdktf.IResolvable; 
+  private _multiRegion?: boolean | cdktf.IResolvable;
   public get multiRegion() {
     return this.getBooleanAttribute('multi_region');
   }
@@ -291,7 +292,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -307,7 +308,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -323,7 +324,7 @@ export class KmsKey extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -344,10 +345,16 @@ export class KmsKey extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      bypass_policy_lockout_safety_check: cdktf.booleanToTerraform(this._bypassPolicyLockoutSafetyCheck),
+      bypass_policy_lockout_safety_check: cdktf.booleanToTerraform(
+        this._bypassPolicyLockoutSafetyCheck,
+      ),
       custom_key_store_id: cdktf.stringToTerraform(this._customKeyStoreId),
-      customer_master_key_spec: cdktf.stringToTerraform(this._customerMasterKeySpec),
-      deletion_window_in_days: cdktf.numberToTerraform(this._deletionWindowInDays),
+      customer_master_key_spec: cdktf.stringToTerraform(
+        this._customerMasterKeySpec,
+      ),
+      deletion_window_in_days: cdktf.numberToTerraform(
+        this._deletionWindowInDays,
+      ),
       description: cdktf.stringToTerraform(this._description),
       enable_key_rotation: cdktf.booleanToTerraform(this._enableKeyRotation),
       id: cdktf.stringToTerraform(this._id),

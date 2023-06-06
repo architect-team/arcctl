@@ -1,57 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface EcrPullThroughCacheRuleConfig extends cdktf.TerraformMetaArguments {
+export interface EcrPullThroughCacheRuleConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule#ecr_repository_prefix EcrPullThroughCacheRule#ecr_repository_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule#ecr_repository_prefix EcrPullThroughCacheRule#ecr_repository_prefix}
+   */
   readonly ecrRepositoryPrefix: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule#id EcrPullThroughCacheRule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule#id EcrPullThroughCacheRule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule#upstream_registry_url EcrPullThroughCacheRule#upstream_registry_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule#upstream_registry_url EcrPullThroughCacheRule#upstream_registry_url}
+   */
   readonly upstreamRegistryUrl: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule aws_ecr_pull_through_cache_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule aws_ecr_pull_through_cache_rule}
+ */
 export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ecr_pull_through_cache_rule";
+  public static readonly tfResourceType = 'aws_ecr_pull_through_cache_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule aws_ecr_pull_through_cache_rule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EcrPullThroughCacheRuleConfig
-  */
-  public constructor(scope: Construct, id: string, config: EcrPullThroughCacheRuleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ecr_pull_through_cache_rule aws_ecr_pull_through_cache_rule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EcrPullThroughCacheRuleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: EcrPullThroughCacheRuleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ecr_pull_through_cache_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +62,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._ecrRepositoryPrefix = config.ecrRepositoryPrefix;
     this._id = config.id;
@@ -71,7 +74,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
   // ==========
 
   // ecr_repository_prefix - computed: false, optional: false, required: true
-  private _ecrRepositoryPrefix?: string; 
+  private _ecrRepositoryPrefix?: string;
   public get ecrRepositoryPrefix() {
     return this.getStringAttribute('ecr_repository_prefix');
   }
@@ -84,7 +87,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +108,7 @@ export class EcrPullThroughCacheRule extends cdktf.TerraformResource {
   }
 
   // upstream_registry_url - computed: false, optional: false, required: true
-  private _upstreamRegistryUrl?: string; 
+  private _upstreamRegistryUrl?: string;
   public get upstreamRegistryUrl() {
     return this.getStringAttribute('upstream_registry_url');
   }

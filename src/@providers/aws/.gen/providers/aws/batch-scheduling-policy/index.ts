@@ -1,58 +1,66 @@
 // https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface BatchSchedulingPolicyConfig extends cdktf.TerraformMetaArguments {
+export interface BatchSchedulingPolicyConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#id BatchSchedulingPolicy#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#id BatchSchedulingPolicy#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#name BatchSchedulingPolicy#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#name BatchSchedulingPolicy#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#tags BatchSchedulingPolicy#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#tags BatchSchedulingPolicy#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#tags_all BatchSchedulingPolicy#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#tags_all BatchSchedulingPolicy#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * fair_share_policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#fair_share_policy BatchSchedulingPolicy#fair_share_policy}
-  */
+   * fair_share_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#fair_share_policy BatchSchedulingPolicy#fair_share_policy}
+   */
   readonly fairSharePolicy?: BatchSchedulingPolicyFairSharePolicy;
 }
 export interface BatchSchedulingPolicyFairSharePolicyShareDistribution {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_identifier BatchSchedulingPolicy#share_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_identifier BatchSchedulingPolicy#share_identifier}
+   */
   readonly shareIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#weight_factor BatchSchedulingPolicy#weight_factor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#weight_factor BatchSchedulingPolicy#weight_factor}
+   */
   readonly weightFactor?: number;
 }
 
-export function batchSchedulingPolicyFairSharePolicyShareDistributionToTerraform(struct?: BatchSchedulingPolicyFairSharePolicyShareDistribution | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function batchSchedulingPolicyFairSharePolicyShareDistributionToTerraform(
+  struct?:
+    | BatchSchedulingPolicyFairSharePolicyShareDistribution
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     share_identifier: cdktf.stringToTerraform(struct!.shareIdentifier),
     weight_factor: cdktf.numberToTerraform(struct!.weightFactor),
-  }
+  };
 }
 
 export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReference extends cdktf.ComplexObject {
@@ -60,16 +68,29 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): BatchSchedulingPolicyFairSharePolicyShareDistribution | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | BatchSchedulingPolicyFairSharePolicyShareDistribution
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -86,18 +107,21 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BatchSchedulingPolicyFairSharePolicyShareDistribution | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | BatchSchedulingPolicyFairSharePolicyShareDistribution
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._shareIdentifier = undefined;
       this._weightFactor = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._shareIdentifier = value.shareIdentifier;
@@ -106,7 +130,7 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
   }
 
   // share_identifier - computed: false, optional: false, required: true
-  private _shareIdentifier?: string; 
+  private _shareIdentifier?: string;
   public get shareIdentifier() {
     return this.getStringAttribute('share_identifier');
   }
@@ -119,7 +143,7 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
   }
 
   // weight_factor - computed: false, optional: true, required: false
-  private _weightFactor?: number; 
+  private _weightFactor?: number;
   public get weightFactor() {
     return this.getNumberAttribute('weight_factor');
   }
@@ -136,61 +160,90 @@ export class BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReferenc
 }
 
 export class BatchSchedulingPolicyFairSharePolicyShareDistributionList extends cdktf.ComplexList {
-  public internalValue? : BatchSchedulingPolicyFairSharePolicyShareDistribution[] | cdktf.IResolvable
+  public internalValue?:
+    | BatchSchedulingPolicyFairSharePolicyShareDistribution[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReference {
-    return new BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReference {
+    return new BatchSchedulingPolicyFairSharePolicyShareDistributionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface BatchSchedulingPolicyFairSharePolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#compute_reservation BatchSchedulingPolicy#compute_reservation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#compute_reservation BatchSchedulingPolicy#compute_reservation}
+   */
   readonly computeReservation?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_decay_seconds BatchSchedulingPolicy#share_decay_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_decay_seconds BatchSchedulingPolicy#share_decay_seconds}
+   */
   readonly shareDecaySeconds?: number;
   /**
-  * share_distribution block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_distribution BatchSchedulingPolicy#share_distribution}
-  */
-  readonly shareDistribution?: BatchSchedulingPolicyFairSharePolicyShareDistribution[] | cdktf.IResolvable;
+   * share_distribution block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy#share_distribution BatchSchedulingPolicy#share_distribution}
+   */
+  readonly shareDistribution?:
+    | BatchSchedulingPolicyFairSharePolicyShareDistribution[]
+    | cdktf.IResolvable;
 }
 
-export function batchSchedulingPolicyFairSharePolicyToTerraform(struct?: BatchSchedulingPolicyFairSharePolicyOutputReference | BatchSchedulingPolicyFairSharePolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function batchSchedulingPolicyFairSharePolicyToTerraform(
+  struct?:
+    | BatchSchedulingPolicyFairSharePolicyOutputReference
+    | BatchSchedulingPolicyFairSharePolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     compute_reservation: cdktf.numberToTerraform(struct!.computeReservation),
     share_decay_seconds: cdktf.numberToTerraform(struct!.shareDecaySeconds),
-    share_distribution: cdktf.listMapper(batchSchedulingPolicyFairSharePolicyShareDistributionToTerraform, true)(struct!.shareDistribution),
-  }
+    share_distribution: cdktf.listMapper(
+      batchSchedulingPolicyFairSharePolicyShareDistributionToTerraform,
+      true,
+    )(struct!.shareDistribution),
+  };
 }
 
 export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -207,19 +260,21 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
     }
     if (this._shareDistribution?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.shareDistribution = this._shareDistribution?.internalValue;
+      internalValueResult.shareDistribution =
+        this._shareDistribution?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BatchSchedulingPolicyFairSharePolicy | undefined) {
+  public set internalValue(
+    value: BatchSchedulingPolicyFairSharePolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._computeReservation = undefined;
       this._shareDecaySeconds = undefined;
       this._shareDistribution.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._computeReservation = value.computeReservation;
       this._shareDecaySeconds = value.shareDecaySeconds;
@@ -228,7 +283,7 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
   }
 
   // compute_reservation - computed: false, optional: true, required: false
-  private _computeReservation?: number; 
+  private _computeReservation?: number;
   public get computeReservation() {
     return this.getNumberAttribute('compute_reservation');
   }
@@ -244,7 +299,7 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
   }
 
   // share_decay_seconds - computed: false, optional: true, required: false
-  private _shareDecaySeconds?: number; 
+  private _shareDecaySeconds?: number;
   public get shareDecaySeconds() {
     return this.getNumberAttribute('share_decay_seconds');
   }
@@ -260,11 +315,20 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
   }
 
   // share_distribution - computed: false, optional: true, required: false
-  private _shareDistribution = new BatchSchedulingPolicyFairSharePolicyShareDistributionList(this, "share_distribution", true);
+  private _shareDistribution =
+    new BatchSchedulingPolicyFairSharePolicyShareDistributionList(
+      this,
+      'share_distribution',
+      true,
+    );
   public get shareDistribution() {
     return this._shareDistribution;
   }
-  public putShareDistribution(value: BatchSchedulingPolicyFairSharePolicyShareDistribution[] | cdktf.IResolvable) {
+  public putShareDistribution(
+    value:
+      | BatchSchedulingPolicyFairSharePolicyShareDistribution[]
+      | cdktf.IResolvable,
+  ) {
     this._shareDistribution.internalValue = value;
   }
   public resetShareDistribution() {
@@ -277,33 +341,36 @@ export class BatchSchedulingPolicyFairSharePolicyOutputReference extends cdktf.C
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy aws_batch_scheduling_policy}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy aws_batch_scheduling_policy}
+ */
 export class BatchSchedulingPolicy extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_batch_scheduling_policy";
+  public static readonly tfResourceType = 'aws_batch_scheduling_policy';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy aws_batch_scheduling_policy} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options BatchSchedulingPolicyConfig
-  */
-  public constructor(scope: Construct, id: string, config: BatchSchedulingPolicyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/batch_scheduling_policy aws_batch_scheduling_policy} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options BatchSchedulingPolicyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: BatchSchedulingPolicyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_batch_scheduling_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -311,7 +378,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -330,7 +397,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -346,7 +413,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -359,7 +426,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -375,7 +442,7 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -391,7 +458,11 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
   }
 
   // fair_share_policy - computed: false, optional: true, required: false
-  private _fairSharePolicy = new BatchSchedulingPolicyFairSharePolicyOutputReference(this, "fair_share_policy");
+  private _fairSharePolicy =
+    new BatchSchedulingPolicyFairSharePolicyOutputReference(
+      this,
+      'fair_share_policy',
+    );
   public get fairSharePolicy() {
     return this._fairSharePolicy;
   }
@@ -416,7 +487,9 @@ export class BatchSchedulingPolicy extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      fair_share_policy: batchSchedulingPolicyFairSharePolicyToTerraform(this._fairSharePolicy.internalValue),
+      fair_share_policy: batchSchedulingPolicyFairSharePolicyToTerraform(
+        this._fairSharePolicy.internalValue,
+      ),
     };
   }
 }

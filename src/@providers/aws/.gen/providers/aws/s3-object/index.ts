@@ -1,149 +1,147 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_object
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface S3ObjectConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#acl S3Object#acl}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#acl S3Object#acl}
+   */
   readonly acl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#bucket S3Object#bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#bucket S3Object#bucket}
+   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#bucket_key_enabled S3Object#bucket_key_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#bucket_key_enabled S3Object#bucket_key_enabled}
+   */
   readonly bucketKeyEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#cache_control S3Object#cache_control}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#cache_control S3Object#cache_control}
+   */
   readonly cacheControl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content S3Object#content}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content S3Object#content}
+   */
   readonly content?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_base64 S3Object#content_base64}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_base64 S3Object#content_base64}
+   */
   readonly contentBase64?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_disposition S3Object#content_disposition}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_disposition S3Object#content_disposition}
+   */
   readonly contentDisposition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_encoding S3Object#content_encoding}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_encoding S3Object#content_encoding}
+   */
   readonly contentEncoding?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_language S3Object#content_language}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_language S3Object#content_language}
+   */
   readonly contentLanguage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_type S3Object#content_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#content_type S3Object#content_type}
+   */
   readonly contentType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#etag S3Object#etag}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#etag S3Object#etag}
+   */
   readonly etag?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#force_destroy S3Object#force_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#force_destroy S3Object#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#id S3Object#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#id S3Object#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#key S3Object#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#key S3Object#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#kms_key_id S3Object#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#kms_key_id S3Object#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#metadata S3Object#metadata}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#metadata S3Object#metadata}
+   */
   readonly metadata?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#object_lock_legal_hold_status S3Object#object_lock_legal_hold_status}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#object_lock_legal_hold_status S3Object#object_lock_legal_hold_status}
+   */
   readonly objectLockLegalHoldStatus?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#object_lock_mode S3Object#object_lock_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#object_lock_mode S3Object#object_lock_mode}
+   */
   readonly objectLockMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#object_lock_retain_until_date S3Object#object_lock_retain_until_date}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#object_lock_retain_until_date S3Object#object_lock_retain_until_date}
+   */
   readonly objectLockRetainUntilDate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#server_side_encryption S3Object#server_side_encryption}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#server_side_encryption S3Object#server_side_encryption}
+   */
   readonly serverSideEncryption?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#source S3Object#source}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#source S3Object#source}
+   */
   readonly source?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#source_hash S3Object#source_hash}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#source_hash S3Object#source_hash}
+   */
   readonly sourceHash?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#storage_class S3Object#storage_class}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#storage_class S3Object#storage_class}
+   */
   readonly storageClass?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#tags S3Object#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#tags S3Object#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#tags_all S3Object#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#tags_all S3Object#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#website_redirect S3Object#website_redirect}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_object#website_redirect S3Object#website_redirect}
+   */
   readonly websiteRedirect?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_object aws_s3_object}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_object aws_s3_object}
+ */
 export class S3Object extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_s3_object";
+  public static readonly tfResourceType = 'aws_s3_object';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_object aws_s3_object} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options S3ObjectConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_object aws_s3_object} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options S3ObjectConfig
+   */
   public constructor(scope: Construct, id: string, config: S3ObjectConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_object',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -151,7 +149,7 @@ export class S3Object extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acl = config.acl;
     this._bucket = config.bucket;
@@ -186,7 +184,7 @@ export class S3Object extends cdktf.TerraformResource {
   // ==========
 
   // acl - computed: false, optional: true, required: false
-  private _acl?: string; 
+  private _acl?: string;
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -202,7 +200,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string; 
+  private _bucket?: string;
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -215,7 +213,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // bucket_key_enabled - computed: true, optional: true, required: false
-  private _bucketKeyEnabled?: boolean | cdktf.IResolvable; 
+  private _bucketKeyEnabled?: boolean | cdktf.IResolvable;
   public get bucketKeyEnabled() {
     return this.getBooleanAttribute('bucket_key_enabled');
   }
@@ -231,7 +229,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // cache_control - computed: false, optional: true, required: false
-  private _cacheControl?: string; 
+  private _cacheControl?: string;
   public get cacheControl() {
     return this.getStringAttribute('cache_control');
   }
@@ -247,7 +245,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // content - computed: false, optional: true, required: false
-  private _content?: string; 
+  private _content?: string;
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -263,7 +261,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // content_base64 - computed: false, optional: true, required: false
-  private _contentBase64?: string; 
+  private _contentBase64?: string;
   public get contentBase64() {
     return this.getStringAttribute('content_base64');
   }
@@ -279,7 +277,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // content_disposition - computed: false, optional: true, required: false
-  private _contentDisposition?: string; 
+  private _contentDisposition?: string;
   public get contentDisposition() {
     return this.getStringAttribute('content_disposition');
   }
@@ -295,7 +293,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // content_encoding - computed: false, optional: true, required: false
-  private _contentEncoding?: string; 
+  private _contentEncoding?: string;
   public get contentEncoding() {
     return this.getStringAttribute('content_encoding');
   }
@@ -311,7 +309,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // content_language - computed: false, optional: true, required: false
-  private _contentLanguage?: string; 
+  private _contentLanguage?: string;
   public get contentLanguage() {
     return this.getStringAttribute('content_language');
   }
@@ -327,7 +325,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // content_type - computed: true, optional: true, required: false
-  private _contentType?: string; 
+  private _contentType?: string;
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -343,7 +341,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // etag - computed: true, optional: true, required: false
-  private _etag?: string; 
+  private _etag?: string;
   public get etag() {
     return this.getStringAttribute('etag');
   }
@@ -359,7 +357,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -375,7 +373,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -391,7 +389,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -404,7 +402,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -420,7 +418,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: true, required: false
-  private _metadata?: { [key: string]: string }; 
+  private _metadata?: { [key: string]: string };
   public get metadata() {
     return this.getStringMapAttribute('metadata');
   }
@@ -436,7 +434,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // object_lock_legal_hold_status - computed: false, optional: true, required: false
-  private _objectLockLegalHoldStatus?: string; 
+  private _objectLockLegalHoldStatus?: string;
   public get objectLockLegalHoldStatus() {
     return this.getStringAttribute('object_lock_legal_hold_status');
   }
@@ -452,7 +450,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // object_lock_mode - computed: false, optional: true, required: false
-  private _objectLockMode?: string; 
+  private _objectLockMode?: string;
   public get objectLockMode() {
     return this.getStringAttribute('object_lock_mode');
   }
@@ -468,7 +466,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // object_lock_retain_until_date - computed: false, optional: true, required: false
-  private _objectLockRetainUntilDate?: string; 
+  private _objectLockRetainUntilDate?: string;
   public get objectLockRetainUntilDate() {
     return this.getStringAttribute('object_lock_retain_until_date');
   }
@@ -484,7 +482,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // server_side_encryption - computed: true, optional: true, required: false
-  private _serverSideEncryption?: string; 
+  private _serverSideEncryption?: string;
   public get serverSideEncryption() {
     return this.getStringAttribute('server_side_encryption');
   }
@@ -500,7 +498,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -516,7 +514,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // source_hash - computed: false, optional: true, required: false
-  private _sourceHash?: string; 
+  private _sourceHash?: string;
   public get sourceHash() {
     return this.getStringAttribute('source_hash');
   }
@@ -532,7 +530,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // storage_class - computed: true, optional: true, required: false
-  private _storageClass?: string; 
+  private _storageClass?: string;
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -548,7 +546,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -564,7 +562,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -585,7 +583,7 @@ export class S3Object extends cdktf.TerraformResource {
   }
 
   // website_redirect - computed: false, optional: true, required: false
-  private _websiteRedirect?: string; 
+  private _websiteRedirect?: string;
   public get websiteRedirect() {
     return this.getStringAttribute('website_redirect');
   }
@@ -622,10 +620,16 @@ export class S3Object extends cdktf.TerraformResource {
       key: cdktf.stringToTerraform(this._key),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
       metadata: cdktf.hashMapper(cdktf.stringToTerraform)(this._metadata),
-      object_lock_legal_hold_status: cdktf.stringToTerraform(this._objectLockLegalHoldStatus),
+      object_lock_legal_hold_status: cdktf.stringToTerraform(
+        this._objectLockLegalHoldStatus,
+      ),
       object_lock_mode: cdktf.stringToTerraform(this._objectLockMode),
-      object_lock_retain_until_date: cdktf.stringToTerraform(this._objectLockRetainUntilDate),
-      server_side_encryption: cdktf.stringToTerraform(this._serverSideEncryption),
+      object_lock_retain_until_date: cdktf.stringToTerraform(
+        this._objectLockRetainUntilDate,
+      ),
+      server_side_encryption: cdktf.stringToTerraform(
+        this._serverSideEncryption,
+      ),
       source: cdktf.stringToTerraform(this._source),
       source_hash: cdktf.stringToTerraform(this._sourceHash),
       storage_class: cdktf.stringToTerraform(this._storageClass),

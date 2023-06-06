@@ -1,20 +1,18 @@
-import { ProviderCredentials } from '../../src/@providers/credentials.js';
-import { Provider } from '../../src/@providers/provider.js';
-import { SupportedProviders } from '../../src/@providers/supported-providers.js';
+import { ProviderCredentials } from '../../src/@providers/credentials.ts';
+import { Provider } from '../../src/@providers/provider.ts';
+import { SupportedProviders } from '../../src/@providers/supported-providers.ts';
 import {
   CldctlTest,
   CldctlTestStack,
   CldctlTestStackOutputs,
-} from '../../src/@providers/tests.js';
-import { ResourceOutputs, ResourceType } from '../../src/index.js';
-import PluginManager from '../../src/plugins/plugin-manager.js';
-import TerraformPlugin from '../../src/plugins/terraform-plugin.js';
-import { CldCtlTerraformStack } from '../../src/utils/stack.js';
+} from '../../src/@providers/tests.ts';
+import { ResourceOutputs, ResourceType } from '../../src/@resources/index.ts';
+import PluginManager from '../../src/plugins/plugin-manager.ts';
+import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
+import { CldCtlTerraformStack } from '../../src/utils/stack.ts';
 import { App, TerraformOutput } from 'cdktf';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import { v4 } from 'uuid';
+import * as path from 'std/path/mod.ts';
+import { Construct } from 'constructs';
 
 let terraformPlugin: TerraformPlugin | undefined;
 
@@ -83,7 +81,7 @@ export class TestStackGenerator {
     test: CldctlTest<ProviderCredentials>,
     ids?: Record<string, string>,
   ): Promise<CldctlTestStackOutputs[]> {
-    provider.configureTerraformProviders(stack);
+    provider.configureTerraformProviders(stack as unknown as Construct);
     return this.addResourceToStack(stack, provider, test.stacks, ids);
   }
 }
@@ -109,7 +107,7 @@ export class TestRunner {
     for (const stack of stacks) {
       if (stack.tfOutputs) {
         stack.outputs = await this.getOutput(stack.tfOutputs!);
-        stack.id = stack.outputs.id;
+        stack.id = stack.outputs!.id;
         this.ids[stack.serviceType] = stack.id;
       }
       if (stack.children) {
@@ -136,10 +134,10 @@ export class TestRunner {
     test: CldctlTest<ProviderCredentials>,
     credentials: ProviderCredentials,
   ): Promise<void> {
-    const tmp_dir = os.tmpdir();
-    const tf_tmp_dir = path.join(tmp_dir, `/tf/${v4()}`);
+    const tmp_dir = Deno.makeTempDirSync();
+    const tf_tmp_dir = path.join(tmp_dir, `/tf/${crypto.randomUUID()}`);
     this.createDirectory = tf_tmp_dir;
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
 
     const app = new App({
       outdir: tf_tmp_dir,
@@ -154,11 +152,8 @@ export class TestRunner {
     );
 
     const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
-    await fs.promises.writeFile(
-      tfMainFile,
-      JSON.stringify(stack.toTerraform()),
-    );
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.writeTextFile(tfMainFile, JSON.stringify(stack.toTerraform()));
     await terraformPlugin?.init(tf_tmp_dir);
     const planFile = path.join(tf_tmp_dir, 'plan');
     await terraformPlugin?.plan(tf_tmp_dir, planFile);
@@ -171,10 +166,10 @@ export class TestRunner {
     test: CldctlTest<ProviderCredentials>,
     credentials: ProviderCredentials,
   ): Promise<void> {
-    const tmp_dir = os.tmpdir();
-    const tf_tmp_dir = path.join(tmp_dir, `/tf/${v4()}`);
+    const tmp_dir = Deno.makeTempDirSync();
+    const tf_tmp_dir = path.join(tmp_dir, `/tf/${crypto.randomUUID()}`);
     this.deleteDirectory = tf_tmp_dir;
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
 
     const app = new App({
       outdir: tf_tmp_dir,
@@ -190,11 +185,8 @@ export class TestRunner {
     );
 
     const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
-    await fs.promises.mkdir(tf_tmp_dir, { recursive: true });
-    await fs.promises.writeFile(
-      tfMainFile,
-      JSON.stringify(stack.toTerraform()),
-    );
+    await Deno.mkdir(tf_tmp_dir, { recursive: true });
+    await Deno.writeTextFile(tfMainFile, JSON.stringify(stack.toTerraform()));
     await terraformPlugin?.init(tf_tmp_dir);
     await this.runImports(this.destroyOutputStacks);
 
@@ -218,8 +210,8 @@ export class TestRunner {
         context.provider,
         context.credentials,
       );
-      const plugins_path = path.join(os.tmpdir(), '/plugins');
-      await fs.promises.mkdir(plugins_path, { recursive: true });
+      const plugins_path = path.join(Deno.makeTempDirSync(), '/plugins');
+      await Deno.mkdir(plugins_path, { recursive: true });
       terraformPlugin = await PluginManager.getPlugin<TerraformPlugin>(
         plugins_path,
         provider.terraform_version,
@@ -261,8 +253,7 @@ export class TestRunner {
         } finally {
           if (!context.keep_test_folders) {
             if (this.createDirectory) {
-              await fs.promises.rm(this.createDirectory, {
-                force: true,
+              await Deno.remove(this.createDirectory, {
                 recursive: true,
               });
               console.log(
@@ -270,8 +261,7 @@ export class TestRunner {
               );
             }
             if (this.deleteDirectory) {
-              await fs.promises.rm(this.deleteDirectory, {
-                force: true,
+              await Deno.remove(this.deleteDirectory, {
                 recursive: true,
               });
               console.log(
@@ -285,12 +275,12 @@ export class TestRunner {
   }
 }
 
-const configuration_file_path = process.argv[2];
+const configuration_file_path = Deno.args[2];
 if (!configuration_file_path) {
   throw new Error('No configuration file provided');
 }
 
-const configuration_file = fs.readFileSync(configuration_file_path, 'utf8');
+const configuration_file = Deno.readTextFileSync(configuration_file_path);
 const configuration = JSON.parse(
   configuration_file,
 ) as TestRunnerContext<any>[];

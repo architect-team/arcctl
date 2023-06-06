@@ -1,85 +1,93 @@
 // https://www.terraform.io/docs/providers/aws/r/security_group_rule
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface SecurityGroupRuleConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#cidr_blocks SecurityGroupRule#cidr_blocks}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#cidr_blocks SecurityGroupRule#cidr_blocks}
+   */
   readonly cidrBlocks?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#description SecurityGroupRule#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#description SecurityGroupRule#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#from_port SecurityGroupRule#from_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#from_port SecurityGroupRule#from_port}
+   */
   readonly fromPort: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#id SecurityGroupRule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#id SecurityGroupRule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#ipv6_cidr_blocks SecurityGroupRule#ipv6_cidr_blocks}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#ipv6_cidr_blocks SecurityGroupRule#ipv6_cidr_blocks}
+   */
   readonly ipv6CidrBlocks?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#prefix_list_ids SecurityGroupRule#prefix_list_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#prefix_list_ids SecurityGroupRule#prefix_list_ids}
+   */
   readonly prefixListIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#protocol SecurityGroupRule#protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#protocol SecurityGroupRule#protocol}
+   */
   readonly protocol: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#security_group_id SecurityGroupRule#security_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#security_group_id SecurityGroupRule#security_group_id}
+   */
   readonly securityGroupId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#self SecurityGroupRule#self}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#self SecurityGroupRule#self}
+   */
   readonly selfAttribute?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#source_security_group_id SecurityGroupRule#source_security_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#source_security_group_id SecurityGroupRule#source_security_group_id}
+   */
   readonly sourceSecurityGroupId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#to_port SecurityGroupRule#to_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#to_port SecurityGroupRule#to_port}
+   */
   readonly toPort: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#type SecurityGroupRule#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#type SecurityGroupRule#type}
+   */
   readonly type: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#timeouts SecurityGroupRule#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#timeouts SecurityGroupRule#timeouts}
+   */
   readonly timeouts?: SecurityGroupRuleTimeouts;
 }
 export interface SecurityGroupRuleTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#create SecurityGroupRule#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule#create SecurityGroupRule#create}
+   */
   readonly create?: string;
 }
 
-export function securityGroupRuleTimeoutsToTerraform(struct?: SecurityGroupRuleTimeoutsOutputReference | SecurityGroupRuleTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function securityGroupRuleTimeoutsToTerraform(
+  struct?:
+    | SecurityGroupRuleTimeoutsOutputReference
+    | SecurityGroupRuleTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class SecurityGroupRuleTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -87,14 +95,20 @@ export class SecurityGroupRuleTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SecurityGroupRuleTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SecurityGroupRuleTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -107,17 +121,17 @@ export class SecurityGroupRuleTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SecurityGroupRuleTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: SecurityGroupRuleTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -125,7 +139,7 @@ export class SecurityGroupRuleTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -142,33 +156,36 @@ export class SecurityGroupRuleTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule aws_security_group_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule aws_security_group_rule}
+ */
 export class SecurityGroupRule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_security_group_rule";
+  public static readonly tfResourceType = 'aws_security_group_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule aws_security_group_rule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SecurityGroupRuleConfig
-  */
-  public constructor(scope: Construct, id: string, config: SecurityGroupRuleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/security_group_rule aws_security_group_rule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SecurityGroupRuleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SecurityGroupRuleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_security_group_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -176,7 +193,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cidrBlocks = config.cidrBlocks;
     this._description = config.description;
@@ -198,7 +215,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   // ==========
 
   // cidr_blocks - computed: false, optional: true, required: false
-  private _cidrBlocks?: string[]; 
+  private _cidrBlocks?: string[];
   public get cidrBlocks() {
     return this.getListAttribute('cidr_blocks');
   }
@@ -214,7 +231,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -230,7 +247,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -243,7 +260,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -259,7 +276,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_blocks - computed: false, optional: true, required: false
-  private _ipv6CidrBlocks?: string[]; 
+  private _ipv6CidrBlocks?: string[];
   public get ipv6CidrBlocks() {
     return this.getListAttribute('ipv6_cidr_blocks');
   }
@@ -275,7 +292,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // prefix_list_ids - computed: false, optional: true, required: false
-  private _prefixListIds?: string[]; 
+  private _prefixListIds?: string[];
   public get prefixListIds() {
     return this.getListAttribute('prefix_list_ids');
   }
@@ -291,7 +308,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -304,7 +321,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // security_group_id - computed: false, optional: false, required: true
-  private _securityGroupId?: string; 
+  private _securityGroupId?: string;
   public get securityGroupId() {
     return this.getStringAttribute('security_group_id');
   }
@@ -322,7 +339,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // self - computed: false, optional: true, required: false
-  private _self?: boolean | cdktf.IResolvable; 
+  private _self?: boolean | cdktf.IResolvable;
   public get selfAttribute() {
     return this.getBooleanAttribute('self');
   }
@@ -338,7 +355,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // source_security_group_id - computed: true, optional: true, required: false
-  private _sourceSecurityGroupId?: string; 
+  private _sourceSecurityGroupId?: string;
   public get sourceSecurityGroupId() {
     return this.getStringAttribute('source_security_group_id');
   }
@@ -354,7 +371,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // to_port - computed: false, optional: false, required: true
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -367,7 +384,7 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -380,7 +397,10 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new SecurityGroupRuleTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new SecurityGroupRuleTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -401,19 +421,32 @@ export class SecurityGroupRule extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      cidr_blocks: cdktf.listMapper(cdktf.stringToTerraform, false)(this._cidrBlocks),
+      cidr_blocks: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._cidrBlocks),
       description: cdktf.stringToTerraform(this._description),
       from_port: cdktf.numberToTerraform(this._fromPort),
       id: cdktf.stringToTerraform(this._id),
-      ipv6_cidr_blocks: cdktf.listMapper(cdktf.stringToTerraform, false)(this._ipv6CidrBlocks),
-      prefix_list_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._prefixListIds),
+      ipv6_cidr_blocks: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._ipv6CidrBlocks),
+      prefix_list_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._prefixListIds),
       protocol: cdktf.stringToTerraform(this._protocol),
       security_group_id: cdktf.stringToTerraform(this._securityGroupId),
       self: cdktf.booleanToTerraform(this._self),
-      source_security_group_id: cdktf.stringToTerraform(this._sourceSecurityGroupId),
+      source_security_group_id: cdktf.stringToTerraform(
+        this._sourceSecurityGroupId,
+      ),
       to_port: cdktf.numberToTerraform(this._toPort),
       type: cdktf.stringToTerraform(this._type),
-      timeouts: securityGroupRuleTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: securityGroupRuleTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -1,82 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface CloudsearchDomainConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#id CloudsearchDomain#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#id CloudsearchDomain#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#multi_az CloudsearchDomain#multi_az}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#multi_az CloudsearchDomain#multi_az}
+   */
   readonly multiAz?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#name CloudsearchDomain#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#name CloudsearchDomain#name}
+   */
   readonly name: string;
   /**
-  * endpoint_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#endpoint_options CloudsearchDomain#endpoint_options}
-  */
+   * endpoint_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#endpoint_options CloudsearchDomain#endpoint_options}
+   */
   readonly endpointOptions?: CloudsearchDomainEndpointOptions;
   /**
-  * index_field block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#index_field CloudsearchDomain#index_field}
-  */
+   * index_field block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#index_field CloudsearchDomain#index_field}
+   */
   readonly indexField?: CloudsearchDomainIndexField[] | cdktf.IResolvable;
   /**
-  * scaling_parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#scaling_parameters CloudsearchDomain#scaling_parameters}
-  */
+   * scaling_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#scaling_parameters CloudsearchDomain#scaling_parameters}
+   */
   readonly scalingParameters?: CloudsearchDomainScalingParameters;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#timeouts CloudsearchDomain#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#timeouts CloudsearchDomain#timeouts}
+   */
   readonly timeouts?: CloudsearchDomainTimeouts;
 }
 export interface CloudsearchDomainEndpointOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#enforce_https CloudsearchDomain#enforce_https}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#enforce_https CloudsearchDomain#enforce_https}
+   */
   readonly enforceHttps?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#tls_security_policy CloudsearchDomain#tls_security_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#tls_security_policy CloudsearchDomain#tls_security_policy}
+   */
   readonly tlsSecurityPolicy?: string;
 }
 
-export function cloudsearchDomainEndpointOptionsToTerraform(struct?: CloudsearchDomainEndpointOptionsOutputReference | CloudsearchDomainEndpointOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudsearchDomainEndpointOptionsToTerraform(
+  struct?:
+    | CloudsearchDomainEndpointOptionsOutputReference
+    | CloudsearchDomainEndpointOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enforce_https: cdktf.booleanToTerraform(struct!.enforceHttps),
     tls_security_policy: cdktf.stringToTerraform(struct!.tlsSecurityPolicy),
-  }
+  };
 }
 
 export class CloudsearchDomainEndpointOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -94,13 +104,14 @@ export class CloudsearchDomainEndpointOptionsOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudsearchDomainEndpointOptions | undefined) {
+  public set internalValue(
+    value: CloudsearchDomainEndpointOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enforceHttps = undefined;
       this._tlsSecurityPolicy = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enforceHttps = value.enforceHttps;
       this._tlsSecurityPolicy = value.tlsSecurityPolicy;
@@ -108,7 +119,7 @@ export class CloudsearchDomainEndpointOptionsOutputReference extends cdktf.Compl
   }
 
   // enforce_https - computed: true, optional: true, required: false
-  private _enforceHttps?: boolean | cdktf.IResolvable; 
+  private _enforceHttps?: boolean | cdktf.IResolvable;
   public get enforceHttps() {
     return this.getBooleanAttribute('enforce_https');
   }
@@ -124,7 +135,7 @@ export class CloudsearchDomainEndpointOptionsOutputReference extends cdktf.Compl
   }
 
   // tls_security_policy - computed: true, optional: true, required: false
-  private _tlsSecurityPolicy?: string; 
+  private _tlsSecurityPolicy?: string;
   public get tlsSecurityPolicy() {
     return this.getStringAttribute('tls_security_policy');
   }
@@ -141,51 +152,57 @@ export class CloudsearchDomainEndpointOptionsOutputReference extends cdktf.Compl
 }
 export interface CloudsearchDomainIndexField {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#analysis_scheme CloudsearchDomain#analysis_scheme}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#analysis_scheme CloudsearchDomain#analysis_scheme}
+   */
   readonly analysisScheme?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#default_value CloudsearchDomain#default_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#default_value CloudsearchDomain#default_value}
+   */
   readonly defaultValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#facet CloudsearchDomain#facet}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#facet CloudsearchDomain#facet}
+   */
   readonly facet?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#highlight CloudsearchDomain#highlight}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#highlight CloudsearchDomain#highlight}
+   */
   readonly highlight?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#name CloudsearchDomain#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#name CloudsearchDomain#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#return CloudsearchDomain#return}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#return CloudsearchDomain#return}
+   */
   readonly return?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#search CloudsearchDomain#search}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#search CloudsearchDomain#search}
+   */
   readonly search?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#sort CloudsearchDomain#sort}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#sort CloudsearchDomain#sort}
+   */
   readonly sort?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#source_fields CloudsearchDomain#source_fields}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#source_fields CloudsearchDomain#source_fields}
+   */
   readonly sourceFields?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#type CloudsearchDomain#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#type CloudsearchDomain#type}
+   */
   readonly type: string;
 }
 
-export function cloudsearchDomainIndexFieldToTerraform(struct?: CloudsearchDomainIndexField | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudsearchDomainIndexFieldToTerraform(
+  struct?: CloudsearchDomainIndexField | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     analysis_scheme: cdktf.stringToTerraform(struct!.analysisScheme),
@@ -198,7 +215,7 @@ export function cloudsearchDomainIndexFieldToTerraform(struct?: CloudsearchDomai
     sort: cdktf.booleanToTerraform(struct!.sort),
     source_fields: cdktf.stringToTerraform(struct!.sourceFields),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObject {
@@ -206,16 +223,29 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): CloudsearchDomainIndexField | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CloudsearchDomainIndexField
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -264,7 +294,9 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudsearchDomainIndexField | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: CloudsearchDomainIndexField | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -278,12 +310,10 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
       this._sort = undefined;
       this._sourceFields = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._analysisScheme = value.analysisScheme;
@@ -300,7 +330,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // analysis_scheme - computed: false, optional: true, required: false
-  private _analysisScheme?: string; 
+  private _analysisScheme?: string;
   public get analysisScheme() {
     return this.getStringAttribute('analysis_scheme');
   }
@@ -316,7 +346,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // default_value - computed: false, optional: true, required: false
-  private _defaultValue?: string; 
+  private _defaultValue?: string;
   public get defaultValue() {
     return this.getStringAttribute('default_value');
   }
@@ -332,7 +362,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // facet - computed: false, optional: true, required: false
-  private _facet?: boolean | cdktf.IResolvable; 
+  private _facet?: boolean | cdktf.IResolvable;
   public get facet() {
     return this.getBooleanAttribute('facet');
   }
@@ -348,7 +378,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // highlight - computed: false, optional: true, required: false
-  private _highlight?: boolean | cdktf.IResolvable; 
+  private _highlight?: boolean | cdktf.IResolvable;
   public get highlight() {
     return this.getBooleanAttribute('highlight');
   }
@@ -364,7 +394,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -377,7 +407,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // return - computed: false, optional: true, required: false
-  private _return?: boolean | cdktf.IResolvable; 
+  private _return?: boolean | cdktf.IResolvable;
   public get return() {
     return this.getBooleanAttribute('return');
   }
@@ -393,7 +423,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // search - computed: false, optional: true, required: false
-  private _search?: boolean | cdktf.IResolvable; 
+  private _search?: boolean | cdktf.IResolvable;
   public get search() {
     return this.getBooleanAttribute('search');
   }
@@ -409,7 +439,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // sort - computed: false, optional: true, required: false
-  private _sort?: boolean | cdktf.IResolvable; 
+  private _sort?: boolean | cdktf.IResolvable;
   public get sort() {
     return this.getBooleanAttribute('sort');
   }
@@ -425,7 +455,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // source_fields - computed: false, optional: true, required: false
-  private _sourceFields?: string; 
+  private _sourceFields?: string;
   public get sourceFields() {
     return this.getStringAttribute('source_fields');
   }
@@ -441,7 +471,7 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -455,59 +485,83 @@ export class CloudsearchDomainIndexFieldOutputReference extends cdktf.ComplexObj
 }
 
 export class CloudsearchDomainIndexFieldList extends cdktf.ComplexList {
-  public internalValue? : CloudsearchDomainIndexField[] | cdktf.IResolvable
+  public internalValue?: CloudsearchDomainIndexField[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): CloudsearchDomainIndexFieldOutputReference {
-    return new CloudsearchDomainIndexFieldOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new CloudsearchDomainIndexFieldOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface CloudsearchDomainScalingParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#desired_instance_type CloudsearchDomain#desired_instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#desired_instance_type CloudsearchDomain#desired_instance_type}
+   */
   readonly desiredInstanceType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#desired_partition_count CloudsearchDomain#desired_partition_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#desired_partition_count CloudsearchDomain#desired_partition_count}
+   */
   readonly desiredPartitionCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#desired_replication_count CloudsearchDomain#desired_replication_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#desired_replication_count CloudsearchDomain#desired_replication_count}
+   */
   readonly desiredReplicationCount?: number;
 }
 
-export function cloudsearchDomainScalingParametersToTerraform(struct?: CloudsearchDomainScalingParametersOutputReference | CloudsearchDomainScalingParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudsearchDomainScalingParametersToTerraform(
+  struct?:
+    | CloudsearchDomainScalingParametersOutputReference
+    | CloudsearchDomainScalingParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     desired_instance_type: cdktf.stringToTerraform(struct!.desiredInstanceType),
-    desired_partition_count: cdktf.numberToTerraform(struct!.desiredPartitionCount),
-    desired_replication_count: cdktf.numberToTerraform(struct!.desiredReplicationCount),
-  }
+    desired_partition_count: cdktf.numberToTerraform(
+      struct!.desiredPartitionCount,
+    ),
+    desired_replication_count: cdktf.numberToTerraform(
+      struct!.desiredReplicationCount,
+    ),
+  };
 }
 
 export class CloudsearchDomainScalingParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -524,19 +578,21 @@ export class CloudsearchDomainScalingParametersOutputReference extends cdktf.Com
     }
     if (this._desiredReplicationCount !== undefined) {
       hasAnyValues = true;
-      internalValueResult.desiredReplicationCount = this._desiredReplicationCount;
+      internalValueResult.desiredReplicationCount =
+        this._desiredReplicationCount;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudsearchDomainScalingParameters | undefined) {
+  public set internalValue(
+    value: CloudsearchDomainScalingParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._desiredInstanceType = undefined;
       this._desiredPartitionCount = undefined;
       this._desiredReplicationCount = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._desiredInstanceType = value.desiredInstanceType;
       this._desiredPartitionCount = value.desiredPartitionCount;
@@ -545,7 +601,7 @@ export class CloudsearchDomainScalingParametersOutputReference extends cdktf.Com
   }
 
   // desired_instance_type - computed: true, optional: true, required: false
-  private _desiredInstanceType?: string; 
+  private _desiredInstanceType?: string;
   public get desiredInstanceType() {
     return this.getStringAttribute('desired_instance_type');
   }
@@ -561,7 +617,7 @@ export class CloudsearchDomainScalingParametersOutputReference extends cdktf.Com
   }
 
   // desired_partition_count - computed: true, optional: true, required: false
-  private _desiredPartitionCount?: number; 
+  private _desiredPartitionCount?: number;
   public get desiredPartitionCount() {
     return this.getNumberAttribute('desired_partition_count');
   }
@@ -577,7 +633,7 @@ export class CloudsearchDomainScalingParametersOutputReference extends cdktf.Com
   }
 
   // desired_replication_count - computed: true, optional: true, required: false
-  private _desiredReplicationCount?: number; 
+  private _desiredReplicationCount?: number;
   public get desiredReplicationCount() {
     return this.getNumberAttribute('desired_replication_count');
   }
@@ -594,29 +650,38 @@ export class CloudsearchDomainScalingParametersOutputReference extends cdktf.Com
 }
 export interface CloudsearchDomainTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#create CloudsearchDomain#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#create CloudsearchDomain#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#delete CloudsearchDomain#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#delete CloudsearchDomain#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#update CloudsearchDomain#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain#update CloudsearchDomain#update}
+   */
   readonly update?: string;
 }
 
-export function cloudsearchDomainTimeoutsToTerraform(struct?: CloudsearchDomainTimeoutsOutputReference | CloudsearchDomainTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudsearchDomainTimeoutsToTerraform(
+  struct?:
+    | CloudsearchDomainTimeoutsOutputReference
+    | CloudsearchDomainTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -624,14 +689,20 @@ export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudsearchDomainTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CloudsearchDomainTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -652,19 +723,19 @@ export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudsearchDomainTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: CloudsearchDomainTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -674,7 +745,7 @@ export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -690,7 +761,7 @@ export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -706,7 +777,7 @@ export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -723,33 +794,36 @@ export class CloudsearchDomainTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain aws_cloudsearch_domain}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain aws_cloudsearch_domain}
+ */
 export class CloudsearchDomain extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudsearch_domain";
+  public static readonly tfResourceType = 'aws_cloudsearch_domain';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain aws_cloudsearch_domain} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudsearchDomainConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudsearchDomainConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain aws_cloudsearch_domain} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudsearchDomainConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudsearchDomainConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudsearch_domain',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -757,7 +831,7 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._multiAz = config.multiAz;
@@ -788,7 +862,7 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -804,7 +878,7 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // multi_az - computed: true, optional: true, required: false
-  private _multiAz?: boolean | cdktf.IResolvable; 
+  private _multiAz?: boolean | cdktf.IResolvable;
   public get multiAz() {
     return this.getBooleanAttribute('multi_az');
   }
@@ -820,7 +894,7 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -838,7 +912,11 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // endpoint_options - computed: false, optional: true, required: false
-  private _endpointOptions = new CloudsearchDomainEndpointOptionsOutputReference(this, "endpoint_options");
+  private _endpointOptions =
+    new CloudsearchDomainEndpointOptionsOutputReference(
+      this,
+      'endpoint_options',
+    );
   public get endpointOptions() {
     return this._endpointOptions;
   }
@@ -854,11 +932,17 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // index_field - computed: false, optional: true, required: false
-  private _indexField = new CloudsearchDomainIndexFieldList(this, "index_field", true);
+  private _indexField = new CloudsearchDomainIndexFieldList(
+    this,
+    'index_field',
+    true,
+  );
   public get indexField() {
     return this._indexField;
   }
-  public putIndexField(value: CloudsearchDomainIndexField[] | cdktf.IResolvable) {
+  public putIndexField(
+    value: CloudsearchDomainIndexField[] | cdktf.IResolvable,
+  ) {
     this._indexField.internalValue = value;
   }
   public resetIndexField() {
@@ -870,7 +954,11 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // scaling_parameters - computed: false, optional: true, required: false
-  private _scalingParameters = new CloudsearchDomainScalingParametersOutputReference(this, "scaling_parameters");
+  private _scalingParameters =
+    new CloudsearchDomainScalingParametersOutputReference(
+      this,
+      'scaling_parameters',
+    );
   public get scalingParameters() {
     return this._scalingParameters;
   }
@@ -886,7 +974,10 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new CloudsearchDomainTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new CloudsearchDomainTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -910,10 +1001,19 @@ export class CloudsearchDomain extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       multi_az: cdktf.booleanToTerraform(this._multiAz),
       name: cdktf.stringToTerraform(this._name),
-      endpoint_options: cloudsearchDomainEndpointOptionsToTerraform(this._endpointOptions.internalValue),
-      index_field: cdktf.listMapper(cloudsearchDomainIndexFieldToTerraform, true)(this._indexField.internalValue),
-      scaling_parameters: cloudsearchDomainScalingParametersToTerraform(this._scalingParameters.internalValue),
-      timeouts: cloudsearchDomainTimeoutsToTerraform(this._timeouts.internalValue),
+      endpoint_options: cloudsearchDomainEndpointOptionsToTerraform(
+        this._endpointOptions.internalValue,
+      ),
+      index_field: cdktf.listMapper(
+        cloudsearchDomainIndexFieldToTerraform,
+        true,
+      )(this._indexField.internalValue),
+      scaling_parameters: cloudsearchDomainScalingParametersToTerraform(
+        this._scalingParameters.internalValue,
+      ),
+      timeouts: cloudsearchDomainTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

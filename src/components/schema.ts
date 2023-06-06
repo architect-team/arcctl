@@ -1,5 +1,5 @@
-import component_v1 from './v1/index.js';
-import component_v2 from './v2/index.js';
+import component_v1 from './v1/index.ts';
+import component_v2 from './v2/index.ts';
 
 export type ComponentSchema =
   | ({
@@ -7,8 +7,7 @@ export type ComponentSchema =
   } & component_v1)
   | ({
     version: 'v2';
-  } & component_v2)
-;
+  } & component_v2);
 
 export const buildComponent = (data: ComponentSchema) => {
   switch (data.version) {

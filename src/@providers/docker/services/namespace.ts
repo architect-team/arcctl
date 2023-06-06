@@ -1,8 +1,8 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { DeepPartial } from '../../../utils/types.js';
-import { CrudResourceService } from '../../crud.service.js';
-import { execa } from 'execa';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { exec } from '../../../utils/command.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { DeepPartial } from '../../../utils/types.ts';
+import { CrudResourceService } from '../../crud.service.ts';
 
 type DockerNetwork = {
   CreatedAt: string;
@@ -24,15 +24,8 @@ export class DockerNamespaceService extends CrudResourceService<'namespace'> {
     filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['namespace']>> {
-    const { stdout } = await execa('docker', [
-      'network',
-      'ls',
-      '--format',
-      'json',
-    ]);
-    const rawOutput: DockerNetwork[] = JSON.parse(
-      `[${stdout.split('\n').join(',')}]`,
-    );
+    const { stdout } = await exec('docker', { args: ['network', 'ls', '--format', 'json'] });
+    const rawOutput: DockerNetwork[] = JSON.parse(`[${stdout.split('\n').join(',')}]`);
     return {
       total: rawOutput.length,
       rows: rawOutput.map((r) => ({
@@ -41,22 +34,18 @@ export class DockerNamespaceService extends CrudResourceService<'namespace'> {
     };
   }
 
-  async create(
-    inputs: ResourceInputs['namespace'],
-  ): Promise<ResourceOutputs['namespace']> {
-    await execa('docker', ['network', 'create', inputs.name]);
+  async create(inputs: ResourceInputs['namespace']): Promise<ResourceOutputs['namespace']> {
+    await exec('docker', { args: ['network', 'create', inputs.name] });
     return {
       id: inputs.name,
     };
   }
 
-  async update(
-    inputs: ResourceInputs['namespace'],
-  ): Promise<DeepPartial<ResourceOutputs['namespace']>> {
+  async update(inputs: ResourceInputs['namespace']): Promise<DeepPartial<ResourceOutputs['namespace']>> {
     throw new Error('Not yet implemented');
   }
 
   async delete(id: string): Promise<void> {
-    await execa('docker', ['network', 'rm', id]);
+    await exec('docker', { args: ['network', 'rm', id] });
   }
 }

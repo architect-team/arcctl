@@ -1,57 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface SsmResourceDataSyncConfig extends cdktf.TerraformMetaArguments {
+export interface SsmResourceDataSyncConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#id SsmResourceDataSync#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#id SsmResourceDataSync#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#name SsmResourceDataSync#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#name SsmResourceDataSync#name}
+   */
   readonly name: string;
   /**
-  * s3_destination block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#s3_destination SsmResourceDataSync#s3_destination}
-  */
+   * s3_destination block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#s3_destination SsmResourceDataSync#s3_destination}
+   */
   readonly s3Destination: SsmResourceDataSyncS3Destination;
 }
 export interface SsmResourceDataSyncS3Destination {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#bucket_name SsmResourceDataSync#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#bucket_name SsmResourceDataSync#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#kms_key_arn SsmResourceDataSync#kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#kms_key_arn SsmResourceDataSync#kms_key_arn}
+   */
   readonly kmsKeyArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#prefix SsmResourceDataSync#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#prefix SsmResourceDataSync#prefix}
+   */
   readonly prefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#region SsmResourceDataSync#region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#region SsmResourceDataSync#region}
+   */
   readonly region: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#sync_format SsmResourceDataSync#sync_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync#sync_format SsmResourceDataSync#sync_format}
+   */
   readonly syncFormat?: string;
 }
 
-export function ssmResourceDataSyncS3DestinationToTerraform(struct?: SsmResourceDataSyncS3DestinationOutputReference | SsmResourceDataSyncS3Destination): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ssmResourceDataSyncS3DestinationToTerraform(
+  struct?:
+    | SsmResourceDataSyncS3DestinationOutputReference
+    | SsmResourceDataSyncS3Destination,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
@@ -59,17 +67,20 @@ export function ssmResourceDataSyncS3DestinationToTerraform(struct?: SsmResource
     prefix: cdktf.stringToTerraform(struct!.prefix),
     region: cdktf.stringToTerraform(struct!.region),
     sync_format: cdktf.stringToTerraform(struct!.syncFormat),
-  }
+  };
 }
 
 export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -99,7 +110,9 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SsmResourceDataSyncS3Destination | undefined) {
+  public set internalValue(
+    value: SsmResourceDataSyncS3Destination | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
@@ -107,8 +120,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
       this._prefix = undefined;
       this._region = undefined;
       this._syncFormat = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._kmsKeyArn = value.kmsKeyArn;
@@ -119,7 +131,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -132,7 +144,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -148,7 +160,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -164,7 +176,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // region - computed: false, optional: false, required: true
-  private _region?: string; 
+  private _region?: string;
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -177,7 +189,7 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
   }
 
   // sync_format - computed: false, optional: true, required: false
-  private _syncFormat?: string; 
+  private _syncFormat?: string;
   public get syncFormat() {
     return this.getStringAttribute('sync_format');
   }
@@ -194,33 +206,36 @@ export class SsmResourceDataSyncS3DestinationOutputReference extends cdktf.Compl
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync aws_ssm_resource_data_sync}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync aws_ssm_resource_data_sync}
+ */
 export class SsmResourceDataSync extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ssm_resource_data_sync";
+  public static readonly tfResourceType = 'aws_ssm_resource_data_sync';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync aws_ssm_resource_data_sync} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SsmResourceDataSyncConfig
-  */
-  public constructor(scope: Construct, id: string, config: SsmResourceDataSyncConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ssm_resource_data_sync aws_ssm_resource_data_sync} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SsmResourceDataSyncConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SsmResourceDataSyncConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ssm_resource_data_sync',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -228,7 +243,7 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -240,7 +255,7 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -256,7 +271,7 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -269,7 +284,10 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
   }
 
   // s3_destination - computed: false, optional: false, required: true
-  private _s3Destination = new SsmResourceDataSyncS3DestinationOutputReference(this, "s3_destination");
+  private _s3Destination = new SsmResourceDataSyncS3DestinationOutputReference(
+    this,
+    's3_destination',
+  );
   public get s3Destination() {
     return this._s3Destination;
   }
@@ -289,7 +307,9 @@ export class SsmResourceDataSync extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      s3_destination: ssmResourceDataSyncS3DestinationToTerraform(this._s3Destination.internalValue),
+      s3_destination: ssmResourceDataSyncS3DestinationToTerraform(
+        this._s3Destination.internalValue,
+      ),
     };
   }
 }

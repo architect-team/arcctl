@@ -1,7 +1,7 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { BaseService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { BaseService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDatabaseVersionService extends BaseService<'databaseVersion'> {
@@ -12,9 +12,7 @@ export class DigitaloceanDatabaseVersionService extends BaseService<'databaseVer
     this.client = createApiClient({ token: credentials.token });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['databaseVersion'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['databaseVersion'] | undefined> {
     return undefined;
   }
 

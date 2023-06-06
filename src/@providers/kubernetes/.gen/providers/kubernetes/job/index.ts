@@ -1,77 +1,79 @@
 // generated from terraform resource schema
-
-import { JobMetadata, 
-jobMetadataToTerraform, 
-JobMetadataOutputReference, 
-JobSpec, 
-jobSpecToTerraform, 
-JobSpecOutputReference, 
-JobTimeouts, 
-jobTimeoutsToTerraform, 
-JobTimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
-import { Construct } from 'constructs';
+import {
+  JobMetadata,
+  jobMetadataToTerraform,
+  JobMetadataOutputReference,
+  JobSpec,
+  jobSpecToTerraform,
+  JobSpecOutputReference,
+  JobTimeouts,
+  jobTimeoutsToTerraform,
+  JobTimeoutsOutputReference,
+} from './index-structs/index.ts';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface JobConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#id Job#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#id Job#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#wait_for_completion Job#wait_for_completion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#wait_for_completion Job#wait_for_completion}
+   */
   readonly waitForCompletion?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#metadata Job#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#metadata Job#metadata}
+   */
   readonly metadata: JobMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#spec Job#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#spec Job#spec}
+   */
   readonly spec: JobSpec;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#timeouts Job#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/job#timeouts Job#timeouts}
+   */
   readonly timeouts?: JobTimeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/job kubernetes_job}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/job kubernetes_job}
+ */
 export class Job extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_job";
+  public static readonly tfResourceType = 'kubernetes_job';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/job kubernetes_job} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options JobConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/job kubernetes_job} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options JobConfig
+   */
   public constructor(scope: Construct, id: string, config: JobConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_job',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -79,7 +81,7 @@ export class Job extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._waitForCompletion = config.waitForCompletion;
@@ -93,7 +95,7 @@ export class Job extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -109,7 +111,7 @@ export class Job extends cdktf.TerraformResource {
   }
 
   // wait_for_completion - computed: false, optional: true, required: false
-  private _waitForCompletion?: boolean | cdktf.IResolvable; 
+  private _waitForCompletion?: boolean | cdktf.IResolvable;
   public get waitForCompletion() {
     return this.getBooleanAttribute('wait_for_completion');
   }
@@ -125,7 +127,7 @@ export class Job extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new JobMetadataOutputReference(this, "metadata");
+  private _metadata = new JobMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -138,7 +140,7 @@ export class Job extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new JobSpecOutputReference(this, "spec");
+  private _spec = new JobSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -151,7 +153,7 @@ export class Job extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new JobTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new JobTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }

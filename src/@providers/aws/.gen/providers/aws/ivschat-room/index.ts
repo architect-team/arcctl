@@ -1,86 +1,96 @@
 // https://www.terraform.io/docs/providers/aws/r/ivschat_room
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface IvschatRoomConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#id IvschatRoom#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#id IvschatRoom#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#logging_configuration_identifiers IvschatRoom#logging_configuration_identifiers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#logging_configuration_identifiers IvschatRoom#logging_configuration_identifiers}
+   */
   readonly loggingConfigurationIdentifiers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#maximum_message_length IvschatRoom#maximum_message_length}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#maximum_message_length IvschatRoom#maximum_message_length}
+   */
   readonly maximumMessageLength?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#maximum_message_rate_per_second IvschatRoom#maximum_message_rate_per_second}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#maximum_message_rate_per_second IvschatRoom#maximum_message_rate_per_second}
+   */
   readonly maximumMessageRatePerSecond?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#name IvschatRoom#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#name IvschatRoom#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#tags IvschatRoom#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#tags IvschatRoom#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#tags_all IvschatRoom#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#tags_all IvschatRoom#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * message_review_handler block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#message_review_handler IvschatRoom#message_review_handler}
-  */
+   * message_review_handler block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#message_review_handler IvschatRoom#message_review_handler}
+   */
   readonly messageReviewHandler?: IvschatRoomMessageReviewHandler;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#timeouts IvschatRoom#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#timeouts IvschatRoom#timeouts}
+   */
   readonly timeouts?: IvschatRoomTimeouts;
 }
 export interface IvschatRoomMessageReviewHandler {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#fallback_result IvschatRoom#fallback_result}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#fallback_result IvschatRoom#fallback_result}
+   */
   readonly fallbackResult?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#uri IvschatRoom#uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#uri IvschatRoom#uri}
+   */
   readonly uri?: string;
 }
 
-export function ivschatRoomMessageReviewHandlerToTerraform(struct?: IvschatRoomMessageReviewHandlerOutputReference | IvschatRoomMessageReviewHandler): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatRoomMessageReviewHandlerToTerraform(
+  struct?:
+    | IvschatRoomMessageReviewHandlerOutputReference
+    | IvschatRoomMessageReviewHandler,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     fallback_result: cdktf.stringToTerraform(struct!.fallbackResult),
     uri: cdktf.stringToTerraform(struct!.uri),
-  }
+  };
 }
 
 export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -103,8 +113,7 @@ export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._fallbackResult = undefined;
       this._uri = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fallbackResult = value.fallbackResult;
       this._uri = value.uri;
@@ -112,7 +121,7 @@ export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.Comple
   }
 
   // fallback_result - computed: true, optional: true, required: false
-  private _fallbackResult?: string; 
+  private _fallbackResult?: string;
   public get fallbackResult() {
     return this.getStringAttribute('fallback_result');
   }
@@ -128,7 +137,7 @@ export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.Comple
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -145,29 +154,38 @@ export class IvschatRoomMessageReviewHandlerOutputReference extends cdktf.Comple
 }
 export interface IvschatRoomTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#create IvschatRoom#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#create IvschatRoom#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#delete IvschatRoom#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#delete IvschatRoom#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#update IvschatRoom#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room#update IvschatRoom#update}
+   */
   readonly update?: string;
 }
 
-export function ivschatRoomTimeoutsToTerraform(struct?: IvschatRoomTimeoutsOutputReference | IvschatRoomTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivschatRoomTimeoutsToTerraform(
+  struct?:
+    | IvschatRoomTimeoutsOutputReference
+    | IvschatRoomTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -175,14 +193,20 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvschatRoomTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | IvschatRoomTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -203,19 +227,19 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvschatRoomTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: IvschatRoomTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -225,7 +249,7 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -241,7 +265,7 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -257,7 +281,7 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -274,33 +298,36 @@ export class IvschatRoomTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room aws_ivschat_room}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room aws_ivschat_room}
+ */
 export class IvschatRoom extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ivschat_room";
+  public static readonly tfResourceType = 'aws_ivschat_room';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room aws_ivschat_room} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options IvschatRoomConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: IvschatRoomConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ivschat_room aws_ivschat_room} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options IvschatRoomConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: IvschatRoomConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ivschat_room',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -308,10 +335,11 @@ export class IvschatRoom extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
-    this._loggingConfigurationIdentifiers = config.loggingConfigurationIdentifiers;
+    this._loggingConfigurationIdentifiers =
+      config.loggingConfigurationIdentifiers;
     this._maximumMessageLength = config.maximumMessageLength;
     this._maximumMessageRatePerSecond = config.maximumMessageRatePerSecond;
     this._name = config.name;
@@ -331,7 +359,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -347,7 +375,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // logging_configuration_identifiers - computed: false, optional: true, required: false
-  private _loggingConfigurationIdentifiers?: string[]; 
+  private _loggingConfigurationIdentifiers?: string[];
   public get loggingConfigurationIdentifiers() {
     return this.getListAttribute('logging_configuration_identifiers');
   }
@@ -363,7 +391,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // maximum_message_length - computed: true, optional: true, required: false
-  private _maximumMessageLength?: number; 
+  private _maximumMessageLength?: number;
   public get maximumMessageLength() {
     return this.getNumberAttribute('maximum_message_length');
   }
@@ -379,7 +407,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // maximum_message_rate_per_second - computed: true, optional: true, required: false
-  private _maximumMessageRatePerSecond?: number; 
+  private _maximumMessageRatePerSecond?: number;
   public get maximumMessageRatePerSecond() {
     return this.getNumberAttribute('maximum_message_rate_per_second');
   }
@@ -395,7 +423,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -411,7 +439,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -427,7 +455,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -443,7 +471,11 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // message_review_handler - computed: false, optional: true, required: false
-  private _messageReviewHandler = new IvschatRoomMessageReviewHandlerOutputReference(this, "message_review_handler");
+  private _messageReviewHandler =
+    new IvschatRoomMessageReviewHandlerOutputReference(
+      this,
+      'message_review_handler',
+    );
   public get messageReviewHandler() {
     return this._messageReviewHandler;
   }
@@ -459,7 +491,7 @@ export class IvschatRoom extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new IvschatRoomTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new IvschatRoomTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -481,13 +513,22 @@ export class IvschatRoom extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      logging_configuration_identifiers: cdktf.listMapper(cdktf.stringToTerraform, false)(this._loggingConfigurationIdentifiers),
-      maximum_message_length: cdktf.numberToTerraform(this._maximumMessageLength),
-      maximum_message_rate_per_second: cdktf.numberToTerraform(this._maximumMessageRatePerSecond),
+      logging_configuration_identifiers: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._loggingConfigurationIdentifiers),
+      maximum_message_length: cdktf.numberToTerraform(
+        this._maximumMessageLength,
+      ),
+      maximum_message_rate_per_second: cdktf.numberToTerraform(
+        this._maximumMessageRatePerSecond,
+      ),
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      message_review_handler: ivschatRoomMessageReviewHandlerToTerraform(this._messageReviewHandler.internalValue),
+      message_review_handler: ivschatRoomMessageReviewHandlerToTerraform(
+        this._messageReviewHandler.internalValue,
+      ),
       timeouts: ivschatRoomTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

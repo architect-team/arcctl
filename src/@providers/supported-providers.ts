@@ -1,9 +1,9 @@
-import aws from './aws/provider.js';
-import digitalocean from './digitalocean/provider.js';
-import docker from './docker/provider.js';
-import kubernetes from './kubernetes/provider.js';
-import local from './local/provider.js';
-import postgres from './postgres/provider.js';
+import aws from './aws/provider.ts';
+import digitalocean from './digitalocean/provider.ts';
+import docker from './docker/provider.ts';
+import kubernetes from './kubernetes/provider.ts';
+import local from './local/provider.ts';
+import postgres from './postgres/provider.ts';
 
 export const SupportedProviders = {
   'aws': aws,

@@ -1,102 +1,114 @@
 // https://www.terraform.io/docs/providers/aws/r/scheduler_schedule
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface SchedulerScheduleConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#description SchedulerSchedule#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#description SchedulerSchedule#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#end_date SchedulerSchedule#end_date}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#end_date SchedulerSchedule#end_date}
+   */
   readonly endDate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#group_name SchedulerSchedule#group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#group_name SchedulerSchedule#group_name}
+   */
   readonly groupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#id SchedulerSchedule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#id SchedulerSchedule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#kms_key_arn SchedulerSchedule#kms_key_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#kms_key_arn SchedulerSchedule#kms_key_arn}
+   */
   readonly kmsKeyArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#name SchedulerSchedule#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#name SchedulerSchedule#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#name_prefix SchedulerSchedule#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#name_prefix SchedulerSchedule#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#schedule_expression SchedulerSchedule#schedule_expression}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#schedule_expression SchedulerSchedule#schedule_expression}
+   */
   readonly scheduleExpression: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#schedule_expression_timezone SchedulerSchedule#schedule_expression_timezone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#schedule_expression_timezone SchedulerSchedule#schedule_expression_timezone}
+   */
   readonly scheduleExpressionTimezone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#start_date SchedulerSchedule#start_date}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#start_date SchedulerSchedule#start_date}
+   */
   readonly startDate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#state SchedulerSchedule#state}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#state SchedulerSchedule#state}
+   */
   readonly state?: string;
   /**
-  * flexible_time_window block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#flexible_time_window SchedulerSchedule#flexible_time_window}
-  */
+   * flexible_time_window block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#flexible_time_window SchedulerSchedule#flexible_time_window}
+   */
   readonly flexibleTimeWindow: SchedulerScheduleFlexibleTimeWindow;
   /**
-  * target block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#target SchedulerSchedule#target}
-  */
+   * target block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#target SchedulerSchedule#target}
+   */
   readonly target: SchedulerScheduleTarget;
 }
 export interface SchedulerScheduleFlexibleTimeWindow {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#maximum_window_in_minutes SchedulerSchedule#maximum_window_in_minutes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#maximum_window_in_minutes SchedulerSchedule#maximum_window_in_minutes}
+   */
   readonly maximumWindowInMinutes?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#mode SchedulerSchedule#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#mode SchedulerSchedule#mode}
+   */
   readonly mode: string;
 }
 
-export function schedulerScheduleFlexibleTimeWindowToTerraform(struct?: SchedulerScheduleFlexibleTimeWindowOutputReference | SchedulerScheduleFlexibleTimeWindow): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleFlexibleTimeWindowToTerraform(
+  struct?:
+    | SchedulerScheduleFlexibleTimeWindowOutputReference
+    | SchedulerScheduleFlexibleTimeWindow,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    maximum_window_in_minutes: cdktf.numberToTerraform(struct!.maximumWindowInMinutes),
+    maximum_window_in_minutes: cdktf.numberToTerraform(
+      struct!.maximumWindowInMinutes,
+    ),
     mode: cdktf.stringToTerraform(struct!.mode),
-  }
+  };
 }
 
 export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -114,13 +126,14 @@ export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleFlexibleTimeWindow | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleFlexibleTimeWindow | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._maximumWindowInMinutes = undefined;
       this._mode = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._maximumWindowInMinutes = value.maximumWindowInMinutes;
       this._mode = value.mode;
@@ -128,7 +141,7 @@ export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.Co
   }
 
   // maximum_window_in_minutes - computed: false, optional: true, required: false
-  private _maximumWindowInMinutes?: number; 
+  private _maximumWindowInMinutes?: number;
   public get maximumWindowInMinutes() {
     return this.getNumberAttribute('maximum_window_in_minutes');
   }
@@ -144,7 +157,7 @@ export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.Co
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -158,33 +171,46 @@ export class SchedulerScheduleFlexibleTimeWindowOutputReference extends cdktf.Co
 }
 export interface SchedulerScheduleTargetDeadLetterConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#arn SchedulerSchedule#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#arn SchedulerSchedule#arn}
+   */
   readonly arn?: string;
 }
 
-export function schedulerScheduleTargetDeadLetterConfigToTerraform(struct?: SchedulerScheduleTargetDeadLetterConfigOutputReference | SchedulerScheduleTargetDeadLetterConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetDeadLetterConfigToTerraform(
+  struct?:
+    | SchedulerScheduleTargetDeadLetterConfigOutputReference
+    | SchedulerScheduleTargetDeadLetterConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetDeadLetterConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SchedulerScheduleTargetDeadLetterConfig | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetDeadLetterConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._arn !== undefined) {
@@ -194,19 +220,20 @@ export class SchedulerScheduleTargetDeadLetterConfigOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetDeadLetterConfig | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetDeadLetterConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._arn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
     }
   }
 
   // arn - computed: false, optional: true, required: false
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -223,29 +250,37 @@ export class SchedulerScheduleTargetDeadLetterConfigOutputReference extends cdkt
 }
 export interface SchedulerScheduleTargetEcsParametersCapacityProviderStrategy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#base SchedulerSchedule#base}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#base SchedulerSchedule#base}
+   */
   readonly base?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#capacity_provider SchedulerSchedule#capacity_provider}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#capacity_provider SchedulerSchedule#capacity_provider}
+   */
   readonly capacityProvider: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#weight SchedulerSchedule#weight}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#weight SchedulerSchedule#weight}
+   */
   readonly weight?: number;
 }
 
-export function schedulerScheduleTargetEcsParametersCapacityProviderStrategyToTerraform(struct?: SchedulerScheduleTargetEcsParametersCapacityProviderStrategy | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetEcsParametersCapacityProviderStrategyToTerraform(
+  struct?:
+    | SchedulerScheduleTargetEcsParametersCapacityProviderStrategy
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     base: cdktf.numberToTerraform(struct!.base),
     capacity_provider: cdktf.stringToTerraform(struct!.capacityProvider),
     weight: cdktf.numberToTerraform(struct!.weight),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputReference extends cdktf.ComplexObject {
@@ -253,16 +288,29 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SchedulerScheduleTargetEcsParametersCapacityProviderStrategy | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetEcsParametersCapacityProviderStrategy
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -283,19 +331,22 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetEcsParametersCapacityProviderStrategy | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | SchedulerScheduleTargetEcsParametersCapacityProviderStrategy
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._base = undefined;
       this._capacityProvider = undefined;
       this._weight = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._base = value.base;
@@ -305,7 +356,7 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   }
 
   // base - computed: false, optional: true, required: false
-  private _base?: number; 
+  private _base?: number;
   public get base() {
     return this.getNumberAttribute('base');
   }
@@ -321,7 +372,7 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   }
 
   // capacity_provider - computed: false, optional: false, required: true
-  private _capacityProvider?: string; 
+  private _capacityProvider?: string;
   public get capacityProvider() {
     return this.getStringAttribute('capacity_provider');
   }
@@ -334,7 +385,7 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
   }
 
   // weight - computed: false, optional: true, required: false
-  private _weight?: number; 
+  private _weight?: number;
   public get weight() {
     return this.getNumberAttribute('weight');
   }
@@ -351,63 +402,92 @@ export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputR
 }
 
 export class SchedulerScheduleTargetEcsParametersCapacityProviderStrategyList extends cdktf.ComplexList {
-  public internalValue? : SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[] | cdktf.IResolvable
+  public internalValue?:
+    | SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputReference {
-    return new SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputReference {
+    return new SchedulerScheduleTargetEcsParametersCapacityProviderStrategyOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SchedulerScheduleTargetEcsParametersNetworkConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#assign_public_ip SchedulerSchedule#assign_public_ip}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#assign_public_ip SchedulerSchedule#assign_public_ip}
+   */
   readonly assignPublicIp?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#security_groups SchedulerSchedule#security_groups}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#security_groups SchedulerSchedule#security_groups}
+   */
   readonly securityGroups?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#subnets SchedulerSchedule#subnets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#subnets SchedulerSchedule#subnets}
+   */
   readonly subnets: string[];
 }
 
-export function schedulerScheduleTargetEcsParametersNetworkConfigurationToTerraform(struct?: SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputReference | SchedulerScheduleTargetEcsParametersNetworkConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetEcsParametersNetworkConfigurationToTerraform(
+  struct?:
+    | SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputReference
+    | SchedulerScheduleTargetEcsParametersNetworkConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     assign_public_ip: cdktf.booleanToTerraform(struct!.assignPublicIp),
-    security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroups),
+    security_groups: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroups),
     subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnets),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SchedulerScheduleTargetEcsParametersNetworkConfiguration | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetEcsParametersNetworkConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._assignPublicIp !== undefined) {
@@ -425,14 +505,15 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetEcsParametersNetworkConfiguration | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetEcsParametersNetworkConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._assignPublicIp = undefined;
       this._securityGroups = undefined;
       this._subnets = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._assignPublicIp = value.assignPublicIp;
       this._securityGroups = value.securityGroups;
@@ -441,7 +522,7 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
   }
 
   // assign_public_ip - computed: false, optional: true, required: false
-  private _assignPublicIp?: boolean | cdktf.IResolvable; 
+  private _assignPublicIp?: boolean | cdktf.IResolvable;
   public get assignPublicIp() {
     return this.getBooleanAttribute('assign_public_ip');
   }
@@ -457,7 +538,7 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[]; 
+  private _securityGroups?: string[];
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -473,7 +554,7 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -487,24 +568,32 @@ export class SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputRefer
 }
 export interface SchedulerScheduleTargetEcsParametersPlacementConstraints {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#expression SchedulerSchedule#expression}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#expression SchedulerSchedule#expression}
+   */
   readonly expression?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#type SchedulerSchedule#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#type SchedulerSchedule#type}
+   */
   readonly type: string;
 }
 
-export function schedulerScheduleTargetEcsParametersPlacementConstraintsToTerraform(struct?: SchedulerScheduleTargetEcsParametersPlacementConstraints | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetEcsParametersPlacementConstraintsToTerraform(
+  struct?:
+    | SchedulerScheduleTargetEcsParametersPlacementConstraints
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     expression: cdktf.stringToTerraform(struct!.expression),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputReference extends cdktf.ComplexObject {
@@ -512,16 +601,29 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SchedulerScheduleTargetEcsParametersPlacementConstraints | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetEcsParametersPlacementConstraints
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -538,18 +640,21 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetEcsParametersPlacementConstraints | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | SchedulerScheduleTargetEcsParametersPlacementConstraints
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._expression = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._expression = value.expression;
@@ -558,7 +663,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
   }
 
   // expression - computed: false, optional: true, required: false
-  private _expression?: string; 
+  private _expression?: string;
   public get expression() {
     return this.getStringAttribute('expression');
   }
@@ -574,7 +679,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -588,44 +693,65 @@ export class SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputRefer
 }
 
 export class SchedulerScheduleTargetEcsParametersPlacementConstraintsList extends cdktf.ComplexList {
-  public internalValue? : SchedulerScheduleTargetEcsParametersPlacementConstraints[] | cdktf.IResolvable
+  public internalValue?:
+    | SchedulerScheduleTargetEcsParametersPlacementConstraints[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputReference {
-    return new SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputReference {
+    return new SchedulerScheduleTargetEcsParametersPlacementConstraintsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SchedulerScheduleTargetEcsParametersPlacementStrategy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#field SchedulerSchedule#field}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#field SchedulerSchedule#field}
+   */
   readonly field?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#type SchedulerSchedule#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#type SchedulerSchedule#type}
+   */
   readonly type: string;
 }
 
-export function schedulerScheduleTargetEcsParametersPlacementStrategyToTerraform(struct?: SchedulerScheduleTargetEcsParametersPlacementStrategy | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetEcsParametersPlacementStrategyToTerraform(
+  struct?:
+    | SchedulerScheduleTargetEcsParametersPlacementStrategy
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     field: cdktf.stringToTerraform(struct!.field),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReference extends cdktf.ComplexObject {
@@ -633,16 +759,29 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SchedulerScheduleTargetEcsParametersPlacementStrategy | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetEcsParametersPlacementStrategy
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -659,18 +798,21 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetEcsParametersPlacementStrategy | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | SchedulerScheduleTargetEcsParametersPlacementStrategy
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._field = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._field = value.field;
@@ -679,7 +821,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
   }
 
   // field - computed: false, optional: true, required: false
-  private _field?: string; 
+  private _field?: string;
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -695,7 +837,7 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -709,99 +851,130 @@ export class SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReferenc
 }
 
 export class SchedulerScheduleTargetEcsParametersPlacementStrategyList extends cdktf.ComplexList {
-  public internalValue? : SchedulerScheduleTargetEcsParametersPlacementStrategy[] | cdktf.IResolvable
+  public internalValue?:
+    | SchedulerScheduleTargetEcsParametersPlacementStrategy[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReference {
-    return new SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReference {
+    return new SchedulerScheduleTargetEcsParametersPlacementStrategyOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SchedulerScheduleTargetEcsParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#enable_ecs_managed_tags SchedulerSchedule#enable_ecs_managed_tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#enable_ecs_managed_tags SchedulerSchedule#enable_ecs_managed_tags}
+   */
   readonly enableEcsManagedTags?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#enable_execute_command SchedulerSchedule#enable_execute_command}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#enable_execute_command SchedulerSchedule#enable_execute_command}
+   */
   readonly enableExecuteCommand?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#group SchedulerSchedule#group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#group SchedulerSchedule#group}
+   */
   readonly group?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#launch_type SchedulerSchedule#launch_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#launch_type SchedulerSchedule#launch_type}
+   */
   readonly launchType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#platform_version SchedulerSchedule#platform_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#platform_version SchedulerSchedule#platform_version}
+   */
   readonly platformVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#propagate_tags SchedulerSchedule#propagate_tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#propagate_tags SchedulerSchedule#propagate_tags}
+   */
   readonly propagateTags?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#reference_id SchedulerSchedule#reference_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#reference_id SchedulerSchedule#reference_id}
+   */
   readonly referenceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#tags SchedulerSchedule#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#tags SchedulerSchedule#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#task_count SchedulerSchedule#task_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#task_count SchedulerSchedule#task_count}
+   */
   readonly taskCount?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#task_definition_arn SchedulerSchedule#task_definition_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#task_definition_arn SchedulerSchedule#task_definition_arn}
+   */
   readonly taskDefinitionArn: string;
   /**
-  * capacity_provider_strategy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#capacity_provider_strategy SchedulerSchedule#capacity_provider_strategy}
-  */
-  readonly capacityProviderStrategy?: SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[] | cdktf.IResolvable;
+   * capacity_provider_strategy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#capacity_provider_strategy SchedulerSchedule#capacity_provider_strategy}
+   */
+  readonly capacityProviderStrategy?:
+    | SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[]
+    | cdktf.IResolvable;
   /**
-  * network_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#network_configuration SchedulerSchedule#network_configuration}
-  */
+   * network_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#network_configuration SchedulerSchedule#network_configuration}
+   */
   readonly networkConfiguration?: SchedulerScheduleTargetEcsParametersNetworkConfiguration;
   /**
-  * placement_constraints block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#placement_constraints SchedulerSchedule#placement_constraints}
-  */
-  readonly placementConstraints?: SchedulerScheduleTargetEcsParametersPlacementConstraints[] | cdktf.IResolvable;
+   * placement_constraints block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#placement_constraints SchedulerSchedule#placement_constraints}
+   */
+  readonly placementConstraints?:
+    | SchedulerScheduleTargetEcsParametersPlacementConstraints[]
+    | cdktf.IResolvable;
   /**
-  * placement_strategy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#placement_strategy SchedulerSchedule#placement_strategy}
-  */
-  readonly placementStrategy?: SchedulerScheduleTargetEcsParametersPlacementStrategy[] | cdktf.IResolvable;
+   * placement_strategy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#placement_strategy SchedulerSchedule#placement_strategy}
+   */
+  readonly placementStrategy?:
+    | SchedulerScheduleTargetEcsParametersPlacementStrategy[]
+    | cdktf.IResolvable;
 }
 
-export function schedulerScheduleTargetEcsParametersToTerraform(struct?: SchedulerScheduleTargetEcsParametersOutputReference | SchedulerScheduleTargetEcsParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetEcsParametersToTerraform(
+  struct?:
+    | SchedulerScheduleTargetEcsParametersOutputReference
+    | SchedulerScheduleTargetEcsParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    enable_ecs_managed_tags: cdktf.booleanToTerraform(struct!.enableEcsManagedTags),
-    enable_execute_command: cdktf.booleanToTerraform(struct!.enableExecuteCommand),
+    enable_ecs_managed_tags: cdktf.booleanToTerraform(
+      struct!.enableEcsManagedTags,
+    ),
+    enable_execute_command: cdktf.booleanToTerraform(
+      struct!.enableExecuteCommand,
+    ),
     group: cdktf.stringToTerraform(struct!.group),
     launch_type: cdktf.stringToTerraform(struct!.launchType),
     platform_version: cdktf.stringToTerraform(struct!.platformVersion),
@@ -810,21 +983,36 @@ export function schedulerScheduleTargetEcsParametersToTerraform(struct?: Schedul
     tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
     task_count: cdktf.numberToTerraform(struct!.taskCount),
     task_definition_arn: cdktf.stringToTerraform(struct!.taskDefinitionArn),
-    capacity_provider_strategy: cdktf.listMapper(schedulerScheduleTargetEcsParametersCapacityProviderStrategyToTerraform, true)(struct!.capacityProviderStrategy),
-    network_configuration: schedulerScheduleTargetEcsParametersNetworkConfigurationToTerraform(struct!.networkConfiguration),
-    placement_constraints: cdktf.listMapper(schedulerScheduleTargetEcsParametersPlacementConstraintsToTerraform, true)(struct!.placementConstraints),
-    placement_strategy: cdktf.listMapper(schedulerScheduleTargetEcsParametersPlacementStrategyToTerraform, true)(struct!.placementStrategy),
-  }
+    capacity_provider_strategy: cdktf.listMapper(
+      schedulerScheduleTargetEcsParametersCapacityProviderStrategyToTerraform,
+      true,
+    )(struct!.capacityProviderStrategy),
+    network_configuration:
+      schedulerScheduleTargetEcsParametersNetworkConfigurationToTerraform(
+        struct!.networkConfiguration,
+      ),
+    placement_constraints: cdktf.listMapper(
+      schedulerScheduleTargetEcsParametersPlacementConstraintsToTerraform,
+      true,
+    )(struct!.placementConstraints),
+    placement_strategy: cdktf.listMapper(
+      schedulerScheduleTargetEcsParametersPlacementStrategyToTerraform,
+      true,
+    )(struct!.placementStrategy),
+  };
 }
 
 export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -873,24 +1061,30 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
     }
     if (this._capacityProviderStrategy?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityProviderStrategy = this._capacityProviderStrategy?.internalValue;
+      internalValueResult.capacityProviderStrategy =
+        this._capacityProviderStrategy?.internalValue;
     }
     if (this._networkConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkConfiguration = this._networkConfiguration?.internalValue;
+      internalValueResult.networkConfiguration =
+        this._networkConfiguration?.internalValue;
     }
     if (this._placementConstraints?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.placementConstraints = this._placementConstraints?.internalValue;
+      internalValueResult.placementConstraints =
+        this._placementConstraints?.internalValue;
     }
     if (this._placementStrategy?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.placementStrategy = this._placementStrategy?.internalValue;
+      internalValueResult.placementStrategy =
+        this._placementStrategy?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetEcsParameters | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetEcsParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enableEcsManagedTags = undefined;
@@ -907,8 +1101,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
       this._networkConfiguration.internalValue = undefined;
       this._placementConstraints.internalValue = undefined;
       this._placementStrategy.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableEcsManagedTags = value.enableEcsManagedTags;
       this._enableExecuteCommand = value.enableExecuteCommand;
@@ -920,7 +1113,8 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
       this._tags = value.tags;
       this._taskCount = value.taskCount;
       this._taskDefinitionArn = value.taskDefinitionArn;
-      this._capacityProviderStrategy.internalValue = value.capacityProviderStrategy;
+      this._capacityProviderStrategy.internalValue =
+        value.capacityProviderStrategy;
       this._networkConfiguration.internalValue = value.networkConfiguration;
       this._placementConstraints.internalValue = value.placementConstraints;
       this._placementStrategy.internalValue = value.placementStrategy;
@@ -928,7 +1122,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // enable_ecs_managed_tags - computed: false, optional: true, required: false
-  private _enableEcsManagedTags?: boolean | cdktf.IResolvable; 
+  private _enableEcsManagedTags?: boolean | cdktf.IResolvable;
   public get enableEcsManagedTags() {
     return this.getBooleanAttribute('enable_ecs_managed_tags');
   }
@@ -944,7 +1138,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // enable_execute_command - computed: false, optional: true, required: false
-  private _enableExecuteCommand?: boolean | cdktf.IResolvable; 
+  private _enableExecuteCommand?: boolean | cdktf.IResolvable;
   public get enableExecuteCommand() {
     return this.getBooleanAttribute('enable_execute_command');
   }
@@ -960,7 +1154,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // group - computed: false, optional: true, required: false
-  private _group?: string; 
+  private _group?: string;
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -976,7 +1170,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // launch_type - computed: false, optional: true, required: false
-  private _launchType?: string; 
+  private _launchType?: string;
   public get launchType() {
     return this.getStringAttribute('launch_type');
   }
@@ -992,7 +1186,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // platform_version - computed: false, optional: true, required: false
-  private _platformVersion?: string; 
+  private _platformVersion?: string;
   public get platformVersion() {
     return this.getStringAttribute('platform_version');
   }
@@ -1008,7 +1202,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // propagate_tags - computed: false, optional: true, required: false
-  private _propagateTags?: string; 
+  private _propagateTags?: string;
   public get propagateTags() {
     return this.getStringAttribute('propagate_tags');
   }
@@ -1024,7 +1218,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // reference_id - computed: false, optional: true, required: false
-  private _referenceId?: string; 
+  private _referenceId?: string;
   public get referenceId() {
     return this.getStringAttribute('reference_id');
   }
@@ -1040,7 +1234,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1056,7 +1250,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // task_count - computed: false, optional: true, required: false
-  private _taskCount?: number; 
+  private _taskCount?: number;
   public get taskCount() {
     return this.getNumberAttribute('task_count');
   }
@@ -1072,7 +1266,7 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // task_definition_arn - computed: false, optional: false, required: true
-  private _taskDefinitionArn?: string; 
+  private _taskDefinitionArn?: string;
   public get taskDefinitionArn() {
     return this.getStringAttribute('task_definition_arn');
   }
@@ -1085,11 +1279,20 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // capacity_provider_strategy - computed: false, optional: true, required: false
-  private _capacityProviderStrategy = new SchedulerScheduleTargetEcsParametersCapacityProviderStrategyList(this, "capacity_provider_strategy", true);
+  private _capacityProviderStrategy =
+    new SchedulerScheduleTargetEcsParametersCapacityProviderStrategyList(
+      this,
+      'capacity_provider_strategy',
+      true,
+    );
   public get capacityProviderStrategy() {
     return this._capacityProviderStrategy;
   }
-  public putCapacityProviderStrategy(value: SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[] | cdktf.IResolvable) {
+  public putCapacityProviderStrategy(
+    value:
+      | SchedulerScheduleTargetEcsParametersCapacityProviderStrategy[]
+      | cdktf.IResolvable,
+  ) {
     this._capacityProviderStrategy.internalValue = value;
   }
   public resetCapacityProviderStrategy() {
@@ -1101,11 +1304,17 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // network_configuration - computed: false, optional: true, required: false
-  private _networkConfiguration = new SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputReference(this, "network_configuration");
+  private _networkConfiguration =
+    new SchedulerScheduleTargetEcsParametersNetworkConfigurationOutputReference(
+      this,
+      'network_configuration',
+    );
   public get networkConfiguration() {
     return this._networkConfiguration;
   }
-  public putNetworkConfiguration(value: SchedulerScheduleTargetEcsParametersNetworkConfiguration) {
+  public putNetworkConfiguration(
+    value: SchedulerScheduleTargetEcsParametersNetworkConfiguration,
+  ) {
     this._networkConfiguration.internalValue = value;
   }
   public resetNetworkConfiguration() {
@@ -1117,11 +1326,20 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // placement_constraints - computed: false, optional: true, required: false
-  private _placementConstraints = new SchedulerScheduleTargetEcsParametersPlacementConstraintsList(this, "placement_constraints", true);
+  private _placementConstraints =
+    new SchedulerScheduleTargetEcsParametersPlacementConstraintsList(
+      this,
+      'placement_constraints',
+      true,
+    );
   public get placementConstraints() {
     return this._placementConstraints;
   }
-  public putPlacementConstraints(value: SchedulerScheduleTargetEcsParametersPlacementConstraints[] | cdktf.IResolvable) {
+  public putPlacementConstraints(
+    value:
+      | SchedulerScheduleTargetEcsParametersPlacementConstraints[]
+      | cdktf.IResolvable,
+  ) {
     this._placementConstraints.internalValue = value;
   }
   public resetPlacementConstraints() {
@@ -1133,11 +1351,20 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
   }
 
   // placement_strategy - computed: false, optional: true, required: false
-  private _placementStrategy = new SchedulerScheduleTargetEcsParametersPlacementStrategyList(this, "placement_strategy", true);
+  private _placementStrategy =
+    new SchedulerScheduleTargetEcsParametersPlacementStrategyList(
+      this,
+      'placement_strategy',
+      true,
+    );
   public get placementStrategy() {
     return this._placementStrategy;
   }
-  public putPlacementStrategy(value: SchedulerScheduleTargetEcsParametersPlacementStrategy[] | cdktf.IResolvable) {
+  public putPlacementStrategy(
+    value:
+      | SchedulerScheduleTargetEcsParametersPlacementStrategy[]
+      | cdktf.IResolvable,
+  ) {
     this._placementStrategy.internalValue = value;
   }
   public resetPlacementStrategy() {
@@ -1150,38 +1377,51 @@ export class SchedulerScheduleTargetEcsParametersOutputReference extends cdktf.C
 }
 export interface SchedulerScheduleTargetEventbridgeParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#detail_type SchedulerSchedule#detail_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#detail_type SchedulerSchedule#detail_type}
+   */
   readonly detailType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#source SchedulerSchedule#source}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#source SchedulerSchedule#source}
+   */
   readonly source: string;
 }
 
-export function schedulerScheduleTargetEventbridgeParametersToTerraform(struct?: SchedulerScheduleTargetEventbridgeParametersOutputReference | SchedulerScheduleTargetEventbridgeParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetEventbridgeParametersToTerraform(
+  struct?:
+    | SchedulerScheduleTargetEventbridgeParametersOutputReference
+    | SchedulerScheduleTargetEventbridgeParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     detail_type: cdktf.stringToTerraform(struct!.detailType),
     source: cdktf.stringToTerraform(struct!.source),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SchedulerScheduleTargetEventbridgeParameters | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetEventbridgeParameters
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._detailType !== undefined) {
@@ -1195,13 +1435,14 @@ export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetEventbridgeParameters | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetEventbridgeParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._detailType = undefined;
       this._source = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._detailType = value.detailType;
       this._source = value.source;
@@ -1209,7 +1450,7 @@ export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends
   }
 
   // detail_type - computed: false, optional: false, required: true
-  private _detailType?: string; 
+  private _detailType?: string;
   public get detailType() {
     return this.getStringAttribute('detail_type');
   }
@@ -1222,7 +1463,7 @@ export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -1236,33 +1477,46 @@ export class SchedulerScheduleTargetEventbridgeParametersOutputReference extends
 }
 export interface SchedulerScheduleTargetKinesisParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#partition_key SchedulerSchedule#partition_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#partition_key SchedulerSchedule#partition_key}
+   */
   readonly partitionKey: string;
 }
 
-export function schedulerScheduleTargetKinesisParametersToTerraform(struct?: SchedulerScheduleTargetKinesisParametersOutputReference | SchedulerScheduleTargetKinesisParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetKinesisParametersToTerraform(
+  struct?:
+    | SchedulerScheduleTargetKinesisParametersOutputReference
+    | SchedulerScheduleTargetKinesisParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     partition_key: cdktf.stringToTerraform(struct!.partitionKey),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetKinesisParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SchedulerScheduleTargetKinesisParameters | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetKinesisParameters
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._partitionKey !== undefined) {
@@ -1272,19 +1526,20 @@ export class SchedulerScheduleTargetKinesisParametersOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetKinesisParameters | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetKinesisParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._partitionKey = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._partitionKey = value.partitionKey;
     }
   }
 
   // partition_key - computed: false, optional: false, required: true
-  private _partitionKey?: string; 
+  private _partitionKey?: string;
   public get partitionKey() {
     return this.getStringAttribute('partition_key');
   }
@@ -1298,34 +1553,49 @@ export class SchedulerScheduleTargetKinesisParametersOutputReference extends cdk
 }
 export interface SchedulerScheduleTargetRetryPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#maximum_event_age_in_seconds SchedulerSchedule#maximum_event_age_in_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#maximum_event_age_in_seconds SchedulerSchedule#maximum_event_age_in_seconds}
+   */
   readonly maximumEventAgeInSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#maximum_retry_attempts SchedulerSchedule#maximum_retry_attempts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#maximum_retry_attempts SchedulerSchedule#maximum_retry_attempts}
+   */
   readonly maximumRetryAttempts?: number;
 }
 
-export function schedulerScheduleTargetRetryPolicyToTerraform(struct?: SchedulerScheduleTargetRetryPolicyOutputReference | SchedulerScheduleTargetRetryPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetRetryPolicyToTerraform(
+  struct?:
+    | SchedulerScheduleTargetRetryPolicyOutputReference
+    | SchedulerScheduleTargetRetryPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    maximum_event_age_in_seconds: cdktf.numberToTerraform(struct!.maximumEventAgeInSeconds),
-    maximum_retry_attempts: cdktf.numberToTerraform(struct!.maximumRetryAttempts),
-  }
+    maximum_event_age_in_seconds: cdktf.numberToTerraform(
+      struct!.maximumEventAgeInSeconds,
+    ),
+    maximum_retry_attempts: cdktf.numberToTerraform(
+      struct!.maximumRetryAttempts,
+    ),
+  };
 }
 
 export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1334,7 +1604,8 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
     const internalValueResult: any = {};
     if (this._maximumEventAgeInSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.maximumEventAgeInSeconds = this._maximumEventAgeInSeconds;
+      internalValueResult.maximumEventAgeInSeconds =
+        this._maximumEventAgeInSeconds;
     }
     if (this._maximumRetryAttempts !== undefined) {
       hasAnyValues = true;
@@ -1343,13 +1614,14 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetRetryPolicy | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetRetryPolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._maximumEventAgeInSeconds = undefined;
       this._maximumRetryAttempts = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._maximumEventAgeInSeconds = value.maximumEventAgeInSeconds;
       this._maximumRetryAttempts = value.maximumRetryAttempts;
@@ -1357,7 +1629,7 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
   }
 
   // maximum_event_age_in_seconds - computed: false, optional: true, required: false
-  private _maximumEventAgeInSeconds?: number; 
+  private _maximumEventAgeInSeconds?: number;
   public get maximumEventAgeInSeconds() {
     return this.getNumberAttribute('maximum_event_age_in_seconds');
   }
@@ -1373,7 +1645,7 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
   }
 
   // maximum_retry_attempts - computed: false, optional: true, required: false
-  private _maximumRetryAttempts?: number; 
+  private _maximumRetryAttempts?: number;
   public get maximumRetryAttempts() {
     return this.getNumberAttribute('maximum_retry_attempts');
   }
@@ -1390,24 +1662,32 @@ export class SchedulerScheduleTargetRetryPolicyOutputReference extends cdktf.Com
 }
 export interface SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#name SchedulerSchedule#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#name SchedulerSchedule#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#value SchedulerSchedule#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#value SchedulerSchedule#value}
+   */
   readonly value: string;
 }
 
-export function schedulerScheduleTargetSagemakerPipelineParametersPipelineParameterToTerraform(struct?: SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetSagemakerPipelineParametersPipelineParameterToTerraform(
+  struct?:
+    | SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterOutputReference extends cdktf.ComplexObject {
@@ -1415,16 +1695,29 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1441,18 +1734,21 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -1461,7 +1757,7 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1474,7 +1770,7 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1488,81 +1784,123 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter
 }
 
 export class SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterList extends cdktf.ComplexList {
-  public internalValue? : SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[] | cdktf.IResolvable
+  public internalValue?:
+    | SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterOutputReference {
-    return new SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterOutputReference {
+    return new SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SchedulerScheduleTargetSagemakerPipelineParameters {
   /**
-  * pipeline_parameter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#pipeline_parameter SchedulerSchedule#pipeline_parameter}
-  */
-  readonly pipelineParameter?: SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[] | cdktf.IResolvable;
+   * pipeline_parameter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#pipeline_parameter SchedulerSchedule#pipeline_parameter}
+   */
+  readonly pipelineParameter?:
+    | SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[]
+    | cdktf.IResolvable;
 }
 
-export function schedulerScheduleTargetSagemakerPipelineParametersToTerraform(struct?: SchedulerScheduleTargetSagemakerPipelineParametersOutputReference | SchedulerScheduleTargetSagemakerPipelineParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetSagemakerPipelineParametersToTerraform(
+  struct?:
+    | SchedulerScheduleTargetSagemakerPipelineParametersOutputReference
+    | SchedulerScheduleTargetSagemakerPipelineParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    pipeline_parameter: cdktf.listMapper(schedulerScheduleTargetSagemakerPipelineParametersPipelineParameterToTerraform, true)(struct!.pipelineParameter),
-  }
+    pipeline_parameter: cdktf.listMapper(
+      schedulerScheduleTargetSagemakerPipelineParametersPipelineParameterToTerraform,
+      true,
+    )(struct!.pipelineParameter),
+  };
 }
 
 export class SchedulerScheduleTargetSagemakerPipelineParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SchedulerScheduleTargetSagemakerPipelineParameters | undefined {
+  public get internalValue():
+    | SchedulerScheduleTargetSagemakerPipelineParameters
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._pipelineParameter?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.pipelineParameter = this._pipelineParameter?.internalValue;
+      internalValueResult.pipelineParameter =
+        this._pipelineParameter?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetSagemakerPipelineParameters | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetSagemakerPipelineParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._pipelineParameter.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._pipelineParameter.internalValue = value.pipelineParameter;
     }
   }
 
   // pipeline_parameter - computed: false, optional: true, required: false
-  private _pipelineParameter = new SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterList(this, "pipeline_parameter", true);
+  private _pipelineParameter =
+    new SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameterList(
+      this,
+      'pipeline_parameter',
+      true,
+    );
   public get pipelineParameter() {
     return this._pipelineParameter;
   }
-  public putPipelineParameter(value: SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[] | cdktf.IResolvable) {
+  public putPipelineParameter(
+    value:
+      | SchedulerScheduleTargetSagemakerPipelineParametersPipelineParameter[]
+      | cdktf.IResolvable,
+  ) {
     this._pipelineParameter.internalValue = value;
   }
   public resetPipelineParameter() {
@@ -1575,29 +1913,40 @@ export class SchedulerScheduleTargetSagemakerPipelineParametersOutputReference e
 }
 export interface SchedulerScheduleTargetSqsParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#message_group_id SchedulerSchedule#message_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#message_group_id SchedulerSchedule#message_group_id}
+   */
   readonly messageGroupId?: string;
 }
 
-export function schedulerScheduleTargetSqsParametersToTerraform(struct?: SchedulerScheduleTargetSqsParametersOutputReference | SchedulerScheduleTargetSqsParameters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetSqsParametersToTerraform(
+  struct?:
+    | SchedulerScheduleTargetSqsParametersOutputReference
+    | SchedulerScheduleTargetSqsParameters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     message_group_id: cdktf.stringToTerraform(struct!.messageGroupId),
-  }
+  };
 }
 
 export class SchedulerScheduleTargetSqsParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1611,19 +1960,20 @@ export class SchedulerScheduleTargetSqsParametersOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SchedulerScheduleTargetSqsParameters | undefined) {
+  public set internalValue(
+    value: SchedulerScheduleTargetSqsParameters | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._messageGroupId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._messageGroupId = value.messageGroupId;
     }
   }
 
   // message_group_id - computed: false, optional: true, required: false
-  private _messageGroupId?: string; 
+  private _messageGroupId?: string;
   public get messageGroupId() {
     return this.getStringAttribute('message_group_id');
   }
@@ -1640,88 +1990,113 @@ export class SchedulerScheduleTargetSqsParametersOutputReference extends cdktf.C
 }
 export interface SchedulerScheduleTarget {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#arn SchedulerSchedule#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#arn SchedulerSchedule#arn}
+   */
   readonly arn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#input SchedulerSchedule#input}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#input SchedulerSchedule#input}
+   */
   readonly input?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#role_arn SchedulerSchedule#role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#role_arn SchedulerSchedule#role_arn}
+   */
   readonly roleArn: string;
   /**
-  * dead_letter_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#dead_letter_config SchedulerSchedule#dead_letter_config}
-  */
+   * dead_letter_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#dead_letter_config SchedulerSchedule#dead_letter_config}
+   */
   readonly deadLetterConfig?: SchedulerScheduleTargetDeadLetterConfig;
   /**
-  * ecs_parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#ecs_parameters SchedulerSchedule#ecs_parameters}
-  */
+   * ecs_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#ecs_parameters SchedulerSchedule#ecs_parameters}
+   */
   readonly ecsParameters?: SchedulerScheduleTargetEcsParameters;
   /**
-  * eventbridge_parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#eventbridge_parameters SchedulerSchedule#eventbridge_parameters}
-  */
+   * eventbridge_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#eventbridge_parameters SchedulerSchedule#eventbridge_parameters}
+   */
   readonly eventbridgeParameters?: SchedulerScheduleTargetEventbridgeParameters;
   /**
-  * kinesis_parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#kinesis_parameters SchedulerSchedule#kinesis_parameters}
-  */
+   * kinesis_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#kinesis_parameters SchedulerSchedule#kinesis_parameters}
+   */
   readonly kinesisParameters?: SchedulerScheduleTargetKinesisParameters;
   /**
-  * retry_policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#retry_policy SchedulerSchedule#retry_policy}
-  */
+   * retry_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#retry_policy SchedulerSchedule#retry_policy}
+   */
   readonly retryPolicy?: SchedulerScheduleTargetRetryPolicy;
   /**
-  * sagemaker_pipeline_parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#sagemaker_pipeline_parameters SchedulerSchedule#sagemaker_pipeline_parameters}
-  */
+   * sagemaker_pipeline_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#sagemaker_pipeline_parameters SchedulerSchedule#sagemaker_pipeline_parameters}
+   */
   readonly sagemakerPipelineParameters?: SchedulerScheduleTargetSagemakerPipelineParameters;
   /**
-  * sqs_parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#sqs_parameters SchedulerSchedule#sqs_parameters}
-  */
+   * sqs_parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule#sqs_parameters SchedulerSchedule#sqs_parameters}
+   */
   readonly sqsParameters?: SchedulerScheduleTargetSqsParameters;
 }
 
-export function schedulerScheduleTargetToTerraform(struct?: SchedulerScheduleTargetOutputReference | SchedulerScheduleTarget): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function schedulerScheduleTargetToTerraform(
+  struct?: SchedulerScheduleTargetOutputReference | SchedulerScheduleTarget,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
     input: cdktf.stringToTerraform(struct!.input),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-    dead_letter_config: schedulerScheduleTargetDeadLetterConfigToTerraform(struct!.deadLetterConfig),
-    ecs_parameters: schedulerScheduleTargetEcsParametersToTerraform(struct!.ecsParameters),
-    eventbridge_parameters: schedulerScheduleTargetEventbridgeParametersToTerraform(struct!.eventbridgeParameters),
-    kinesis_parameters: schedulerScheduleTargetKinesisParametersToTerraform(struct!.kinesisParameters),
-    retry_policy: schedulerScheduleTargetRetryPolicyToTerraform(struct!.retryPolicy),
-    sagemaker_pipeline_parameters: schedulerScheduleTargetSagemakerPipelineParametersToTerraform(struct!.sagemakerPipelineParameters),
-    sqs_parameters: schedulerScheduleTargetSqsParametersToTerraform(struct!.sqsParameters),
-  }
+    dead_letter_config: schedulerScheduleTargetDeadLetterConfigToTerraform(
+      struct!.deadLetterConfig,
+    ),
+    ecs_parameters: schedulerScheduleTargetEcsParametersToTerraform(
+      struct!.ecsParameters,
+    ),
+    eventbridge_parameters:
+      schedulerScheduleTargetEventbridgeParametersToTerraform(
+        struct!.eventbridgeParameters,
+      ),
+    kinesis_parameters: schedulerScheduleTargetKinesisParametersToTerraform(
+      struct!.kinesisParameters,
+    ),
+    retry_policy: schedulerScheduleTargetRetryPolicyToTerraform(
+      struct!.retryPolicy,
+    ),
+    sagemaker_pipeline_parameters:
+      schedulerScheduleTargetSagemakerPipelineParametersToTerraform(
+        struct!.sagemakerPipelineParameters,
+      ),
+    sqs_parameters: schedulerScheduleTargetSqsParametersToTerraform(
+      struct!.sqsParameters,
+    ),
+  };
 }
 
 export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1742,7 +2117,8 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
     }
     if (this._deadLetterConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.deadLetterConfig = this._deadLetterConfig?.internalValue;
+      internalValueResult.deadLetterConfig =
+        this._deadLetterConfig?.internalValue;
     }
     if (this._ecsParameters?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1750,11 +2126,13 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
     }
     if (this._eventbridgeParameters?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.eventbridgeParameters = this._eventbridgeParameters?.internalValue;
+      internalValueResult.eventbridgeParameters =
+        this._eventbridgeParameters?.internalValue;
     }
     if (this._kinesisParameters?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.kinesisParameters = this._kinesisParameters?.internalValue;
+      internalValueResult.kinesisParameters =
+        this._kinesisParameters?.internalValue;
     }
     if (this._retryPolicy?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1762,7 +2140,8 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
     }
     if (this._sagemakerPipelineParameters?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerPipelineParameters = this._sagemakerPipelineParameters?.internalValue;
+      internalValueResult.sagemakerPipelineParameters =
+        this._sagemakerPipelineParameters?.internalValue;
     }
     if (this._sqsParameters?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1784,8 +2163,7 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
       this._retryPolicy.internalValue = undefined;
       this._sagemakerPipelineParameters.internalValue = undefined;
       this._sqsParameters.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
       this._input = value.input;
@@ -1795,13 +2173,14 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
       this._eventbridgeParameters.internalValue = value.eventbridgeParameters;
       this._kinesisParameters.internalValue = value.kinesisParameters;
       this._retryPolicy.internalValue = value.retryPolicy;
-      this._sagemakerPipelineParameters.internalValue = value.sagemakerPipelineParameters;
+      this._sagemakerPipelineParameters.internalValue =
+        value.sagemakerPipelineParameters;
       this._sqsParameters.internalValue = value.sqsParameters;
     }
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1814,7 +2193,7 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // input - computed: false, optional: true, required: false
-  private _input?: string; 
+  private _input?: string;
   public get input() {
     return this.getStringAttribute('input');
   }
@@ -1830,7 +2209,7 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string; 
+  private _roleArn?: string;
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1843,7 +2222,11 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // dead_letter_config - computed: false, optional: true, required: false
-  private _deadLetterConfig = new SchedulerScheduleTargetDeadLetterConfigOutputReference(this, "dead_letter_config");
+  private _deadLetterConfig =
+    new SchedulerScheduleTargetDeadLetterConfigOutputReference(
+      this,
+      'dead_letter_config',
+    );
   public get deadLetterConfig() {
     return this._deadLetterConfig;
   }
@@ -1859,7 +2242,11 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // ecs_parameters - computed: false, optional: true, required: false
-  private _ecsParameters = new SchedulerScheduleTargetEcsParametersOutputReference(this, "ecs_parameters");
+  private _ecsParameters =
+    new SchedulerScheduleTargetEcsParametersOutputReference(
+      this,
+      'ecs_parameters',
+    );
   public get ecsParameters() {
     return this._ecsParameters;
   }
@@ -1875,11 +2262,17 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // eventbridge_parameters - computed: false, optional: true, required: false
-  private _eventbridgeParameters = new SchedulerScheduleTargetEventbridgeParametersOutputReference(this, "eventbridge_parameters");
+  private _eventbridgeParameters =
+    new SchedulerScheduleTargetEventbridgeParametersOutputReference(
+      this,
+      'eventbridge_parameters',
+    );
   public get eventbridgeParameters() {
     return this._eventbridgeParameters;
   }
-  public putEventbridgeParameters(value: SchedulerScheduleTargetEventbridgeParameters) {
+  public putEventbridgeParameters(
+    value: SchedulerScheduleTargetEventbridgeParameters,
+  ) {
     this._eventbridgeParameters.internalValue = value;
   }
   public resetEventbridgeParameters() {
@@ -1891,7 +2284,11 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // kinesis_parameters - computed: false, optional: true, required: false
-  private _kinesisParameters = new SchedulerScheduleTargetKinesisParametersOutputReference(this, "kinesis_parameters");
+  private _kinesisParameters =
+    new SchedulerScheduleTargetKinesisParametersOutputReference(
+      this,
+      'kinesis_parameters',
+    );
   public get kinesisParameters() {
     return this._kinesisParameters;
   }
@@ -1907,7 +2304,10 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // retry_policy - computed: false, optional: true, required: false
-  private _retryPolicy = new SchedulerScheduleTargetRetryPolicyOutputReference(this, "retry_policy");
+  private _retryPolicy = new SchedulerScheduleTargetRetryPolicyOutputReference(
+    this,
+    'retry_policy',
+  );
   public get retryPolicy() {
     return this._retryPolicy;
   }
@@ -1923,11 +2323,17 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // sagemaker_pipeline_parameters - computed: false, optional: true, required: false
-  private _sagemakerPipelineParameters = new SchedulerScheduleTargetSagemakerPipelineParametersOutputReference(this, "sagemaker_pipeline_parameters");
+  private _sagemakerPipelineParameters =
+    new SchedulerScheduleTargetSagemakerPipelineParametersOutputReference(
+      this,
+      'sagemaker_pipeline_parameters',
+    );
   public get sagemakerPipelineParameters() {
     return this._sagemakerPipelineParameters;
   }
-  public putSagemakerPipelineParameters(value: SchedulerScheduleTargetSagemakerPipelineParameters) {
+  public putSagemakerPipelineParameters(
+    value: SchedulerScheduleTargetSagemakerPipelineParameters,
+  ) {
     this._sagemakerPipelineParameters.internalValue = value;
   }
   public resetSagemakerPipelineParameters() {
@@ -1939,7 +2345,11 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
   }
 
   // sqs_parameters - computed: false, optional: true, required: false
-  private _sqsParameters = new SchedulerScheduleTargetSqsParametersOutputReference(this, "sqs_parameters");
+  private _sqsParameters =
+    new SchedulerScheduleTargetSqsParametersOutputReference(
+      this,
+      'sqs_parameters',
+    );
   public get sqsParameters() {
     return this._sqsParameters;
   }
@@ -1956,33 +2366,36 @@ export class SchedulerScheduleTargetOutputReference extends cdktf.ComplexObject 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule aws_scheduler_schedule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule aws_scheduler_schedule}
+ */
 export class SchedulerSchedule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_scheduler_schedule";
+  public static readonly tfResourceType = 'aws_scheduler_schedule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule aws_scheduler_schedule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SchedulerScheduleConfig
-  */
-  public constructor(scope: Construct, id: string, config: SchedulerScheduleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/scheduler_schedule aws_scheduler_schedule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SchedulerScheduleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SchedulerScheduleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_scheduler_schedule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1990,7 +2403,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._endDate = config.endDate;
@@ -2017,7 +2430,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -2033,7 +2446,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // end_date - computed: false, optional: true, required: false
-  private _endDate?: string; 
+  private _endDate?: string;
   public get endDate() {
     return this.getStringAttribute('end_date');
   }
@@ -2049,7 +2462,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // group_name - computed: true, optional: true, required: false
-  private _groupName?: string; 
+  private _groupName?: string;
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -2065,7 +2478,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2081,7 +2494,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string; 
+  private _kmsKeyArn?: string;
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -2097,7 +2510,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -2113,7 +2526,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -2129,7 +2542,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string; 
+  private _scheduleExpression?: string;
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -2142,7 +2555,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // schedule_expression_timezone - computed: false, optional: true, required: false
-  private _scheduleExpressionTimezone?: string; 
+  private _scheduleExpressionTimezone?: string;
   public get scheduleExpressionTimezone() {
     return this.getStringAttribute('schedule_expression_timezone');
   }
@@ -2158,7 +2571,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // start_date - computed: false, optional: true, required: false
-  private _startDate?: string; 
+  private _startDate?: string;
   public get startDate() {
     return this.getStringAttribute('start_date');
   }
@@ -2174,7 +2587,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // state - computed: false, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -2190,7 +2603,11 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // flexible_time_window - computed: false, optional: false, required: true
-  private _flexibleTimeWindow = new SchedulerScheduleFlexibleTimeWindowOutputReference(this, "flexible_time_window");
+  private _flexibleTimeWindow =
+    new SchedulerScheduleFlexibleTimeWindowOutputReference(
+      this,
+      'flexible_time_window',
+    );
   public get flexibleTimeWindow() {
     return this._flexibleTimeWindow;
   }
@@ -2203,7 +2620,7 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
   }
 
   // target - computed: false, optional: false, required: true
-  private _target = new SchedulerScheduleTargetOutputReference(this, "target");
+  private _target = new SchedulerScheduleTargetOutputReference(this, 'target');
   public get target() {
     return this._target;
   }
@@ -2229,10 +2646,14 @@ export class SchedulerSchedule extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       schedule_expression: cdktf.stringToTerraform(this._scheduleExpression),
-      schedule_expression_timezone: cdktf.stringToTerraform(this._scheduleExpressionTimezone),
+      schedule_expression_timezone: cdktf.stringToTerraform(
+        this._scheduleExpressionTimezone,
+      ),
       start_date: cdktf.stringToTerraform(this._startDate),
       state: cdktf.stringToTerraform(this._state),
-      flexible_time_window: schedulerScheduleFlexibleTimeWindowToTerraform(this._flexibleTimeWindow.internalValue),
+      flexible_time_window: schedulerScheduleFlexibleTimeWindowToTerraform(
+        this._flexibleTimeWindow.internalValue,
+      ),
       target: schedulerScheduleTargetToTerraform(this._target.internalValue),
     };
   }

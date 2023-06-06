@@ -1,6 +1,6 @@
 {{#types}}
-import type {{slug}}Inputs from './{{name}}/inputs.js';
-import type {{slug}}Outputs from './{{name}}/outputs.js';
+import type {{slug}}Inputs from './{{name}}/inputs.ts';
+import type {{slug}}Outputs from './{{name}}/outputs.ts';
 {{/types}}
 
 export type ResourceType =

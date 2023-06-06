@@ -1,14 +1,11 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesIngressRuleModule } from '../modules/ingress-rule.js';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesIngressRuleModule } from '../modules/ingress-rule.ts';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesIngressRuleService extends TerraformResourceService<
-  'ingressRule',
-  KubernetesCredentials
-> {
+export class KubernetesIngressRuleService extends TerraformResourceService<'ingressRule', KubernetesCredentials> {
   private _client?: k8s.AppsV1Api;
 
   constructor(private readonly credentials: KubernetesCredentials) {

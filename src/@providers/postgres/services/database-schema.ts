@@ -1,14 +1,11 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { PostgresCredentials } from '../credentials.js';
-import { PostgresDatabaseSchemaModule } from '../modules/database-schema.js';
-import pg from 'pg';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { PostgresCredentials } from '../credentials.ts';
+import { PostgresDatabaseSchemaModule } from '../modules/database-schema.ts';
+import { pg } from 'deps';
 
-export class PostgresDatabaseSchemaService extends TerraformResourceService<
-  'databaseSchema',
-  PostgresCredentials
-> {
+export class PostgresDatabaseSchemaService extends TerraformResourceService<'databaseSchema', PostgresCredentials> {
   client: pg.Client;
 
   constructor(private credentials: PostgresCredentials) {
@@ -23,9 +20,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<
     });
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['databaseSchema'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['databaseSchema'] | undefined> {
     const results = await this.list({ id });
     if (results.total > 0) {
       return results.rows[0];

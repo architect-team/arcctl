@@ -1,65 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsRedshiftOrderableClusterConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsRedshiftOrderableClusterConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#cluster_type DataAwsRedshiftOrderableCluster#cluster_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#cluster_type DataAwsRedshiftOrderableCluster#cluster_type}
+   */
   readonly clusterType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#cluster_version DataAwsRedshiftOrderableCluster#cluster_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#cluster_version DataAwsRedshiftOrderableCluster#cluster_version}
+   */
   readonly clusterVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#id DataAwsRedshiftOrderableCluster#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#id DataAwsRedshiftOrderableCluster#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#node_type DataAwsRedshiftOrderableCluster#node_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#node_type DataAwsRedshiftOrderableCluster#node_type}
+   */
   readonly nodeType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#preferred_node_types DataAwsRedshiftOrderableCluster#preferred_node_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster#preferred_node_types DataAwsRedshiftOrderableCluster#preferred_node_types}
+   */
   readonly preferredNodeTypes?: string[];
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster aws_redshift_orderable_cluster}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster aws_redshift_orderable_cluster}
+ */
 export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_redshift_orderable_cluster";
+  public static readonly tfResourceType = 'aws_redshift_orderable_cluster';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster aws_redshift_orderable_cluster} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsRedshiftOrderableClusterConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsRedshiftOrderableClusterConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/redshift_orderable_cluster aws_redshift_orderable_cluster} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsRedshiftOrderableClusterConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsRedshiftOrderableClusterConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_redshift_orderable_cluster',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +70,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clusterType = config.clusterType;
     this._clusterVersion = config.clusterVersion;
@@ -86,7 +89,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // cluster_type - computed: true, optional: true, required: false
-  private _clusterType?: string; 
+  private _clusterType?: string;
   public get clusterType() {
     return this.getStringAttribute('cluster_type');
   }
@@ -102,7 +105,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // cluster_version - computed: true, optional: true, required: false
-  private _clusterVersion?: string; 
+  private _clusterVersion?: string;
   public get clusterVersion() {
     return this.getStringAttribute('cluster_version');
   }
@@ -118,7 +121,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -134,7 +137,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // node_type - computed: true, optional: true, required: false
-  private _nodeType?: string; 
+  private _nodeType?: string;
   public get nodeType() {
     return this.getStringAttribute('node_type');
   }
@@ -150,7 +153,7 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
   }
 
   // preferred_node_types - computed: false, optional: true, required: false
-  private _preferredNodeTypes?: string[]; 
+  private _preferredNodeTypes?: string[];
   public get preferredNodeTypes() {
     return this.getListAttribute('preferred_node_types');
   }
@@ -175,7 +178,10 @@ export class DataAwsRedshiftOrderableCluster extends cdktf.TerraformDataSource {
       cluster_version: cdktf.stringToTerraform(this._clusterVersion),
       id: cdktf.stringToTerraform(this._id),
       node_type: cdktf.stringToTerraform(this._nodeType),
-      preferred_node_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._preferredNodeTypes),
+      preferred_node_types: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._preferredNodeTypes),
     };
   }
 }

@@ -1,73 +1,75 @@
 // https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface SnsSmsPreferencesConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#default_sender_id SnsSmsPreferences#default_sender_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#default_sender_id SnsSmsPreferences#default_sender_id}
+   */
   readonly defaultSenderId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#default_sms_type SnsSmsPreferences#default_sms_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#default_sms_type SnsSmsPreferences#default_sms_type}
+   */
   readonly defaultSmsType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#delivery_status_iam_role_arn SnsSmsPreferences#delivery_status_iam_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#delivery_status_iam_role_arn SnsSmsPreferences#delivery_status_iam_role_arn}
+   */
   readonly deliveryStatusIamRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#delivery_status_success_sampling_rate SnsSmsPreferences#delivery_status_success_sampling_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#delivery_status_success_sampling_rate SnsSmsPreferences#delivery_status_success_sampling_rate}
+   */
   readonly deliveryStatusSuccessSamplingRate?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#id SnsSmsPreferences#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#id SnsSmsPreferences#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#monthly_spend_limit SnsSmsPreferences#monthly_spend_limit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#monthly_spend_limit SnsSmsPreferences#monthly_spend_limit}
+   */
   readonly monthlySpendLimit?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#usage_report_s3_bucket SnsSmsPreferences#usage_report_s3_bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences#usage_report_s3_bucket SnsSmsPreferences#usage_report_s3_bucket}
+   */
   readonly usageReportS3Bucket?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences aws_sns_sms_preferences}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences aws_sns_sms_preferences}
+ */
 export class SnsSmsPreferences extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sns_sms_preferences";
+  public static readonly tfResourceType = 'aws_sns_sms_preferences';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences aws_sns_sms_preferences} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SnsSmsPreferencesConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: SnsSmsPreferencesConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sns_sms_preferences aws_sns_sms_preferences} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SnsSmsPreferencesConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SnsSmsPreferencesConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sns_sms_preferences',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,12 +77,13 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._defaultSenderId = config.defaultSenderId;
     this._defaultSmsType = config.defaultSmsType;
     this._deliveryStatusIamRoleArn = config.deliveryStatusIamRoleArn;
-    this._deliveryStatusSuccessSamplingRate = config.deliveryStatusSuccessSamplingRate;
+    this._deliveryStatusSuccessSamplingRate =
+      config.deliveryStatusSuccessSamplingRate;
     this._id = config.id;
     this._monthlySpendLimit = config.monthlySpendLimit;
     this._usageReportS3Bucket = config.usageReportS3Bucket;
@@ -91,7 +94,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   // ==========
 
   // default_sender_id - computed: false, optional: true, required: false
-  private _defaultSenderId?: string; 
+  private _defaultSenderId?: string;
   public get defaultSenderId() {
     return this.getStringAttribute('default_sender_id');
   }
@@ -107,7 +110,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // default_sms_type - computed: false, optional: true, required: false
-  private _defaultSmsType?: string; 
+  private _defaultSmsType?: string;
   public get defaultSmsType() {
     return this.getStringAttribute('default_sms_type');
   }
@@ -123,7 +126,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // delivery_status_iam_role_arn - computed: false, optional: true, required: false
-  private _deliveryStatusIamRoleArn?: string; 
+  private _deliveryStatusIamRoleArn?: string;
   public get deliveryStatusIamRoleArn() {
     return this.getStringAttribute('delivery_status_iam_role_arn');
   }
@@ -139,7 +142,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // delivery_status_success_sampling_rate - computed: false, optional: true, required: false
-  private _deliveryStatusSuccessSamplingRate?: string; 
+  private _deliveryStatusSuccessSamplingRate?: string;
   public get deliveryStatusSuccessSamplingRate() {
     return this.getStringAttribute('delivery_status_success_sampling_rate');
   }
@@ -155,7 +158,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -171,7 +174,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // monthly_spend_limit - computed: true, optional: true, required: false
-  private _monthlySpendLimit?: number; 
+  private _monthlySpendLimit?: number;
   public get monthlySpendLimit() {
     return this.getNumberAttribute('monthly_spend_limit');
   }
@@ -187,7 +190,7 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
   }
 
   // usage_report_s3_bucket - computed: false, optional: true, required: false
-  private _usageReportS3Bucket?: string; 
+  private _usageReportS3Bucket?: string;
   public get usageReportS3Bucket() {
     return this.getStringAttribute('usage_report_s3_bucket');
   }
@@ -210,11 +213,17 @@ export class SnsSmsPreferences extends cdktf.TerraformResource {
     return {
       default_sender_id: cdktf.stringToTerraform(this._defaultSenderId),
       default_sms_type: cdktf.stringToTerraform(this._defaultSmsType),
-      delivery_status_iam_role_arn: cdktf.stringToTerraform(this._deliveryStatusIamRoleArn),
-      delivery_status_success_sampling_rate: cdktf.stringToTerraform(this._deliveryStatusSuccessSamplingRate),
+      delivery_status_iam_role_arn: cdktf.stringToTerraform(
+        this._deliveryStatusIamRoleArn,
+      ),
+      delivery_status_success_sampling_rate: cdktf.stringToTerraform(
+        this._deliveryStatusSuccessSamplingRate,
+      ),
       id: cdktf.stringToTerraform(this._id),
       monthly_spend_limit: cdktf.numberToTerraform(this._monthlySpendLimit),
-      usage_report_s3_bucket: cdktf.stringToTerraform(this._usageReportS3Bucket),
+      usage_report_s3_bucket: cdktf.stringToTerraform(
+        this._usageReportS3Bucket,
+      ),
     };
   }
 }

@@ -1,61 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Ec2TransitGatewayPolicyTableConfig extends cdktf.TerraformMetaArguments {
+export interface Ec2TransitGatewayPolicyTableConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#id Ec2TransitGatewayPolicyTable#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#id Ec2TransitGatewayPolicyTable#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#tags Ec2TransitGatewayPolicyTable#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#tags Ec2TransitGatewayPolicyTable#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#tags_all Ec2TransitGatewayPolicyTable#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#tags_all Ec2TransitGatewayPolicyTable#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#transit_gateway_id Ec2TransitGatewayPolicyTable#transit_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table#transit_gateway_id Ec2TransitGatewayPolicyTable#transit_gateway_id}
+   */
   readonly transitGatewayId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table aws_ec2_transit_gateway_policy_table}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table aws_ec2_transit_gateway_policy_table}
+ */
 export class Ec2TransitGatewayPolicyTable extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_transit_gateway_policy_table";
+  public static readonly tfResourceType =
+    'aws_ec2_transit_gateway_policy_table';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table aws_ec2_transit_gateway_policy_table} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2TransitGatewayPolicyTableConfig
-  */
-  public constructor(scope: Construct, id: string, config: Ec2TransitGatewayPolicyTableConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_policy_table aws_ec2_transit_gateway_policy_table} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2TransitGatewayPolicyTableConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Ec2TransitGatewayPolicyTableConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_transit_gateway_policy_table',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class Ec2TransitGatewayPolicyTable extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._tags = config.tags;
@@ -81,7 +85,7 @@ export class Ec2TransitGatewayPolicyTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +106,7 @@ export class Ec2TransitGatewayPolicyTable extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -118,7 +122,7 @@ export class Ec2TransitGatewayPolicyTable extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -134,7 +138,7 @@ export class Ec2TransitGatewayPolicyTable extends cdktf.TerraformResource {
   }
 
   // transit_gateway_id - computed: false, optional: false, required: true
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }

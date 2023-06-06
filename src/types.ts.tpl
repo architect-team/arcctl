@@ -2,12 +2,12 @@
 // see: `types.ts.tpl`
 
 {{#apply_types}}
-import type {{name}}ApplyOptions from './{{slug}}/apply/options.js';
-import type {{name}}ApplyOutputs from './{{slug}}/apply/outputs.js';
+import type {{name}}ApplyOptions from './{{slug}}/apply/options.ts';
+import type {{name}}ApplyOutputs from './{{slug}}/apply/outputs.ts';
 {{/apply_types}}
 {{#query_types}}
-import type {{name}}QueryOptions from './{{slug}}/query/options.js';
-import type {{name}}QueryOutputs from './{{slug}}/query/outputs.js';
+import type {{name}}QueryOptions from './{{slug}}/query/options.ts';
+import type {{name}}QueryOutputs from './{{slug}}/query/outputs.ts';
 {{/query_types}}
 
 export type ResourceType =

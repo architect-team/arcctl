@@ -1,15 +1,12 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { InputValidators } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsDnsRecordModule } from '../modules/dns-record.js';
-import AwsUtils from '../utils.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsDnsRecordModule } from '../modules/dns-record.ts';
+import AwsUtils from '../utils.ts';
 
-export class AwsDnsRecordService extends TerraformResourceService<
-  'dnsRecord',
-  AwsCredentials
-> {
+export class AwsDnsRecordService extends TerraformResourceService<'dnsRecord', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
@@ -30,9 +27,7 @@ export class AwsDnsRecordService extends TerraformResourceService<
         throw new Error(`DNS record set ${id} not found`);
       }
 
-      const record_data = dns_record.ResourceRecordSets[0].ResourceRecords?.map(
-        (r) => r.Value,
-      );
+      const record_data = dns_record.ResourceRecordSets[0].ResourceRecords?.map((r) => r.Value);
 
       return {
         id: dns_record.ResourceRecordSets[0].Name || '',
@@ -50,9 +45,7 @@ export class AwsDnsRecordService extends TerraformResourceService<
     filterOptions?: Partial<ResourceOutputs['dnsRecord']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsRecord']>> {
-    const dns_zones = await AwsUtils.getRoute53(this.credentials)
-      .listHostedZones()
-      .promise();
+    const dns_zones = await AwsUtils.getRoute53(this.credentials).listHostedZones().promise();
 
     const dns_record_rows: ResourceOutputs['dnsRecord'][] = [];
     for (const dns_zone of dns_zones.HostedZones || []) {
@@ -99,9 +92,7 @@ export class AwsDnsRecordService extends TerraformResourceService<
         ];
 
         if (!allowed_record_types.includes(input)) {
-          return `Record type must be one of ${allowed_record_types.join(
-            ', ',
-          )}.`;
+          return `Record type must be one of ${allowed_record_types.join(', ')}.`;
         }
         return true;
       },

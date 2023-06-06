@@ -1,73 +1,75 @@
 // https://www.terraform.io/docs/providers/aws/d/db_snapshot
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DataAwsDbSnapshotConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#db_instance_identifier DataAwsDbSnapshot#db_instance_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#db_instance_identifier DataAwsDbSnapshot#db_instance_identifier}
+   */
   readonly dbInstanceIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#db_snapshot_identifier DataAwsDbSnapshot#db_snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#db_snapshot_identifier DataAwsDbSnapshot#db_snapshot_identifier}
+   */
   readonly dbSnapshotIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#id DataAwsDbSnapshot#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#id DataAwsDbSnapshot#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#include_public DataAwsDbSnapshot#include_public}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#include_public DataAwsDbSnapshot#include_public}
+   */
   readonly includePublic?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#include_shared DataAwsDbSnapshot#include_shared}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#include_shared DataAwsDbSnapshot#include_shared}
+   */
   readonly includeShared?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#most_recent DataAwsDbSnapshot#most_recent}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#most_recent DataAwsDbSnapshot#most_recent}
+   */
   readonly mostRecent?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#snapshot_type DataAwsDbSnapshot#snapshot_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot#snapshot_type DataAwsDbSnapshot#snapshot_type}
+   */
   readonly snapshotType?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot aws_db_snapshot}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot aws_db_snapshot}
+ */
 export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_db_snapshot";
+  public static readonly tfResourceType = 'aws_db_snapshot';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot aws_db_snapshot} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsDbSnapshotConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsDbSnapshotConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/db_snapshot aws_db_snapshot} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsDbSnapshotConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsDbSnapshotConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_db_snapshot',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +77,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dbInstanceIdentifier = config.dbInstanceIdentifier;
     this._dbSnapshotIdentifier = config.dbSnapshotIdentifier;
@@ -101,7 +103,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // db_instance_identifier - computed: false, optional: true, required: false
-  private _dbInstanceIdentifier?: string; 
+  private _dbInstanceIdentifier?: string;
   public get dbInstanceIdentifier() {
     return this.getStringAttribute('db_instance_identifier');
   }
@@ -122,7 +124,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // db_snapshot_identifier - computed: false, optional: true, required: false
-  private _dbSnapshotIdentifier?: string; 
+  private _dbSnapshotIdentifier?: string;
   public get dbSnapshotIdentifier() {
     return this.getStringAttribute('db_snapshot_identifier');
   }
@@ -153,7 +155,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -169,7 +171,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // include_public - computed: false, optional: true, required: false
-  private _includePublic?: boolean | cdktf.IResolvable; 
+  private _includePublic?: boolean | cdktf.IResolvable;
   public get includePublic() {
     return this.getBooleanAttribute('include_public');
   }
@@ -185,7 +187,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // include_shared - computed: false, optional: true, required: false
-  private _includeShared?: boolean | cdktf.IResolvable; 
+  private _includeShared?: boolean | cdktf.IResolvable;
   public get includeShared() {
     return this.getBooleanAttribute('include_shared');
   }
@@ -216,7 +218,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // most_recent - computed: false, optional: true, required: false
-  private _mostRecent?: boolean | cdktf.IResolvable; 
+  private _mostRecent?: boolean | cdktf.IResolvable;
   public get mostRecent() {
     return this.getBooleanAttribute('most_recent');
   }
@@ -247,7 +249,7 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
   }
 
   // snapshot_type - computed: false, optional: true, required: false
-  private _snapshotType?: string; 
+  private _snapshotType?: string;
   public get snapshotType() {
     return this.getStringAttribute('snapshot_type');
   }
@@ -293,8 +295,12 @@ export class DataAwsDbSnapshot extends cdktf.TerraformDataSource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      db_instance_identifier: cdktf.stringToTerraform(this._dbInstanceIdentifier),
-      db_snapshot_identifier: cdktf.stringToTerraform(this._dbSnapshotIdentifier),
+      db_instance_identifier: cdktf.stringToTerraform(
+        this._dbInstanceIdentifier,
+      ),
+      db_snapshot_identifier: cdktf.stringToTerraform(
+        this._dbSnapshotIdentifier,
+      ),
       id: cdktf.stringToTerraform(this._id),
       include_public: cdktf.booleanToTerraform(this._includePublic),
       include_shared: cdktf.booleanToTerraform(this._includeShared),

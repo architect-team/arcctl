@@ -1,9 +1,7 @@
-import { Environment } from '../environments/environment.js';
-import { parseEnvironment } from '../environments/parser.js';
-import { Pipeline, PipelineStep } from '../pipeline/index.js';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import { Environment } from '../environments/environment.ts';
+import { parseEnvironment } from '../environments/parser.ts';
+import { Pipeline, PipelineStep } from '../pipeline/index.ts';
+import * as path from 'std/path/mod.ts';
 
 export type EnvironmentRecord = {
   name: string;
@@ -16,7 +14,7 @@ export class EnvironmentStore {
   private _environments?: EnvironmentRecord[];
 
   constructor(
-    private config_dir: string = os.tmpdir(),
+    private config_dir: string = Deno.makeTempDirSync(),
     private environment_filename: string = 'environments.json',
   ) {
     this.getEnvironments();
@@ -28,8 +26,8 @@ export class EnvironmentStore {
 
   saveFile(name: string, content: string): string {
     const file_path = path.join(this.config_dir, name);
-    fs.mkdirSync(path.dirname(file_path), { recursive: true });
-    fs.writeFileSync(file_path, content);
+    Deno.mkdirSync(path.dirname(file_path), { recursive: true });
+    Deno.writeTextFileSync(file_path, content);
     return file_path;
   }
 
@@ -44,10 +42,7 @@ export class EnvironmentStore {
     }
 
     try {
-      const fileContents = fs.readFileSync(
-        this.environments_config_file,
-        'utf8',
-      );
+      const fileContents = Deno.readTextFileSync(this.environments_config_file);
       const rawEnvironmentRecords = JSON.parse(fileContents);
 
       const environments: EnvironmentRecord[] = [];
@@ -99,12 +94,9 @@ export class EnvironmentStore {
   }
 
   async saveEnvironments(records: EnvironmentRecord[]): Promise<void> {
-    await fs.promises.mkdir(path.dirname(this.environments_config_file), {
+    await Deno.mkdir(path.dirname(this.environments_config_file), {
       recursive: true,
     });
-    await fs.promises.writeFile(
-      this.environments_config_file,
-      JSON.stringify(records, null, 2),
-    );
+    await Deno.writeTextFile(this.environments_config_file, JSON.stringify(records, null, 2));
   }
 }

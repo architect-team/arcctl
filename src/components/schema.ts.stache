@@ -1,5 +1,5 @@
 {{#versions}}
-import component_{{.}} from './{{.}}/index.js';
+import component_{{.}} from './{{.}}/index.ts';
 {{/versions}}
 
 export type ComponentSchema =

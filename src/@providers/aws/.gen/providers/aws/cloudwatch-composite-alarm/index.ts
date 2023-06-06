@@ -1,85 +1,88 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface CloudwatchCompositeAlarmConfig extends cdktf.TerraformMetaArguments {
+export interface CloudwatchCompositeAlarmConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#actions_enabled CloudwatchCompositeAlarm#actions_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#actions_enabled CloudwatchCompositeAlarm#actions_enabled}
+   */
   readonly actionsEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_actions CloudwatchCompositeAlarm#alarm_actions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_actions CloudwatchCompositeAlarm#alarm_actions}
+   */
   readonly alarmActions?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_description CloudwatchCompositeAlarm#alarm_description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_description CloudwatchCompositeAlarm#alarm_description}
+   */
   readonly alarmDescription?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_name CloudwatchCompositeAlarm#alarm_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_name CloudwatchCompositeAlarm#alarm_name}
+   */
   readonly alarmName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_rule CloudwatchCompositeAlarm#alarm_rule}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#alarm_rule CloudwatchCompositeAlarm#alarm_rule}
+   */
   readonly alarmRule: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#id CloudwatchCompositeAlarm#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#id CloudwatchCompositeAlarm#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#insufficient_data_actions CloudwatchCompositeAlarm#insufficient_data_actions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#insufficient_data_actions CloudwatchCompositeAlarm#insufficient_data_actions}
+   */
   readonly insufficientDataActions?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#ok_actions CloudwatchCompositeAlarm#ok_actions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#ok_actions CloudwatchCompositeAlarm#ok_actions}
+   */
   readonly okActions?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#tags CloudwatchCompositeAlarm#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#tags CloudwatchCompositeAlarm#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#tags_all CloudwatchCompositeAlarm#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm#tags_all CloudwatchCompositeAlarm#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm aws_cloudwatch_composite_alarm}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm aws_cloudwatch_composite_alarm}
+ */
 export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudwatch_composite_alarm";
+  public static readonly tfResourceType = 'aws_cloudwatch_composite_alarm';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm aws_cloudwatch_composite_alarm} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudwatchCompositeAlarmConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudwatchCompositeAlarmConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_composite_alarm aws_cloudwatch_composite_alarm} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudwatchCompositeAlarmConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudwatchCompositeAlarmConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudwatch_composite_alarm',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -87,7 +90,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._actionsEnabled = config.actionsEnabled;
     this._alarmActions = config.alarmActions;
@@ -106,7 +109,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   // ==========
 
   // actions_enabled - computed: false, optional: true, required: false
-  private _actionsEnabled?: boolean | cdktf.IResolvable; 
+  private _actionsEnabled?: boolean | cdktf.IResolvable;
   public get actionsEnabled() {
     return this.getBooleanAttribute('actions_enabled');
   }
@@ -122,7 +125,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_actions - computed: false, optional: true, required: false
-  private _alarmActions?: string[]; 
+  private _alarmActions?: string[];
   public get alarmActions() {
     return cdktf.Fn.tolist(this.getListAttribute('alarm_actions'));
   }
@@ -138,7 +141,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_description - computed: false, optional: true, required: false
-  private _alarmDescription?: string; 
+  private _alarmDescription?: string;
   public get alarmDescription() {
     return this.getStringAttribute('alarm_description');
   }
@@ -154,7 +157,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_name - computed: false, optional: false, required: true
-  private _alarmName?: string; 
+  private _alarmName?: string;
   public get alarmName() {
     return this.getStringAttribute('alarm_name');
   }
@@ -167,7 +170,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // alarm_rule - computed: false, optional: false, required: true
-  private _alarmRule?: string; 
+  private _alarmRule?: string;
   public get alarmRule() {
     return this.getStringAttribute('alarm_rule');
   }
@@ -185,7 +188,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +204,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // insufficient_data_actions - computed: false, optional: true, required: false
-  private _insufficientDataActions?: string[]; 
+  private _insufficientDataActions?: string[];
   public get insufficientDataActions() {
     return cdktf.Fn.tolist(this.getListAttribute('insufficient_data_actions'));
   }
@@ -217,7 +220,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // ok_actions - computed: false, optional: true, required: false
-  private _okActions?: string[]; 
+  private _okActions?: string[];
   public get okActions() {
     return cdktf.Fn.tolist(this.getListAttribute('ok_actions'));
   }
@@ -233,7 +236,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -249,7 +252,7 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -271,13 +274,22 @@ export class CloudwatchCompositeAlarm extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       actions_enabled: cdktf.booleanToTerraform(this._actionsEnabled),
-      alarm_actions: cdktf.listMapper(cdktf.stringToTerraform, false)(this._alarmActions),
+      alarm_actions: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._alarmActions),
       alarm_description: cdktf.stringToTerraform(this._alarmDescription),
       alarm_name: cdktf.stringToTerraform(this._alarmName),
       alarm_rule: cdktf.stringToTerraform(this._alarmRule),
       id: cdktf.stringToTerraform(this._id),
-      insufficient_data_actions: cdktf.listMapper(cdktf.stringToTerraform, false)(this._insufficientDataActions),
-      ok_actions: cdktf.listMapper(cdktf.stringToTerraform, false)(this._okActions),
+      insufficient_data_actions: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._insufficientDataActions),
+      ok_actions: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._okActions),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
     };

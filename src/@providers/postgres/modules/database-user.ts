@@ -1,25 +1,17 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Role } from '../.gen/providers/postgresql/role/index.js';
-import { PostgresCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Role } from '../.gen/providers/postgresql/role/index.ts';
+import { PostgresCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
-import { v4 } from 'uuid';
 
-export class PostgresDatabaseUserModule extends ResourceModule<
-  'databaseUser',
-  PostgresCredentials
-> {
+export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', PostgresCredentials> {
   outputs: ResourceOutputs['databaseUser'];
   role: Role;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['databaseUser'],
-  ) {
+  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseUser']) {
     super(scope, id, inputs);
 
-    const password = v4();
+    const password = crypto.randomUUID();
 
     this.role = new Role(this, 'user', {
       name: inputs.username,
@@ -44,10 +36,7 @@ export class PostgresDatabaseUserModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: PostgresCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
+  async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.role)]: resourceId,
     };

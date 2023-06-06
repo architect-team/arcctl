@@ -1,57 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/r/network_acl_association
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface NetworkAclAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface NetworkAclAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association#id NetworkAclAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association#id NetworkAclAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association#network_acl_id NetworkAclAssociation#network_acl_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association#network_acl_id NetworkAclAssociation#network_acl_id}
+   */
   readonly networkAclId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association#subnet_id NetworkAclAssociation#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association#subnet_id NetworkAclAssociation#subnet_id}
+   */
   readonly subnetId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association aws_network_acl_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association aws_network_acl_association}
+ */
 export class NetworkAclAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_network_acl_association";
+  public static readonly tfResourceType = 'aws_network_acl_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association aws_network_acl_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options NetworkAclAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: NetworkAclAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/network_acl_association aws_network_acl_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options NetworkAclAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: NetworkAclAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_network_acl_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +62,7 @@ export class NetworkAclAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._networkAclId = config.networkAclId;
@@ -71,7 +74,7 @@ export class NetworkAclAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -87,7 +90,7 @@ export class NetworkAclAssociation extends cdktf.TerraformResource {
   }
 
   // network_acl_id - computed: false, optional: false, required: true
-  private _networkAclId?: string; 
+  private _networkAclId?: string;
   public get networkAclId() {
     return this.getStringAttribute('network_acl_id');
   }
@@ -100,7 +103,7 @@ export class NetworkAclAssociation extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

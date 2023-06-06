@@ -1,103 +1,121 @@
 // https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ConfigRemediationConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface ConfigRemediationConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#automatic ConfigRemediationConfiguration#automatic}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#automatic ConfigRemediationConfiguration#automatic}
+   */
   readonly automatic?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#config_rule_name ConfigRemediationConfiguration#config_rule_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#config_rule_name ConfigRemediationConfiguration#config_rule_name}
+   */
   readonly configRuleName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#id ConfigRemediationConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#id ConfigRemediationConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#maximum_automatic_attempts ConfigRemediationConfiguration#maximum_automatic_attempts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#maximum_automatic_attempts ConfigRemediationConfiguration#maximum_automatic_attempts}
+   */
   readonly maximumAutomaticAttempts?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#resource_type ConfigRemediationConfiguration#resource_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#resource_type ConfigRemediationConfiguration#resource_type}
+   */
   readonly resourceType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#retry_attempt_seconds ConfigRemediationConfiguration#retry_attempt_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#retry_attempt_seconds ConfigRemediationConfiguration#retry_attempt_seconds}
+   */
   readonly retryAttemptSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#target_id ConfigRemediationConfiguration#target_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#target_id ConfigRemediationConfiguration#target_id}
+   */
   readonly targetId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#target_type ConfigRemediationConfiguration#target_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#target_type ConfigRemediationConfiguration#target_type}
+   */
   readonly targetType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#target_version ConfigRemediationConfiguration#target_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#target_version ConfigRemediationConfiguration#target_version}
+   */
   readonly targetVersion?: string;
   /**
-  * execution_controls block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#execution_controls ConfigRemediationConfiguration#execution_controls}
-  */
+   * execution_controls block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#execution_controls ConfigRemediationConfiguration#execution_controls}
+   */
   readonly executionControls?: ConfigRemediationConfigurationExecutionControls;
   /**
-  * parameter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#parameter ConfigRemediationConfiguration#parameter}
-  */
-  readonly parameter?: ConfigRemediationConfigurationParameter[] | cdktf.IResolvable;
+   * parameter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#parameter ConfigRemediationConfiguration#parameter}
+   */
+  readonly parameter?:
+    | ConfigRemediationConfigurationParameter[]
+    | cdktf.IResolvable;
 }
 export interface ConfigRemediationConfigurationExecutionControlsSsmControls {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#concurrent_execution_rate_percentage ConfigRemediationConfiguration#concurrent_execution_rate_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#concurrent_execution_rate_percentage ConfigRemediationConfiguration#concurrent_execution_rate_percentage}
+   */
   readonly concurrentExecutionRatePercentage?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#error_percentage ConfigRemediationConfiguration#error_percentage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#error_percentage ConfigRemediationConfiguration#error_percentage}
+   */
   readonly errorPercentage?: number;
 }
 
-export function configRemediationConfigurationExecutionControlsSsmControlsToTerraform(struct?: ConfigRemediationConfigurationExecutionControlsSsmControlsOutputReference | ConfigRemediationConfigurationExecutionControlsSsmControls): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function configRemediationConfigurationExecutionControlsSsmControlsToTerraform(
+  struct?:
+    | ConfigRemediationConfigurationExecutionControlsSsmControlsOutputReference
+    | ConfigRemediationConfigurationExecutionControlsSsmControls,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    concurrent_execution_rate_percentage: cdktf.numberToTerraform(struct!.concurrentExecutionRatePercentage),
+    concurrent_execution_rate_percentage: cdktf.numberToTerraform(
+      struct!.concurrentExecutionRatePercentage,
+    ),
     error_percentage: cdktf.numberToTerraform(struct!.errorPercentage),
-  }
+  };
 }
 
 export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ConfigRemediationConfigurationExecutionControlsSsmControls | undefined {
+  public get internalValue():
+    | ConfigRemediationConfigurationExecutionControlsSsmControls
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._concurrentExecutionRatePercentage !== undefined) {
       hasAnyValues = true;
-      internalValueResult.concurrentExecutionRatePercentage = this._concurrentExecutionRatePercentage;
+      internalValueResult.concurrentExecutionRatePercentage =
+        this._concurrentExecutionRatePercentage;
     }
     if (this._errorPercentage !== undefined) {
       hasAnyValues = true;
@@ -106,21 +124,25 @@ export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ConfigRemediationConfigurationExecutionControlsSsmControls | undefined) {
+  public set internalValue(
+    value:
+      | ConfigRemediationConfigurationExecutionControlsSsmControls
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._concurrentExecutionRatePercentage = undefined;
       this._errorPercentage = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._concurrentExecutionRatePercentage = value.concurrentExecutionRatePercentage;
+      this._concurrentExecutionRatePercentage =
+        value.concurrentExecutionRatePercentage;
       this._errorPercentage = value.errorPercentage;
     }
   }
 
   // concurrent_execution_rate_percentage - computed: false, optional: true, required: false
-  private _concurrentExecutionRatePercentage?: number; 
+  private _concurrentExecutionRatePercentage?: number;
   public get concurrentExecutionRatePercentage() {
     return this.getNumberAttribute('concurrent_execution_rate_percentage');
   }
@@ -136,7 +158,7 @@ export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputRef
   }
 
   // error_percentage - computed: false, optional: true, required: false
-  private _errorPercentage?: number; 
+  private _errorPercentage?: number;
   public get errorPercentage() {
     return this.getNumberAttribute('error_percentage');
   }
@@ -153,35 +175,51 @@ export class ConfigRemediationConfigurationExecutionControlsSsmControlsOutputRef
 }
 export interface ConfigRemediationConfigurationExecutionControls {
   /**
-  * ssm_controls block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#ssm_controls ConfigRemediationConfiguration#ssm_controls}
-  */
+   * ssm_controls block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#ssm_controls ConfigRemediationConfiguration#ssm_controls}
+   */
   readonly ssmControls?: ConfigRemediationConfigurationExecutionControlsSsmControls;
 }
 
-export function configRemediationConfigurationExecutionControlsToTerraform(struct?: ConfigRemediationConfigurationExecutionControlsOutputReference | ConfigRemediationConfigurationExecutionControls): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function configRemediationConfigurationExecutionControlsToTerraform(
+  struct?:
+    | ConfigRemediationConfigurationExecutionControlsOutputReference
+    | ConfigRemediationConfigurationExecutionControls,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    ssm_controls: configRemediationConfigurationExecutionControlsSsmControlsToTerraform(struct!.ssmControls),
-  }
+    ssm_controls:
+      configRemediationConfigurationExecutionControlsSsmControlsToTerraform(
+        struct!.ssmControls,
+      ),
+  };
 }
 
 export class ConfigRemediationConfigurationExecutionControlsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ConfigRemediationConfigurationExecutionControls | undefined {
+  public get internalValue():
+    | ConfigRemediationConfigurationExecutionControls
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._ssmControls?.internalValue !== undefined) {
@@ -191,23 +229,30 @@ export class ConfigRemediationConfigurationExecutionControlsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ConfigRemediationConfigurationExecutionControls | undefined) {
+  public set internalValue(
+    value: ConfigRemediationConfigurationExecutionControls | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._ssmControls.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._ssmControls.internalValue = value.ssmControls;
     }
   }
 
   // ssm_controls - computed: false, optional: true, required: false
-  private _ssmControls = new ConfigRemediationConfigurationExecutionControlsSsmControlsOutputReference(this, "ssm_controls");
+  private _ssmControls =
+    new ConfigRemediationConfigurationExecutionControlsSsmControlsOutputReference(
+      this,
+      'ssm_controls',
+    );
   public get ssmControls() {
     return this._ssmControls;
   }
-  public putSsmControls(value: ConfigRemediationConfigurationExecutionControlsSsmControls) {
+  public putSsmControls(
+    value: ConfigRemediationConfigurationExecutionControlsSsmControls,
+  ) {
     this._ssmControls.internalValue = value;
   }
   public resetSsmControls() {
@@ -220,34 +265,43 @@ export class ConfigRemediationConfigurationExecutionControlsOutputReference exte
 }
 export interface ConfigRemediationConfigurationParameter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#name ConfigRemediationConfiguration#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#name ConfigRemediationConfiguration#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#resource_value ConfigRemediationConfiguration#resource_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#resource_value ConfigRemediationConfiguration#resource_value}
+   */
   readonly resourceValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#static_value ConfigRemediationConfiguration#static_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#static_value ConfigRemediationConfiguration#static_value}
+   */
   readonly staticValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#static_values ConfigRemediationConfiguration#static_values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration#static_values ConfigRemediationConfiguration#static_values}
+   */
   readonly staticValues?: string[];
 }
 
-export function configRemediationConfigurationParameterToTerraform(struct?: ConfigRemediationConfigurationParameter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function configRemediationConfigurationParameterToTerraform(
+  struct?: ConfigRemediationConfigurationParameter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     resource_value: cdktf.stringToTerraform(struct!.resourceValue),
     static_value: cdktf.stringToTerraform(struct!.staticValue),
-    static_values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.staticValues),
-  }
+    static_values: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.staticValues),
+  };
 }
 
 export class ConfigRemediationConfigurationParameterOutputReference extends cdktf.ComplexObject {
@@ -255,16 +309,29 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ConfigRemediationConfigurationParameter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ConfigRemediationConfigurationParameter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -289,7 +356,12 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ConfigRemediationConfigurationParameter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ConfigRemediationConfigurationParameter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -297,12 +369,10 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
       this._resourceValue = undefined;
       this._staticValue = undefined;
       this._staticValues = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -313,7 +383,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -326,7 +396,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // resource_value - computed: false, optional: true, required: false
-  private _resourceValue?: string; 
+  private _resourceValue?: string;
   public get resourceValue() {
     return this.getStringAttribute('resource_value');
   }
@@ -342,7 +412,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // static_value - computed: false, optional: true, required: false
-  private _staticValue?: string; 
+  private _staticValue?: string;
   public get staticValue() {
     return this.getStringAttribute('static_value');
   }
@@ -358,7 +428,7 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
   }
 
   // static_values - computed: false, optional: true, required: false
-  private _staticValues?: string[]; 
+  private _staticValues?: string[];
   public get staticValues() {
     return this.getListAttribute('static_values');
   }
@@ -375,53 +445,70 @@ export class ConfigRemediationConfigurationParameterOutputReference extends cdkt
 }
 
 export class ConfigRemediationConfigurationParameterList extends cdktf.ComplexList {
-  public internalValue? : ConfigRemediationConfigurationParameter[] | cdktf.IResolvable
+  public internalValue?:
+    | ConfigRemediationConfigurationParameter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ConfigRemediationConfigurationParameterOutputReference {
-    return new ConfigRemediationConfigurationParameterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ConfigRemediationConfigurationParameterOutputReference {
+    return new ConfigRemediationConfigurationParameterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration aws_config_remediation_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration aws_config_remediation_configuration}
+ */
 export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_config_remediation_configuration";
+  public static readonly tfResourceType =
+    'aws_config_remediation_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration aws_config_remediation_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ConfigRemediationConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: ConfigRemediationConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_remediation_configuration aws_config_remediation_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ConfigRemediationConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ConfigRemediationConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_config_remediation_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -429,7 +516,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._automatic = config.automatic;
     this._configRuleName = config.configRuleName;
@@ -454,7 +541,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // automatic - computed: false, optional: true, required: false
-  private _automatic?: boolean | cdktf.IResolvable; 
+  private _automatic?: boolean | cdktf.IResolvable;
   public get automatic() {
     return this.getBooleanAttribute('automatic');
   }
@@ -470,7 +557,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // config_rule_name - computed: false, optional: false, required: true
-  private _configRuleName?: string; 
+  private _configRuleName?: string;
   public get configRuleName() {
     return this.getStringAttribute('config_rule_name');
   }
@@ -483,7 +570,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -499,7 +586,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // maximum_automatic_attempts - computed: false, optional: true, required: false
-  private _maximumAutomaticAttempts?: number; 
+  private _maximumAutomaticAttempts?: number;
   public get maximumAutomaticAttempts() {
     return this.getNumberAttribute('maximum_automatic_attempts');
   }
@@ -515,7 +602,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // resource_type - computed: false, optional: true, required: false
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -531,7 +618,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // retry_attempt_seconds - computed: false, optional: true, required: false
-  private _retryAttemptSeconds?: number; 
+  private _retryAttemptSeconds?: number;
   public get retryAttemptSeconds() {
     return this.getNumberAttribute('retry_attempt_seconds');
   }
@@ -547,7 +634,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // target_id - computed: false, optional: false, required: true
-  private _targetId?: string; 
+  private _targetId?: string;
   public get targetId() {
     return this.getStringAttribute('target_id');
   }
@@ -560,7 +647,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // target_type - computed: false, optional: false, required: true
-  private _targetType?: string; 
+  private _targetType?: string;
   public get targetType() {
     return this.getStringAttribute('target_type');
   }
@@ -573,7 +660,7 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // target_version - computed: false, optional: true, required: false
-  private _targetVersion?: string; 
+  private _targetVersion?: string;
   public get targetVersion() {
     return this.getStringAttribute('target_version');
   }
@@ -589,11 +676,17 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // execution_controls - computed: false, optional: true, required: false
-  private _executionControls = new ConfigRemediationConfigurationExecutionControlsOutputReference(this, "execution_controls");
+  private _executionControls =
+    new ConfigRemediationConfigurationExecutionControlsOutputReference(
+      this,
+      'execution_controls',
+    );
   public get executionControls() {
     return this._executionControls;
   }
-  public putExecutionControls(value: ConfigRemediationConfigurationExecutionControls) {
+  public putExecutionControls(
+    value: ConfigRemediationConfigurationExecutionControls,
+  ) {
     this._executionControls.internalValue = value;
   }
   public resetExecutionControls() {
@@ -605,11 +698,17 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
   }
 
   // parameter - computed: false, optional: true, required: false
-  private _parameter = new ConfigRemediationConfigurationParameterList(this, "parameter", true);
+  private _parameter = new ConfigRemediationConfigurationParameterList(
+    this,
+    'parameter',
+    true,
+  );
   public get parameter() {
     return this._parameter;
   }
-  public putParameter(value: ConfigRemediationConfigurationParameter[] | cdktf.IResolvable) {
+  public putParameter(
+    value: ConfigRemediationConfigurationParameter[] | cdktf.IResolvable,
+  ) {
     this._parameter.internalValue = value;
   }
   public resetParameter() {
@@ -629,14 +728,22 @@ export class ConfigRemediationConfiguration extends cdktf.TerraformResource {
       automatic: cdktf.booleanToTerraform(this._automatic),
       config_rule_name: cdktf.stringToTerraform(this._configRuleName),
       id: cdktf.stringToTerraform(this._id),
-      maximum_automatic_attempts: cdktf.numberToTerraform(this._maximumAutomaticAttempts),
+      maximum_automatic_attempts: cdktf.numberToTerraform(
+        this._maximumAutomaticAttempts,
+      ),
       resource_type: cdktf.stringToTerraform(this._resourceType),
       retry_attempt_seconds: cdktf.numberToTerraform(this._retryAttemptSeconds),
       target_id: cdktf.stringToTerraform(this._targetId),
       target_type: cdktf.stringToTerraform(this._targetType),
       target_version: cdktf.stringToTerraform(this._targetVersion),
-      execution_controls: configRemediationConfigurationExecutionControlsToTerraform(this._executionControls.internalValue),
-      parameter: cdktf.listMapper(configRemediationConfigurationParameterToTerraform, true)(this._parameter.internalValue),
+      execution_controls:
+        configRemediationConfigurationExecutionControlsToTerraform(
+          this._executionControls.internalValue,
+        ),
+      parameter: cdktf.listMapper(
+        configRemediationConfigurationParameterToTerraform,
+        true,
+      )(this._parameter.internalValue),
     };
   }
 }

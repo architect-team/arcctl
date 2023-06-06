@@ -1,63 +1,77 @@
 // https://www.terraform.io/docs/providers/aws/d/identitystore_group
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsIdentitystoreGroupConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsIdentitystoreGroupConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#group_id DataAwsIdentitystoreGroup#group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#group_id DataAwsIdentitystoreGroup#group_id}
+   */
   readonly groupId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#id DataAwsIdentitystoreGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#id DataAwsIdentitystoreGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#identity_store_id DataAwsIdentitystoreGroup#identity_store_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#identity_store_id DataAwsIdentitystoreGroup#identity_store_id}
+   */
   readonly identityStoreId: string;
   /**
-  * alternate_identifier block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#alternate_identifier DataAwsIdentitystoreGroup#alternate_identifier}
-  */
+   * alternate_identifier block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#alternate_identifier DataAwsIdentitystoreGroup#alternate_identifier}
+   */
   readonly alternateIdentifier?: DataAwsIdentitystoreGroupAlternateIdentifier;
   /**
-  * filter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#filter DataAwsIdentitystoreGroup#filter}
-  */
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#filter DataAwsIdentitystoreGroup#filter}
+   */
   readonly filter?: DataAwsIdentitystoreGroupFilter;
 }
-export interface DataAwsIdentitystoreGroupExternalIds {
-}
+export interface DataAwsIdentitystoreGroupExternalIds {}
 
-export function dataAwsIdentitystoreGroupExternalIdsToTerraform(struct?: DataAwsIdentitystoreGroupExternalIds): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreGroupExternalIdsToTerraform(
+  struct?: DataAwsIdentitystoreGroupExternalIds,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataAwsIdentitystoreGroupExternalIdsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataAwsIdentitystoreGroupExternalIds | undefined {
@@ -66,11 +80,12 @@ export class DataAwsIdentitystoreGroupExternalIdsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreGroupExternalIds | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreGroupExternalIds | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -87,60 +102,83 @@ export class DataAwsIdentitystoreGroupExternalIdsOutputReference extends cdktf.C
 }
 
 export class DataAwsIdentitystoreGroupExternalIdsList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsIdentitystoreGroupExternalIdsOutputReference {
-    return new DataAwsIdentitystoreGroupExternalIdsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsIdentitystoreGroupExternalIdsOutputReference {
+    return new DataAwsIdentitystoreGroupExternalIdsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsIdentitystoreGroupAlternateIdentifierExternalId {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#id DataAwsIdentitystoreGroup#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#id DataAwsIdentitystoreGroup#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#issuer DataAwsIdentitystoreGroup#issuer}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#issuer DataAwsIdentitystoreGroup#issuer}
+   */
   readonly issuer: string;
 }
 
-export function dataAwsIdentitystoreGroupAlternateIdentifierExternalIdToTerraform(struct?: DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReference | DataAwsIdentitystoreGroupAlternateIdentifierExternalId): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreGroupAlternateIdentifierExternalIdToTerraform(
+  struct?:
+    | DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReference
+    | DataAwsIdentitystoreGroupAlternateIdentifierExternalId,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     issuer: cdktf.stringToTerraform(struct!.issuer),
-  }
+  };
 }
 
 export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsIdentitystoreGroupAlternateIdentifierExternalId | undefined {
+  public get internalValue():
+    | DataAwsIdentitystoreGroupAlternateIdentifierExternalId
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -154,13 +192,14 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreGroupAlternateIdentifierExternalId | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreGroupAlternateIdentifierExternalId | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._issuer = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._issuer = value.issuer;
@@ -168,7 +207,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReferen
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -181,7 +220,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReferen
   }
 
   // issuer - computed: false, optional: false, required: true
-  private _issuer?: string; 
+  private _issuer?: string;
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -195,38 +234,51 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReferen
 }
 export interface DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_path DataAwsIdentitystoreGroup#attribute_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_path DataAwsIdentitystoreGroup#attribute_path}
+   */
   readonly attributePath: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_value DataAwsIdentitystoreGroup#attribute_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_value DataAwsIdentitystoreGroup#attribute_value}
+   */
   readonly attributeValue: string;
 }
 
-export function dataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeToTerraform(struct?: DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputReference | DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeToTerraform(
+  struct?:
+    | DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputReference
+    | DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     attribute_path: cdktf.stringToTerraform(struct!.attributePath),
     attribute_value: cdktf.stringToTerraform(struct!.attributeValue),
-  }
+  };
 }
 
 export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute | undefined {
+  public get internalValue():
+    | DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._attributePath !== undefined) {
@@ -240,13 +292,16 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._attributePath = undefined;
       this._attributeValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attributePath = value.attributePath;
       this._attributeValue = value.attributeValue;
@@ -254,7 +309,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
   }
 
   // attribute_path - computed: false, optional: false, required: true
-  private _attributePath?: string; 
+  private _attributePath?: string;
   public get attributePath() {
     return this.getStringAttribute('attribute_path');
   }
@@ -267,7 +322,7 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
   }
 
   // attribute_value - computed: false, optional: false, required: true
-  private _attributeValue?: string; 
+  private _attributeValue?: string;
   public get attributeValue() {
     return this.getStringAttribute('attribute_value');
   }
@@ -281,42 +336,61 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputRe
 }
 export interface DataAwsIdentitystoreGroupAlternateIdentifier {
   /**
-  * external_id block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#external_id DataAwsIdentitystoreGroup#external_id}
-  */
+   * external_id block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#external_id DataAwsIdentitystoreGroup#external_id}
+   */
   readonly externalId?: DataAwsIdentitystoreGroupAlternateIdentifierExternalId;
   /**
-  * unique_attribute block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#unique_attribute DataAwsIdentitystoreGroup#unique_attribute}
-  */
+   * unique_attribute block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#unique_attribute DataAwsIdentitystoreGroup#unique_attribute}
+   */
   readonly uniqueAttribute?: DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute;
 }
 
-export function dataAwsIdentitystoreGroupAlternateIdentifierToTerraform(struct?: DataAwsIdentitystoreGroupAlternateIdentifierOutputReference | DataAwsIdentitystoreGroupAlternateIdentifier): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreGroupAlternateIdentifierToTerraform(
+  struct?:
+    | DataAwsIdentitystoreGroupAlternateIdentifierOutputReference
+    | DataAwsIdentitystoreGroupAlternateIdentifier,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    external_id: dataAwsIdentitystoreGroupAlternateIdentifierExternalIdToTerraform(struct!.externalId),
-    unique_attribute: dataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeToTerraform(struct!.uniqueAttribute),
-  }
+    external_id:
+      dataAwsIdentitystoreGroupAlternateIdentifierExternalIdToTerraform(
+        struct!.externalId,
+      ),
+    unique_attribute:
+      dataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeToTerraform(
+        struct!.uniqueAttribute,
+      ),
+  };
 }
 
 export class DataAwsIdentitystoreGroupAlternateIdentifierOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsIdentitystoreGroupAlternateIdentifier | undefined {
+  public get internalValue():
+    | DataAwsIdentitystoreGroupAlternateIdentifier
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._externalId?.internalValue !== undefined) {
@@ -325,18 +399,20 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierOutputReference extends
     }
     if (this._uniqueAttribute?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.uniqueAttribute = this._uniqueAttribute?.internalValue;
+      internalValueResult.uniqueAttribute =
+        this._uniqueAttribute?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsIdentitystoreGroupAlternateIdentifier | undefined) {
+  public set internalValue(
+    value: DataAwsIdentitystoreGroupAlternateIdentifier | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._externalId.internalValue = undefined;
       this._uniqueAttribute.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._externalId.internalValue = value.externalId;
       this._uniqueAttribute.internalValue = value.uniqueAttribute;
@@ -344,11 +420,17 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierOutputReference extends
   }
 
   // external_id - computed: false, optional: true, required: false
-  private _externalId = new DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReference(this, "external_id");
+  private _externalId =
+    new DataAwsIdentitystoreGroupAlternateIdentifierExternalIdOutputReference(
+      this,
+      'external_id',
+    );
   public get externalId() {
     return this._externalId;
   }
-  public putExternalId(value: DataAwsIdentitystoreGroupAlternateIdentifierExternalId) {
+  public putExternalId(
+    value: DataAwsIdentitystoreGroupAlternateIdentifierExternalId,
+  ) {
     this._externalId.internalValue = value;
   }
   public resetExternalId() {
@@ -360,11 +442,17 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierOutputReference extends
   }
 
   // unique_attribute - computed: false, optional: true, required: false
-  private _uniqueAttribute = new DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputReference(this, "unique_attribute");
+  private _uniqueAttribute =
+    new DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttributeOutputReference(
+      this,
+      'unique_attribute',
+    );
   public get uniqueAttribute() {
     return this._uniqueAttribute;
   }
-  public putUniqueAttribute(value: DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute) {
+  public putUniqueAttribute(
+    value: DataAwsIdentitystoreGroupAlternateIdentifierUniqueAttribute,
+  ) {
     this._uniqueAttribute.internalValue = value;
   }
   public resetUniqueAttribute() {
@@ -377,34 +465,45 @@ export class DataAwsIdentitystoreGroupAlternateIdentifierOutputReference extends
 }
 export interface DataAwsIdentitystoreGroupFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_path DataAwsIdentitystoreGroup#attribute_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_path DataAwsIdentitystoreGroup#attribute_path}
+   */
   readonly attributePath: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_value DataAwsIdentitystoreGroup#attribute_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group#attribute_value DataAwsIdentitystoreGroup#attribute_value}
+   */
   readonly attributeValue: string;
 }
 
-export function dataAwsIdentitystoreGroupFilterToTerraform(struct?: DataAwsIdentitystoreGroupFilterOutputReference | DataAwsIdentitystoreGroupFilter): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsIdentitystoreGroupFilterToTerraform(
+  struct?:
+    | DataAwsIdentitystoreGroupFilterOutputReference
+    | DataAwsIdentitystoreGroupFilter,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     attribute_path: cdktf.stringToTerraform(struct!.attributePath),
     attribute_value: cdktf.stringToTerraform(struct!.attributeValue),
-  }
+  };
 }
 
 export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -427,8 +526,7 @@ export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._attributePath = undefined;
       this._attributeValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attributePath = value.attributePath;
       this._attributeValue = value.attributeValue;
@@ -436,7 +534,7 @@ export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.Comple
   }
 
   // attribute_path - computed: false, optional: false, required: true
-  private _attributePath?: string; 
+  private _attributePath?: string;
   public get attributePath() {
     return this.getStringAttribute('attribute_path');
   }
@@ -449,7 +547,7 @@ export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.Comple
   }
 
   // attribute_value - computed: false, optional: false, required: true
-  private _attributeValue?: string; 
+  private _attributeValue?: string;
   public get attributeValue() {
     return this.getStringAttribute('attribute_value');
   }
@@ -463,33 +561,36 @@ export class DataAwsIdentitystoreGroupFilterOutputReference extends cdktf.Comple
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group aws_identitystore_group}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group aws_identitystore_group}
+ */
 export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_identitystore_group";
+  public static readonly tfResourceType = 'aws_identitystore_group';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group aws_identitystore_group} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsIdentitystoreGroupConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsIdentitystoreGroupConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/identitystore_group aws_identitystore_group} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsIdentitystoreGroupConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsIdentitystoreGroupConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_identitystore_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -497,7 +598,7 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._groupId = config.groupId;
     this._id = config.id;
@@ -521,13 +622,17 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // external_ids - computed: true, optional: false, required: false
-  private _externalIds = new DataAwsIdentitystoreGroupExternalIdsList(this, "external_ids", false);
+  private _externalIds = new DataAwsIdentitystoreGroupExternalIdsList(
+    this,
+    'external_ids',
+    false,
+  );
   public get externalIds() {
     return this._externalIds;
   }
 
   // group_id - computed: true, optional: true, required: false
-  private _groupId?: string; 
+  private _groupId?: string;
   public get groupId() {
     return this.getStringAttribute('group_id');
   }
@@ -543,7 +648,7 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -559,7 +664,7 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // identity_store_id - computed: false, optional: false, required: true
-  private _identityStoreId?: string; 
+  private _identityStoreId?: string;
   public get identityStoreId() {
     return this.getStringAttribute('identity_store_id');
   }
@@ -572,11 +677,17 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // alternate_identifier - computed: false, optional: true, required: false
-  private _alternateIdentifier = new DataAwsIdentitystoreGroupAlternateIdentifierOutputReference(this, "alternate_identifier");
+  private _alternateIdentifier =
+    new DataAwsIdentitystoreGroupAlternateIdentifierOutputReference(
+      this,
+      'alternate_identifier',
+    );
   public get alternateIdentifier() {
     return this._alternateIdentifier;
   }
-  public putAlternateIdentifier(value: DataAwsIdentitystoreGroupAlternateIdentifier) {
+  public putAlternateIdentifier(
+    value: DataAwsIdentitystoreGroupAlternateIdentifier,
+  ) {
     this._alternateIdentifier.internalValue = value;
   }
   public resetAlternateIdentifier() {
@@ -588,7 +699,10 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsIdentitystoreGroupFilterOutputReference(this, "filter");
+  private _filter = new DataAwsIdentitystoreGroupFilterOutputReference(
+    this,
+    'filter',
+  );
   public get filter() {
     return this._filter;
   }
@@ -612,8 +726,13 @@ export class DataAwsIdentitystoreGroup extends cdktf.TerraformDataSource {
       group_id: cdktf.stringToTerraform(this._groupId),
       id: cdktf.stringToTerraform(this._id),
       identity_store_id: cdktf.stringToTerraform(this._identityStoreId),
-      alternate_identifier: dataAwsIdentitystoreGroupAlternateIdentifierToTerraform(this._alternateIdentifier.internalValue),
-      filter: dataAwsIdentitystoreGroupFilterToTerraform(this._filter.internalValue),
+      alternate_identifier:
+        dataAwsIdentitystoreGroupAlternateIdentifierToTerraform(
+          this._alternateIdentifier.internalValue,
+        ),
+      filter: dataAwsIdentitystoreGroupFilterToTerraform(
+        this._filter.internalValue,
+      ),
     };
   }
 }

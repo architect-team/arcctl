@@ -1,65 +1,67 @@
 // https://www.terraform.io/docs/providers/aws/r/db_proxy_target
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DbProxyTargetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#db_cluster_identifier DbProxyTarget#db_cluster_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#db_cluster_identifier DbProxyTarget#db_cluster_identifier}
+   */
   readonly dbClusterIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#db_instance_identifier DbProxyTarget#db_instance_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#db_instance_identifier DbProxyTarget#db_instance_identifier}
+   */
   readonly dbInstanceIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#db_proxy_name DbProxyTarget#db_proxy_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#db_proxy_name DbProxyTarget#db_proxy_name}
+   */
   readonly dbProxyName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#id DbProxyTarget#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#id DbProxyTarget#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#target_group_name DbProxyTarget#target_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target#target_group_name DbProxyTarget#target_group_name}
+   */
   readonly targetGroupName: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target aws_db_proxy_target}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target aws_db_proxy_target}
+ */
 export class DbProxyTarget extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_db_proxy_target";
+  public static readonly tfResourceType = 'aws_db_proxy_target';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target aws_db_proxy_target} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DbProxyTargetConfig
-  */
-  public constructor(scope: Construct, id: string, config: DbProxyTargetConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_proxy_target aws_db_proxy_target} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DbProxyTargetConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DbProxyTargetConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_db_proxy_target',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +69,7 @@ export class DbProxyTarget extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dbClusterIdentifier = config.dbClusterIdentifier;
     this._dbInstanceIdentifier = config.dbInstanceIdentifier;
@@ -81,7 +83,7 @@ export class DbProxyTarget extends cdktf.TerraformResource {
   // ==========
 
   // db_cluster_identifier - computed: false, optional: true, required: false
-  private _dbClusterIdentifier?: string; 
+  private _dbClusterIdentifier?: string;
   public get dbClusterIdentifier() {
     return this.getStringAttribute('db_cluster_identifier');
   }
@@ -97,7 +99,7 @@ export class DbProxyTarget extends cdktf.TerraformResource {
   }
 
   // db_instance_identifier - computed: false, optional: true, required: false
-  private _dbInstanceIdentifier?: string; 
+  private _dbInstanceIdentifier?: string;
   public get dbInstanceIdentifier() {
     return this.getStringAttribute('db_instance_identifier');
   }
@@ -113,7 +115,7 @@ export class DbProxyTarget extends cdktf.TerraformResource {
   }
 
   // db_proxy_name - computed: false, optional: false, required: true
-  private _dbProxyName?: string; 
+  private _dbProxyName?: string;
   public get dbProxyName() {
     return this.getStringAttribute('db_proxy_name');
   }
@@ -131,7 +133,7 @@ export class DbProxyTarget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +164,7 @@ export class DbProxyTarget extends cdktf.TerraformResource {
   }
 
   // target_group_name - computed: false, optional: false, required: true
-  private _targetGroupName?: string; 
+  private _targetGroupName?: string;
   public get targetGroupName() {
     return this.getStringAttribute('target_group_name');
   }
@@ -191,7 +193,9 @@ export class DbProxyTarget extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       db_cluster_identifier: cdktf.stringToTerraform(this._dbClusterIdentifier),
-      db_instance_identifier: cdktf.stringToTerraform(this._dbInstanceIdentifier),
+      db_instance_identifier: cdktf.stringToTerraform(
+        this._dbInstanceIdentifier,
+      ),
       db_proxy_name: cdktf.stringToTerraform(this._dbProxyName),
       id: cdktf.stringToTerraform(this._id),
       target_group_name: cdktf.stringToTerraform(this._targetGroupName),

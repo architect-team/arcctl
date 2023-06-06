@@ -1,64 +1,78 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface WafByteMatchSetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#id WafByteMatchSet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#id WafByteMatchSet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#name WafByteMatchSet#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#name WafByteMatchSet#name}
+   */
   readonly name: string;
   /**
-  * byte_match_tuples block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#byte_match_tuples WafByteMatchSet#byte_match_tuples}
-  */
-  readonly byteMatchTuples?: WafByteMatchSetByteMatchTuples[] | cdktf.IResolvable;
+   * byte_match_tuples block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#byte_match_tuples WafByteMatchSet#byte_match_tuples}
+   */
+  readonly byteMatchTuples?:
+    | WafByteMatchSetByteMatchTuples[]
+    | cdktf.IResolvable;
 }
 export interface WafByteMatchSetByteMatchTuplesFieldToMatch {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#data WafByteMatchSet#data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#data WafByteMatchSet#data}
+   */
   readonly data?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#type WafByteMatchSet#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#type WafByteMatchSet#type}
+   */
   readonly type: string;
 }
 
-export function wafByteMatchSetByteMatchTuplesFieldToMatchToTerraform(struct?: WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference | WafByteMatchSetByteMatchTuplesFieldToMatch): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafByteMatchSetByteMatchTuplesFieldToMatchToTerraform(
+  struct?:
+    | WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference
+    | WafByteMatchSetByteMatchTuplesFieldToMatch,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     data: cdktf.stringToTerraform(struct!.data),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): WafByteMatchSetByteMatchTuplesFieldToMatch | undefined {
+  public get internalValue():
+    | WafByteMatchSetByteMatchTuplesFieldToMatch
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._data !== undefined) {
@@ -72,13 +86,14 @@ export class WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WafByteMatchSetByteMatchTuplesFieldToMatch | undefined) {
+  public set internalValue(
+    value: WafByteMatchSetByteMatchTuplesFieldToMatch | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._data = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._data = value.data;
       this._type = value.type;
@@ -86,7 +101,7 @@ export class WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference extends c
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -102,7 +117,7 @@ export class WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference extends c
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -116,36 +131,46 @@ export class WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference extends c
 }
 export interface WafByteMatchSetByteMatchTuples {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#positional_constraint WafByteMatchSet#positional_constraint}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#positional_constraint WafByteMatchSet#positional_constraint}
+   */
   readonly positionalConstraint: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#target_string WafByteMatchSet#target_string}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#target_string WafByteMatchSet#target_string}
+   */
   readonly targetString?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#text_transformation WafByteMatchSet#text_transformation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#text_transformation WafByteMatchSet#text_transformation}
+   */
   readonly textTransformation: string;
   /**
-  * field_to_match block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#field_to_match WafByteMatchSet#field_to_match}
-  */
+   * field_to_match block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set#field_to_match WafByteMatchSet#field_to_match}
+   */
   readonly fieldToMatch: WafByteMatchSetByteMatchTuplesFieldToMatch;
 }
 
-export function wafByteMatchSetByteMatchTuplesToTerraform(struct?: WafByteMatchSetByteMatchTuples | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafByteMatchSetByteMatchTuplesToTerraform(
+  struct?: WafByteMatchSetByteMatchTuples | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    positional_constraint: cdktf.stringToTerraform(struct!.positionalConstraint),
+    positional_constraint: cdktf.stringToTerraform(
+      struct!.positionalConstraint,
+    ),
     target_string: cdktf.stringToTerraform(struct!.targetString),
     text_transformation: cdktf.stringToTerraform(struct!.textTransformation),
-    field_to_match: wafByteMatchSetByteMatchTuplesFieldToMatchToTerraform(struct!.fieldToMatch),
-  }
+    field_to_match: wafByteMatchSetByteMatchTuplesFieldToMatchToTerraform(
+      struct!.fieldToMatch,
+    ),
+  };
 }
 
 export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.ComplexObject {
@@ -153,16 +178,29 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): WafByteMatchSetByteMatchTuples | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | WafByteMatchSetByteMatchTuples
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -187,7 +225,9 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WafByteMatchSetByteMatchTuples | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: WafByteMatchSetByteMatchTuples | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -195,12 +235,10 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
       this._targetString = undefined;
       this._textTransformation = undefined;
       this._fieldToMatch.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._positionalConstraint = value.positionalConstraint;
@@ -211,7 +249,7 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
   }
 
   // positional_constraint - computed: false, optional: false, required: true
-  private _positionalConstraint?: string; 
+  private _positionalConstraint?: string;
   public get positionalConstraint() {
     return this.getStringAttribute('positional_constraint');
   }
@@ -224,7 +262,7 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
   }
 
   // target_string - computed: false, optional: true, required: false
-  private _targetString?: string; 
+  private _targetString?: string;
   public get targetString() {
     return this.getStringAttribute('target_string');
   }
@@ -240,7 +278,7 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
   }
 
   // text_transformation - computed: false, optional: false, required: true
-  private _textTransformation?: string; 
+  private _textTransformation?: string;
   public get textTransformation() {
     return this.getStringAttribute('text_transformation');
   }
@@ -253,7 +291,11 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
   }
 
   // field_to_match - computed: false, optional: false, required: true
-  private _fieldToMatch = new WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference(this, "field_to_match");
+  private _fieldToMatch =
+    new WafByteMatchSetByteMatchTuplesFieldToMatchOutputReference(
+      this,
+      'field_to_match',
+    );
   public get fieldToMatch() {
     return this._fieldToMatch;
   }
@@ -267,53 +309,65 @@ export class WafByteMatchSetByteMatchTuplesOutputReference extends cdktf.Complex
 }
 
 export class WafByteMatchSetByteMatchTuplesList extends cdktf.ComplexList {
-  public internalValue? : WafByteMatchSetByteMatchTuples[] | cdktf.IResolvable
+  public internalValue?: WafByteMatchSetByteMatchTuples[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): WafByteMatchSetByteMatchTuplesOutputReference {
-    return new WafByteMatchSetByteMatchTuplesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new WafByteMatchSetByteMatchTuplesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set aws_waf_byte_match_set}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set aws_waf_byte_match_set}
+ */
 export class WafByteMatchSet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_waf_byte_match_set";
+  public static readonly tfResourceType = 'aws_waf_byte_match_set';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set aws_waf_byte_match_set} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options WafByteMatchSetConfig
-  */
-  public constructor(scope: Construct, id: string, config: WafByteMatchSetConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set aws_waf_byte_match_set} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options WafByteMatchSetConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: WafByteMatchSetConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_waf_byte_match_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -321,7 +375,7 @@ export class WafByteMatchSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -333,7 +387,7 @@ export class WafByteMatchSet extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -349,7 +403,7 @@ export class WafByteMatchSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -362,11 +416,17 @@ export class WafByteMatchSet extends cdktf.TerraformResource {
   }
 
   // byte_match_tuples - computed: false, optional: true, required: false
-  private _byteMatchTuples = new WafByteMatchSetByteMatchTuplesList(this, "byte_match_tuples", true);
+  private _byteMatchTuples = new WafByteMatchSetByteMatchTuplesList(
+    this,
+    'byte_match_tuples',
+    true,
+  );
   public get byteMatchTuples() {
     return this._byteMatchTuples;
   }
-  public putByteMatchTuples(value: WafByteMatchSetByteMatchTuples[] | cdktf.IResolvable) {
+  public putByteMatchTuples(
+    value: WafByteMatchSetByteMatchTuples[] | cdktf.IResolvable,
+  ) {
     this._byteMatchTuples.internalValue = value;
   }
   public resetByteMatchTuples() {
@@ -385,7 +445,10 @@ export class WafByteMatchSet extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      byte_match_tuples: cdktf.listMapper(wafByteMatchSetByteMatchTuplesToTerraform, true)(this._byteMatchTuples.internalValue),
+      byte_match_tuples: cdktf.listMapper(
+        wafByteMatchSetByteMatchTuplesToTerraform,
+        true,
+      )(this._byteMatchTuples.internalValue),
     };
   }
 }

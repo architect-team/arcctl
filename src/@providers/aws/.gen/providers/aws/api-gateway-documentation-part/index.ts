@@ -1,61 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ApiGatewayDocumentationPartConfig extends cdktf.TerraformMetaArguments {
+export interface ApiGatewayDocumentationPartConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#id ApiGatewayDocumentationPart#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#id ApiGatewayDocumentationPart#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#properties ApiGatewayDocumentationPart#properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#properties ApiGatewayDocumentationPart#properties}
+   */
   readonly properties: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#rest_api_id ApiGatewayDocumentationPart#rest_api_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#rest_api_id ApiGatewayDocumentationPart#rest_api_id}
+   */
   readonly restApiId: string;
   /**
-  * location block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#location ApiGatewayDocumentationPart#location}
-  */
+   * location block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#location ApiGatewayDocumentationPart#location}
+   */
   readonly location: ApiGatewayDocumentationPartLocation;
 }
 export interface ApiGatewayDocumentationPartLocation {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#method ApiGatewayDocumentationPart#method}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#method ApiGatewayDocumentationPart#method}
+   */
   readonly method?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#name ApiGatewayDocumentationPart#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#name ApiGatewayDocumentationPart#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#path ApiGatewayDocumentationPart#path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#path ApiGatewayDocumentationPart#path}
+   */
   readonly path?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#status_code ApiGatewayDocumentationPart#status_code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#status_code ApiGatewayDocumentationPart#status_code}
+   */
   readonly statusCode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#type ApiGatewayDocumentationPart#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part#type ApiGatewayDocumentationPart#type}
+   */
   readonly type: string;
 }
 
-export function apiGatewayDocumentationPartLocationToTerraform(struct?: ApiGatewayDocumentationPartLocationOutputReference | ApiGatewayDocumentationPartLocation): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apiGatewayDocumentationPartLocationToTerraform(
+  struct?:
+    | ApiGatewayDocumentationPartLocationOutputReference
+    | ApiGatewayDocumentationPartLocation,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     method: cdktf.stringToTerraform(struct!.method),
@@ -63,17 +71,20 @@ export function apiGatewayDocumentationPartLocationToTerraform(struct?: ApiGatew
     path: cdktf.stringToTerraform(struct!.path),
     status_code: cdktf.stringToTerraform(struct!.statusCode),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -103,7 +114,9 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApiGatewayDocumentationPartLocation | undefined) {
+  public set internalValue(
+    value: ApiGatewayDocumentationPartLocation | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._method = undefined;
@@ -111,8 +124,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
       this._path = undefined;
       this._statusCode = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._method = value.method;
       this._name = value.name;
@@ -123,7 +135,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // method - computed: false, optional: true, required: false
-  private _method?: string; 
+  private _method?: string;
   public get method() {
     return this.getStringAttribute('method');
   }
@@ -139,7 +151,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -155,7 +167,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string; 
+  private _path?: string;
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -171,7 +183,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // status_code - computed: false, optional: true, required: false
-  private _statusCode?: string; 
+  private _statusCode?: string;
   public get statusCode() {
     return this.getStringAttribute('status_code');
   }
@@ -187,7 +199,7 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -201,33 +213,36 @@ export class ApiGatewayDocumentationPartLocationOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part aws_api_gateway_documentation_part}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part aws_api_gateway_documentation_part}
+ */
 export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_api_gateway_documentation_part";
+  public static readonly tfResourceType = 'aws_api_gateway_documentation_part';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part aws_api_gateway_documentation_part} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ApiGatewayDocumentationPartConfig
-  */
-  public constructor(scope: Construct, id: string, config: ApiGatewayDocumentationPartConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part aws_api_gateway_documentation_part} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ApiGatewayDocumentationPartConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ApiGatewayDocumentationPartConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_documentation_part',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -235,7 +250,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._properties = config.properties;
@@ -248,7 +263,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -264,7 +279,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   }
 
   // properties - computed: false, optional: false, required: true
-  private _properties?: string; 
+  private _properties?: string;
   public get properties() {
     return this.getStringAttribute('properties');
   }
@@ -277,7 +292,7 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -290,7 +305,10 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
   }
 
   // location - computed: false, optional: false, required: true
-  private _location = new ApiGatewayDocumentationPartLocationOutputReference(this, "location");
+  private _location = new ApiGatewayDocumentationPartLocationOutputReference(
+    this,
+    'location',
+  );
   public get location() {
     return this._location;
   }
@@ -311,7 +329,9 @@ export class ApiGatewayDocumentationPart extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       properties: cdktf.stringToTerraform(this._properties),
       rest_api_id: cdktf.stringToTerraform(this._restApiId),
-      location: apiGatewayDocumentationPartLocationToTerraform(this._location.internalValue),
+      location: apiGatewayDocumentationPartLocationToTerraform(
+        this._location.internalValue,
+      ),
     };
   }
 }

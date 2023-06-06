@@ -1,56 +1,67 @@
 // https://www.terraform.io/docs/providers/aws/d/emr_release_labels
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsEmrReleaseLabelsConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsEmrReleaseLabelsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#id DataAwsEmrReleaseLabels#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#id DataAwsEmrReleaseLabels#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * filters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#filters DataAwsEmrReleaseLabels#filters}
-  */
+   * filters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#filters DataAwsEmrReleaseLabels#filters}
+   */
   readonly filters?: DataAwsEmrReleaseLabelsFilters;
 }
 export interface DataAwsEmrReleaseLabelsFilters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#application DataAwsEmrReleaseLabels#application}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#application DataAwsEmrReleaseLabels#application}
+   */
   readonly application?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#prefix DataAwsEmrReleaseLabels#prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels#prefix DataAwsEmrReleaseLabels#prefix}
+   */
   readonly prefix?: string;
 }
 
-export function dataAwsEmrReleaseLabelsFiltersToTerraform(struct?: DataAwsEmrReleaseLabelsFiltersOutputReference | DataAwsEmrReleaseLabelsFilters): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsEmrReleaseLabelsFiltersToTerraform(
+  struct?:
+    | DataAwsEmrReleaseLabelsFiltersOutputReference
+    | DataAwsEmrReleaseLabelsFilters,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     application: cdktf.stringToTerraform(struct!.application),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-  }
+  };
 }
 
 export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -73,8 +84,7 @@ export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._application = undefined;
       this._prefix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._application = value.application;
       this._prefix = value.prefix;
@@ -82,7 +92,7 @@ export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.Complex
   }
 
   // application - computed: false, optional: true, required: false
-  private _application?: string; 
+  private _application?: string;
   public get application() {
     return this.getStringAttribute('application');
   }
@@ -98,7 +108,7 @@ export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.Complex
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string; 
+  private _prefix?: string;
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -115,33 +125,36 @@ export class DataAwsEmrReleaseLabelsFiltersOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels aws_emr_release_labels}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels aws_emr_release_labels}
+ */
 export class DataAwsEmrReleaseLabels extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_emr_release_labels";
+  public static readonly tfResourceType = 'aws_emr_release_labels';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels aws_emr_release_labels} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsEmrReleaseLabelsConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsEmrReleaseLabelsConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/emr_release_labels aws_emr_release_labels} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsEmrReleaseLabelsConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsEmrReleaseLabelsConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_emr_release_labels',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -149,7 +162,7 @@ export class DataAwsEmrReleaseLabels extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._filters.internalValue = config.filters;
@@ -160,7 +173,7 @@ export class DataAwsEmrReleaseLabels extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -181,7 +194,10 @@ export class DataAwsEmrReleaseLabels extends cdktf.TerraformDataSource {
   }
 
   // filters - computed: false, optional: true, required: false
-  private _filters = new DataAwsEmrReleaseLabelsFiltersOutputReference(this, "filters");
+  private _filters = new DataAwsEmrReleaseLabelsFiltersOutputReference(
+    this,
+    'filters',
+  );
   public get filters() {
     return this._filters;
   }
@@ -203,7 +219,9 @@ export class DataAwsEmrReleaseLabels extends cdktf.TerraformDataSource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      filters: dataAwsEmrReleaseLabelsFiltersToTerraform(this._filters.internalValue),
+      filters: dataAwsEmrReleaseLabelsFiltersToTerraform(
+        this._filters.internalValue,
+      ),
     };
   }
 }

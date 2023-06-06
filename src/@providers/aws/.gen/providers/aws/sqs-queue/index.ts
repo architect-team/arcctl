@@ -1,125 +1,127 @@
 // https://www.terraform.io/docs/providers/aws/r/sqs_queue
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface SqsQueueConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#content_based_deduplication SqsQueue#content_based_deduplication}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#content_based_deduplication SqsQueue#content_based_deduplication}
+   */
   readonly contentBasedDeduplication?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#deduplication_scope SqsQueue#deduplication_scope}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#deduplication_scope SqsQueue#deduplication_scope}
+   */
   readonly deduplicationScope?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#delay_seconds SqsQueue#delay_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#delay_seconds SqsQueue#delay_seconds}
+   */
   readonly delaySeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#fifo_queue SqsQueue#fifo_queue}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#fifo_queue SqsQueue#fifo_queue}
+   */
   readonly fifoQueue?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#fifo_throughput_limit SqsQueue#fifo_throughput_limit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#fifo_throughput_limit SqsQueue#fifo_throughput_limit}
+   */
   readonly fifoThroughputLimit?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#id SqsQueue#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#id SqsQueue#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#kms_data_key_reuse_period_seconds SqsQueue#kms_data_key_reuse_period_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#kms_data_key_reuse_period_seconds SqsQueue#kms_data_key_reuse_period_seconds}
+   */
   readonly kmsDataKeyReusePeriodSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#kms_master_key_id SqsQueue#kms_master_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#kms_master_key_id SqsQueue#kms_master_key_id}
+   */
   readonly kmsMasterKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#max_message_size SqsQueue#max_message_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#max_message_size SqsQueue#max_message_size}
+   */
   readonly maxMessageSize?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#message_retention_seconds SqsQueue#message_retention_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#message_retention_seconds SqsQueue#message_retention_seconds}
+   */
   readonly messageRetentionSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#name SqsQueue#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#name SqsQueue#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#name_prefix SqsQueue#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#name_prefix SqsQueue#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#policy SqsQueue#policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#policy SqsQueue#policy}
+   */
   readonly policy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#receive_wait_time_seconds SqsQueue#receive_wait_time_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#receive_wait_time_seconds SqsQueue#receive_wait_time_seconds}
+   */
   readonly receiveWaitTimeSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#redrive_allow_policy SqsQueue#redrive_allow_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#redrive_allow_policy SqsQueue#redrive_allow_policy}
+   */
   readonly redriveAllowPolicy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#redrive_policy SqsQueue#redrive_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#redrive_policy SqsQueue#redrive_policy}
+   */
   readonly redrivePolicy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#sqs_managed_sse_enabled SqsQueue#sqs_managed_sse_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#sqs_managed_sse_enabled SqsQueue#sqs_managed_sse_enabled}
+   */
   readonly sqsManagedSseEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#tags SqsQueue#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#tags SqsQueue#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#tags_all SqsQueue#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#tags_all SqsQueue#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#visibility_timeout_seconds SqsQueue#visibility_timeout_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue#visibility_timeout_seconds SqsQueue#visibility_timeout_seconds}
+   */
   readonly visibilityTimeoutSeconds?: number;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue aws_sqs_queue}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue aws_sqs_queue}
+ */
 export class SqsQueue extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sqs_queue";
+  public static readonly tfResourceType = 'aws_sqs_queue';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue aws_sqs_queue} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SqsQueueConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: SqsQueueConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sqs_queue aws_sqs_queue} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SqsQueueConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SqsQueueConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sqs_queue',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -127,7 +129,7 @@ export class SqsQueue extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._contentBasedDeduplication = config.contentBasedDeduplication;
     this._deduplicationScope = config.deduplicationScope;
@@ -161,7 +163,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // content_based_deduplication - computed: false, optional: true, required: false
-  private _contentBasedDeduplication?: boolean | cdktf.IResolvable; 
+  private _contentBasedDeduplication?: boolean | cdktf.IResolvable;
   public get contentBasedDeduplication() {
     return this.getBooleanAttribute('content_based_deduplication');
   }
@@ -177,7 +179,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // deduplication_scope - computed: true, optional: true, required: false
-  private _deduplicationScope?: string; 
+  private _deduplicationScope?: string;
   public get deduplicationScope() {
     return this.getStringAttribute('deduplication_scope');
   }
@@ -193,7 +195,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // delay_seconds - computed: false, optional: true, required: false
-  private _delaySeconds?: number; 
+  private _delaySeconds?: number;
   public get delaySeconds() {
     return this.getNumberAttribute('delay_seconds');
   }
@@ -209,7 +211,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // fifo_queue - computed: false, optional: true, required: false
-  private _fifoQueue?: boolean | cdktf.IResolvable; 
+  private _fifoQueue?: boolean | cdktf.IResolvable;
   public get fifoQueue() {
     return this.getBooleanAttribute('fifo_queue');
   }
@@ -225,7 +227,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // fifo_throughput_limit - computed: true, optional: true, required: false
-  private _fifoThroughputLimit?: string; 
+  private _fifoThroughputLimit?: string;
   public get fifoThroughputLimit() {
     return this.getStringAttribute('fifo_throughput_limit');
   }
@@ -241,7 +243,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -257,7 +259,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // kms_data_key_reuse_period_seconds - computed: true, optional: true, required: false
-  private _kmsDataKeyReusePeriodSeconds?: number; 
+  private _kmsDataKeyReusePeriodSeconds?: number;
   public get kmsDataKeyReusePeriodSeconds() {
     return this.getNumberAttribute('kms_data_key_reuse_period_seconds');
   }
@@ -273,7 +275,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // kms_master_key_id - computed: false, optional: true, required: false
-  private _kmsMasterKeyId?: string; 
+  private _kmsMasterKeyId?: string;
   public get kmsMasterKeyId() {
     return this.getStringAttribute('kms_master_key_id');
   }
@@ -289,7 +291,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // max_message_size - computed: false, optional: true, required: false
-  private _maxMessageSize?: number; 
+  private _maxMessageSize?: number;
   public get maxMessageSize() {
     return this.getNumberAttribute('max_message_size');
   }
@@ -305,7 +307,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // message_retention_seconds - computed: false, optional: true, required: false
-  private _messageRetentionSeconds?: number; 
+  private _messageRetentionSeconds?: number;
   public get messageRetentionSeconds() {
     return this.getNumberAttribute('message_retention_seconds');
   }
@@ -321,7 +323,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -337,7 +339,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -353,7 +355,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string; 
+  private _policy?: string;
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -369,7 +371,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // receive_wait_time_seconds - computed: false, optional: true, required: false
-  private _receiveWaitTimeSeconds?: number; 
+  private _receiveWaitTimeSeconds?: number;
   public get receiveWaitTimeSeconds() {
     return this.getNumberAttribute('receive_wait_time_seconds');
   }
@@ -385,7 +387,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // redrive_allow_policy - computed: true, optional: true, required: false
-  private _redriveAllowPolicy?: string; 
+  private _redriveAllowPolicy?: string;
   public get redriveAllowPolicy() {
     return this.getStringAttribute('redrive_allow_policy');
   }
@@ -401,7 +403,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // redrive_policy - computed: true, optional: true, required: false
-  private _redrivePolicy?: string; 
+  private _redrivePolicy?: string;
   public get redrivePolicy() {
     return this.getStringAttribute('redrive_policy');
   }
@@ -417,7 +419,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // sqs_managed_sse_enabled - computed: true, optional: true, required: false
-  private _sqsManagedSseEnabled?: boolean | cdktf.IResolvable; 
+  private _sqsManagedSseEnabled?: boolean | cdktf.IResolvable;
   public get sqsManagedSseEnabled() {
     return this.getBooleanAttribute('sqs_managed_sse_enabled');
   }
@@ -433,7 +435,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -449,7 +451,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -470,7 +472,7 @@ export class SqsQueue extends cdktf.TerraformResource {
   }
 
   // visibility_timeout_seconds - computed: false, optional: true, required: false
-  private _visibilityTimeoutSeconds?: number; 
+  private _visibilityTimeoutSeconds?: number;
   public get visibilityTimeoutSeconds() {
     return this.getNumberAttribute('visibility_timeout_seconds');
   }
@@ -491,26 +493,38 @@ export class SqsQueue extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      content_based_deduplication: cdktf.booleanToTerraform(this._contentBasedDeduplication),
+      content_based_deduplication: cdktf.booleanToTerraform(
+        this._contentBasedDeduplication,
+      ),
       deduplication_scope: cdktf.stringToTerraform(this._deduplicationScope),
       delay_seconds: cdktf.numberToTerraform(this._delaySeconds),
       fifo_queue: cdktf.booleanToTerraform(this._fifoQueue),
       fifo_throughput_limit: cdktf.stringToTerraform(this._fifoThroughputLimit),
       id: cdktf.stringToTerraform(this._id),
-      kms_data_key_reuse_period_seconds: cdktf.numberToTerraform(this._kmsDataKeyReusePeriodSeconds),
+      kms_data_key_reuse_period_seconds: cdktf.numberToTerraform(
+        this._kmsDataKeyReusePeriodSeconds,
+      ),
       kms_master_key_id: cdktf.stringToTerraform(this._kmsMasterKeyId),
       max_message_size: cdktf.numberToTerraform(this._maxMessageSize),
-      message_retention_seconds: cdktf.numberToTerraform(this._messageRetentionSeconds),
+      message_retention_seconds: cdktf.numberToTerraform(
+        this._messageRetentionSeconds,
+      ),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       policy: cdktf.stringToTerraform(this._policy),
-      receive_wait_time_seconds: cdktf.numberToTerraform(this._receiveWaitTimeSeconds),
+      receive_wait_time_seconds: cdktf.numberToTerraform(
+        this._receiveWaitTimeSeconds,
+      ),
       redrive_allow_policy: cdktf.stringToTerraform(this._redriveAllowPolicy),
       redrive_policy: cdktf.stringToTerraform(this._redrivePolicy),
-      sqs_managed_sse_enabled: cdktf.booleanToTerraform(this._sqsManagedSseEnabled),
+      sqs_managed_sse_enabled: cdktf.booleanToTerraform(
+        this._sqsManagedSseEnabled,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      visibility_timeout_seconds: cdktf.numberToTerraform(this._visibilityTimeoutSeconds),
+      visibility_timeout_seconds: cdktf.numberToTerraform(
+        this._visibilityTimeoutSeconds,
+      ),
     };
   }
 }

@@ -1,97 +1,99 @@
 // https://www.terraform.io/docs/providers/aws/r/dms_replication_task
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DmsReplicationTaskConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#cdc_start_position DmsReplicationTask#cdc_start_position}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#cdc_start_position DmsReplicationTask#cdc_start_position}
+   */
   readonly cdcStartPosition?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#cdc_start_time DmsReplicationTask#cdc_start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#cdc_start_time DmsReplicationTask#cdc_start_time}
+   */
   readonly cdcStartTime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#id DmsReplicationTask#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#id DmsReplicationTask#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#migration_type DmsReplicationTask#migration_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#migration_type DmsReplicationTask#migration_type}
+   */
   readonly migrationType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#replication_instance_arn DmsReplicationTask#replication_instance_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#replication_instance_arn DmsReplicationTask#replication_instance_arn}
+   */
   readonly replicationInstanceArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#replication_task_id DmsReplicationTask#replication_task_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#replication_task_id DmsReplicationTask#replication_task_id}
+   */
   readonly replicationTaskId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#replication_task_settings DmsReplicationTask#replication_task_settings}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#replication_task_settings DmsReplicationTask#replication_task_settings}
+   */
   readonly replicationTaskSettings?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#source_endpoint_arn DmsReplicationTask#source_endpoint_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#source_endpoint_arn DmsReplicationTask#source_endpoint_arn}
+   */
   readonly sourceEndpointArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#start_replication_task DmsReplicationTask#start_replication_task}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#start_replication_task DmsReplicationTask#start_replication_task}
+   */
   readonly startReplicationTask?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#table_mappings DmsReplicationTask#table_mappings}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#table_mappings DmsReplicationTask#table_mappings}
+   */
   readonly tableMappings: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#tags DmsReplicationTask#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#tags DmsReplicationTask#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#tags_all DmsReplicationTask#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#tags_all DmsReplicationTask#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#target_endpoint_arn DmsReplicationTask#target_endpoint_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task#target_endpoint_arn DmsReplicationTask#target_endpoint_arn}
+   */
   readonly targetEndpointArn: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task aws_dms_replication_task}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task aws_dms_replication_task}
+ */
 export class DmsReplicationTask extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_dms_replication_task";
+  public static readonly tfResourceType = 'aws_dms_replication_task';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task aws_dms_replication_task} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DmsReplicationTaskConfig
-  */
-  public constructor(scope: Construct, id: string, config: DmsReplicationTaskConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dms_replication_task aws_dms_replication_task} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DmsReplicationTaskConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DmsReplicationTaskConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_dms_replication_task',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -99,7 +101,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cdcStartPosition = config.cdcStartPosition;
     this._cdcStartTime = config.cdcStartTime;
@@ -121,7 +123,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   // ==========
 
   // cdc_start_position - computed: true, optional: true, required: false
-  private _cdcStartPosition?: string; 
+  private _cdcStartPosition?: string;
   public get cdcStartPosition() {
     return this.getStringAttribute('cdc_start_position');
   }
@@ -137,7 +139,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // cdc_start_time - computed: false, optional: true, required: false
-  private _cdcStartTime?: string; 
+  private _cdcStartTime?: string;
   public get cdcStartTime() {
     return this.getStringAttribute('cdc_start_time');
   }
@@ -153,7 +155,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -169,7 +171,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // migration_type - computed: false, optional: false, required: true
-  private _migrationType?: string; 
+  private _migrationType?: string;
   public get migrationType() {
     return this.getStringAttribute('migration_type');
   }
@@ -182,7 +184,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // replication_instance_arn - computed: false, optional: false, required: true
-  private _replicationInstanceArn?: string; 
+  private _replicationInstanceArn?: string;
   public get replicationInstanceArn() {
     return this.getStringAttribute('replication_instance_arn');
   }
@@ -200,7 +202,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // replication_task_id - computed: false, optional: false, required: true
-  private _replicationTaskId?: string; 
+  private _replicationTaskId?: string;
   public get replicationTaskId() {
     return this.getStringAttribute('replication_task_id');
   }
@@ -213,7 +215,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // replication_task_settings - computed: false, optional: true, required: false
-  private _replicationTaskSettings?: string; 
+  private _replicationTaskSettings?: string;
   public get replicationTaskSettings() {
     return this.getStringAttribute('replication_task_settings');
   }
@@ -229,7 +231,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // source_endpoint_arn - computed: false, optional: false, required: true
-  private _sourceEndpointArn?: string; 
+  private _sourceEndpointArn?: string;
   public get sourceEndpointArn() {
     return this.getStringAttribute('source_endpoint_arn');
   }
@@ -242,7 +244,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // start_replication_task - computed: false, optional: true, required: false
-  private _startReplicationTask?: boolean | cdktf.IResolvable; 
+  private _startReplicationTask?: boolean | cdktf.IResolvable;
   public get startReplicationTask() {
     return this.getBooleanAttribute('start_replication_task');
   }
@@ -263,7 +265,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // table_mappings - computed: false, optional: false, required: true
-  private _tableMappings?: string; 
+  private _tableMappings?: string;
   public get tableMappings() {
     return this.getStringAttribute('table_mappings');
   }
@@ -276,7 +278,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -292,7 +294,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -308,7 +310,7 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
   }
 
   // target_endpoint_arn - computed: false, optional: false, required: true
-  private _targetEndpointArn?: string; 
+  private _targetEndpointArn?: string;
   public get targetEndpointArn() {
     return this.getStringAttribute('target_endpoint_arn');
   }
@@ -330,11 +332,17 @@ export class DmsReplicationTask extends cdktf.TerraformResource {
       cdc_start_time: cdktf.stringToTerraform(this._cdcStartTime),
       id: cdktf.stringToTerraform(this._id),
       migration_type: cdktf.stringToTerraform(this._migrationType),
-      replication_instance_arn: cdktf.stringToTerraform(this._replicationInstanceArn),
+      replication_instance_arn: cdktf.stringToTerraform(
+        this._replicationInstanceArn,
+      ),
       replication_task_id: cdktf.stringToTerraform(this._replicationTaskId),
-      replication_task_settings: cdktf.stringToTerraform(this._replicationTaskSettings),
+      replication_task_settings: cdktf.stringToTerraform(
+        this._replicationTaskSettings,
+      ),
       source_endpoint_arn: cdktf.stringToTerraform(this._sourceEndpointArn),
-      start_replication_task: cdktf.booleanToTerraform(this._startReplicationTask),
+      start_replication_task: cdktf.booleanToTerraform(
+        this._startReplicationTask,
+      ),
       table_mappings: cdktf.stringToTerraform(this._tableMappings),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),

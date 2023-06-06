@@ -1,73 +1,77 @@
 // https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Apigatewayv2IntegrationResponseConfig extends cdktf.TerraformMetaArguments {
+export interface Apigatewayv2IntegrationResponseConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#api_id Apigatewayv2IntegrationResponse#api_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#api_id Apigatewayv2IntegrationResponse#api_id}
+   */
   readonly apiId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#content_handling_strategy Apigatewayv2IntegrationResponse#content_handling_strategy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#content_handling_strategy Apigatewayv2IntegrationResponse#content_handling_strategy}
+   */
   readonly contentHandlingStrategy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#id Apigatewayv2IntegrationResponse#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#id Apigatewayv2IntegrationResponse#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#integration_id Apigatewayv2IntegrationResponse#integration_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#integration_id Apigatewayv2IntegrationResponse#integration_id}
+   */
   readonly integrationId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#integration_response_key Apigatewayv2IntegrationResponse#integration_response_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#integration_response_key Apigatewayv2IntegrationResponse#integration_response_key}
+   */
   readonly integrationResponseKey: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#response_templates Apigatewayv2IntegrationResponse#response_templates}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#response_templates Apigatewayv2IntegrationResponse#response_templates}
+   */
   readonly responseTemplates?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#template_selection_expression Apigatewayv2IntegrationResponse#template_selection_expression}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response#template_selection_expression Apigatewayv2IntegrationResponse#template_selection_expression}
+   */
   readonly templateSelectionExpression?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response aws_apigatewayv2_integration_response}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response aws_apigatewayv2_integration_response}
+ */
 export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_apigatewayv2_integration_response";
+  public static readonly tfResourceType =
+    'aws_apigatewayv2_integration_response';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response aws_apigatewayv2_integration_response} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Apigatewayv2IntegrationResponseConfig
-  */
-  public constructor(scope: Construct, id: string, config: Apigatewayv2IntegrationResponseConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration_response aws_apigatewayv2_integration_response} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Apigatewayv2IntegrationResponseConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Apigatewayv2IntegrationResponseConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_apigatewayv2_integration_response',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +79,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._apiId = config.apiId;
     this._contentHandlingStrategy = config.contentHandlingStrategy;
@@ -91,7 +95,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string; 
+  private _apiId?: string;
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -104,7 +108,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // content_handling_strategy - computed: false, optional: true, required: false
-  private _contentHandlingStrategy?: string; 
+  private _contentHandlingStrategy?: string;
   public get contentHandlingStrategy() {
     return this.getStringAttribute('content_handling_strategy');
   }
@@ -120,7 +124,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -136,7 +140,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // integration_id - computed: false, optional: false, required: true
-  private _integrationId?: string; 
+  private _integrationId?: string;
   public get integrationId() {
     return this.getStringAttribute('integration_id');
   }
@@ -149,7 +153,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // integration_response_key - computed: false, optional: false, required: true
-  private _integrationResponseKey?: string; 
+  private _integrationResponseKey?: string;
   public get integrationResponseKey() {
     return this.getStringAttribute('integration_response_key');
   }
@@ -162,7 +166,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // response_templates - computed: false, optional: true, required: false
-  private _responseTemplates?: { [key: string]: string }; 
+  private _responseTemplates?: { [key: string]: string };
   public get responseTemplates() {
     return this.getStringMapAttribute('response_templates');
   }
@@ -178,7 +182,7 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   }
 
   // template_selection_expression - computed: false, optional: true, required: false
-  private _templateSelectionExpression?: string; 
+  private _templateSelectionExpression?: string;
   public get templateSelectionExpression() {
     return this.getStringAttribute('template_selection_expression');
   }
@@ -200,12 +204,20 @@ export class Apigatewayv2IntegrationResponse extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       api_id: cdktf.stringToTerraform(this._apiId),
-      content_handling_strategy: cdktf.stringToTerraform(this._contentHandlingStrategy),
+      content_handling_strategy: cdktf.stringToTerraform(
+        this._contentHandlingStrategy,
+      ),
       id: cdktf.stringToTerraform(this._id),
       integration_id: cdktf.stringToTerraform(this._integrationId),
-      integration_response_key: cdktf.stringToTerraform(this._integrationResponseKey),
-      response_templates: cdktf.hashMapper(cdktf.stringToTerraform)(this._responseTemplates),
-      template_selection_expression: cdktf.stringToTerraform(this._templateSelectionExpression),
+      integration_response_key: cdktf.stringToTerraform(
+        this._integrationResponseKey,
+      ),
+      response_templates: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._responseTemplates,
+      ),
+      template_selection_expression: cdktf.stringToTerraform(
+        this._templateSelectionExpression,
+      ),
     };
   }
 }

@@ -1,80 +1,88 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface CsiDriverV1Config extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#id CsiDriverV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#id CsiDriverV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#metadata CsiDriverV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#metadata CsiDriverV1#metadata}
+   */
   readonly metadata: CsiDriverV1Metadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#spec CsiDriverV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#spec CsiDriverV1#spec}
+   */
   readonly spec?: CsiDriverV1Spec;
 }
 export interface CsiDriverV1Metadata {
   /**
-  * An unstructured key value map stored with the csi driver that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#annotations CsiDriverV1#annotations}
-  */
+   * An unstructured key value map stored with the csi driver that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#annotations CsiDriverV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#generate_name CsiDriverV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#generate_name CsiDriverV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the csi driver. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#labels CsiDriverV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the csi driver. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#labels CsiDriverV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the csi driver, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#name CsiDriverV1#name}
-  */
+   * Name of the csi driver, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#name CsiDriverV1#name}
+   */
   readonly name?: string;
 }
 
-export function csiDriverV1MetadataToTerraform(struct?: CsiDriverV1MetadataOutputReference | CsiDriverV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function csiDriverV1MetadataToTerraform(
+  struct?: CsiDriverV1MetadataOutputReference | CsiDriverV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     generate_name: cdktf.stringToTerraform(struct!.generateName),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -107,8 +115,7 @@ export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
       this._generateName = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -118,7 +125,7 @@ export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -134,7 +141,7 @@ export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -155,7 +162,7 @@ export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -171,7 +178,7 @@ export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -198,45 +205,57 @@ export class CsiDriverV1MetadataOutputReference extends cdktf.ComplexObject {
 }
 export interface CsiDriverV1Spec {
   /**
-  * Indicates if the CSI volume driver requires an attach operation
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#attach_required CsiDriverV1#attach_required}
-  */
+   * Indicates if the CSI volume driver requires an attach operation
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#attach_required CsiDriverV1#attach_required}
+   */
   readonly attachRequired: boolean | cdktf.IResolvable;
   /**
-  * Indicates that the CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#pod_info_on_mount CsiDriverV1#pod_info_on_mount}
-  */
+   * Indicates that the CSI volume driver requires additional pod information (like podName, podUID, etc.) during mount operations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#pod_info_on_mount CsiDriverV1#pod_info_on_mount}
+   */
   readonly podInfoOnMount?: boolean | cdktf.IResolvable;
   /**
-  * Defines what kind of volumes this CSI volume driver supports
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#volume_lifecycle_modes CsiDriverV1#volume_lifecycle_modes}
-  */
+   * Defines what kind of volumes this CSI volume driver supports
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1#volume_lifecycle_modes CsiDriverV1#volume_lifecycle_modes}
+   */
   readonly volumeLifecycleModes?: string[];
 }
 
-export function csiDriverV1SpecToTerraform(struct?: CsiDriverV1SpecOutputReference | CsiDriverV1Spec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function csiDriverV1SpecToTerraform(
+  struct?: CsiDriverV1SpecOutputReference | CsiDriverV1Spec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     attach_required: cdktf.booleanToTerraform(struct!.attachRequired),
     pod_info_on_mount: cdktf.booleanToTerraform(struct!.podInfoOnMount),
-    volume_lifecycle_modes: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.volumeLifecycleModes),
-  }
+    volume_lifecycle_modes: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.volumeLifecycleModes),
+  };
 }
 
 export class CsiDriverV1SpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -264,8 +283,7 @@ export class CsiDriverV1SpecOutputReference extends cdktf.ComplexObject {
       this._attachRequired = undefined;
       this._podInfoOnMount = undefined;
       this._volumeLifecycleModes = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attachRequired = value.attachRequired;
       this._podInfoOnMount = value.podInfoOnMount;
@@ -274,7 +292,7 @@ export class CsiDriverV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // attach_required - computed: false, optional: false, required: true
-  private _attachRequired?: boolean | cdktf.IResolvable; 
+  private _attachRequired?: boolean | cdktf.IResolvable;
   public get attachRequired() {
     return this.getBooleanAttribute('attach_required');
   }
@@ -287,7 +305,7 @@ export class CsiDriverV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // pod_info_on_mount - computed: false, optional: true, required: false
-  private _podInfoOnMount?: boolean | cdktf.IResolvable; 
+  private _podInfoOnMount?: boolean | cdktf.IResolvable;
   public get podInfoOnMount() {
     return this.getBooleanAttribute('pod_info_on_mount');
   }
@@ -303,7 +321,7 @@ export class CsiDriverV1SpecOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_lifecycle_modes - computed: false, optional: true, required: false
-  private _volumeLifecycleModes?: string[]; 
+  private _volumeLifecycleModes?: string[];
   public get volumeLifecycleModes() {
     return this.getListAttribute('volume_lifecycle_modes');
   }
@@ -320,33 +338,32 @@ export class CsiDriverV1SpecOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1 kubernetes_csi_driver_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1 kubernetes_csi_driver_v1}
+ */
 export class CsiDriverV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_csi_driver_v1";
+  public static readonly tfResourceType = 'kubernetes_csi_driver_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1 kubernetes_csi_driver_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CsiDriverV1Config
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/csi_driver_v1 kubernetes_csi_driver_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CsiDriverV1Config
+   */
   public constructor(scope: Construct, id: string, config: CsiDriverV1Config) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_csi_driver_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -354,7 +371,7 @@ export class CsiDriverV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._metadata.internalValue = config.metadata;
@@ -366,7 +383,7 @@ export class CsiDriverV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -382,7 +399,7 @@ export class CsiDriverV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new CsiDriverV1MetadataOutputReference(this, "metadata");
+  private _metadata = new CsiDriverV1MetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -395,7 +412,7 @@ export class CsiDriverV1 extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: true, required: false
-  private _spec = new CsiDriverV1SpecOutputReference(this, "spec");
+  private _spec = new CsiDriverV1SpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }

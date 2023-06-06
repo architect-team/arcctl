@@ -1,59 +1,67 @@
 // https://www.terraform.io/docs/providers/aws/r/inspector2_enabler
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface Inspector2EnablerConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#account_ids Inspector2Enabler#account_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#account_ids Inspector2Enabler#account_ids}
+   */
   readonly accountIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#id Inspector2Enabler#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#id Inspector2Enabler#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#resource_types Inspector2Enabler#resource_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#resource_types Inspector2Enabler#resource_types}
+   */
   readonly resourceTypes: string[];
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#timeouts Inspector2Enabler#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#timeouts Inspector2Enabler#timeouts}
+   */
   readonly timeouts?: Inspector2EnablerTimeouts;
 }
 export interface Inspector2EnablerTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#create Inspector2Enabler#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#create Inspector2Enabler#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#delete Inspector2Enabler#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#delete Inspector2Enabler#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#update Inspector2Enabler#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler#update Inspector2Enabler#update}
+   */
   readonly update?: string;
 }
 
-export function inspector2EnablerTimeoutsToTerraform(struct?: Inspector2EnablerTimeoutsOutputReference | Inspector2EnablerTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function inspector2EnablerTimeoutsToTerraform(
+  struct?:
+    | Inspector2EnablerTimeoutsOutputReference
+    | Inspector2EnablerTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -61,14 +69,20 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Inspector2EnablerTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Inspector2EnablerTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -89,19 +103,19 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Inspector2EnablerTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Inspector2EnablerTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -111,7 +125,7 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -127,7 +141,7 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -143,7 +157,7 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -160,33 +174,36 @@ export class Inspector2EnablerTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler aws_inspector2_enabler}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler aws_inspector2_enabler}
+ */
 export class Inspector2Enabler extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_inspector2_enabler";
+  public static readonly tfResourceType = 'aws_inspector2_enabler';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler aws_inspector2_enabler} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Inspector2EnablerConfig
-  */
-  public constructor(scope: Construct, id: string, config: Inspector2EnablerConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/inspector2_enabler aws_inspector2_enabler} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Inspector2EnablerConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Inspector2EnablerConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_inspector2_enabler',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -194,7 +211,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accountIds = config.accountIds;
     this._id = config.id;
@@ -207,7 +224,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   // ==========
 
   // account_ids - computed: false, optional: false, required: true
-  private _accountIds?: string[]; 
+  private _accountIds?: string[];
   public get accountIds() {
     return cdktf.Fn.tolist(this.getListAttribute('account_ids'));
   }
@@ -220,7 +237,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -236,7 +253,7 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   }
 
   // resource_types - computed: false, optional: false, required: true
-  private _resourceTypes?: string[]; 
+  private _resourceTypes?: string[];
   public get resourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_types'));
   }
@@ -249,7 +266,10 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Inspector2EnablerTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new Inspector2EnablerTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -270,10 +290,18 @@ export class Inspector2Enabler extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      account_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._accountIds),
+      account_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._accountIds),
       id: cdktf.stringToTerraform(this._id),
-      resource_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resourceTypes),
-      timeouts: inspector2EnablerTimeoutsToTerraform(this._timeouts.internalValue),
+      resource_types: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._resourceTypes),
+      timeouts: inspector2EnablerTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

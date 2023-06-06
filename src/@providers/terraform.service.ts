@@ -1,13 +1,10 @@
-import { ResourceInputs, ResourceType } from '../@resources/index.js';
-import { ProviderCredentials } from './credentials.js';
-import { ResourceModule } from './module.js';
-import { BaseService } from './service.js';
+import { ResourceInputs, ResourceType } from '../@resources/index.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ResourceModule } from './module.ts';
+import { BaseService } from './service.ts';
 import { Construct } from 'constructs';
 
-export type ModuleConstructor<
-  T extends ResourceType,
-  C extends ProviderCredentials,
-> = new (
+export type ModuleConstructor<T extends ResourceType, C extends ProviderCredentials> = new (
   scope: Construct,
   name: string,
   inputs: ResourceInputs[T],

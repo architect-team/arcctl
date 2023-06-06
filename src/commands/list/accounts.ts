@@ -1,22 +1,24 @@
-import { BaseCommand } from '../../base-command.js';
-import { getProviders } from '../../utils/providers.js';
-import { createTable } from '../../utils/table.js';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
-export default class ListAccountsCommand extends BaseCommand {
-  static description = 'List the accounts registered with the CLI';
+import { createTable } from '../../utils/table.ts';
 
-  static aliases: string[] = ['list:account'];
+const ListAccountCommand = BaseCommand()
+  .description('List the accounts registered with the CLI')
+  .action(list_account_action);
 
-  async run(): Promise<void> {
-    const providers = await getProviders(this.config.configDir);
-    const table = createTable({
-      head: ['Name', 'Type'],
-    });
+function list_account_action(options: GlobalOptions) {
+  const command_helper = new CommandHelper(options);
 
-    for (const p of providers) {
-      table.push([p.name, p.type]);
-    }
+  const providers = command_helper.providerStore.getProviders();
+  const table = createTable({
+    head: ['Name', 'Type'],
+  });
 
-    this.log(table.toString());
+  for (const p of providers) {
+    table.push([p.name, p.type]);
   }
+
+  console.log(table.toString());
 }
+
+export default ListAccountCommand;

@@ -1,72 +1,80 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsEc2LocalGatewayRouteTableConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsEc2LocalGatewayRouteTableConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#id DataAwsEc2LocalGatewayRouteTable#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#id DataAwsEc2LocalGatewayRouteTable#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#local_gateway_id DataAwsEc2LocalGatewayRouteTable#local_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#local_gateway_id DataAwsEc2LocalGatewayRouteTable#local_gateway_id}
+   */
   readonly localGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#local_gateway_route_table_id DataAwsEc2LocalGatewayRouteTable#local_gateway_route_table_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#local_gateway_route_table_id DataAwsEc2LocalGatewayRouteTable#local_gateway_route_table_id}
+   */
   readonly localGatewayRouteTableId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#outpost_arn DataAwsEc2LocalGatewayRouteTable#outpost_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#outpost_arn DataAwsEc2LocalGatewayRouteTable#outpost_arn}
+   */
   readonly outpostArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#state DataAwsEc2LocalGatewayRouteTable#state}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#state DataAwsEc2LocalGatewayRouteTable#state}
+   */
   readonly state?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#tags DataAwsEc2LocalGatewayRouteTable#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#tags DataAwsEc2LocalGatewayRouteTable#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * filter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#filter DataAwsEc2LocalGatewayRouteTable#filter}
-  */
-  readonly filter?: DataAwsEc2LocalGatewayRouteTableFilter[] | cdktf.IResolvable;
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#filter DataAwsEc2LocalGatewayRouteTable#filter}
+   */
+  readonly filter?:
+    | DataAwsEc2LocalGatewayRouteTableFilter[]
+    | cdktf.IResolvable;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#timeouts DataAwsEc2LocalGatewayRouteTable#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#timeouts DataAwsEc2LocalGatewayRouteTable#timeouts}
+   */
   readonly timeouts?: DataAwsEc2LocalGatewayRouteTableTimeouts;
 }
 export interface DataAwsEc2LocalGatewayRouteTableFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#name DataAwsEc2LocalGatewayRouteTable#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#name DataAwsEc2LocalGatewayRouteTable#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#values DataAwsEc2LocalGatewayRouteTable#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#values DataAwsEc2LocalGatewayRouteTable#values}
+   */
   readonly values: string[];
 }
 
-export function dataAwsEc2LocalGatewayRouteTableFilterToTerraform(struct?: DataAwsEc2LocalGatewayRouteTableFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsEc2LocalGatewayRouteTableFilterToTerraform(
+  struct?: DataAwsEc2LocalGatewayRouteTableFilter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsEc2LocalGatewayRouteTableFilterOutputReference extends cdktf.ComplexObject {
@@ -74,16 +82,29 @@ export class DataAwsEc2LocalGatewayRouteTableFilterOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsEc2LocalGatewayRouteTableFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsEc2LocalGatewayRouteTableFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -100,18 +121,21 @@ export class DataAwsEc2LocalGatewayRouteTableFilterOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsEc2LocalGatewayRouteTableFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsEc2LocalGatewayRouteTableFilter
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -120,7 +144,7 @@ export class DataAwsEc2LocalGatewayRouteTableFilterOutputReference extends cdktf
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -133,7 +157,7 @@ export class DataAwsEc2LocalGatewayRouteTableFilterOutputReference extends cdktf
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -147,39 +171,61 @@ export class DataAwsEc2LocalGatewayRouteTableFilterOutputReference extends cdktf
 }
 
 export class DataAwsEc2LocalGatewayRouteTableFilterList extends cdktf.ComplexList {
-  public internalValue? : DataAwsEc2LocalGatewayRouteTableFilter[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsEc2LocalGatewayRouteTableFilter[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsEc2LocalGatewayRouteTableFilterOutputReference {
-    return new DataAwsEc2LocalGatewayRouteTableFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsEc2LocalGatewayRouteTableFilterOutputReference {
+    return new DataAwsEc2LocalGatewayRouteTableFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsEc2LocalGatewayRouteTableTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#read DataAwsEc2LocalGatewayRouteTable#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table#read DataAwsEc2LocalGatewayRouteTable#read}
+   */
   readonly read?: string;
 }
 
-export function dataAwsEc2LocalGatewayRouteTableTimeoutsToTerraform(struct?: DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference | DataAwsEc2LocalGatewayRouteTableTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsEc2LocalGatewayRouteTableTimeoutsToTerraform(
+  struct?:
+    | DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference
+    | DataAwsEc2LocalGatewayRouteTableTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -187,14 +233,20 @@ export class DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsEc2LocalGatewayRouteTableTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsEc2LocalGatewayRouteTableTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -207,17 +259,20 @@ export class DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsEc2LocalGatewayRouteTableTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsEc2LocalGatewayRouteTableTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -225,7 +280,7 @@ export class DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference extends cdk
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -242,33 +297,36 @@ export class DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference extends cdk
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table aws_ec2_local_gateway_route_table}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table aws_ec2_local_gateway_route_table}
+ */
 export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_local_gateway_route_table";
+  public static readonly tfResourceType = 'aws_ec2_local_gateway_route_table';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table aws_ec2_local_gateway_route_table} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsEc2LocalGatewayRouteTableConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsEc2LocalGatewayRouteTableConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_local_gateway_route_table aws_ec2_local_gateway_route_table} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsEc2LocalGatewayRouteTableConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsEc2LocalGatewayRouteTableConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_local_gateway_route_table',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -276,7 +334,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._localGatewayId = config.localGatewayId;
@@ -293,7 +351,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -309,7 +367,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // local_gateway_id - computed: true, optional: true, required: false
-  private _localGatewayId?: string; 
+  private _localGatewayId?: string;
   public get localGatewayId() {
     return this.getStringAttribute('local_gateway_id');
   }
@@ -325,7 +383,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // local_gateway_route_table_id - computed: true, optional: true, required: false
-  private _localGatewayRouteTableId?: string; 
+  private _localGatewayRouteTableId?: string;
   public get localGatewayRouteTableId() {
     return this.getStringAttribute('local_gateway_route_table_id');
   }
@@ -341,7 +399,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // outpost_arn - computed: true, optional: true, required: false
-  private _outpostArn?: string; 
+  private _outpostArn?: string;
   public get outpostArn() {
     return this.getStringAttribute('outpost_arn');
   }
@@ -357,7 +415,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // state - computed: true, optional: true, required: false
-  private _state?: string; 
+  private _state?: string;
   public get state() {
     return this.getStringAttribute('state');
   }
@@ -373,7 +431,7 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -389,11 +447,17 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsEc2LocalGatewayRouteTableFilterList(this, "filter", true);
+  private _filter = new DataAwsEc2LocalGatewayRouteTableFilterList(
+    this,
+    'filter',
+    true,
+  );
   public get filter() {
     return this._filter;
   }
-  public putFilter(value: DataAwsEc2LocalGatewayRouteTableFilter[] | cdktf.IResolvable) {
+  public putFilter(
+    value: DataAwsEc2LocalGatewayRouteTableFilter[] | cdktf.IResolvable,
+  ) {
     this._filter.internalValue = value;
   }
   public resetFilter() {
@@ -405,7 +469,11 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new DataAwsEc2LocalGatewayRouteTableTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -428,12 +496,19 @@ export class DataAwsEc2LocalGatewayRouteTable extends cdktf.TerraformDataSource 
     return {
       id: cdktf.stringToTerraform(this._id),
       local_gateway_id: cdktf.stringToTerraform(this._localGatewayId),
-      local_gateway_route_table_id: cdktf.stringToTerraform(this._localGatewayRouteTableId),
+      local_gateway_route_table_id: cdktf.stringToTerraform(
+        this._localGatewayRouteTableId,
+      ),
       outpost_arn: cdktf.stringToTerraform(this._outpostArn),
       state: cdktf.stringToTerraform(this._state),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
-      filter: cdktf.listMapper(dataAwsEc2LocalGatewayRouteTableFilterToTerraform, true)(this._filter.internalValue),
-      timeouts: dataAwsEc2LocalGatewayRouteTableTimeoutsToTerraform(this._timeouts.internalValue),
+      filter: cdktf.listMapper(
+        dataAwsEc2LocalGatewayRouteTableFilterToTerraform,
+        true,
+      )(this._filter.internalValue),
+      timeouts: dataAwsEc2LocalGatewayRouteTableTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

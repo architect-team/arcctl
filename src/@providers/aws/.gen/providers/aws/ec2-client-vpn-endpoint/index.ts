@@ -1,131 +1,143 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Ec2ClientVpnEndpointConfig extends cdktf.TerraformMetaArguments {
+export interface Ec2ClientVpnEndpointConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#client_cidr_block Ec2ClientVpnEndpoint#client_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#client_cidr_block Ec2ClientVpnEndpoint#client_cidr_block}
+   */
   readonly clientCidrBlock: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#description Ec2ClientVpnEndpoint#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#description Ec2ClientVpnEndpoint#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#dns_servers Ec2ClientVpnEndpoint#dns_servers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#dns_servers Ec2ClientVpnEndpoint#dns_servers}
+   */
   readonly dnsServers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#id Ec2ClientVpnEndpoint#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#id Ec2ClientVpnEndpoint#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#security_group_ids Ec2ClientVpnEndpoint#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#security_group_ids Ec2ClientVpnEndpoint#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#self_service_portal Ec2ClientVpnEndpoint#self_service_portal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#self_service_portal Ec2ClientVpnEndpoint#self_service_portal}
+   */
   readonly selfServicePortal?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#server_certificate_arn Ec2ClientVpnEndpoint#server_certificate_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#server_certificate_arn Ec2ClientVpnEndpoint#server_certificate_arn}
+   */
   readonly serverCertificateArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#session_timeout_hours Ec2ClientVpnEndpoint#session_timeout_hours}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#session_timeout_hours Ec2ClientVpnEndpoint#session_timeout_hours}
+   */
   readonly sessionTimeoutHours?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#split_tunnel Ec2ClientVpnEndpoint#split_tunnel}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#split_tunnel Ec2ClientVpnEndpoint#split_tunnel}
+   */
   readonly splitTunnel?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#tags Ec2ClientVpnEndpoint#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#tags Ec2ClientVpnEndpoint#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#tags_all Ec2ClientVpnEndpoint#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#tags_all Ec2ClientVpnEndpoint#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#transport_protocol Ec2ClientVpnEndpoint#transport_protocol}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#transport_protocol Ec2ClientVpnEndpoint#transport_protocol}
+   */
   readonly transportProtocol?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#vpc_id Ec2ClientVpnEndpoint#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#vpc_id Ec2ClientVpnEndpoint#vpc_id}
+   */
   readonly vpcId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#vpn_port Ec2ClientVpnEndpoint#vpn_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#vpn_port Ec2ClientVpnEndpoint#vpn_port}
+   */
   readonly vpnPort?: number;
   /**
-  * authentication_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#authentication_options Ec2ClientVpnEndpoint#authentication_options}
-  */
-  readonly authenticationOptions: Ec2ClientVpnEndpointAuthenticationOptions[] | cdktf.IResolvable;
+   * authentication_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#authentication_options Ec2ClientVpnEndpoint#authentication_options}
+   */
+  readonly authenticationOptions:
+    | Ec2ClientVpnEndpointAuthenticationOptions[]
+    | cdktf.IResolvable;
   /**
-  * client_connect_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#client_connect_options Ec2ClientVpnEndpoint#client_connect_options}
-  */
+   * client_connect_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#client_connect_options Ec2ClientVpnEndpoint#client_connect_options}
+   */
   readonly clientConnectOptions?: Ec2ClientVpnEndpointClientConnectOptions;
   /**
-  * client_login_banner_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#client_login_banner_options Ec2ClientVpnEndpoint#client_login_banner_options}
-  */
+   * client_login_banner_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#client_login_banner_options Ec2ClientVpnEndpoint#client_login_banner_options}
+   */
   readonly clientLoginBannerOptions?: Ec2ClientVpnEndpointClientLoginBannerOptions;
   /**
-  * connection_log_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#connection_log_options Ec2ClientVpnEndpoint#connection_log_options}
-  */
+   * connection_log_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#connection_log_options Ec2ClientVpnEndpoint#connection_log_options}
+   */
   readonly connectionLogOptions: Ec2ClientVpnEndpointConnectionLogOptions;
 }
 export interface Ec2ClientVpnEndpointAuthenticationOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#active_directory_id Ec2ClientVpnEndpoint#active_directory_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#active_directory_id Ec2ClientVpnEndpoint#active_directory_id}
+   */
   readonly activeDirectoryId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#root_certificate_chain_arn Ec2ClientVpnEndpoint#root_certificate_chain_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#root_certificate_chain_arn Ec2ClientVpnEndpoint#root_certificate_chain_arn}
+   */
   readonly rootCertificateChainArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#saml_provider_arn Ec2ClientVpnEndpoint#saml_provider_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#saml_provider_arn Ec2ClientVpnEndpoint#saml_provider_arn}
+   */
   readonly samlProviderArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#self_service_saml_provider_arn Ec2ClientVpnEndpoint#self_service_saml_provider_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#self_service_saml_provider_arn Ec2ClientVpnEndpoint#self_service_saml_provider_arn}
+   */
   readonly selfServiceSamlProviderArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#type Ec2ClientVpnEndpoint#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#type Ec2ClientVpnEndpoint#type}
+   */
   readonly type: string;
 }
 
-export function ec2ClientVpnEndpointAuthenticationOptionsToTerraform(struct?: Ec2ClientVpnEndpointAuthenticationOptions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2ClientVpnEndpointAuthenticationOptionsToTerraform(
+  struct?: Ec2ClientVpnEndpointAuthenticationOptions | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     active_directory_id: cdktf.stringToTerraform(struct!.activeDirectoryId),
-    root_certificate_chain_arn: cdktf.stringToTerraform(struct!.rootCertificateChainArn),
+    root_certificate_chain_arn: cdktf.stringToTerraform(
+      struct!.rootCertificateChainArn,
+    ),
     saml_provider_arn: cdktf.stringToTerraform(struct!.samlProviderArn),
-    self_service_saml_provider_arn: cdktf.stringToTerraform(struct!.selfServiceSamlProviderArn),
+    self_service_saml_provider_arn: cdktf.stringToTerraform(
+      struct!.selfServiceSamlProviderArn,
+    ),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cdktf.ComplexObject {
@@ -133,16 +145,29 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): Ec2ClientVpnEndpointAuthenticationOptions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Ec2ClientVpnEndpointAuthenticationOptions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -154,7 +179,8 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
     }
     if (this._rootCertificateChainArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.rootCertificateChainArn = this._rootCertificateChainArn;
+      internalValueResult.rootCertificateChainArn =
+        this._rootCertificateChainArn;
     }
     if (this._samlProviderArn !== undefined) {
       hasAnyValues = true;
@@ -162,7 +188,8 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
     }
     if (this._selfServiceSamlProviderArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.selfServiceSamlProviderArn = this._selfServiceSamlProviderArn;
+      internalValueResult.selfServiceSamlProviderArn =
+        this._selfServiceSamlProviderArn;
     }
     if (this._type !== undefined) {
       hasAnyValues = true;
@@ -171,7 +198,12 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2ClientVpnEndpointAuthenticationOptions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | Ec2ClientVpnEndpointAuthenticationOptions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -180,12 +212,10 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
       this._samlProviderArn = undefined;
       this._selfServiceSamlProviderArn = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._activeDirectoryId = value.activeDirectoryId;
@@ -197,7 +227,7 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
   }
 
   // active_directory_id - computed: false, optional: true, required: false
-  private _activeDirectoryId?: string; 
+  private _activeDirectoryId?: string;
   public get activeDirectoryId() {
     return this.getStringAttribute('active_directory_id');
   }
@@ -213,7 +243,7 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
   }
 
   // root_certificate_chain_arn - computed: false, optional: true, required: false
-  private _rootCertificateChainArn?: string; 
+  private _rootCertificateChainArn?: string;
   public get rootCertificateChainArn() {
     return this.getStringAttribute('root_certificate_chain_arn');
   }
@@ -229,7 +259,7 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
   }
 
   // saml_provider_arn - computed: false, optional: true, required: false
-  private _samlProviderArn?: string; 
+  private _samlProviderArn?: string;
   public get samlProviderArn() {
     return this.getStringAttribute('saml_provider_arn');
   }
@@ -245,7 +275,7 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
   }
 
   // self_service_saml_provider_arn - computed: false, optional: true, required: false
-  private _selfServiceSamlProviderArn?: string; 
+  private _selfServiceSamlProviderArn?: string;
   public get selfServiceSamlProviderArn() {
     return this.getStringAttribute('self_service_saml_provider_arn');
   }
@@ -261,7 +291,7 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -275,58 +305,84 @@ export class Ec2ClientVpnEndpointAuthenticationOptionsOutputReference extends cd
 }
 
 export class Ec2ClientVpnEndpointAuthenticationOptionsList extends cdktf.ComplexList {
-  public internalValue? : Ec2ClientVpnEndpointAuthenticationOptions[] | cdktf.IResolvable
+  public internalValue?:
+    | Ec2ClientVpnEndpointAuthenticationOptions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): Ec2ClientVpnEndpointAuthenticationOptionsOutputReference {
-    return new Ec2ClientVpnEndpointAuthenticationOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): Ec2ClientVpnEndpointAuthenticationOptionsOutputReference {
+    return new Ec2ClientVpnEndpointAuthenticationOptionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface Ec2ClientVpnEndpointClientConnectOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#enabled Ec2ClientVpnEndpoint#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#enabled Ec2ClientVpnEndpoint#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#lambda_function_arn Ec2ClientVpnEndpoint#lambda_function_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#lambda_function_arn Ec2ClientVpnEndpoint#lambda_function_arn}
+   */
   readonly lambdaFunctionArn?: string;
 }
 
-export function ec2ClientVpnEndpointClientConnectOptionsToTerraform(struct?: Ec2ClientVpnEndpointClientConnectOptionsOutputReference | Ec2ClientVpnEndpointClientConnectOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2ClientVpnEndpointClientConnectOptionsToTerraform(
+  struct?:
+    | Ec2ClientVpnEndpointClientConnectOptionsOutputReference
+    | Ec2ClientVpnEndpointClientConnectOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     lambda_function_arn: cdktf.stringToTerraform(struct!.lambdaFunctionArn),
-  }
+  };
 }
 
 export class Ec2ClientVpnEndpointClientConnectOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2ClientVpnEndpointClientConnectOptions | undefined {
+  public get internalValue():
+    | Ec2ClientVpnEndpointClientConnectOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -340,13 +396,14 @@ export class Ec2ClientVpnEndpointClientConnectOptionsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2ClientVpnEndpointClientConnectOptions | undefined) {
+  public set internalValue(
+    value: Ec2ClientVpnEndpointClientConnectOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._lambdaFunctionArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._lambdaFunctionArn = value.lambdaFunctionArn;
@@ -354,7 +411,7 @@ export class Ec2ClientVpnEndpointClientConnectOptionsOutputReference extends cdk
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -370,7 +427,7 @@ export class Ec2ClientVpnEndpointClientConnectOptionsOutputReference extends cdk
   }
 
   // lambda_function_arn - computed: true, optional: true, required: false
-  private _lambdaFunctionArn?: string; 
+  private _lambdaFunctionArn?: string;
   public get lambdaFunctionArn() {
     return this.getStringAttribute('lambda_function_arn');
   }
@@ -387,38 +444,51 @@ export class Ec2ClientVpnEndpointClientConnectOptionsOutputReference extends cdk
 }
 export interface Ec2ClientVpnEndpointClientLoginBannerOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#banner_text Ec2ClientVpnEndpoint#banner_text}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#banner_text Ec2ClientVpnEndpoint#banner_text}
+   */
   readonly bannerText?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#enabled Ec2ClientVpnEndpoint#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#enabled Ec2ClientVpnEndpoint#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function ec2ClientVpnEndpointClientLoginBannerOptionsToTerraform(struct?: Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference | Ec2ClientVpnEndpointClientLoginBannerOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2ClientVpnEndpointClientLoginBannerOptionsToTerraform(
+  struct?:
+    | Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference
+    | Ec2ClientVpnEndpointClientLoginBannerOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     banner_text: cdktf.stringToTerraform(struct!.bannerText),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2ClientVpnEndpointClientLoginBannerOptions | undefined {
+  public get internalValue():
+    | Ec2ClientVpnEndpointClientLoginBannerOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bannerText !== undefined) {
@@ -432,13 +502,14 @@ export class Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2ClientVpnEndpointClientLoginBannerOptions | undefined) {
+  public set internalValue(
+    value: Ec2ClientVpnEndpointClientLoginBannerOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bannerText = undefined;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bannerText = value.bannerText;
       this._enabled = value.enabled;
@@ -446,7 +517,7 @@ export class Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference extends
   }
 
   // banner_text - computed: true, optional: true, required: false
-  private _bannerText?: string; 
+  private _bannerText?: string;
   public get bannerText() {
     return this.getStringAttribute('banner_text');
   }
@@ -462,7 +533,7 @@ export class Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference extends
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -479,43 +550,56 @@ export class Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference extends
 }
 export interface Ec2ClientVpnEndpointConnectionLogOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#cloudwatch_log_group Ec2ClientVpnEndpoint#cloudwatch_log_group}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#cloudwatch_log_group Ec2ClientVpnEndpoint#cloudwatch_log_group}
+   */
   readonly cloudwatchLogGroup?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#cloudwatch_log_stream Ec2ClientVpnEndpoint#cloudwatch_log_stream}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#cloudwatch_log_stream Ec2ClientVpnEndpoint#cloudwatch_log_stream}
+   */
   readonly cloudwatchLogStream?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#enabled Ec2ClientVpnEndpoint#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint#enabled Ec2ClientVpnEndpoint#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
 }
 
-export function ec2ClientVpnEndpointConnectionLogOptionsToTerraform(struct?: Ec2ClientVpnEndpointConnectionLogOptionsOutputReference | Ec2ClientVpnEndpointConnectionLogOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2ClientVpnEndpointConnectionLogOptionsToTerraform(
+  struct?:
+    | Ec2ClientVpnEndpointConnectionLogOptionsOutputReference
+    | Ec2ClientVpnEndpointConnectionLogOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     cloudwatch_log_group: cdktf.stringToTerraform(struct!.cloudwatchLogGroup),
     cloudwatch_log_stream: cdktf.stringToTerraform(struct!.cloudwatchLogStream),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class Ec2ClientVpnEndpointConnectionLogOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2ClientVpnEndpointConnectionLogOptions | undefined {
+  public get internalValue():
+    | Ec2ClientVpnEndpointConnectionLogOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cloudwatchLogGroup !== undefined) {
@@ -533,14 +617,15 @@ export class Ec2ClientVpnEndpointConnectionLogOptionsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2ClientVpnEndpointConnectionLogOptions | undefined) {
+  public set internalValue(
+    value: Ec2ClientVpnEndpointConnectionLogOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cloudwatchLogGroup = undefined;
       this._cloudwatchLogStream = undefined;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchLogGroup = value.cloudwatchLogGroup;
       this._cloudwatchLogStream = value.cloudwatchLogStream;
@@ -549,7 +634,7 @@ export class Ec2ClientVpnEndpointConnectionLogOptionsOutputReference extends cdk
   }
 
   // cloudwatch_log_group - computed: false, optional: true, required: false
-  private _cloudwatchLogGroup?: string; 
+  private _cloudwatchLogGroup?: string;
   public get cloudwatchLogGroup() {
     return this.getStringAttribute('cloudwatch_log_group');
   }
@@ -565,7 +650,7 @@ export class Ec2ClientVpnEndpointConnectionLogOptionsOutputReference extends cdk
   }
 
   // cloudwatch_log_stream - computed: true, optional: true, required: false
-  private _cloudwatchLogStream?: string; 
+  private _cloudwatchLogStream?: string;
   public get cloudwatchLogStream() {
     return this.getStringAttribute('cloudwatch_log_stream');
   }
@@ -581,7 +666,7 @@ export class Ec2ClientVpnEndpointConnectionLogOptionsOutputReference extends cdk
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -595,33 +680,36 @@ export class Ec2ClientVpnEndpointConnectionLogOptionsOutputReference extends cdk
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint}
+ */
 export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_client_vpn_endpoint";
+  public static readonly tfResourceType = 'aws_ec2_client_vpn_endpoint';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2ClientVpnEndpointConfig
-  */
-  public constructor(scope: Construct, id: string, config: Ec2ClientVpnEndpointConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_endpoint aws_ec2_client_vpn_endpoint} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2ClientVpnEndpointConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Ec2ClientVpnEndpointConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_client_vpn_endpoint',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -629,7 +717,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clientCidrBlock = config.clientCidrBlock;
     this._description = config.description;
@@ -647,7 +735,8 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
     this._vpnPort = config.vpnPort;
     this._authenticationOptions.internalValue = config.authenticationOptions;
     this._clientConnectOptions.internalValue = config.clientConnectOptions;
-    this._clientLoginBannerOptions.internalValue = config.clientLoginBannerOptions;
+    this._clientLoginBannerOptions.internalValue =
+      config.clientLoginBannerOptions;
     this._connectionLogOptions.internalValue = config.connectionLogOptions;
   }
 
@@ -661,7 +750,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // client_cidr_block - computed: false, optional: false, required: true
-  private _clientCidrBlock?: string; 
+  private _clientCidrBlock?: string;
   public get clientCidrBlock() {
     return this.getStringAttribute('client_cidr_block');
   }
@@ -674,7 +763,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -695,7 +784,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // dns_servers - computed: false, optional: true, required: false
-  private _dnsServers?: string[]; 
+  private _dnsServers?: string[];
   public get dnsServers() {
     return this.getListAttribute('dns_servers');
   }
@@ -711,7 +800,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -727,7 +816,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -743,7 +832,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // self_service_portal - computed: false, optional: true, required: false
-  private _selfServicePortal?: string; 
+  private _selfServicePortal?: string;
   public get selfServicePortal() {
     return this.getStringAttribute('self_service_portal');
   }
@@ -759,7 +848,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // server_certificate_arn - computed: false, optional: false, required: true
-  private _serverCertificateArn?: string; 
+  private _serverCertificateArn?: string;
   public get serverCertificateArn() {
     return this.getStringAttribute('server_certificate_arn');
   }
@@ -772,7 +861,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // session_timeout_hours - computed: false, optional: true, required: false
-  private _sessionTimeoutHours?: number; 
+  private _sessionTimeoutHours?: number;
   public get sessionTimeoutHours() {
     return this.getNumberAttribute('session_timeout_hours');
   }
@@ -788,7 +877,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // split_tunnel - computed: false, optional: true, required: false
-  private _splitTunnel?: boolean | cdktf.IResolvable; 
+  private _splitTunnel?: boolean | cdktf.IResolvable;
   public get splitTunnel() {
     return this.getBooleanAttribute('split_tunnel');
   }
@@ -809,7 +898,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -825,7 +914,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -841,7 +930,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // transport_protocol - computed: false, optional: true, required: false
-  private _transportProtocol?: string; 
+  private _transportProtocol?: string;
   public get transportProtocol() {
     return this.getStringAttribute('transport_protocol');
   }
@@ -857,7 +946,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: true, optional: true, required: false
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -873,7 +962,7 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // vpn_port - computed: false, optional: true, required: false
-  private _vpnPort?: number; 
+  private _vpnPort?: number;
   public get vpnPort() {
     return this.getNumberAttribute('vpn_port');
   }
@@ -889,11 +978,18 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // authentication_options - computed: false, optional: false, required: true
-  private _authenticationOptions = new Ec2ClientVpnEndpointAuthenticationOptionsList(this, "authentication_options", true);
+  private _authenticationOptions =
+    new Ec2ClientVpnEndpointAuthenticationOptionsList(
+      this,
+      'authentication_options',
+      true,
+    );
   public get authenticationOptions() {
     return this._authenticationOptions;
   }
-  public putAuthenticationOptions(value: Ec2ClientVpnEndpointAuthenticationOptions[] | cdktf.IResolvable) {
+  public putAuthenticationOptions(
+    value: Ec2ClientVpnEndpointAuthenticationOptions[] | cdktf.IResolvable,
+  ) {
     this._authenticationOptions.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -902,11 +998,17 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // client_connect_options - computed: false, optional: true, required: false
-  private _clientConnectOptions = new Ec2ClientVpnEndpointClientConnectOptionsOutputReference(this, "client_connect_options");
+  private _clientConnectOptions =
+    new Ec2ClientVpnEndpointClientConnectOptionsOutputReference(
+      this,
+      'client_connect_options',
+    );
   public get clientConnectOptions() {
     return this._clientConnectOptions;
   }
-  public putClientConnectOptions(value: Ec2ClientVpnEndpointClientConnectOptions) {
+  public putClientConnectOptions(
+    value: Ec2ClientVpnEndpointClientConnectOptions,
+  ) {
     this._clientConnectOptions.internalValue = value;
   }
   public resetClientConnectOptions() {
@@ -918,11 +1020,17 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // client_login_banner_options - computed: false, optional: true, required: false
-  private _clientLoginBannerOptions = new Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference(this, "client_login_banner_options");
+  private _clientLoginBannerOptions =
+    new Ec2ClientVpnEndpointClientLoginBannerOptionsOutputReference(
+      this,
+      'client_login_banner_options',
+    );
   public get clientLoginBannerOptions() {
     return this._clientLoginBannerOptions;
   }
-  public putClientLoginBannerOptions(value: Ec2ClientVpnEndpointClientLoginBannerOptions) {
+  public putClientLoginBannerOptions(
+    value: Ec2ClientVpnEndpointClientLoginBannerOptions,
+  ) {
     this._clientLoginBannerOptions.internalValue = value;
   }
   public resetClientLoginBannerOptions() {
@@ -934,11 +1042,17 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
   }
 
   // connection_log_options - computed: false, optional: false, required: true
-  private _connectionLogOptions = new Ec2ClientVpnEndpointConnectionLogOptionsOutputReference(this, "connection_log_options");
+  private _connectionLogOptions =
+    new Ec2ClientVpnEndpointConnectionLogOptionsOutputReference(
+      this,
+      'connection_log_options',
+    );
   public get connectionLogOptions() {
     return this._connectionLogOptions;
   }
-  public putConnectionLogOptions(value: Ec2ClientVpnEndpointConnectionLogOptions) {
+  public putConnectionLogOptions(
+    value: Ec2ClientVpnEndpointConnectionLogOptions,
+  ) {
     this._connectionLogOptions.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -954,11 +1068,19 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
     return {
       client_cidr_block: cdktf.stringToTerraform(this._clientCidrBlock),
       description: cdktf.stringToTerraform(this._description),
-      dns_servers: cdktf.listMapper(cdktf.stringToTerraform, false)(this._dnsServers),
+      dns_servers: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._dnsServers),
       id: cdktf.stringToTerraform(this._id),
-      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
+      security_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupIds),
       self_service_portal: cdktf.stringToTerraform(this._selfServicePortal),
-      server_certificate_arn: cdktf.stringToTerraform(this._serverCertificateArn),
+      server_certificate_arn: cdktf.stringToTerraform(
+        this._serverCertificateArn,
+      ),
       session_timeout_hours: cdktf.numberToTerraform(this._sessionTimeoutHours),
       split_tunnel: cdktf.booleanToTerraform(this._splitTunnel),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
@@ -966,10 +1088,22 @@ export class Ec2ClientVpnEndpoint extends cdktf.TerraformResource {
       transport_protocol: cdktf.stringToTerraform(this._transportProtocol),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
       vpn_port: cdktf.numberToTerraform(this._vpnPort),
-      authentication_options: cdktf.listMapper(ec2ClientVpnEndpointAuthenticationOptionsToTerraform, true)(this._authenticationOptions.internalValue),
-      client_connect_options: ec2ClientVpnEndpointClientConnectOptionsToTerraform(this._clientConnectOptions.internalValue),
-      client_login_banner_options: ec2ClientVpnEndpointClientLoginBannerOptionsToTerraform(this._clientLoginBannerOptions.internalValue),
-      connection_log_options: ec2ClientVpnEndpointConnectionLogOptionsToTerraform(this._connectionLogOptions.internalValue),
+      authentication_options: cdktf.listMapper(
+        ec2ClientVpnEndpointAuthenticationOptionsToTerraform,
+        true,
+      )(this._authenticationOptions.internalValue),
+      client_connect_options:
+        ec2ClientVpnEndpointClientConnectOptionsToTerraform(
+          this._clientConnectOptions.internalValue,
+        ),
+      client_login_banner_options:
+        ec2ClientVpnEndpointClientLoginBannerOptionsToTerraform(
+          this._clientLoginBannerOptions.internalValue,
+        ),
+      connection_log_options:
+        ec2ClientVpnEndpointConnectionLogOptionsToTerraform(
+          this._connectionLogOptions.internalValue,
+        ),
     };
   }
 }

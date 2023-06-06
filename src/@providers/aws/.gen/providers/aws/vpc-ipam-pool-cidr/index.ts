@@ -1,78 +1,90 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface VpcIpamPoolCidrConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#cidr VpcIpamPoolCidr#cidr}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#cidr VpcIpamPoolCidr#cidr}
+   */
   readonly cidr?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#id VpcIpamPoolCidr#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#id VpcIpamPoolCidr#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#ipam_pool_id VpcIpamPoolCidr#ipam_pool_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#ipam_pool_id VpcIpamPoolCidr#ipam_pool_id}
+   */
   readonly ipamPoolId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#netmask_length VpcIpamPoolCidr#netmask_length}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#netmask_length VpcIpamPoolCidr#netmask_length}
+   */
   readonly netmaskLength?: number;
   /**
-  * cidr_authorization_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#cidr_authorization_context VpcIpamPoolCidr#cidr_authorization_context}
-  */
+   * cidr_authorization_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#cidr_authorization_context VpcIpamPoolCidr#cidr_authorization_context}
+   */
   readonly cidrAuthorizationContext?: VpcIpamPoolCidrCidrAuthorizationContext;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#timeouts VpcIpamPoolCidr#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#timeouts VpcIpamPoolCidr#timeouts}
+   */
   readonly timeouts?: VpcIpamPoolCidrTimeouts;
 }
 export interface VpcIpamPoolCidrCidrAuthorizationContext {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#message VpcIpamPoolCidr#message}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#message VpcIpamPoolCidr#message}
+   */
   readonly message?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#signature VpcIpamPoolCidr#signature}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#signature VpcIpamPoolCidr#signature}
+   */
   readonly signature?: string;
 }
 
-export function vpcIpamPoolCidrCidrAuthorizationContextToTerraform(struct?: VpcIpamPoolCidrCidrAuthorizationContextOutputReference | VpcIpamPoolCidrCidrAuthorizationContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function vpcIpamPoolCidrCidrAuthorizationContextToTerraform(
+  struct?:
+    | VpcIpamPoolCidrCidrAuthorizationContextOutputReference
+    | VpcIpamPoolCidrCidrAuthorizationContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     message: cdktf.stringToTerraform(struct!.message),
     signature: cdktf.stringToTerraform(struct!.signature),
-  }
+  };
 }
 
 export class VpcIpamPoolCidrCidrAuthorizationContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): VpcIpamPoolCidrCidrAuthorizationContext | undefined {
+  public get internalValue():
+    | VpcIpamPoolCidrCidrAuthorizationContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._message !== undefined) {
@@ -86,13 +98,14 @@ export class VpcIpamPoolCidrCidrAuthorizationContextOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: VpcIpamPoolCidrCidrAuthorizationContext | undefined) {
+  public set internalValue(
+    value: VpcIpamPoolCidrCidrAuthorizationContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._message = undefined;
       this._signature = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._message = value.message;
       this._signature = value.signature;
@@ -100,7 +113,7 @@ export class VpcIpamPoolCidrCidrAuthorizationContextOutputReference extends cdkt
   }
 
   // message - computed: false, optional: true, required: false
-  private _message?: string; 
+  private _message?: string;
   public get message() {
     return this.getStringAttribute('message');
   }
@@ -116,7 +129,7 @@ export class VpcIpamPoolCidrCidrAuthorizationContextOutputReference extends cdkt
   }
 
   // signature - computed: false, optional: true, required: false
-  private _signature?: string; 
+  private _signature?: string;
   public get signature() {
     return this.getStringAttribute('signature');
   }
@@ -133,24 +146,33 @@ export class VpcIpamPoolCidrCidrAuthorizationContextOutputReference extends cdkt
 }
 export interface VpcIpamPoolCidrTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#create VpcIpamPoolCidr#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#create VpcIpamPoolCidr#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#delete VpcIpamPoolCidr#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr#delete VpcIpamPoolCidr#delete}
+   */
   readonly delete?: string;
 }
 
-export function vpcIpamPoolCidrTimeoutsToTerraform(struct?: VpcIpamPoolCidrTimeoutsOutputReference | VpcIpamPoolCidrTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function vpcIpamPoolCidrTimeoutsToTerraform(
+  struct?:
+    | VpcIpamPoolCidrTimeoutsOutputReference
+    | VpcIpamPoolCidrTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class VpcIpamPoolCidrTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -158,14 +180,20 @@ export class VpcIpamPoolCidrTimeoutsOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): VpcIpamPoolCidrTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | VpcIpamPoolCidrTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -182,18 +210,18 @@ export class VpcIpamPoolCidrTimeoutsOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: VpcIpamPoolCidrTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: VpcIpamPoolCidrTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -202,7 +230,7 @@ export class VpcIpamPoolCidrTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -218,7 +246,7 @@ export class VpcIpamPoolCidrTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -235,33 +263,36 @@ export class VpcIpamPoolCidrTimeoutsOutputReference extends cdktf.ComplexObject 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr aws_vpc_ipam_pool_cidr}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr aws_vpc_ipam_pool_cidr}
+ */
 export class VpcIpamPoolCidr extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_vpc_ipam_pool_cidr";
+  public static readonly tfResourceType = 'aws_vpc_ipam_pool_cidr';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr aws_vpc_ipam_pool_cidr} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options VpcIpamPoolCidrConfig
-  */
-  public constructor(scope: Construct, id: string, config: VpcIpamPoolCidrConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr aws_vpc_ipam_pool_cidr} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options VpcIpamPoolCidrConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: VpcIpamPoolCidrConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_ipam_pool_cidr',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -269,13 +300,14 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cidr = config.cidr;
     this._id = config.id;
     this._ipamPoolId = config.ipamPoolId;
     this._netmaskLength = config.netmaskLength;
-    this._cidrAuthorizationContext.internalValue = config.cidrAuthorizationContext;
+    this._cidrAuthorizationContext.internalValue =
+      config.cidrAuthorizationContext;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -284,7 +316,7 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
   // ==========
 
   // cidr - computed: true, optional: true, required: false
-  private _cidr?: string; 
+  private _cidr?: string;
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -300,7 +332,7 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -321,7 +353,7 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
   }
 
   // ipam_pool_id - computed: false, optional: false, required: true
-  private _ipamPoolId?: string; 
+  private _ipamPoolId?: string;
   public get ipamPoolId() {
     return this.getStringAttribute('ipam_pool_id');
   }
@@ -334,7 +366,7 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
   }
 
   // netmask_length - computed: false, optional: true, required: false
-  private _netmaskLength?: number; 
+  private _netmaskLength?: number;
   public get netmaskLength() {
     return this.getNumberAttribute('netmask_length');
   }
@@ -350,11 +382,17 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
   }
 
   // cidr_authorization_context - computed: false, optional: true, required: false
-  private _cidrAuthorizationContext = new VpcIpamPoolCidrCidrAuthorizationContextOutputReference(this, "cidr_authorization_context");
+  private _cidrAuthorizationContext =
+    new VpcIpamPoolCidrCidrAuthorizationContextOutputReference(
+      this,
+      'cidr_authorization_context',
+    );
   public get cidrAuthorizationContext() {
     return this._cidrAuthorizationContext;
   }
-  public putCidrAuthorizationContext(value: VpcIpamPoolCidrCidrAuthorizationContext) {
+  public putCidrAuthorizationContext(
+    value: VpcIpamPoolCidrCidrAuthorizationContext,
+  ) {
     this._cidrAuthorizationContext.internalValue = value;
   }
   public resetCidrAuthorizationContext() {
@@ -366,7 +404,10 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new VpcIpamPoolCidrTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new VpcIpamPoolCidrTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -391,8 +432,13 @@ export class VpcIpamPoolCidr extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       ipam_pool_id: cdktf.stringToTerraform(this._ipamPoolId),
       netmask_length: cdktf.numberToTerraform(this._netmaskLength),
-      cidr_authorization_context: vpcIpamPoolCidrCidrAuthorizationContextToTerraform(this._cidrAuthorizationContext.internalValue),
-      timeouts: vpcIpamPoolCidrTimeoutsToTerraform(this._timeouts.internalValue),
+      cidr_authorization_context:
+        vpcIpamPoolCidrCidrAuthorizationContextToTerraform(
+          this._cidrAuthorizationContext.internalValue,
+        ),
+      timeouts: vpcIpamPoolCidrTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

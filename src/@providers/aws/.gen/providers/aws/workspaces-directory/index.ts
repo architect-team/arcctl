@@ -1,85 +1,93 @@
 // https://www.terraform.io/docs/providers/aws/r/workspaces_directory
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface WorkspacesDirectoryConfig extends cdktf.TerraformMetaArguments {
+export interface WorkspacesDirectoryConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#directory_id WorkspacesDirectory#directory_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#directory_id WorkspacesDirectory#directory_id}
+   */
   readonly directoryId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#id WorkspacesDirectory#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#id WorkspacesDirectory#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#ip_group_ids WorkspacesDirectory#ip_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#ip_group_ids WorkspacesDirectory#ip_group_ids}
+   */
   readonly ipGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#subnet_ids WorkspacesDirectory#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#subnet_ids WorkspacesDirectory#subnet_ids}
+   */
   readonly subnetIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#tags WorkspacesDirectory#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#tags WorkspacesDirectory#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#tags_all WorkspacesDirectory#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#tags_all WorkspacesDirectory#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * self_service_permissions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#self_service_permissions WorkspacesDirectory#self_service_permissions}
-  */
+   * self_service_permissions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#self_service_permissions WorkspacesDirectory#self_service_permissions}
+   */
   readonly selfServicePermissions?: WorkspacesDirectorySelfServicePermissions;
   /**
-  * workspace_access_properties block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#workspace_access_properties WorkspacesDirectory#workspace_access_properties}
-  */
+   * workspace_access_properties block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#workspace_access_properties WorkspacesDirectory#workspace_access_properties}
+   */
   readonly workspaceAccessProperties?: WorkspacesDirectoryWorkspaceAccessProperties;
   /**
-  * workspace_creation_properties block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#workspace_creation_properties WorkspacesDirectory#workspace_creation_properties}
-  */
+   * workspace_creation_properties block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#workspace_creation_properties WorkspacesDirectory#workspace_creation_properties}
+   */
   readonly workspaceCreationProperties?: WorkspacesDirectoryWorkspaceCreationProperties;
 }
 export interface WorkspacesDirectorySelfServicePermissions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#change_compute_type WorkspacesDirectory#change_compute_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#change_compute_type WorkspacesDirectory#change_compute_type}
+   */
   readonly changeComputeType?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#increase_volume_size WorkspacesDirectory#increase_volume_size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#increase_volume_size WorkspacesDirectory#increase_volume_size}
+   */
   readonly increaseVolumeSize?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#rebuild_workspace WorkspacesDirectory#rebuild_workspace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#rebuild_workspace WorkspacesDirectory#rebuild_workspace}
+   */
   readonly rebuildWorkspace?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#restart_workspace WorkspacesDirectory#restart_workspace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#restart_workspace WorkspacesDirectory#restart_workspace}
+   */
   readonly restartWorkspace?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#switch_running_mode WorkspacesDirectory#switch_running_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#switch_running_mode WorkspacesDirectory#switch_running_mode}
+   */
   readonly switchRunningMode?: boolean | cdktf.IResolvable;
 }
 
-export function workspacesDirectorySelfServicePermissionsToTerraform(struct?: WorkspacesDirectorySelfServicePermissionsOutputReference | WorkspacesDirectorySelfServicePermissions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function workspacesDirectorySelfServicePermissionsToTerraform(
+  struct?:
+    | WorkspacesDirectorySelfServicePermissionsOutputReference
+    | WorkspacesDirectorySelfServicePermissions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     change_compute_type: cdktf.booleanToTerraform(struct!.changeComputeType),
@@ -87,21 +95,26 @@ export function workspacesDirectorySelfServicePermissionsToTerraform(struct?: Wo
     rebuild_workspace: cdktf.booleanToTerraform(struct!.rebuildWorkspace),
     restart_workspace: cdktf.booleanToTerraform(struct!.restartWorkspace),
     switch_running_mode: cdktf.booleanToTerraform(struct!.switchRunningMode),
-  }
+  };
 }
 
 export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): WorkspacesDirectorySelfServicePermissions | undefined {
+  public get internalValue():
+    | WorkspacesDirectorySelfServicePermissions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._changeComputeType !== undefined) {
@@ -127,7 +140,9 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WorkspacesDirectorySelfServicePermissions | undefined) {
+  public set internalValue(
+    value: WorkspacesDirectorySelfServicePermissions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._changeComputeType = undefined;
@@ -135,8 +150,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
       this._rebuildWorkspace = undefined;
       this._restartWorkspace = undefined;
       this._switchRunningMode = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._changeComputeType = value.changeComputeType;
       this._increaseVolumeSize = value.increaseVolumeSize;
@@ -147,7 +161,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // change_compute_type - computed: false, optional: true, required: false
-  private _changeComputeType?: boolean | cdktf.IResolvable; 
+  private _changeComputeType?: boolean | cdktf.IResolvable;
   public get changeComputeType() {
     return this.getBooleanAttribute('change_compute_type');
   }
@@ -163,7 +177,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // increase_volume_size - computed: false, optional: true, required: false
-  private _increaseVolumeSize?: boolean | cdktf.IResolvable; 
+  private _increaseVolumeSize?: boolean | cdktf.IResolvable;
   public get increaseVolumeSize() {
     return this.getBooleanAttribute('increase_volume_size');
   }
@@ -179,7 +193,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // rebuild_workspace - computed: false, optional: true, required: false
-  private _rebuildWorkspace?: boolean | cdktf.IResolvable; 
+  private _rebuildWorkspace?: boolean | cdktf.IResolvable;
   public get rebuildWorkspace() {
     return this.getBooleanAttribute('rebuild_workspace');
   }
@@ -195,7 +209,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // restart_workspace - computed: false, optional: true, required: false
-  private _restartWorkspace?: boolean | cdktf.IResolvable; 
+  private _restartWorkspace?: boolean | cdktf.IResolvable;
   public get restartWorkspace() {
     return this.getBooleanAttribute('restart_workspace');
   }
@@ -211,7 +225,7 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
   }
 
   // switch_running_mode - computed: false, optional: true, required: false
-  private _switchRunningMode?: boolean | cdktf.IResolvable; 
+  private _switchRunningMode?: boolean | cdktf.IResolvable;
   public get switchRunningMode() {
     return this.getBooleanAttribute('switch_running_mode');
   }
@@ -228,43 +242,51 @@ export class WorkspacesDirectorySelfServicePermissionsOutputReference extends cd
 }
 export interface WorkspacesDirectoryWorkspaceAccessProperties {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_android WorkspacesDirectory#device_type_android}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_android WorkspacesDirectory#device_type_android}
+   */
   readonly deviceTypeAndroid?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_chromeos WorkspacesDirectory#device_type_chromeos}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_chromeos WorkspacesDirectory#device_type_chromeos}
+   */
   readonly deviceTypeChromeos?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_ios WorkspacesDirectory#device_type_ios}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_ios WorkspacesDirectory#device_type_ios}
+   */
   readonly deviceTypeIos?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_linux WorkspacesDirectory#device_type_linux}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_linux WorkspacesDirectory#device_type_linux}
+   */
   readonly deviceTypeLinux?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_osx WorkspacesDirectory#device_type_osx}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_osx WorkspacesDirectory#device_type_osx}
+   */
   readonly deviceTypeOsx?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_web WorkspacesDirectory#device_type_web}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_web WorkspacesDirectory#device_type_web}
+   */
   readonly deviceTypeWeb?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_windows WorkspacesDirectory#device_type_windows}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_windows WorkspacesDirectory#device_type_windows}
+   */
   readonly deviceTypeWindows?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_zeroclient WorkspacesDirectory#device_type_zeroclient}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#device_type_zeroclient WorkspacesDirectory#device_type_zeroclient}
+   */
   readonly deviceTypeZeroclient?: string;
 }
 
-export function workspacesDirectoryWorkspaceAccessPropertiesToTerraform(struct?: WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference | WorkspacesDirectoryWorkspaceAccessProperties): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function workspacesDirectoryWorkspaceAccessPropertiesToTerraform(
+  struct?:
+    | WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference
+    | WorkspacesDirectoryWorkspaceAccessProperties,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     device_type_android: cdktf.stringToTerraform(struct!.deviceTypeAndroid),
@@ -274,22 +296,29 @@ export function workspacesDirectoryWorkspaceAccessPropertiesToTerraform(struct?:
     device_type_osx: cdktf.stringToTerraform(struct!.deviceTypeOsx),
     device_type_web: cdktf.stringToTerraform(struct!.deviceTypeWeb),
     device_type_windows: cdktf.stringToTerraform(struct!.deviceTypeWindows),
-    device_type_zeroclient: cdktf.stringToTerraform(struct!.deviceTypeZeroclient),
-  }
+    device_type_zeroclient: cdktf.stringToTerraform(
+      struct!.deviceTypeZeroclient,
+    ),
+  };
 }
 
 export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): WorkspacesDirectoryWorkspaceAccessProperties | undefined {
+  public get internalValue():
+    | WorkspacesDirectoryWorkspaceAccessProperties
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._deviceTypeAndroid !== undefined) {
@@ -327,7 +356,9 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WorkspacesDirectoryWorkspaceAccessProperties | undefined) {
+  public set internalValue(
+    value: WorkspacesDirectoryWorkspaceAccessProperties | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deviceTypeAndroid = undefined;
@@ -338,8 +369,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
       this._deviceTypeWeb = undefined;
       this._deviceTypeWindows = undefined;
       this._deviceTypeZeroclient = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deviceTypeAndroid = value.deviceTypeAndroid;
       this._deviceTypeChromeos = value.deviceTypeChromeos;
@@ -353,7 +383,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_android - computed: false, optional: true, required: false
-  private _deviceTypeAndroid?: string; 
+  private _deviceTypeAndroid?: string;
   public get deviceTypeAndroid() {
     return this.getStringAttribute('device_type_android');
   }
@@ -369,7 +399,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_chromeos - computed: false, optional: true, required: false
-  private _deviceTypeChromeos?: string; 
+  private _deviceTypeChromeos?: string;
   public get deviceTypeChromeos() {
     return this.getStringAttribute('device_type_chromeos');
   }
@@ -385,7 +415,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_ios - computed: false, optional: true, required: false
-  private _deviceTypeIos?: string; 
+  private _deviceTypeIos?: string;
   public get deviceTypeIos() {
     return this.getStringAttribute('device_type_ios');
   }
@@ -401,7 +431,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_linux - computed: false, optional: true, required: false
-  private _deviceTypeLinux?: string; 
+  private _deviceTypeLinux?: string;
   public get deviceTypeLinux() {
     return this.getStringAttribute('device_type_linux');
   }
@@ -417,7 +447,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_osx - computed: false, optional: true, required: false
-  private _deviceTypeOsx?: string; 
+  private _deviceTypeOsx?: string;
   public get deviceTypeOsx() {
     return this.getStringAttribute('device_type_osx');
   }
@@ -433,7 +463,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_web - computed: false, optional: true, required: false
-  private _deviceTypeWeb?: string; 
+  private _deviceTypeWeb?: string;
   public get deviceTypeWeb() {
     return this.getStringAttribute('device_type_web');
   }
@@ -449,7 +479,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_windows - computed: false, optional: true, required: false
-  private _deviceTypeWindows?: string; 
+  private _deviceTypeWindows?: string;
   public get deviceTypeWindows() {
     return this.getStringAttribute('device_type_windows');
   }
@@ -465,7 +495,7 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
   }
 
   // device_type_zeroclient - computed: false, optional: true, required: false
-  private _deviceTypeZeroclient?: string; 
+  private _deviceTypeZeroclient?: string;
   public get deviceTypeZeroclient() {
     return this.getStringAttribute('device_type_zeroclient');
   }
@@ -482,53 +512,74 @@ export class WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference extends
 }
 export interface WorkspacesDirectoryWorkspaceCreationProperties {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#custom_security_group_id WorkspacesDirectory#custom_security_group_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#custom_security_group_id WorkspacesDirectory#custom_security_group_id}
+   */
   readonly customSecurityGroupId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#default_ou WorkspacesDirectory#default_ou}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#default_ou WorkspacesDirectory#default_ou}
+   */
   readonly defaultOu?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#enable_internet_access WorkspacesDirectory#enable_internet_access}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#enable_internet_access WorkspacesDirectory#enable_internet_access}
+   */
   readonly enableInternetAccess?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#enable_maintenance_mode WorkspacesDirectory#enable_maintenance_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#enable_maintenance_mode WorkspacesDirectory#enable_maintenance_mode}
+   */
   readonly enableMaintenanceMode?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#user_enabled_as_local_administrator WorkspacesDirectory#user_enabled_as_local_administrator}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory#user_enabled_as_local_administrator WorkspacesDirectory#user_enabled_as_local_administrator}
+   */
   readonly userEnabledAsLocalAdministrator?: boolean | cdktf.IResolvable;
 }
 
-export function workspacesDirectoryWorkspaceCreationPropertiesToTerraform(struct?: WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference | WorkspacesDirectoryWorkspaceCreationProperties): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function workspacesDirectoryWorkspaceCreationPropertiesToTerraform(
+  struct?:
+    | WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference
+    | WorkspacesDirectoryWorkspaceCreationProperties,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    custom_security_group_id: cdktf.stringToTerraform(struct!.customSecurityGroupId),
+    custom_security_group_id: cdktf.stringToTerraform(
+      struct!.customSecurityGroupId,
+    ),
     default_ou: cdktf.stringToTerraform(struct!.defaultOu),
-    enable_internet_access: cdktf.booleanToTerraform(struct!.enableInternetAccess),
-    enable_maintenance_mode: cdktf.booleanToTerraform(struct!.enableMaintenanceMode),
-    user_enabled_as_local_administrator: cdktf.booleanToTerraform(struct!.userEnabledAsLocalAdministrator),
-  }
+    enable_internet_access: cdktf.booleanToTerraform(
+      struct!.enableInternetAccess,
+    ),
+    enable_maintenance_mode: cdktf.booleanToTerraform(
+      struct!.enableMaintenanceMode,
+    ),
+    user_enabled_as_local_administrator: cdktf.booleanToTerraform(
+      struct!.userEnabledAsLocalAdministrator,
+    ),
+  };
 }
 
 export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): WorkspacesDirectoryWorkspaceCreationProperties | undefined {
+  public get internalValue():
+    | WorkspacesDirectoryWorkspaceCreationProperties
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._customSecurityGroupId !== undefined) {
@@ -549,12 +600,15 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
     }
     if (this._userEnabledAsLocalAdministrator !== undefined) {
       hasAnyValues = true;
-      internalValueResult.userEnabledAsLocalAdministrator = this._userEnabledAsLocalAdministrator;
+      internalValueResult.userEnabledAsLocalAdministrator =
+        this._userEnabledAsLocalAdministrator;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WorkspacesDirectoryWorkspaceCreationProperties | undefined) {
+  public set internalValue(
+    value: WorkspacesDirectoryWorkspaceCreationProperties | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._customSecurityGroupId = undefined;
@@ -562,19 +616,19 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
       this._enableInternetAccess = undefined;
       this._enableMaintenanceMode = undefined;
       this._userEnabledAsLocalAdministrator = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._customSecurityGroupId = value.customSecurityGroupId;
       this._defaultOu = value.defaultOu;
       this._enableInternetAccess = value.enableInternetAccess;
       this._enableMaintenanceMode = value.enableMaintenanceMode;
-      this._userEnabledAsLocalAdministrator = value.userEnabledAsLocalAdministrator;
+      this._userEnabledAsLocalAdministrator =
+        value.userEnabledAsLocalAdministrator;
     }
   }
 
   // custom_security_group_id - computed: false, optional: true, required: false
-  private _customSecurityGroupId?: string; 
+  private _customSecurityGroupId?: string;
   public get customSecurityGroupId() {
     return this.getStringAttribute('custom_security_group_id');
   }
@@ -590,7 +644,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // default_ou - computed: false, optional: true, required: false
-  private _defaultOu?: string; 
+  private _defaultOu?: string;
   public get defaultOu() {
     return this.getStringAttribute('default_ou');
   }
@@ -606,7 +660,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // enable_internet_access - computed: false, optional: true, required: false
-  private _enableInternetAccess?: boolean | cdktf.IResolvable; 
+  private _enableInternetAccess?: boolean | cdktf.IResolvable;
   public get enableInternetAccess() {
     return this.getBooleanAttribute('enable_internet_access');
   }
@@ -622,7 +676,7 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // enable_maintenance_mode - computed: false, optional: true, required: false
-  private _enableMaintenanceMode?: boolean | cdktf.IResolvable; 
+  private _enableMaintenanceMode?: boolean | cdktf.IResolvable;
   public get enableMaintenanceMode() {
     return this.getBooleanAttribute('enable_maintenance_mode');
   }
@@ -638,11 +692,13 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
   }
 
   // user_enabled_as_local_administrator - computed: false, optional: true, required: false
-  private _userEnabledAsLocalAdministrator?: boolean | cdktf.IResolvable; 
+  private _userEnabledAsLocalAdministrator?: boolean | cdktf.IResolvable;
   public get userEnabledAsLocalAdministrator() {
     return this.getBooleanAttribute('user_enabled_as_local_administrator');
   }
-  public set userEnabledAsLocalAdministrator(value: boolean | cdktf.IResolvable) {
+  public set userEnabledAsLocalAdministrator(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._userEnabledAsLocalAdministrator = value;
   }
   public resetUserEnabledAsLocalAdministrator() {
@@ -655,33 +711,36 @@ export class WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference exten
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory aws_workspaces_directory}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory aws_workspaces_directory}
+ */
 export class WorkspacesDirectory extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_workspaces_directory";
+  public static readonly tfResourceType = 'aws_workspaces_directory';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory aws_workspaces_directory} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options WorkspacesDirectoryConfig
-  */
-  public constructor(scope: Construct, id: string, config: WorkspacesDirectoryConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/workspaces_directory aws_workspaces_directory} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options WorkspacesDirectoryConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: WorkspacesDirectoryConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_workspaces_directory',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -689,7 +748,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._directoryId = config.directoryId;
     this._id = config.id;
@@ -698,8 +757,10 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._selfServicePermissions.internalValue = config.selfServicePermissions;
-    this._workspaceAccessProperties.internalValue = config.workspaceAccessProperties;
-    this._workspaceCreationProperties.internalValue = config.workspaceCreationProperties;
+    this._workspaceAccessProperties.internalValue =
+      config.workspaceAccessProperties;
+    this._workspaceCreationProperties.internalValue =
+      config.workspaceCreationProperties;
   }
 
   // ==========
@@ -717,7 +778,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string; 
+  private _directoryId?: string;
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -750,7 +811,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -766,7 +827,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // ip_group_ids - computed: true, optional: true, required: false
-  private _ipGroupIds?: string[]; 
+  private _ipGroupIds?: string[];
   public get ipGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('ip_group_ids'));
   }
@@ -787,7 +848,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: true, optional: true, required: false
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -803,7 +864,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -819,7 +880,7 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -840,11 +901,17 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // self_service_permissions - computed: false, optional: true, required: false
-  private _selfServicePermissions = new WorkspacesDirectorySelfServicePermissionsOutputReference(this, "self_service_permissions");
+  private _selfServicePermissions =
+    new WorkspacesDirectorySelfServicePermissionsOutputReference(
+      this,
+      'self_service_permissions',
+    );
   public get selfServicePermissions() {
     return this._selfServicePermissions;
   }
-  public putSelfServicePermissions(value: WorkspacesDirectorySelfServicePermissions) {
+  public putSelfServicePermissions(
+    value: WorkspacesDirectorySelfServicePermissions,
+  ) {
     this._selfServicePermissions.internalValue = value;
   }
   public resetSelfServicePermissions() {
@@ -856,11 +923,17 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // workspace_access_properties - computed: false, optional: true, required: false
-  private _workspaceAccessProperties = new WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference(this, "workspace_access_properties");
+  private _workspaceAccessProperties =
+    new WorkspacesDirectoryWorkspaceAccessPropertiesOutputReference(
+      this,
+      'workspace_access_properties',
+    );
   public get workspaceAccessProperties() {
     return this._workspaceAccessProperties;
   }
-  public putWorkspaceAccessProperties(value: WorkspacesDirectoryWorkspaceAccessProperties) {
+  public putWorkspaceAccessProperties(
+    value: WorkspacesDirectoryWorkspaceAccessProperties,
+  ) {
     this._workspaceAccessProperties.internalValue = value;
   }
   public resetWorkspaceAccessProperties() {
@@ -872,11 +945,17 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
   }
 
   // workspace_creation_properties - computed: false, optional: true, required: false
-  private _workspaceCreationProperties = new WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference(this, "workspace_creation_properties");
+  private _workspaceCreationProperties =
+    new WorkspacesDirectoryWorkspaceCreationPropertiesOutputReference(
+      this,
+      'workspace_creation_properties',
+    );
   public get workspaceCreationProperties() {
     return this._workspaceCreationProperties;
   }
-  public putWorkspaceCreationProperties(value: WorkspacesDirectoryWorkspaceCreationProperties) {
+  public putWorkspaceCreationProperties(
+    value: WorkspacesDirectoryWorkspaceCreationProperties,
+  ) {
     this._workspaceCreationProperties.internalValue = value;
   }
   public resetWorkspaceCreationProperties() {
@@ -895,13 +974,28 @@ export class WorkspacesDirectory extends cdktf.TerraformResource {
     return {
       directory_id: cdktf.stringToTerraform(this._directoryId),
       id: cdktf.stringToTerraform(this._id),
-      ip_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._ipGroupIds),
-      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
+      ip_group_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._ipGroupIds),
+      subnet_ids: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      self_service_permissions: workspacesDirectorySelfServicePermissionsToTerraform(this._selfServicePermissions.internalValue),
-      workspace_access_properties: workspacesDirectoryWorkspaceAccessPropertiesToTerraform(this._workspaceAccessProperties.internalValue),
-      workspace_creation_properties: workspacesDirectoryWorkspaceCreationPropertiesToTerraform(this._workspaceCreationProperties.internalValue),
+      self_service_permissions:
+        workspacesDirectorySelfServicePermissionsToTerraform(
+          this._selfServicePermissions.internalValue,
+        ),
+      workspace_access_properties:
+        workspacesDirectoryWorkspaceAccessPropertiesToTerraform(
+          this._workspaceAccessProperties.internalValue,
+        ),
+      workspace_creation_properties:
+        workspacesDirectoryWorkspaceCreationPropertiesToTerraform(
+          this._workspaceCreationProperties.internalValue,
+        ),
     };
   }
 }

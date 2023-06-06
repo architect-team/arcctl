@@ -1,93 +1,91 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface CognitoUserConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#attributes CognitoUser#attributes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#attributes CognitoUser#attributes}
+   */
   readonly attributes?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#client_metadata CognitoUser#client_metadata}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#client_metadata CognitoUser#client_metadata}
+   */
   readonly clientMetadata?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#desired_delivery_mediums CognitoUser#desired_delivery_mediums}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#desired_delivery_mediums CognitoUser#desired_delivery_mediums}
+   */
   readonly desiredDeliveryMediums?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#enabled CognitoUser#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#enabled CognitoUser#enabled}
+   */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#force_alias_creation CognitoUser#force_alias_creation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#force_alias_creation CognitoUser#force_alias_creation}
+   */
   readonly forceAliasCreation?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#id CognitoUser#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#id CognitoUser#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#message_action CognitoUser#message_action}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#message_action CognitoUser#message_action}
+   */
   readonly messageAction?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#password CognitoUser#password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#password CognitoUser#password}
+   */
   readonly password?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#temporary_password CognitoUser#temporary_password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#temporary_password CognitoUser#temporary_password}
+   */
   readonly temporaryPassword?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#user_pool_id CognitoUser#user_pool_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#user_pool_id CognitoUser#user_pool_id}
+   */
   readonly userPoolId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#username CognitoUser#username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#username CognitoUser#username}
+   */
   readonly username: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#validation_data CognitoUser#validation_data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user#validation_data CognitoUser#validation_data}
+   */
   readonly validationData?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_user aws_cognito_user}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_user aws_cognito_user}
+ */
 export class CognitoUser extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cognito_user";
+  public static readonly tfResourceType = 'aws_cognito_user';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_user aws_cognito_user} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CognitoUserConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_user aws_cognito_user} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CognitoUserConfig
+   */
   public constructor(scope: Construct, id: string, config: CognitoUserConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cognito_user',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -95,7 +93,7 @@ export class CognitoUser extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._attributes = config.attributes;
     this._clientMetadata = config.clientMetadata;
@@ -116,7 +114,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   // ==========
 
   // attributes - computed: false, optional: true, required: false
-  private _attributes?: { [key: string]: string }; 
+  private _attributes?: { [key: string]: string };
   public get attributes() {
     return this.getStringMapAttribute('attributes');
   }
@@ -132,7 +130,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // client_metadata - computed: false, optional: true, required: false
-  private _clientMetadata?: { [key: string]: string }; 
+  private _clientMetadata?: { [key: string]: string };
   public get clientMetadata() {
     return this.getStringMapAttribute('client_metadata');
   }
@@ -153,7 +151,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // desired_delivery_mediums - computed: false, optional: true, required: false
-  private _desiredDeliveryMediums?: string[]; 
+  private _desiredDeliveryMediums?: string[];
   public get desiredDeliveryMediums() {
     return cdktf.Fn.tolist(this.getListAttribute('desired_delivery_mediums'));
   }
@@ -169,7 +167,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -185,7 +183,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // force_alias_creation - computed: false, optional: true, required: false
-  private _forceAliasCreation?: boolean | cdktf.IResolvable; 
+  private _forceAliasCreation?: boolean | cdktf.IResolvable;
   public get forceAliasCreation() {
     return this.getBooleanAttribute('force_alias_creation');
   }
@@ -201,7 +199,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -222,7 +220,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // message_action - computed: false, optional: true, required: false
-  private _messageAction?: string; 
+  private _messageAction?: string;
   public get messageAction() {
     return this.getStringAttribute('message_action');
   }
@@ -243,7 +241,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -274,7 +272,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // temporary_password - computed: false, optional: true, required: false
-  private _temporaryPassword?: string; 
+  private _temporaryPassword?: string;
   public get temporaryPassword() {
     return this.getStringAttribute('temporary_password');
   }
@@ -290,7 +288,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string; 
+  private _userPoolId?: string;
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }
@@ -303,7 +301,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -316,7 +314,7 @@ export class CognitoUser extends cdktf.TerraformResource {
   }
 
   // validation_data - computed: false, optional: true, required: false
-  private _validationData?: { [key: string]: string }; 
+  private _validationData?: { [key: string]: string };
   public get validationData() {
     return this.getStringMapAttribute('validation_data');
   }
@@ -338,8 +336,13 @@ export class CognitoUser extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       attributes: cdktf.hashMapper(cdktf.stringToTerraform)(this._attributes),
-      client_metadata: cdktf.hashMapper(cdktf.stringToTerraform)(this._clientMetadata),
-      desired_delivery_mediums: cdktf.listMapper(cdktf.stringToTerraform, false)(this._desiredDeliveryMediums),
+      client_metadata: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._clientMetadata,
+      ),
+      desired_delivery_mediums: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._desiredDeliveryMediums),
       enabled: cdktf.booleanToTerraform(this._enabled),
       force_alias_creation: cdktf.booleanToTerraform(this._forceAliasCreation),
       id: cdktf.stringToTerraform(this._id),
@@ -348,7 +351,9 @@ export class CognitoUser extends cdktf.TerraformResource {
       temporary_password: cdktf.stringToTerraform(this._temporaryPassword),
       user_pool_id: cdktf.stringToTerraform(this._userPoolId),
       username: cdktf.stringToTerraform(this._username),
-      validation_data: cdktf.hashMapper(cdktf.stringToTerraform)(this._validationData),
+      validation_data: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._validationData,
+      ),
     };
   }
 }

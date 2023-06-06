@@ -1,96 +1,105 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ServicecatalogProvisioningArtifactConfig extends cdktf.TerraformMetaArguments {
+export interface ServicecatalogProvisioningArtifactConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#accept_language ServicecatalogProvisioningArtifact#accept_language}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#accept_language ServicecatalogProvisioningArtifact#accept_language}
+   */
   readonly acceptLanguage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#active ServicecatalogProvisioningArtifact#active}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#active ServicecatalogProvisioningArtifact#active}
+   */
   readonly active?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#description ServicecatalogProvisioningArtifact#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#description ServicecatalogProvisioningArtifact#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#disable_template_validation ServicecatalogProvisioningArtifact#disable_template_validation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#disable_template_validation ServicecatalogProvisioningArtifact#disable_template_validation}
+   */
   readonly disableTemplateValidation?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#guidance ServicecatalogProvisioningArtifact#guidance}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#guidance ServicecatalogProvisioningArtifact#guidance}
+   */
   readonly guidance?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#id ServicecatalogProvisioningArtifact#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#id ServicecatalogProvisioningArtifact#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#name ServicecatalogProvisioningArtifact#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#name ServicecatalogProvisioningArtifact#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#product_id ServicecatalogProvisioningArtifact#product_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#product_id ServicecatalogProvisioningArtifact#product_id}
+   */
   readonly productId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#template_physical_id ServicecatalogProvisioningArtifact#template_physical_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#template_physical_id ServicecatalogProvisioningArtifact#template_physical_id}
+   */
   readonly templatePhysicalId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#template_url ServicecatalogProvisioningArtifact#template_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#template_url ServicecatalogProvisioningArtifact#template_url}
+   */
   readonly templateUrl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#type ServicecatalogProvisioningArtifact#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#type ServicecatalogProvisioningArtifact#type}
+   */
   readonly type?: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#timeouts ServicecatalogProvisioningArtifact#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#timeouts ServicecatalogProvisioningArtifact#timeouts}
+   */
   readonly timeouts?: ServicecatalogProvisioningArtifactTimeouts;
 }
 export interface ServicecatalogProvisioningArtifactTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#create ServicecatalogProvisioningArtifact#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#create ServicecatalogProvisioningArtifact#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#delete ServicecatalogProvisioningArtifact#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#delete ServicecatalogProvisioningArtifact#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#read ServicecatalogProvisioningArtifact#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#read ServicecatalogProvisioningArtifact#read}
+   */
   readonly read?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#update ServicecatalogProvisioningArtifact#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact#update ServicecatalogProvisioningArtifact#update}
+   */
   readonly update?: string;
 }
 
-export function servicecatalogProvisioningArtifactTimeoutsToTerraform(struct?: ServicecatalogProvisioningArtifactTimeoutsOutputReference | ServicecatalogProvisioningArtifactTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function servicecatalogProvisioningArtifactTimeoutsToTerraform(
+  struct?:
+    | ServicecatalogProvisioningArtifactTimeoutsOutputReference
+    | ServicecatalogProvisioningArtifactTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -98,14 +107,20 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServicecatalogProvisioningArtifactTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServicecatalogProvisioningArtifactTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -130,7 +145,12 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServicecatalogProvisioningArtifactTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServicecatalogProvisioningArtifactTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -138,12 +158,10 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
       this._delete = undefined;
       this._read = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -154,7 +172,7 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -170,7 +188,7 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -186,7 +204,7 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -202,7 +220,7 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -219,33 +237,37 @@ export class ServicecatalogProvisioningArtifactTimeoutsOutputReference extends c
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact aws_servicecatalog_provisioning_artifact}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact aws_servicecatalog_provisioning_artifact}
+ */
 export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_servicecatalog_provisioning_artifact";
+  public static readonly tfResourceType =
+    'aws_servicecatalog_provisioning_artifact';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact aws_servicecatalog_provisioning_artifact} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServicecatalogProvisioningArtifactConfig
-  */
-  public constructor(scope: Construct, id: string, config: ServicecatalogProvisioningArtifactConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_provisioning_artifact aws_servicecatalog_provisioning_artifact} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServicecatalogProvisioningArtifactConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServicecatalogProvisioningArtifactConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_provisioning_artifact',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -253,7 +275,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acceptLanguage = config.acceptLanguage;
     this._active = config.active;
@@ -274,7 +296,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string; 
+  private _acceptLanguage?: string;
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -290,7 +312,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // active - computed: false, optional: true, required: false
-  private _active?: boolean | cdktf.IResolvable; 
+  private _active?: boolean | cdktf.IResolvable;
   public get active() {
     return this.getBooleanAttribute('active');
   }
@@ -311,7 +333,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -327,7 +349,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // disable_template_validation - computed: false, optional: true, required: false
-  private _disableTemplateValidation?: boolean | cdktf.IResolvable; 
+  private _disableTemplateValidation?: boolean | cdktf.IResolvable;
   public get disableTemplateValidation() {
     return this.getBooleanAttribute('disable_template_validation');
   }
@@ -343,7 +365,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // guidance - computed: false, optional: true, required: false
-  private _guidance?: string; 
+  private _guidance?: string;
   public get guidance() {
     return this.getStringAttribute('guidance');
   }
@@ -359,7 +381,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -375,7 +397,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -391,7 +413,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string; 
+  private _productId?: string;
   public get productId() {
     return this.getStringAttribute('product_id');
   }
@@ -404,7 +426,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // template_physical_id - computed: false, optional: true, required: false
-  private _templatePhysicalId?: string; 
+  private _templatePhysicalId?: string;
   public get templatePhysicalId() {
     return this.getStringAttribute('template_physical_id');
   }
@@ -420,7 +442,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // template_url - computed: false, optional: true, required: false
-  private _templateUrl?: string; 
+  private _templateUrl?: string;
   public get templateUrl() {
     return this.getStringAttribute('template_url');
   }
@@ -436,7 +458,7 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -452,7 +474,11 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ServicecatalogProvisioningArtifactTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new ServicecatalogProvisioningArtifactTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -476,7 +502,9 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
       accept_language: cdktf.stringToTerraform(this._acceptLanguage),
       active: cdktf.booleanToTerraform(this._active),
       description: cdktf.stringToTerraform(this._description),
-      disable_template_validation: cdktf.booleanToTerraform(this._disableTemplateValidation),
+      disable_template_validation: cdktf.booleanToTerraform(
+        this._disableTemplateValidation,
+      ),
       guidance: cdktf.stringToTerraform(this._guidance),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
@@ -484,7 +512,9 @@ export class ServicecatalogProvisioningArtifact extends cdktf.TerraformResource 
       template_physical_id: cdktf.stringToTerraform(this._templatePhysicalId),
       template_url: cdktf.stringToTerraform(this._templateUrl),
       type: cdktf.stringToTerraform(this._type),
-      timeouts: servicecatalogProvisioningArtifactTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: servicecatalogProvisioningArtifactTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

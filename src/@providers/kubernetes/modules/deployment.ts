@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Deployment } from '../.gen/providers/kubernetes/deployment/index.js';
-import { KubernetesCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class KubernetesDeploymentModule extends ResourceModule<
@@ -47,10 +47,7 @@ export class KubernetesDeploymentModule extends ResourceModule<
               {
                 name: normalizedName,
                 image: inputs.image,
-                command:
-                  typeof inputs.command === 'string'
-                    ? inputs.command.split(' ')
-                    : inputs.command,
+                command: typeof inputs.command === 'string' ? inputs.command.split(' ') : inputs.command,
                 env: Object.entries(inputs.environment || {}).map(
                   ([key, value]) => ({
                     name: key,
@@ -74,10 +71,7 @@ export class KubernetesDeploymentModule extends ResourceModule<
               },
               ...(inputs.sidecars?.map((container, index) => ({
                 name: `${normalizedName}-sidecar-${index}`,
-                command:
-                  typeof container.command === 'string'
-                    ? container.command.split(' ')
-                    : container.command,
+                command: typeof container.command === 'string' ? container.command.split(' ') : container.command,
                 image: container.image,
                 env: Object.entries(container.environment || {}).map(
                   ([key, value]) => ({

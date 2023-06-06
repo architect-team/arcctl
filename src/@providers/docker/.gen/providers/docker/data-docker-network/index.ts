@@ -1,42 +1,55 @@
 // https://www.terraform.io/docs/providers/docker/d/network
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DataDockerNetworkConfig extends cdktf.TerraformMetaArguments {
   /**
-  * The name of the Docker network.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/network#name DataDockerNetwork#name}
-  */
+   * The name of the Docker network.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/network#name DataDockerNetwork#name}
+   */
   readonly name: string;
 }
-export interface DataDockerNetworkIpamConfig {
-}
+export interface DataDockerNetworkIpamConfig {}
 
-export function dataDockerNetworkIpamConfigToTerraform(struct?: DataDockerNetworkIpamConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataDockerNetworkIpamConfigToTerraform(
+  struct?: DataDockerNetworkIpamConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class DataDockerNetworkIpamConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): DataDockerNetworkIpamConfig | undefined {
@@ -48,14 +61,13 @@ export class DataDockerNetworkIpamConfigOutputReference extends cdktf.ComplexObj
   public set internalValue(value: DataDockerNetworkIpamConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // aux_address - computed: true, optional: false, required: false
-  private _auxAddress = new cdktf.StringMap(this, "aux_address");
+  private _auxAddress = new cdktf.StringMap(this, 'aux_address');
   public get auxAddress() {
     return this._auxAddress;
   }
@@ -77,52 +89,63 @@ export class DataDockerNetworkIpamConfigOutputReference extends cdktf.ComplexObj
 }
 
 export class DataDockerNetworkIpamConfigList extends cdktf.ComplexList {
-
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DataDockerNetworkIpamConfigOutputReference {
-    return new DataDockerNetworkIpamConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DataDockerNetworkIpamConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/d/network docker_network}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/d/network docker_network}
+ */
 export class DataDockerNetwork extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_network";
+  public static readonly tfResourceType = 'docker_network';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/d/network docker_network} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataDockerNetworkConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataDockerNetworkConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/d/network docker_network} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataDockerNetworkConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataDockerNetworkConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'docker_network',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -130,7 +153,7 @@ export class DataDockerNetwork extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._name = config.name;
   }
@@ -155,13 +178,17 @@ export class DataDockerNetwork extends cdktf.TerraformDataSource {
   }
 
   // ipam_config - computed: true, optional: false, required: false
-  private _ipamConfig = new DataDockerNetworkIpamConfigList(this, "ipam_config", true);
+  private _ipamConfig = new DataDockerNetworkIpamConfigList(
+    this,
+    'ipam_config',
+    true,
+  );
   public get ipamConfig() {
     return this._ipamConfig;
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -174,7 +201,7 @@ export class DataDockerNetwork extends cdktf.TerraformDataSource {
   }
 
   // options - computed: true, optional: false, required: false
-  private _options = new cdktf.StringMap(this, "options");
+  private _options = new cdktf.StringMap(this, 'options');
   public get options() {
     return this._options;
   }

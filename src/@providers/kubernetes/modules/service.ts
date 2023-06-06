@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Service } from '../.gen/providers/kubernetes/service/index.js';
-import { KubernetesCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Service } from '../.gen/providers/kubernetes/service/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class KubernetesServiceModule extends ResourceModule<
@@ -23,31 +23,29 @@ export class KubernetesServiceModule extends ResourceModule<
           ...inputs.labels,
         },
       },
-      spec:
-        'external_name' in inputs
-          ? {
-              type: 'ExternalName',
-              externalName: inputs.external_name,
+      spec: 'external_name' in inputs
+        ? {
+          type: 'ExternalName',
+          externalName: inputs.external_name,
+        }
+        : {
+          type: 'ClusterIP',
+          selector: inputs.selector
+            ? {
+              'architect.io/name': inputs.selector.replaceAll('/', '--'),
             }
-          : {
-              type: 'ClusterIP',
-              selector: inputs.selector
-                ? {
-                    'architect.io/name': inputs.selector.replaceAll('/', '--'),
-                  }
-                : undefined,
-              port: [
-                {
-                  port: 80,
-                  nodePort: inputs.listener_port,
-                  targetPort: String(inputs.target_port),
-                },
-              ],
+            : undefined,
+          port: [
+            {
+              port: 80,
+              nodePort: inputs.listener_port,
+              targetPort: String(inputs.target_port),
             },
+          ],
+        },
     });
 
-    const protocol =
-      'external_name' in inputs ? 'http' : inputs.protocol || 'http';
+    const protocol = 'external_name' in inputs ? 'http' : inputs.protocol || 'http';
     this.outputs = {
       id: inputs.name,
       protocol,

@@ -1,9 +1,9 @@
-import { Provider, ProviderResources } from '../provider.js';
-import { LocalCredentials, LocalCredentialsSchema } from './credentials.js';
-import { LocalNamespaceService } from './services/namespace.js';
-import { LocalSecretService } from './services/secret.js';
+import { Provider, ProviderResources } from '../provider.ts';
+import { LocalCredentials, LocalCredentialsSchema } from './credentials.ts';
+import { LocalNamespaceService } from './services/namespace.ts';
+import { LocalSecretService } from './services/secret.ts';
 import { Construct } from 'constructs';
-import fs from 'fs';
+import { existsSync } from 'std/fs/exists.ts';
 
 export default class LocalProvider extends Provider<LocalCredentials> {
   readonly type = 'local';
@@ -17,7 +17,7 @@ export default class LocalProvider extends Provider<LocalCredentials> {
   };
 
   public async testCredentials(): Promise<boolean> {
-    return fs.existsSync(this.credentials.directory);
+    return existsSync(this.credentials.directory);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function

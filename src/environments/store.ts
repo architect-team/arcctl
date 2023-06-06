@@ -1,8 +1,6 @@
-import { Environment } from './environment.js';
-import { parseEnvironment } from './parser.js';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import { Environment } from './environment.ts';
+import { parseEnvironment } from './parser.ts';
+import * as path from 'std/path/mod.ts';
 
 export type EnvironmentRecord = {
   name: string;
@@ -14,7 +12,7 @@ export class EnvironmentStore {
   private _records?: EnvironmentRecord[];
 
   constructor(
-    private config_dir: string = os.tmpdir(),
+    private config_dir: string = Deno.makeTempDirSync(),
     private environment_filename: string = 'environments.json',
   ) {
     this.find();
@@ -25,13 +23,10 @@ export class EnvironmentStore {
   }
 
   private async saveAll(environments: EnvironmentRecord[]): Promise<void> {
-    await fs.promises.mkdir(path.dirname(this.environments_config_file), {
+    await Deno.mkdir(path.dirname(this.environments_config_file), {
       recursive: true,
     });
-    await fs.promises.writeFile(
-      this.environments_config_file,
-      JSON.stringify(environments, null, 2),
-    );
+    await Deno.writeTextFile(this.environments_config_file, JSON.stringify(environments, null, 2));
   }
 
   public async find(): Promise<EnvironmentRecord[]> {
@@ -41,10 +36,7 @@ export class EnvironmentStore {
 
     let rawEnvironments = [];
     try {
-      const fileContents = fs.readFileSync(
-        this.environments_config_file,
-        'utf8',
-      );
+      const fileContents = Deno.readTextFileSync(this.environments_config_file);
       rawEnvironments = JSON.parse(fileContents);
     } catch {
       this._records = [];

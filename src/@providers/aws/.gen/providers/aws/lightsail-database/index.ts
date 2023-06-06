@@ -1,113 +1,115 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_database
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface LightsailDatabaseConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#apply_immediately LightsailDatabase#apply_immediately}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#apply_immediately LightsailDatabase#apply_immediately}
+   */
   readonly applyImmediately?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#availability_zone LightsailDatabase#availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#availability_zone LightsailDatabase#availability_zone}
+   */
   readonly availabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#backup_retention_enabled LightsailDatabase#backup_retention_enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#backup_retention_enabled LightsailDatabase#backup_retention_enabled}
+   */
   readonly backupRetentionEnabled?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#blueprint_id LightsailDatabase#blueprint_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#blueprint_id LightsailDatabase#blueprint_id}
+   */
   readonly blueprintId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#bundle_id LightsailDatabase#bundle_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#bundle_id LightsailDatabase#bundle_id}
+   */
   readonly bundleId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#final_snapshot_name LightsailDatabase#final_snapshot_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#final_snapshot_name LightsailDatabase#final_snapshot_name}
+   */
   readonly finalSnapshotName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#id LightsailDatabase#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#id LightsailDatabase#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#master_database_name LightsailDatabase#master_database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#master_database_name LightsailDatabase#master_database_name}
+   */
   readonly masterDatabaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#master_password LightsailDatabase#master_password}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#master_password LightsailDatabase#master_password}
+   */
   readonly masterPassword: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#master_username LightsailDatabase#master_username}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#master_username LightsailDatabase#master_username}
+   */
   readonly masterUsername: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#preferred_backup_window LightsailDatabase#preferred_backup_window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#preferred_backup_window LightsailDatabase#preferred_backup_window}
+   */
   readonly preferredBackupWindow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#preferred_maintenance_window LightsailDatabase#preferred_maintenance_window}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#preferred_maintenance_window LightsailDatabase#preferred_maintenance_window}
+   */
   readonly preferredMaintenanceWindow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#publicly_accessible LightsailDatabase#publicly_accessible}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#publicly_accessible LightsailDatabase#publicly_accessible}
+   */
   readonly publiclyAccessible?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#relational_database_name LightsailDatabase#relational_database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#relational_database_name LightsailDatabase#relational_database_name}
+   */
   readonly relationalDatabaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#skip_final_snapshot LightsailDatabase#skip_final_snapshot}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#skip_final_snapshot LightsailDatabase#skip_final_snapshot}
+   */
   readonly skipFinalSnapshot?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#tags LightsailDatabase#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#tags LightsailDatabase#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#tags_all LightsailDatabase#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database#tags_all LightsailDatabase#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database aws_lightsail_database}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database aws_lightsail_database}
+ */
 export class LightsailDatabase extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lightsail_database";
+  public static readonly tfResourceType = 'aws_lightsail_database';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database aws_lightsail_database} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LightsailDatabaseConfig
-  */
-  public constructor(scope: Construct, id: string, config: LightsailDatabaseConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_database aws_lightsail_database} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LightsailDatabaseConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LightsailDatabaseConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lightsail_database',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -115,7 +117,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._applyImmediately = config.applyImmediately;
     this._availabilityZone = config.availabilityZone;
@@ -141,7 +143,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   // ==========
 
   // apply_immediately - computed: true, optional: true, required: false
-  private _applyImmediately?: boolean | cdktf.IResolvable; 
+  private _applyImmediately?: boolean | cdktf.IResolvable;
   public get applyImmediately() {
     return this.getBooleanAttribute('apply_immediately');
   }
@@ -162,7 +164,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -178,7 +180,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // backup_retention_enabled - computed: false, optional: true, required: false
-  private _backupRetentionEnabled?: boolean | cdktf.IResolvable; 
+  private _backupRetentionEnabled?: boolean | cdktf.IResolvable;
   public get backupRetentionEnabled() {
     return this.getBooleanAttribute('backup_retention_enabled');
   }
@@ -194,7 +196,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // blueprint_id - computed: false, optional: false, required: true
-  private _blueprintId?: string; 
+  private _blueprintId?: string;
   public get blueprintId() {
     return this.getStringAttribute('blueprint_id');
   }
@@ -207,7 +209,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // bundle_id - computed: false, optional: false, required: true
-  private _bundleId?: string; 
+  private _bundleId?: string;
   public get bundleId() {
     return this.getStringAttribute('bundle_id');
   }
@@ -250,7 +252,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // final_snapshot_name - computed: false, optional: true, required: false
-  private _finalSnapshotName?: string; 
+  private _finalSnapshotName?: string;
   public get finalSnapshotName() {
     return this.getStringAttribute('final_snapshot_name');
   }
@@ -266,7 +268,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -282,7 +284,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // master_database_name - computed: false, optional: false, required: true
-  private _masterDatabaseName?: string; 
+  private _masterDatabaseName?: string;
   public get masterDatabaseName() {
     return this.getStringAttribute('master_database_name');
   }
@@ -305,7 +307,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // master_password - computed: false, optional: false, required: true
-  private _masterPassword?: string; 
+  private _masterPassword?: string;
   public get masterPassword() {
     return this.getStringAttribute('master_password');
   }
@@ -318,7 +320,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // master_username - computed: false, optional: false, required: true
-  private _masterUsername?: string; 
+  private _masterUsername?: string;
   public get masterUsername() {
     return this.getStringAttribute('master_username');
   }
@@ -331,7 +333,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // preferred_backup_window - computed: true, optional: true, required: false
-  private _preferredBackupWindow?: string; 
+  private _preferredBackupWindow?: string;
   public get preferredBackupWindow() {
     return this.getStringAttribute('preferred_backup_window');
   }
@@ -347,7 +349,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // preferred_maintenance_window - computed: true, optional: true, required: false
-  private _preferredMaintenanceWindow?: string; 
+  private _preferredMaintenanceWindow?: string;
   public get preferredMaintenanceWindow() {
     return this.getStringAttribute('preferred_maintenance_window');
   }
@@ -363,7 +365,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // publicly_accessible - computed: false, optional: true, required: false
-  private _publiclyAccessible?: boolean | cdktf.IResolvable; 
+  private _publiclyAccessible?: boolean | cdktf.IResolvable;
   public get publiclyAccessible() {
     return this.getBooleanAttribute('publicly_accessible');
   }
@@ -384,7 +386,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // relational_database_name - computed: false, optional: false, required: true
-  private _relationalDatabaseName?: string; 
+  private _relationalDatabaseName?: string;
   public get relationalDatabaseName() {
     return this.getStringAttribute('relational_database_name');
   }
@@ -402,7 +404,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // skip_final_snapshot - computed: false, optional: true, required: false
-  private _skipFinalSnapshot?: boolean | cdktf.IResolvable; 
+  private _skipFinalSnapshot?: boolean | cdktf.IResolvable;
   public get skipFinalSnapshot() {
     return this.getBooleanAttribute('skip_final_snapshot');
   }
@@ -423,7 +425,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -439,7 +441,7 @@ export class LightsailDatabase extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -462,7 +464,9 @@ export class LightsailDatabase extends cdktf.TerraformResource {
     return {
       apply_immediately: cdktf.booleanToTerraform(this._applyImmediately),
       availability_zone: cdktf.stringToTerraform(this._availabilityZone),
-      backup_retention_enabled: cdktf.booleanToTerraform(this._backupRetentionEnabled),
+      backup_retention_enabled: cdktf.booleanToTerraform(
+        this._backupRetentionEnabled,
+      ),
       blueprint_id: cdktf.stringToTerraform(this._blueprintId),
       bundle_id: cdktf.stringToTerraform(this._bundleId),
       final_snapshot_name: cdktf.stringToTerraform(this._finalSnapshotName),
@@ -470,10 +474,16 @@ export class LightsailDatabase extends cdktf.TerraformResource {
       master_database_name: cdktf.stringToTerraform(this._masterDatabaseName),
       master_password: cdktf.stringToTerraform(this._masterPassword),
       master_username: cdktf.stringToTerraform(this._masterUsername),
-      preferred_backup_window: cdktf.stringToTerraform(this._preferredBackupWindow),
-      preferred_maintenance_window: cdktf.stringToTerraform(this._preferredMaintenanceWindow),
+      preferred_backup_window: cdktf.stringToTerraform(
+        this._preferredBackupWindow,
+      ),
+      preferred_maintenance_window: cdktf.stringToTerraform(
+        this._preferredMaintenanceWindow,
+      ),
       publicly_accessible: cdktf.booleanToTerraform(this._publiclyAccessible),
-      relational_database_name: cdktf.stringToTerraform(this._relationalDatabaseName),
+      relational_database_name: cdktf.stringToTerraform(
+        this._relationalDatabaseName,
+      ),
       skip_final_snapshot: cdktf.booleanToTerraform(this._skipFinalSnapshot),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),

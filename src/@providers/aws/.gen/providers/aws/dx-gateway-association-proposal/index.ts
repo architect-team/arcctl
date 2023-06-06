@@ -1,65 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DxGatewayAssociationProposalConfig extends cdktf.TerraformMetaArguments {
+export interface DxGatewayAssociationProposalConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#allowed_prefixes DxGatewayAssociationProposal#allowed_prefixes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#allowed_prefixes DxGatewayAssociationProposal#allowed_prefixes}
+   */
   readonly allowedPrefixes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#associated_gateway_id DxGatewayAssociationProposal#associated_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#associated_gateway_id DxGatewayAssociationProposal#associated_gateway_id}
+   */
   readonly associatedGatewayId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#dx_gateway_id DxGatewayAssociationProposal#dx_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#dx_gateway_id DxGatewayAssociationProposal#dx_gateway_id}
+   */
   readonly dxGatewayId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#dx_gateway_owner_account_id DxGatewayAssociationProposal#dx_gateway_owner_account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#dx_gateway_owner_account_id DxGatewayAssociationProposal#dx_gateway_owner_account_id}
+   */
   readonly dxGatewayOwnerAccountId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#id DxGatewayAssociationProposal#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal#id DxGatewayAssociationProposal#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal aws_dx_gateway_association_proposal}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal aws_dx_gateway_association_proposal}
+ */
 export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_dx_gateway_association_proposal";
+  public static readonly tfResourceType = 'aws_dx_gateway_association_proposal';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal aws_dx_gateway_association_proposal} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DxGatewayAssociationProposalConfig
-  */
-  public constructor(scope: Construct, id: string, config: DxGatewayAssociationProposalConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal aws_dx_gateway_association_proposal} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DxGatewayAssociationProposalConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DxGatewayAssociationProposalConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_dx_gateway_association_proposal',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +70,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._allowedPrefixes = config.allowedPrefixes;
     this._associatedGatewayId = config.associatedGatewayId;
@@ -81,7 +84,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   // ==========
 
   // allowed_prefixes - computed: true, optional: true, required: false
-  private _allowedPrefixes?: string[]; 
+  private _allowedPrefixes?: string[];
   public get allowedPrefixes() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_prefixes'));
   }
@@ -97,7 +100,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // associated_gateway_id - computed: false, optional: false, required: true
-  private _associatedGatewayId?: string; 
+  private _associatedGatewayId?: string;
   public get associatedGatewayId() {
     return this.getStringAttribute('associated_gateway_id');
   }
@@ -120,7 +123,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // dx_gateway_id - computed: false, optional: false, required: true
-  private _dxGatewayId?: string; 
+  private _dxGatewayId?: string;
   public get dxGatewayId() {
     return this.getStringAttribute('dx_gateway_id');
   }
@@ -133,7 +136,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // dx_gateway_owner_account_id - computed: false, optional: false, required: true
-  private _dxGatewayOwnerAccountId?: string; 
+  private _dxGatewayOwnerAccountId?: string;
   public get dxGatewayOwnerAccountId() {
     return this.getStringAttribute('dx_gateway_owner_account_id');
   }
@@ -146,7 +149,7 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -167,10 +170,15 @@ export class DxGatewayAssociationProposal extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      allowed_prefixes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._allowedPrefixes),
+      allowed_prefixes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._allowedPrefixes),
       associated_gateway_id: cdktf.stringToTerraform(this._associatedGatewayId),
       dx_gateway_id: cdktf.stringToTerraform(this._dxGatewayId),
-      dx_gateway_owner_account_id: cdktf.stringToTerraform(this._dxGatewayOwnerAccountId),
+      dx_gateway_owner_account_id: cdktf.stringToTerraform(
+        this._dxGatewayOwnerAccountId,
+      ),
       id: cdktf.stringToTerraform(this._id),
     };
   }

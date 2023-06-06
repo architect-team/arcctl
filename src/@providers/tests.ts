@@ -1,10 +1,6 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../@resources/index.js';
-import { ProviderCredentials } from './credentials.js';
-import { ResourceModule } from './module.js';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ResourceModule } from './module.ts';
 import { TerraformOutput } from 'cdktf';
 
 export interface CldctlTestStack {
@@ -30,8 +26,7 @@ export interface CldctlTest<C extends Partial<ProviderCredentials>> {
   validateDelete?: (context: CldctlTestContext<C>) => Promise<void>;
 }
 
-export type CldctlTestResource<C extends Partial<ProviderCredentials>> =
-  CldctlTest<C>[];
+export type CldctlTestResource<C extends Partial<ProviderCredentials>> = CldctlTest<C>[];
 
 export interface CldctlTestContext<C extends Partial<ProviderCredentials>> {
   stacks: CldctlTestStackOutputs[];

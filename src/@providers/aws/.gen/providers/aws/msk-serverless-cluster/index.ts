@@ -1,79 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface MskServerlessClusterConfig extends cdktf.TerraformMetaArguments {
+export interface MskServerlessClusterConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#cluster_name MskServerlessCluster#cluster_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#cluster_name MskServerlessCluster#cluster_name}
+   */
   readonly clusterName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#id MskServerlessCluster#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#id MskServerlessCluster#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#tags MskServerlessCluster#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#tags MskServerlessCluster#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#tags_all MskServerlessCluster#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#tags_all MskServerlessCluster#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * client_authentication block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#client_authentication MskServerlessCluster#client_authentication}
-  */
+   * client_authentication block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#client_authentication MskServerlessCluster#client_authentication}
+   */
   readonly clientAuthentication: MskServerlessClusterClientAuthentication;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#timeouts MskServerlessCluster#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#timeouts MskServerlessCluster#timeouts}
+   */
   readonly timeouts?: MskServerlessClusterTimeouts;
   /**
-  * vpc_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#vpc_config MskServerlessCluster#vpc_config}
-  */
+   * vpc_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#vpc_config MskServerlessCluster#vpc_config}
+   */
   readonly vpcConfig: MskServerlessClusterVpcConfig[] | cdktf.IResolvable;
 }
 export interface MskServerlessClusterClientAuthenticationSaslIam {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#enabled MskServerlessCluster#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#enabled MskServerlessCluster#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
 }
 
-export function mskServerlessClusterClientAuthenticationSaslIamToTerraform(struct?: MskServerlessClusterClientAuthenticationSaslIamOutputReference | MskServerlessClusterClientAuthenticationSaslIam): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskServerlessClusterClientAuthenticationSaslIamToTerraform(
+  struct?:
+    | MskServerlessClusterClientAuthenticationSaslIamOutputReference
+    | MskServerlessClusterClientAuthenticationSaslIam,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  }
+  };
 }
 
 export class MskServerlessClusterClientAuthenticationSaslIamOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskServerlessClusterClientAuthenticationSaslIam | undefined {
+  public get internalValue():
+    | MskServerlessClusterClientAuthenticationSaslIam
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -83,19 +96,20 @@ export class MskServerlessClusterClientAuthenticationSaslIamOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskServerlessClusterClientAuthenticationSaslIam | undefined) {
+  public set internalValue(
+    value: MskServerlessClusterClientAuthenticationSaslIam | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -109,35 +123,50 @@ export class MskServerlessClusterClientAuthenticationSaslIamOutputReference exte
 }
 export interface MskServerlessClusterClientAuthenticationSasl {
   /**
-  * iam block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#iam MskServerlessCluster#iam}
-  */
+   * iam block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#iam MskServerlessCluster#iam}
+   */
   readonly iam: MskServerlessClusterClientAuthenticationSaslIam;
 }
 
-export function mskServerlessClusterClientAuthenticationSaslToTerraform(struct?: MskServerlessClusterClientAuthenticationSaslOutputReference | MskServerlessClusterClientAuthenticationSasl): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskServerlessClusterClientAuthenticationSaslToTerraform(
+  struct?:
+    | MskServerlessClusterClientAuthenticationSaslOutputReference
+    | MskServerlessClusterClientAuthenticationSasl,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    iam: mskServerlessClusterClientAuthenticationSaslIamToTerraform(struct!.iam),
-  }
+    iam: mskServerlessClusterClientAuthenticationSaslIamToTerraform(
+      struct!.iam,
+    ),
+  };
 }
 
 export class MskServerlessClusterClientAuthenticationSaslOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskServerlessClusterClientAuthenticationSasl | undefined {
+  public get internalValue():
+    | MskServerlessClusterClientAuthenticationSasl
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._iam?.internalValue !== undefined) {
@@ -147,19 +176,24 @@ export class MskServerlessClusterClientAuthenticationSaslOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskServerlessClusterClientAuthenticationSasl | undefined) {
+  public set internalValue(
+    value: MskServerlessClusterClientAuthenticationSasl | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._iam.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._iam.internalValue = value.iam;
     }
   }
 
   // iam - computed: false, optional: false, required: true
-  private _iam = new MskServerlessClusterClientAuthenticationSaslIamOutputReference(this, "iam");
+  private _iam =
+    new MskServerlessClusterClientAuthenticationSaslIamOutputReference(
+      this,
+      'iam',
+    );
   public get iam() {
     return this._iam;
   }
@@ -173,35 +207,48 @@ export class MskServerlessClusterClientAuthenticationSaslOutputReference extends
 }
 export interface MskServerlessClusterClientAuthentication {
   /**
-  * sasl block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#sasl MskServerlessCluster#sasl}
-  */
+   * sasl block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#sasl MskServerlessCluster#sasl}
+   */
   readonly sasl: MskServerlessClusterClientAuthenticationSasl;
 }
 
-export function mskServerlessClusterClientAuthenticationToTerraform(struct?: MskServerlessClusterClientAuthenticationOutputReference | MskServerlessClusterClientAuthentication): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskServerlessClusterClientAuthenticationToTerraform(
+  struct?:
+    | MskServerlessClusterClientAuthenticationOutputReference
+    | MskServerlessClusterClientAuthentication,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     sasl: mskServerlessClusterClientAuthenticationSaslToTerraform(struct!.sasl),
-  }
+  };
 }
 
 export class MskServerlessClusterClientAuthenticationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskServerlessClusterClientAuthentication | undefined {
+  public get internalValue():
+    | MskServerlessClusterClientAuthentication
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._sasl?.internalValue !== undefined) {
@@ -211,19 +258,24 @@ export class MskServerlessClusterClientAuthenticationOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskServerlessClusterClientAuthentication | undefined) {
+  public set internalValue(
+    value: MskServerlessClusterClientAuthentication | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._sasl.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._sasl.internalValue = value.sasl;
     }
   }
 
   // sasl - computed: false, optional: false, required: true
-  private _sasl = new MskServerlessClusterClientAuthenticationSaslOutputReference(this, "sasl");
+  private _sasl =
+    new MskServerlessClusterClientAuthenticationSaslOutputReference(
+      this,
+      'sasl',
+    );
   public get sasl() {
     return this._sasl;
   }
@@ -237,24 +289,33 @@ export class MskServerlessClusterClientAuthenticationOutputReference extends cdk
 }
 export interface MskServerlessClusterTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#create MskServerlessCluster#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#create MskServerlessCluster#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#delete MskServerlessCluster#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#delete MskServerlessCluster#delete}
+   */
   readonly delete?: string;
 }
 
-export function mskServerlessClusterTimeoutsToTerraform(struct?: MskServerlessClusterTimeoutsOutputReference | MskServerlessClusterTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskServerlessClusterTimeoutsToTerraform(
+  struct?:
+    | MskServerlessClusterTimeoutsOutputReference
+    | MskServerlessClusterTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -262,14 +323,20 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): MskServerlessClusterTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | MskServerlessClusterTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -286,18 +353,18 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskServerlessClusterTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: MskServerlessClusterTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -306,7 +373,7 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -322,7 +389,7 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -339,24 +406,36 @@ export class MskServerlessClusterTimeoutsOutputReference extends cdktf.ComplexOb
 }
 export interface MskServerlessClusterVpcConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#security_group_ids MskServerlessCluster#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#security_group_ids MskServerlessCluster#security_group_ids}
+   */
   readonly securityGroupIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#subnet_ids MskServerlessCluster#subnet_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster#subnet_ids MskServerlessCluster#subnet_ids}
+   */
   readonly subnetIds: string[];
 }
 
-export function mskServerlessClusterVpcConfigToTerraform(struct?: MskServerlessClusterVpcConfig | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function mskServerlessClusterVpcConfigToTerraform(
+  struct?: MskServerlessClusterVpcConfig | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
-  }
+    security_group_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.subnetIds),
+  };
 }
 
 export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexObject {
@@ -364,16 +443,29 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): MskServerlessClusterVpcConfig | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | MskServerlessClusterVpcConfig
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -390,18 +482,18 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: MskServerlessClusterVpcConfig | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: MskServerlessClusterVpcConfig | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._securityGroupIds = undefined;
       this._subnetIds = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._securityGroupIds = value.securityGroupIds;
@@ -410,7 +502,7 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -426,7 +518,7 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[]; 
+  private _subnetIds?: string[];
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -440,53 +532,65 @@ export class MskServerlessClusterVpcConfigOutputReference extends cdktf.ComplexO
 }
 
 export class MskServerlessClusterVpcConfigList extends cdktf.ComplexList {
-  public internalValue? : MskServerlessClusterVpcConfig[] | cdktf.IResolvable
+  public internalValue?: MskServerlessClusterVpcConfig[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): MskServerlessClusterVpcConfigOutputReference {
-    return new MskServerlessClusterVpcConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new MskServerlessClusterVpcConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster aws_msk_serverless_cluster}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster aws_msk_serverless_cluster}
+ */
 export class MskServerlessCluster extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_msk_serverless_cluster";
+  public static readonly tfResourceType = 'aws_msk_serverless_cluster';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster aws_msk_serverless_cluster} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options MskServerlessClusterConfig
-  */
-  public constructor(scope: Construct, id: string, config: MskServerlessClusterConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/msk_serverless_cluster aws_msk_serverless_cluster} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options MskServerlessClusterConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: MskServerlessClusterConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_msk_serverless_cluster',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -494,7 +598,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clusterName = config.clusterName;
     this._id = config.id;
@@ -515,7 +619,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string; 
+  private _clusterName?: string;
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -528,7 +632,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -544,7 +648,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -560,7 +664,7 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -576,11 +680,17 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // client_authentication - computed: false, optional: false, required: true
-  private _clientAuthentication = new MskServerlessClusterClientAuthenticationOutputReference(this, "client_authentication");
+  private _clientAuthentication =
+    new MskServerlessClusterClientAuthenticationOutputReference(
+      this,
+      'client_authentication',
+    );
   public get clientAuthentication() {
     return this._clientAuthentication;
   }
-  public putClientAuthentication(value: MskServerlessClusterClientAuthentication) {
+  public putClientAuthentication(
+    value: MskServerlessClusterClientAuthentication,
+  ) {
     this._clientAuthentication.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -589,7 +699,10 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new MskServerlessClusterTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new MskServerlessClusterTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -605,11 +718,17 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
   }
 
   // vpc_config - computed: false, optional: false, required: true
-  private _vpcConfig = new MskServerlessClusterVpcConfigList(this, "vpc_config", false);
+  private _vpcConfig = new MskServerlessClusterVpcConfigList(
+    this,
+    'vpc_config',
+    false,
+  );
   public get vpcConfig() {
     return this._vpcConfig;
   }
-  public putVpcConfig(value: MskServerlessClusterVpcConfig[] | cdktf.IResolvable) {
+  public putVpcConfig(
+    value: MskServerlessClusterVpcConfig[] | cdktf.IResolvable,
+  ) {
     this._vpcConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -627,9 +746,17 @@ export class MskServerlessCluster extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      client_authentication: mskServerlessClusterClientAuthenticationToTerraform(this._clientAuthentication.internalValue),
-      timeouts: mskServerlessClusterTimeoutsToTerraform(this._timeouts.internalValue),
-      vpc_config: cdktf.listMapper(mskServerlessClusterVpcConfigToTerraform, true)(this._vpcConfig.internalValue),
+      client_authentication:
+        mskServerlessClusterClientAuthenticationToTerraform(
+          this._clientAuthentication.internalValue,
+        ),
+      timeouts: mskServerlessClusterTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
+      vpc_config: cdktf.listMapper(
+        mskServerlessClusterVpcConfigToTerraform,
+        true,
+      )(this._vpcConfig.internalValue),
     };
   }
 }

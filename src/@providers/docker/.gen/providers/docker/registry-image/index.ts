@@ -1,73 +1,75 @@
 // https://www.terraform.io/docs/providers/docker/r/registry_image
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface RegistryImageConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#id RegistryImage#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#id RegistryImage#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#insecure_skip_verify RegistryImage#insecure_skip_verify}
-  */
+   * If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#insecure_skip_verify RegistryImage#insecure_skip_verify}
+   */
   readonly insecureSkipVerify?: boolean | cdktf.IResolvable;
   /**
-  * If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker registry on destroy operation. Defaults to `false`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#keep_remotely RegistryImage#keep_remotely}
-  */
+   * If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker registry on destroy operation. Defaults to `false`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#keep_remotely RegistryImage#keep_remotely}
+   */
   readonly keepRemotely?: boolean | cdktf.IResolvable;
   /**
-  * The name of the Docker image.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#name RegistryImage#name}
-  */
+   * The name of the Docker image.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#name RegistryImage#name}
+   */
   readonly name: string;
   /**
-  * A map of arbitrary strings that, when changed, will force the `docker_registry_image` resource to be replaced. This can be used to repush a local image
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#triggers RegistryImage#triggers}
-  */
+   * A map of arbitrary strings that, when changed, will force the `docker_registry_image` resource to be replaced. This can be used to repush a local image
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/registry_image#triggers RegistryImage#triggers}
+   */
   readonly triggers?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/r/registry_image docker_registry_image}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/r/registry_image docker_registry_image}
+ */
 export class RegistryImage extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_registry_image";
+  public static readonly tfResourceType = 'docker_registry_image';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/r/registry_image docker_registry_image} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RegistryImageConfig
-  */
-  public constructor(scope: Construct, id: string, config: RegistryImageConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/r/registry_image docker_registry_image} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RegistryImageConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RegistryImageConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'docker_registry_image',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +77,7 @@ export class RegistryImage extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._insecureSkipVerify = config.insecureSkipVerify;
@@ -89,7 +91,7 @@ export class RegistryImage extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +107,7 @@ export class RegistryImage extends cdktf.TerraformResource {
   }
 
   // insecure_skip_verify - computed: false, optional: true, required: false
-  private _insecureSkipVerify?: boolean | cdktf.IResolvable; 
+  private _insecureSkipVerify?: boolean | cdktf.IResolvable;
   public get insecureSkipVerify() {
     return this.getBooleanAttribute('insecure_skip_verify');
   }
@@ -121,7 +123,7 @@ export class RegistryImage extends cdktf.TerraformResource {
   }
 
   // keep_remotely - computed: false, optional: true, required: false
-  private _keepRemotely?: boolean | cdktf.IResolvable; 
+  private _keepRemotely?: boolean | cdktf.IResolvable;
   public get keepRemotely() {
     return this.getBooleanAttribute('keep_remotely');
   }
@@ -137,7 +139,7 @@ export class RegistryImage extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -155,7 +157,7 @@ export class RegistryImage extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

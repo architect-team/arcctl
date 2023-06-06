@@ -1,55 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface NetworkfirewallLoggingConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface NetworkfirewallLoggingConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#firewall_arn NetworkfirewallLoggingConfiguration#firewall_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#firewall_arn NetworkfirewallLoggingConfiguration#firewall_arn}
+   */
   readonly firewallArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#id NetworkfirewallLoggingConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#id NetworkfirewallLoggingConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * logging_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#logging_configuration NetworkfirewallLoggingConfiguration#logging_configuration}
-  */
+   * logging_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#logging_configuration NetworkfirewallLoggingConfiguration#logging_configuration}
+   */
   readonly loggingConfiguration: NetworkfirewallLoggingConfigurationLoggingConfiguration;
 }
 export interface NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination NetworkfirewallLoggingConfiguration#log_destination}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination NetworkfirewallLoggingConfiguration#log_destination}
+   */
   readonly logDestination: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination_type NetworkfirewallLoggingConfiguration#log_destination_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination_type NetworkfirewallLoggingConfiguration#log_destination_type}
+   */
   readonly logDestinationType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_type NetworkfirewallLoggingConfiguration#log_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_type NetworkfirewallLoggingConfiguration#log_type}
+   */
   readonly logType: string;
 }
 
-export function networkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigToTerraform(struct?: NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigToTerraform(
+  struct?:
+    | NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    log_destination: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.logDestination),
+    log_destination: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.logDestination,
+    ),
     log_destination_type: cdktf.stringToTerraform(struct!.logDestinationType),
     log_type: cdktf.stringToTerraform(struct!.logType),
-  }
+  };
 }
 
 export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputReference extends cdktf.ComplexObject {
@@ -57,16 +67,29 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -87,19 +110,22 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._logDestination = undefined;
       this._logDestinationType = undefined;
       this._logType = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._logDestination = value.logDestination;
@@ -109,7 +135,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   }
 
   // log_destination - computed: false, optional: false, required: true
-  private _logDestination?: { [key: string]: string }; 
+  private _logDestination?: { [key: string]: string };
   public get logDestination() {
     return this.getStringMapAttribute('log_destination');
   }
@@ -122,7 +148,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   }
 
   // log_destination_type - computed: false, optional: false, required: true
-  private _logDestinationType?: string; 
+  private _logDestinationType?: string;
   public get logDestinationType() {
     return this.getStringAttribute('log_destination_type');
   }
@@ -135,7 +161,7 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
   }
 
   // log_type - computed: false, optional: false, required: true
-  private _logType?: string; 
+  private _logType?: string;
   public get logType() {
     return this.getStringAttribute('log_type');
   }
@@ -149,81 +175,123 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinati
 }
 
 export class NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigList extends cdktf.ComplexList {
-  public internalValue? : NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[] | cdktf.IResolvable
+  public internalValue?:
+    | NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputReference {
-    return new NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputReference {
+    return new NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface NetworkfirewallLoggingConfigurationLoggingConfiguration {
   /**
-  * log_destination_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination_config NetworkfirewallLoggingConfiguration#log_destination_config}
-  */
-  readonly logDestinationConfig: NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[] | cdktf.IResolvable;
+   * log_destination_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration#log_destination_config NetworkfirewallLoggingConfiguration#log_destination_config}
+   */
+  readonly logDestinationConfig:
+    | NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[]
+    | cdktf.IResolvable;
 }
 
-export function networkfirewallLoggingConfigurationLoggingConfigurationToTerraform(struct?: NetworkfirewallLoggingConfigurationLoggingConfigurationOutputReference | NetworkfirewallLoggingConfigurationLoggingConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkfirewallLoggingConfigurationLoggingConfigurationToTerraform(
+  struct?:
+    | NetworkfirewallLoggingConfigurationLoggingConfigurationOutputReference
+    | NetworkfirewallLoggingConfigurationLoggingConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    log_destination_config: cdktf.listMapper(networkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigToTerraform, true)(struct!.logDestinationConfig),
-  }
+    log_destination_config: cdktf.listMapper(
+      networkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigToTerraform,
+      true,
+    )(struct!.logDestinationConfig),
+  };
 }
 
 export class NetworkfirewallLoggingConfigurationLoggingConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): NetworkfirewallLoggingConfigurationLoggingConfiguration | undefined {
+  public get internalValue():
+    | NetworkfirewallLoggingConfigurationLoggingConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._logDestinationConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.logDestinationConfig = this._logDestinationConfig?.internalValue;
+      internalValueResult.logDestinationConfig =
+        this._logDestinationConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkfirewallLoggingConfigurationLoggingConfiguration | undefined) {
+  public set internalValue(
+    value: NetworkfirewallLoggingConfigurationLoggingConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._logDestinationConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._logDestinationConfig.internalValue = value.logDestinationConfig;
     }
   }
 
   // log_destination_config - computed: false, optional: false, required: true
-  private _logDestinationConfig = new NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigList(this, "log_destination_config", true);
+  private _logDestinationConfig =
+    new NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfigList(
+      this,
+      'log_destination_config',
+      true,
+    );
   public get logDestinationConfig() {
     return this._logDestinationConfig;
   }
-  public putLogDestinationConfig(value: NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[] | cdktf.IResolvable) {
+  public putLogDestinationConfig(
+    value:
+      | NetworkfirewallLoggingConfigurationLoggingConfigurationLogDestinationConfig[]
+      | cdktf.IResolvable,
+  ) {
     this._logDestinationConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -233,33 +301,37 @@ export class NetworkfirewallLoggingConfigurationLoggingConfigurationOutputRefere
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration aws_networkfirewall_logging_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration aws_networkfirewall_logging_configuration}
+ */
 export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_networkfirewall_logging_configuration";
+  public static readonly tfResourceType =
+    'aws_networkfirewall_logging_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration aws_networkfirewall_logging_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options NetworkfirewallLoggingConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: NetworkfirewallLoggingConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkfirewall_logging_configuration aws_networkfirewall_logging_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options NetworkfirewallLoggingConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: NetworkfirewallLoggingConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_networkfirewall_logging_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -267,7 +339,7 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._firewallArn = config.firewallArn;
     this._id = config.id;
@@ -279,7 +351,7 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
   // ==========
 
   // firewall_arn - computed: false, optional: false, required: true
-  private _firewallArn?: string; 
+  private _firewallArn?: string;
   public get firewallArn() {
     return this.getStringAttribute('firewall_arn');
   }
@@ -292,7 +364,7 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -308,11 +380,17 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
   }
 
   // logging_configuration - computed: false, optional: false, required: true
-  private _loggingConfiguration = new NetworkfirewallLoggingConfigurationLoggingConfigurationOutputReference(this, "logging_configuration");
+  private _loggingConfiguration =
+    new NetworkfirewallLoggingConfigurationLoggingConfigurationOutputReference(
+      this,
+      'logging_configuration',
+    );
   public get loggingConfiguration() {
     return this._loggingConfiguration;
   }
-  public putLoggingConfiguration(value: NetworkfirewallLoggingConfigurationLoggingConfiguration) {
+  public putLoggingConfiguration(
+    value: NetworkfirewallLoggingConfigurationLoggingConfiguration,
+  ) {
     this._loggingConfiguration.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -328,7 +406,10 @@ export class NetworkfirewallLoggingConfiguration extends cdktf.TerraformResource
     return {
       firewall_arn: cdktf.stringToTerraform(this._firewallArn),
       id: cdktf.stringToTerraform(this._id),
-      logging_configuration: networkfirewallLoggingConfigurationLoggingConfigurationToTerraform(this._loggingConfiguration.internalValue),
+      logging_configuration:
+        networkfirewallLoggingConfigurationLoggingConfigurationToTerraform(
+          this._loggingConfiguration.internalValue,
+        ),
     };
   }
 }

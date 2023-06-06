@@ -1,69 +1,76 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface ClusterRoleV1Config extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#id ClusterRoleV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#id ClusterRoleV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * aggregation_rule block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#aggregation_rule ClusterRoleV1#aggregation_rule}
-  */
+   * aggregation_rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#aggregation_rule ClusterRoleV1#aggregation_rule}
+   */
   readonly aggregationRule?: ClusterRoleV1AggregationRule;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#metadata ClusterRoleV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#metadata ClusterRoleV1#metadata}
+   */
   readonly metadata: ClusterRoleV1Metadata;
   /**
-  * rule block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#rule ClusterRoleV1#rule}
-  */
+   * rule block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#rule ClusterRoleV1#rule}
+   */
   readonly rule?: ClusterRoleV1Rule[] | cdktf.IResolvable;
 }
 export interface ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#key ClusterRoleV1#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#key ClusterRoleV1#key}
+   */
   readonly key?: string;
   /**
-  * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#operator ClusterRoleV1#operator}
-  */
+   * A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#operator ClusterRoleV1#operator}
+   */
   readonly operator?: string;
   /**
-  * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#values ClusterRoleV1#values}
-  */
+   * An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#values ClusterRoleV1#values}
+   */
   readonly values?: string[];
 }
 
-export function clusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsToTerraform(struct?: ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function clusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsToTerraform(
+  struct?:
+    | ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     operator: cdktf.stringToTerraform(struct!.operator),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOutputReference extends cdktf.ComplexObject {
@@ -71,16 +78,29 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOut
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -101,19 +121,22 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._operator = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -123,7 +146,7 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOut
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -139,7 +162,7 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOut
   }
 
   // operator - computed: false, optional: true, required: false
-  private _operator?: string; 
+  private _operator?: string;
   public get operator() {
     return this.getStringAttribute('operator');
   }
@@ -155,7 +178,7 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOut
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -172,48 +195,74 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOut
 }
 
 export class ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsList extends cdktf.ComplexList {
-  public internalValue? : ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOutputReference {
-    return new ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOutputReference {
+    return new ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ClusterRoleV1AggregationRuleClusterRoleSelectors {
   /**
-  * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#match_labels ClusterRoleV1#match_labels}
-  */
+   * A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#match_labels ClusterRoleV1#match_labels}
+   */
   readonly matchLabels?: { [key: string]: string };
   /**
-  * match_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#match_expressions ClusterRoleV1#match_expressions}
-  */
-  readonly matchExpressions?: ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions[] | cdktf.IResolvable;
+   * match_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#match_expressions ClusterRoleV1#match_expressions}
+   */
+  readonly matchExpressions?:
+    | ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function clusterRoleV1AggregationRuleClusterRoleSelectorsToTerraform(struct?: ClusterRoleV1AggregationRuleClusterRoleSelectors | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function clusterRoleV1AggregationRuleClusterRoleSelectorsToTerraform(
+  struct?: ClusterRoleV1AggregationRuleClusterRoleSelectors | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.matchLabels),
-    match_expressions: cdktf.listMapper(clusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsToTerraform, true)(struct!.matchExpressions),
-  }
+    match_labels: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.matchLabels,
+    ),
+    match_expressions: cdktf.listMapper(
+      clusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsToTerraform,
+      true,
+    )(struct!.matchExpressions),
+  };
 }
 
 export class ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference extends cdktf.ComplexObject {
@@ -221,16 +270,29 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference ext
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ClusterRoleV1AggregationRuleClusterRoleSelectors | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ClusterRoleV1AggregationRuleClusterRoleSelectors
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -242,23 +304,27 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference ext
     }
     if (this._matchExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchExpressions = this._matchExpressions?.internalValue;
+      internalValueResult.matchExpressions =
+        this._matchExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ClusterRoleV1AggregationRuleClusterRoleSelectors | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ClusterRoleV1AggregationRuleClusterRoleSelectors
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._matchLabels = undefined;
       this._matchExpressions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._matchLabels = value.matchLabels;
@@ -267,7 +333,7 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference ext
   }
 
   // match_labels - computed: false, optional: true, required: false
-  private _matchLabels?: { [key: string]: string }; 
+  private _matchLabels?: { [key: string]: string };
   public get matchLabels() {
     return this.getStringMapAttribute('match_labels');
   }
@@ -283,11 +349,20 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference ext
   }
 
   // match_expressions - computed: false, optional: true, required: false
-  private _matchExpressions = new ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsList(this, "match_expressions", false);
+  private _matchExpressions =
+    new ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressionsList(
+      this,
+      'match_expressions',
+      false,
+    );
   public get matchExpressions() {
     return this._matchExpressions;
   }
-  public putMatchExpressions(value: ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions[] | cdktf.IResolvable) {
+  public putMatchExpressions(
+    value:
+      | ClusterRoleV1AggregationRuleClusterRoleSelectorsMatchExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchExpressions.internalValue = value;
   }
   public resetMatchExpressions() {
@@ -300,51 +375,80 @@ export class ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference ext
 }
 
 export class ClusterRoleV1AggregationRuleClusterRoleSelectorsList extends cdktf.ComplexList {
-  public internalValue? : ClusterRoleV1AggregationRuleClusterRoleSelectors[] | cdktf.IResolvable
+  public internalValue?:
+    | ClusterRoleV1AggregationRuleClusterRoleSelectors[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference {
-    return new ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference {
+    return new ClusterRoleV1AggregationRuleClusterRoleSelectorsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ClusterRoleV1AggregationRule {
   /**
-  * cluster_role_selectors block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#cluster_role_selectors ClusterRoleV1#cluster_role_selectors}
-  */
-  readonly clusterRoleSelectors?: ClusterRoleV1AggregationRuleClusterRoleSelectors[] | cdktf.IResolvable;
+   * cluster_role_selectors block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#cluster_role_selectors ClusterRoleV1#cluster_role_selectors}
+   */
+  readonly clusterRoleSelectors?:
+    | ClusterRoleV1AggregationRuleClusterRoleSelectors[]
+    | cdktf.IResolvable;
 }
 
-export function clusterRoleV1AggregationRuleToTerraform(struct?: ClusterRoleV1AggregationRuleOutputReference | ClusterRoleV1AggregationRule): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function clusterRoleV1AggregationRuleToTerraform(
+  struct?:
+    | ClusterRoleV1AggregationRuleOutputReference
+    | ClusterRoleV1AggregationRule,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cluster_role_selectors: cdktf.listMapper(clusterRoleV1AggregationRuleClusterRoleSelectorsToTerraform, true)(struct!.clusterRoleSelectors),
-  }
+    cluster_role_selectors: cdktf.listMapper(
+      clusterRoleV1AggregationRuleClusterRoleSelectorsToTerraform,
+      true,
+    )(struct!.clusterRoleSelectors),
+  };
 }
 
 export class ClusterRoleV1AggregationRuleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -353,7 +457,8 @@ export class ClusterRoleV1AggregationRuleOutputReference extends cdktf.ComplexOb
     const internalValueResult: any = {};
     if (this._clusterRoleSelectors?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.clusterRoleSelectors = this._clusterRoleSelectors?.internalValue;
+      internalValueResult.clusterRoleSelectors =
+        this._clusterRoleSelectors?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -362,19 +467,27 @@ export class ClusterRoleV1AggregationRuleOutputReference extends cdktf.ComplexOb
     if (value === undefined) {
       this.isEmptyObject = false;
       this._clusterRoleSelectors.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._clusterRoleSelectors.internalValue = value.clusterRoleSelectors;
     }
   }
 
   // cluster_role_selectors - computed: false, optional: true, required: false
-  private _clusterRoleSelectors = new ClusterRoleV1AggregationRuleClusterRoleSelectorsList(this, "cluster_role_selectors", false);
+  private _clusterRoleSelectors =
+    new ClusterRoleV1AggregationRuleClusterRoleSelectorsList(
+      this,
+      'cluster_role_selectors',
+      false,
+    );
   public get clusterRoleSelectors() {
     return this._clusterRoleSelectors;
   }
-  public putClusterRoleSelectors(value: ClusterRoleV1AggregationRuleClusterRoleSelectors[] | cdktf.IResolvable) {
+  public putClusterRoleSelectors(
+    value:
+      | ClusterRoleV1AggregationRuleClusterRoleSelectors[]
+      | cdktf.IResolvable,
+  ) {
     this._clusterRoleSelectors.internalValue = value;
   }
   public resetClusterRoleSelectors() {
@@ -387,52 +500,61 @@ export class ClusterRoleV1AggregationRuleOutputReference extends cdktf.ComplexOb
 }
 export interface ClusterRoleV1Metadata {
   /**
-  * An unstructured key value map stored with the clusterRole that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#annotations ClusterRoleV1#annotations}
-  */
+   * An unstructured key value map stored with the clusterRole that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#annotations ClusterRoleV1#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#generate_name ClusterRoleV1#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#generate_name ClusterRoleV1#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the clusterRole. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#labels ClusterRoleV1#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the clusterRole. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#labels ClusterRoleV1#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the clusterRole, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#name ClusterRoleV1#name}
-  */
+   * Name of the clusterRole, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#name ClusterRoleV1#name}
+   */
   readonly name?: string;
 }
 
-export function clusterRoleV1MetadataToTerraform(struct?: ClusterRoleV1MetadataOutputReference | ClusterRoleV1Metadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function clusterRoleV1MetadataToTerraform(
+  struct?: ClusterRoleV1MetadataOutputReference | ClusterRoleV1Metadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     generate_name: cdktf.stringToTerraform(struct!.generateName),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -465,8 +587,7 @@ export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
       this._generateName = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -476,7 +597,7 @@ export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -492,7 +613,7 @@ export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -513,7 +634,7 @@ export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -529,7 +650,7 @@ export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -556,49 +677,67 @@ export class ClusterRoleV1MetadataOutputReference extends cdktf.ComplexObject {
 }
 export interface ClusterRoleV1Rule {
   /**
-  * APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#api_groups ClusterRoleV1#api_groups}
-  */
+   * APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#api_groups ClusterRoleV1#api_groups}
+   */
   readonly apiGroups?: string[];
   /**
-  * NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"), but not both.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#non_resource_urls ClusterRoleV1#non_resource_urls}
-  */
+   * NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"), but not both.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#non_resource_urls ClusterRoleV1#non_resource_urls}
+   */
   readonly nonResourceUrls?: string[];
   /**
-  * ResourceNames is an optional white list of names that the rule applies to. An empty set means that everything is allowed.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#resource_names ClusterRoleV1#resource_names}
-  */
+   * ResourceNames is an optional white list of names that the rule applies to. An empty set means that everything is allowed.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#resource_names ClusterRoleV1#resource_names}
+   */
   readonly resourceNames?: string[];
   /**
-  * Resources is a list of resources this rule applies to. ResourceAll represents all resources.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#resources ClusterRoleV1#resources}
-  */
+   * Resources is a list of resources this rule applies to. ResourceAll represents all resources.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#resources ClusterRoleV1#resources}
+   */
   readonly resources?: string[];
   /**
-  * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. VerbAll represents all kinds.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#verbs ClusterRoleV1#verbs}
-  */
+   * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. VerbAll represents all kinds.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1#verbs ClusterRoleV1#verbs}
+   */
   readonly verbs: string[];
 }
 
-export function clusterRoleV1RuleToTerraform(struct?: ClusterRoleV1Rule | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function clusterRoleV1RuleToTerraform(
+  struct?: ClusterRoleV1Rule | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    api_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.apiGroups),
-    non_resource_urls: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.nonResourceUrls),
-    resource_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.resourceNames),
-    resources: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.resources),
+    api_groups: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.apiGroups),
+    non_resource_urls: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.nonResourceUrls),
+    resource_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.resourceNames),
+    resources: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.resources),
     verbs: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.verbs),
-  }
+  };
 }
 
 export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
@@ -606,16 +745,29 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ClusterRoleV1Rule | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ClusterRoleV1Rule
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -644,7 +796,9 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ClusterRoleV1Rule | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ClusterRoleV1Rule | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -653,12 +807,10 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
       this._resourceNames = undefined;
       this._resources = undefined;
       this._verbs = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._apiGroups = value.apiGroups;
@@ -670,7 +822,7 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // api_groups - computed: false, optional: true, required: false
-  private _apiGroups?: string[]; 
+  private _apiGroups?: string[];
   public get apiGroups() {
     return this.getListAttribute('api_groups');
   }
@@ -686,7 +838,7 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // non_resource_urls - computed: false, optional: true, required: false
-  private _nonResourceUrls?: string[]; 
+  private _nonResourceUrls?: string[];
   public get nonResourceUrls() {
     return this.getListAttribute('non_resource_urls');
   }
@@ -702,7 +854,7 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // resource_names - computed: false, optional: true, required: false
-  private _resourceNames?: string[]; 
+  private _resourceNames?: string[];
   public get resourceNames() {
     return this.getListAttribute('resource_names');
   }
@@ -718,7 +870,7 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources?: string[]; 
+  private _resources?: string[];
   public get resources() {
     return this.getListAttribute('resources');
   }
@@ -734,7 +886,7 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
   }
 
   // verbs - computed: false, optional: false, required: true
-  private _verbs?: string[]; 
+  private _verbs?: string[];
   public get verbs() {
     return this.getListAttribute('verbs');
   }
@@ -748,53 +900,65 @@ export class ClusterRoleV1RuleOutputReference extends cdktf.ComplexObject {
 }
 
 export class ClusterRoleV1RuleList extends cdktf.ComplexList {
-  public internalValue? : ClusterRoleV1Rule[] | cdktf.IResolvable
+  public internalValue?: ClusterRoleV1Rule[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ClusterRoleV1RuleOutputReference {
-    return new ClusterRoleV1RuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ClusterRoleV1RuleOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1 kubernetes_cluster_role_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1 kubernetes_cluster_role_v1}
+ */
 export class ClusterRoleV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_cluster_role_v1";
+  public static readonly tfResourceType = 'kubernetes_cluster_role_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1 kubernetes_cluster_role_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ClusterRoleV1Config
-  */
-  public constructor(scope: Construct, id: string, config: ClusterRoleV1Config) {
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/cluster_role_v1 kubernetes_cluster_role_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ClusterRoleV1Config
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ClusterRoleV1Config,
+  ) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_cluster_role_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -802,7 +966,7 @@ export class ClusterRoleV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._aggregationRule.internalValue = config.aggregationRule;
@@ -815,7 +979,7 @@ export class ClusterRoleV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -831,7 +995,10 @@ export class ClusterRoleV1 extends cdktf.TerraformResource {
   }
 
   // aggregation_rule - computed: false, optional: true, required: false
-  private _aggregationRule = new ClusterRoleV1AggregationRuleOutputReference(this, "aggregation_rule");
+  private _aggregationRule = new ClusterRoleV1AggregationRuleOutputReference(
+    this,
+    'aggregation_rule',
+  );
   public get aggregationRule() {
     return this._aggregationRule;
   }
@@ -847,7 +1014,10 @@ export class ClusterRoleV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new ClusterRoleV1MetadataOutputReference(this, "metadata");
+  private _metadata = new ClusterRoleV1MetadataOutputReference(
+    this,
+    'metadata',
+  );
   public get metadata() {
     return this._metadata;
   }
@@ -860,7 +1030,7 @@ export class ClusterRoleV1 extends cdktf.TerraformResource {
   }
 
   // rule - computed: false, optional: true, required: false
-  private _rule = new ClusterRoleV1RuleList(this, "rule", false);
+  private _rule = new ClusterRoleV1RuleList(this, 'rule', false);
   public get rule() {
     return this._rule;
   }
@@ -882,9 +1052,14 @@ export class ClusterRoleV1 extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      aggregation_rule: clusterRoleV1AggregationRuleToTerraform(this._aggregationRule.internalValue),
+      aggregation_rule: clusterRoleV1AggregationRuleToTerraform(
+        this._aggregationRule.internalValue,
+      ),
       metadata: clusterRoleV1MetadataToTerraform(this._metadata.internalValue),
-      rule: cdktf.listMapper(clusterRoleV1RuleToTerraform, true)(this._rule.internalValue),
+      rule: cdktf.listMapper(
+        clusterRoleV1RuleToTerraform,
+        true,
+      )(this._rule.internalValue),
     };
   }
 }

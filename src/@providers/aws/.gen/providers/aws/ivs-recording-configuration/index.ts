@@ -1,83 +1,96 @@
 // https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface IvsRecordingConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface IvsRecordingConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#id IvsRecordingConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#id IvsRecordingConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#name IvsRecordingConfiguration#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#name IvsRecordingConfiguration#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#recording_reconnect_window_seconds IvsRecordingConfiguration#recording_reconnect_window_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#recording_reconnect_window_seconds IvsRecordingConfiguration#recording_reconnect_window_seconds}
+   */
   readonly recordingReconnectWindowSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#tags IvsRecordingConfiguration#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#tags IvsRecordingConfiguration#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#tags_all IvsRecordingConfiguration#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#tags_all IvsRecordingConfiguration#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * destination_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#destination_configuration IvsRecordingConfiguration#destination_configuration}
-  */
+   * destination_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#destination_configuration IvsRecordingConfiguration#destination_configuration}
+   */
   readonly destinationConfiguration: IvsRecordingConfigurationDestinationConfiguration;
   /**
-  * thumbnail_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#thumbnail_configuration IvsRecordingConfiguration#thumbnail_configuration}
-  */
+   * thumbnail_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#thumbnail_configuration IvsRecordingConfiguration#thumbnail_configuration}
+   */
   readonly thumbnailConfiguration?: IvsRecordingConfigurationThumbnailConfiguration;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#timeouts IvsRecordingConfiguration#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#timeouts IvsRecordingConfiguration#timeouts}
+   */
   readonly timeouts?: IvsRecordingConfigurationTimeouts;
 }
 export interface IvsRecordingConfigurationDestinationConfigurationS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#bucket_name IvsRecordingConfiguration#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#bucket_name IvsRecordingConfiguration#bucket_name}
+   */
   readonly bucketName: string;
 }
 
-export function ivsRecordingConfigurationDestinationConfigurationS3ToTerraform(struct?: IvsRecordingConfigurationDestinationConfigurationS3OutputReference | IvsRecordingConfigurationDestinationConfigurationS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivsRecordingConfigurationDestinationConfigurationS3ToTerraform(
+  struct?:
+    | IvsRecordingConfigurationDestinationConfigurationS3OutputReference
+    | IvsRecordingConfigurationDestinationConfigurationS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
-  }
+  };
 }
 
 export class IvsRecordingConfigurationDestinationConfigurationS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvsRecordingConfigurationDestinationConfigurationS3 | undefined {
+  public get internalValue():
+    | IvsRecordingConfigurationDestinationConfigurationS3
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -87,19 +100,20 @@ export class IvsRecordingConfigurationDestinationConfigurationS3OutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvsRecordingConfigurationDestinationConfigurationS3 | undefined) {
+  public set internalValue(
+    value: IvsRecordingConfigurationDestinationConfigurationS3 | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
     }
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -113,35 +127,50 @@ export class IvsRecordingConfigurationDestinationConfigurationS3OutputReference 
 }
 export interface IvsRecordingConfigurationDestinationConfiguration {
   /**
-  * s3 block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#s3 IvsRecordingConfiguration#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#s3 IvsRecordingConfiguration#s3}
+   */
   readonly s3: IvsRecordingConfigurationDestinationConfigurationS3;
 }
 
-export function ivsRecordingConfigurationDestinationConfigurationToTerraform(struct?: IvsRecordingConfigurationDestinationConfigurationOutputReference | IvsRecordingConfigurationDestinationConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivsRecordingConfigurationDestinationConfigurationToTerraform(
+  struct?:
+    | IvsRecordingConfigurationDestinationConfigurationOutputReference
+    | IvsRecordingConfigurationDestinationConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    s3: ivsRecordingConfigurationDestinationConfigurationS3ToTerraform(struct!.s3),
-  }
+    s3: ivsRecordingConfigurationDestinationConfigurationS3ToTerraform(
+      struct!.s3,
+    ),
+  };
 }
 
 export class IvsRecordingConfigurationDestinationConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvsRecordingConfigurationDestinationConfiguration | undefined {
+  public get internalValue():
+    | IvsRecordingConfigurationDestinationConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3?.internalValue !== undefined) {
@@ -151,19 +180,24 @@ export class IvsRecordingConfigurationDestinationConfigurationOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvsRecordingConfigurationDestinationConfiguration | undefined) {
+  public set internalValue(
+    value: IvsRecordingConfigurationDestinationConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3.internalValue = value.s3;
     }
   }
 
   // s3 - computed: false, optional: false, required: true
-  private _s3 = new IvsRecordingConfigurationDestinationConfigurationS3OutputReference(this, "s3");
+  private _s3 =
+    new IvsRecordingConfigurationDestinationConfigurationS3OutputReference(
+      this,
+      's3',
+    );
   public get s3() {
     return this._s3;
   }
@@ -177,38 +211,53 @@ export class IvsRecordingConfigurationDestinationConfigurationOutputReference ex
 }
 export interface IvsRecordingConfigurationThumbnailConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#recording_mode IvsRecordingConfiguration#recording_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#recording_mode IvsRecordingConfiguration#recording_mode}
+   */
   readonly recordingMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#target_interval_seconds IvsRecordingConfiguration#target_interval_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#target_interval_seconds IvsRecordingConfiguration#target_interval_seconds}
+   */
   readonly targetIntervalSeconds?: number;
 }
 
-export function ivsRecordingConfigurationThumbnailConfigurationToTerraform(struct?: IvsRecordingConfigurationThumbnailConfigurationOutputReference | IvsRecordingConfigurationThumbnailConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivsRecordingConfigurationThumbnailConfigurationToTerraform(
+  struct?:
+    | IvsRecordingConfigurationThumbnailConfigurationOutputReference
+    | IvsRecordingConfigurationThumbnailConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     recording_mode: cdktf.stringToTerraform(struct!.recordingMode),
-    target_interval_seconds: cdktf.numberToTerraform(struct!.targetIntervalSeconds),
-  }
+    target_interval_seconds: cdktf.numberToTerraform(
+      struct!.targetIntervalSeconds,
+    ),
+  };
 }
 
 export class IvsRecordingConfigurationThumbnailConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvsRecordingConfigurationThumbnailConfiguration | undefined {
+  public get internalValue():
+    | IvsRecordingConfigurationThumbnailConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._recordingMode !== undefined) {
@@ -222,13 +271,14 @@ export class IvsRecordingConfigurationThumbnailConfigurationOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvsRecordingConfigurationThumbnailConfiguration | undefined) {
+  public set internalValue(
+    value: IvsRecordingConfigurationThumbnailConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._recordingMode = undefined;
       this._targetIntervalSeconds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._recordingMode = value.recordingMode;
       this._targetIntervalSeconds = value.targetIntervalSeconds;
@@ -236,7 +286,7 @@ export class IvsRecordingConfigurationThumbnailConfigurationOutputReference exte
   }
 
   // recording_mode - computed: true, optional: true, required: false
-  private _recordingMode?: string; 
+  private _recordingMode?: string;
   public get recordingMode() {
     return this.getStringAttribute('recording_mode');
   }
@@ -252,7 +302,7 @@ export class IvsRecordingConfigurationThumbnailConfigurationOutputReference exte
   }
 
   // target_interval_seconds - computed: true, optional: true, required: false
-  private _targetIntervalSeconds?: number; 
+  private _targetIntervalSeconds?: number;
   public get targetIntervalSeconds() {
     return this.getNumberAttribute('target_interval_seconds');
   }
@@ -269,24 +319,33 @@ export class IvsRecordingConfigurationThumbnailConfigurationOutputReference exte
 }
 export interface IvsRecordingConfigurationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#create IvsRecordingConfiguration#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#create IvsRecordingConfiguration#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#delete IvsRecordingConfiguration#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration#delete IvsRecordingConfiguration#delete}
+   */
   readonly delete?: string;
 }
 
-export function ivsRecordingConfigurationTimeoutsToTerraform(struct?: IvsRecordingConfigurationTimeoutsOutputReference | IvsRecordingConfigurationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ivsRecordingConfigurationTimeoutsToTerraform(
+  struct?:
+    | IvsRecordingConfigurationTimeoutsOutputReference
+    | IvsRecordingConfigurationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -294,14 +353,20 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): IvsRecordingConfigurationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | IvsRecordingConfigurationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -318,18 +383,18 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: IvsRecordingConfigurationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: IvsRecordingConfigurationTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -338,7 +403,7 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -354,7 +419,7 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -371,33 +436,36 @@ export class IvsRecordingConfigurationTimeoutsOutputReference extends cdktf.Comp
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration aws_ivs_recording_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration aws_ivs_recording_configuration}
+ */
 export class IvsRecordingConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ivs_recording_configuration";
+  public static readonly tfResourceType = 'aws_ivs_recording_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration aws_ivs_recording_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options IvsRecordingConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: IvsRecordingConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ivs_recording_configuration aws_ivs_recording_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options IvsRecordingConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: IvsRecordingConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ivs_recording_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -405,14 +473,16 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
-    this._recordingReconnectWindowSeconds = config.recordingReconnectWindowSeconds;
+    this._recordingReconnectWindowSeconds =
+      config.recordingReconnectWindowSeconds;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._destinationConfiguration.internalValue = config.destinationConfiguration;
+    this._destinationConfiguration.internalValue =
+      config.destinationConfiguration;
     this._thumbnailConfiguration.internalValue = config.thumbnailConfiguration;
     this._timeouts.internalValue = config.timeouts;
   }
@@ -427,7 +497,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -443,7 +513,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,7 +529,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // recording_reconnect_window_seconds - computed: true, optional: true, required: false
-  private _recordingReconnectWindowSeconds?: number; 
+  private _recordingReconnectWindowSeconds?: number;
   public get recordingReconnectWindowSeconds() {
     return this.getNumberAttribute('recording_reconnect_window_seconds');
   }
@@ -480,7 +550,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -496,7 +566,7 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -512,11 +582,17 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // destination_configuration - computed: false, optional: false, required: true
-  private _destinationConfiguration = new IvsRecordingConfigurationDestinationConfigurationOutputReference(this, "destination_configuration");
+  private _destinationConfiguration =
+    new IvsRecordingConfigurationDestinationConfigurationOutputReference(
+      this,
+      'destination_configuration',
+    );
   public get destinationConfiguration() {
     return this._destinationConfiguration;
   }
-  public putDestinationConfiguration(value: IvsRecordingConfigurationDestinationConfiguration) {
+  public putDestinationConfiguration(
+    value: IvsRecordingConfigurationDestinationConfiguration,
+  ) {
     this._destinationConfiguration.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -525,11 +601,17 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // thumbnail_configuration - computed: false, optional: true, required: false
-  private _thumbnailConfiguration = new IvsRecordingConfigurationThumbnailConfigurationOutputReference(this, "thumbnail_configuration");
+  private _thumbnailConfiguration =
+    new IvsRecordingConfigurationThumbnailConfigurationOutputReference(
+      this,
+      'thumbnail_configuration',
+    );
   public get thumbnailConfiguration() {
     return this._thumbnailConfiguration;
   }
-  public putThumbnailConfiguration(value: IvsRecordingConfigurationThumbnailConfiguration) {
+  public putThumbnailConfiguration(
+    value: IvsRecordingConfigurationThumbnailConfiguration,
+  ) {
     this._thumbnailConfiguration.internalValue = value;
   }
   public resetThumbnailConfiguration() {
@@ -541,7 +623,10 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new IvsRecordingConfigurationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new IvsRecordingConfigurationTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -564,12 +649,22 @@ export class IvsRecordingConfiguration extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      recording_reconnect_window_seconds: cdktf.numberToTerraform(this._recordingReconnectWindowSeconds),
+      recording_reconnect_window_seconds: cdktf.numberToTerraform(
+        this._recordingReconnectWindowSeconds,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      destination_configuration: ivsRecordingConfigurationDestinationConfigurationToTerraform(this._destinationConfiguration.internalValue),
-      thumbnail_configuration: ivsRecordingConfigurationThumbnailConfigurationToTerraform(this._thumbnailConfiguration.internalValue),
-      timeouts: ivsRecordingConfigurationTimeoutsToTerraform(this._timeouts.internalValue),
+      destination_configuration:
+        ivsRecordingConfigurationDestinationConfigurationToTerraform(
+          this._destinationConfiguration.internalValue,
+        ),
+      thumbnail_configuration:
+        ivsRecordingConfigurationThumbnailConfigurationToTerraform(
+          this._thumbnailConfiguration.internalValue,
+        ),
+      timeouts: ivsRecordingConfigurationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -1,79 +1,81 @@
 // generated from terraform resource schema
-
-import { DeploymentV1Metadata, 
-deploymentV1MetadataToTerraform, 
-DeploymentV1MetadataOutputReference, 
-DeploymentV1Spec, 
-deploymentV1SpecToTerraform, 
-DeploymentV1SpecOutputReference, 
-DeploymentV1Timeouts, 
-deploymentV1TimeoutsToTerraform, 
-DeploymentV1TimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
-import { Construct } from 'constructs';
+import {
+  DeploymentV1Metadata,
+  deploymentV1MetadataToTerraform,
+  DeploymentV1MetadataOutputReference,
+  DeploymentV1Spec,
+  deploymentV1SpecToTerraform,
+  DeploymentV1SpecOutputReference,
+  DeploymentV1Timeouts,
+  deploymentV1TimeoutsToTerraform,
+  DeploymentV1TimeoutsOutputReference,
+} from './index-structs/index.ts';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface DeploymentV1Config extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#id DeploymentV1#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#id DeploymentV1#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Wait for the rollout of the deployment to complete. Defaults to true.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#wait_for_rollout DeploymentV1#wait_for_rollout}
-  */
+   * Wait for the rollout of the deployment to complete. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#wait_for_rollout DeploymentV1#wait_for_rollout}
+   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#metadata DeploymentV1#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#metadata DeploymentV1#metadata}
+   */
   readonly metadata: DeploymentV1Metadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#spec DeploymentV1#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#spec DeploymentV1#spec}
+   */
   readonly spec: DeploymentV1Spec;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#timeouts DeploymentV1#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1#timeouts DeploymentV1#timeouts}
+   */
   readonly timeouts?: DeploymentV1Timeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1 kubernetes_deployment_v1}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1 kubernetes_deployment_v1}
+ */
 export class DeploymentV1 extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_deployment_v1";
+  public static readonly tfResourceType = 'kubernetes_deployment_v1';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1 kubernetes_deployment_v1} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DeploymentV1Config
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/deployment_v1 kubernetes_deployment_v1} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DeploymentV1Config
+   */
   public constructor(scope: Construct, id: string, config: DeploymentV1Config) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_deployment_v1',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -81,7 +83,7 @@ export class DeploymentV1 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._waitForRollout = config.waitForRollout;
@@ -95,7 +97,7 @@ export class DeploymentV1 extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -111,7 +113,7 @@ export class DeploymentV1 extends cdktf.TerraformResource {
   }
 
   // wait_for_rollout - computed: false, optional: true, required: false
-  private _waitForRollout?: boolean | cdktf.IResolvable; 
+  private _waitForRollout?: boolean | cdktf.IResolvable;
   public get waitForRollout() {
     return this.getBooleanAttribute('wait_for_rollout');
   }
@@ -127,7 +129,7 @@ export class DeploymentV1 extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new DeploymentV1MetadataOutputReference(this, "metadata");
+  private _metadata = new DeploymentV1MetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -140,7 +142,7 @@ export class DeploymentV1 extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new DeploymentV1SpecOutputReference(this, "spec");
+  private _spec = new DeploymentV1SpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -153,7 +155,7 @@ export class DeploymentV1 extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DeploymentV1TimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DeploymentV1TimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }

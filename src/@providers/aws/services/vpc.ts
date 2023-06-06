@@ -1,29 +1,22 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { InputValidators } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsVpcModule } from '../modules/vpc.js';
-import AwsUtils from '../utils.js';
-import { AwsRegionService } from './region.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsVpcModule } from '../modules/vpc.ts';
+import AwsUtils from '../utils.ts';
+import { AwsRegionService } from './region.ts';
 
-export class AwsVpcService extends TerraformResourceService<
-  'vpc',
-  AwsCredentials
-> {
+export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
-  private normalizeVpc(
-    region: string,
-    vpc: AWS.EC2.Vpc,
-  ): ResourceOutputs['vpc'] {
+  private normalizeVpc(region: string, vpc: AWS.EC2.Vpc): ResourceOutputs['vpc'] {
     return {
       id: `${region}/${vpc.VpcId}`,
       name: vpc.Tags?.find((tag) => tag.Key === 'Name')?.Value || '',
-      description:
-        vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
+      description: vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
       region: region,
     };
   }
@@ -37,21 +30,18 @@ export class AwsVpcService extends TerraformResourceService<
       }
 
       const [_, region, uuid] = match;
-      AwsUtils.getEC2(this.credentials, region).describeVpcs(
-        { VpcIds: [uuid] },
-        (err, data) => {
-          if (err) {
-            reject(err);
-            return;
-          }
+      AwsUtils.getEC2(this.credentials, region).describeVpcs({ VpcIds: [uuid] }, (err, data) => {
+        if (err) {
+          reject(err);
+          return;
+        }
 
-          if (!data.Vpcs || data.Vpcs.length <= 0) {
-            resolve(undefined);
-          } else {
-            resolve(this.normalizeVpc(region, data.Vpcs[0]));
-          }
-        },
-      );
+        if (!data.Vpcs || data.Vpcs.length <= 0) {
+          resolve(undefined);
+        } else {
+          resolve(this.normalizeVpc(region, data.Vpcs[0]));
+        }
+      });
     });
   }
 
@@ -75,34 +65,28 @@ export class AwsVpcService extends TerraformResourceService<
     ];
 
     const vpcPromises = [];
-    for (const region of regions.rows.filter((r) =>
-      filterBy.region ? r.id === filterBy.region : true,
-    )) {
+    for (const region of regions.rows.filter((r) => (filterBy.region ? r.id === filterBy.region : true))) {
       vpcPromises.push(
         new Promise<void>(async (resolve, reject) => {
           const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
             .describeVpcs(
               filterBy.name
                 ? {
-                    Filters: [
-                      {
-                        Name: 'tag:Name',
-                        Values: [filterBy.name],
-                      },
-                      ...defaultFilters,
-                    ],
-                  }
+                  Filters: [
+                    {
+                      Name: 'tag:Name',
+                      Values: [filterBy.name],
+                    },
+                    ...defaultFilters,
+                  ],
+                }
                 : {
-                    Filters: defaultFilters,
-                  },
+                  Filters: defaultFilters,
+                },
             )
             .promise();
           res.total += vpcData?.Vpcs?.length || 0;
-          res.rows.push(
-            ...(vpcData?.Vpcs || []).map((vpc) =>
-              this.normalizeVpc(region.id, vpc),
-            ),
-          );
+          res.rows.push(...(vpcData?.Vpcs || []).map((vpc) => this.normalizeVpc(region.id, vpc)));
           resolve();
         }),
       );

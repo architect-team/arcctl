@@ -1,9 +1,9 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { DataDigitaloceanDomain } from '../.gen/providers/digitalocean/data-digitalocean-domain/index.js';
-import { Record as DORecord } from '../.gen/providers/digitalocean/record/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDnsRecordService } from '../services/dns-record.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { DataDigitaloceanDomain } from '../.gen/providers/digitalocean/data-digitalocean-domain/index.ts';
+import { Record as DORecord } from '../.gen/providers/digitalocean/record/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDnsRecordService } from '../services/dns-record.ts';
 import { Construct } from 'constructs';
 
 export class DigitaloceanDnsRecordModule extends ResourceModule<
@@ -62,14 +62,12 @@ export class DigitaloceanDnsRecordModule extends ResourceModule<
       const dns_record_service = new DigitaloceanDnsRecordService(credentials);
       const dns_records = await dns_record_service.list();
       dns_record_match = dns_records.rows.find(
-        (r) =>
-          r.name === resourceId && r.recordType === this.dns_record.typeInput,
+        (r) => r.name === resourceId && r.recordType === this.dns_record.typeInput,
       );
     }
 
     return {
-      [this.getResourceRef(this.dns_record)]:
-        dns_record_match?.id || resourceId,
+      [this.getResourceRef(this.dns_record)]: dns_record_match?.id || resourceId,
     };
   }
 

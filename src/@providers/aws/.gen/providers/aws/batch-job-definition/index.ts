@@ -1,94 +1,99 @@
 // https://www.terraform.io/docs/providers/aws/r/batch_job_definition
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface BatchJobDefinitionConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#container_properties BatchJobDefinition#container_properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#container_properties BatchJobDefinition#container_properties}
+   */
   readonly containerProperties?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#id BatchJobDefinition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#id BatchJobDefinition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#name BatchJobDefinition#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#name BatchJobDefinition#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#parameters BatchJobDefinition#parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#parameters BatchJobDefinition#parameters}
+   */
   readonly parameters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#platform_capabilities BatchJobDefinition#platform_capabilities}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#platform_capabilities BatchJobDefinition#platform_capabilities}
+   */
   readonly platformCapabilities?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#propagate_tags BatchJobDefinition#propagate_tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#propagate_tags BatchJobDefinition#propagate_tags}
+   */
   readonly propagateTags?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#tags BatchJobDefinition#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#tags BatchJobDefinition#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#tags_all BatchJobDefinition#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#tags_all BatchJobDefinition#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#type BatchJobDefinition#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#type BatchJobDefinition#type}
+   */
   readonly type: string;
   /**
-  * retry_strategy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#retry_strategy BatchJobDefinition#retry_strategy}
-  */
+   * retry_strategy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#retry_strategy BatchJobDefinition#retry_strategy}
+   */
   readonly retryStrategy?: BatchJobDefinitionRetryStrategy;
   /**
-  * timeout block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#timeout BatchJobDefinition#timeout}
-  */
+   * timeout block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#timeout BatchJobDefinition#timeout}
+   */
   readonly timeout?: BatchJobDefinitionTimeout;
 }
 export interface BatchJobDefinitionRetryStrategyEvaluateOnExit {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#action BatchJobDefinition#action}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#action BatchJobDefinition#action}
+   */
   readonly action: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#on_exit_code BatchJobDefinition#on_exit_code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#on_exit_code BatchJobDefinition#on_exit_code}
+   */
   readonly onExitCode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#on_reason BatchJobDefinition#on_reason}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#on_reason BatchJobDefinition#on_reason}
+   */
   readonly onReason?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#on_status_reason BatchJobDefinition#on_status_reason}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#on_status_reason BatchJobDefinition#on_status_reason}
+   */
   readonly onStatusReason?: string;
 }
 
-export function batchJobDefinitionRetryStrategyEvaluateOnExitToTerraform(struct?: BatchJobDefinitionRetryStrategyEvaluateOnExit | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function batchJobDefinitionRetryStrategyEvaluateOnExitToTerraform(
+  struct?: BatchJobDefinitionRetryStrategyEvaluateOnExit | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     action: cdktf.stringToTerraform(struct!.action),
     on_exit_code: cdktf.stringToTerraform(struct!.onExitCode),
     on_reason: cdktf.stringToTerraform(struct!.onReason),
     on_status_reason: cdktf.stringToTerraform(struct!.onStatusReason),
-  }
+  };
 }
 
 export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extends cdktf.ComplexObject {
@@ -96,16 +101,29 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): BatchJobDefinitionRetryStrategyEvaluateOnExit | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | BatchJobDefinitionRetryStrategyEvaluateOnExit
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -130,7 +148,12 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: BatchJobDefinitionRetryStrategyEvaluateOnExit | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | BatchJobDefinitionRetryStrategyEvaluateOnExit
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -138,12 +161,10 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
       this._onExitCode = undefined;
       this._onReason = undefined;
       this._onStatusReason = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._action = value.action;
@@ -154,7 +175,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // action - computed: false, optional: false, required: true
-  private _action?: string; 
+  private _action?: string;
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -167,7 +188,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // on_exit_code - computed: false, optional: true, required: false
-  private _onExitCode?: string; 
+  private _onExitCode?: string;
   public get onExitCode() {
     return this.getStringAttribute('on_exit_code');
   }
@@ -183,7 +204,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // on_reason - computed: false, optional: true, required: false
-  private _onReason?: string; 
+  private _onReason?: string;
   public get onReason() {
     return this.getStringAttribute('on_reason');
   }
@@ -199,7 +220,7 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
   }
 
   // on_status_reason - computed: false, optional: true, required: false
-  private _onStatusReason?: string; 
+  private _onStatusReason?: string;
   public get onStatusReason() {
     return this.getStringAttribute('on_status_reason');
   }
@@ -216,56 +237,85 @@ export class BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference extend
 }
 
 export class BatchJobDefinitionRetryStrategyEvaluateOnExitList extends cdktf.ComplexList {
-  public internalValue? : BatchJobDefinitionRetryStrategyEvaluateOnExit[] | cdktf.IResolvable
+  public internalValue?:
+    | BatchJobDefinitionRetryStrategyEvaluateOnExit[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference {
-    return new BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference {
+    return new BatchJobDefinitionRetryStrategyEvaluateOnExitOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface BatchJobDefinitionRetryStrategy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#attempts BatchJobDefinition#attempts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#attempts BatchJobDefinition#attempts}
+   */
   readonly attempts?: number;
   /**
-  * evaluate_on_exit block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#evaluate_on_exit BatchJobDefinition#evaluate_on_exit}
-  */
-  readonly evaluateOnExit?: BatchJobDefinitionRetryStrategyEvaluateOnExit[] | cdktf.IResolvable;
+   * evaluate_on_exit block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#evaluate_on_exit BatchJobDefinition#evaluate_on_exit}
+   */
+  readonly evaluateOnExit?:
+    | BatchJobDefinitionRetryStrategyEvaluateOnExit[]
+    | cdktf.IResolvable;
 }
 
-export function batchJobDefinitionRetryStrategyToTerraform(struct?: BatchJobDefinitionRetryStrategyOutputReference | BatchJobDefinitionRetryStrategy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function batchJobDefinitionRetryStrategyToTerraform(
+  struct?:
+    | BatchJobDefinitionRetryStrategyOutputReference
+    | BatchJobDefinitionRetryStrategy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     attempts: cdktf.numberToTerraform(struct!.attempts),
-    evaluate_on_exit: cdktf.listMapper(batchJobDefinitionRetryStrategyEvaluateOnExitToTerraform, true)(struct!.evaluateOnExit),
-  }
+    evaluate_on_exit: cdktf.listMapper(
+      batchJobDefinitionRetryStrategyEvaluateOnExitToTerraform,
+      true,
+    )(struct!.evaluateOnExit),
+  };
 }
 
 export class BatchJobDefinitionRetryStrategyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -288,8 +338,7 @@ export class BatchJobDefinitionRetryStrategyOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._attempts = undefined;
       this._evaluateOnExit.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attempts = value.attempts;
       this._evaluateOnExit.internalValue = value.evaluateOnExit;
@@ -297,7 +346,7 @@ export class BatchJobDefinitionRetryStrategyOutputReference extends cdktf.Comple
   }
 
   // attempts - computed: false, optional: true, required: false
-  private _attempts?: number; 
+  private _attempts?: number;
   public get attempts() {
     return this.getNumberAttribute('attempts');
   }
@@ -313,11 +362,18 @@ export class BatchJobDefinitionRetryStrategyOutputReference extends cdktf.Comple
   }
 
   // evaluate_on_exit - computed: false, optional: true, required: false
-  private _evaluateOnExit = new BatchJobDefinitionRetryStrategyEvaluateOnExitList(this, "evaluate_on_exit", false);
+  private _evaluateOnExit =
+    new BatchJobDefinitionRetryStrategyEvaluateOnExitList(
+      this,
+      'evaluate_on_exit',
+      false,
+    );
   public get evaluateOnExit() {
     return this._evaluateOnExit;
   }
-  public putEvaluateOnExit(value: BatchJobDefinitionRetryStrategyEvaluateOnExit[] | cdktf.IResolvable) {
+  public putEvaluateOnExit(
+    value: BatchJobDefinitionRetryStrategyEvaluateOnExit[] | cdktf.IResolvable,
+  ) {
     this._evaluateOnExit.internalValue = value;
   }
   public resetEvaluateOnExit() {
@@ -330,29 +386,40 @@ export class BatchJobDefinitionRetryStrategyOutputReference extends cdktf.Comple
 }
 export interface BatchJobDefinitionTimeout {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#attempt_duration_seconds BatchJobDefinition#attempt_duration_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition#attempt_duration_seconds BatchJobDefinition#attempt_duration_seconds}
+   */
   readonly attemptDurationSeconds?: number;
 }
 
-export function batchJobDefinitionTimeoutToTerraform(struct?: BatchJobDefinitionTimeoutOutputReference | BatchJobDefinitionTimeout): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function batchJobDefinitionTimeoutToTerraform(
+  struct?: BatchJobDefinitionTimeoutOutputReference | BatchJobDefinitionTimeout,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    attempt_duration_seconds: cdktf.numberToTerraform(struct!.attemptDurationSeconds),
-  }
+    attempt_duration_seconds: cdktf.numberToTerraform(
+      struct!.attemptDurationSeconds,
+    ),
+  };
 }
 
 export class BatchJobDefinitionTimeoutOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -370,15 +437,14 @@ export class BatchJobDefinitionTimeoutOutputReference extends cdktf.ComplexObjec
     if (value === undefined) {
       this.isEmptyObject = false;
       this._attemptDurationSeconds = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._attemptDurationSeconds = value.attemptDurationSeconds;
     }
   }
 
   // attempt_duration_seconds - computed: false, optional: true, required: false
-  private _attemptDurationSeconds?: number; 
+  private _attemptDurationSeconds?: number;
   public get attemptDurationSeconds() {
     return this.getNumberAttribute('attempt_duration_seconds');
   }
@@ -395,33 +461,36 @@ export class BatchJobDefinitionTimeoutOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition aws_batch_job_definition}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition aws_batch_job_definition}
+ */
 export class BatchJobDefinition extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_batch_job_definition";
+  public static readonly tfResourceType = 'aws_batch_job_definition';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition aws_batch_job_definition} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options BatchJobDefinitionConfig
-  */
-  public constructor(scope: Construct, id: string, config: BatchJobDefinitionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/batch_job_definition aws_batch_job_definition} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options BatchJobDefinitionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: BatchJobDefinitionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_batch_job_definition',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -429,7 +498,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._containerProperties = config.containerProperties;
     this._id = config.id;
@@ -454,7 +523,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // container_properties - computed: false, optional: true, required: false
-  private _containerProperties?: string; 
+  private _containerProperties?: string;
   public get containerProperties() {
     return this.getStringAttribute('container_properties');
   }
@@ -470,7 +539,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -486,7 +555,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -499,7 +568,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -515,7 +584,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // platform_capabilities - computed: false, optional: true, required: false
-  private _platformCapabilities?: string[]; 
+  private _platformCapabilities?: string[];
   public get platformCapabilities() {
     return cdktf.Fn.tolist(this.getListAttribute('platform_capabilities'));
   }
@@ -531,7 +600,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // propagate_tags - computed: false, optional: true, required: false
-  private _propagateTags?: boolean | cdktf.IResolvable; 
+  private _propagateTags?: boolean | cdktf.IResolvable;
   public get propagateTags() {
     return this.getBooleanAttribute('propagate_tags');
   }
@@ -552,7 +621,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -568,7 +637,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -584,7 +653,7 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -597,7 +666,10 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // retry_strategy - computed: false, optional: true, required: false
-  private _retryStrategy = new BatchJobDefinitionRetryStrategyOutputReference(this, "retry_strategy");
+  private _retryStrategy = new BatchJobDefinitionRetryStrategyOutputReference(
+    this,
+    'retry_strategy',
+  );
   public get retryStrategy() {
     return this._retryStrategy;
   }
@@ -613,7 +685,10 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout = new BatchJobDefinitionTimeoutOutputReference(this, "timeout");
+  private _timeout = new BatchJobDefinitionTimeoutOutputReference(
+    this,
+    'timeout',
+  );
   public get timeout() {
     return this._timeout;
   }
@@ -638,13 +713,20 @@ export class BatchJobDefinition extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       parameters: cdktf.hashMapper(cdktf.stringToTerraform)(this._parameters),
-      platform_capabilities: cdktf.listMapper(cdktf.stringToTerraform, false)(this._platformCapabilities),
+      platform_capabilities: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._platformCapabilities),
       propagate_tags: cdktf.booleanToTerraform(this._propagateTags),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       type: cdktf.stringToTerraform(this._type),
-      retry_strategy: batchJobDefinitionRetryStrategyToTerraform(this._retryStrategy.internalValue),
-      timeout: batchJobDefinitionTimeoutToTerraform(this._timeout.internalValue),
+      retry_strategy: batchJobDefinitionRetryStrategyToTerraform(
+        this._retryStrategy.internalValue,
+      ),
+      timeout: batchJobDefinitionTimeoutToTerraform(
+        this._timeout.internalValue,
+      ),
     };
   }
 }

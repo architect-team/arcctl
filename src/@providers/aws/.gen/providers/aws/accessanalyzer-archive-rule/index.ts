@@ -1,69 +1,78 @@
 // https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface AccessanalyzerArchiveRuleConfig extends cdktf.TerraformMetaArguments {
+export interface AccessanalyzerArchiveRuleConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#analyzer_name AccessanalyzerArchiveRule#analyzer_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#analyzer_name AccessanalyzerArchiveRule#analyzer_name}
+   */
   readonly analyzerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#id AccessanalyzerArchiveRule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#id AccessanalyzerArchiveRule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#rule_name AccessanalyzerArchiveRule#rule_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#rule_name AccessanalyzerArchiveRule#rule_name}
+   */
   readonly ruleName: string;
   /**
-  * filter block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#filter AccessanalyzerArchiveRule#filter}
-  */
+   * filter block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#filter AccessanalyzerArchiveRule#filter}
+   */
   readonly filter: AccessanalyzerArchiveRuleFilter[] | cdktf.IResolvable;
 }
 export interface AccessanalyzerArchiveRuleFilter {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#contains AccessanalyzerArchiveRule#contains}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#contains AccessanalyzerArchiveRule#contains}
+   */
   readonly contains?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#criteria AccessanalyzerArchiveRule#criteria}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#criteria AccessanalyzerArchiveRule#criteria}
+   */
   readonly criteria: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#eq AccessanalyzerArchiveRule#eq}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#eq AccessanalyzerArchiveRule#eq}
+   */
   readonly eq?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#exists AccessanalyzerArchiveRule#exists}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#exists AccessanalyzerArchiveRule#exists}
+   */
   readonly exists?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#neq AccessanalyzerArchiveRule#neq}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule#neq AccessanalyzerArchiveRule#neq}
+   */
   readonly neq?: string[];
 }
 
-export function accessanalyzerArchiveRuleFilterToTerraform(struct?: AccessanalyzerArchiveRuleFilter | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function accessanalyzerArchiveRuleFilterToTerraform(
+  struct?: AccessanalyzerArchiveRuleFilter | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    contains: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.contains),
+    contains: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.contains),
     criteria: cdktf.stringToTerraform(struct!.criteria),
     eq: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.eq),
     exists: cdktf.stringToTerraform(struct!.exists),
     neq: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.neq),
-  }
+  };
 }
 
 export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.ComplexObject {
@@ -71,16 +80,29 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AccessanalyzerArchiveRuleFilter | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AccessanalyzerArchiveRuleFilter
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -109,7 +131,9 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AccessanalyzerArchiveRuleFilter | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: AccessanalyzerArchiveRuleFilter | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -118,12 +142,10 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
       this._eq = undefined;
       this._exists = undefined;
       this._neq = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._contains = value.contains;
@@ -135,7 +157,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // contains - computed: true, optional: true, required: false
-  private _contains?: string[]; 
+  private _contains?: string[];
   public get contains() {
     return this.getListAttribute('contains');
   }
@@ -151,7 +173,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // criteria - computed: false, optional: false, required: true
-  private _criteria?: string; 
+  private _criteria?: string;
   public get criteria() {
     return this.getStringAttribute('criteria');
   }
@@ -164,7 +186,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // eq - computed: true, optional: true, required: false
-  private _eq?: string[]; 
+  private _eq?: string[];
   public get eq() {
     return this.getListAttribute('eq');
   }
@@ -180,7 +202,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // exists - computed: true, optional: true, required: false
-  private _exists?: string; 
+  private _exists?: string;
   public get exists() {
     return this.getStringAttribute('exists');
   }
@@ -196,7 +218,7 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
   }
 
   // neq - computed: true, optional: true, required: false
-  private _neq?: string[]; 
+  private _neq?: string[];
   public get neq() {
     return this.getListAttribute('neq');
   }
@@ -213,53 +235,65 @@ export class AccessanalyzerArchiveRuleFilterOutputReference extends cdktf.Comple
 }
 
 export class AccessanalyzerArchiveRuleFilterList extends cdktf.ComplexList {
-  public internalValue? : AccessanalyzerArchiveRuleFilter[] | cdktf.IResolvable
+  public internalValue?: AccessanalyzerArchiveRuleFilter[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): AccessanalyzerArchiveRuleFilterOutputReference {
-    return new AccessanalyzerArchiveRuleFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new AccessanalyzerArchiveRuleFilterOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule aws_accessanalyzer_archive_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule aws_accessanalyzer_archive_rule}
+ */
 export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_accessanalyzer_archive_rule";
+  public static readonly tfResourceType = 'aws_accessanalyzer_archive_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule aws_accessanalyzer_archive_rule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AccessanalyzerArchiveRuleConfig
-  */
-  public constructor(scope: Construct, id: string, config: AccessanalyzerArchiveRuleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_archive_rule aws_accessanalyzer_archive_rule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AccessanalyzerArchiveRuleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AccessanalyzerArchiveRuleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_accessanalyzer_archive_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -267,7 +301,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._analyzerName = config.analyzerName;
     this._id = config.id;
@@ -280,7 +314,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   // ==========
 
   // analyzer_name - computed: false, optional: false, required: true
-  private _analyzerName?: string; 
+  private _analyzerName?: string;
   public get analyzerName() {
     return this.getStringAttribute('analyzer_name');
   }
@@ -293,7 +327,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -309,7 +343,7 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   }
 
   // rule_name - computed: false, optional: false, required: true
-  private _ruleName?: string; 
+  private _ruleName?: string;
   public get ruleName() {
     return this.getStringAttribute('rule_name');
   }
@@ -322,11 +356,17 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
   }
 
   // filter - computed: false, optional: false, required: true
-  private _filter = new AccessanalyzerArchiveRuleFilterList(this, "filter", true);
+  private _filter = new AccessanalyzerArchiveRuleFilterList(
+    this,
+    'filter',
+    true,
+  );
   public get filter() {
     return this._filter;
   }
-  public putFilter(value: AccessanalyzerArchiveRuleFilter[] | cdktf.IResolvable) {
+  public putFilter(
+    value: AccessanalyzerArchiveRuleFilter[] | cdktf.IResolvable,
+  ) {
     this._filter.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -343,7 +383,10 @@ export class AccessanalyzerArchiveRule extends cdktf.TerraformResource {
       analyzer_name: cdktf.stringToTerraform(this._analyzerName),
       id: cdktf.stringToTerraform(this._id),
       rule_name: cdktf.stringToTerraform(this._ruleName),
-      filter: cdktf.listMapper(accessanalyzerArchiveRuleFilterToTerraform, true)(this._filter.internalValue),
+      filter: cdktf.listMapper(
+        accessanalyzerArchiveRuleFilterToTerraform,
+        true,
+      )(this._filter.internalValue),
     };
   }
 }

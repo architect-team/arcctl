@@ -1,43 +1,68 @@
-#!/usr/bin/env ts-node
-
-import url from 'url';
-import path from 'path';
-import fs from 'fs/promises';
-import { execa } from 'execa';
+import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
 import Mustache from 'mustache';
+import * as path from 'std/path/mod.ts';
+import { exec } from '../../src/utils/command.ts';
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = new URL('.', import.meta.url).pathname;
 const environments_dir = path.join(__dirname, '../../src/environments');
+const build_dir = path.join(__dirname, 'build');
 
-const all_versions = (
-  await fs.readdir(environments_dir, { withFileTypes: true })
-)
-  .filter((dirent) => dirent.isDirectory() && dirent.name !== '__tests__')
-  .map((dirent) => dirent.name);
+await emptyDir(build_dir);
 
-fs.writeFile(
+const all_versions = [];
+for await (const dirEntry of Deno.readDir(environments_dir)) {
+  if (dirEntry.isDirectory && dirEntry.name !== '__tests__') {
+    all_versions.push(dirEntry.name);
+  }
+}
+all_versions.sort((a, b) => a.localeCompare(b));
+
+// Create the updated schema.ts file for all available schemas.
+Deno.writeTextFile(
   path.join(environments_dir, 'schema.ts'),
-  Mustache.render(
-    await fs.readFile(path.join(environments_dir, 'schema.ts.stache'), 'utf-8'),
-    {
-      versions: all_versions,
-    }
-  )
+  Mustache.render(await Deno.readTextFile(path.join(environments_dir, 'schema.ts.stache')), {
+    versions: all_versions,
+  }),
 );
 
-let { stdout: type_schema_string } = await execa(
-  path.join(__dirname, '../../node_modules/.bin/ts-json-schema-generator'),
-  [
+// Builds the schema into an npm package. This will convert files to .js and .d.ts with
+// Deno shims so that "ts-json-schema-generator" can be run on it and infer types properly.
+await build({
+  typeCheck: false,
+  test: false,
+  entryPoints: [path.join(environments_dir, 'schema.ts')],
+  outDir: build_dir,
+  compilerOptions: {
+    lib: ['ES2022'],
+    target: 'ES2020',
+  },
+  shims: {
+    deno: true,
+  },
+  package: {
+    name: 'environment-schema',
+    version: '0.0.1',
+    description: 'environment schema transpilation',
+  },
+});
+
+console.log('Finishing building temp package, generating JSON schema...');
+const { stdout: type_schema_string } = await exec('deno', {
+  args: [
+    'run',
+    '--allow-read',
+    'npm:ts-json-schema-generator',
     '--path',
-    path.join(environments_dir, './schema.ts'),
+    path.join(build_dir, 'src', 'environments', 'schema.ts'),
     '--expose',
     'none',
     '--type',
     'EnvironmentSchema',
     '--tsconfig',
-    path.join(__dirname, '../../tsconfig.json'),
-  ]
-);
+    path.join(__dirname, '..', '..', 'tsconfig.json'),
+    '--no-type-check',
+  ],
+});
 
 let type_schema = JSON.parse(type_schema_string);
 if (type_schema.definitions.EnvironmentSchema.anyOf) {
@@ -56,7 +81,10 @@ if (type_schema.definitions.EnvironmentSchema.anyOf) {
   type_schema.$id = 'https://architect.io/.schemas/environment.json';
 }
 
-await fs.writeFile(
+await Deno.writeTextFile(
   path.join(environments_dir, './environment.schema.json'),
-  JSON.stringify(type_schema, null, 2)
+  JSON.stringify(type_schema, null, 2),
 );
+console.log(`Done! Updated schema is located at ${path.join(environments_dir, './environment.schema.json')}`);
+
+Deno.removeSync(build_dir, { recursive: true });

@@ -1,18 +1,15 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { BaseService } from '../../service.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { BaseService } from '../../service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
 
 export class AwsNodeSizeService extends BaseService<'nodeSize'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
-  private async getInstanceTypes(
-    ec2: AWS.EC2,
-    token?: string,
-  ): Promise<string[]> {
+  private async getInstanceTypes(ec2: AWS.EC2, token?: string): Promise<string[]> {
     const ec2InstanceTypeData = await ec2
       .describeInstanceTypes({
         NextToken: token,
@@ -22,9 +19,7 @@ export class AwsNodeSizeService extends BaseService<'nodeSize'> {
       ...(ec2InstanceTypeData.InstanceTypes?.map((instance) => {
         return instance.InstanceType || '';
       }) || []),
-      ...(ec2InstanceTypeData.NextToken
-        ? await this.getInstanceTypes(ec2, ec2InstanceTypeData.NextToken)
-        : []),
+      ...(ec2InstanceTypeData.NextToken ? await this.getInstanceTypes(ec2, ec2InstanceTypeData.NextToken) : []),
     ];
     return types;
   }

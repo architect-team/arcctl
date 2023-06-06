@@ -1,61 +1,64 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface CloudwatchQueryDefinitionConfig extends cdktf.TerraformMetaArguments {
+export interface CloudwatchQueryDefinitionConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#id CloudwatchQueryDefinition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#id CloudwatchQueryDefinition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#log_group_names CloudwatchQueryDefinition#log_group_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#log_group_names CloudwatchQueryDefinition#log_group_names}
+   */
   readonly logGroupNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#name CloudwatchQueryDefinition#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#name CloudwatchQueryDefinition#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#query_string CloudwatchQueryDefinition#query_string}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition#query_string CloudwatchQueryDefinition#query_string}
+   */
   readonly queryString: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition aws_cloudwatch_query_definition}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition aws_cloudwatch_query_definition}
+ */
 export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudwatch_query_definition";
+  public static readonly tfResourceType = 'aws_cloudwatch_query_definition';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition aws_cloudwatch_query_definition} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudwatchQueryDefinitionConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudwatchQueryDefinitionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_query_definition aws_cloudwatch_query_definition} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudwatchQueryDefinitionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudwatchQueryDefinitionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudwatch_query_definition',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +66,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._logGroupNames = config.logGroupNames;
@@ -76,7 +79,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +95,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   }
 
   // log_group_names - computed: false, optional: true, required: false
-  private _logGroupNames?: string[]; 
+  private _logGroupNames?: string[];
   public get logGroupNames() {
     return this.getListAttribute('log_group_names');
   }
@@ -108,7 +111,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -126,7 +129,7 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   }
 
   // query_string - computed: false, optional: false, required: true
-  private _queryString?: string; 
+  private _queryString?: string;
   public get queryString() {
     return this.getStringAttribute('query_string');
   }
@@ -145,7 +148,10 @@ export class CloudwatchQueryDefinition extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      log_group_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._logGroupNames),
+      log_group_names: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._logGroupNames),
       name: cdktf.stringToTerraform(this._name),
       query_string: cdktf.stringToTerraform(this._queryString),
     };

@@ -1,7 +1,4 @@
-import {
-  ProviderCredentials,
-  ProviderCredentialsSchema,
-} from '../credentials.js';
+import { ProviderCredentials, ProviderCredentialsSchema } from '../credentials.ts';
 
 export interface AwsCredentials extends ProviderCredentials {
   accessKeyId: string;

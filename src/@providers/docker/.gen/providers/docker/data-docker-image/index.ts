@@ -1,55 +1,57 @@
 // https://www.terraform.io/docs/providers/docker/d/image
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DataDockerImageConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/image#id DataDockerImage#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/image#id DataDockerImage#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * The name of the Docker image, including any tags or SHA256 repo digests.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/image#name DataDockerImage#name}
-  */
+   * The name of the Docker image, including any tags or SHA256 repo digests.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/d/image#name DataDockerImage#name}
+   */
   readonly name: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/d/image docker_image}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/d/image docker_image}
+ */
 export class DataDockerImage extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_image";
+  public static readonly tfResourceType = 'docker_image';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/d/image docker_image} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataDockerImageConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataDockerImageConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/d/image docker_image} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataDockerImageConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataDockerImageConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'docker_image',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -57,7 +59,7 @@ export class DataDockerImage extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -68,7 +70,7 @@ export class DataDockerImage extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -84,7 +86,7 @@ export class DataDockerImage extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }

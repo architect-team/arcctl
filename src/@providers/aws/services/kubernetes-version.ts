@@ -1,17 +1,15 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { BaseService } from '../../service.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { BaseService } from '../../service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
 
 export class AwsKubernetesVersionService extends BaseService<'kubernetesVersion'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['kubernetesVersion'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['kubernetesVersion'] | undefined> {
     const eks = AwsUtils.getEKS(this.credentials);
     const versionData = await eks.describeAddonVersions({}).promise();
 
@@ -41,10 +39,7 @@ export class AwsKubernetesVersionService extends BaseService<'kubernetesVersion'
     for (const addon of versionData?.addons || []) {
       for (const addonVersion of addon?.addonVersions || []) {
         for (const compatability of addonVersion.compatibilities || []) {
-          if (
-            compatability.clusterVersion &&
-            !versions.includes(compatability.clusterVersion)
-          ) {
+          if (compatability.clusterVersion && !versions.includes(compatability.clusterVersion)) {
             versions.push(compatability.clusterVersion || '');
           }
         }

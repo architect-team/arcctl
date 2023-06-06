@@ -1,86 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/service_discovery_service
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ServiceDiscoveryServiceConfig extends cdktf.TerraformMetaArguments {
+export interface ServiceDiscoveryServiceConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#description ServiceDiscoveryService#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#description ServiceDiscoveryService#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#force_destroy ServiceDiscoveryService#force_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#force_destroy ServiceDiscoveryService#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#id ServiceDiscoveryService#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#id ServiceDiscoveryService#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#name ServiceDiscoveryService#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#name ServiceDiscoveryService#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#namespace_id ServiceDiscoveryService#namespace_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#namespace_id ServiceDiscoveryService#namespace_id}
+   */
   readonly namespaceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#tags ServiceDiscoveryService#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#tags ServiceDiscoveryService#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#tags_all ServiceDiscoveryService#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#tags_all ServiceDiscoveryService#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#type ServiceDiscoveryService#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#type ServiceDiscoveryService#type}
+   */
   readonly type?: string;
   /**
-  * dns_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#dns_config ServiceDiscoveryService#dns_config}
-  */
+   * dns_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#dns_config ServiceDiscoveryService#dns_config}
+   */
   readonly dnsConfig?: ServiceDiscoveryServiceDnsConfig;
   /**
-  * health_check_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#health_check_config ServiceDiscoveryService#health_check_config}
-  */
+   * health_check_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#health_check_config ServiceDiscoveryService#health_check_config}
+   */
   readonly healthCheckConfig?: ServiceDiscoveryServiceHealthCheckConfig;
   /**
-  * health_check_custom_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#health_check_custom_config ServiceDiscoveryService#health_check_custom_config}
-  */
+   * health_check_custom_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#health_check_custom_config ServiceDiscoveryService#health_check_custom_config}
+   */
   readonly healthCheckCustomConfig?: ServiceDiscoveryServiceHealthCheckCustomConfig;
 }
 export interface ServiceDiscoveryServiceDnsConfigDnsRecords {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#ttl ServiceDiscoveryService#ttl}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#ttl ServiceDiscoveryService#ttl}
+   */
   readonly ttl: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#type ServiceDiscoveryService#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#type ServiceDiscoveryService#type}
+   */
   readonly type: string;
 }
 
-export function serviceDiscoveryServiceDnsConfigDnsRecordsToTerraform(struct?: ServiceDiscoveryServiceDnsConfigDnsRecords | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceDiscoveryServiceDnsConfigDnsRecordsToTerraform(
+  struct?: ServiceDiscoveryServiceDnsConfigDnsRecords | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     ttl: cdktf.numberToTerraform(struct!.ttl),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference extends cdktf.ComplexObject {
@@ -88,16 +94,29 @@ export class ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceDiscoveryServiceDnsConfigDnsRecords | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceDiscoveryServiceDnsConfigDnsRecords
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -114,18 +133,21 @@ export class ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceDiscoveryServiceDnsConfigDnsRecords | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServiceDiscoveryServiceDnsConfigDnsRecords
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._ttl = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._ttl = value.ttl;
@@ -134,7 +156,7 @@ export class ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference extends c
   }
 
   // ttl - computed: false, optional: false, required: true
-  private _ttl?: number; 
+  private _ttl?: number;
   public get ttl() {
     return this.getNumberAttribute('ttl');
   }
@@ -147,7 +169,7 @@ export class ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference extends c
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -161,61 +183,90 @@ export class ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference extends c
 }
 
 export class ServiceDiscoveryServiceDnsConfigDnsRecordsList extends cdktf.ComplexList {
-  public internalValue? : ServiceDiscoveryServiceDnsConfigDnsRecords[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceDiscoveryServiceDnsConfigDnsRecords[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference {
-    return new ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference {
+    return new ServiceDiscoveryServiceDnsConfigDnsRecordsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceDiscoveryServiceDnsConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#namespace_id ServiceDiscoveryService#namespace_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#namespace_id ServiceDiscoveryService#namespace_id}
+   */
   readonly namespaceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#routing_policy ServiceDiscoveryService#routing_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#routing_policy ServiceDiscoveryService#routing_policy}
+   */
   readonly routingPolicy?: string;
   /**
-  * dns_records block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#dns_records ServiceDiscoveryService#dns_records}
-  */
-  readonly dnsRecords: ServiceDiscoveryServiceDnsConfigDnsRecords[] | cdktf.IResolvable;
+   * dns_records block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#dns_records ServiceDiscoveryService#dns_records}
+   */
+  readonly dnsRecords:
+    | ServiceDiscoveryServiceDnsConfigDnsRecords[]
+    | cdktf.IResolvable;
 }
 
-export function serviceDiscoveryServiceDnsConfigToTerraform(struct?: ServiceDiscoveryServiceDnsConfigOutputReference | ServiceDiscoveryServiceDnsConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceDiscoveryServiceDnsConfigToTerraform(
+  struct?:
+    | ServiceDiscoveryServiceDnsConfigOutputReference
+    | ServiceDiscoveryServiceDnsConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     namespace_id: cdktf.stringToTerraform(struct!.namespaceId),
     routing_policy: cdktf.stringToTerraform(struct!.routingPolicy),
-    dns_records: cdktf.listMapper(serviceDiscoveryServiceDnsConfigDnsRecordsToTerraform, true)(struct!.dnsRecords),
-  }
+    dns_records: cdktf.listMapper(
+      serviceDiscoveryServiceDnsConfigDnsRecordsToTerraform,
+      true,
+    )(struct!.dnsRecords),
+  };
 }
 
 export class ServiceDiscoveryServiceDnsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -237,14 +288,15 @@ export class ServiceDiscoveryServiceDnsConfigOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceDiscoveryServiceDnsConfig | undefined) {
+  public set internalValue(
+    value: ServiceDiscoveryServiceDnsConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._namespaceId = undefined;
       this._routingPolicy = undefined;
       this._dnsRecords.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._namespaceId = value.namespaceId;
       this._routingPolicy = value.routingPolicy;
@@ -253,7 +305,7 @@ export class ServiceDiscoveryServiceDnsConfigOutputReference extends cdktf.Compl
   }
 
   // namespace_id - computed: false, optional: false, required: true
-  private _namespaceId?: string; 
+  private _namespaceId?: string;
   public get namespaceId() {
     return this.getStringAttribute('namespace_id');
   }
@@ -266,7 +318,7 @@ export class ServiceDiscoveryServiceDnsConfigOutputReference extends cdktf.Compl
   }
 
   // routing_policy - computed: false, optional: true, required: false
-  private _routingPolicy?: string; 
+  private _routingPolicy?: string;
   public get routingPolicy() {
     return this.getStringAttribute('routing_policy');
   }
@@ -282,11 +334,17 @@ export class ServiceDiscoveryServiceDnsConfigOutputReference extends cdktf.Compl
   }
 
   // dns_records - computed: false, optional: false, required: true
-  private _dnsRecords = new ServiceDiscoveryServiceDnsConfigDnsRecordsList(this, "dns_records", false);
+  private _dnsRecords = new ServiceDiscoveryServiceDnsConfigDnsRecordsList(
+    this,
+    'dns_records',
+    false,
+  );
   public get dnsRecords() {
     return this._dnsRecords;
   }
-  public putDnsRecords(value: ServiceDiscoveryServiceDnsConfigDnsRecords[] | cdktf.IResolvable) {
+  public putDnsRecords(
+    value: ServiceDiscoveryServiceDnsConfigDnsRecords[] | cdktf.IResolvable,
+  ) {
     this._dnsRecords.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -296,43 +354,56 @@ export class ServiceDiscoveryServiceDnsConfigOutputReference extends cdktf.Compl
 }
 export interface ServiceDiscoveryServiceHealthCheckConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#failure_threshold ServiceDiscoveryService#failure_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#failure_threshold ServiceDiscoveryService#failure_threshold}
+   */
   readonly failureThreshold?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#resource_path ServiceDiscoveryService#resource_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#resource_path ServiceDiscoveryService#resource_path}
+   */
   readonly resourcePath?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#type ServiceDiscoveryService#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#type ServiceDiscoveryService#type}
+   */
   readonly type?: string;
 }
 
-export function serviceDiscoveryServiceHealthCheckConfigToTerraform(struct?: ServiceDiscoveryServiceHealthCheckConfigOutputReference | ServiceDiscoveryServiceHealthCheckConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceDiscoveryServiceHealthCheckConfigToTerraform(
+  struct?:
+    | ServiceDiscoveryServiceHealthCheckConfigOutputReference
+    | ServiceDiscoveryServiceHealthCheckConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
     resource_path: cdktf.stringToTerraform(struct!.resourcePath),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class ServiceDiscoveryServiceHealthCheckConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceDiscoveryServiceHealthCheckConfig | undefined {
+  public get internalValue():
+    | ServiceDiscoveryServiceHealthCheckConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -350,14 +421,15 @@ export class ServiceDiscoveryServiceHealthCheckConfigOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceDiscoveryServiceHealthCheckConfig | undefined) {
+  public set internalValue(
+    value: ServiceDiscoveryServiceHealthCheckConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
       this._resourcePath = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
       this._resourcePath = value.resourcePath;
@@ -366,7 +438,7 @@ export class ServiceDiscoveryServiceHealthCheckConfigOutputReference extends cdk
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -382,7 +454,7 @@ export class ServiceDiscoveryServiceHealthCheckConfigOutputReference extends cdk
   }
 
   // resource_path - computed: false, optional: true, required: false
-  private _resourcePath?: string; 
+  private _resourcePath?: string;
   public get resourcePath() {
     return this.getStringAttribute('resource_path');
   }
@@ -398,7 +470,7 @@ export class ServiceDiscoveryServiceHealthCheckConfigOutputReference extends cdk
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -415,33 +487,46 @@ export class ServiceDiscoveryServiceHealthCheckConfigOutputReference extends cdk
 }
 export interface ServiceDiscoveryServiceHealthCheckCustomConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#failure_threshold ServiceDiscoveryService#failure_threshold}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service#failure_threshold ServiceDiscoveryService#failure_threshold}
+   */
   readonly failureThreshold?: number;
 }
 
-export function serviceDiscoveryServiceHealthCheckCustomConfigToTerraform(struct?: ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference | ServiceDiscoveryServiceHealthCheckCustomConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceDiscoveryServiceHealthCheckCustomConfigToTerraform(
+  struct?:
+    | ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference
+    | ServiceDiscoveryServiceHealthCheckCustomConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     failure_threshold: cdktf.numberToTerraform(struct!.failureThreshold),
-  }
+  };
 }
 
 export class ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceDiscoveryServiceHealthCheckCustomConfig | undefined {
+  public get internalValue():
+    | ServiceDiscoveryServiceHealthCheckCustomConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._failureThreshold !== undefined) {
@@ -451,19 +536,20 @@ export class ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceDiscoveryServiceHealthCheckCustomConfig | undefined) {
+  public set internalValue(
+    value: ServiceDiscoveryServiceHealthCheckCustomConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._failureThreshold = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._failureThreshold = value.failureThreshold;
     }
   }
 
   // failure_threshold - computed: false, optional: true, required: false
-  private _failureThreshold?: number; 
+  private _failureThreshold?: number;
   public get failureThreshold() {
     return this.getNumberAttribute('failure_threshold');
   }
@@ -480,33 +566,36 @@ export class ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference exten
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service aws_service_discovery_service}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service aws_service_discovery_service}
+ */
 export class ServiceDiscoveryService extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_service_discovery_service";
+  public static readonly tfResourceType = 'aws_service_discovery_service';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service aws_service_discovery_service} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServiceDiscoveryServiceConfig
-  */
-  public constructor(scope: Construct, id: string, config: ServiceDiscoveryServiceConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/service_discovery_service aws_service_discovery_service} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServiceDiscoveryServiceConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ServiceDiscoveryServiceConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_service_discovery_service',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -514,7 +603,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._forceDestroy = config.forceDestroy;
@@ -526,7 +615,8 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
     this._type = config.type;
     this._dnsConfig.internalValue = config.dnsConfig;
     this._healthCheckConfig.internalValue = config.healthCheckConfig;
-    this._healthCheckCustomConfig.internalValue = config.healthCheckCustomConfig;
+    this._healthCheckCustomConfig.internalValue =
+      config.healthCheckCustomConfig;
   }
 
   // ==========
@@ -539,7 +629,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -555,7 +645,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -571,7 +661,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -587,7 +677,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -600,7 +690,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // namespace_id - computed: true, optional: true, required: false
-  private _namespaceId?: string; 
+  private _namespaceId?: string;
   public get namespaceId() {
     return this.getStringAttribute('namespace_id');
   }
@@ -616,7 +706,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -632,7 +722,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -648,7 +738,7 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // type - computed: true, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -664,7 +754,10 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // dns_config - computed: false, optional: true, required: false
-  private _dnsConfig = new ServiceDiscoveryServiceDnsConfigOutputReference(this, "dns_config");
+  private _dnsConfig = new ServiceDiscoveryServiceDnsConfigOutputReference(
+    this,
+    'dns_config',
+  );
   public get dnsConfig() {
     return this._dnsConfig;
   }
@@ -680,7 +773,11 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // health_check_config - computed: false, optional: true, required: false
-  private _healthCheckConfig = new ServiceDiscoveryServiceHealthCheckConfigOutputReference(this, "health_check_config");
+  private _healthCheckConfig =
+    new ServiceDiscoveryServiceHealthCheckConfigOutputReference(
+      this,
+      'health_check_config',
+    );
   public get healthCheckConfig() {
     return this._healthCheckConfig;
   }
@@ -696,11 +793,17 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
   }
 
   // health_check_custom_config - computed: false, optional: true, required: false
-  private _healthCheckCustomConfig = new ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference(this, "health_check_custom_config");
+  private _healthCheckCustomConfig =
+    new ServiceDiscoveryServiceHealthCheckCustomConfigOutputReference(
+      this,
+      'health_check_custom_config',
+    );
   public get healthCheckCustomConfig() {
     return this._healthCheckCustomConfig;
   }
-  public putHealthCheckCustomConfig(value: ServiceDiscoveryServiceHealthCheckCustomConfig) {
+  public putHealthCheckCustomConfig(
+    value: ServiceDiscoveryServiceHealthCheckCustomConfig,
+  ) {
     this._healthCheckCustomConfig.internalValue = value;
   }
   public resetHealthCheckCustomConfig() {
@@ -725,9 +828,16 @@ export class ServiceDiscoveryService extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       type: cdktf.stringToTerraform(this._type),
-      dns_config: serviceDiscoveryServiceDnsConfigToTerraform(this._dnsConfig.internalValue),
-      health_check_config: serviceDiscoveryServiceHealthCheckConfigToTerraform(this._healthCheckConfig.internalValue),
-      health_check_custom_config: serviceDiscoveryServiceHealthCheckCustomConfigToTerraform(this._healthCheckCustomConfig.internalValue),
+      dns_config: serviceDiscoveryServiceDnsConfigToTerraform(
+        this._dnsConfig.internalValue,
+      ),
+      health_check_config: serviceDiscoveryServiceHealthCheckConfigToTerraform(
+        this._healthCheckConfig.internalValue,
+      ),
+      health_check_custom_config:
+        serviceDiscoveryServiceHealthCheckCustomConfigToTerraform(
+          this._healthCheckCustomConfig.internalValue,
+        ),
     };
   }
 }

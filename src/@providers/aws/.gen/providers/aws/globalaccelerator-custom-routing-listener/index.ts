@@ -1,56 +1,64 @@
 // https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface GlobalacceleratorCustomRoutingListenerConfig extends cdktf.TerraformMetaArguments {
+export interface GlobalacceleratorCustomRoutingListenerConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#accelerator_arn GlobalacceleratorCustomRoutingListener#accelerator_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#accelerator_arn GlobalacceleratorCustomRoutingListener#accelerator_arn}
+   */
   readonly acceleratorArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#id GlobalacceleratorCustomRoutingListener#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#id GlobalacceleratorCustomRoutingListener#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * port_range block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#port_range GlobalacceleratorCustomRoutingListener#port_range}
-  */
-  readonly portRange: GlobalacceleratorCustomRoutingListenerPortRange[] | cdktf.IResolvable;
+   * port_range block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#port_range GlobalacceleratorCustomRoutingListener#port_range}
+   */
+  readonly portRange:
+    | GlobalacceleratorCustomRoutingListenerPortRange[]
+    | cdktf.IResolvable;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#timeouts GlobalacceleratorCustomRoutingListener#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#timeouts GlobalacceleratorCustomRoutingListener#timeouts}
+   */
   readonly timeouts?: GlobalacceleratorCustomRoutingListenerTimeouts;
 }
 export interface GlobalacceleratorCustomRoutingListenerPortRange {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#from_port GlobalacceleratorCustomRoutingListener#from_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#from_port GlobalacceleratorCustomRoutingListener#from_port}
+   */
   readonly fromPort?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#to_port GlobalacceleratorCustomRoutingListener#to_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#to_port GlobalacceleratorCustomRoutingListener#to_port}
+   */
   readonly toPort?: number;
 }
 
-export function globalacceleratorCustomRoutingListenerPortRangeToTerraform(struct?: GlobalacceleratorCustomRoutingListenerPortRange | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorCustomRoutingListenerPortRangeToTerraform(
+  struct?: GlobalacceleratorCustomRoutingListenerPortRange | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     from_port: cdktf.numberToTerraform(struct!.fromPort),
     to_port: cdktf.numberToTerraform(struct!.toPort),
-  }
+  };
 }
 
 export class GlobalacceleratorCustomRoutingListenerPortRangeOutputReference extends cdktf.ComplexObject {
@@ -58,16 +66,29 @@ export class GlobalacceleratorCustomRoutingListenerPortRangeOutputReference exte
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GlobalacceleratorCustomRoutingListenerPortRange | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlobalacceleratorCustomRoutingListenerPortRange
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -84,18 +105,21 @@ export class GlobalacceleratorCustomRoutingListenerPortRangeOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorCustomRoutingListenerPortRange | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GlobalacceleratorCustomRoutingListenerPortRange
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._fromPort = undefined;
       this._toPort = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._fromPort = value.fromPort;
@@ -104,7 +128,7 @@ export class GlobalacceleratorCustomRoutingListenerPortRangeOutputReference exte
   }
 
   // from_port - computed: false, optional: true, required: false
-  private _fromPort?: number; 
+  private _fromPort?: number;
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -120,7 +144,7 @@ export class GlobalacceleratorCustomRoutingListenerPortRangeOutputReference exte
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number; 
+  private _toPort?: number;
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -137,49 +161,71 @@ export class GlobalacceleratorCustomRoutingListenerPortRangeOutputReference exte
 }
 
 export class GlobalacceleratorCustomRoutingListenerPortRangeList extends cdktf.ComplexList {
-  public internalValue? : GlobalacceleratorCustomRoutingListenerPortRange[] | cdktf.IResolvable
+  public internalValue?:
+    | GlobalacceleratorCustomRoutingListenerPortRange[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GlobalacceleratorCustomRoutingListenerPortRangeOutputReference {
-    return new GlobalacceleratorCustomRoutingListenerPortRangeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GlobalacceleratorCustomRoutingListenerPortRangeOutputReference {
+    return new GlobalacceleratorCustomRoutingListenerPortRangeOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GlobalacceleratorCustomRoutingListenerTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#create GlobalacceleratorCustomRoutingListener#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#create GlobalacceleratorCustomRoutingListener#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#delete GlobalacceleratorCustomRoutingListener#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#delete GlobalacceleratorCustomRoutingListener#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#update GlobalacceleratorCustomRoutingListener#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener#update GlobalacceleratorCustomRoutingListener#update}
+   */
   readonly update?: string;
 }
 
-export function globalacceleratorCustomRoutingListenerTimeoutsToTerraform(struct?: GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference | GlobalacceleratorCustomRoutingListenerTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function globalacceleratorCustomRoutingListenerTimeoutsToTerraform(
+  struct?:
+    | GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference
+    | GlobalacceleratorCustomRoutingListenerTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -187,14 +233,20 @@ export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GlobalacceleratorCustomRoutingListenerTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GlobalacceleratorCustomRoutingListenerTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -215,19 +267,22 @@ export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GlobalacceleratorCustomRoutingListenerTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GlobalacceleratorCustomRoutingListenerTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -237,7 +292,7 @@ export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference exten
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -253,7 +308,7 @@ export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference exten
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -269,7 +324,7 @@ export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference exten
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -286,33 +341,37 @@ export class GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference exten
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener aws_globalaccelerator_custom_routing_listener}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener aws_globalaccelerator_custom_routing_listener}
+ */
 export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_globalaccelerator_custom_routing_listener";
+  public static readonly tfResourceType =
+    'aws_globalaccelerator_custom_routing_listener';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener aws_globalaccelerator_custom_routing_listener} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GlobalacceleratorCustomRoutingListenerConfig
-  */
-  public constructor(scope: Construct, id: string, config: GlobalacceleratorCustomRoutingListenerConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/globalaccelerator_custom_routing_listener aws_globalaccelerator_custom_routing_listener} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GlobalacceleratorCustomRoutingListenerConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GlobalacceleratorCustomRoutingListenerConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_globalaccelerator_custom_routing_listener',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -320,7 +379,7 @@ export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResou
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._acceleratorArn = config.acceleratorArn;
     this._id = config.id;
@@ -333,7 +392,7 @@ export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResou
   // ==========
 
   // accelerator_arn - computed: false, optional: false, required: true
-  private _acceleratorArn?: string; 
+  private _acceleratorArn?: string;
   public get acceleratorArn() {
     return this.getStringAttribute('accelerator_arn');
   }
@@ -346,7 +405,7 @@ export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResou
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -362,11 +421,19 @@ export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResou
   }
 
   // port_range - computed: false, optional: false, required: true
-  private _portRange = new GlobalacceleratorCustomRoutingListenerPortRangeList(this, "port_range", true);
+  private _portRange = new GlobalacceleratorCustomRoutingListenerPortRangeList(
+    this,
+    'port_range',
+    true,
+  );
   public get portRange() {
     return this._portRange;
   }
-  public putPortRange(value: GlobalacceleratorCustomRoutingListenerPortRange[] | cdktf.IResolvable) {
+  public putPortRange(
+    value:
+      | GlobalacceleratorCustomRoutingListenerPortRange[]
+      | cdktf.IResolvable,
+  ) {
     this._portRange.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -375,7 +442,11 @@ export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResou
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new GlobalacceleratorCustomRoutingListenerTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -398,8 +469,13 @@ export class GlobalacceleratorCustomRoutingListener extends cdktf.TerraformResou
     return {
       accelerator_arn: cdktf.stringToTerraform(this._acceleratorArn),
       id: cdktf.stringToTerraform(this._id),
-      port_range: cdktf.listMapper(globalacceleratorCustomRoutingListenerPortRangeToTerraform, true)(this._portRange.internalValue),
-      timeouts: globalacceleratorCustomRoutingListenerTimeoutsToTerraform(this._timeouts.internalValue),
+      port_range: cdktf.listMapper(
+        globalacceleratorCustomRoutingListenerPortRangeToTerraform,
+        true,
+      )(this._portRange.internalValue),
+      timeouts: globalacceleratorCustomRoutingListenerTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

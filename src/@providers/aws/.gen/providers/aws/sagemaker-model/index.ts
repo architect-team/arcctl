@@ -1,115 +1,132 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_model
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface SagemakerModelConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#enable_network_isolation SagemakerModel#enable_network_isolation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#enable_network_isolation SagemakerModel#enable_network_isolation}
+   */
   readonly enableNetworkIsolation?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#execution_role_arn SagemakerModel#execution_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#execution_role_arn SagemakerModel#execution_role_arn}
+   */
   readonly executionRoleArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#id SagemakerModel#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#id SagemakerModel#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#name SagemakerModel#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#name SagemakerModel#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#tags SagemakerModel#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#tags SagemakerModel#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#tags_all SagemakerModel#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#tags_all SagemakerModel#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container SagemakerModel#container}
-  */
+   * container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container SagemakerModel#container}
+   */
   readonly container?: SagemakerModelContainer[] | cdktf.IResolvable;
   /**
-  * inference_execution_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#inference_execution_config SagemakerModel#inference_execution_config}
-  */
+   * inference_execution_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#inference_execution_config SagemakerModel#inference_execution_config}
+   */
   readonly inferenceExecutionConfig?: SagemakerModelInferenceExecutionConfig;
   /**
-  * primary_container block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#primary_container SagemakerModel#primary_container}
-  */
+   * primary_container block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#primary_container SagemakerModel#primary_container}
+   */
   readonly primaryContainer?: SagemakerModelPrimaryContainer;
   /**
-  * vpc_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#vpc_config SagemakerModel#vpc_config}
-  */
+   * vpc_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#vpc_config SagemakerModel#vpc_config}
+   */
   readonly vpcConfig?: SagemakerModelVpcConfig;
 }
 export interface SagemakerModelContainerImageConfigRepositoryAuthConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_credentials_provider_arn SagemakerModel#repository_credentials_provider_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_credentials_provider_arn SagemakerModel#repository_credentials_provider_arn}
+   */
   readonly repositoryCredentialsProviderArn: string;
 }
 
-export function sagemakerModelContainerImageConfigRepositoryAuthConfigToTerraform(struct?: SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReference | SagemakerModelContainerImageConfigRepositoryAuthConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelContainerImageConfigRepositoryAuthConfigToTerraform(
+  struct?:
+    | SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReference
+    | SagemakerModelContainerImageConfigRepositoryAuthConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    repository_credentials_provider_arn: cdktf.stringToTerraform(struct!.repositoryCredentialsProviderArn),
-  }
+    repository_credentials_provider_arn: cdktf.stringToTerraform(
+      struct!.repositoryCredentialsProviderArn,
+    ),
+  };
 }
 
 export class SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SagemakerModelContainerImageConfigRepositoryAuthConfig | undefined {
+  public get internalValue():
+    | SagemakerModelContainerImageConfigRepositoryAuthConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._repositoryCredentialsProviderArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.repositoryCredentialsProviderArn = this._repositoryCredentialsProviderArn;
+      internalValueResult.repositoryCredentialsProviderArn =
+        this._repositoryCredentialsProviderArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerModelContainerImageConfigRepositoryAuthConfig | undefined) {
+  public set internalValue(
+    value: SagemakerModelContainerImageConfigRepositoryAuthConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._repositoryCredentialsProviderArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._repositoryCredentialsProviderArn = value.repositoryCredentialsProviderArn;
+      this._repositoryCredentialsProviderArn =
+        value.repositoryCredentialsProviderArn;
     }
   }
 
   // repository_credentials_provider_arn - computed: false, optional: false, required: true
-  private _repositoryCredentialsProviderArn?: string; 
+  private _repositoryCredentialsProviderArn?: string;
   public get repositoryCredentialsProviderArn() {
     return this.getStringAttribute('repository_credentials_provider_arn');
   }
@@ -123,36 +140,52 @@ export class SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReferen
 }
 export interface SagemakerModelContainerImageConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_access_mode SagemakerModel#repository_access_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_access_mode SagemakerModel#repository_access_mode}
+   */
   readonly repositoryAccessMode: string;
   /**
-  * repository_auth_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_auth_config SagemakerModel#repository_auth_config}
-  */
+   * repository_auth_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_auth_config SagemakerModel#repository_auth_config}
+   */
   readonly repositoryAuthConfig?: SagemakerModelContainerImageConfigRepositoryAuthConfig;
 }
 
-export function sagemakerModelContainerImageConfigToTerraform(struct?: SagemakerModelContainerImageConfigOutputReference | SagemakerModelContainerImageConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelContainerImageConfigToTerraform(
+  struct?:
+    | SagemakerModelContainerImageConfigOutputReference
+    | SagemakerModelContainerImageConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    repository_access_mode: cdktf.stringToTerraform(struct!.repositoryAccessMode),
-    repository_auth_config: sagemakerModelContainerImageConfigRepositoryAuthConfigToTerraform(struct!.repositoryAuthConfig),
-  }
+    repository_access_mode: cdktf.stringToTerraform(
+      struct!.repositoryAccessMode,
+    ),
+    repository_auth_config:
+      sagemakerModelContainerImageConfigRepositoryAuthConfigToTerraform(
+        struct!.repositoryAuthConfig,
+      ),
+  };
 }
 
 export class SagemakerModelContainerImageConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -165,18 +198,20 @@ export class SagemakerModelContainerImageConfigOutputReference extends cdktf.Com
     }
     if (this._repositoryAuthConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.repositoryAuthConfig = this._repositoryAuthConfig?.internalValue;
+      internalValueResult.repositoryAuthConfig =
+        this._repositoryAuthConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerModelContainerImageConfig | undefined) {
+  public set internalValue(
+    value: SagemakerModelContainerImageConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._repositoryAccessMode = undefined;
       this._repositoryAuthConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._repositoryAccessMode = value.repositoryAccessMode;
       this._repositoryAuthConfig.internalValue = value.repositoryAuthConfig;
@@ -184,7 +219,7 @@ export class SagemakerModelContainerImageConfigOutputReference extends cdktf.Com
   }
 
   // repository_access_mode - computed: false, optional: false, required: true
-  private _repositoryAccessMode?: string; 
+  private _repositoryAccessMode?: string;
   public get repositoryAccessMode() {
     return this.getStringAttribute('repository_access_mode');
   }
@@ -197,11 +232,17 @@ export class SagemakerModelContainerImageConfigOutputReference extends cdktf.Com
   }
 
   // repository_auth_config - computed: false, optional: true, required: false
-  private _repositoryAuthConfig = new SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReference(this, "repository_auth_config");
+  private _repositoryAuthConfig =
+    new SagemakerModelContainerImageConfigRepositoryAuthConfigOutputReference(
+      this,
+      'repository_auth_config',
+    );
   public get repositoryAuthConfig() {
     return this._repositoryAuthConfig;
   }
-  public putRepositoryAuthConfig(value: SagemakerModelContainerImageConfigRepositoryAuthConfig) {
+  public putRepositoryAuthConfig(
+    value: SagemakerModelContainerImageConfigRepositoryAuthConfig,
+  ) {
     this._repositoryAuthConfig.internalValue = value;
   }
   public resetRepositoryAuthConfig() {
@@ -214,37 +255,43 @@ export class SagemakerModelContainerImageConfigOutputReference extends cdktf.Com
 }
 export interface SagemakerModelContainer {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container_hostname SagemakerModel#container_hostname}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container_hostname SagemakerModel#container_hostname}
+   */
   readonly containerHostname?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#environment SagemakerModel#environment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#environment SagemakerModel#environment}
+   */
   readonly environment?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image SagemakerModel#image}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image SagemakerModel#image}
+   */
   readonly image: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#mode SagemakerModel#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#mode SagemakerModel#mode}
+   */
   readonly mode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#model_data_url SagemakerModel#model_data_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#model_data_url SagemakerModel#model_data_url}
+   */
   readonly modelDataUrl?: string;
   /**
-  * image_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image_config SagemakerModel#image_config}
-  */
+   * image_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image_config SagemakerModel#image_config}
+   */
   readonly imageConfig?: SagemakerModelContainerImageConfig;
 }
 
-export function sagemakerModelContainerToTerraform(struct?: SagemakerModelContainer | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelContainerToTerraform(
+  struct?: SagemakerModelContainer | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_hostname: cdktf.stringToTerraform(struct!.containerHostname),
@@ -252,8 +299,10 @@ export function sagemakerModelContainerToTerraform(struct?: SagemakerModelContai
     image: cdktf.stringToTerraform(struct!.image),
     mode: cdktf.stringToTerraform(struct!.mode),
     model_data_url: cdktf.stringToTerraform(struct!.modelDataUrl),
-    image_config: sagemakerModelContainerImageConfigToTerraform(struct!.imageConfig),
-  }
+    image_config: sagemakerModelContainerImageConfigToTerraform(
+      struct!.imageConfig,
+    ),
+  };
 }
 
 export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject {
@@ -261,16 +310,29 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): SagemakerModelContainer | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | SagemakerModelContainer
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -303,7 +365,9 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerModelContainer | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: SagemakerModelContainer | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -313,12 +377,10 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
       this._mode = undefined;
       this._modelDataUrl = undefined;
       this._imageConfig.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._containerHostname = value.containerHostname;
@@ -331,7 +393,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // container_hostname - computed: false, optional: true, required: false
-  private _containerHostname?: string; 
+  private _containerHostname?: string;
   public get containerHostname() {
     return this.getStringAttribute('container_hostname');
   }
@@ -347,7 +409,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment?: { [key: string]: string }; 
+  private _environment?: { [key: string]: string };
   public get environment() {
     return this.getStringMapAttribute('environment');
   }
@@ -363,7 +425,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -376,7 +438,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -392,7 +454,7 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // model_data_url - computed: false, optional: true, required: false
-  private _modelDataUrl?: string; 
+  private _modelDataUrl?: string;
   public get modelDataUrl() {
     return this.getStringAttribute('model_data_url');
   }
@@ -408,7 +470,10 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
   }
 
   // image_config - computed: false, optional: true, required: false
-  private _imageConfig = new SagemakerModelContainerImageConfigOutputReference(this, "image_config");
+  private _imageConfig = new SagemakerModelContainerImageConfigOutputReference(
+    this,
+    'image_config',
+  );
   public get imageConfig() {
     return this._imageConfig;
   }
@@ -425,53 +490,75 @@ export class SagemakerModelContainerOutputReference extends cdktf.ComplexObject 
 }
 
 export class SagemakerModelContainerList extends cdktf.ComplexList {
-  public internalValue? : SagemakerModelContainer[] | cdktf.IResolvable
+  public internalValue?: SagemakerModelContainer[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): SagemakerModelContainerOutputReference {
-    return new SagemakerModelContainerOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new SagemakerModelContainerOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface SagemakerModelInferenceExecutionConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#mode SagemakerModel#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#mode SagemakerModel#mode}
+   */
   readonly mode: string;
 }
 
-export function sagemakerModelInferenceExecutionConfigToTerraform(struct?: SagemakerModelInferenceExecutionConfigOutputReference | SagemakerModelInferenceExecutionConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelInferenceExecutionConfigToTerraform(
+  struct?:
+    | SagemakerModelInferenceExecutionConfigOutputReference
+    | SagemakerModelInferenceExecutionConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
-  }
+  };
 }
 
 export class SagemakerModelInferenceExecutionConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SagemakerModelInferenceExecutionConfig | undefined {
+  public get internalValue():
+    | SagemakerModelInferenceExecutionConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._mode !== undefined) {
@@ -481,19 +568,20 @@ export class SagemakerModelInferenceExecutionConfigOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerModelInferenceExecutionConfig | undefined) {
+  public set internalValue(
+    value: SagemakerModelInferenceExecutionConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._mode = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mode = value.mode;
     }
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -507,55 +595,75 @@ export class SagemakerModelInferenceExecutionConfigOutputReference extends cdktf
 }
 export interface SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_credentials_provider_arn SagemakerModel#repository_credentials_provider_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_credentials_provider_arn SagemakerModel#repository_credentials_provider_arn}
+   */
   readonly repositoryCredentialsProviderArn: string;
 }
 
-export function sagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigToTerraform(struct?: SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutputReference | SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigToTerraform(
+  struct?:
+    | SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutputReference
+    | SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    repository_credentials_provider_arn: cdktf.stringToTerraform(struct!.repositoryCredentialsProviderArn),
-  }
+    repository_credentials_provider_arn: cdktf.stringToTerraform(
+      struct!.repositoryCredentialsProviderArn,
+    ),
+  };
 }
 
 export class SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig | undefined {
+  public get internalValue():
+    | SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._repositoryCredentialsProviderArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.repositoryCredentialsProviderArn = this._repositoryCredentialsProviderArn;
+      internalValueResult.repositoryCredentialsProviderArn =
+        this._repositoryCredentialsProviderArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig | undefined) {
+  public set internalValue(
+    value:
+      | SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._repositoryCredentialsProviderArn = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._repositoryCredentialsProviderArn = value.repositoryCredentialsProviderArn;
+      this._repositoryCredentialsProviderArn =
+        value.repositoryCredentialsProviderArn;
     }
   }
 
   // repository_credentials_provider_arn - computed: false, optional: false, required: true
-  private _repositoryCredentialsProviderArn?: string; 
+  private _repositoryCredentialsProviderArn?: string;
   public get repositoryCredentialsProviderArn() {
     return this.getStringAttribute('repository_credentials_provider_arn');
   }
@@ -569,40 +677,58 @@ export class SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutput
 }
 export interface SagemakerModelPrimaryContainerImageConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_access_mode SagemakerModel#repository_access_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_access_mode SagemakerModel#repository_access_mode}
+   */
   readonly repositoryAccessMode: string;
   /**
-  * repository_auth_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_auth_config SagemakerModel#repository_auth_config}
-  */
+   * repository_auth_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#repository_auth_config SagemakerModel#repository_auth_config}
+   */
   readonly repositoryAuthConfig?: SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig;
 }
 
-export function sagemakerModelPrimaryContainerImageConfigToTerraform(struct?: SagemakerModelPrimaryContainerImageConfigOutputReference | SagemakerModelPrimaryContainerImageConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelPrimaryContainerImageConfigToTerraform(
+  struct?:
+    | SagemakerModelPrimaryContainerImageConfigOutputReference
+    | SagemakerModelPrimaryContainerImageConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    repository_access_mode: cdktf.stringToTerraform(struct!.repositoryAccessMode),
-    repository_auth_config: sagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigToTerraform(struct!.repositoryAuthConfig),
-  }
+    repository_access_mode: cdktf.stringToTerraform(
+      struct!.repositoryAccessMode,
+    ),
+    repository_auth_config:
+      sagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigToTerraform(
+        struct!.repositoryAuthConfig,
+      ),
+  };
 }
 
 export class SagemakerModelPrimaryContainerImageConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): SagemakerModelPrimaryContainerImageConfig | undefined {
+  public get internalValue():
+    | SagemakerModelPrimaryContainerImageConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._repositoryAccessMode !== undefined) {
@@ -611,18 +737,20 @@ export class SagemakerModelPrimaryContainerImageConfigOutputReference extends cd
     }
     if (this._repositoryAuthConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.repositoryAuthConfig = this._repositoryAuthConfig?.internalValue;
+      internalValueResult.repositoryAuthConfig =
+        this._repositoryAuthConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SagemakerModelPrimaryContainerImageConfig | undefined) {
+  public set internalValue(
+    value: SagemakerModelPrimaryContainerImageConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._repositoryAccessMode = undefined;
       this._repositoryAuthConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._repositoryAccessMode = value.repositoryAccessMode;
       this._repositoryAuthConfig.internalValue = value.repositoryAuthConfig;
@@ -630,7 +758,7 @@ export class SagemakerModelPrimaryContainerImageConfigOutputReference extends cd
   }
 
   // repository_access_mode - computed: false, optional: false, required: true
-  private _repositoryAccessMode?: string; 
+  private _repositoryAccessMode?: string;
   public get repositoryAccessMode() {
     return this.getStringAttribute('repository_access_mode');
   }
@@ -643,11 +771,17 @@ export class SagemakerModelPrimaryContainerImageConfigOutputReference extends cd
   }
 
   // repository_auth_config - computed: false, optional: true, required: false
-  private _repositoryAuthConfig = new SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutputReference(this, "repository_auth_config");
+  private _repositoryAuthConfig =
+    new SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfigOutputReference(
+      this,
+      'repository_auth_config',
+    );
   public get repositoryAuthConfig() {
     return this._repositoryAuthConfig;
   }
-  public putRepositoryAuthConfig(value: SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig) {
+  public putRepositoryAuthConfig(
+    value: SagemakerModelPrimaryContainerImageConfigRepositoryAuthConfig,
+  ) {
     this._repositoryAuthConfig.internalValue = value;
   }
   public resetRepositoryAuthConfig() {
@@ -660,37 +794,45 @@ export class SagemakerModelPrimaryContainerImageConfigOutputReference extends cd
 }
 export interface SagemakerModelPrimaryContainer {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container_hostname SagemakerModel#container_hostname}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#container_hostname SagemakerModel#container_hostname}
+   */
   readonly containerHostname?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#environment SagemakerModel#environment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#environment SagemakerModel#environment}
+   */
   readonly environment?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image SagemakerModel#image}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image SagemakerModel#image}
+   */
   readonly image: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#mode SagemakerModel#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#mode SagemakerModel#mode}
+   */
   readonly mode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#model_data_url SagemakerModel#model_data_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#model_data_url SagemakerModel#model_data_url}
+   */
   readonly modelDataUrl?: string;
   /**
-  * image_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image_config SagemakerModel#image_config}
-  */
+   * image_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#image_config SagemakerModel#image_config}
+   */
   readonly imageConfig?: SagemakerModelPrimaryContainerImageConfig;
 }
 
-export function sagemakerModelPrimaryContainerToTerraform(struct?: SagemakerModelPrimaryContainerOutputReference | SagemakerModelPrimaryContainer): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelPrimaryContainerToTerraform(
+  struct?:
+    | SagemakerModelPrimaryContainerOutputReference
+    | SagemakerModelPrimaryContainer,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     container_hostname: cdktf.stringToTerraform(struct!.containerHostname),
@@ -698,18 +840,23 @@ export function sagemakerModelPrimaryContainerToTerraform(struct?: SagemakerMode
     image: cdktf.stringToTerraform(struct!.image),
     mode: cdktf.stringToTerraform(struct!.mode),
     model_data_url: cdktf.stringToTerraform(struct!.modelDataUrl),
-    image_config: sagemakerModelPrimaryContainerImageConfigToTerraform(struct!.imageConfig),
-  }
+    image_config: sagemakerModelPrimaryContainerImageConfigToTerraform(
+      struct!.imageConfig,
+    ),
+  };
 }
 
 export class SagemakerModelPrimaryContainerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -752,8 +899,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
       this._mode = undefined;
       this._modelDataUrl = undefined;
       this._imageConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._containerHostname = value.containerHostname;
       this._environment = value.environment;
@@ -765,7 +911,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // container_hostname - computed: false, optional: true, required: false
-  private _containerHostname?: string; 
+  private _containerHostname?: string;
   public get containerHostname() {
     return this.getStringAttribute('container_hostname');
   }
@@ -781,7 +927,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // environment - computed: false, optional: true, required: false
-  private _environment?: { [key: string]: string }; 
+  private _environment?: { [key: string]: string };
   public get environment() {
     return this.getStringMapAttribute('environment');
   }
@@ -797,7 +943,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -810,7 +956,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -826,7 +972,7 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // model_data_url - computed: false, optional: true, required: false
-  private _modelDataUrl?: string; 
+  private _modelDataUrl?: string;
   public get modelDataUrl() {
     return this.getStringAttribute('model_data_url');
   }
@@ -842,7 +988,11 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
   }
 
   // image_config - computed: false, optional: true, required: false
-  private _imageConfig = new SagemakerModelPrimaryContainerImageConfigOutputReference(this, "image_config");
+  private _imageConfig =
+    new SagemakerModelPrimaryContainerImageConfigOutputReference(
+      this,
+      'image_config',
+    );
   public get imageConfig() {
     return this._imageConfig;
   }
@@ -859,34 +1009,46 @@ export class SagemakerModelPrimaryContainerOutputReference extends cdktf.Complex
 }
 export interface SagemakerModelVpcConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#security_group_ids SagemakerModel#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#security_group_ids SagemakerModel#security_group_ids}
+   */
   readonly securityGroupIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#subnets SagemakerModel#subnets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model#subnets SagemakerModel#subnets}
+   */
   readonly subnets: string[];
 }
 
-export function sagemakerModelVpcConfigToTerraform(struct?: SagemakerModelVpcConfigOutputReference | SagemakerModelVpcConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sagemakerModelVpcConfigToTerraform(
+  struct?: SagemakerModelVpcConfigOutputReference | SagemakerModelVpcConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
+    security_group_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIds),
     subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnets),
-  }
+  };
 }
 
 export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -909,8 +1071,7 @@ export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject 
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnets = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnets = value.subnets;
@@ -918,7 +1079,7 @@ export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -931,7 +1092,7 @@ export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject 
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -945,33 +1106,36 @@ export class SagemakerModelVpcConfigOutputReference extends cdktf.ComplexObject 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model aws_sagemaker_model}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model aws_sagemaker_model}
+ */
 export class SagemakerModel extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sagemaker_model";
+  public static readonly tfResourceType = 'aws_sagemaker_model';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model aws_sagemaker_model} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SagemakerModelConfig
-  */
-  public constructor(scope: Construct, id: string, config: SagemakerModelConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_model aws_sagemaker_model} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SagemakerModelConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SagemakerModelConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sagemaker_model',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -979,7 +1143,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._enableNetworkIsolation = config.enableNetworkIsolation;
     this._executionRoleArn = config.executionRoleArn;
@@ -988,7 +1152,8 @@ export class SagemakerModel extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._container.internalValue = config.container;
-    this._inferenceExecutionConfig.internalValue = config.inferenceExecutionConfig;
+    this._inferenceExecutionConfig.internalValue =
+      config.inferenceExecutionConfig;
     this._primaryContainer.internalValue = config.primaryContainer;
     this._vpcConfig.internalValue = config.vpcConfig;
   }
@@ -1003,7 +1168,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // enable_network_isolation - computed: false, optional: true, required: false
-  private _enableNetworkIsolation?: boolean | cdktf.IResolvable; 
+  private _enableNetworkIsolation?: boolean | cdktf.IResolvable;
   public get enableNetworkIsolation() {
     return this.getBooleanAttribute('enable_network_isolation');
   }
@@ -1019,7 +1184,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // execution_role_arn - computed: false, optional: false, required: true
-  private _executionRoleArn?: string; 
+  private _executionRoleArn?: string;
   public get executionRoleArn() {
     return this.getStringAttribute('execution_role_arn');
   }
@@ -1032,7 +1197,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1048,7 +1213,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1064,7 +1229,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1080,7 +1245,7 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1096,7 +1261,11 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // container - computed: false, optional: true, required: false
-  private _container = new SagemakerModelContainerList(this, "container", false);
+  private _container = new SagemakerModelContainerList(
+    this,
+    'container',
+    false,
+  );
   public get container() {
     return this._container;
   }
@@ -1112,11 +1281,17 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // inference_execution_config - computed: false, optional: true, required: false
-  private _inferenceExecutionConfig = new SagemakerModelInferenceExecutionConfigOutputReference(this, "inference_execution_config");
+  private _inferenceExecutionConfig =
+    new SagemakerModelInferenceExecutionConfigOutputReference(
+      this,
+      'inference_execution_config',
+    );
   public get inferenceExecutionConfig() {
     return this._inferenceExecutionConfig;
   }
-  public putInferenceExecutionConfig(value: SagemakerModelInferenceExecutionConfig) {
+  public putInferenceExecutionConfig(
+    value: SagemakerModelInferenceExecutionConfig,
+  ) {
     this._inferenceExecutionConfig.internalValue = value;
   }
   public resetInferenceExecutionConfig() {
@@ -1128,7 +1303,10 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // primary_container - computed: false, optional: true, required: false
-  private _primaryContainer = new SagemakerModelPrimaryContainerOutputReference(this, "primary_container");
+  private _primaryContainer = new SagemakerModelPrimaryContainerOutputReference(
+    this,
+    'primary_container',
+  );
   public get primaryContainer() {
     return this._primaryContainer;
   }
@@ -1144,7 +1322,10 @@ export class SagemakerModel extends cdktf.TerraformResource {
   }
 
   // vpc_config - computed: false, optional: true, required: false
-  private _vpcConfig = new SagemakerModelVpcConfigOutputReference(this, "vpc_config");
+  private _vpcConfig = new SagemakerModelVpcConfigOutputReference(
+    this,
+    'vpc_config',
+  );
   public get vpcConfig() {
     return this._vpcConfig;
   }
@@ -1165,16 +1346,28 @@ export class SagemakerModel extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      enable_network_isolation: cdktf.booleanToTerraform(this._enableNetworkIsolation),
+      enable_network_isolation: cdktf.booleanToTerraform(
+        this._enableNetworkIsolation,
+      ),
       execution_role_arn: cdktf.stringToTerraform(this._executionRoleArn),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      container: cdktf.listMapper(sagemakerModelContainerToTerraform, true)(this._container.internalValue),
-      inference_execution_config: sagemakerModelInferenceExecutionConfigToTerraform(this._inferenceExecutionConfig.internalValue),
-      primary_container: sagemakerModelPrimaryContainerToTerraform(this._primaryContainer.internalValue),
-      vpc_config: sagemakerModelVpcConfigToTerraform(this._vpcConfig.internalValue),
+      container: cdktf.listMapper(
+        sagemakerModelContainerToTerraform,
+        true,
+      )(this._container.internalValue),
+      inference_execution_config:
+        sagemakerModelInferenceExecutionConfigToTerraform(
+          this._inferenceExecutionConfig.internalValue,
+        ),
+      primary_container: sagemakerModelPrimaryContainerToTerraform(
+        this._primaryContainer.internalValue,
+      ),
+      vpc_config: sagemakerModelVpcConfigToTerraform(
+        this._vpcConfig.internalValue,
+      ),
     };
   }
 }

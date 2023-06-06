@@ -1,9 +1,9 @@
-import { ResourceModule } from '../../module.js';
-import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.js';
-import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.js';
-import { DatabaseDb } from '../.gen/providers/digitalocean/database-db/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { ResourceInputs, ResourceOutputs } from '@resources/index.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.ts';
+import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.ts';
+import { DatabaseDb } from '../.gen/providers/digitalocean/database-db/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class DigitaloceanDatabaseSchemaModule extends ResourceModule<

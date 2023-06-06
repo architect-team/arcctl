@@ -1,14 +1,16 @@
-import { CloudEdge, CloudNode } from '../../../cloud-graph';
+import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDeploymentGeneration,
   testServiceGeneration,
   testServiceIntegration,
-} from '../../__tests__/version-helper.js';
-import ComponentV1 from '../index.js';
+} from '../../__tests__/version-helper.ts';
+import ComponentV1 from '../index.ts';
 import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component Schema: v1', () => {
-  it('should generate deployments', async () =>
+  it('should generate deployments', () =>
     testDeploymentGeneration(
       `
       name: test
@@ -23,7 +25,7 @@ describe('Component Schema: v1', () => {
       },
     ));
 
-  it('should generate services', async () =>
+  it('should generate services', () =>
     testServiceGeneration(
       `
       name: test
@@ -38,7 +40,7 @@ describe('Component Schema: v1', () => {
       { deployment_name: 'api', service_name: 'api-main' },
     ));
 
-  it('should connect deployments to services', async () =>
+  it('should connect deployments to services', () =>
     testServiceIntegration(
       `
       name: test
@@ -60,7 +62,7 @@ describe('Component Schema: v1', () => {
       },
     ));
 
-  it('should create interface nodes', async () => {
+  it('should create interface nodes', () => {
     const component = new ComponentV1(
       yaml.load(`
         name: test
@@ -110,20 +112,17 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    expect(graph.nodes).toEqual(expect.arrayContaining([interface_node]));
-
-    expect(graph.edges).toEqual(
-      expect.arrayContaining([
-        new CloudEdge({
-          from: interface_node.id,
-          to: deployment_node_id,
-          required: false,
-        }),
-      ]),
-    );
+    assertArrayIncludes(graph.nodes, [interface_node]);
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: interface_node.id,
+        to: deployment_node_id,
+        required: false,
+      }),
+    ]);
   });
 
-  it('should create ingress nodes for root interfaces', async () => {
+  it('should create ingress nodes for root interfaces', () => {
     const component = new ComponentV1(
       yaml.load(`
         name: test
@@ -137,7 +136,7 @@ describe('Component Schema: v1', () => {
             url: \${{ services.api.interfaces.main.url }}
             ingress:
               subdomain: app
-      `) as any,
+      `) as object,
     );
 
     const graph = component.getGraph({
@@ -187,22 +186,18 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    expect(graph.nodes).toEqual(
-      expect.arrayContaining([interface_node, ingress_node]),
-    );
+    assertArrayIncludes(graph.nodes, [interface_node, ingress_node]);
 
-    expect(graph.edges).toEqual(
-      expect.arrayContaining([
-        new CloudEdge({
-          from: ingress_node.id,
-          to: interface_node.id,
-          required: true,
-        }),
-      ]),
-    );
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: ingress_node.id,
+        to: interface_node.id,
+        required: true,
+      }),
+    ]);
   });
 
-  it('should create ingress nodes for service interfaces', async () => {
+  it('should create ingress nodes for service interfaces', () => {
     const component = new ComponentV1(
       yaml.load(`
         name: test
@@ -214,7 +209,7 @@ describe('Component Schema: v1', () => {
                 port: 80
                 ingress:
                   subdomain: app
-      `) as any,
+      `) as object,
     );
 
     const graph = component.getGraph({
@@ -264,18 +259,14 @@ describe('Component Schema: v1', () => {
       },
     });
 
-    expect(graph.nodes).toEqual(
-      expect.arrayContaining([service_node, ingress_node]),
-    );
+    assertArrayIncludes(graph.nodes, [service_node, ingress_node]);
 
-    expect(graph.edges).toEqual(
-      expect.arrayContaining([
-        new CloudEdge({
-          from: ingress_node.id,
-          to: service_node.id,
-          required: true,
-        }),
-      ]),
-    );
+    assertArrayIncludes(graph.edges, [
+      new CloudEdge({
+        from: ingress_node.id,
+        to: service_node.id,
+        required: true,
+      }),
+    ]);
   });
 });

@@ -1,134 +1,104 @@
-import { BaseCommand } from '../../base-command.js';
-import { CloudGraph } from '../../cloud-graph/index.js';
-import { Environment, parseEnvironment } from '../../environments/index.js';
-import { Pipeline } from '../../pipeline/index.js';
-import { Flags } from '@oclif/core';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { Environment, parseEnvironment } from '../../environments/index.ts';
+import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
-import path from 'path';
+import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
 
-export class UpdateEnvironmentCmd extends BaseCommand {
-  static description = 'Apply changes to an environment';
+type UpdateEnvironmentOptions = {
+  datacenter?: string;
+  verbose: boolean;
+} & GlobalOptions;
 
-  static flags = {
-    datacenter: Flags.string({
-      char: 'd',
-      description: 'New datacenter for the environment',
-    }),
+const UpdateEnvironmentCommand = BaseCommand()
+  .alias('update env')
+  .description('Apply changes to an environment')
+  .option('-d, --datacenter <datacenter:string>', 'New datacenter for the environment')
+  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .arguments('<name:string> [config_path:string]')
+  .action(update_environment_action);
 
-    verbose: Flags.boolean({
-      char: 'v',
-      description: 'Turn on verbose logs',
-    }),
-  };
+async function update_environment_action(options: UpdateEnvironmentOptions, name: string, config_path?: string) {
+  const command_helper = new CommandHelper(options);
 
-  static args = [
-    {
-      name: 'name',
-      description: 'Name of the new environment',
-      required: true,
-    },
-    {
-      name: 'config_path',
-      description: 'Path to the new environment configuration file',
-    },
-  ];
-
-  async run(): Promise<void> {
-    const { args, flags } = await this.parse(UpdateEnvironmentCmd);
-
-    const environmentRecord = await this.environmentStore.get(args.name);
-    if (!flags.datacenter && !environmentRecord) {
-      this.error(`A datacenter must be specified for new environments`);
-    }
-
-    const targetDatacenterName =
-      flags.datacenter || environmentRecord?.datacenter;
-    const targetDatacenter = targetDatacenterName
-      ? await this.datacenterStore.get(targetDatacenterName)
-      : undefined;
-    if (!targetDatacenter) {
-      this.error(`Couldn't find a datacenter named ${targetDatacenterName}`);
-    }
-
-    let targetEnvironment: Environment | undefined;
-    let targetGraph = new CloudGraph();
-    if (args.config_path) {
-      targetEnvironment = await parseEnvironment(args.config_path);
-      targetGraph = await targetEnvironment.getGraph(
-        args.name,
-        this.componentStore,
-      );
-    }
-
-    targetGraph = await targetDatacenter.config.enrichGraph(
-      targetGraph,
-      args.name,
-    );
-
-    let startingPipeline = new Pipeline();
-    if (environmentRecord?.datacenter) {
-      const startingDatacenter = await this.datacenterStore.get(
-        environmentRecord.datacenter,
-      );
-      if (startingDatacenter) {
-        startingPipeline = await this.getPipelineForDatacenter(
-          startingDatacenter,
-        );
-      }
-    }
-
-    const pipeline = Pipeline.plan({
-      before: startingPipeline,
-      after: targetGraph,
-    });
-
-    let interval: NodeJS.Timer;
-    if (!flags.verbose) {
-      interval = setInterval(() => {
-        this.renderPipeline(pipeline, { clear: true });
-      }, 1000 / cliSpinners.dots.frames.length);
-    }
-
-    let logger: Logger | undefined;
-    if (flags.verbose) {
-      this.renderPipeline(pipeline);
-      logger = winston.createLogger({
-        level: 'info',
-        format: winston.format.printf(({ message }) => message),
-        transports: [new winston.transports.Console()],
-      });
-    }
-
-    return pipeline
-      .apply({
-        providerStore: this.providerStore,
-        cwd: path.resolve(path.join('./.terraform', targetDatacenter.name)),
-        logger,
-      })
-      .then(async () => {
-        await this.saveDatacenter(
-          targetDatacenter.name,
-          targetDatacenter.config,
-          pipeline,
-        );
-        await this.environmentStore.save({
-          name: args.name,
-          datacenter: targetDatacenter.name,
-          config: targetEnvironment,
-        });
-        this.renderPipeline(pipeline, { clear: !flags.verbose });
-        clearInterval(interval);
-      })
-      .catch(async (err) => {
-        await this.saveDatacenter(
-          targetDatacenter.name,
-          targetDatacenter.config,
-          pipeline,
-        );
-        this.renderPipeline(pipeline, { clear: !flags.verbose });
-        clearInterval(interval);
-        this.error(err);
-      });
+  const environmentRecord = await command_helper.environmentStore.get(name);
+  if (!options.datacenter && !environmentRecord) {
+    console.error(`A datacenter must be specified for new environments`);
+    Deno.exit(1);
   }
+
+  const targetDatacenterName = options.datacenter || environmentRecord?.datacenter;
+  const targetDatacenter = targetDatacenterName
+    ? await command_helper.datacenterStore.get(targetDatacenterName)
+    : undefined;
+  if (!targetDatacenter) {
+    console.error(`Couldn't find a datacenter named ${targetDatacenterName}`);
+    Deno.exit(1);
+  }
+
+  let targetEnvironment: Environment | undefined;
+  let targetGraph = new CloudGraph();
+  if (config_path) {
+    targetEnvironment = await parseEnvironment(config_path);
+    targetGraph = await targetEnvironment.getGraph(name, command_helper.componentStore);
+  }
+
+  targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, name);
+
+  let startingPipeline = new Pipeline();
+  if (environmentRecord?.datacenter) {
+    const startingDatacenter = await command_helper.datacenterStore.get(environmentRecord.datacenter);
+    if (startingDatacenter) {
+      startingPipeline = await command_helper.getPipelineForDatacenter(startingDatacenter);
+    }
+  }
+
+  const pipeline = Pipeline.plan({
+    before: startingPipeline,
+    after: targetGraph,
+  });
+
+  let interval: number;
+  if (!options.verbose) {
+    interval = setInterval(() => {
+      command_helper.renderPipeline(pipeline, { clear: true });
+    }, 1000 / cliSpinners.dots.frames.length);
+  }
+
+  let logger: Logger | undefined;
+  if (options.verbose) {
+    command_helper.renderPipeline(pipeline);
+    logger = winston.createLogger({
+      level: 'info',
+      format: winston.format.printf(({ message }) => message),
+      transports: [new winston.transports.Console()],
+    });
+  }
+
+  return pipeline
+    .apply({
+      providerStore: command_helper.providerStore,
+      cwd: path.resolve(path.join('./.terraform', targetDatacenter.name)),
+      logger,
+    })
+    .then(async () => {
+      await command_helper.saveDatacenter(targetDatacenter.name, targetDatacenter.config, pipeline);
+      await command_helper.environmentStore.save({
+        name: name,
+        datacenter: targetDatacenter.name,
+        config: targetEnvironment,
+      });
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      clearInterval(interval);
+    })
+    .catch(async (err) => {
+      await command_helper.saveDatacenter(targetDatacenter.name, targetDatacenter.config, pipeline);
+      command_helper.renderPipeline(pipeline, { clear: !options.verbose });
+      clearInterval(interval);
+      console.error(err);
+      Deno.exit(1);
+    });
 }
+
+export default UpdateEnvironmentCommand;

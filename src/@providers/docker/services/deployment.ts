@@ -1,8 +1,8 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { DeepPartial } from '../../../utils/types.js';
-import { CrudResourceService } from '../../crud.service.js';
-import { execa } from 'execa';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { exec } from '../../../utils/command.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { DeepPartial } from '../../../utils/types.ts';
+import { CrudResourceService } from '../../crud.service.ts';
 
 type DockerPsItem = {
   Command: string;
@@ -33,7 +33,7 @@ type DockerInspectionResults = {
 
 export class DockerDeploymentService extends CrudResourceService<'deployment'> {
   async get(id: string): Promise<ResourceOutputs['deployment'] | undefined> {
-    const { stdout } = await execa('docker', ['inspect', id]);
+    const { stdout } = await exec('docker', { args: ['inspect', id] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     if (rawContents.length > 0) {
       return {
@@ -48,7 +48,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment'> {
     filterOptions?: Partial<ResourceOutputs['deployment']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
-    const { stdout } = await execa('docker', ['ps', '--format', 'json']);
+    const { stdout } = await exec('docker', { args: ['ps', '--format', 'json'] });
     const rawContents = JSON.parse(stdout);
     return {
       total: rawContents.length,
@@ -58,9 +58,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment'> {
     };
   }
 
-  async create(
-    inputs: ResourceInputs['deployment'],
-  ): Promise<ResourceOutputs['deployment']> {
+  async create(inputs: ResourceInputs['deployment']): Promise<ResourceOutputs['deployment']> {
     const args = ['run', '--detach', '--name', inputs.name];
     if (inputs.namespace) {
       args.push('--network', inputs.namespace);
@@ -81,35 +79,27 @@ export class DockerDeploymentService extends CrudResourceService<'deployment'> {
     if (inputs.entrypoint) {
       args.push(
         '--entrypoint',
-        typeof inputs.entrypoint === 'string'
-          ? `"${inputs.entrypoint}"`
-          : `"${inputs.entrypoint.join(' ')}"`,
+        typeof inputs.entrypoint === 'string' ? `"${inputs.entrypoint}"` : `"${inputs.entrypoint.join(' ')}"`,
       );
     }
 
     args.push(inputs.image);
 
     if (inputs.command) {
-      args.push(
-        typeof inputs.command === 'string'
-          ? `"${inputs.command}"`
-          : `"${inputs.command.join(' ')}"`,
-      );
+      args.push(typeof inputs.command === 'string' ? `"${inputs.command}"` : `"${inputs.command.join(' ')}"`);
     }
 
-    await execa('docker', args);
+    await exec('docker', { args });
     return {
       id: inputs.name,
     };
   }
 
-  async update(
-    inputs: ResourceInputs['deployment'],
-  ): Promise<DeepPartial<ResourceOutputs['deployment']>> {
+  async update(inputs: ResourceInputs['deployment']): Promise<DeepPartial<ResourceOutputs['deployment']>> {
     throw new Error('Not yet implemented');
   }
 
   async delete(id: string): Promise<void> {
-    await execa('docker', ['stop', id]);
+    await exec('docker', { args: ['stop', id] });
   }
 }

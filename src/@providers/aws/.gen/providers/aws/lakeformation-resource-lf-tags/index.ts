@@ -1,84 +1,95 @@
 // https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface LakeformationResourceLfTagsConfig extends cdktf.TerraformMetaArguments {
+export interface LakeformationResourceLfTagsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#id LakeformationResourceLfTags#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#id LakeformationResourceLfTags#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * database block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#database LakeformationResourceLfTags#database}
-  */
+   * database block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#database LakeformationResourceLfTags#database}
+   */
   readonly database?: LakeformationResourceLfTagsDatabase;
   /**
-  * lf_tag block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#lf_tag LakeformationResourceLfTags#lf_tag}
-  */
+   * lf_tag block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#lf_tag LakeformationResourceLfTags#lf_tag}
+   */
   readonly lfTag: LakeformationResourceLfTagsLfTag[] | cdktf.IResolvable;
   /**
-  * table block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#table LakeformationResourceLfTags#table}
-  */
+   * table block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#table LakeformationResourceLfTags#table}
+   */
   readonly table?: LakeformationResourceLfTagsTable;
   /**
-  * table_with_columns block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#table_with_columns LakeformationResourceLfTags#table_with_columns}
-  */
+   * table_with_columns block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#table_with_columns LakeformationResourceLfTags#table_with_columns}
+   */
   readonly tableWithColumns?: LakeformationResourceLfTagsTableWithColumns;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#timeouts LakeformationResourceLfTags#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#timeouts LakeformationResourceLfTags#timeouts}
+   */
   readonly timeouts?: LakeformationResourceLfTagsTimeouts;
 }
 export interface LakeformationResourceLfTagsDatabase {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#name LakeformationResourceLfTags#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#name LakeformationResourceLfTags#name}
+   */
   readonly name: string;
 }
 
-export function lakeformationResourceLfTagsDatabaseToTerraform(struct?: LakeformationResourceLfTagsDatabaseOutputReference | LakeformationResourceLfTagsDatabase): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lakeformationResourceLfTagsDatabaseToTerraform(
+  struct?:
+    | LakeformationResourceLfTagsDatabaseOutputReference
+    | LakeformationResourceLfTagsDatabase,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class LakeformationResourceLfTagsDatabaseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -96,13 +107,14 @@ export class LakeformationResourceLfTagsDatabaseOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LakeformationResourceLfTagsDatabase | undefined) {
+  public set internalValue(
+    value: LakeformationResourceLfTagsDatabase | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._name = value.name;
@@ -110,7 +122,7 @@ export class LakeformationResourceLfTagsDatabaseOutputReference extends cdktf.Co
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -126,7 +138,7 @@ export class LakeformationResourceLfTagsDatabaseOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -140,29 +152,35 @@ export class LakeformationResourceLfTagsDatabaseOutputReference extends cdktf.Co
 }
 export interface LakeformationResourceLfTagsLfTag {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#key LakeformationResourceLfTags#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#key LakeformationResourceLfTags#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#value LakeformationResourceLfTags#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#value LakeformationResourceLfTags#value}
+   */
   readonly value: string;
 }
 
-export function lakeformationResourceLfTagsLfTagToTerraform(struct?: LakeformationResourceLfTagsLfTag | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lakeformationResourceLfTagsLfTagToTerraform(
+  struct?: LakeformationResourceLfTagsLfTag | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     key: cdktf.stringToTerraform(struct!.key),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.ComplexObject {
@@ -170,16 +188,29 @@ export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): LakeformationResourceLfTagsLfTag | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LakeformationResourceLfTagsLfTag
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -200,19 +231,19 @@ export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LakeformationResourceLfTagsLfTag | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: LakeformationResourceLfTagsLfTag | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._catalogId = undefined;
       this._key = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._catalogId = value.catalogId;
@@ -222,7 +253,7 @@ export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.Compl
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -238,7 +269,7 @@ export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.Compl
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -251,7 +282,7 @@ export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.Compl
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -265,64 +296,84 @@ export class LakeformationResourceLfTagsLfTagOutputReference extends cdktf.Compl
 }
 
 export class LakeformationResourceLfTagsLfTagList extends cdktf.ComplexList {
-  public internalValue? : LakeformationResourceLfTagsLfTag[] | cdktf.IResolvable
+  public internalValue?: LakeformationResourceLfTagsLfTag[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): LakeformationResourceLfTagsLfTagOutputReference {
-    return new LakeformationResourceLfTagsLfTagOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new LakeformationResourceLfTagsLfTagOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface LakeformationResourceLfTagsTable {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#database_name LakeformationResourceLfTags#database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#database_name LakeformationResourceLfTags#database_name}
+   */
   readonly databaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#name LakeformationResourceLfTags#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#name LakeformationResourceLfTags#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#wildcard LakeformationResourceLfTags#wildcard}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#wildcard LakeformationResourceLfTags#wildcard}
+   */
   readonly wildcard?: boolean | cdktf.IResolvable;
 }
 
-export function lakeformationResourceLfTagsTableToTerraform(struct?: LakeformationResourceLfTagsTableOutputReference | LakeformationResourceLfTagsTable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lakeformationResourceLfTagsTableToTerraform(
+  struct?:
+    | LakeformationResourceLfTagsTableOutputReference
+    | LakeformationResourceLfTagsTable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     database_name: cdktf.stringToTerraform(struct!.databaseName),
     name: cdktf.stringToTerraform(struct!.name),
     wildcard: cdktf.booleanToTerraform(struct!.wildcard),
-  }
+  };
 }
 
 export class LakeformationResourceLfTagsTableOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -348,15 +399,16 @@ export class LakeformationResourceLfTagsTableOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LakeformationResourceLfTagsTable | undefined) {
+  public set internalValue(
+    value: LakeformationResourceLfTagsTable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
       this._databaseName = undefined;
       this._name = undefined;
       this._wildcard = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._databaseName = value.databaseName;
@@ -366,7 +418,7 @@ export class LakeformationResourceLfTagsTableOutputReference extends cdktf.Compl
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -382,7 +434,7 @@ export class LakeformationResourceLfTagsTableOutputReference extends cdktf.Compl
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -395,7 +447,7 @@ export class LakeformationResourceLfTagsTableOutputReference extends cdktf.Compl
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -411,7 +463,7 @@ export class LakeformationResourceLfTagsTableOutputReference extends cdktf.Compl
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -428,58 +480,77 @@ export class LakeformationResourceLfTagsTableOutputReference extends cdktf.Compl
 }
 export interface LakeformationResourceLfTagsTableWithColumns {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#catalog_id LakeformationResourceLfTags#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#column_names LakeformationResourceLfTags#column_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#column_names LakeformationResourceLfTags#column_names}
+   */
   readonly columnNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#database_name LakeformationResourceLfTags#database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#database_name LakeformationResourceLfTags#database_name}
+   */
   readonly databaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#excluded_column_names LakeformationResourceLfTags#excluded_column_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#excluded_column_names LakeformationResourceLfTags#excluded_column_names}
+   */
   readonly excludedColumnNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#name LakeformationResourceLfTags#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#name LakeformationResourceLfTags#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#wildcard LakeformationResourceLfTags#wildcard}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#wildcard LakeformationResourceLfTags#wildcard}
+   */
   readonly wildcard?: boolean | cdktf.IResolvable;
 }
 
-export function lakeformationResourceLfTagsTableWithColumnsToTerraform(struct?: LakeformationResourceLfTagsTableWithColumnsOutputReference | LakeformationResourceLfTagsTableWithColumns): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lakeformationResourceLfTagsTableWithColumnsToTerraform(
+  struct?:
+    | LakeformationResourceLfTagsTableWithColumnsOutputReference
+    | LakeformationResourceLfTagsTableWithColumns,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
-    column_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.columnNames),
+    column_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.columnNames),
     database_name: cdktf.stringToTerraform(struct!.databaseName),
-    excluded_column_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.excludedColumnNames),
+    excluded_column_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.excludedColumnNames),
     name: cdktf.stringToTerraform(struct!.name),
     wildcard: cdktf.booleanToTerraform(struct!.wildcard),
-  }
+  };
 }
 
 export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LakeformationResourceLfTagsTableWithColumns | undefined {
+  public get internalValue():
+    | LakeformationResourceLfTagsTableWithColumns
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._catalogId !== undefined) {
@@ -509,7 +580,9 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LakeformationResourceLfTagsTableWithColumns | undefined) {
+  public set internalValue(
+    value: LakeformationResourceLfTagsTableWithColumns | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
@@ -518,8 +591,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
       this._excludedColumnNames = undefined;
       this._name = undefined;
       this._wildcard = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._columnNames = value.columnNames;
@@ -531,7 +603,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -547,7 +619,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
   }
 
   // column_names - computed: false, optional: true, required: false
-  private _columnNames?: string[]; 
+  private _columnNames?: string[];
   public get columnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('column_names'));
   }
@@ -563,7 +635,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -576,7 +648,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
   }
 
   // excluded_column_names - computed: false, optional: true, required: false
-  private _excludedColumnNames?: string[]; 
+  private _excludedColumnNames?: string[];
   public get excludedColumnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_column_names'));
   }
@@ -592,7 +664,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -605,7 +677,7 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -622,24 +694,33 @@ export class LakeformationResourceLfTagsTableWithColumnsOutputReference extends 
 }
 export interface LakeformationResourceLfTagsTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#create LakeformationResourceLfTags#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#create LakeformationResourceLfTags#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#delete LakeformationResourceLfTags#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags#delete LakeformationResourceLfTags#delete}
+   */
   readonly delete?: string;
 }
 
-export function lakeformationResourceLfTagsTimeoutsToTerraform(struct?: LakeformationResourceLfTagsTimeoutsOutputReference | LakeformationResourceLfTagsTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function lakeformationResourceLfTagsTimeoutsToTerraform(
+  struct?:
+    | LakeformationResourceLfTagsTimeoutsOutputReference
+    | LakeformationResourceLfTagsTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class LakeformationResourceLfTagsTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -647,14 +728,20 @@ export class LakeformationResourceLfTagsTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): LakeformationResourceLfTagsTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | LakeformationResourceLfTagsTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -671,18 +758,18 @@ export class LakeformationResourceLfTagsTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: LakeformationResourceLfTagsTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: LakeformationResourceLfTagsTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -691,7 +778,7 @@ export class LakeformationResourceLfTagsTimeoutsOutputReference extends cdktf.Co
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -707,7 +794,7 @@ export class LakeformationResourceLfTagsTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -724,33 +811,36 @@ export class LakeformationResourceLfTagsTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags aws_lakeformation_resource_lf_tags}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags aws_lakeformation_resource_lf_tags}
+ */
 export class LakeformationResourceLfTags extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lakeformation_resource_lf_tags";
+  public static readonly tfResourceType = 'aws_lakeformation_resource_lf_tags';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags aws_lakeformation_resource_lf_tags} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LakeformationResourceLfTagsConfig
-  */
-  public constructor(scope: Construct, id: string, config: LakeformationResourceLfTagsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lakeformation_resource_lf_tags aws_lakeformation_resource_lf_tags} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LakeformationResourceLfTagsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LakeformationResourceLfTagsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lakeformation_resource_lf_tags',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -758,7 +848,7 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._catalogId = config.catalogId;
     this._id = config.id;
@@ -774,7 +864,7 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   // ==========
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -790,7 +880,7 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -806,7 +896,10 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   }
 
   // database - computed: false, optional: true, required: false
-  private _database = new LakeformationResourceLfTagsDatabaseOutputReference(this, "database");
+  private _database = new LakeformationResourceLfTagsDatabaseOutputReference(
+    this,
+    'database',
+  );
   public get database() {
     return this._database;
   }
@@ -822,11 +915,17 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   }
 
   // lf_tag - computed: false, optional: false, required: true
-  private _lfTag = new LakeformationResourceLfTagsLfTagList(this, "lf_tag", true);
+  private _lfTag = new LakeformationResourceLfTagsLfTagList(
+    this,
+    'lf_tag',
+    true,
+  );
   public get lfTag() {
     return this._lfTag;
   }
-  public putLfTag(value: LakeformationResourceLfTagsLfTag[] | cdktf.IResolvable) {
+  public putLfTag(
+    value: LakeformationResourceLfTagsLfTag[] | cdktf.IResolvable,
+  ) {
     this._lfTag.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -835,7 +934,10 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   }
 
   // table - computed: false, optional: true, required: false
-  private _table = new LakeformationResourceLfTagsTableOutputReference(this, "table");
+  private _table = new LakeformationResourceLfTagsTableOutputReference(
+    this,
+    'table',
+  );
   public get table() {
     return this._table;
   }
@@ -851,11 +953,17 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   }
 
   // table_with_columns - computed: false, optional: true, required: false
-  private _tableWithColumns = new LakeformationResourceLfTagsTableWithColumnsOutputReference(this, "table_with_columns");
+  private _tableWithColumns =
+    new LakeformationResourceLfTagsTableWithColumnsOutputReference(
+      this,
+      'table_with_columns',
+    );
   public get tableWithColumns() {
     return this._tableWithColumns;
   }
-  public putTableWithColumns(value: LakeformationResourceLfTagsTableWithColumns) {
+  public putTableWithColumns(
+    value: LakeformationResourceLfTagsTableWithColumns,
+  ) {
     this._tableWithColumns.internalValue = value;
   }
   public resetTableWithColumns() {
@@ -867,7 +975,10 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new LakeformationResourceLfTagsTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new LakeformationResourceLfTagsTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -890,11 +1001,23 @@ export class LakeformationResourceLfTags extends cdktf.TerraformResource {
     return {
       catalog_id: cdktf.stringToTerraform(this._catalogId),
       id: cdktf.stringToTerraform(this._id),
-      database: lakeformationResourceLfTagsDatabaseToTerraform(this._database.internalValue),
-      lf_tag: cdktf.listMapper(lakeformationResourceLfTagsLfTagToTerraform, true)(this._lfTag.internalValue),
-      table: lakeformationResourceLfTagsTableToTerraform(this._table.internalValue),
-      table_with_columns: lakeformationResourceLfTagsTableWithColumnsToTerraform(this._tableWithColumns.internalValue),
-      timeouts: lakeformationResourceLfTagsTimeoutsToTerraform(this._timeouts.internalValue),
+      database: lakeformationResourceLfTagsDatabaseToTerraform(
+        this._database.internalValue,
+      ),
+      lf_tag: cdktf.listMapper(
+        lakeformationResourceLfTagsLfTagToTerraform,
+        true,
+      )(this._lfTag.internalValue),
+      table: lakeformationResourceLfTagsTableToTerraform(
+        this._table.internalValue,
+      ),
+      table_with_columns:
+        lakeformationResourceLfTagsTableWithColumnsToTerraform(
+          this._tableWithColumns.internalValue,
+        ),
+      timeouts: lakeformationResourceLfTagsTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

@@ -1,7 +1,7 @@
-import { CloudGraph, CloudNode } from '../../cloud-graph/index.js';
-import type { ComponentStore } from '../../component-store/index.js';
-import { Component, parseComponent } from '../../components/index.js';
-import { ComponentMetadata, Environment } from '../environment.js';
+import { CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import type { ComponentStore } from '../../component-store/index.ts';
+import { Component, parseComponent } from '../../components/index.ts';
+import { ComponentMetadata, Environment } from '../environment.ts';
 
 export default class EnvironmentV1 extends Environment {
   /**
@@ -116,9 +116,7 @@ export default class EnvironmentV1 extends Environment {
     Object.assign(this, data);
   }
 
-  private enrichDeployment(
-    node: CloudNode<'deployment'>,
-  ): CloudNode<'deployment'> {
+  private enrichDeployment(node: CloudNode<'deployment'>): CloudNode<'deployment'> {
     if (!node.component || !this.components) {
       return node;
     }
@@ -165,9 +163,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  private enrichIngressRule(
-    node: CloudNode<'ingressRule'>,
-  ): CloudNode<'ingressRule'> {
+  private enrichIngressRule(node: CloudNode<'ingressRule'>): CloudNode<'ingressRule'> {
     if (!node.component || !this.components) {
       return node;
     }
@@ -200,11 +196,7 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
-  public async getGraph(
-    environment_name: string,
-    componentStore: ComponentStore,
-    debug = false,
-  ): Promise<CloudGraph> {
+  public async getGraph(environment_name: string, componentStore: ComponentStore, debug = false): Promise<CloudGraph> {
     const graph = new CloudGraph();
 
     // Populate explicit components
@@ -220,10 +212,7 @@ export default class EnvironmentV1 extends Environment {
               const component = await parseComponent(source);
               found_components[component_key] = component;
               for (const dependency of component.getDependencies()) {
-                if (
-                  !implicit_dependencies.includes(dependency) &&
-                  !found_components[dependency]
-                ) {
+                if (!implicit_dependencies.includes(dependency) && !found_components[dependency]) {
                   implicit_dependencies.push(dependency);
                 }
               }
@@ -233,22 +222,15 @@ export default class EnvironmentV1 extends Environment {
             }
           } else if (component_config.source) {
             try {
-              const component = await componentStore.getComponentConfig(
-                component_config.source,
-              );
+              const component = await componentStore.getComponentConfig(component_config.source);
               found_components[component_key] = component;
               for (const dependency of component.getDependencies()) {
-                if (
-                  !implicit_dependencies.includes(dependency) &&
-                  !found_components[dependency]
-                ) {
+                if (!implicit_dependencies.includes(dependency) && !found_components[dependency]) {
                   implicit_dependencies.push(dependency);
                 }
               }
             } catch (err) {
-              throw new Error(
-                `Failed to get component: ${component_config.source}`,
-              );
+              throw new Error(`Failed to get component: ${component_config.source}`);
             }
           }
         }),
@@ -257,22 +239,17 @@ export default class EnvironmentV1 extends Environment {
     // Populate implicit dependencies
     while (implicit_dependencies.length > 0) {
       const dependency_name = implicit_dependencies.shift()!;
-      const component = await componentStore.getComponentConfig(
-        `${dependency_name}:latest`,
-      );
+      const component = await componentStore.getComponentConfig(`${dependency_name}:latest`);
       found_components[dependency_name] = component;
       for (const dependency of component.getDependencies()) {
-        if (
-          !implicit_dependencies.includes(dependency) &&
-          !found_components[dependency]
-        ) {
+        if (!implicit_dependencies.includes(dependency) && !found_components[dependency]) {
           implicit_dependencies.push(dependency);
         }
       }
     }
 
     // Insert graph resources from found components
-    Object.entries(found_components).map(async ([key, component]) => {
+    Object.entries(found_components).map(([key, component]) => {
       const component_config = this.components?.[key];
       const component_graph = component.getGraph({
         component: {
@@ -326,13 +303,10 @@ export default class EnvironmentV1 extends Environment {
 
   public addComponent(metadata: ComponentMetadata): void {
     this.components = this.components || {};
-    this.components[metadata.image.repository] =
-      this.components[metadata.image.repository] || {};
-    this.components[metadata.image.repository].source =
-      metadata.image.toString();
+    this.components[metadata.image.repository] = this.components[metadata.image.repository] || {};
+    this.components[metadata.image.repository].source = metadata.image.toString();
     for (const [key, subdomain] of Object.entries(metadata.ingresses || {})) {
-      this.components[metadata.image.repository].ingresses =
-        this.components[metadata.image.repository].ingresses || {};
+      this.components[metadata.image.repository].ingresses = this.components[metadata.image.repository].ingresses || {};
       this.components[metadata.image.repository].ingresses![key] = {
         subdomain,
       };

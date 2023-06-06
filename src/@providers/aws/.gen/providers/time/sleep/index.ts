@@ -1,61 +1,59 @@
 // https://www.terraform.io/docs/providers/time/r/sleep
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface SleepConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#create_duration Sleep#create_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#create_duration Sleep#create_duration}
+   */
   readonly createDuration?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#destroy_duration Sleep#destroy_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#destroy_duration Sleep#destroy_duration}
+   */
   readonly destroyDuration?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#id Sleep#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#id Sleep#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#triggers Sleep#triggers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/sleep#triggers Sleep#triggers}
+   */
   readonly triggers?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/time/r/sleep time_sleep}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/time/r/sleep time_sleep}
+ */
 export class Sleep extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "time_sleep";
+  public static readonly tfResourceType = 'time_sleep';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/time/r/sleep time_sleep} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SleepConfig = {}
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/time/r/sleep time_sleep} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SleepConfig = {}
+   */
   public constructor(scope: Construct, id: string, config: SleepConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'time_sleep',
       terraformGeneratorMetadata: {
         providerName: 'time',
         providerVersion: '0.5.0',
-        providerVersionConstraint: '0.5.0'
+        providerVersionConstraint: '0.5.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +61,7 @@ export class Sleep extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._createDuration = config.createDuration;
     this._destroyDuration = config.destroyDuration;
@@ -76,7 +74,7 @@ export class Sleep extends cdktf.TerraformResource {
   // ==========
 
   // create_duration - computed: false, optional: true, required: false
-  private _createDuration?: string; 
+  private _createDuration?: string;
   public get createDuration() {
     return this.getStringAttribute('create_duration');
   }
@@ -92,7 +90,7 @@ export class Sleep extends cdktf.TerraformResource {
   }
 
   // destroy_duration - computed: false, optional: true, required: false
-  private _destroyDuration?: string; 
+  private _destroyDuration?: string;
   public get destroyDuration() {
     return this.getStringAttribute('destroy_duration');
   }
@@ -108,7 +106,7 @@ export class Sleep extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -124,7 +122,7 @@ export class Sleep extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

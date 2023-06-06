@@ -1,69 +1,72 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsRoute53ResolverRulesConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsRoute53ResolverRulesConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#id DataAwsRoute53ResolverRules#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#id DataAwsRoute53ResolverRules#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#name_regex DataAwsRoute53ResolverRules#name_regex}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#name_regex DataAwsRoute53ResolverRules#name_regex}
+   */
   readonly nameRegex?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#owner_id DataAwsRoute53ResolverRules#owner_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#owner_id DataAwsRoute53ResolverRules#owner_id}
+   */
   readonly ownerId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#resolver_endpoint_id DataAwsRoute53ResolverRules#resolver_endpoint_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#resolver_endpoint_id DataAwsRoute53ResolverRules#resolver_endpoint_id}
+   */
   readonly resolverEndpointId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#rule_type DataAwsRoute53ResolverRules#rule_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#rule_type DataAwsRoute53ResolverRules#rule_type}
+   */
   readonly ruleType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#share_status DataAwsRoute53ResolverRules#share_status}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules#share_status DataAwsRoute53ResolverRules#share_status}
+   */
   readonly shareStatus?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules aws_route53_resolver_rules}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules aws_route53_resolver_rules}
+ */
 export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route53_resolver_rules";
+  public static readonly tfResourceType = 'aws_route53_resolver_rules';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules aws_route53_resolver_rules} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsRoute53ResolverRulesConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsRoute53ResolverRulesConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_rules aws_route53_resolver_rules} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsRoute53ResolverRulesConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsRoute53ResolverRulesConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_resolver_rules',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -71,7 +74,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._nameRegex = config.nameRegex;
@@ -86,7 +89,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -102,7 +105,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
   }
 
   // name_regex - computed: false, optional: true, required: false
-  private _nameRegex?: string; 
+  private _nameRegex?: string;
   public get nameRegex() {
     return this.getStringAttribute('name_regex');
   }
@@ -118,7 +121,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
   }
 
   // owner_id - computed: false, optional: true, required: false
-  private _ownerId?: string; 
+  private _ownerId?: string;
   public get ownerId() {
     return this.getStringAttribute('owner_id');
   }
@@ -134,7 +137,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
   }
 
   // resolver_endpoint_id - computed: false, optional: true, required: false
-  private _resolverEndpointId?: string; 
+  private _resolverEndpointId?: string;
   public get resolverEndpointId() {
     return this.getStringAttribute('resolver_endpoint_id');
   }
@@ -155,7 +158,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
   }
 
   // rule_type - computed: false, optional: true, required: false
-  private _ruleType?: string; 
+  private _ruleType?: string;
   public get ruleType() {
     return this.getStringAttribute('rule_type');
   }
@@ -171,7 +174,7 @@ export class DataAwsRoute53ResolverRules extends cdktf.TerraformDataSource {
   }
 
   // share_status - computed: false, optional: true, required: false
-  private _shareStatus?: string; 
+  private _shareStatus?: string;
   public get shareStatus() {
     return this.getStringAttribute('share_status');
   }

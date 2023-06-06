@@ -1,98 +1,115 @@
 // https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface EcrpublicRepositoryConfig extends cdktf.TerraformMetaArguments {
+export interface EcrpublicRepositoryConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#force_destroy EcrpublicRepository#force_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#force_destroy EcrpublicRepository#force_destroy}
+   */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#id EcrpublicRepository#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#id EcrpublicRepository#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#repository_name EcrpublicRepository#repository_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#repository_name EcrpublicRepository#repository_name}
+   */
   readonly repositoryName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#tags EcrpublicRepository#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#tags EcrpublicRepository#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#tags_all EcrpublicRepository#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#tags_all EcrpublicRepository#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * catalog_data block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#catalog_data EcrpublicRepository#catalog_data}
-  */
+   * catalog_data block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#catalog_data EcrpublicRepository#catalog_data}
+   */
   readonly catalogData?: EcrpublicRepositoryCatalogData;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#timeouts EcrpublicRepository#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#timeouts EcrpublicRepository#timeouts}
+   */
   readonly timeouts?: EcrpublicRepositoryTimeouts;
 }
 export interface EcrpublicRepositoryCatalogData {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#about_text EcrpublicRepository#about_text}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#about_text EcrpublicRepository#about_text}
+   */
   readonly aboutText?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#architectures EcrpublicRepository#architectures}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#architectures EcrpublicRepository#architectures}
+   */
   readonly architectures?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#description EcrpublicRepository#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#description EcrpublicRepository#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#logo_image_blob EcrpublicRepository#logo_image_blob}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#logo_image_blob EcrpublicRepository#logo_image_blob}
+   */
   readonly logoImageBlob?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#operating_systems EcrpublicRepository#operating_systems}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#operating_systems EcrpublicRepository#operating_systems}
+   */
   readonly operatingSystems?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#usage_text EcrpublicRepository#usage_text}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#usage_text EcrpublicRepository#usage_text}
+   */
   readonly usageText?: string;
 }
 
-export function ecrpublicRepositoryCatalogDataToTerraform(struct?: EcrpublicRepositoryCatalogDataOutputReference | EcrpublicRepositoryCatalogData): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecrpublicRepositoryCatalogDataToTerraform(
+  struct?:
+    | EcrpublicRepositoryCatalogDataOutputReference
+    | EcrpublicRepositoryCatalogData,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     about_text: cdktf.stringToTerraform(struct!.aboutText),
-    architectures: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.architectures),
+    architectures: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.architectures),
     description: cdktf.stringToTerraform(struct!.description),
     logo_image_blob: cdktf.stringToTerraform(struct!.logoImageBlob),
-    operating_systems: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.operatingSystems),
+    operating_systems: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.operatingSystems),
     usage_text: cdktf.stringToTerraform(struct!.usageText),
-  }
+  };
 }
 
 export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -135,8 +152,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
       this._logoImageBlob = undefined;
       this._operatingSystems = undefined;
       this._usageText = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._aboutText = value.aboutText;
       this._architectures = value.architectures;
@@ -148,7 +164,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // about_text - computed: false, optional: true, required: false
-  private _aboutText?: string; 
+  private _aboutText?: string;
   public get aboutText() {
     return this.getStringAttribute('about_text');
   }
@@ -164,7 +180,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // architectures - computed: false, optional: true, required: false
-  private _architectures?: string[]; 
+  private _architectures?: string[];
   public get architectures() {
     return cdktf.Fn.tolist(this.getListAttribute('architectures'));
   }
@@ -180,7 +196,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -196,7 +212,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // logo_image_blob - computed: true, optional: true, required: false
-  private _logoImageBlob?: string; 
+  private _logoImageBlob?: string;
   public get logoImageBlob() {
     return this.getStringAttribute('logo_image_blob');
   }
@@ -212,7 +228,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // operating_systems - computed: false, optional: true, required: false
-  private _operatingSystems?: string[]; 
+  private _operatingSystems?: string[];
   public get operatingSystems() {
     return cdktf.Fn.tolist(this.getListAttribute('operating_systems'));
   }
@@ -228,7 +244,7 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
   }
 
   // usage_text - computed: false, optional: true, required: false
-  private _usageText?: string; 
+  private _usageText?: string;
   public get usageText() {
     return this.getStringAttribute('usage_text');
   }
@@ -245,19 +261,28 @@ export class EcrpublicRepositoryCatalogDataOutputReference extends cdktf.Complex
 }
 export interface EcrpublicRepositoryTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#delete EcrpublicRepository#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository#delete EcrpublicRepository#delete}
+   */
   readonly delete?: string;
 }
 
-export function ecrpublicRepositoryTimeoutsToTerraform(struct?: EcrpublicRepositoryTimeoutsOutputReference | EcrpublicRepositoryTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ecrpublicRepositoryTimeoutsToTerraform(
+  struct?:
+    | EcrpublicRepositoryTimeoutsOutputReference
+    | EcrpublicRepositoryTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class EcrpublicRepositoryTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -265,14 +290,20 @@ export class EcrpublicRepositoryTimeoutsOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): EcrpublicRepositoryTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | EcrpublicRepositoryTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -285,17 +316,17 @@ export class EcrpublicRepositoryTimeoutsOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: EcrpublicRepositoryTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: EcrpublicRepositoryTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -303,7 +334,7 @@ export class EcrpublicRepositoryTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -320,33 +351,36 @@ export class EcrpublicRepositoryTimeoutsOutputReference extends cdktf.ComplexObj
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository aws_ecrpublic_repository}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository aws_ecrpublic_repository}
+ */
 export class EcrpublicRepository extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ecrpublic_repository";
+  public static readonly tfResourceType = 'aws_ecrpublic_repository';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository aws_ecrpublic_repository} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options EcrpublicRepositoryConfig
-  */
-  public constructor(scope: Construct, id: string, config: EcrpublicRepositoryConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ecrpublic_repository aws_ecrpublic_repository} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options EcrpublicRepositoryConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: EcrpublicRepositoryConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_ecrpublic_repository',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -354,7 +388,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._forceDestroy = config.forceDestroy;
     this._id = config.id;
@@ -375,7 +409,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable; 
+  private _forceDestroy?: boolean | cdktf.IResolvable;
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -391,7 +425,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -412,7 +446,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // repository_name - computed: false, optional: false, required: true
-  private _repositoryName?: string; 
+  private _repositoryName?: string;
   public get repositoryName() {
     return this.getStringAttribute('repository_name');
   }
@@ -430,7 +464,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -446,7 +480,7 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -462,7 +496,10 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // catalog_data - computed: false, optional: true, required: false
-  private _catalogData = new EcrpublicRepositoryCatalogDataOutputReference(this, "catalog_data");
+  private _catalogData = new EcrpublicRepositoryCatalogDataOutputReference(
+    this,
+    'catalog_data',
+  );
   public get catalogData() {
     return this._catalogData;
   }
@@ -478,7 +515,10 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EcrpublicRepositoryTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new EcrpublicRepositoryTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -504,8 +544,12 @@ export class EcrpublicRepository extends cdktf.TerraformResource {
       repository_name: cdktf.stringToTerraform(this._repositoryName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      catalog_data: ecrpublicRepositoryCatalogDataToTerraform(this._catalogData.internalValue),
-      timeouts: ecrpublicRepositoryTimeoutsToTerraform(this._timeouts.internalValue),
+      catalog_data: ecrpublicRepositoryCatalogDataToTerraform(
+        this._catalogData.internalValue,
+      ),
+      timeouts: ecrpublicRepositoryTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

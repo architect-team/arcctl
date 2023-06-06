@@ -1,64 +1,79 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface WafSizeConstraintSetConfig extends cdktf.TerraformMetaArguments {
+export interface WafSizeConstraintSetConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#id WafSizeConstraintSet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#id WafSizeConstraintSet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#name WafSizeConstraintSet#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#name WafSizeConstraintSet#name}
+   */
   readonly name: string;
   /**
-  * size_constraints block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#size_constraints WafSizeConstraintSet#size_constraints}
-  */
-  readonly sizeConstraints?: WafSizeConstraintSetSizeConstraints[] | cdktf.IResolvable;
+   * size_constraints block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#size_constraints WafSizeConstraintSet#size_constraints}
+   */
+  readonly sizeConstraints?:
+    | WafSizeConstraintSetSizeConstraints[]
+    | cdktf.IResolvable;
 }
 export interface WafSizeConstraintSetSizeConstraintsFieldToMatch {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#data WafSizeConstraintSet#data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#data WafSizeConstraintSet#data}
+   */
   readonly data?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#type WafSizeConstraintSet#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#type WafSizeConstraintSet#type}
+   */
   readonly type: string;
 }
 
-export function wafSizeConstraintSetSizeConstraintsFieldToMatchToTerraform(struct?: WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference | WafSizeConstraintSetSizeConstraintsFieldToMatch): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafSizeConstraintSetSizeConstraintsFieldToMatchToTerraform(
+  struct?:
+    | WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference
+    | WafSizeConstraintSetSizeConstraintsFieldToMatch,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     data: cdktf.stringToTerraform(struct!.data),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): WafSizeConstraintSetSizeConstraintsFieldToMatch | undefined {
+  public get internalValue():
+    | WafSizeConstraintSetSizeConstraintsFieldToMatch
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._data !== undefined) {
@@ -72,13 +87,14 @@ export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WafSizeConstraintSetSizeConstraintsFieldToMatch | undefined) {
+  public set internalValue(
+    value: WafSizeConstraintSetSizeConstraintsFieldToMatch | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._data = undefined;
       this._type = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._data = value.data;
       this._type = value.type;
@@ -86,7 +102,7 @@ export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference exte
   }
 
   // data - computed: false, optional: true, required: false
-  private _data?: string; 
+  private _data?: string;
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -102,7 +118,7 @@ export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference exte
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -116,36 +132,44 @@ export class WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference exte
 }
 export interface WafSizeConstraintSetSizeConstraints {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#comparison_operator WafSizeConstraintSet#comparison_operator}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#comparison_operator WafSizeConstraintSet#comparison_operator}
+   */
   readonly comparisonOperator: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#size WafSizeConstraintSet#size}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#size WafSizeConstraintSet#size}
+   */
   readonly size: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#text_transformation WafSizeConstraintSet#text_transformation}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#text_transformation WafSizeConstraintSet#text_transformation}
+   */
   readonly textTransformation: string;
   /**
-  * field_to_match block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#field_to_match WafSizeConstraintSet#field_to_match}
-  */
+   * field_to_match block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set#field_to_match WafSizeConstraintSet#field_to_match}
+   */
   readonly fieldToMatch: WafSizeConstraintSetSizeConstraintsFieldToMatch;
 }
 
-export function wafSizeConstraintSetSizeConstraintsToTerraform(struct?: WafSizeConstraintSetSizeConstraints | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function wafSizeConstraintSetSizeConstraintsToTerraform(
+  struct?: WafSizeConstraintSetSizeConstraints | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     comparison_operator: cdktf.stringToTerraform(struct!.comparisonOperator),
     size: cdktf.numberToTerraform(struct!.size),
     text_transformation: cdktf.stringToTerraform(struct!.textTransformation),
-    field_to_match: wafSizeConstraintSetSizeConstraintsFieldToMatchToTerraform(struct!.fieldToMatch),
-  }
+    field_to_match: wafSizeConstraintSetSizeConstraintsFieldToMatchToTerraform(
+      struct!.fieldToMatch,
+    ),
+  };
 }
 
 export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.ComplexObject {
@@ -153,16 +177,29 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): WafSizeConstraintSetSizeConstraints | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | WafSizeConstraintSetSizeConstraints
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -187,7 +224,9 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: WafSizeConstraintSetSizeConstraints | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: WafSizeConstraintSetSizeConstraints | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -195,12 +234,10 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
       this._size = undefined;
       this._textTransformation = undefined;
       this._fieldToMatch.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._comparisonOperator = value.comparisonOperator;
@@ -211,7 +248,7 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // comparison_operator - computed: false, optional: false, required: true
-  private _comparisonOperator?: string; 
+  private _comparisonOperator?: string;
   public get comparisonOperator() {
     return this.getStringAttribute('comparison_operator');
   }
@@ -224,7 +261,7 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number; 
+  private _size?: number;
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -237,7 +274,7 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // text_transformation - computed: false, optional: false, required: true
-  private _textTransformation?: string; 
+  private _textTransformation?: string;
   public get textTransformation() {
     return this.getStringAttribute('text_transformation');
   }
@@ -250,11 +287,17 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
   }
 
   // field_to_match - computed: false, optional: false, required: true
-  private _fieldToMatch = new WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference(this, "field_to_match");
+  private _fieldToMatch =
+    new WafSizeConstraintSetSizeConstraintsFieldToMatchOutputReference(
+      this,
+      'field_to_match',
+    );
   public get fieldToMatch() {
     return this._fieldToMatch;
   }
-  public putFieldToMatch(value: WafSizeConstraintSetSizeConstraintsFieldToMatch) {
+  public putFieldToMatch(
+    value: WafSizeConstraintSetSizeConstraintsFieldToMatch,
+  ) {
     this._fieldToMatch.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -264,53 +307,69 @@ export class WafSizeConstraintSetSizeConstraintsOutputReference extends cdktf.Co
 }
 
 export class WafSizeConstraintSetSizeConstraintsList extends cdktf.ComplexList {
-  public internalValue? : WafSizeConstraintSetSizeConstraints[] | cdktf.IResolvable
+  public internalValue?:
+    | WafSizeConstraintSetSizeConstraints[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): WafSizeConstraintSetSizeConstraintsOutputReference {
-    return new WafSizeConstraintSetSizeConstraintsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): WafSizeConstraintSetSizeConstraintsOutputReference {
+    return new WafSizeConstraintSetSizeConstraintsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set aws_waf_size_constraint_set}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set aws_waf_size_constraint_set}
+ */
 export class WafSizeConstraintSet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_waf_size_constraint_set";
+  public static readonly tfResourceType = 'aws_waf_size_constraint_set';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set aws_waf_size_constraint_set} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options WafSizeConstraintSetConfig
-  */
-  public constructor(scope: Construct, id: string, config: WafSizeConstraintSetConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set aws_waf_size_constraint_set} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options WafSizeConstraintSetConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: WafSizeConstraintSetConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_waf_size_constraint_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -318,7 +377,7 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -335,7 +394,7 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -351,7 +410,7 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -364,11 +423,17 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
   }
 
   // size_constraints - computed: false, optional: true, required: false
-  private _sizeConstraints = new WafSizeConstraintSetSizeConstraintsList(this, "size_constraints", true);
+  private _sizeConstraints = new WafSizeConstraintSetSizeConstraintsList(
+    this,
+    'size_constraints',
+    true,
+  );
   public get sizeConstraints() {
     return this._sizeConstraints;
   }
-  public putSizeConstraints(value: WafSizeConstraintSetSizeConstraints[] | cdktf.IResolvable) {
+  public putSizeConstraints(
+    value: WafSizeConstraintSetSizeConstraints[] | cdktf.IResolvable,
+  ) {
     this._sizeConstraints.internalValue = value;
   }
   public resetSizeConstraints() {
@@ -387,7 +452,10 @@ export class WafSizeConstraintSet extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      size_constraints: cdktf.listMapper(wafSizeConstraintSetSizeConstraintsToTerraform, true)(this._sizeConstraints.internalValue),
+      size_constraints: cdktf.listMapper(
+        wafSizeConstraintSetSizeConstraintsToTerraform,
+        true,
+      )(this._sizeConstraints.internalValue),
     };
   }
 }

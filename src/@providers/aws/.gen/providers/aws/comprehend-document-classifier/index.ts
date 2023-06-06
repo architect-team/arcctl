@@ -1,124 +1,139 @@
 // https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ComprehendDocumentClassifierConfig extends cdktf.TerraformMetaArguments {
+export interface ComprehendDocumentClassifierConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#data_access_role_arn ComprehendDocumentClassifier#data_access_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#data_access_role_arn ComprehendDocumentClassifier#data_access_role_arn}
+   */
   readonly dataAccessRoleArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#id ComprehendDocumentClassifier#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#id ComprehendDocumentClassifier#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#language_code ComprehendDocumentClassifier#language_code}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#language_code ComprehendDocumentClassifier#language_code}
+   */
   readonly languageCode: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#mode ComprehendDocumentClassifier#mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#mode ComprehendDocumentClassifier#mode}
+   */
   readonly mode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#model_kms_key_id ComprehendDocumentClassifier#model_kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#model_kms_key_id ComprehendDocumentClassifier#model_kms_key_id}
+   */
   readonly modelKmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#name ComprehendDocumentClassifier#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#name ComprehendDocumentClassifier#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#tags ComprehendDocumentClassifier#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#tags ComprehendDocumentClassifier#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#tags_all ComprehendDocumentClassifier#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#tags_all ComprehendDocumentClassifier#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#version_name ComprehendDocumentClassifier#version_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#version_name ComprehendDocumentClassifier#version_name}
+   */
   readonly versionName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#version_name_prefix ComprehendDocumentClassifier#version_name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#version_name_prefix ComprehendDocumentClassifier#version_name_prefix}
+   */
   readonly versionNamePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#volume_kms_key_id ComprehendDocumentClassifier#volume_kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#volume_kms_key_id ComprehendDocumentClassifier#volume_kms_key_id}
+   */
   readonly volumeKmsKeyId?: string;
   /**
-  * input_data_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#input_data_config ComprehendDocumentClassifier#input_data_config}
-  */
+   * input_data_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#input_data_config ComprehendDocumentClassifier#input_data_config}
+   */
   readonly inputDataConfig: ComprehendDocumentClassifierInputDataConfig;
   /**
-  * output_data_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#output_data_config ComprehendDocumentClassifier#output_data_config}
-  */
+   * output_data_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#output_data_config ComprehendDocumentClassifier#output_data_config}
+   */
   readonly outputDataConfig?: ComprehendDocumentClassifierOutputDataConfig;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#timeouts ComprehendDocumentClassifier#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#timeouts ComprehendDocumentClassifier#timeouts}
+   */
   readonly timeouts?: ComprehendDocumentClassifierTimeouts;
   /**
-  * vpc_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#vpc_config ComprehendDocumentClassifier#vpc_config}
-  */
+   * vpc_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#vpc_config ComprehendDocumentClassifier#vpc_config}
+   */
   readonly vpcConfig?: ComprehendDocumentClassifierVpcConfig;
 }
 export interface ComprehendDocumentClassifierInputDataConfigAugmentedManifests {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#annotation_data_s3_uri ComprehendDocumentClassifier#annotation_data_s3_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#annotation_data_s3_uri ComprehendDocumentClassifier#annotation_data_s3_uri}
+   */
   readonly annotationDataS3Uri?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#attribute_names ComprehendDocumentClassifier#attribute_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#attribute_names ComprehendDocumentClassifier#attribute_names}
+   */
   readonly attributeNames: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#document_type ComprehendDocumentClassifier#document_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#document_type ComprehendDocumentClassifier#document_type}
+   */
   readonly documentType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#s3_uri ComprehendDocumentClassifier#s3_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#s3_uri ComprehendDocumentClassifier#s3_uri}
+   */
   readonly s3Uri: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#source_documents_s3_uri ComprehendDocumentClassifier#source_documents_s3_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#source_documents_s3_uri ComprehendDocumentClassifier#source_documents_s3_uri}
+   */
   readonly sourceDocumentsS3Uri?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#split ComprehendDocumentClassifier#split}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#split ComprehendDocumentClassifier#split}
+   */
   readonly split?: string;
 }
 
-export function comprehendDocumentClassifierInputDataConfigAugmentedManifestsToTerraform(struct?: ComprehendDocumentClassifierInputDataConfigAugmentedManifests | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function comprehendDocumentClassifierInputDataConfigAugmentedManifestsToTerraform(
+  struct?:
+    | ComprehendDocumentClassifierInputDataConfigAugmentedManifests
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    annotation_data_s3_uri: cdktf.stringToTerraform(struct!.annotationDataS3Uri),
-    attribute_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.attributeNames),
+    annotation_data_s3_uri: cdktf.stringToTerraform(
+      struct!.annotationDataS3Uri,
+    ),
+    attribute_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.attributeNames),
     document_type: cdktf.stringToTerraform(struct!.documentType),
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
-    source_documents_s3_uri: cdktf.stringToTerraform(struct!.sourceDocumentsS3Uri),
+    source_documents_s3_uri: cdktf.stringToTerraform(
+      struct!.sourceDocumentsS3Uri,
+    ),
     split: cdktf.stringToTerraform(struct!.split),
-  }
+  };
 }
 
 export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutputReference extends cdktf.ComplexObject {
@@ -126,16 +141,29 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ComprehendDocumentClassifierInputDataConfigAugmentedManifests | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ComprehendDocumentClassifierInputDataConfigAugmentedManifests
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -168,7 +196,12 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ComprehendDocumentClassifierInputDataConfigAugmentedManifests | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ComprehendDocumentClassifierInputDataConfigAugmentedManifests
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -178,12 +211,10 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
       this._s3Uri = undefined;
       this._sourceDocumentsS3Uri = undefined;
       this._split = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._annotationDataS3Uri = value.annotationDataS3Uri;
@@ -196,7 +227,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // annotation_data_s3_uri - computed: false, optional: true, required: false
-  private _annotationDataS3Uri?: string; 
+  private _annotationDataS3Uri?: string;
   public get annotationDataS3Uri() {
     return this.getStringAttribute('annotation_data_s3_uri');
   }
@@ -212,7 +243,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // attribute_names - computed: false, optional: false, required: true
-  private _attributeNames?: string[]; 
+  private _attributeNames?: string[];
   public get attributeNames() {
     return this.getListAttribute('attribute_names');
   }
@@ -225,7 +256,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // document_type - computed: false, optional: true, required: false
-  private _documentType?: string; 
+  private _documentType?: string;
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -241,7 +272,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -254,7 +285,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // source_documents_s3_uri - computed: false, optional: true, required: false
-  private _sourceDocumentsS3Uri?: string; 
+  private _sourceDocumentsS3Uri?: string;
   public get sourceDocumentsS3Uri() {
     return this.getStringAttribute('source_documents_s3_uri');
   }
@@ -270,7 +301,7 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
   }
 
   // split - computed: false, optional: true, required: false
-  private _split?: string; 
+  private _split?: string;
   public get split() {
     return this.getStringAttribute('split');
   }
@@ -287,75 +318,106 @@ export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutput
 }
 
 export class ComprehendDocumentClassifierInputDataConfigAugmentedManifestsList extends cdktf.ComplexList {
-  public internalValue? : ComprehendDocumentClassifierInputDataConfigAugmentedManifests[] | cdktf.IResolvable
+  public internalValue?:
+    | ComprehendDocumentClassifierInputDataConfigAugmentedManifests[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutputReference {
-    return new ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutputReference {
+    return new ComprehendDocumentClassifierInputDataConfigAugmentedManifestsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ComprehendDocumentClassifierInputDataConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#data_format ComprehendDocumentClassifier#data_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#data_format ComprehendDocumentClassifier#data_format}
+   */
   readonly dataFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#label_delimiter ComprehendDocumentClassifier#label_delimiter}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#label_delimiter ComprehendDocumentClassifier#label_delimiter}
+   */
   readonly labelDelimiter?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#s3_uri ComprehendDocumentClassifier#s3_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#s3_uri ComprehendDocumentClassifier#s3_uri}
+   */
   readonly s3Uri?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#test_s3_uri ComprehendDocumentClassifier#test_s3_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#test_s3_uri ComprehendDocumentClassifier#test_s3_uri}
+   */
   readonly testS3Uri?: string;
   /**
-  * augmented_manifests block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#augmented_manifests ComprehendDocumentClassifier#augmented_manifests}
-  */
-  readonly augmentedManifests?: ComprehendDocumentClassifierInputDataConfigAugmentedManifests[] | cdktf.IResolvable;
+   * augmented_manifests block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#augmented_manifests ComprehendDocumentClassifier#augmented_manifests}
+   */
+  readonly augmentedManifests?:
+    | ComprehendDocumentClassifierInputDataConfigAugmentedManifests[]
+    | cdktf.IResolvable;
 }
 
-export function comprehendDocumentClassifierInputDataConfigToTerraform(struct?: ComprehendDocumentClassifierInputDataConfigOutputReference | ComprehendDocumentClassifierInputDataConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function comprehendDocumentClassifierInputDataConfigToTerraform(
+  struct?:
+    | ComprehendDocumentClassifierInputDataConfigOutputReference
+    | ComprehendDocumentClassifierInputDataConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     data_format: cdktf.stringToTerraform(struct!.dataFormat),
     label_delimiter: cdktf.stringToTerraform(struct!.labelDelimiter),
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
     test_s3_uri: cdktf.stringToTerraform(struct!.testS3Uri),
-    augmented_manifests: cdktf.listMapper(comprehendDocumentClassifierInputDataConfigAugmentedManifestsToTerraform, true)(struct!.augmentedManifests),
-  }
+    augmented_manifests: cdktf.listMapper(
+      comprehendDocumentClassifierInputDataConfigAugmentedManifestsToTerraform,
+      true,
+    )(struct!.augmentedManifests),
+  };
 }
 
 export class ComprehendDocumentClassifierInputDataConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ComprehendDocumentClassifierInputDataConfig | undefined {
+  public get internalValue():
+    | ComprehendDocumentClassifierInputDataConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dataFormat !== undefined) {
@@ -376,12 +438,15 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
     }
     if (this._augmentedManifests?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.augmentedManifests = this._augmentedManifests?.internalValue;
+      internalValueResult.augmentedManifests =
+        this._augmentedManifests?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ComprehendDocumentClassifierInputDataConfig | undefined) {
+  public set internalValue(
+    value: ComprehendDocumentClassifierInputDataConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dataFormat = undefined;
@@ -389,8 +454,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
       this._s3Uri = undefined;
       this._testS3Uri = undefined;
       this._augmentedManifests.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dataFormat = value.dataFormat;
       this._labelDelimiter = value.labelDelimiter;
@@ -401,7 +465,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // data_format - computed: false, optional: true, required: false
-  private _dataFormat?: string; 
+  private _dataFormat?: string;
   public get dataFormat() {
     return this.getStringAttribute('data_format');
   }
@@ -417,7 +481,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // label_delimiter - computed: true, optional: true, required: false
-  private _labelDelimiter?: string; 
+  private _labelDelimiter?: string;
   public get labelDelimiter() {
     return this.getStringAttribute('label_delimiter');
   }
@@ -433,7 +497,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // s3_uri - computed: false, optional: true, required: false
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -449,7 +513,7 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // test_s3_uri - computed: false, optional: true, required: false
-  private _testS3Uri?: string; 
+  private _testS3Uri?: string;
   public get testS3Uri() {
     return this.getStringAttribute('test_s3_uri');
   }
@@ -465,11 +529,20 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
   }
 
   // augmented_manifests - computed: false, optional: true, required: false
-  private _augmentedManifests = new ComprehendDocumentClassifierInputDataConfigAugmentedManifestsList(this, "augmented_manifests", true);
+  private _augmentedManifests =
+    new ComprehendDocumentClassifierInputDataConfigAugmentedManifestsList(
+      this,
+      'augmented_manifests',
+      true,
+    );
   public get augmentedManifests() {
     return this._augmentedManifests;
   }
-  public putAugmentedManifests(value: ComprehendDocumentClassifierInputDataConfigAugmentedManifests[] | cdktf.IResolvable) {
+  public putAugmentedManifests(
+    value:
+      | ComprehendDocumentClassifierInputDataConfigAugmentedManifests[]
+      | cdktf.IResolvable,
+  ) {
     this._augmentedManifests.internalValue = value;
   }
   public resetAugmentedManifests() {
@@ -482,38 +555,51 @@ export class ComprehendDocumentClassifierInputDataConfigOutputReference extends 
 }
 export interface ComprehendDocumentClassifierOutputDataConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#kms_key_id ComprehendDocumentClassifier#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#kms_key_id ComprehendDocumentClassifier#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#s3_uri ComprehendDocumentClassifier#s3_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#s3_uri ComprehendDocumentClassifier#s3_uri}
+   */
   readonly s3Uri: string;
 }
 
-export function comprehendDocumentClassifierOutputDataConfigToTerraform(struct?: ComprehendDocumentClassifierOutputDataConfigOutputReference | ComprehendDocumentClassifierOutputDataConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function comprehendDocumentClassifierOutputDataConfigToTerraform(
+  struct?:
+    | ComprehendDocumentClassifierOutputDataConfigOutputReference
+    | ComprehendDocumentClassifierOutputDataConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     kms_key_id: cdktf.stringToTerraform(struct!.kmsKeyId),
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
-  }
+  };
 }
 
 export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ComprehendDocumentClassifierOutputDataConfig | undefined {
+  public get internalValue():
+    | ComprehendDocumentClassifierOutputDataConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._kmsKeyId !== undefined) {
@@ -527,13 +613,14 @@ export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ComprehendDocumentClassifierOutputDataConfig | undefined) {
+  public set internalValue(
+    value: ComprehendDocumentClassifierOutputDataConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._kmsKeyId = undefined;
       this._s3Uri = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._kmsKeyId = value.kmsKeyId;
       this._s3Uri = value.s3Uri;
@@ -541,7 +628,7 @@ export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -562,7 +649,7 @@ export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string; 
+  private _s3Uri?: string;
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -576,29 +663,38 @@ export class ComprehendDocumentClassifierOutputDataConfigOutputReference extends
 }
 export interface ComprehendDocumentClassifierTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#create ComprehendDocumentClassifier#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#create ComprehendDocumentClassifier#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#delete ComprehendDocumentClassifier#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#delete ComprehendDocumentClassifier#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#update ComprehendDocumentClassifier#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#update ComprehendDocumentClassifier#update}
+   */
   readonly update?: string;
 }
 
-export function comprehendDocumentClassifierTimeoutsToTerraform(struct?: ComprehendDocumentClassifierTimeoutsOutputReference | ComprehendDocumentClassifierTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function comprehendDocumentClassifierTimeoutsToTerraform(
+  struct?:
+    | ComprehendDocumentClassifierTimeoutsOutputReference
+    | ComprehendDocumentClassifierTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -606,14 +702,20 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ComprehendDocumentClassifierTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ComprehendDocumentClassifierTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -634,19 +736,19 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ComprehendDocumentClassifierTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ComprehendDocumentClassifierTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -656,7 +758,7 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -672,7 +774,7 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -688,7 +790,7 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -705,38 +807,54 @@ export class ComprehendDocumentClassifierTimeoutsOutputReference extends cdktf.C
 }
 export interface ComprehendDocumentClassifierVpcConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#security_group_ids ComprehendDocumentClassifier#security_group_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#security_group_ids ComprehendDocumentClassifier#security_group_ids}
+   */
   readonly securityGroupIds: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#subnets ComprehendDocumentClassifier#subnets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier#subnets ComprehendDocumentClassifier#subnets}
+   */
   readonly subnets: string[];
 }
 
-export function comprehendDocumentClassifierVpcConfigToTerraform(struct?: ComprehendDocumentClassifierVpcConfigOutputReference | ComprehendDocumentClassifierVpcConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function comprehendDocumentClassifierVpcConfigToTerraform(
+  struct?:
+    | ComprehendDocumentClassifierVpcConfigOutputReference
+    | ComprehendDocumentClassifierVpcConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
+    security_group_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.securityGroupIds),
     subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnets),
-  }
+  };
 }
 
 export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ComprehendDocumentClassifierVpcConfig | undefined {
+  public get internalValue():
+    | ComprehendDocumentClassifierVpcConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._securityGroupIds !== undefined) {
@@ -750,13 +868,14 @@ export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ComprehendDocumentClassifierVpcConfig | undefined) {
+  public set internalValue(
+    value: ComprehendDocumentClassifierVpcConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnets = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnets = value.subnets;
@@ -764,7 +883,7 @@ export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[]; 
+  private _securityGroupIds?: string[];
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -777,7 +896,7 @@ export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[]; 
+  private _subnets?: string[];
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -791,33 +910,36 @@ export class ComprehendDocumentClassifierVpcConfigOutputReference extends cdktf.
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier aws_comprehend_document_classifier}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier aws_comprehend_document_classifier}
+ */
 export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_comprehend_document_classifier";
+  public static readonly tfResourceType = 'aws_comprehend_document_classifier';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier aws_comprehend_document_classifier} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ComprehendDocumentClassifierConfig
-  */
-  public constructor(scope: Construct, id: string, config: ComprehendDocumentClassifierConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/comprehend_document_classifier aws_comprehend_document_classifier} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ComprehendDocumentClassifierConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ComprehendDocumentClassifierConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_comprehend_document_classifier',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -825,7 +947,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._dataAccessRoleArn = config.dataAccessRoleArn;
     this._id = config.id;
@@ -854,7 +976,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // data_access_role_arn - computed: false, optional: false, required: true
-  private _dataAccessRoleArn?: string; 
+  private _dataAccessRoleArn?: string;
   public get dataAccessRoleArn() {
     return this.getStringAttribute('data_access_role_arn');
   }
@@ -867,7 +989,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -883,7 +1005,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string; 
+  private _languageCode?: string;
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -896,7 +1018,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -912,7 +1034,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // model_kms_key_id - computed: false, optional: true, required: false
-  private _modelKmsKeyId?: string; 
+  private _modelKmsKeyId?: string;
   public get modelKmsKeyId() {
     return this.getStringAttribute('model_kms_key_id');
   }
@@ -928,7 +1050,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -941,7 +1063,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -957,7 +1079,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -973,7 +1095,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // version_name - computed: true, optional: true, required: false
-  private _versionName?: string; 
+  private _versionName?: string;
   public get versionName() {
     return this.getStringAttribute('version_name');
   }
@@ -989,7 +1111,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // version_name_prefix - computed: true, optional: true, required: false
-  private _versionNamePrefix?: string; 
+  private _versionNamePrefix?: string;
   public get versionNamePrefix() {
     return this.getStringAttribute('version_name_prefix');
   }
@@ -1005,7 +1127,7 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // volume_kms_key_id - computed: false, optional: true, required: false
-  private _volumeKmsKeyId?: string; 
+  private _volumeKmsKeyId?: string;
   public get volumeKmsKeyId() {
     return this.getStringAttribute('volume_kms_key_id');
   }
@@ -1021,11 +1143,17 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // input_data_config - computed: false, optional: false, required: true
-  private _inputDataConfig = new ComprehendDocumentClassifierInputDataConfigOutputReference(this, "input_data_config");
+  private _inputDataConfig =
+    new ComprehendDocumentClassifierInputDataConfigOutputReference(
+      this,
+      'input_data_config',
+    );
   public get inputDataConfig() {
     return this._inputDataConfig;
   }
-  public putInputDataConfig(value: ComprehendDocumentClassifierInputDataConfig) {
+  public putInputDataConfig(
+    value: ComprehendDocumentClassifierInputDataConfig,
+  ) {
     this._inputDataConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1034,11 +1162,17 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // output_data_config - computed: false, optional: true, required: false
-  private _outputDataConfig = new ComprehendDocumentClassifierOutputDataConfigOutputReference(this, "output_data_config");
+  private _outputDataConfig =
+    new ComprehendDocumentClassifierOutputDataConfigOutputReference(
+      this,
+      'output_data_config',
+    );
   public get outputDataConfig() {
     return this._outputDataConfig;
   }
-  public putOutputDataConfig(value: ComprehendDocumentClassifierOutputDataConfig) {
+  public putOutputDataConfig(
+    value: ComprehendDocumentClassifierOutputDataConfig,
+  ) {
     this._outputDataConfig.internalValue = value;
   }
   public resetOutputDataConfig() {
@@ -1050,7 +1184,10 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ComprehendDocumentClassifierTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ComprehendDocumentClassifierTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -1066,7 +1203,10 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
   }
 
   // vpc_config - computed: false, optional: true, required: false
-  private _vpcConfig = new ComprehendDocumentClassifierVpcConfigOutputReference(this, "vpc_config");
+  private _vpcConfig = new ComprehendDocumentClassifierVpcConfigOutputReference(
+    this,
+    'vpc_config',
+  );
   public get vpcConfig() {
     return this._vpcConfig;
   }
@@ -1098,10 +1238,19 @@ export class ComprehendDocumentClassifier extends cdktf.TerraformResource {
       version_name: cdktf.stringToTerraform(this._versionName),
       version_name_prefix: cdktf.stringToTerraform(this._versionNamePrefix),
       volume_kms_key_id: cdktf.stringToTerraform(this._volumeKmsKeyId),
-      input_data_config: comprehendDocumentClassifierInputDataConfigToTerraform(this._inputDataConfig.internalValue),
-      output_data_config: comprehendDocumentClassifierOutputDataConfigToTerraform(this._outputDataConfig.internalValue),
-      timeouts: comprehendDocumentClassifierTimeoutsToTerraform(this._timeouts.internalValue),
-      vpc_config: comprehendDocumentClassifierVpcConfigToTerraform(this._vpcConfig.internalValue),
+      input_data_config: comprehendDocumentClassifierInputDataConfigToTerraform(
+        this._inputDataConfig.internalValue,
+      ),
+      output_data_config:
+        comprehendDocumentClassifierOutputDataConfigToTerraform(
+          this._outputDataConfig.internalValue,
+        ),
+      timeouts: comprehendDocumentClassifierTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
+      vpc_config: comprehendDocumentClassifierVpcConfigToTerraform(
+        this._vpcConfig.internalValue,
+      ),
     };
   }
 }

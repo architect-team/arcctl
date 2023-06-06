@@ -1,14 +1,11 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { PostgresCredentials } from '../credentials.js';
-import { PostgresDatabaseUserModule } from '../modules/database-user.js';
-import pg from 'pg';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { PostgresCredentials } from '../credentials.ts';
+import { PostgresDatabaseUserModule } from '../modules/database-user.ts';
+import { pg } from 'deps';
 
-export class PostgresDatabaseUserService extends TerraformResourceService<
-  'databaseUser',
-  PostgresCredentials
-> {
+export class PostgresDatabaseUserService extends TerraformResourceService<'databaseUser', PostgresCredentials> {
   client: pg.Client;
 
   constructor(private credentials: PostgresCredentials) {

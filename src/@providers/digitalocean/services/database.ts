@@ -1,16 +1,13 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDatabaseModule } from '../modules/database.js';
-import { ResourcePresets } from '@providers/service.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDatabaseModule } from '../modules/database.ts';
+import { ResourcePresets } from '../../../@providers/service.ts';
 import { createApiClient } from 'dots-wrapper';
-import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.js';
+import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.ts';
 
-export class DigitaloceanDatabaseService extends TerraformResourceService<
-  'database',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseService extends TerraformResourceService<'database', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -18,9 +15,7 @@ export class DigitaloceanDatabaseService extends TerraformResourceService<
     this.client = createApiClient({ token: credentials.token });
   }
 
-  private normalizeDatabase(
-    database: IDatabaseCluster,
-  ): ResourceOutputs['database'] {
+  private normalizeDatabase(database: IDatabaseCluster): ResourceOutputs['database'] {
     return {
       id: database.id,
       host: database.connection.host,

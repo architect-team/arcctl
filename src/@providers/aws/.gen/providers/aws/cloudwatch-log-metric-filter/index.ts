@@ -1,69 +1,77 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface CloudwatchLogMetricFilterConfig extends cdktf.TerraformMetaArguments {
+export interface CloudwatchLogMetricFilterConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#id CloudwatchLogMetricFilter#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#id CloudwatchLogMetricFilter#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#log_group_name CloudwatchLogMetricFilter#log_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#log_group_name CloudwatchLogMetricFilter#log_group_name}
+   */
   readonly logGroupName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#name CloudwatchLogMetricFilter#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#name CloudwatchLogMetricFilter#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#pattern CloudwatchLogMetricFilter#pattern}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#pattern CloudwatchLogMetricFilter#pattern}
+   */
   readonly pattern: string;
   /**
-  * metric_transformation block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#metric_transformation CloudwatchLogMetricFilter#metric_transformation}
-  */
+   * metric_transformation block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#metric_transformation CloudwatchLogMetricFilter#metric_transformation}
+   */
   readonly metricTransformation: CloudwatchLogMetricFilterMetricTransformation;
 }
 export interface CloudwatchLogMetricFilterMetricTransformation {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#default_value CloudwatchLogMetricFilter#default_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#default_value CloudwatchLogMetricFilter#default_value}
+   */
   readonly defaultValue?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#dimensions CloudwatchLogMetricFilter#dimensions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#dimensions CloudwatchLogMetricFilter#dimensions}
+   */
   readonly dimensions?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#name CloudwatchLogMetricFilter#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#name CloudwatchLogMetricFilter#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#namespace CloudwatchLogMetricFilter#namespace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#namespace CloudwatchLogMetricFilter#namespace}
+   */
   readonly namespace: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#unit CloudwatchLogMetricFilter#unit}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#unit CloudwatchLogMetricFilter#unit}
+   */
   readonly unit?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#value CloudwatchLogMetricFilter#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter#value CloudwatchLogMetricFilter#value}
+   */
   readonly value: string;
 }
 
-export function cloudwatchLogMetricFilterMetricTransformationToTerraform(struct?: CloudwatchLogMetricFilterMetricTransformationOutputReference | CloudwatchLogMetricFilterMetricTransformation): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudwatchLogMetricFilterMetricTransformationToTerraform(
+  struct?:
+    | CloudwatchLogMetricFilterMetricTransformationOutputReference
+    | CloudwatchLogMetricFilterMetricTransformation,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     default_value: cdktf.stringToTerraform(struct!.defaultValue),
@@ -72,21 +80,26 @@ export function cloudwatchLogMetricFilterMetricTransformationToTerraform(struct?
     namespace: cdktf.stringToTerraform(struct!.namespace),
     unit: cdktf.stringToTerraform(struct!.unit),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class CloudwatchLogMetricFilterMetricTransformationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudwatchLogMetricFilterMetricTransformation | undefined {
+  public get internalValue():
+    | CloudwatchLogMetricFilterMetricTransformation
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultValue !== undefined) {
@@ -116,7 +129,9 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudwatchLogMetricFilterMetricTransformation | undefined) {
+  public set internalValue(
+    value: CloudwatchLogMetricFilterMetricTransformation | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultValue = undefined;
@@ -125,8 +140,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
       this._namespace = undefined;
       this._unit = undefined;
       this._value = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultValue = value.defaultValue;
       this._dimensions = value.dimensions;
@@ -138,7 +152,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
   }
 
   // default_value - computed: false, optional: true, required: false
-  private _defaultValue?: string; 
+  private _defaultValue?: string;
   public get defaultValue() {
     return this.getStringAttribute('default_value');
   }
@@ -154,7 +168,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
   }
 
   // dimensions - computed: false, optional: true, required: false
-  private _dimensions?: { [key: string]: string }; 
+  private _dimensions?: { [key: string]: string };
   public get dimensions() {
     return this.getStringMapAttribute('dimensions');
   }
@@ -170,7 +184,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -183,7 +197,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string; 
+  private _namespace?: string;
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -196,7 +210,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
   }
 
   // unit - computed: false, optional: true, required: false
-  private _unit?: string; 
+  private _unit?: string;
   public get unit() {
     return this.getStringAttribute('unit');
   }
@@ -212,7 +226,7 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -226,33 +240,36 @@ export class CloudwatchLogMetricFilterMetricTransformationOutputReference extend
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter aws_cloudwatch_log_metric_filter}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter aws_cloudwatch_log_metric_filter}
+ */
 export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudwatch_log_metric_filter";
+  public static readonly tfResourceType = 'aws_cloudwatch_log_metric_filter';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter aws_cloudwatch_log_metric_filter} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudwatchLogMetricFilterConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudwatchLogMetricFilterConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_metric_filter aws_cloudwatch_log_metric_filter} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudwatchLogMetricFilterConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudwatchLogMetricFilterConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudwatch_log_metric_filter',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -260,7 +277,7 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._logGroupName = config.logGroupName;
@@ -274,7 +291,7 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -290,7 +307,7 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string; 
+  private _logGroupName?: string;
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -303,7 +320,7 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -316,7 +333,7 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
   }
 
   // pattern - computed: false, optional: false, required: true
-  private _pattern?: string; 
+  private _pattern?: string;
   public get pattern() {
     return this.getStringAttribute('pattern');
   }
@@ -329,11 +346,17 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
   }
 
   // metric_transformation - computed: false, optional: false, required: true
-  private _metricTransformation = new CloudwatchLogMetricFilterMetricTransformationOutputReference(this, "metric_transformation");
+  private _metricTransformation =
+    new CloudwatchLogMetricFilterMetricTransformationOutputReference(
+      this,
+      'metric_transformation',
+    );
   public get metricTransformation() {
     return this._metricTransformation;
   }
-  public putMetricTransformation(value: CloudwatchLogMetricFilterMetricTransformation) {
+  public putMetricTransformation(
+    value: CloudwatchLogMetricFilterMetricTransformation,
+  ) {
     this._metricTransformation.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -351,7 +374,10 @@ export class CloudwatchLogMetricFilter extends cdktf.TerraformResource {
       log_group_name: cdktf.stringToTerraform(this._logGroupName),
       name: cdktf.stringToTerraform(this._name),
       pattern: cdktf.stringToTerraform(this._pattern),
-      metric_transformation: cloudwatchLogMetricFilterMetricTransformationToTerraform(this._metricTransformation.internalValue),
+      metric_transformation:
+        cloudwatchLogMetricFilterMetricTransformationToTerraform(
+          this._metricTransformation.internalValue,
+        ),
     };
   }
 }

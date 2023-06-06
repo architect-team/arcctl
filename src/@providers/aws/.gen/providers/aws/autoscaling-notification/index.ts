@@ -1,61 +1,64 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_notification
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface AutoscalingNotificationConfig extends cdktf.TerraformMetaArguments {
+export interface AutoscalingNotificationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#group_names AutoscalingNotification#group_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#group_names AutoscalingNotification#group_names}
+   */
   readonly groupNames: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#id AutoscalingNotification#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#id AutoscalingNotification#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#notifications AutoscalingNotification#notifications}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#notifications AutoscalingNotification#notifications}
+   */
   readonly notifications: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#topic_arn AutoscalingNotification#topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification#topic_arn AutoscalingNotification#topic_arn}
+   */
   readonly topicArn: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification aws_autoscaling_notification}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification aws_autoscaling_notification}
+ */
 export class AutoscalingNotification extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_autoscaling_notification";
+  public static readonly tfResourceType = 'aws_autoscaling_notification';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification aws_autoscaling_notification} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AutoscalingNotificationConfig
-  */
-  public constructor(scope: Construct, id: string, config: AutoscalingNotificationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_notification aws_autoscaling_notification} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AutoscalingNotificationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AutoscalingNotificationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_autoscaling_notification',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +66,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._groupNames = config.groupNames;
     this._id = config.id;
@@ -76,7 +79,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   // ==========
 
   // group_names - computed: false, optional: false, required: true
-  private _groupNames?: string[]; 
+  private _groupNames?: string[];
   public get groupNames() {
     return cdktf.Fn.tolist(this.getListAttribute('group_names'));
   }
@@ -89,7 +92,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,7 +108,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   }
 
   // notifications - computed: false, optional: false, required: true
-  private _notifications?: string[]; 
+  private _notifications?: string[];
   public get notifications() {
     return cdktf.Fn.tolist(this.getListAttribute('notifications'));
   }
@@ -118,7 +121,7 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
   }
 
   // topic_arn - computed: false, optional: false, required: true
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }
@@ -136,9 +139,15 @@ export class AutoscalingNotification extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      group_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._groupNames),
+      group_names: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._groupNames),
       id: cdktf.stringToTerraform(this._id),
-      notifications: cdktf.listMapper(cdktf.stringToTerraform, false)(this._notifications),
+      notifications: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._notifications),
       topic_arn: cdktf.stringToTerraform(this._topicArn),
     };
   }

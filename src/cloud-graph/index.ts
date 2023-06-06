@@ -1,3 +1,3 @@
-export * from './edge.js';
-export * from './node.js';
-export * from './graph.js';
+export * from './edge.ts';
+export * from './node.ts';
+export * from './graph.ts';

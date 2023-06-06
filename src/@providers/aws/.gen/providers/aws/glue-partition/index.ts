@@ -1,71 +1,76 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_partition
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface GluePartitionConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#catalog_id GluePartition#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#catalog_id GluePartition#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#database_name GluePartition#database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#database_name GluePartition#database_name}
+   */
   readonly databaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#id GluePartition#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#id GluePartition#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#parameters GluePartition#parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#parameters GluePartition#parameters}
+   */
   readonly parameters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#partition_values GluePartition#partition_values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#partition_values GluePartition#partition_values}
+   */
   readonly partitionValues: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#table_name GluePartition#table_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#table_name GluePartition#table_name}
+   */
   readonly tableName: string;
   /**
-  * storage_descriptor block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#storage_descriptor GluePartition#storage_descriptor}
-  */
+   * storage_descriptor block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#storage_descriptor GluePartition#storage_descriptor}
+   */
   readonly storageDescriptor?: GluePartitionStorageDescriptor;
 }
 export interface GluePartitionStorageDescriptorColumns {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#comment GluePartition#comment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#comment GluePartition#comment}
+   */
   readonly comment?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#name GluePartition#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#name GluePartition#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#type GluePartition#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#type GluePartition#type}
+   */
   readonly type?: string;
 }
 
-export function gluePartitionStorageDescriptorColumnsToTerraform(struct?: GluePartitionStorageDescriptorColumns | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function gluePartitionStorageDescriptorColumnsToTerraform(
+  struct?: GluePartitionStorageDescriptorColumns | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     comment: cdktf.stringToTerraform(struct!.comment),
     name: cdktf.stringToTerraform(struct!.name),
     type: cdktf.stringToTerraform(struct!.type),
-  }
+  };
 }
 
 export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.ComplexObject {
@@ -73,16 +78,29 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GluePartitionStorageDescriptorColumns | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GluePartitionStorageDescriptorColumns
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -103,19 +121,22 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GluePartitionStorageDescriptorColumns | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GluePartitionStorageDescriptorColumns
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._comment = undefined;
       this._name = undefined;
       this._type = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._comment = value.comment;
@@ -125,7 +146,7 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -141,7 +162,7 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -154,7 +175,7 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -171,63 +192,91 @@ export class GluePartitionStorageDescriptorColumnsOutputReference extends cdktf.
 }
 
 export class GluePartitionStorageDescriptorColumnsList extends cdktf.ComplexList {
-  public internalValue? : GluePartitionStorageDescriptorColumns[] | cdktf.IResolvable
+  public internalValue?:
+    | GluePartitionStorageDescriptorColumns[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GluePartitionStorageDescriptorColumnsOutputReference {
-    return new GluePartitionStorageDescriptorColumnsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GluePartitionStorageDescriptorColumnsOutputReference {
+    return new GluePartitionStorageDescriptorColumnsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GluePartitionStorageDescriptorSerDeInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#name GluePartition#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#name GluePartition#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#parameters GluePartition#parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#parameters GluePartition#parameters}
+   */
   readonly parameters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#serialization_library GluePartition#serialization_library}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#serialization_library GluePartition#serialization_library}
+   */
   readonly serializationLibrary?: string;
 }
 
-export function gluePartitionStorageDescriptorSerDeInfoToTerraform(struct?: GluePartitionStorageDescriptorSerDeInfoOutputReference | GluePartitionStorageDescriptorSerDeInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function gluePartitionStorageDescriptorSerDeInfoToTerraform(
+  struct?:
+    | GluePartitionStorageDescriptorSerDeInfoOutputReference
+    | GluePartitionStorageDescriptorSerDeInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     parameters: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.parameters),
-    serialization_library: cdktf.stringToTerraform(struct!.serializationLibrary),
-  }
+    serialization_library: cdktf.stringToTerraform(
+      struct!.serializationLibrary,
+    ),
+  };
 }
 
 export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GluePartitionStorageDescriptorSerDeInfo | undefined {
+  public get internalValue():
+    | GluePartitionStorageDescriptorSerDeInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -245,14 +294,15 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GluePartitionStorageDescriptorSerDeInfo | undefined) {
+  public set internalValue(
+    value: GluePartitionStorageDescriptorSerDeInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._parameters = undefined;
       this._serializationLibrary = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._parameters = value.parameters;
@@ -261,7 +311,7 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -277,7 +327,7 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -293,7 +343,7 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
   }
 
   // serialization_library - computed: false, optional: true, required: false
-  private _serializationLibrary?: string; 
+  private _serializationLibrary?: string;
   public get serializationLibrary() {
     return this.getStringAttribute('serialization_library');
   }
@@ -310,43 +360,64 @@ export class GluePartitionStorageDescriptorSerDeInfoOutputReference extends cdkt
 }
 export interface GluePartitionStorageDescriptorSkewedInfo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_column_names GluePartition#skewed_column_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_column_names GluePartition#skewed_column_names}
+   */
   readonly skewedColumnNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_column_value_location_maps GluePartition#skewed_column_value_location_maps}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_column_value_location_maps GluePartition#skewed_column_value_location_maps}
+   */
   readonly skewedColumnValueLocationMaps?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_column_values GluePartition#skewed_column_values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_column_values GluePartition#skewed_column_values}
+   */
   readonly skewedColumnValues?: string[];
 }
 
-export function gluePartitionStorageDescriptorSkewedInfoToTerraform(struct?: GluePartitionStorageDescriptorSkewedInfoOutputReference | GluePartitionStorageDescriptorSkewedInfo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function gluePartitionStorageDescriptorSkewedInfoToTerraform(
+  struct?:
+    | GluePartitionStorageDescriptorSkewedInfoOutputReference
+    | GluePartitionStorageDescriptorSkewedInfo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    skewed_column_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.skewedColumnNames),
-    skewed_column_value_location_maps: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.skewedColumnValueLocationMaps),
-    skewed_column_values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.skewedColumnValues),
-  }
+    skewed_column_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.skewedColumnNames),
+    skewed_column_value_location_maps: cdktf.hashMapper(
+      cdktf.stringToTerraform,
+    )(struct!.skewedColumnValueLocationMaps),
+    skewed_column_values: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.skewedColumnValues),
+  };
 }
 
 export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GluePartitionStorageDescriptorSkewedInfo | undefined {
+  public get internalValue():
+    | GluePartitionStorageDescriptorSkewedInfo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._skewedColumnNames !== undefined) {
@@ -355,7 +426,8 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
     }
     if (this._skewedColumnValueLocationMaps !== undefined) {
       hasAnyValues = true;
-      internalValueResult.skewedColumnValueLocationMaps = this._skewedColumnValueLocationMaps;
+      internalValueResult.skewedColumnValueLocationMaps =
+        this._skewedColumnValueLocationMaps;
     }
     if (this._skewedColumnValues !== undefined) {
       hasAnyValues = true;
@@ -364,14 +436,15 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GluePartitionStorageDescriptorSkewedInfo | undefined) {
+  public set internalValue(
+    value: GluePartitionStorageDescriptorSkewedInfo | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._skewedColumnNames = undefined;
       this._skewedColumnValueLocationMaps = undefined;
       this._skewedColumnValues = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._skewedColumnNames = value.skewedColumnNames;
       this._skewedColumnValueLocationMaps = value.skewedColumnValueLocationMaps;
@@ -380,7 +453,7 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
   }
 
   // skewed_column_names - computed: false, optional: true, required: false
-  private _skewedColumnNames?: string[]; 
+  private _skewedColumnNames?: string[];
   public get skewedColumnNames() {
     return this.getListAttribute('skewed_column_names');
   }
@@ -396,7 +469,7 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
   }
 
   // skewed_column_value_location_maps - computed: false, optional: true, required: false
-  private _skewedColumnValueLocationMaps?: { [key: string]: string }; 
+  private _skewedColumnValueLocationMaps?: { [key: string]: string };
   public get skewedColumnValueLocationMaps() {
     return this.getStringMapAttribute('skewed_column_value_location_maps');
   }
@@ -412,7 +485,7 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
   }
 
   // skewed_column_values - computed: false, optional: true, required: false
-  private _skewedColumnValues?: string[]; 
+  private _skewedColumnValues?: string[];
   public get skewedColumnValues() {
     return this.getListAttribute('skewed_column_values');
   }
@@ -429,24 +502,30 @@ export class GluePartitionStorageDescriptorSkewedInfoOutputReference extends cdk
 }
 export interface GluePartitionStorageDescriptorSortColumns {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#column GluePartition#column}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#column GluePartition#column}
+   */
   readonly column: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#sort_order GluePartition#sort_order}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#sort_order GluePartition#sort_order}
+   */
   readonly sortOrder: number;
 }
 
-export function gluePartitionStorageDescriptorSortColumnsToTerraform(struct?: GluePartitionStorageDescriptorSortColumns | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function gluePartitionStorageDescriptorSortColumnsToTerraform(
+  struct?: GluePartitionStorageDescriptorSortColumns | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     column: cdktf.stringToTerraform(struct!.column),
     sort_order: cdktf.numberToTerraform(struct!.sortOrder),
-  }
+  };
 }
 
 export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cdktf.ComplexObject {
@@ -454,16 +533,29 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): GluePartitionStorageDescriptorSortColumns | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GluePartitionStorageDescriptorSortColumns
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -480,18 +572,21 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GluePartitionStorageDescriptorSortColumns | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GluePartitionStorageDescriptorSortColumns
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._column = undefined;
       this._sortOrder = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._column = value.column;
@@ -500,7 +595,7 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
   }
 
   // column - computed: false, optional: false, required: true
-  private _column?: string; 
+  private _column?: string;
   public get column() {
     return this.getStringAttribute('column');
   }
@@ -513,7 +608,7 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
   }
 
   // sort_order - computed: false, optional: false, required: true
-  private _sortOrder?: number; 
+  private _sortOrder?: number;
   public get sortOrder() {
     return this.getNumberAttribute('sort_order');
   }
@@ -527,112 +622,155 @@ export class GluePartitionStorageDescriptorSortColumnsOutputReference extends cd
 }
 
 export class GluePartitionStorageDescriptorSortColumnsList extends cdktf.ComplexList {
-  public internalValue? : GluePartitionStorageDescriptorSortColumns[] | cdktf.IResolvable
+  public internalValue?:
+    | GluePartitionStorageDescriptorSortColumns[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): GluePartitionStorageDescriptorSortColumnsOutputReference {
-    return new GluePartitionStorageDescriptorSortColumnsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): GluePartitionStorageDescriptorSortColumnsOutputReference {
+    return new GluePartitionStorageDescriptorSortColumnsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface GluePartitionStorageDescriptor {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#bucket_columns GluePartition#bucket_columns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#bucket_columns GluePartition#bucket_columns}
+   */
   readonly bucketColumns?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#compressed GluePartition#compressed}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#compressed GluePartition#compressed}
+   */
   readonly compressed?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#input_format GluePartition#input_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#input_format GluePartition#input_format}
+   */
   readonly inputFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#location GluePartition#location}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#location GluePartition#location}
+   */
   readonly location?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#number_of_buckets GluePartition#number_of_buckets}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#number_of_buckets GluePartition#number_of_buckets}
+   */
   readonly numberOfBuckets?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#output_format GluePartition#output_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#output_format GluePartition#output_format}
+   */
   readonly outputFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#parameters GluePartition#parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#parameters GluePartition#parameters}
+   */
   readonly parameters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#stored_as_sub_directories GluePartition#stored_as_sub_directories}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#stored_as_sub_directories GluePartition#stored_as_sub_directories}
+   */
   readonly storedAsSubDirectories?: boolean | cdktf.IResolvable;
   /**
-  * columns block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#columns GluePartition#columns}
-  */
-  readonly columns?: GluePartitionStorageDescriptorColumns[] | cdktf.IResolvable;
+   * columns block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#columns GluePartition#columns}
+   */
+  readonly columns?:
+    | GluePartitionStorageDescriptorColumns[]
+    | cdktf.IResolvable;
   /**
-  * ser_de_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#ser_de_info GluePartition#ser_de_info}
-  */
+   * ser_de_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#ser_de_info GluePartition#ser_de_info}
+   */
   readonly serDeInfo?: GluePartitionStorageDescriptorSerDeInfo;
   /**
-  * skewed_info block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_info GluePartition#skewed_info}
-  */
+   * skewed_info block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#skewed_info GluePartition#skewed_info}
+   */
   readonly skewedInfo?: GluePartitionStorageDescriptorSkewedInfo;
   /**
-  * sort_columns block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#sort_columns GluePartition#sort_columns}
-  */
-  readonly sortColumns?: GluePartitionStorageDescriptorSortColumns[] | cdktf.IResolvable;
+   * sort_columns block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition#sort_columns GluePartition#sort_columns}
+   */
+  readonly sortColumns?:
+    | GluePartitionStorageDescriptorSortColumns[]
+    | cdktf.IResolvable;
 }
 
-export function gluePartitionStorageDescriptorToTerraform(struct?: GluePartitionStorageDescriptorOutputReference | GluePartitionStorageDescriptor): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function gluePartitionStorageDescriptorToTerraform(
+  struct?:
+    | GluePartitionStorageDescriptorOutputReference
+    | GluePartitionStorageDescriptor,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    bucket_columns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.bucketColumns),
+    bucket_columns: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.bucketColumns),
     compressed: cdktf.booleanToTerraform(struct!.compressed),
     input_format: cdktf.stringToTerraform(struct!.inputFormat),
     location: cdktf.stringToTerraform(struct!.location),
     number_of_buckets: cdktf.numberToTerraform(struct!.numberOfBuckets),
     output_format: cdktf.stringToTerraform(struct!.outputFormat),
     parameters: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.parameters),
-    stored_as_sub_directories: cdktf.booleanToTerraform(struct!.storedAsSubDirectories),
-    columns: cdktf.listMapper(gluePartitionStorageDescriptorColumnsToTerraform, true)(struct!.columns),
-    ser_de_info: gluePartitionStorageDescriptorSerDeInfoToTerraform(struct!.serDeInfo),
-    skewed_info: gluePartitionStorageDescriptorSkewedInfoToTerraform(struct!.skewedInfo),
-    sort_columns: cdktf.listMapper(gluePartitionStorageDescriptorSortColumnsToTerraform, true)(struct!.sortColumns),
-  }
+    stored_as_sub_directories: cdktf.booleanToTerraform(
+      struct!.storedAsSubDirectories,
+    ),
+    columns: cdktf.listMapper(
+      gluePartitionStorageDescriptorColumnsToTerraform,
+      true,
+    )(struct!.columns),
+    ser_de_info: gluePartitionStorageDescriptorSerDeInfoToTerraform(
+      struct!.serDeInfo,
+    ),
+    skewed_info: gluePartitionStorageDescriptorSkewedInfoToTerraform(
+      struct!.skewedInfo,
+    ),
+    sort_columns: cdktf.listMapper(
+      gluePartitionStorageDescriptorSortColumnsToTerraform,
+      true,
+    )(struct!.sortColumns),
+  };
 }
 
 export class GluePartitionStorageDescriptorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -705,8 +843,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
       this._serDeInfo.internalValue = undefined;
       this._skewedInfo.internalValue = undefined;
       this._sortColumns.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketColumns = value.bucketColumns;
       this._compressed = value.compressed;
@@ -724,7 +861,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // bucket_columns - computed: false, optional: true, required: false
-  private _bucketColumns?: string[]; 
+  private _bucketColumns?: string[];
   public get bucketColumns() {
     return this.getListAttribute('bucket_columns');
   }
@@ -740,7 +877,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // compressed - computed: false, optional: true, required: false
-  private _compressed?: boolean | cdktf.IResolvable; 
+  private _compressed?: boolean | cdktf.IResolvable;
   public get compressed() {
     return this.getBooleanAttribute('compressed');
   }
@@ -756,7 +893,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // input_format - computed: false, optional: true, required: false
-  private _inputFormat?: string; 
+  private _inputFormat?: string;
   public get inputFormat() {
     return this.getStringAttribute('input_format');
   }
@@ -772,7 +909,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // location - computed: false, optional: true, required: false
-  private _location?: string; 
+  private _location?: string;
   public get location() {
     return this.getStringAttribute('location');
   }
@@ -788,7 +925,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // number_of_buckets - computed: false, optional: true, required: false
-  private _numberOfBuckets?: number; 
+  private _numberOfBuckets?: number;
   public get numberOfBuckets() {
     return this.getNumberAttribute('number_of_buckets');
   }
@@ -804,7 +941,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // output_format - computed: false, optional: true, required: false
-  private _outputFormat?: string; 
+  private _outputFormat?: string;
   public get outputFormat() {
     return this.getStringAttribute('output_format');
   }
@@ -820,7 +957,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -836,7 +973,7 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // stored_as_sub_directories - computed: false, optional: true, required: false
-  private _storedAsSubDirectories?: boolean | cdktf.IResolvable; 
+  private _storedAsSubDirectories?: boolean | cdktf.IResolvable;
   public get storedAsSubDirectories() {
     return this.getBooleanAttribute('stored_as_sub_directories');
   }
@@ -852,11 +989,17 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // columns - computed: false, optional: true, required: false
-  private _columns = new GluePartitionStorageDescriptorColumnsList(this, "columns", false);
+  private _columns = new GluePartitionStorageDescriptorColumnsList(
+    this,
+    'columns',
+    false,
+  );
   public get columns() {
     return this._columns;
   }
-  public putColumns(value: GluePartitionStorageDescriptorColumns[] | cdktf.IResolvable) {
+  public putColumns(
+    value: GluePartitionStorageDescriptorColumns[] | cdktf.IResolvable,
+  ) {
     this._columns.internalValue = value;
   }
   public resetColumns() {
@@ -868,7 +1011,11 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // ser_de_info - computed: false, optional: true, required: false
-  private _serDeInfo = new GluePartitionStorageDescriptorSerDeInfoOutputReference(this, "ser_de_info");
+  private _serDeInfo =
+    new GluePartitionStorageDescriptorSerDeInfoOutputReference(
+      this,
+      'ser_de_info',
+    );
   public get serDeInfo() {
     return this._serDeInfo;
   }
@@ -884,7 +1031,11 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // skewed_info - computed: false, optional: true, required: false
-  private _skewedInfo = new GluePartitionStorageDescriptorSkewedInfoOutputReference(this, "skewed_info");
+  private _skewedInfo =
+    new GluePartitionStorageDescriptorSkewedInfoOutputReference(
+      this,
+      'skewed_info',
+    );
   public get skewedInfo() {
     return this._skewedInfo;
   }
@@ -900,11 +1051,17 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
   }
 
   // sort_columns - computed: false, optional: true, required: false
-  private _sortColumns = new GluePartitionStorageDescriptorSortColumnsList(this, "sort_columns", false);
+  private _sortColumns = new GluePartitionStorageDescriptorSortColumnsList(
+    this,
+    'sort_columns',
+    false,
+  );
   public get sortColumns() {
     return this._sortColumns;
   }
-  public putSortColumns(value: GluePartitionStorageDescriptorSortColumns[] | cdktf.IResolvable) {
+  public putSortColumns(
+    value: GluePartitionStorageDescriptorSortColumns[] | cdktf.IResolvable,
+  ) {
     this._sortColumns.internalValue = value;
   }
   public resetSortColumns() {
@@ -917,33 +1074,36 @@ export class GluePartitionStorageDescriptorOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_partition aws_glue_partition}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_partition aws_glue_partition}
+ */
 export class GluePartition extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_glue_partition";
+  public static readonly tfResourceType = 'aws_glue_partition';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_partition aws_glue_partition} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GluePartitionConfig
-  */
-  public constructor(scope: Construct, id: string, config: GluePartitionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_partition aws_glue_partition} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GluePartitionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GluePartitionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_partition',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -951,7 +1111,7 @@ export class GluePartition extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._catalogId = config.catalogId;
     this._databaseName = config.databaseName;
@@ -967,7 +1127,7 @@ export class GluePartition extends cdktf.TerraformResource {
   // ==========
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -988,7 +1148,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -1001,7 +1161,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1027,7 +1187,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -1043,7 +1203,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // partition_values - computed: false, optional: false, required: true
-  private _partitionValues?: string[]; 
+  private _partitionValues?: string[];
   public get partitionValues() {
     return this.getListAttribute('partition_values');
   }
@@ -1056,7 +1216,7 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string; 
+  private _tableName?: string;
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -1069,7 +1229,11 @@ export class GluePartition extends cdktf.TerraformResource {
   }
 
   // storage_descriptor - computed: false, optional: true, required: false
-  private _storageDescriptor = new GluePartitionStorageDescriptorOutputReference(this, "storage_descriptor");
+  private _storageDescriptor =
+    new GluePartitionStorageDescriptorOutputReference(
+      this,
+      'storage_descriptor',
+    );
   public get storageDescriptor() {
     return this._storageDescriptor;
   }
@@ -1094,9 +1258,14 @@ export class GluePartition extends cdktf.TerraformResource {
       database_name: cdktf.stringToTerraform(this._databaseName),
       id: cdktf.stringToTerraform(this._id),
       parameters: cdktf.hashMapper(cdktf.stringToTerraform)(this._parameters),
-      partition_values: cdktf.listMapper(cdktf.stringToTerraform, false)(this._partitionValues),
+      partition_values: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._partitionValues),
       table_name: cdktf.stringToTerraform(this._tableName),
-      storage_descriptor: gluePartitionStorageDescriptorToTerraform(this._storageDescriptor.internalValue),
+      storage_descriptor: gluePartitionStorageDescriptorToTerraform(
+        this._storageDescriptor.internalValue,
+      ),
     };
   }
 }

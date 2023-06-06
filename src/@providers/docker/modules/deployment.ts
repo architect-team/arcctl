@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Service } from '../.gen/providers/docker/service/index.js';
-import { DockerCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Service } from '../.gen/providers/docker/service/index.ts';
+import { DockerCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class DockerDeploymentModule extends ResourceModule<
@@ -27,16 +27,11 @@ export class DockerDeploymentModule extends ResourceModule<
       name: inputs.name,
       taskSpec: {
         runtime: 'container',
-        networksAdvanced: inputs.namespace
-          ? [{ name: inputs.namespace }]
-          : undefined,
+        networksAdvanced: inputs.namespace ? [{ name: inputs.namespace }] : undefined,
         containerSpec: {
           image: inputs.image,
           env: stringEnvVars,
-          command:
-            typeof inputs.command === 'string'
-              ? inputs.command.split(' ')
-              : inputs.command,
+          command: typeof inputs.command === 'string' ? inputs.command.split(' ') : inputs.command,
           mounts: inputs.volume_mounts.map((mount) => ({
             target: mount.mount_path,
             type: 'volume',

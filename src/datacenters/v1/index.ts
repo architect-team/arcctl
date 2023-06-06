@@ -1,12 +1,8 @@
 /* eslint-disable unicorn/consistent-function-scoping */
-import {
-  InputSchema,
-  ResourceInputs,
-  ResourceType,
-} from '../../@resources/index.js';
-import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.js';
-import { DeepPartial } from '../../utils/types.js';
-import { Datacenter, DatacenterSecretsConfig } from '../datacenter.js';
+import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
+import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
+import { DeepPartial } from '../../utils/types.ts';
+import { Datacenter, DatacenterSecretsConfig } from '../datacenter.ts';
 
 /**
  * @discriminator type
@@ -102,11 +98,7 @@ export default class DatacenterV1 extends Datacenter {
     }
   }
 
-  private replaceDatacenterResourceRefs<T>(
-    graph: CloudGraph,
-    from_node_id: string,
-    contents: T,
-  ): T {
+  private replaceDatacenterResourceRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
         /\${{\s?resources\.([\w-]+)\.(\S+)\s?}}/g,
@@ -170,22 +162,11 @@ export default class DatacenterV1 extends Datacenter {
     );
   }
 
-  private replaceEnvironmentNameRefs<T>(
-    environmentName: string,
-    contents: T,
-  ): T {
-    return JSON.parse(
-      JSON.stringify(contents).replace(
-        /\${{\s?environment\.name\s?}}/g,
-        environmentName,
-      ),
-    );
+  private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
+    return JSON.parse(JSON.stringify(contents).replace(/\${{\s?environment\.name\s?}}/g, environmentName));
   }
 
-  public async enrichGraph(
-    graph: CloudGraph,
-    environmentName?: string,
-  ): Promise<CloudGraph> {
+  public async enrichGraph(graph: CloudGraph, environmentName?: string): Promise<CloudGraph> {
     // Create nodes for explicit resources of the datacenter
     for (const [key, value] of Object.entries(this.resources || {})) {
       const node = new CloudNode({
@@ -193,11 +174,7 @@ export default class DatacenterV1 extends Datacenter {
         inputs: value,
       });
 
-      node.inputs = this.replaceDatacenterResourceRefs(
-        graph,
-        node.id,
-        node.inputs,
-      );
+      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
 
       graph.insertNodes(node);
     }
@@ -205,31 +182,17 @@ export default class DatacenterV1 extends Datacenter {
     // Fill the graph with things that should be in the environment
     if (environmentName) {
       // Create nodes for explicit resources that should be in each environment
-      for (const [key, value] of Object.entries(
-        this.environment?.resources || {},
-      )) {
+      for (const [key, value] of Object.entries(this.environment?.resources || {})) {
         const node = new CloudNode({
           name: key,
           environment: environmentName,
           inputs: value,
         });
 
-        node.inputs = this.replaceDatacenterResourceRefs(
-          graph,
-          node.id,
-          node.inputs,
-        );
+        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
 
-        node.inputs = this.replaceEnvironmentResourceRefs(
-          graph,
-          environmentName,
-          node.id,
-          node.inputs,
-        );
-        node.inputs = this.replaceEnvironmentNameRefs(
-          environmentName,
-          node.inputs,
-        );
+        node.inputs = this.replaceEnvironmentResourceRefs(graph, environmentName, node.id, node.inputs);
+        node.inputs = this.replaceEnvironmentNameRefs(environmentName, node.inputs);
 
         graph.insertNodes(node);
       }
@@ -241,11 +204,9 @@ export default class DatacenterV1 extends Datacenter {
 
         // See if the node matches any hooks
         for (const hook of this.environment?.hooks || []) {
-          const doesMatchNode =
-            !hook.when ||
+          const doesMatchNode = !hook.when ||
             Object.entries(hook.when || {}).every(
-              ([key, value]) =>
-                key in node.inputs && (node.inputs as any)[key] === value,
+              ([key, value]) => key in node.inputs && (node.inputs as any)[key] === value,
             );
 
           if (!doesMatchNode) continue;
@@ -258,40 +219,34 @@ export default class DatacenterV1 extends Datacenter {
           ): T =>
             JSON.parse(
               JSON.stringify(contents)
-                .replace(
-                  /\${{\s?this\.resources\.([\w-]+)\.(\S+)\s?}}/g,
-                  (full_ref, resource_id, resource_key) => {
-                    const resource = resources?.[resource_id];
-                    if (!resource) {
-                      throw new Error(`Invalid expression: ${full_ref}`);
-                    }
+                .replace(/\${{\s?this\.resources\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, resource_id, resource_key) => {
+                  const resource = resources?.[resource_id];
+                  if (!resource) {
+                    throw new Error(`Invalid expression: ${full_ref}`);
+                  }
 
-                    const target_node_id = CloudNode.genId({
-                      type: resource.type,
-                      name: `${from_node_name}/${resource_id}`,
-                      environment: environmentName,
-                      component: node.component,
-                    });
-                    graph.insertEdges(
-                      new CloudEdge({
-                        from: from_node_id,
-                        to: target_node_id,
-                        required: true,
-                      }),
-                    );
+                  const target_node_id = CloudNode.genId({
+                    type: resource.type,
+                    name: `${from_node_name}/${resource_id}`,
+                    environment: environmentName,
+                    component: node.component,
+                  });
+                  graph.insertEdges(
+                    new CloudEdge({
+                      from: from_node_id,
+                      to: target_node_id,
+                      required: true,
+                    }),
+                  );
 
-                    return `\${{ ${target_node_id}.${resource_key} }}`;
-                  },
-                )
+                  return `\${{ ${target_node_id}.${resource_key} }}`;
+                })
                 .replace(/\${{\s?this\.(\S+)\s?}}/g, (_, node_key: string) =>
-                  this.getNestedValue(node, node_key.split('.')),
-                ),
+                  this.getNestedValue(node, node_key.split('.'))),
             );
 
           // Create inline resources defined by the hook
-          for (const [resource_key, resource_config] of Object.entries(
-            hook.resources || {},
-          )) {
+          for (const [resource_key, resource_config] of Object.entries(hook.resources || {})) {
             const newResourceName = `${node.name}/${resource_key}`;
 
             const hook_node_id = CloudNode.genId({

@@ -1,85 +1,98 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface CloudfrontResponseHeadersPolicyConfig extends cdktf.TerraformMetaArguments {
+export interface CloudfrontResponseHeadersPolicyConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#comment CloudfrontResponseHeadersPolicy#comment}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#comment CloudfrontResponseHeadersPolicy#comment}
+   */
   readonly comment?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#etag CloudfrontResponseHeadersPolicy#etag}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#etag CloudfrontResponseHeadersPolicy#etag}
+   */
   readonly etag?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#id CloudfrontResponseHeadersPolicy#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#id CloudfrontResponseHeadersPolicy#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#name CloudfrontResponseHeadersPolicy#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#name CloudfrontResponseHeadersPolicy#name}
+   */
   readonly name: string;
   /**
-  * cors_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#cors_config CloudfrontResponseHeadersPolicy#cors_config}
-  */
+   * cors_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#cors_config CloudfrontResponseHeadersPolicy#cors_config}
+   */
   readonly corsConfig?: CloudfrontResponseHeadersPolicyCorsConfig;
   /**
-  * custom_headers_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#custom_headers_config CloudfrontResponseHeadersPolicy#custom_headers_config}
-  */
+   * custom_headers_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#custom_headers_config CloudfrontResponseHeadersPolicy#custom_headers_config}
+   */
   readonly customHeadersConfig?: CloudfrontResponseHeadersPolicyCustomHeadersConfig;
   /**
-  * security_headers_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#security_headers_config CloudfrontResponseHeadersPolicy#security_headers_config}
-  */
+   * security_headers_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#security_headers_config CloudfrontResponseHeadersPolicy#security_headers_config}
+   */
   readonly securityHeadersConfig?: CloudfrontResponseHeadersPolicySecurityHeadersConfig;
   /**
-  * server_timing_headers_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#server_timing_headers_config CloudfrontResponseHeadersPolicy#server_timing_headers_config}
-  */
+   * server_timing_headers_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#server_timing_headers_config CloudfrontResponseHeadersPolicy#server_timing_headers_config}
+   */
   readonly serverTimingHeadersConfig?: CloudfrontResponseHeadersPolicyServerTimingHeadersConfig;
 }
 export interface CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
+   */
   readonly items?: string[];
 }
 
-export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersToTerraform(struct?: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -89,19 +102,22 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -118,33 +134,46 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersO
 }
 export interface CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
+   */
   readonly items?: string[];
 }
 
-export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsToTerraform(struct?: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -154,19 +183,22 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -183,33 +215,46 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsO
 }
 export interface CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
+   */
   readonly items?: string[];
 }
 
-export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsToTerraform(struct?: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -219,19 +264,22 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -248,33 +296,46 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsO
 }
 export interface CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
+   */
   readonly items?: string[];
 }
 
-export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersToTerraform(struct?: CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference | CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -284,19 +345,22 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[]; 
+  private _items?: string[];
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -313,76 +377,106 @@ export class CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
 }
 export interface CloudfrontResponseHeadersPolicyCorsConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_credentials CloudfrontResponseHeadersPolicy#access_control_allow_credentials}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_credentials CloudfrontResponseHeadersPolicy#access_control_allow_credentials}
+   */
   readonly accessControlAllowCredentials: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_max_age_sec CloudfrontResponseHeadersPolicy#access_control_max_age_sec}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_max_age_sec CloudfrontResponseHeadersPolicy#access_control_max_age_sec}
+   */
   readonly accessControlMaxAgeSec?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#origin_override CloudfrontResponseHeadersPolicy#origin_override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#origin_override CloudfrontResponseHeadersPolicy#origin_override}
+   */
   readonly originOverride: boolean | cdktf.IResolvable;
   /**
-  * access_control_allow_headers block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_headers CloudfrontResponseHeadersPolicy#access_control_allow_headers}
-  */
+   * access_control_allow_headers block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_headers CloudfrontResponseHeadersPolicy#access_control_allow_headers}
+   */
   readonly accessControlAllowHeaders: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders;
   /**
-  * access_control_allow_methods block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_methods CloudfrontResponseHeadersPolicy#access_control_allow_methods}
-  */
+   * access_control_allow_methods block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_methods CloudfrontResponseHeadersPolicy#access_control_allow_methods}
+   */
   readonly accessControlAllowMethods: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods;
   /**
-  * access_control_allow_origins block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_origins CloudfrontResponseHeadersPolicy#access_control_allow_origins}
-  */
+   * access_control_allow_origins block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_allow_origins CloudfrontResponseHeadersPolicy#access_control_allow_origins}
+   */
   readonly accessControlAllowOrigins: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins;
   /**
-  * access_control_expose_headers block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_expose_headers CloudfrontResponseHeadersPolicy#access_control_expose_headers}
-  */
+   * access_control_expose_headers block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_expose_headers CloudfrontResponseHeadersPolicy#access_control_expose_headers}
+   */
   readonly accessControlExposeHeaders?: CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders;
 }
 
-export function cloudfrontResponseHeadersPolicyCorsConfigToTerraform(struct?: CloudfrontResponseHeadersPolicyCorsConfigOutputReference | CloudfrontResponseHeadersPolicyCorsConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCorsConfigToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCorsConfigOutputReference
+    | CloudfrontResponseHeadersPolicyCorsConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    access_control_allow_credentials: cdktf.booleanToTerraform(struct!.accessControlAllowCredentials),
-    access_control_max_age_sec: cdktf.numberToTerraform(struct!.accessControlMaxAgeSec),
+    access_control_allow_credentials: cdktf.booleanToTerraform(
+      struct!.accessControlAllowCredentials,
+    ),
+    access_control_max_age_sec: cdktf.numberToTerraform(
+      struct!.accessControlMaxAgeSec,
+    ),
     origin_override: cdktf.booleanToTerraform(struct!.originOverride),
-    access_control_allow_headers: cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersToTerraform(struct!.accessControlAllowHeaders),
-    access_control_allow_methods: cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsToTerraform(struct!.accessControlAllowMethods),
-    access_control_allow_origins: cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsToTerraform(struct!.accessControlAllowOrigins),
-    access_control_expose_headers: cloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersToTerraform(struct!.accessControlExposeHeaders),
-  }
+    access_control_allow_headers:
+      cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersToTerraform(
+        struct!.accessControlAllowHeaders,
+      ),
+    access_control_allow_methods:
+      cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsToTerraform(
+        struct!.accessControlAllowMethods,
+      ),
+    access_control_allow_origins:
+      cloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsToTerraform(
+        struct!.accessControlAllowOrigins,
+      ),
+    access_control_expose_headers:
+      cloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersToTerraform(
+        struct!.accessControlExposeHeaders,
+      ),
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCorsConfig | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCorsConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accessControlAllowCredentials !== undefined) {
       hasAnyValues = true;
-      internalValueResult.accessControlAllowCredentials = this._accessControlAllowCredentials;
+      internalValueResult.accessControlAllowCredentials =
+        this._accessControlAllowCredentials;
     }
     if (this._accessControlMaxAgeSec !== undefined) {
       hasAnyValues = true;
@@ -394,24 +488,30 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
     }
     if (this._accessControlAllowHeaders?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.accessControlAllowHeaders = this._accessControlAllowHeaders?.internalValue;
+      internalValueResult.accessControlAllowHeaders =
+        this._accessControlAllowHeaders?.internalValue;
     }
     if (this._accessControlAllowMethods?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.accessControlAllowMethods = this._accessControlAllowMethods?.internalValue;
+      internalValueResult.accessControlAllowMethods =
+        this._accessControlAllowMethods?.internalValue;
     }
     if (this._accessControlAllowOrigins?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.accessControlAllowOrigins = this._accessControlAllowOrigins?.internalValue;
+      internalValueResult.accessControlAllowOrigins =
+        this._accessControlAllowOrigins?.internalValue;
     }
     if (this._accessControlExposeHeaders?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.accessControlExposeHeaders = this._accessControlExposeHeaders?.internalValue;
+      internalValueResult.accessControlExposeHeaders =
+        this._accessControlExposeHeaders?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCorsConfig | undefined) {
+  public set internalValue(
+    value: CloudfrontResponseHeadersPolicyCorsConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accessControlAllowCredentials = undefined;
@@ -421,21 +521,24 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
       this._accessControlAllowMethods.internalValue = undefined;
       this._accessControlAllowOrigins.internalValue = undefined;
       this._accessControlExposeHeaders.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accessControlAllowCredentials = value.accessControlAllowCredentials;
       this._accessControlMaxAgeSec = value.accessControlMaxAgeSec;
       this._originOverride = value.originOverride;
-      this._accessControlAllowHeaders.internalValue = value.accessControlAllowHeaders;
-      this._accessControlAllowMethods.internalValue = value.accessControlAllowMethods;
-      this._accessControlAllowOrigins.internalValue = value.accessControlAllowOrigins;
-      this._accessControlExposeHeaders.internalValue = value.accessControlExposeHeaders;
+      this._accessControlAllowHeaders.internalValue =
+        value.accessControlAllowHeaders;
+      this._accessControlAllowMethods.internalValue =
+        value.accessControlAllowMethods;
+      this._accessControlAllowOrigins.internalValue =
+        value.accessControlAllowOrigins;
+      this._accessControlExposeHeaders.internalValue =
+        value.accessControlExposeHeaders;
     }
   }
 
   // access_control_allow_credentials - computed: false, optional: false, required: true
-  private _accessControlAllowCredentials?: boolean | cdktf.IResolvable; 
+  private _accessControlAllowCredentials?: boolean | cdktf.IResolvable;
   public get accessControlAllowCredentials() {
     return this.getBooleanAttribute('access_control_allow_credentials');
   }
@@ -448,7 +551,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_max_age_sec - computed: false, optional: true, required: false
-  private _accessControlMaxAgeSec?: number; 
+  private _accessControlMaxAgeSec?: number;
   public get accessControlMaxAgeSec() {
     return this.getNumberAttribute('access_control_max_age_sec');
   }
@@ -464,7 +567,7 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // origin_override - computed: false, optional: false, required: true
-  private _originOverride?: boolean | cdktf.IResolvable; 
+  private _originOverride?: boolean | cdktf.IResolvable;
   public get originOverride() {
     return this.getBooleanAttribute('origin_override');
   }
@@ -477,11 +580,17 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_allow_headers - computed: false, optional: false, required: true
-  private _accessControlAllowHeaders = new CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference(this, "access_control_allow_headers");
+  private _accessControlAllowHeaders =
+    new CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference(
+      this,
+      'access_control_allow_headers',
+    );
   public get accessControlAllowHeaders() {
     return this._accessControlAllowHeaders;
   }
-  public putAccessControlAllowHeaders(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders) {
+  public putAccessControlAllowHeaders(
+    value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders,
+  ) {
     this._accessControlAllowHeaders.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -490,11 +599,17 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_allow_methods - computed: false, optional: false, required: true
-  private _accessControlAllowMethods = new CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference(this, "access_control_allow_methods");
+  private _accessControlAllowMethods =
+    new CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference(
+      this,
+      'access_control_allow_methods',
+    );
   public get accessControlAllowMethods() {
     return this._accessControlAllowMethods;
   }
-  public putAccessControlAllowMethods(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods) {
+  public putAccessControlAllowMethods(
+    value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods,
+  ) {
     this._accessControlAllowMethods.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -503,11 +618,17 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_allow_origins - computed: false, optional: false, required: true
-  private _accessControlAllowOrigins = new CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference(this, "access_control_allow_origins");
+  private _accessControlAllowOrigins =
+    new CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference(
+      this,
+      'access_control_allow_origins',
+    );
   public get accessControlAllowOrigins() {
     return this._accessControlAllowOrigins;
   }
-  public putAccessControlAllowOrigins(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins) {
+  public putAccessControlAllowOrigins(
+    value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins,
+  ) {
     this._accessControlAllowOrigins.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -516,11 +637,17 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
   }
 
   // access_control_expose_headers - computed: false, optional: true, required: false
-  private _accessControlExposeHeaders = new CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference(this, "access_control_expose_headers");
+  private _accessControlExposeHeaders =
+    new CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference(
+      this,
+      'access_control_expose_headers',
+    );
   public get accessControlExposeHeaders() {
     return this._accessControlExposeHeaders;
   }
-  public putAccessControlExposeHeaders(value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders) {
+  public putAccessControlExposeHeaders(
+    value: CloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders,
+  ) {
     this._accessControlExposeHeaders.internalValue = value;
   }
   public resetAccessControlExposeHeaders() {
@@ -533,29 +660,37 @@ export class CloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cd
 }
 export interface CloudfrontResponseHeadersPolicyCustomHeadersConfigItems {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#header CloudfrontResponseHeadersPolicy#header}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#header CloudfrontResponseHeadersPolicy#header}
+   */
   readonly header: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#value CloudfrontResponseHeadersPolicy#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#value CloudfrontResponseHeadersPolicy#value}
+   */
   readonly value: string;
 }
 
-export function cloudfrontResponseHeadersPolicyCustomHeadersConfigItemsToTerraform(struct?: CloudfrontResponseHeadersPolicyCustomHeadersConfigItems | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCustomHeadersConfigItemsToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfigItems
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     header: cdktf.stringToTerraform(struct!.header),
     override: cdktf.booleanToTerraform(struct!.override),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference extends cdktf.ComplexObject {
@@ -563,16 +698,29 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCustomHeadersConfigItems | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfigItems
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -593,19 +741,22 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCustomHeadersConfigItems | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicyCustomHeadersConfigItems
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._header = undefined;
       this._override = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._header = value.header;
@@ -615,7 +766,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   }
 
   // header - computed: false, optional: false, required: true
-  private _header?: string; 
+  private _header?: string;
   public get header() {
     return this.getStringAttribute('header');
   }
@@ -628,7 +779,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -641,7 +792,7 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -655,55 +806,86 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputRefere
 }
 
 export class CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList extends cdktf.ComplexList {
-  public internalValue? : CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[] | cdktf.IResolvable
+  public internalValue?:
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference {
-    return new CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference {
+    return new CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface CloudfrontResponseHeadersPolicyCustomHeadersConfig {
   /**
-  * items block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
-  */
-  readonly items?: CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[] | cdktf.IResolvable;
+   * items block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#items CloudfrontResponseHeadersPolicy#items}
+   */
+  readonly items?:
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[]
+    | cdktf.IResolvable;
 }
 
-export function cloudfrontResponseHeadersPolicyCustomHeadersConfigToTerraform(struct?: CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference | CloudfrontResponseHeadersPolicyCustomHeadersConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyCustomHeadersConfigToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    items: cdktf.listMapper(cloudfrontResponseHeadersPolicyCustomHeadersConfigItemsToTerraform, true)(struct!.items),
-  }
+    items: cdktf.listMapper(
+      cloudfrontResponseHeadersPolicyCustomHeadersConfigItemsToTerraform,
+      true,
+    )(struct!.items),
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyCustomHeadersConfig | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyCustomHeadersConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items?.internalValue !== undefined) {
@@ -713,23 +895,33 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyCustomHeadersConfig | undefined) {
+  public set internalValue(
+    value: CloudfrontResponseHeadersPolicyCustomHeadersConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items.internalValue = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items = new CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList(this, "items", true);
+  private _items =
+    new CloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList(
+      this,
+      'items',
+      true,
+    );
   public get items() {
     return this._items;
   }
-  public putItems(value: CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[] | cdktf.IResolvable) {
+  public putItems(
+    value:
+      | CloudfrontResponseHeadersPolicyCustomHeadersConfigItems[]
+      | cdktf.IResolvable,
+  ) {
     this._items.internalValue = value;
   }
   public resetItems() {
@@ -742,38 +934,53 @@ export class CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference e
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_security_policy CloudfrontResponseHeadersPolicy#content_security_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_security_policy CloudfrontResponseHeadersPolicy#content_security_policy}
+   */
   readonly contentSecurityPolicy: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    content_security_policy: cdktf.stringToTerraform(struct!.contentSecurityPolicy),
+    content_security_policy: cdktf.stringToTerraform(
+      struct!.contentSecurityPolicy,
+    ),
     override: cdktf.booleanToTerraform(struct!.override),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._contentSecurityPolicy !== undefined) {
@@ -787,13 +994,16 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurity
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._contentSecurityPolicy = undefined;
       this._override = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._contentSecurityPolicy = value.contentSecurityPolicy;
       this._override = value.override;
@@ -801,7 +1011,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurity
   }
 
   // content_security_policy - computed: false, optional: false, required: true
-  private _contentSecurityPolicy?: string; 
+  private _contentSecurityPolicy?: string;
   public get contentSecurityPolicy() {
     return this.getStringAttribute('content_security_policy');
   }
@@ -814,7 +1024,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurity
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -828,33 +1038,46 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurity
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     override: cdktf.booleanToTerraform(struct!.override),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._override !== undefined) {
@@ -864,19 +1087,22 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOpti
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._override = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._override = value.override;
     }
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -890,38 +1116,51 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOpti
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#frame_option CloudfrontResponseHeadersPolicy#frame_option}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#frame_option CloudfrontResponseHeadersPolicy#frame_option}
+   */
   readonly frameOption: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     frame_option: cdktf.stringToTerraform(struct!.frameOption),
     override: cdktf.booleanToTerraform(struct!.override),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._frameOption !== undefined) {
@@ -935,13 +1174,16 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._frameOption = undefined;
       this._override = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._frameOption = value.frameOption;
       this._override = value.override;
@@ -949,7 +1191,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOut
   }
 
   // frame_option - computed: false, optional: false, required: true
-  private _frameOption?: string; 
+  private _frameOption?: string;
   public get frameOption() {
     return this.getStringAttribute('frame_option');
   }
@@ -962,7 +1204,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOut
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -976,38 +1218,51 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOut
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#referrer_policy CloudfrontResponseHeadersPolicy#referrer_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#referrer_policy CloudfrontResponseHeadersPolicy#referrer_policy}
+   */
   readonly referrerPolicy: string;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     override: cdktf.booleanToTerraform(struct!.override),
     referrer_policy: cdktf.stringToTerraform(struct!.referrerPolicy),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._override !== undefined) {
@@ -1021,13 +1276,16 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._override = undefined;
       this._referrerPolicy = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._override = value.override;
       this._referrerPolicy = value.referrerPolicy;
@@ -1035,7 +1293,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyO
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1048,7 +1306,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyO
   }
 
   // referrer_policy - computed: false, optional: false, required: true
-  private _referrerPolicy?: string; 
+  private _referrerPolicy?: string;
   public get referrerPolicy() {
     return this.getStringAttribute('referrer_policy');
   }
@@ -1062,48 +1320,63 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyO
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_max_age_sec CloudfrontResponseHeadersPolicy#access_control_max_age_sec}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#access_control_max_age_sec CloudfrontResponseHeadersPolicy#access_control_max_age_sec}
+   */
   readonly accessControlMaxAgeSec: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#include_subdomains CloudfrontResponseHeadersPolicy#include_subdomains}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#include_subdomains CloudfrontResponseHeadersPolicy#include_subdomains}
+   */
   readonly includeSubdomains?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#preload CloudfrontResponseHeadersPolicy#preload}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#preload CloudfrontResponseHeadersPolicy#preload}
+   */
   readonly preload?: boolean | cdktf.IResolvable;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    access_control_max_age_sec: cdktf.numberToTerraform(struct!.accessControlMaxAgeSec),
+    access_control_max_age_sec: cdktf.numberToTerraform(
+      struct!.accessControlMaxAgeSec,
+    ),
     include_subdomains: cdktf.booleanToTerraform(struct!.includeSubdomains),
     override: cdktf.booleanToTerraform(struct!.override),
     preload: cdktf.booleanToTerraform(struct!.preload),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accessControlMaxAgeSec !== undefined) {
@@ -1125,15 +1398,18 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accessControlMaxAgeSec = undefined;
       this._includeSubdomains = undefined;
       this._override = undefined;
       this._preload = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accessControlMaxAgeSec = value.accessControlMaxAgeSec;
       this._includeSubdomains = value.includeSubdomains;
@@ -1143,7 +1419,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // access_control_max_age_sec - computed: false, optional: false, required: true
-  private _accessControlMaxAgeSec?: number; 
+  private _accessControlMaxAgeSec?: number;
   public get accessControlMaxAgeSec() {
     return this.getNumberAttribute('access_control_max_age_sec');
   }
@@ -1156,7 +1432,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // include_subdomains - computed: false, optional: true, required: false
-  private _includeSubdomains?: boolean | cdktf.IResolvable; 
+  private _includeSubdomains?: boolean | cdktf.IResolvable;
   public get includeSubdomains() {
     return this.getBooleanAttribute('include_subdomains');
   }
@@ -1172,7 +1448,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1185,7 +1461,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
   }
 
   // preload - computed: false, optional: true, required: false
-  private _preload?: boolean | cdktf.IResolvable; 
+  private _preload?: boolean | cdktf.IResolvable;
   public get preload() {
     return this.getBooleanAttribute('preload');
   }
@@ -1202,48 +1478,61 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransport
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#mode_block CloudfrontResponseHeadersPolicy#mode_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#mode_block CloudfrontResponseHeadersPolicy#mode_block}
+   */
   readonly modeBlock?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#override CloudfrontResponseHeadersPolicy#override}
+   */
   readonly override: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#protection CloudfrontResponseHeadersPolicy#protection}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#protection CloudfrontResponseHeadersPolicy#protection}
+   */
   readonly protection: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#report_uri CloudfrontResponseHeadersPolicy#report_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#report_uri CloudfrontResponseHeadersPolicy#report_uri}
+   */
   readonly reportUri?: string;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode_block: cdktf.booleanToTerraform(struct!.modeBlock),
     override: cdktf.booleanToTerraform(struct!.override),
     protection: cdktf.booleanToTerraform(struct!.protection),
     report_uri: cdktf.stringToTerraform(struct!.reportUri),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._modeBlock !== undefined) {
@@ -1265,15 +1554,18 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection | undefined) {
+  public set internalValue(
+    value:
+      | CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._modeBlock = undefined;
       this._override = undefined;
       this._protection = undefined;
       this._reportUri = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._modeBlock = value.modeBlock;
       this._override = value.override;
@@ -1283,7 +1575,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // mode_block - computed: false, optional: true, required: false
-  private _modeBlock?: boolean | cdktf.IResolvable; 
+  private _modeBlock?: boolean | cdktf.IResolvable;
   public get modeBlock() {
     return this.getBooleanAttribute('mode_block');
   }
@@ -1299,7 +1591,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // override - computed: false, optional: false, required: true
-  private _override?: boolean | cdktf.IResolvable; 
+  private _override?: boolean | cdktf.IResolvable;
   public get override() {
     return this.getBooleanAttribute('override');
   }
@@ -1312,7 +1604,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // protection - computed: false, optional: false, required: true
-  private _protection?: boolean | cdktf.IResolvable; 
+  private _protection?: boolean | cdktf.IResolvable;
   public get protection() {
     return this.getBooleanAttribute('protection');
   }
@@ -1325,7 +1617,7 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
   }
 
   // report_uri - computed: false, optional: true, required: false
-  private _reportUri?: string; 
+  private _reportUri?: string;
   public get reportUri() {
     return this.getStringAttribute('report_uri');
   }
@@ -1342,79 +1634,112 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOu
 }
 export interface CloudfrontResponseHeadersPolicySecurityHeadersConfig {
   /**
-  * content_security_policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_security_policy CloudfrontResponseHeadersPolicy#content_security_policy}
-  */
+   * content_security_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_security_policy CloudfrontResponseHeadersPolicy#content_security_policy}
+   */
   readonly contentSecurityPolicy?: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy;
   /**
-  * content_type_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_type_options CloudfrontResponseHeadersPolicy#content_type_options}
-  */
+   * content_type_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#content_type_options CloudfrontResponseHeadersPolicy#content_type_options}
+   */
   readonly contentTypeOptions?: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions;
   /**
-  * frame_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#frame_options CloudfrontResponseHeadersPolicy#frame_options}
-  */
+   * frame_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#frame_options CloudfrontResponseHeadersPolicy#frame_options}
+   */
   readonly frameOptions?: CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions;
   /**
-  * referrer_policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#referrer_policy CloudfrontResponseHeadersPolicy#referrer_policy}
-  */
+   * referrer_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#referrer_policy CloudfrontResponseHeadersPolicy#referrer_policy}
+   */
   readonly referrerPolicy?: CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy;
   /**
-  * strict_transport_security block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#strict_transport_security CloudfrontResponseHeadersPolicy#strict_transport_security}
-  */
+   * strict_transport_security block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#strict_transport_security CloudfrontResponseHeadersPolicy#strict_transport_security}
+   */
   readonly strictTransportSecurity?: CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity;
   /**
-  * xss_protection block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#xss_protection CloudfrontResponseHeadersPolicy#xss_protection}
-  */
+   * xss_protection block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#xss_protection CloudfrontResponseHeadersPolicy#xss_protection}
+   */
   readonly xssProtection?: CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection;
 }
 
-export function cloudfrontResponseHeadersPolicySecurityHeadersConfigToTerraform(struct?: CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference | CloudfrontResponseHeadersPolicySecurityHeadersConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicySecurityHeadersConfigToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    content_security_policy: cloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyToTerraform(struct!.contentSecurityPolicy),
-    content_type_options: cloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsToTerraform(struct!.contentTypeOptions),
-    frame_options: cloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsToTerraform(struct!.frameOptions),
-    referrer_policy: cloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyToTerraform(struct!.referrerPolicy),
-    strict_transport_security: cloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityToTerraform(struct!.strictTransportSecurity),
-    xss_protection: cloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionToTerraform(struct!.xssProtection),
-  }
+    content_security_policy:
+      cloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyToTerraform(
+        struct!.contentSecurityPolicy,
+      ),
+    content_type_options:
+      cloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsToTerraform(
+        struct!.contentTypeOptions,
+      ),
+    frame_options:
+      cloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsToTerraform(
+        struct!.frameOptions,
+      ),
+    referrer_policy:
+      cloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyToTerraform(
+        struct!.referrerPolicy,
+      ),
+    strict_transport_security:
+      cloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityToTerraform(
+        struct!.strictTransportSecurity,
+      ),
+    xss_protection:
+      cloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionToTerraform(
+        struct!.xssProtection,
+      ),
+  };
 }
 
 export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicySecurityHeadersConfig | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicySecurityHeadersConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._contentSecurityPolicy?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.contentSecurityPolicy = this._contentSecurityPolicy?.internalValue;
+      internalValueResult.contentSecurityPolicy =
+        this._contentSecurityPolicy?.internalValue;
     }
     if (this._contentTypeOptions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.contentTypeOptions = this._contentTypeOptions?.internalValue;
+      internalValueResult.contentTypeOptions =
+        this._contentTypeOptions?.internalValue;
     }
     if (this._frameOptions?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1426,7 +1751,8 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
     }
     if (this._strictTransportSecurity?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.strictTransportSecurity = this._strictTransportSecurity?.internalValue;
+      internalValueResult.strictTransportSecurity =
+        this._strictTransportSecurity?.internalValue;
     }
     if (this._xssProtection?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1435,7 +1761,9 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicySecurityHeadersConfig | undefined) {
+  public set internalValue(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._contentSecurityPolicy.internalValue = undefined;
@@ -1444,24 +1772,30 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
       this._referrerPolicy.internalValue = undefined;
       this._strictTransportSecurity.internalValue = undefined;
       this._xssProtection.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._contentSecurityPolicy.internalValue = value.contentSecurityPolicy;
       this._contentTypeOptions.internalValue = value.contentTypeOptions;
       this._frameOptions.internalValue = value.frameOptions;
       this._referrerPolicy.internalValue = value.referrerPolicy;
-      this._strictTransportSecurity.internalValue = value.strictTransportSecurity;
+      this._strictTransportSecurity.internalValue =
+        value.strictTransportSecurity;
       this._xssProtection.internalValue = value.xssProtection;
     }
   }
 
   // content_security_policy - computed: false, optional: true, required: false
-  private _contentSecurityPolicy = new CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference(this, "content_security_policy");
+  private _contentSecurityPolicy =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference(
+      this,
+      'content_security_policy',
+    );
   public get contentSecurityPolicy() {
     return this._contentSecurityPolicy;
   }
-  public putContentSecurityPolicy(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy) {
+  public putContentSecurityPolicy(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy,
+  ) {
     this._contentSecurityPolicy.internalValue = value;
   }
   public resetContentSecurityPolicy() {
@@ -1473,11 +1807,17 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
   }
 
   // content_type_options - computed: false, optional: true, required: false
-  private _contentTypeOptions = new CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference(this, "content_type_options");
+  private _contentTypeOptions =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference(
+      this,
+      'content_type_options',
+    );
   public get contentTypeOptions() {
     return this._contentTypeOptions;
   }
-  public putContentTypeOptions(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions) {
+  public putContentTypeOptions(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions,
+  ) {
     this._contentTypeOptions.internalValue = value;
   }
   public resetContentTypeOptions() {
@@ -1489,11 +1829,17 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
   }
 
   // frame_options - computed: false, optional: true, required: false
-  private _frameOptions = new CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference(this, "frame_options");
+  private _frameOptions =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference(
+      this,
+      'frame_options',
+    );
   public get frameOptions() {
     return this._frameOptions;
   }
-  public putFrameOptions(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions) {
+  public putFrameOptions(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions,
+  ) {
     this._frameOptions.internalValue = value;
   }
   public resetFrameOptions() {
@@ -1505,11 +1851,17 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
   }
 
   // referrer_policy - computed: false, optional: true, required: false
-  private _referrerPolicy = new CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference(this, "referrer_policy");
+  private _referrerPolicy =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference(
+      this,
+      'referrer_policy',
+    );
   public get referrerPolicy() {
     return this._referrerPolicy;
   }
-  public putReferrerPolicy(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy) {
+  public putReferrerPolicy(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy,
+  ) {
     this._referrerPolicy.internalValue = value;
   }
   public resetReferrerPolicy() {
@@ -1521,11 +1873,17 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
   }
 
   // strict_transport_security - computed: false, optional: true, required: false
-  private _strictTransportSecurity = new CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference(this, "strict_transport_security");
+  private _strictTransportSecurity =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference(
+      this,
+      'strict_transport_security',
+    );
   public get strictTransportSecurity() {
     return this._strictTransportSecurity;
   }
-  public putStrictTransportSecurity(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity) {
+  public putStrictTransportSecurity(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity,
+  ) {
     this._strictTransportSecurity.internalValue = value;
   }
   public resetStrictTransportSecurity() {
@@ -1537,11 +1895,17 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
   }
 
   // xss_protection - computed: false, optional: true, required: false
-  private _xssProtection = new CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference(this, "xss_protection");
+  private _xssProtection =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference(
+      this,
+      'xss_protection',
+    );
   public get xssProtection() {
     return this._xssProtection;
   }
-  public putXssProtection(value: CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection) {
+  public putXssProtection(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection,
+  ) {
     this._xssProtection.internalValue = value;
   }
   public resetXssProtection() {
@@ -1554,38 +1918,51 @@ export class CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference
 }
 export interface CloudfrontResponseHeadersPolicyServerTimingHeadersConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#enabled CloudfrontResponseHeadersPolicy#enabled}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#enabled CloudfrontResponseHeadersPolicy#enabled}
+   */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#sampling_rate CloudfrontResponseHeadersPolicy#sampling_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy#sampling_rate CloudfrontResponseHeadersPolicy#sampling_rate}
+   */
   readonly samplingRate: number;
 }
 
-export function cloudfrontResponseHeadersPolicyServerTimingHeadersConfigToTerraform(struct?: CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference | CloudfrontResponseHeadersPolicyServerTimingHeadersConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function cloudfrontResponseHeadersPolicyServerTimingHeadersConfigToTerraform(
+  struct?:
+    | CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference
+    | CloudfrontResponseHeadersPolicyServerTimingHeadersConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     sampling_rate: cdktf.numberToTerraform(struct!.samplingRate),
-  }
+  };
 }
 
 export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): CloudfrontResponseHeadersPolicyServerTimingHeadersConfig | undefined {
+  public get internalValue():
+    | CloudfrontResponseHeadersPolicyServerTimingHeadersConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -1599,13 +1976,14 @@ export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: CloudfrontResponseHeadersPolicyServerTimingHeadersConfig | undefined) {
+  public set internalValue(
+    value: CloudfrontResponseHeadersPolicyServerTimingHeadersConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._samplingRate = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._samplingRate = value.samplingRate;
@@ -1613,7 +1991,7 @@ export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputRefer
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable; 
+  private _enabled?: boolean | cdktf.IResolvable;
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1626,7 +2004,7 @@ export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputRefer
   }
 
   // sampling_rate - computed: false, optional: false, required: true
-  private _samplingRate?: number; 
+  private _samplingRate?: number;
   public get samplingRate() {
     return this.getNumberAttribute('sampling_rate');
   }
@@ -1640,33 +2018,37 @@ export class CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputRefer
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy}
+ */
 export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_cloudfront_response_headers_policy";
+  public static readonly tfResourceType =
+    'aws_cloudfront_response_headers_policy';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options CloudfrontResponseHeadersPolicyConfig
-  */
-  public constructor(scope: Construct, id: string, config: CloudfrontResponseHeadersPolicyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options CloudfrontResponseHeadersPolicyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: CloudfrontResponseHeadersPolicyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudfront_response_headers_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1674,7 +2056,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._comment = config.comment;
     this._etag = config.etag;
@@ -1683,7 +2065,8 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
     this._corsConfig.internalValue = config.corsConfig;
     this._customHeadersConfig.internalValue = config.customHeadersConfig;
     this._securityHeadersConfig.internalValue = config.securityHeadersConfig;
-    this._serverTimingHeadersConfig.internalValue = config.serverTimingHeadersConfig;
+    this._serverTimingHeadersConfig.internalValue =
+      config.serverTimingHeadersConfig;
   }
 
   // ==========
@@ -1691,7 +2074,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   // ==========
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string; 
+  private _comment?: string;
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -1707,7 +2090,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // etag - computed: true, optional: true, required: false
-  private _etag?: string; 
+  private _etag?: string;
   public get etag() {
     return this.getStringAttribute('etag');
   }
@@ -1723,7 +2106,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1739,7 +2122,7 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1752,7 +2135,11 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // cors_config - computed: false, optional: true, required: false
-  private _corsConfig = new CloudfrontResponseHeadersPolicyCorsConfigOutputReference(this, "cors_config");
+  private _corsConfig =
+    new CloudfrontResponseHeadersPolicyCorsConfigOutputReference(
+      this,
+      'cors_config',
+    );
   public get corsConfig() {
     return this._corsConfig;
   }
@@ -1768,11 +2155,17 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // custom_headers_config - computed: false, optional: true, required: false
-  private _customHeadersConfig = new CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference(this, "custom_headers_config");
+  private _customHeadersConfig =
+    new CloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference(
+      this,
+      'custom_headers_config',
+    );
   public get customHeadersConfig() {
     return this._customHeadersConfig;
   }
-  public putCustomHeadersConfig(value: CloudfrontResponseHeadersPolicyCustomHeadersConfig) {
+  public putCustomHeadersConfig(
+    value: CloudfrontResponseHeadersPolicyCustomHeadersConfig,
+  ) {
     this._customHeadersConfig.internalValue = value;
   }
   public resetCustomHeadersConfig() {
@@ -1784,11 +2177,17 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // security_headers_config - computed: false, optional: true, required: false
-  private _securityHeadersConfig = new CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference(this, "security_headers_config");
+  private _securityHeadersConfig =
+    new CloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference(
+      this,
+      'security_headers_config',
+    );
   public get securityHeadersConfig() {
     return this._securityHeadersConfig;
   }
-  public putSecurityHeadersConfig(value: CloudfrontResponseHeadersPolicySecurityHeadersConfig) {
+  public putSecurityHeadersConfig(
+    value: CloudfrontResponseHeadersPolicySecurityHeadersConfig,
+  ) {
     this._securityHeadersConfig.internalValue = value;
   }
   public resetSecurityHeadersConfig() {
@@ -1800,11 +2199,17 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
   }
 
   // server_timing_headers_config - computed: false, optional: true, required: false
-  private _serverTimingHeadersConfig = new CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference(this, "server_timing_headers_config");
+  private _serverTimingHeadersConfig =
+    new CloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference(
+      this,
+      'server_timing_headers_config',
+    );
   public get serverTimingHeadersConfig() {
     return this._serverTimingHeadersConfig;
   }
-  public putServerTimingHeadersConfig(value: CloudfrontResponseHeadersPolicyServerTimingHeadersConfig) {
+  public putServerTimingHeadersConfig(
+    value: CloudfrontResponseHeadersPolicyServerTimingHeadersConfig,
+  ) {
     this._serverTimingHeadersConfig.internalValue = value;
   }
   public resetServerTimingHeadersConfig() {
@@ -1825,10 +2230,21 @@ export class CloudfrontResponseHeadersPolicy extends cdktf.TerraformResource {
       etag: cdktf.stringToTerraform(this._etag),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      cors_config: cloudfrontResponseHeadersPolicyCorsConfigToTerraform(this._corsConfig.internalValue),
-      custom_headers_config: cloudfrontResponseHeadersPolicyCustomHeadersConfigToTerraform(this._customHeadersConfig.internalValue),
-      security_headers_config: cloudfrontResponseHeadersPolicySecurityHeadersConfigToTerraform(this._securityHeadersConfig.internalValue),
-      server_timing_headers_config: cloudfrontResponseHeadersPolicyServerTimingHeadersConfigToTerraform(this._serverTimingHeadersConfig.internalValue),
+      cors_config: cloudfrontResponseHeadersPolicyCorsConfigToTerraform(
+        this._corsConfig.internalValue,
+      ),
+      custom_headers_config:
+        cloudfrontResponseHeadersPolicyCustomHeadersConfigToTerraform(
+          this._customHeadersConfig.internalValue,
+        ),
+      security_headers_config:
+        cloudfrontResponseHeadersPolicySecurityHeadersConfigToTerraform(
+          this._securityHeadersConfig.internalValue,
+        ),
+      server_timing_headers_config:
+        cloudfrontResponseHeadersPolicyServerTimingHeadersConfigToTerraform(
+          this._serverTimingHeadersConfig.internalValue,
+        ),
     };
   }
 }

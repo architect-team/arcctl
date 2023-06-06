@@ -1,4 +1,4 @@
-import { DeepPartial } from '../../utils/types.js';
+import { DeepPartial } from '../../utils/types.ts';
 
 export type StaticBucketSchemaV1 = {
   /**

@@ -1,17 +1,15 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { BaseService } from '../../service.js';
-import { AwsCredentials } from '../credentials.js';
-import AwsUtils from '../utils.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { BaseService } from '../../service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import AwsUtils from '../utils.ts';
 
 export class AwsDatabaseVersionService extends BaseService<'databaseVersion'> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
-  async get(
-    id: string,
-  ): Promise<ResourceOutputs['databaseVersion'] | undefined> {
+  async get(id: string): Promise<ResourceOutputs['databaseVersion'] | undefined> {
     return undefined;
   }
 
@@ -32,15 +30,10 @@ export class AwsDatabaseVersionService extends BaseService<'databaseVersion'> {
         .promise();
       if (engineData?.DBEngineVersions) {
         for (const engine of engineData?.DBEngineVersions || []) {
-          if (
-            filterOptions?.databaseType &&
-            engine.Engine !== filterOptions.databaseType
-          ) {
+          if (filterOptions?.databaseType && engine.Engine !== filterOptions.databaseType) {
             continue;
           }
-          const isUnique = !engineVersions.some(
-            (e) => e.databaseVersion === engine.EngineVersion,
-          );
+          const isUnique = !engineVersions.some((e) => e.databaseVersion === engine.EngineVersion);
           if (!engine.EngineVersion || !isUnique) {
             continue;
           }

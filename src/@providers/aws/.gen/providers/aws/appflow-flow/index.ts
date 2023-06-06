@@ -1,103 +1,119 @@
 // https://www.terraform.io/docs/providers/aws/r/appflow_flow
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface AppflowFlowConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#description AppflowFlow#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#description AppflowFlow#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id AppflowFlow#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id AppflowFlow#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#kms_arn AppflowFlow#kms_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#kms_arn AppflowFlow#kms_arn}
+   */
   readonly kmsArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#name AppflowFlow#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#name AppflowFlow#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#tags AppflowFlow#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#tags AppflowFlow#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#tags_all AppflowFlow#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#tags_all AppflowFlow#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * destination_flow_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_flow_config AppflowFlow#destination_flow_config}
-  */
-  readonly destinationFlowConfig: AppflowFlowDestinationFlowConfig[] | cdktf.IResolvable;
+   * destination_flow_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_flow_config AppflowFlow#destination_flow_config}
+   */
+  readonly destinationFlowConfig:
+    | AppflowFlowDestinationFlowConfig[]
+    | cdktf.IResolvable;
   /**
-  * source_flow_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_flow_config AppflowFlow#source_flow_config}
-  */
+   * source_flow_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_flow_config AppflowFlow#source_flow_config}
+   */
   readonly sourceFlowConfig: AppflowFlowSourceFlowConfig;
   /**
-  * task block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task AppflowFlow#task}
-  */
+   * task block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task AppflowFlow#task}
+   */
   readonly task: AppflowFlowTask[] | cdktf.IResolvable;
   /**
-  * trigger_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_config AppflowFlow#trigger_config}
-  */
+   * trigger_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_config AppflowFlow#trigger_config}
+   */
   readonly triggerConfig: AppflowFlowTriggerConfig;
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -110,19 +126,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -131,7 +151,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -147,7 +167,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -163,7 +183,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -180,55 +200,76 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_properties AppflowFlow#custom_properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_properties AppflowFlow#custom_properties}
+   */
   readonly customProperties?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#entity_name AppflowFlow#entity_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#entity_name AppflowFlow#entity_name}
+   */
   readonly entityName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
+   */
   readonly idFieldNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
+   */
   readonly writeOperationType?: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    custom_properties: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.customProperties),
+    custom_properties: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.customProperties,
+    ),
     entity_name: cdktf.stringToTerraform(struct!.entityName),
-    id_field_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.idFieldNames),
+    id_field_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.idFieldNames),
     write_operation_type: cdktf.stringToTerraform(struct!.writeOperationType),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._customProperties !== undefined) {
@@ -249,12 +290,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._customProperties = undefined;
@@ -262,8 +308,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
       this._idFieldNames = undefined;
       this._writeOperationType = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._customProperties = value.customProperties;
       this._entityName = value.entityName;
@@ -274,7 +319,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // custom_properties - computed: false, optional: true, required: false
-  private _customProperties?: { [key: string]: string }; 
+  private _customProperties?: { [key: string]: string };
   public get customProperties() {
     return this.getStringMapAttribute('custom_properties');
   }
@@ -290,7 +335,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // entity_name - computed: false, optional: false, required: true
-  private _entityName?: string; 
+  private _entityName?: string;
   public get entityName() {
     return this.getStringAttribute('entity_name');
   }
@@ -303,7 +348,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -319,7 +364,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -335,11 +380,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -352,38 +403,51 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#domain_name AppflowFlow#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#domain_name AppflowFlow#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object_type_name AppflowFlow#object_type_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object_type_name AppflowFlow#object_type_name}
+   */
   readonly objectTypeName?: string;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     domain_name: cdktf.stringToTerraform(struct!.domainName),
     object_type_name: cdktf.stringToTerraform(struct!.objectTypeName),
-  }
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._domainName !== undefined) {
@@ -397,13 +461,16 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._domainName = undefined;
       this._objectTypeName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domainName = value.domainName;
       this._objectTypeName = value.objectTypeName;
@@ -411,7 +478,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -424,7 +491,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
   }
 
   // object_type_name - computed: false, optional: true, required: false
-  private _objectTypeName?: string; 
+  private _objectTypeName?: string;
   public get objectTypeName() {
     return this.getStringAttribute('object_type_name');
   }
@@ -441,43 +508,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCusto
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -490,19 +572,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -511,7 +597,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -527,7 +613,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -543,7 +629,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -560,40 +646,56 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -602,18 +704,22 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
       this._errorHandlingConfig.internalValue = value.errorHandlingConfig;
@@ -621,7 +727,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -634,11 +740,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -651,43 +763,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEvent
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -700,19 +827,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -721,7 +852,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -737,7 +868,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -753,7 +884,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -770,40 +901,56 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -812,18 +959,22 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
       this._errorHandlingConfig.internalValue = value.errorHandlingConfig;
@@ -831,7 +982,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -844,11 +995,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -859,83 +1016,112 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoney
     return this._errorHandlingConfig.internalValue;
   }
 }
-export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics {
-}
+export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics {}
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
-  return {
-  }
+  return {};
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -948,19 +1134,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -969,7 +1159,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -985,7 +1175,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1001,7 +1191,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -1018,40 +1208,56 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -1060,18 +1266,22 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
       this._errorHandlingConfig.internalValue = value.errorHandlingConfig;
@@ -1079,7 +1289,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -1092,11 +1302,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -1109,43 +1325,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarke
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -1158,19 +1389,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -1179,7 +1414,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -1195,7 +1430,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1211,7 +1446,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -1228,50 +1463,68 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#intermediate_bucket_name AppflowFlow#intermediate_bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#intermediate_bucket_name AppflowFlow#intermediate_bucket_name}
+   */
   readonly intermediateBucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    intermediate_bucket_name: cdktf.stringToTerraform(struct!.intermediateBucketName),
+    intermediate_bucket_name: cdktf.stringToTerraform(
+      struct!.intermediateBucketName,
+    ),
     object: cdktf.stringToTerraform(struct!.object),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketPrefix !== undefined) {
@@ -1288,20 +1541,24 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketPrefix = undefined;
       this._intermediateBucketName = undefined;
       this._object = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketPrefix = value.bucketPrefix;
       this._intermediateBucketName = value.intermediateBucketName;
@@ -1311,7 +1568,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1327,7 +1584,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // intermediate_bucket_name - computed: false, optional: false, required: true
-  private _intermediateBucketName?: string; 
+  private _intermediateBucketName?: string;
   public get intermediateBucketName() {
     return this.getStringAttribute('intermediate_bucket_name');
   }
@@ -1340,7 +1597,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -1353,11 +1610,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -1370,33 +1633,46 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedsh
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_type AppflowFlow#aggregation_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_type AppflowFlow#aggregation_type}
+   */
   readonly aggregationType?: string;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     aggregation_type: cdktf.stringToTerraform(struct!.aggregationType),
-  }
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._aggregationType !== undefined) {
@@ -1406,19 +1682,22 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._aggregationType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._aggregationType = value.aggregationType;
     }
   }
 
   // aggregation_type - computed: false, optional: true, required: false
-  private _aggregationType?: string; 
+  private _aggregationType?: string;
   public get aggregationType() {
     return this.getStringAttribute('aggregation_type');
   }
@@ -1435,38 +1714,51 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_format AppflowFlow#prefix_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_format AppflowFlow#prefix_format}
+   */
   readonly prefixFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_type AppflowFlow#prefix_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_type AppflowFlow#prefix_type}
+   */
   readonly prefixType?: string;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     prefix_format: cdktf.stringToTerraform(struct!.prefixFormat),
     prefix_type: cdktf.stringToTerraform(struct!.prefixType),
-  }
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._prefixFormat !== undefined) {
@@ -1480,13 +1772,16 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._prefixFormat = undefined;
       this._prefixType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._prefixFormat = value.prefixFormat;
       this._prefixType = value.prefixType;
@@ -1494,7 +1789,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // prefix_format - computed: false, optional: true, required: false
-  private _prefixFormat?: string; 
+  private _prefixFormat?: string;
   public get prefixFormat() {
     return this.getStringAttribute('prefix_format');
   }
@@ -1510,7 +1805,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // prefix_type - computed: false, optional: true, required: false
-  private _prefixType?: string; 
+  private _prefixType?: string;
   public get prefixType() {
     return this.getStringAttribute('prefix_type');
   }
@@ -1527,52 +1822,73 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#file_type AppflowFlow#file_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#file_type AppflowFlow#file_type}
+   */
   readonly fileType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#preserve_source_data_typing AppflowFlow#preserve_source_data_typing}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#preserve_source_data_typing AppflowFlow#preserve_source_data_typing}
+   */
   readonly preserveSourceDataTyping?: boolean | cdktf.IResolvable;
   /**
-  * aggregation_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_config AppflowFlow#aggregation_config}
-  */
+   * aggregation_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_config AppflowFlow#aggregation_config}
+   */
   readonly aggregationConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
   /**
-  * prefix_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_config AppflowFlow#prefix_config}
-  */
+   * prefix_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_config AppflowFlow#prefix_config}
+   */
   readonly prefixConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     file_type: cdktf.stringToTerraform(struct!.fileType),
-    preserve_source_data_typing: cdktf.booleanToTerraform(struct!.preserveSourceDataTyping),
-    aggregation_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigToTerraform(struct!.aggregationConfig),
-    prefix_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigToTerraform(struct!.prefixConfig),
-  }
+    preserve_source_data_typing: cdktf.booleanToTerraform(
+      struct!.preserveSourceDataTyping,
+    ),
+    aggregation_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigToTerraform(
+        struct!.aggregationConfig,
+      ),
+    prefix_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigToTerraform(
+        struct!.prefixConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fileType !== undefined) {
@@ -1581,11 +1897,13 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
     }
     if (this._preserveSourceDataTyping !== undefined) {
       hasAnyValues = true;
-      internalValueResult.preserveSourceDataTyping = this._preserveSourceDataTyping;
+      internalValueResult.preserveSourceDataTyping =
+        this._preserveSourceDataTyping;
     }
     if (this._aggregationConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.aggregationConfig = this._aggregationConfig?.internalValue;
+      internalValueResult.aggregationConfig =
+        this._aggregationConfig?.internalValue;
     }
     if (this._prefixConfig?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1594,15 +1912,18 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fileType = undefined;
       this._preserveSourceDataTyping = undefined;
       this._aggregationConfig.internalValue = undefined;
       this._prefixConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fileType = value.fileType;
       this._preserveSourceDataTyping = value.preserveSourceDataTyping;
@@ -1612,7 +1933,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // file_type - computed: false, optional: true, required: false
-  private _fileType?: string; 
+  private _fileType?: string;
   public get fileType() {
     return this.getStringAttribute('file_type');
   }
@@ -1628,7 +1949,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // preserve_source_data_typing - computed: false, optional: true, required: false
-  private _preserveSourceDataTyping?: boolean | cdktf.IResolvable; 
+  private _preserveSourceDataTyping?: boolean | cdktf.IResolvable;
   public get preserveSourceDataTyping() {
     return this.getBooleanAttribute('preserve_source_data_typing');
   }
@@ -1644,11 +1965,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // aggregation_config - computed: false, optional: true, required: false
-  private _aggregationConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutputReference(this, "aggregation_config");
+  private _aggregationConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutputReference(
+      this,
+      'aggregation_config',
+    );
   public get aggregationConfig() {
     return this._aggregationConfig;
   }
-  public putAggregationConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) {
+  public putAggregationConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig,
+  ) {
     this._aggregationConfig.internalValue = value;
   }
   public resetAggregationConfig() {
@@ -1660,11 +1987,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
   }
 
   // prefix_config - computed: false, optional: true, required: false
-  private _prefixConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutputReference(this, "prefix_config");
+  private _prefixConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutputReference(
+      this,
+      'prefix_config',
+    );
   public get prefixConfig() {
     return this._prefixConfig;
   }
-  public putPrefixConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) {
+  public putPrefixConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig,
+  ) {
     this._prefixConfig.internalValue = value;
   }
   public resetPrefixConfig() {
@@ -1677,45 +2010,61 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3O
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * s3_output_format_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_output_format_config AppflowFlow#s3_output_format_config}
-  */
+   * s3_output_format_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_output_format_config AppflowFlow#s3_output_format_config}
+   */
   readonly s3OutputFormatConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3ToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3OutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3ToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3OutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    s3_output_format_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigToTerraform(struct!.s3OutputFormatConfig),
-  }
+    s3_output_format_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigToTerraform(
+        struct!.s3OutputFormatConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3 | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -1728,19 +2077,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
     }
     if (this._s3OutputFormatConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.s3OutputFormatConfig = this._s3OutputFormatConfig?.internalValue;
+      internalValueResult.s3OutputFormatConfig =
+        this._s3OutputFormatConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3 | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._s3OutputFormatConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -1749,7 +2102,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -1762,7 +2115,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1778,11 +2131,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
   }
 
   // s3_output_format_config - computed: false, optional: true, required: false
-  private _s3OutputFormatConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutputReference(this, "s3_output_format_config");
+  private _s3OutputFormatConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutputReference(
+      this,
+      's3_output_format_config',
+    );
   public get s3OutputFormatConfig() {
     return this._s3OutputFormatConfig;
   }
-  public putS3OutputFormatConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) {
+  public putS3OutputFormatConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig,
+  ) {
     this._s3OutputFormatConfig.internalValue = value;
   }
   public resetS3OutputFormatConfig() {
@@ -1795,43 +2154,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3Out
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -1844,19 +2218,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -1865,7 +2243,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -1881,7 +2259,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -1897,7 +2275,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -1914,50 +2292,69 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
+   */
   readonly idFieldNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
+   */
   readonly writeOperationType?: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    id_field_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.idFieldNames),
+    id_field_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.idFieldNames),
     object: cdktf.stringToTerraform(struct!.object),
     write_operation_type: cdktf.stringToTerraform(struct!.writeOperationType),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._idFieldNames !== undefined) {
@@ -1974,20 +2371,24 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._idFieldNames = undefined;
       this._object = undefined;
       this._writeOperationType = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._idFieldNames = value.idFieldNames;
       this._object = value.object;
@@ -1997,7 +2398,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -2013,7 +2414,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -2026,7 +2427,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -2042,11 +2443,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -2059,43 +2466,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSales
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -2108,19 +2530,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -2129,7 +2555,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -2145,7 +2571,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2161,7 +2587,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -2178,38 +2604,51 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-  }
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -2223,13 +2662,16 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -2237,7 +2679,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -2253,7 +2695,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2270,57 +2712,79 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
+   */
   readonly idFieldNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object_path AppflowFlow#object_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object_path AppflowFlow#object_path}
+   */
   readonly objectPath: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
+   */
   readonly writeOperationType?: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
   /**
-  * success_response_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#success_response_handling_config AppflowFlow#success_response_handling_config}
-  */
+   * success_response_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#success_response_handling_config AppflowFlow#success_response_handling_config}
+   */
   readonly successResponseHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    id_field_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.idFieldNames),
+    id_field_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.idFieldNames),
     object_path: cdktf.stringToTerraform(struct!.objectPath),
     write_operation_type: cdktf.stringToTerraform(struct!.writeOperationType),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-    success_response_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigToTerraform(struct!.successResponseHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+    success_response_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigToTerraform(
+        struct!.successResponseHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._idFieldNames !== undefined) {
@@ -2337,16 +2801,22 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     if (this._successResponseHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.successResponseHandlingConfig = this._successResponseHandlingConfig?.internalValue;
+      internalValueResult.successResponseHandlingConfig =
+        this._successResponseHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._idFieldNames = undefined;
@@ -2354,19 +2824,19 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
       this._writeOperationType = undefined;
       this._errorHandlingConfig.internalValue = undefined;
       this._successResponseHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._idFieldNames = value.idFieldNames;
       this._objectPath = value.objectPath;
       this._writeOperationType = value.writeOperationType;
       this._errorHandlingConfig.internalValue = value.errorHandlingConfig;
-      this._successResponseHandlingConfig.internalValue = value.successResponseHandlingConfig;
+      this._successResponseHandlingConfig.internalValue =
+        value.successResponseHandlingConfig;
     }
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -2382,7 +2852,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // object_path - computed: false, optional: false, required: true
-  private _objectPath?: string; 
+  private _objectPath?: string;
   public get objectPath() {
     return this.getStringAttribute('object_path');
   }
@@ -2395,7 +2865,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -2411,11 +2881,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -2427,11 +2903,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
   }
 
   // success_response_handling_config - computed: false, optional: true, required: false
-  private _successResponseHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutputReference(this, "success_response_handling_config");
+  private _successResponseHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutputReference(
+      this,
+      'success_response_handling_config',
+    );
   public get successResponseHandlingConfig() {
     return this._successResponseHandlingConfig;
   }
-  public putSuccessResponseHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig) {
+  public putSuccessResponseHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig,
+  ) {
     this._successResponseHandlingConfig.internalValue = value;
   }
   public resetSuccessResponseHandlingConfig() {
@@ -2444,43 +2926,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoD
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -2493,19 +2990,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -2514,7 +3015,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -2530,7 +3031,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2546,7 +3047,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -2563,50 +3064,68 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#intermediate_bucket_name AppflowFlow#intermediate_bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#intermediate_bucket_name AppflowFlow#intermediate_bucket_name}
+   */
   readonly intermediateBucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    intermediate_bucket_name: cdktf.stringToTerraform(struct!.intermediateBucketName),
+    intermediate_bucket_name: cdktf.stringToTerraform(
+      struct!.intermediateBucketName,
+    ),
     object: cdktf.stringToTerraform(struct!.object),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketPrefix !== undefined) {
@@ -2623,20 +3142,24 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketPrefix = undefined;
       this._intermediateBucketName = undefined;
       this._object = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketPrefix = value.bucketPrefix;
       this._intermediateBucketName = value.intermediateBucketName;
@@ -2646,7 +3169,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -2662,7 +3185,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // intermediate_bucket_name - computed: false, optional: false, required: true
-  private _intermediateBucketName?: string; 
+  private _intermediateBucketName?: string;
   public get intermediateBucketName() {
     return this.getStringAttribute('intermediate_bucket_name');
   }
@@ -2675,7 +3198,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -2688,11 +3211,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -2705,33 +3234,46 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowf
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_type AppflowFlow#aggregation_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_type AppflowFlow#aggregation_type}
+   */
   readonly aggregationType?: string;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     aggregation_type: cdktf.stringToTerraform(struct!.aggregationType),
-  }
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._aggregationType !== undefined) {
@@ -2741,19 +3283,22 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._aggregationType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._aggregationType = value.aggregationType;
     }
   }
 
   // aggregation_type - computed: false, optional: true, required: false
-  private _aggregationType?: string; 
+  private _aggregationType?: string;
   public get aggregationType() {
     return this.getStringAttribute('aggregation_type');
   }
@@ -2770,38 +3315,51 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_format AppflowFlow#prefix_format}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_format AppflowFlow#prefix_format}
+   */
   readonly prefixFormat?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_type AppflowFlow#prefix_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_type AppflowFlow#prefix_type}
+   */
   readonly prefixType: string;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     prefix_format: cdktf.stringToTerraform(struct!.prefixFormat),
     prefix_type: cdktf.stringToTerraform(struct!.prefixType),
-  }
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._prefixFormat !== undefined) {
@@ -2815,13 +3373,16 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._prefixFormat = undefined;
       this._prefixType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._prefixFormat = value.prefixFormat;
       this._prefixType = value.prefixType;
@@ -2829,7 +3390,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // prefix_format - computed: false, optional: true, required: false
-  private _prefixFormat?: string; 
+  private _prefixFormat?: string;
   public get prefixFormat() {
     return this.getStringAttribute('prefix_format');
   }
@@ -2845,7 +3406,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // prefix_type - computed: false, optional: false, required: true
-  private _prefixType?: string; 
+  private _prefixType?: string;
   public get prefixType() {
     return this.getStringAttribute('prefix_type');
   }
@@ -2859,47 +3420,66 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#file_type AppflowFlow#file_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#file_type AppflowFlow#file_type}
+   */
   readonly fileType?: string;
   /**
-  * aggregation_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_config AppflowFlow#aggregation_config}
-  */
+   * aggregation_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#aggregation_config AppflowFlow#aggregation_config}
+   */
   readonly aggregationConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig;
   /**
-  * prefix_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_config AppflowFlow#prefix_config}
-  */
+   * prefix_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#prefix_config AppflowFlow#prefix_config}
+   */
   readonly prefixConfig: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     file_type: cdktf.stringToTerraform(struct!.fileType),
-    aggregation_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigToTerraform(struct!.aggregationConfig),
-    prefix_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigToTerraform(struct!.prefixConfig),
-  }
+    aggregation_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigToTerraform(
+        struct!.aggregationConfig,
+      ),
+    prefix_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigToTerraform(
+        struct!.prefixConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._fileType !== undefined) {
@@ -2908,7 +3488,8 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
     }
     if (this._aggregationConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.aggregationConfig = this._aggregationConfig?.internalValue;
+      internalValueResult.aggregationConfig =
+        this._aggregationConfig?.internalValue;
     }
     if (this._prefixConfig?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2917,14 +3498,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._fileType = undefined;
       this._aggregationConfig.internalValue = undefined;
       this._prefixConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._fileType = value.fileType;
       this._aggregationConfig.internalValue = value.aggregationConfig;
@@ -2933,7 +3517,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // file_type - computed: false, optional: true, required: false
-  private _fileType?: string; 
+  private _fileType?: string;
   public get fileType() {
     return this.getStringAttribute('file_type');
   }
@@ -2949,11 +3533,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // aggregation_config - computed: false, optional: true, required: false
-  private _aggregationConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutputReference(this, "aggregation_config");
+  private _aggregationConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutputReference(
+      this,
+      'aggregation_config',
+    );
   public get aggregationConfig() {
     return this._aggregationConfig;
   }
-  public putAggregationConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig) {
+  public putAggregationConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig,
+  ) {
     this._aggregationConfig.internalValue = value;
   }
   public resetAggregationConfig() {
@@ -2965,11 +3555,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // prefix_config - computed: false, optional: false, required: true
-  private _prefixConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutputReference(this, "prefix_config");
+  private _prefixConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutputReference(
+      this,
+      'prefix_config',
+    );
   public get prefixConfig() {
     return this._prefixConfig;
   }
-  public putPrefixConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) {
+  public putPrefixConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig,
+  ) {
     this._prefixConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2979,45 +3575,61 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * s3_output_format_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_output_format_config AppflowFlow#s3_output_format_config}
-  */
+   * s3_output_format_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_output_format_config AppflowFlow#s3_output_format_config}
+   */
   readonly s3OutputFormatConfig: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    s3_output_format_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigToTerraform(struct!.s3OutputFormatConfig),
-  }
+    s3_output_format_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigToTerraform(
+        struct!.s3OutputFormatConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -3030,19 +3642,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
     }
     if (this._s3OutputFormatConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.s3OutputFormatConfig = this._s3OutputFormatConfig?.internalValue;
+      internalValueResult.s3OutputFormatConfig =
+        this._s3OutputFormatConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._s3OutputFormatConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -3051,7 +3667,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -3064,7 +3680,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -3080,11 +3696,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
   }
 
   // s3_output_format_config - computed: false, optional: false, required: true
-  private _s3OutputFormatConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutputReference(this, "s3_output_format_config");
+  private _s3OutputFormatConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutputReference(
+      this,
+      's3_output_format_config',
+    );
   public get s3OutputFormatConfig() {
     return this._s3OutputFormatConfig;
   }
-  public putS3OutputFormatConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig) {
+  public putS3OutputFormatConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig,
+  ) {
     this._s3OutputFormatConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3094,43 +3716,58 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsol
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#fail_on_first_destination_error AppflowFlow#fail_on_first_destination_error}
+   */
   readonly failOnFirstDestinationError?: boolean | cdktf.IResolvable;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    fail_on_first_destination_error: cdktf.booleanToTerraform(struct!.failOnFirstDestinationError),
-  }
+    fail_on_first_destination_error: cdktf.booleanToTerraform(
+      struct!.failOnFirstDestinationError,
+    ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -3143,19 +3780,23 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
     }
     if (this._failOnFirstDestinationError !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failOnFirstDestinationError = this._failOnFirstDestinationError;
+      internalValueResult.failOnFirstDestinationError =
+        this._failOnFirstDestinationError;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._failOnFirstDestinationError = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -3164,7 +3805,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -3180,7 +3821,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -3196,7 +3837,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // fail_on_first_destination_error - computed: false, optional: true, required: false
-  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable; 
+  private _failOnFirstDestinationError?: boolean | cdktf.IResolvable;
   public get failOnFirstDestinationError() {
     return this.getBooleanAttribute('fail_on_first_destination_error');
   }
@@ -3213,50 +3854,69 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#id_field_names AppflowFlow#id_field_names}
+   */
   readonly idFieldNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#write_operation_type AppflowFlow#write_operation_type}
+   */
   readonly writeOperationType?: string;
   /**
-  * error_handling_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
-  */
+   * error_handling_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#error_handling_config AppflowFlow#error_handling_config}
+   */
   readonly errorHandlingConfig?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    id_field_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.idFieldNames),
+    id_field_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.idFieldNames),
     object: cdktf.stringToTerraform(struct!.object),
     write_operation_type: cdktf.stringToTerraform(struct!.writeOperationType),
-    error_handling_config: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigToTerraform(struct!.errorHandlingConfig),
-  }
+    error_handling_config:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigToTerraform(
+        struct!.errorHandlingConfig,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._idFieldNames !== undefined) {
@@ -3273,20 +3933,24 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
     }
     if (this._errorHandlingConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.errorHandlingConfig = this._errorHandlingConfig?.internalValue;
+      internalValueResult.errorHandlingConfig =
+        this._errorHandlingConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._idFieldNames = undefined;
       this._object = undefined;
       this._writeOperationType = undefined;
       this._errorHandlingConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._idFieldNames = value.idFieldNames;
       this._object = value.object;
@@ -3296,7 +3960,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // id_field_names - computed: false, optional: true, required: false
-  private _idFieldNames?: string[]; 
+  private _idFieldNames?: string[];
   public get idFieldNames() {
     return this.getListAttribute('id_field_names');
   }
@@ -3312,7 +3976,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -3325,7 +3989,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // write_operation_type - computed: false, optional: true, required: false
-  private _writeOperationType?: string; 
+  private _writeOperationType?: string;
   public get writeOperationType() {
     return this.getStringAttribute('write_operation_type');
   }
@@ -3341,11 +4005,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
   }
 
   // error_handling_config - computed: false, optional: true, required: false
-  private _errorHandlingConfig = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutputReference(this, "error_handling_config");
+  private _errorHandlingConfig =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutputReference(
+      this,
+      'error_handling_config',
+    );
   public get errorHandlingConfig() {
     return this._errorHandlingConfig;
   }
-  public putErrorHandlingConfig(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) {
+  public putErrorHandlingConfig(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig,
+  ) {
     this._errorHandlingConfig.internalValue = value;
   }
   public resetErrorHandlingConfig() {
@@ -3358,128 +4028,181 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZende
 }
 export interface AppflowFlowDestinationFlowConfigDestinationConnectorProperties {
   /**
-  * custom_connector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
-  */
+   * custom_connector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
+   */
   readonly customConnector?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector;
   /**
-  * customer_profiles block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#customer_profiles AppflowFlow#customer_profiles}
-  */
+   * customer_profiles block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#customer_profiles AppflowFlow#customer_profiles}
+   */
   readonly customerProfiles?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles;
   /**
-  * event_bridge block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#event_bridge AppflowFlow#event_bridge}
-  */
+   * event_bridge block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#event_bridge AppflowFlow#event_bridge}
+   */
   readonly eventBridge?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge;
   /**
-  * honeycode block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#honeycode AppflowFlow#honeycode}
-  */
+   * honeycode block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#honeycode AppflowFlow#honeycode}
+   */
   readonly honeycode?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode;
   /**
-  * lookout_metrics block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#lookout_metrics AppflowFlow#lookout_metrics}
-  */
+   * lookout_metrics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#lookout_metrics AppflowFlow#lookout_metrics}
+   */
   readonly lookoutMetrics?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics;
   /**
-  * marketo block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
-  */
+   * marketo block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
+   */
   readonly marketo?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo;
   /**
-  * redshift block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#redshift AppflowFlow#redshift}
-  */
+   * redshift block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#redshift AppflowFlow#redshift}
+   */
   readonly redshift?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift;
   /**
-  * s3 block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
+   */
   readonly s3?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3;
   /**
-  * salesforce block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
-  */
+   * salesforce block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
+   */
   readonly salesforce?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce;
   /**
-  * sapo_data block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
-  */
+   * sapo_data block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
+   */
   readonly sapoData?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData;
   /**
-  * snowflake block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#snowflake AppflowFlow#snowflake}
-  */
+   * snowflake block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#snowflake AppflowFlow#snowflake}
+   */
   readonly snowflake?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake;
   /**
-  * upsolver block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#upsolver AppflowFlow#upsolver}
-  */
+   * upsolver block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#upsolver AppflowFlow#upsolver}
+   */
   readonly upsolver?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver;
   /**
-  * zendesk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
-  */
+   * zendesk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
+   */
   readonly zendesk?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk;
 }
 
-export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesToTerraform(struct?: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutputReference | AppflowFlowDestinationFlowConfigDestinationConnectorProperties): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigDestinationConnectorPropertiesToTerraform(
+  struct?:
+    | AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutputReference
+    | AppflowFlowDestinationFlowConfigDestinationConnectorProperties,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    custom_connector: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorToTerraform(struct!.customConnector),
-    customer_profiles: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesToTerraform(struct!.customerProfiles),
-    event_bridge: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeToTerraform(struct!.eventBridge),
-    honeycode: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeToTerraform(struct!.honeycode),
-    lookout_metrics: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsToTerraform(struct!.lookoutMetrics),
-    marketo: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoToTerraform(struct!.marketo),
-    redshift: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftToTerraform(struct!.redshift),
-    s3: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3ToTerraform(struct!.s3),
-    salesforce: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceToTerraform(struct!.salesforce),
-    sapo_data: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataToTerraform(struct!.sapoData),
-    snowflake: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeToTerraform(struct!.snowflake),
-    upsolver: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverToTerraform(struct!.upsolver),
-    zendesk: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskToTerraform(struct!.zendesk),
-  }
+    custom_connector:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorToTerraform(
+        struct!.customConnector,
+      ),
+    customer_profiles:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesToTerraform(
+        struct!.customerProfiles,
+      ),
+    event_bridge:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeToTerraform(
+        struct!.eventBridge,
+      ),
+    honeycode:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeToTerraform(
+        struct!.honeycode,
+      ),
+    lookout_metrics:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsToTerraform(
+        struct!.lookoutMetrics,
+      ),
+    marketo:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoToTerraform(
+        struct!.marketo,
+      ),
+    redshift:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftToTerraform(
+        struct!.redshift,
+      ),
+    s3: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3ToTerraform(
+      struct!.s3,
+    ),
+    salesforce:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceToTerraform(
+        struct!.salesforce,
+      ),
+    sapo_data:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataToTerraform(
+        struct!.sapoData,
+      ),
+    snowflake:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeToTerraform(
+        struct!.snowflake,
+      ),
+    upsolver:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverToTerraform(
+        struct!.upsolver,
+      ),
+    zendesk:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskToTerraform(
+        struct!.zendesk,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfigDestinationConnectorProperties | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfigDestinationConnectorProperties
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._customConnector?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.customConnector = this._customConnector?.internalValue;
+      internalValueResult.customConnector =
+        this._customConnector?.internalValue;
     }
     if (this._customerProfiles?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.customerProfiles = this._customerProfiles?.internalValue;
+      internalValueResult.customerProfiles =
+        this._customerProfiles?.internalValue;
     }
     if (this._eventBridge?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3528,7 +4251,11 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfigDestinationConnectorProperties | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowDestinationFlowConfigDestinationConnectorProperties
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._customConnector.internalValue = undefined;
@@ -3544,8 +4271,7 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
       this._snowflake.internalValue = undefined;
       this._upsolver.internalValue = undefined;
       this._zendesk.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._customConnector.internalValue = value.customConnector;
       this._customerProfiles.internalValue = value.customerProfiles;
@@ -3564,11 +4290,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // custom_connector - computed: false, optional: true, required: false
-  private _customConnector = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutputReference(this, "custom_connector");
+  private _customConnector =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutputReference(
+      this,
+      'custom_connector',
+    );
   public get customConnector() {
     return this._customConnector;
   }
-  public putCustomConnector(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) {
+  public putCustomConnector(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector,
+  ) {
     this._customConnector.internalValue = value;
   }
   public resetCustomConnector() {
@@ -3580,11 +4312,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // customer_profiles - computed: false, optional: true, required: false
-  private _customerProfiles = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutputReference(this, "customer_profiles");
+  private _customerProfiles =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutputReference(
+      this,
+      'customer_profiles',
+    );
   public get customerProfiles() {
     return this._customerProfiles;
   }
-  public putCustomerProfiles(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) {
+  public putCustomerProfiles(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles,
+  ) {
     this._customerProfiles.internalValue = value;
   }
   public resetCustomerProfiles() {
@@ -3596,11 +4334,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // event_bridge - computed: false, optional: true, required: false
-  private _eventBridge = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutputReference(this, "event_bridge");
+  private _eventBridge =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutputReference(
+      this,
+      'event_bridge',
+    );
   public get eventBridge() {
     return this._eventBridge;
   }
-  public putEventBridge(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) {
+  public putEventBridge(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge,
+  ) {
     this._eventBridge.internalValue = value;
   }
   public resetEventBridge() {
@@ -3612,11 +4356,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // honeycode - computed: false, optional: true, required: false
-  private _honeycode = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutputReference(this, "honeycode");
+  private _honeycode =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutputReference(
+      this,
+      'honeycode',
+    );
   public get honeycode() {
     return this._honeycode;
   }
-  public putHoneycode(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) {
+  public putHoneycode(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode,
+  ) {
     this._honeycode.internalValue = value;
   }
   public resetHoneycode() {
@@ -3628,11 +4378,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // lookout_metrics - computed: false, optional: true, required: false
-  private _lookoutMetrics = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutputReference(this, "lookout_metrics");
+  private _lookoutMetrics =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutputReference(
+      this,
+      'lookout_metrics',
+    );
   public get lookoutMetrics() {
     return this._lookoutMetrics;
   }
-  public putLookoutMetrics(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics) {
+  public putLookoutMetrics(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics,
+  ) {
     this._lookoutMetrics.internalValue = value;
   }
   public resetLookoutMetrics() {
@@ -3644,11 +4400,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // marketo - computed: false, optional: true, required: false
-  private _marketo = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutputReference(this, "marketo");
+  private _marketo =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutputReference(
+      this,
+      'marketo',
+    );
   public get marketo() {
     return this._marketo;
   }
-  public putMarketo(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) {
+  public putMarketo(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesMarketo,
+  ) {
     this._marketo.internalValue = value;
   }
   public resetMarketo() {
@@ -3660,11 +4422,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // redshift - computed: false, optional: true, required: false
-  private _redshift = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutputReference(this, "redshift");
+  private _redshift =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutputReference(
+      this,
+      'redshift',
+    );
   public get redshift() {
     return this._redshift;
   }
-  public putRedshift(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) {
+  public putRedshift(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesRedshift,
+  ) {
     this._redshift.internalValue = value;
   }
   public resetRedshift() {
@@ -3676,11 +4444,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3 = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3OutputReference(this, "s3");
+  private _s3 =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3OutputReference(
+      this,
+      's3',
+    );
   public get s3() {
     return this._s3;
   }
-  public putS3(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3) {
+  public putS3(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesS3,
+  ) {
     this._s3.internalValue = value;
   }
   public resetS3() {
@@ -3692,11 +4466,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // salesforce - computed: false, optional: true, required: false
-  private _salesforce = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutputReference(this, "salesforce");
+  private _salesforce =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutputReference(
+      this,
+      'salesforce',
+    );
   public get salesforce() {
     return this._salesforce;
   }
-  public putSalesforce(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) {
+  public putSalesforce(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce,
+  ) {
     this._salesforce.internalValue = value;
   }
   public resetSalesforce() {
@@ -3708,11 +4488,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // sapo_data - computed: false, optional: true, required: false
-  private _sapoData = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutputReference(this, "sapo_data");
+  private _sapoData =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutputReference(
+      this,
+      'sapo_data',
+    );
   public get sapoData() {
     return this._sapoData;
   }
-  public putSapoData(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) {
+  public putSapoData(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSapoData,
+  ) {
     this._sapoData.internalValue = value;
   }
   public resetSapoData() {
@@ -3724,11 +4510,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // snowflake - computed: false, optional: true, required: false
-  private _snowflake = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutputReference(this, "snowflake");
+  private _snowflake =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutputReference(
+      this,
+      'snowflake',
+    );
   public get snowflake() {
     return this._snowflake;
   }
-  public putSnowflake(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) {
+  public putSnowflake(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake,
+  ) {
     this._snowflake.internalValue = value;
   }
   public resetSnowflake() {
@@ -3740,11 +4532,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // upsolver - computed: false, optional: true, required: false
-  private _upsolver = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutputReference(this, "upsolver");
+  private _upsolver =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutputReference(
+      this,
+      'upsolver',
+    );
   public get upsolver() {
     return this._upsolver;
   }
-  public putUpsolver(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) {
+  public putUpsolver(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver,
+  ) {
     this._upsolver.internalValue = value;
   }
   public resetUpsolver() {
@@ -3756,11 +4554,17 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
   }
 
   // zendesk - computed: false, optional: true, required: false
-  private _zendesk = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutputReference(this, "zendesk");
+  private _zendesk =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutputReference(
+      this,
+      'zendesk',
+    );
   public get zendesk() {
     return this._zendesk;
   }
-  public putZendesk(value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) {
+  public putZendesk(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesZendesk,
+  ) {
     this._zendesk.internalValue = value;
   }
   public resetZendesk() {
@@ -3773,36 +4577,47 @@ export class AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutpu
 }
 export interface AppflowFlowDestinationFlowConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#api_version AppflowFlow#api_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#api_version AppflowFlow#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_profile_name AppflowFlow#connector_profile_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_profile_name AppflowFlow#connector_profile_name}
+   */
   readonly connectorProfileName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_type AppflowFlow#connector_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_type AppflowFlow#connector_type}
+   */
   readonly connectorType: string;
   /**
-  * destination_connector_properties block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_connector_properties AppflowFlow#destination_connector_properties}
-  */
+   * destination_connector_properties block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_connector_properties AppflowFlow#destination_connector_properties}
+   */
   readonly destinationConnectorProperties: AppflowFlowDestinationFlowConfigDestinationConnectorProperties;
 }
 
-export function appflowFlowDestinationFlowConfigToTerraform(struct?: AppflowFlowDestinationFlowConfig | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowDestinationFlowConfigToTerraform(
+  struct?: AppflowFlowDestinationFlowConfig | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
-    connector_profile_name: cdktf.stringToTerraform(struct!.connectorProfileName),
+    connector_profile_name: cdktf.stringToTerraform(
+      struct!.connectorProfileName,
+    ),
     connector_type: cdktf.stringToTerraform(struct!.connectorType),
-    destination_connector_properties: appflowFlowDestinationFlowConfigDestinationConnectorPropertiesToTerraform(struct!.destinationConnectorProperties),
-  }
+    destination_connector_properties:
+      appflowFlowDestinationFlowConfigDestinationConnectorPropertiesToTerraform(
+        struct!.destinationConnectorProperties,
+      ),
+  };
 }
 
 export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.ComplexObject {
@@ -3810,16 +4625,29 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AppflowFlowDestinationFlowConfig | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AppflowFlowDestinationFlowConfig
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3839,12 +4667,15 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
     }
     if (this._destinationConnectorProperties?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.destinationConnectorProperties = this._destinationConnectorProperties?.internalValue;
+      internalValueResult.destinationConnectorProperties =
+        this._destinationConnectorProperties?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowDestinationFlowConfig | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: AppflowFlowDestinationFlowConfig | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3852,23 +4683,22 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
       this._connectorProfileName = undefined;
       this._connectorType = undefined;
       this._destinationConnectorProperties.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._apiVersion = value.apiVersion;
       this._connectorProfileName = value.connectorProfileName;
       this._connectorType = value.connectorType;
-      this._destinationConnectorProperties.internalValue = value.destinationConnectorProperties;
+      this._destinationConnectorProperties.internalValue =
+        value.destinationConnectorProperties;
     }
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -3884,7 +4714,7 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   }
 
   // connector_profile_name - computed: false, optional: true, required: false
-  private _connectorProfileName?: string; 
+  private _connectorProfileName?: string;
   public get connectorProfileName() {
     return this.getStringAttribute('connector_profile_name');
   }
@@ -3900,7 +4730,7 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   }
 
   // connector_type - computed: false, optional: false, required: true
-  private _connectorType?: string; 
+  private _connectorType?: string;
   public get connectorType() {
     return this.getStringAttribute('connector_type');
   }
@@ -3913,11 +4743,17 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
   }
 
   // destination_connector_properties - computed: false, optional: false, required: true
-  private _destinationConnectorProperties = new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutputReference(this, "destination_connector_properties");
+  private _destinationConnectorProperties =
+    new AppflowFlowDestinationFlowConfigDestinationConnectorPropertiesOutputReference(
+      this,
+      'destination_connector_properties',
+    );
   public get destinationConnectorProperties() {
     return this._destinationConnectorProperties;
   }
-  public putDestinationConnectorProperties(value: AppflowFlowDestinationFlowConfigDestinationConnectorProperties) {
+  public putDestinationConnectorProperties(
+    value: AppflowFlowDestinationFlowConfigDestinationConnectorProperties,
+  ) {
     this._destinationConnectorProperties.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3927,53 +4763,77 @@ export class AppflowFlowDestinationFlowConfigOutputReference extends cdktf.Compl
 }
 
 export class AppflowFlowDestinationFlowConfigList extends cdktf.ComplexList {
-  public internalValue? : AppflowFlowDestinationFlowConfig[] | cdktf.IResolvable
+  public internalValue?: AppflowFlowDestinationFlowConfig[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): AppflowFlowDestinationFlowConfigOutputReference {
-    return new AppflowFlowDestinationFlowConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new AppflowFlowDestinationFlowConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface AppflowFlowSourceFlowConfigIncrementalPullConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datetime_type_field_name AppflowFlow#datetime_type_field_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datetime_type_field_name AppflowFlow#datetime_type_field_name}
+   */
   readonly datetimeTypeFieldName?: string;
 }
 
-export function appflowFlowSourceFlowConfigIncrementalPullConfigToTerraform(struct?: AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference | AppflowFlowSourceFlowConfigIncrementalPullConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigIncrementalPullConfigToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference
+    | AppflowFlowSourceFlowConfigIncrementalPullConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    datetime_type_field_name: cdktf.stringToTerraform(struct!.datetimeTypeFieldName),
-  }
+    datetime_type_field_name: cdktf.stringToTerraform(
+      struct!.datetimeTypeFieldName,
+    ),
+  };
 }
 
 export class AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigIncrementalPullConfig | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigIncrementalPullConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._datetimeTypeFieldName !== undefined) {
@@ -3983,19 +4843,20 @@ export class AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigIncrementalPullConfig | undefined) {
+  public set internalValue(
+    value: AppflowFlowSourceFlowConfigIncrementalPullConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._datetimeTypeFieldName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._datetimeTypeFieldName = value.datetimeTypeFieldName;
     }
   }
 
   // datetime_type_field_name - computed: false, optional: true, required: false
-  private _datetimeTypeFieldName?: string; 
+  private _datetimeTypeFieldName?: string;
   public get datetimeTypeFieldName() {
     return this.getStringAttribute('datetime_type_field_name');
   }
@@ -4012,33 +4873,46 @@ export class AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference ext
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4048,19 +4922,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4074,38 +4951,53 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_properties AppflowFlow#custom_properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_properties AppflowFlow#custom_properties}
+   */
   readonly customProperties?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#entity_name AppflowFlow#entity_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#entity_name AppflowFlow#entity_name}
+   */
   readonly entityName: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    custom_properties: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.customProperties),
+    custom_properties: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.customProperties,
+    ),
     entity_name: cdktf.stringToTerraform(struct!.entityName),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._customProperties !== undefined) {
@@ -4119,13 +5011,16 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._customProperties = undefined;
       this._entityName = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._customProperties = value.customProperties;
       this._entityName = value.entityName;
@@ -4133,7 +5028,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
   }
 
   // custom_properties - computed: false, optional: true, required: false
-  private _customProperties?: { [key: string]: string }; 
+  private _customProperties?: { [key: string]: string };
   public get customProperties() {
     return this.getStringMapAttribute('custom_properties');
   }
@@ -4149,7 +5044,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
   }
 
   // entity_name - computed: false, optional: false, required: true
-  private _entityName?: string; 
+  private _entityName?: string;
   public get entityName() {
     return this.getStringAttribute('entity_name');
   }
@@ -4163,33 +5058,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4199,19 +5107,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4225,33 +5136,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputRe
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4261,19 +5185,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4287,33 +5214,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4323,19 +5263,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4349,33 +5292,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4385,19 +5341,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4411,33 +5370,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutpu
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4447,19 +5419,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4473,33 +5448,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputRe
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_input_file_type AppflowFlow#s3_input_file_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_input_file_type AppflowFlow#s3_input_file_type}
+   */
   readonly s3InputFileType?: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     s3_input_file_type: cdktf.stringToTerraform(struct!.s3InputFileType),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3InputFileType !== undefined) {
@@ -4509,19 +5497,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormat
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3InputFileType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3InputFileType = value.s3InputFileType;
     }
   }
 
   // s3_input_file_type - computed: false, optional: true, required: false
-  private _s3InputFileType?: string; 
+  private _s3InputFileType?: string;
   public get s3InputFileType() {
     return this.getStringAttribute('s3_input_file_type');
   }
@@ -4538,45 +5529,61 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormat
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3 {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_name AppflowFlow#bucket_name}
+   */
   readonly bucketName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#bucket_prefix AppflowFlow#bucket_prefix}
+   */
   readonly bucketPrefix?: string;
   /**
-  * s3_input_format_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_input_format_config AppflowFlow#s3_input_format_config}
-  */
+   * s3_input_format_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3_input_format_config AppflowFlow#s3_input_format_config}
+   */
   readonly s3InputFormatConfig?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesS3ToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesS3ToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     bucket_prefix: cdktf.stringToTerraform(struct!.bucketPrefix),
-    s3_input_format_config: appflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigToTerraform(struct!.s3InputFormatConfig),
-  }
+    s3_input_format_config:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigToTerraform(
+        struct!.s3InputFormatConfig,
+      ),
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3 | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -4589,19 +5596,21 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
     }
     if (this._s3InputFormatConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.s3InputFormatConfig = this._s3InputFormatConfig?.internalValue;
+      internalValueResult.s3InputFormatConfig =
+        this._s3InputFormatConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3 | undefined) {
+  public set internalValue(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3 | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._bucketPrefix = undefined;
       this._s3InputFormatConfig.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._bucketPrefix = value.bucketPrefix;
@@ -4610,7 +5619,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string; 
+  private _bucketName?: string;
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -4623,7 +5632,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
   }
 
   // bucket_prefix - computed: false, optional: true, required: false
-  private _bucketPrefix?: string; 
+  private _bucketPrefix?: string;
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -4639,11 +5648,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
   }
 
   // s3_input_format_config - computed: false, optional: true, required: false
-  private _s3InputFormatConfig = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutputReference(this, "s3_input_format_config");
+  private _s3InputFormatConfig =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutputReference(
+      this,
+      's3_input_format_config',
+    );
   public get s3InputFormatConfig() {
     return this._s3InputFormatConfig;
   }
-  public putS3InputFormatConfig(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig) {
+  public putS3InputFormatConfig(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig,
+  ) {
     this._s3InputFormatConfig.internalValue = value;
   }
   public resetS3InputFormatConfig() {
@@ -4656,48 +5671,66 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReferen
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#enable_dynamic_field_update AppflowFlow#enable_dynamic_field_update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#enable_dynamic_field_update AppflowFlow#enable_dynamic_field_update}
+   */
   readonly enableDynamicFieldUpdate?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_deleted_records AppflowFlow#include_deleted_records}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_deleted_records AppflowFlow#include_deleted_records}
+   */
   readonly includeDeletedRecords?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    enable_dynamic_field_update: cdktf.booleanToTerraform(struct!.enableDynamicFieldUpdate),
-    include_deleted_records: cdktf.booleanToTerraform(struct!.includeDeletedRecords),
+    enable_dynamic_field_update: cdktf.booleanToTerraform(
+      struct!.enableDynamicFieldUpdate,
+    ),
+    include_deleted_records: cdktf.booleanToTerraform(
+      struct!.includeDeletedRecords,
+    ),
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enableDynamicFieldUpdate !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableDynamicFieldUpdate = this._enableDynamicFieldUpdate;
+      internalValueResult.enableDynamicFieldUpdate =
+        this._enableDynamicFieldUpdate;
     }
     if (this._includeDeletedRecords !== undefined) {
       hasAnyValues = true;
@@ -4710,14 +5743,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enableDynamicFieldUpdate = undefined;
       this._includeDeletedRecords = undefined;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableDynamicFieldUpdate = value.enableDynamicFieldUpdate;
       this._includeDeletedRecords = value.includeDeletedRecords;
@@ -4726,7 +5762,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
   }
 
   // enable_dynamic_field_update - computed: false, optional: true, required: false
-  private _enableDynamicFieldUpdate?: boolean | cdktf.IResolvable; 
+  private _enableDynamicFieldUpdate?: boolean | cdktf.IResolvable;
   public get enableDynamicFieldUpdate() {
     return this.getBooleanAttribute('enable_dynamic_field_update');
   }
@@ -4742,7 +5778,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
   }
 
   // include_deleted_records - computed: false, optional: true, required: false
-  private _includeDeletedRecords?: boolean | cdktf.IResolvable; 
+  private _includeDeletedRecords?: boolean | cdktf.IResolvable;
   public get includeDeletedRecords() {
     return this.getBooleanAttribute('include_deleted_records');
   }
@@ -4758,7 +5794,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4772,33 +5808,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutpu
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object_path AppflowFlow#object_path}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object_path AppflowFlow#object_path}
+   */
   readonly objectPath: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object_path: cdktf.stringToTerraform(struct!.objectPath),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._objectPath !== undefined) {
@@ -4808,19 +5857,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._objectPath = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._objectPath = value.objectPath;
     }
   }
 
   // object_path - computed: false, optional: false, required: true
-  private _objectPath?: string; 
+  private _objectPath?: string;
   public get objectPath() {
     return this.getStringAttribute('object_path');
   }
@@ -4834,33 +5886,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputR
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4870,19 +5935,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4896,33 +5964,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutpu
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSingularToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSingularToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4932,19 +6013,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -4958,33 +6042,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputR
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSlackToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesSlackToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -4994,19 +6091,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5020,33 +6120,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputRefe
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -5056,19 +6169,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5082,31 +6198,39 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutpu
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#document_type AppflowFlow#document_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#document_type AppflowFlow#document_type}
+   */
   readonly documentType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_all_versions AppflowFlow#include_all_versions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_all_versions AppflowFlow#include_all_versions}
+   */
   readonly includeAllVersions?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_renditions AppflowFlow#include_renditions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_renditions AppflowFlow#include_renditions}
+   */
   readonly includeRenditions?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_source_files AppflowFlow#include_source_files}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#include_source_files AppflowFlow#include_source_files}
+   */
   readonly includeSourceFiles?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     document_type: cdktf.stringToTerraform(struct!.documentType),
@@ -5114,21 +6238,26 @@ export function appflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaToTerra
     include_renditions: cdktf.booleanToTerraform(struct!.includeRenditions),
     include_source_files: cdktf.booleanToTerraform(struct!.includeSourceFiles),
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._documentType !== undefined) {
@@ -5154,7 +6283,11 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._documentType = undefined;
@@ -5162,8 +6295,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
       this._includeRenditions = undefined;
       this._includeSourceFiles = undefined;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._documentType = value.documentType;
       this._includeAllVersions = value.includeAllVersions;
@@ -5174,7 +6306,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // document_type - computed: false, optional: true, required: false
-  private _documentType?: string; 
+  private _documentType?: string;
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -5190,7 +6322,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // include_all_versions - computed: false, optional: true, required: false
-  private _includeAllVersions?: boolean | cdktf.IResolvable; 
+  private _includeAllVersions?: boolean | cdktf.IResolvable;
   public get includeAllVersions() {
     return this.getBooleanAttribute('include_all_versions');
   }
@@ -5206,7 +6338,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // include_renditions - computed: false, optional: true, required: false
-  private _includeRenditions?: boolean | cdktf.IResolvable; 
+  private _includeRenditions?: boolean | cdktf.IResolvable;
   public get includeRenditions() {
     return this.getBooleanAttribute('include_renditions');
   }
@@ -5222,7 +6354,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // include_source_files - computed: false, optional: true, required: false
-  private _includeSourceFiles?: boolean | cdktf.IResolvable; 
+  private _includeSourceFiles?: boolean | cdktf.IResolvable;
   public get includeSourceFiles() {
     return this.getBooleanAttribute('include_source_files');
   }
@@ -5238,7 +6370,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5252,33 +6384,46 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputRefe
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#object AppflowFlow#object}
+   */
   readonly object: string;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputReference | AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     object: cdktf.stringToTerraform(struct!.object),
-  }
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._object !== undefined) {
@@ -5288,19 +6433,22 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk | undefined) {
+  public set internalValue(
+    value:
+      | AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._object = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._object = value.object;
     }
   }
 
   // object - computed: false, optional: false, required: true
-  private _object?: string; 
+  private _object?: string;
   public get object() {
     return this.getStringAttribute('object');
   }
@@ -5314,140 +6462,198 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputRe
 }
 export interface AppflowFlowSourceFlowConfigSourceConnectorProperties {
   /**
-  * amplitude block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#amplitude AppflowFlow#amplitude}
-  */
+   * amplitude block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#amplitude AppflowFlow#amplitude}
+   */
   readonly amplitude?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude;
   /**
-  * custom_connector block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
-  */
+   * custom_connector block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
+   */
   readonly customConnector?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector;
   /**
-  * datadog block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datadog AppflowFlow#datadog}
-  */
+   * datadog block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datadog AppflowFlow#datadog}
+   */
   readonly datadog?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog;
   /**
-  * dynatrace block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#dynatrace AppflowFlow#dynatrace}
-  */
+   * dynatrace block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#dynatrace AppflowFlow#dynatrace}
+   */
   readonly dynatrace?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace;
   /**
-  * google_analytics block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#google_analytics AppflowFlow#google_analytics}
-  */
+   * google_analytics block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#google_analytics AppflowFlow#google_analytics}
+   */
   readonly googleAnalytics?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics;
   /**
-  * infor_nexus block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#infor_nexus AppflowFlow#infor_nexus}
-  */
+   * infor_nexus block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#infor_nexus AppflowFlow#infor_nexus}
+   */
   readonly inforNexus?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus;
   /**
-  * marketo block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
-  */
+   * marketo block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
+   */
   readonly marketo?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo;
   /**
-  * s3 block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
-  */
+   * s3 block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
+   */
   readonly s3?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3;
   /**
-  * salesforce block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
-  */
+   * salesforce block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
+   */
   readonly salesforce?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce;
   /**
-  * sapo_data block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
-  */
+   * sapo_data block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
+   */
   readonly sapoData?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData;
   /**
-  * service_now block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#service_now AppflowFlow#service_now}
-  */
+   * service_now block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#service_now AppflowFlow#service_now}
+   */
   readonly serviceNow?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow;
   /**
-  * singular block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#singular AppflowFlow#singular}
-  */
+   * singular block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#singular AppflowFlow#singular}
+   */
   readonly singular?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular;
   /**
-  * slack block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#slack AppflowFlow#slack}
-  */
+   * slack block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#slack AppflowFlow#slack}
+   */
   readonly slack?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack;
   /**
-  * trendmicro block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trendmicro AppflowFlow#trendmicro}
-  */
+   * trendmicro block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trendmicro AppflowFlow#trendmicro}
+   */
   readonly trendmicro?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro;
   /**
-  * veeva block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#veeva AppflowFlow#veeva}
-  */
+   * veeva block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#veeva AppflowFlow#veeva}
+   */
   readonly veeva?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva;
   /**
-  * zendesk block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
-  */
+   * zendesk block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
+   */
   readonly zendesk?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk;
 }
 
-export function appflowFlowSourceFlowConfigSourceConnectorPropertiesToTerraform(struct?: AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference | AppflowFlowSourceFlowConfigSourceConnectorProperties): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigSourceConnectorPropertiesToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
+    | AppflowFlowSourceFlowConfigSourceConnectorProperties,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    amplitude: appflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeToTerraform(struct!.amplitude),
-    custom_connector: appflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorToTerraform(struct!.customConnector),
-    datadog: appflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogToTerraform(struct!.datadog),
-    dynatrace: appflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceToTerraform(struct!.dynatrace),
-    google_analytics: appflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsToTerraform(struct!.googleAnalytics),
-    infor_nexus: appflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusToTerraform(struct!.inforNexus),
-    marketo: appflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoToTerraform(struct!.marketo),
-    s3: appflowFlowSourceFlowConfigSourceConnectorPropertiesS3ToTerraform(struct!.s3),
-    salesforce: appflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceToTerraform(struct!.salesforce),
-    sapo_data: appflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataToTerraform(struct!.sapoData),
-    service_now: appflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowToTerraform(struct!.serviceNow),
-    singular: appflowFlowSourceFlowConfigSourceConnectorPropertiesSingularToTerraform(struct!.singular),
-    slack: appflowFlowSourceFlowConfigSourceConnectorPropertiesSlackToTerraform(struct!.slack),
-    trendmicro: appflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroToTerraform(struct!.trendmicro),
-    veeva: appflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaToTerraform(struct!.veeva),
-    zendesk: appflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskToTerraform(struct!.zendesk),
-  }
+    amplitude:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeToTerraform(
+        struct!.amplitude,
+      ),
+    custom_connector:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorToTerraform(
+        struct!.customConnector,
+      ),
+    datadog:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogToTerraform(
+        struct!.datadog,
+      ),
+    dynatrace:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceToTerraform(
+        struct!.dynatrace,
+      ),
+    google_analytics:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsToTerraform(
+        struct!.googleAnalytics,
+      ),
+    infor_nexus:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusToTerraform(
+        struct!.inforNexus,
+      ),
+    marketo:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoToTerraform(
+        struct!.marketo,
+      ),
+    s3: appflowFlowSourceFlowConfigSourceConnectorPropertiesS3ToTerraform(
+      struct!.s3,
+    ),
+    salesforce:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceToTerraform(
+        struct!.salesforce,
+      ),
+    sapo_data:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataToTerraform(
+        struct!.sapoData,
+      ),
+    service_now:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowToTerraform(
+        struct!.serviceNow,
+      ),
+    singular:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesSingularToTerraform(
+        struct!.singular,
+      ),
+    slack: appflowFlowSourceFlowConfigSourceConnectorPropertiesSlackToTerraform(
+      struct!.slack,
+    ),
+    trendmicro:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroToTerraform(
+        struct!.trendmicro,
+      ),
+    veeva: appflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaToTerraform(
+      struct!.veeva,
+    ),
+    zendesk:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskToTerraform(
+        struct!.zendesk,
+      ),
+  };
 }
 
 export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowSourceFlowConfigSourceConnectorProperties | undefined {
+  public get internalValue():
+    | AppflowFlowSourceFlowConfigSourceConnectorProperties
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._amplitude?.internalValue !== undefined) {
@@ -5456,7 +6662,8 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
     }
     if (this._customConnector?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.customConnector = this._customConnector?.internalValue;
+      internalValueResult.customConnector =
+        this._customConnector?.internalValue;
     }
     if (this._datadog?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -5468,7 +6675,8 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
     }
     if (this._googleAnalytics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.googleAnalytics = this._googleAnalytics?.internalValue;
+      internalValueResult.googleAnalytics =
+        this._googleAnalytics?.internalValue;
     }
     if (this._inforNexus?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -5517,7 +6725,9 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowSourceFlowConfigSourceConnectorProperties | undefined) {
+  public set internalValue(
+    value: AppflowFlowSourceFlowConfigSourceConnectorProperties | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._amplitude.internalValue = undefined;
@@ -5536,8 +6746,7 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
       this._trendmicro.internalValue = undefined;
       this._veeva.internalValue = undefined;
       this._zendesk.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._amplitude.internalValue = value.amplitude;
       this._customConnector.internalValue = value.customConnector;
@@ -5559,11 +6768,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // amplitude - computed: false, optional: true, required: false
-  private _amplitude = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutputReference(this, "amplitude");
+  private _amplitude =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutputReference(
+      this,
+      'amplitude',
+    );
   public get amplitude() {
     return this._amplitude;
   }
-  public putAmplitude(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude) {
+  public putAmplitude(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesAmplitude,
+  ) {
     this._amplitude.internalValue = value;
   }
   public resetAmplitude() {
@@ -5575,11 +6790,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // custom_connector - computed: false, optional: true, required: false
-  private _customConnector = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutputReference(this, "custom_connector");
+  private _customConnector =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutputReference(
+      this,
+      'custom_connector',
+    );
   public get customConnector() {
     return this._customConnector;
   }
-  public putCustomConnector(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector) {
+  public putCustomConnector(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesCustomConnector,
+  ) {
     this._customConnector.internalValue = value;
   }
   public resetCustomConnector() {
@@ -5591,11 +6812,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputReference(this, "datadog");
+  private _datadog =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputReference(
+      this,
+      'datadog',
+    );
   public get datadog() {
     return this._datadog;
   }
-  public putDatadog(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog) {
+  public putDatadog(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDatadog,
+  ) {
     this._datadog.internalValue = value;
   }
   public resetDatadog() {
@@ -5607,11 +6834,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // dynatrace - computed: false, optional: true, required: false
-  private _dynatrace = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutputReference(this, "dynatrace");
+  private _dynatrace =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutputReference(
+      this,
+      'dynatrace',
+    );
   public get dynatrace() {
     return this._dynatrace;
   }
-  public putDynatrace(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace) {
+  public putDynatrace(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesDynatrace,
+  ) {
     this._dynatrace.internalValue = value;
   }
   public resetDynatrace() {
@@ -5623,11 +6856,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // google_analytics - computed: false, optional: true, required: false
-  private _googleAnalytics = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutputReference(this, "google_analytics");
+  private _googleAnalytics =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutputReference(
+      this,
+      'google_analytics',
+    );
   public get googleAnalytics() {
     return this._googleAnalytics;
   }
-  public putGoogleAnalytics(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics) {
+  public putGoogleAnalytics(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics,
+  ) {
     this._googleAnalytics.internalValue = value;
   }
   public resetGoogleAnalytics() {
@@ -5639,11 +6878,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // infor_nexus - computed: false, optional: true, required: false
-  private _inforNexus = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutputReference(this, "infor_nexus");
+  private _inforNexus =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutputReference(
+      this,
+      'infor_nexus',
+    );
   public get inforNexus() {
     return this._inforNexus;
   }
-  public putInforNexus(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus) {
+  public putInforNexus(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesInforNexus,
+  ) {
     this._inforNexus.internalValue = value;
   }
   public resetInforNexus() {
@@ -5655,11 +6900,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // marketo - computed: false, optional: true, required: false
-  private _marketo = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputReference(this, "marketo");
+  private _marketo =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputReference(
+      this,
+      'marketo',
+    );
   public get marketo() {
     return this._marketo;
   }
-  public putMarketo(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo) {
+  public putMarketo(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesMarketo,
+  ) {
     this._marketo.internalValue = value;
   }
   public resetMarketo() {
@@ -5671,7 +6922,11 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3 = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReference(this, "s3");
+  private _s3 =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesS3OutputReference(
+      this,
+      's3',
+    );
   public get s3() {
     return this._s3;
   }
@@ -5687,11 +6942,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // salesforce - computed: false, optional: true, required: false
-  private _salesforce = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutputReference(this, "salesforce");
+  private _salesforce =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutputReference(
+      this,
+      'salesforce',
+    );
   public get salesforce() {
     return this._salesforce;
   }
-  public putSalesforce(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce) {
+  public putSalesforce(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSalesforce,
+  ) {
     this._salesforce.internalValue = value;
   }
   public resetSalesforce() {
@@ -5703,11 +6964,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // sapo_data - computed: false, optional: true, required: false
-  private _sapoData = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputReference(this, "sapo_data");
+  private _sapoData =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputReference(
+      this,
+      'sapo_data',
+    );
   public get sapoData() {
     return this._sapoData;
   }
-  public putSapoData(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData) {
+  public putSapoData(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSapoData,
+  ) {
     this._sapoData.internalValue = value;
   }
   public resetSapoData() {
@@ -5719,11 +6986,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // service_now - computed: false, optional: true, required: false
-  private _serviceNow = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutputReference(this, "service_now");
+  private _serviceNow =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutputReference(
+      this,
+      'service_now',
+    );
   public get serviceNow() {
     return this._serviceNow;
   }
-  public putServiceNow(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow) {
+  public putServiceNow(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesServiceNow,
+  ) {
     this._serviceNow.internalValue = value;
   }
   public resetServiceNow() {
@@ -5735,11 +7008,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // singular - computed: false, optional: true, required: false
-  private _singular = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputReference(this, "singular");
+  private _singular =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputReference(
+      this,
+      'singular',
+    );
   public get singular() {
     return this._singular;
   }
-  public putSingular(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular) {
+  public putSingular(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSingular,
+  ) {
     this._singular.internalValue = value;
   }
   public resetSingular() {
@@ -5751,11 +7030,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // slack - computed: false, optional: true, required: false
-  private _slack = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputReference(this, "slack");
+  private _slack =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputReference(
+      this,
+      'slack',
+    );
   public get slack() {
     return this._slack;
   }
-  public putSlack(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack) {
+  public putSlack(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesSlack,
+  ) {
     this._slack.internalValue = value;
   }
   public resetSlack() {
@@ -5767,11 +7052,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // trendmicro - computed: false, optional: true, required: false
-  private _trendmicro = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutputReference(this, "trendmicro");
+  private _trendmicro =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutputReference(
+      this,
+      'trendmicro',
+    );
   public get trendmicro() {
     return this._trendmicro;
   }
-  public putTrendmicro(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro) {
+  public putTrendmicro(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesTrendmicro,
+  ) {
     this._trendmicro.internalValue = value;
   }
   public resetTrendmicro() {
@@ -5783,11 +7074,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // veeva - computed: false, optional: true, required: false
-  private _veeva = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputReference(this, "veeva");
+  private _veeva =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputReference(
+      this,
+      'veeva',
+    );
   public get veeva() {
     return this._veeva;
   }
-  public putVeeva(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva) {
+  public putVeeva(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesVeeva,
+  ) {
     this._veeva.internalValue = value;
   }
   public resetVeeva() {
@@ -5799,11 +7096,17 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
   }
 
   // zendesk - computed: false, optional: true, required: false
-  private _zendesk = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputReference(this, "zendesk");
+  private _zendesk =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputReference(
+      this,
+      'zendesk',
+    );
   public get zendesk() {
     return this._zendesk;
   }
-  public putZendesk(value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk) {
+  public putZendesk(
+    value: AppflowFlowSourceFlowConfigSourceConnectorPropertiesZendesk,
+  ) {
     this._zendesk.internalValue = value;
   }
   public resetZendesk() {
@@ -5816,53 +7119,72 @@ export class AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference
 }
 export interface AppflowFlowSourceFlowConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#api_version AppflowFlow#api_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#api_version AppflowFlow#api_version}
+   */
   readonly apiVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_profile_name AppflowFlow#connector_profile_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_profile_name AppflowFlow#connector_profile_name}
+   */
   readonly connectorProfileName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_type AppflowFlow#connector_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_type AppflowFlow#connector_type}
+   */
   readonly connectorType: string;
   /**
-  * incremental_pull_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#incremental_pull_config AppflowFlow#incremental_pull_config}
-  */
+   * incremental_pull_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#incremental_pull_config AppflowFlow#incremental_pull_config}
+   */
   readonly incrementalPullConfig?: AppflowFlowSourceFlowConfigIncrementalPullConfig;
   /**
-  * source_connector_properties block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_connector_properties AppflowFlow#source_connector_properties}
-  */
+   * source_connector_properties block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_connector_properties AppflowFlow#source_connector_properties}
+   */
   readonly sourceConnectorProperties: AppflowFlowSourceFlowConfigSourceConnectorProperties;
 }
 
-export function appflowFlowSourceFlowConfigToTerraform(struct?: AppflowFlowSourceFlowConfigOutputReference | AppflowFlowSourceFlowConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowSourceFlowConfigToTerraform(
+  struct?:
+    | AppflowFlowSourceFlowConfigOutputReference
+    | AppflowFlowSourceFlowConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     api_version: cdktf.stringToTerraform(struct!.apiVersion),
-    connector_profile_name: cdktf.stringToTerraform(struct!.connectorProfileName),
+    connector_profile_name: cdktf.stringToTerraform(
+      struct!.connectorProfileName,
+    ),
     connector_type: cdktf.stringToTerraform(struct!.connectorType),
-    incremental_pull_config: appflowFlowSourceFlowConfigIncrementalPullConfigToTerraform(struct!.incrementalPullConfig),
-    source_connector_properties: appflowFlowSourceFlowConfigSourceConnectorPropertiesToTerraform(struct!.sourceConnectorProperties),
-  }
+    incremental_pull_config:
+      appflowFlowSourceFlowConfigIncrementalPullConfigToTerraform(
+        struct!.incrementalPullConfig,
+      ),
+    source_connector_properties:
+      appflowFlowSourceFlowConfigSourceConnectorPropertiesToTerraform(
+        struct!.sourceConnectorProperties,
+      ),
+  };
 }
 
 export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5883,11 +7205,13 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
     }
     if (this._incrementalPullConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.incrementalPullConfig = this._incrementalPullConfig?.internalValue;
+      internalValueResult.incrementalPullConfig =
+        this._incrementalPullConfig?.internalValue;
     }
     if (this._sourceConnectorProperties?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sourceConnectorProperties = this._sourceConnectorProperties?.internalValue;
+      internalValueResult.sourceConnectorProperties =
+        this._sourceConnectorProperties?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -5900,19 +7224,19 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
       this._connectorType = undefined;
       this._incrementalPullConfig.internalValue = undefined;
       this._sourceConnectorProperties.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._apiVersion = value.apiVersion;
       this._connectorProfileName = value.connectorProfileName;
       this._connectorType = value.connectorType;
       this._incrementalPullConfig.internalValue = value.incrementalPullConfig;
-      this._sourceConnectorProperties.internalValue = value.sourceConnectorProperties;
+      this._sourceConnectorProperties.internalValue =
+        value.sourceConnectorProperties;
     }
   }
 
   // api_version - computed: false, optional: true, required: false
-  private _apiVersion?: string; 
+  private _apiVersion?: string;
   public get apiVersion() {
     return this.getStringAttribute('api_version');
   }
@@ -5928,7 +7252,7 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // connector_profile_name - computed: false, optional: true, required: false
-  private _connectorProfileName?: string; 
+  private _connectorProfileName?: string;
   public get connectorProfileName() {
     return this.getStringAttribute('connector_profile_name');
   }
@@ -5944,7 +7268,7 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // connector_type - computed: false, optional: false, required: true
-  private _connectorType?: string; 
+  private _connectorType?: string;
   public get connectorType() {
     return this.getStringAttribute('connector_type');
   }
@@ -5957,11 +7281,17 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // incremental_pull_config - computed: false, optional: true, required: false
-  private _incrementalPullConfig = new AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference(this, "incremental_pull_config");
+  private _incrementalPullConfig =
+    new AppflowFlowSourceFlowConfigIncrementalPullConfigOutputReference(
+      this,
+      'incremental_pull_config',
+    );
   public get incrementalPullConfig() {
     return this._incrementalPullConfig;
   }
-  public putIncrementalPullConfig(value: AppflowFlowSourceFlowConfigIncrementalPullConfig) {
+  public putIncrementalPullConfig(
+    value: AppflowFlowSourceFlowConfigIncrementalPullConfig,
+  ) {
     this._incrementalPullConfig.internalValue = value;
   }
   public resetIncrementalPullConfig() {
@@ -5973,11 +7303,17 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
   }
 
   // source_connector_properties - computed: false, optional: false, required: true
-  private _sourceConnectorProperties = new AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference(this, "source_connector_properties");
+  private _sourceConnectorProperties =
+    new AppflowFlowSourceFlowConfigSourceConnectorPropertiesOutputReference(
+      this,
+      'source_connector_properties',
+    );
   public get sourceConnectorProperties() {
     return this._sourceConnectorProperties;
   }
-  public putSourceConnectorProperties(value: AppflowFlowSourceFlowConfigSourceConnectorProperties) {
+  public putSourceConnectorProperties(
+    value: AppflowFlowSourceFlowConfigSourceConnectorProperties,
+  ) {
     this._sourceConnectorProperties.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -5987,75 +7323,81 @@ export class AppflowFlowSourceFlowConfigOutputReference extends cdktf.ComplexObj
 }
 export interface AppflowFlowTaskConnectorOperator {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#amplitude AppflowFlow#amplitude}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#amplitude AppflowFlow#amplitude}
+   */
   readonly amplitude?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#custom_connector AppflowFlow#custom_connector}
+   */
   readonly customConnector?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datadog AppflowFlow#datadog}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#datadog AppflowFlow#datadog}
+   */
   readonly datadog?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#dynatrace AppflowFlow#dynatrace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#dynatrace AppflowFlow#dynatrace}
+   */
   readonly dynatrace?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#google_analytics AppflowFlow#google_analytics}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#google_analytics AppflowFlow#google_analytics}
+   */
   readonly googleAnalytics?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#infor_nexus AppflowFlow#infor_nexus}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#infor_nexus AppflowFlow#infor_nexus}
+   */
   readonly inforNexus?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#marketo AppflowFlow#marketo}
+   */
   readonly marketo?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#s3 AppflowFlow#s3}
+   */
   readonly s3?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#salesforce AppflowFlow#salesforce}
+   */
   readonly salesforce?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#sapo_data AppflowFlow#sapo_data}
+   */
   readonly sapoData?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#service_now AppflowFlow#service_now}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#service_now AppflowFlow#service_now}
+   */
   readonly serviceNow?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#singular AppflowFlow#singular}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#singular AppflowFlow#singular}
+   */
   readonly singular?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#slack AppflowFlow#slack}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#slack AppflowFlow#slack}
+   */
   readonly slack?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trendmicro AppflowFlow#trendmicro}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trendmicro AppflowFlow#trendmicro}
+   */
   readonly trendmicro?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#veeva AppflowFlow#veeva}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#veeva AppflowFlow#veeva}
+   */
   readonly veeva?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#zendesk AppflowFlow#zendesk}
+   */
   readonly zendesk?: string;
 }
 
-export function appflowFlowTaskConnectorOperatorToTerraform(struct?: AppflowFlowTaskConnectorOperator | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowTaskConnectorOperatorToTerraform(
+  struct?: AppflowFlowTaskConnectorOperator | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     amplitude: cdktf.stringToTerraform(struct!.amplitude),
@@ -6074,7 +7416,7 @@ export function appflowFlowTaskConnectorOperatorToTerraform(struct?: AppflowFlow
     trendmicro: cdktf.stringToTerraform(struct!.trendmicro),
     veeva: cdktf.stringToTerraform(struct!.veeva),
     zendesk: cdktf.stringToTerraform(struct!.zendesk),
-  }
+  };
 }
 
 export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.ComplexObject {
@@ -6082,16 +7424,29 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AppflowFlowTaskConnectorOperator | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AppflowFlowTaskConnectorOperator
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -6164,7 +7519,9 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowTaskConnectorOperator | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: AppflowFlowTaskConnectorOperator | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -6184,12 +7541,10 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
       this._trendmicro = undefined;
       this._veeva = undefined;
       this._zendesk = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._amplitude = value.amplitude;
@@ -6212,7 +7567,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // amplitude - computed: false, optional: true, required: false
-  private _amplitude?: string; 
+  private _amplitude?: string;
   public get amplitude() {
     return this.getStringAttribute('amplitude');
   }
@@ -6228,7 +7583,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // custom_connector - computed: false, optional: true, required: false
-  private _customConnector?: string; 
+  private _customConnector?: string;
   public get customConnector() {
     return this.getStringAttribute('custom_connector');
   }
@@ -6244,7 +7599,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // datadog - computed: false, optional: true, required: false
-  private _datadog?: string; 
+  private _datadog?: string;
   public get datadog() {
     return this.getStringAttribute('datadog');
   }
@@ -6260,7 +7615,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // dynatrace - computed: false, optional: true, required: false
-  private _dynatrace?: string; 
+  private _dynatrace?: string;
   public get dynatrace() {
     return this.getStringAttribute('dynatrace');
   }
@@ -6276,7 +7631,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // google_analytics - computed: false, optional: true, required: false
-  private _googleAnalytics?: string; 
+  private _googleAnalytics?: string;
   public get googleAnalytics() {
     return this.getStringAttribute('google_analytics');
   }
@@ -6292,7 +7647,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // infor_nexus - computed: false, optional: true, required: false
-  private _inforNexus?: string; 
+  private _inforNexus?: string;
   public get inforNexus() {
     return this.getStringAttribute('infor_nexus');
   }
@@ -6308,7 +7663,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // marketo - computed: false, optional: true, required: false
-  private _marketo?: string; 
+  private _marketo?: string;
   public get marketo() {
     return this.getStringAttribute('marketo');
   }
@@ -6324,7 +7679,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3?: string; 
+  private _s3?: string;
   public get s3() {
     return this.getStringAttribute('s3');
   }
@@ -6340,7 +7695,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // salesforce - computed: false, optional: true, required: false
-  private _salesforce?: string; 
+  private _salesforce?: string;
   public get salesforce() {
     return this.getStringAttribute('salesforce');
   }
@@ -6356,7 +7711,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // sapo_data - computed: false, optional: true, required: false
-  private _sapoData?: string; 
+  private _sapoData?: string;
   public get sapoData() {
     return this.getStringAttribute('sapo_data');
   }
@@ -6372,7 +7727,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // service_now - computed: false, optional: true, required: false
-  private _serviceNow?: string; 
+  private _serviceNow?: string;
   public get serviceNow() {
     return this.getStringAttribute('service_now');
   }
@@ -6388,7 +7743,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // singular - computed: false, optional: true, required: false
-  private _singular?: string; 
+  private _singular?: string;
   public get singular() {
     return this.getStringAttribute('singular');
   }
@@ -6404,7 +7759,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // slack - computed: false, optional: true, required: false
-  private _slack?: string; 
+  private _slack?: string;
   public get slack() {
     return this.getStringAttribute('slack');
   }
@@ -6420,7 +7775,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // trendmicro - computed: false, optional: true, required: false
-  private _trendmicro?: string; 
+  private _trendmicro?: string;
   public get trendmicro() {
     return this.getStringAttribute('trendmicro');
   }
@@ -6436,7 +7791,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // veeva - computed: false, optional: true, required: false
-  private _veeva?: string; 
+  private _veeva?: string;
   public get veeva() {
     return this.getStringAttribute('veeva');
   }
@@ -6452,7 +7807,7 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
   }
 
   // zendesk - computed: false, optional: true, required: false
-  private _zendesk?: string; 
+  private _zendesk?: string;
   public get zendesk() {
     return this.getStringAttribute('zendesk');
   }
@@ -6469,61 +7824,86 @@ export class AppflowFlowTaskConnectorOperatorOutputReference extends cdktf.Compl
 }
 
 export class AppflowFlowTaskConnectorOperatorList extends cdktf.ComplexList {
-  public internalValue? : AppflowFlowTaskConnectorOperator[] | cdktf.IResolvable
+  public internalValue?: AppflowFlowTaskConnectorOperator[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): AppflowFlowTaskConnectorOperatorOutputReference {
-    return new AppflowFlowTaskConnectorOperatorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new AppflowFlowTaskConnectorOperatorOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface AppflowFlowTask {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_field AppflowFlow#destination_field}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#destination_field AppflowFlow#destination_field}
+   */
   readonly destinationField?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_fields AppflowFlow#source_fields}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#source_fields AppflowFlow#source_fields}
+   */
   readonly sourceFields: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task_properties AppflowFlow#task_properties}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task_properties AppflowFlow#task_properties}
+   */
   readonly taskProperties?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task_type AppflowFlow#task_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#task_type AppflowFlow#task_type}
+   */
   readonly taskType: string;
   /**
-  * connector_operator block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_operator AppflowFlow#connector_operator}
-  */
-  readonly connectorOperator?: AppflowFlowTaskConnectorOperator[] | cdktf.IResolvable;
+   * connector_operator block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#connector_operator AppflowFlow#connector_operator}
+   */
+  readonly connectorOperator?:
+    | AppflowFlowTaskConnectorOperator[]
+    | cdktf.IResolvable;
 }
 
-export function appflowFlowTaskToTerraform(struct?: AppflowFlowTask | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowTaskToTerraform(
+  struct?: AppflowFlowTask | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     destination_field: cdktf.stringToTerraform(struct!.destinationField),
-    source_fields: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.sourceFields),
-    task_properties: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.taskProperties),
+    source_fields: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.sourceFields),
+    task_properties: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.taskProperties,
+    ),
     task_type: cdktf.stringToTerraform(struct!.taskType),
-    connector_operator: cdktf.listMapper(appflowFlowTaskConnectorOperatorToTerraform, true)(struct!.connectorOperator),
-  }
+    connector_operator: cdktf.listMapper(
+      appflowFlowTaskConnectorOperatorToTerraform,
+      true,
+    )(struct!.connectorOperator),
+  };
 }
 
 export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
@@ -6531,13 +7911,23 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): AppflowFlowTask | cdktf.IResolvable | undefined {
@@ -6564,12 +7954,15 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
     }
     if (this._connectorOperator?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.connectorOperator = this._connectorOperator?.internalValue;
+      internalValueResult.connectorOperator =
+        this._connectorOperator?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowTask | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: AppflowFlowTask | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -6578,12 +7971,10 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
       this._taskProperties = undefined;
       this._taskType = undefined;
       this._connectorOperator.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._destinationField = value.destinationField;
@@ -6595,7 +7986,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // destination_field - computed: false, optional: true, required: false
-  private _destinationField?: string; 
+  private _destinationField?: string;
   public get destinationField() {
     return this.getStringAttribute('destination_field');
   }
@@ -6611,7 +8002,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // source_fields - computed: false, optional: false, required: true
-  private _sourceFields?: string[]; 
+  private _sourceFields?: string[];
   public get sourceFields() {
     return this.getListAttribute('source_fields');
   }
@@ -6624,7 +8015,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // task_properties - computed: false, optional: true, required: false
-  private _taskProperties?: { [key: string]: string }; 
+  private _taskProperties?: { [key: string]: string };
   public get taskProperties() {
     return this.getStringMapAttribute('task_properties');
   }
@@ -6640,7 +8031,7 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // task_type - computed: false, optional: false, required: true
-  private _taskType?: string; 
+  private _taskType?: string;
   public get taskType() {
     return this.getStringAttribute('task_type');
   }
@@ -6653,11 +8044,17 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
   }
 
   // connector_operator - computed: false, optional: true, required: false
-  private _connectorOperator = new AppflowFlowTaskConnectorOperatorList(this, "connector_operator", false);
+  private _connectorOperator = new AppflowFlowTaskConnectorOperatorList(
+    this,
+    'connector_operator',
+    false,
+  );
   public get connectorOperator() {
     return this._connectorOperator;
   }
-  public putConnectorOperator(value: AppflowFlowTaskConnectorOperator[] | cdktf.IResolvable) {
+  public putConnectorOperator(
+    value: AppflowFlowTaskConnectorOperator[] | cdktf.IResolvable,
+  ) {
     this._connectorOperator.internalValue = value;
   }
   public resetConnectorOperator() {
@@ -6670,59 +8067,76 @@ export class AppflowFlowTaskOutputReference extends cdktf.ComplexObject {
 }
 
 export class AppflowFlowTaskList extends cdktf.ComplexList {
-  public internalValue? : AppflowFlowTask[] | cdktf.IResolvable
+  public internalValue?: AppflowFlowTask[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): AppflowFlowTaskOutputReference {
-    return new AppflowFlowTaskOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new AppflowFlowTaskOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface AppflowFlowTriggerConfigTriggerPropertiesScheduled {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#data_pull_mode AppflowFlow#data_pull_mode}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#data_pull_mode AppflowFlow#data_pull_mode}
+   */
   readonly dataPullMode?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#first_execution_from AppflowFlow#first_execution_from}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#first_execution_from AppflowFlow#first_execution_from}
+   */
   readonly firstExecutionFrom?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_end_time AppflowFlow#schedule_end_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_end_time AppflowFlow#schedule_end_time}
+   */
   readonly scheduleEndTime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_expression AppflowFlow#schedule_expression}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_expression AppflowFlow#schedule_expression}
+   */
   readonly scheduleExpression: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_offset AppflowFlow#schedule_offset}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_offset AppflowFlow#schedule_offset}
+   */
   readonly scheduleOffset?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_start_time AppflowFlow#schedule_start_time}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#schedule_start_time AppflowFlow#schedule_start_time}
+   */
   readonly scheduleStartTime?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#timezone AppflowFlow#timezone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#timezone AppflowFlow#timezone}
+   */
   readonly timezone?: string;
 }
 
-export function appflowFlowTriggerConfigTriggerPropertiesScheduledToTerraform(struct?: AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference | AppflowFlowTriggerConfigTriggerPropertiesScheduled): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowTriggerConfigTriggerPropertiesScheduledToTerraform(
+  struct?:
+    | AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference
+    | AppflowFlowTriggerConfigTriggerPropertiesScheduled,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     data_pull_mode: cdktf.stringToTerraform(struct!.dataPullMode),
@@ -6732,21 +8146,26 @@ export function appflowFlowTriggerConfigTriggerPropertiesScheduledToTerraform(st
     schedule_offset: cdktf.numberToTerraform(struct!.scheduleOffset),
     schedule_start_time: cdktf.stringToTerraform(struct!.scheduleStartTime),
     timezone: cdktf.stringToTerraform(struct!.timezone),
-  }
+  };
 }
 
 export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowTriggerConfigTriggerPropertiesScheduled | undefined {
+  public get internalValue():
+    | AppflowFlowTriggerConfigTriggerPropertiesScheduled
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dataPullMode !== undefined) {
@@ -6780,7 +8199,9 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowTriggerConfigTriggerPropertiesScheduled | undefined) {
+  public set internalValue(
+    value: AppflowFlowTriggerConfigTriggerPropertiesScheduled | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dataPullMode = undefined;
@@ -6790,8 +8211,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
       this._scheduleOffset = undefined;
       this._scheduleStartTime = undefined;
       this._timezone = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dataPullMode = value.dataPullMode;
       this._firstExecutionFrom = value.firstExecutionFrom;
@@ -6804,7 +8224,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // data_pull_mode - computed: false, optional: true, required: false
-  private _dataPullMode?: string; 
+  private _dataPullMode?: string;
   public get dataPullMode() {
     return this.getStringAttribute('data_pull_mode');
   }
@@ -6820,7 +8240,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // first_execution_from - computed: false, optional: true, required: false
-  private _firstExecutionFrom?: string; 
+  private _firstExecutionFrom?: string;
   public get firstExecutionFrom() {
     return this.getStringAttribute('first_execution_from');
   }
@@ -6836,7 +8256,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_end_time - computed: false, optional: true, required: false
-  private _scheduleEndTime?: string; 
+  private _scheduleEndTime?: string;
   public get scheduleEndTime() {
     return this.getStringAttribute('schedule_end_time');
   }
@@ -6852,7 +8272,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string; 
+  private _scheduleExpression?: string;
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -6865,7 +8285,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_offset - computed: false, optional: true, required: false
-  private _scheduleOffset?: number; 
+  private _scheduleOffset?: number;
   public get scheduleOffset() {
     return this.getNumberAttribute('schedule_offset');
   }
@@ -6881,7 +8301,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // schedule_start_time - computed: false, optional: true, required: false
-  private _scheduleStartTime?: string; 
+  private _scheduleStartTime?: string;
   public get scheduleStartTime() {
     return this.getStringAttribute('schedule_start_time');
   }
@@ -6897,7 +8317,7 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
   }
 
   // timezone - computed: false, optional: true, required: false
-  private _timezone?: string; 
+  private _timezone?: string;
   public get timezone() {
     return this.getStringAttribute('timezone');
   }
@@ -6914,35 +8334,50 @@ export class AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference e
 }
 export interface AppflowFlowTriggerConfigTriggerProperties {
   /**
-  * scheduled block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#scheduled AppflowFlow#scheduled}
-  */
+   * scheduled block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#scheduled AppflowFlow#scheduled}
+   */
   readonly scheduled?: AppflowFlowTriggerConfigTriggerPropertiesScheduled;
 }
 
-export function appflowFlowTriggerConfigTriggerPropertiesToTerraform(struct?: AppflowFlowTriggerConfigTriggerPropertiesOutputReference | AppflowFlowTriggerConfigTriggerProperties): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowTriggerConfigTriggerPropertiesToTerraform(
+  struct?:
+    | AppflowFlowTriggerConfigTriggerPropertiesOutputReference
+    | AppflowFlowTriggerConfigTriggerProperties,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    scheduled: appflowFlowTriggerConfigTriggerPropertiesScheduledToTerraform(struct!.scheduled),
-  }
+    scheduled: appflowFlowTriggerConfigTriggerPropertiesScheduledToTerraform(
+      struct!.scheduled,
+    ),
+  };
 }
 
 export class AppflowFlowTriggerConfigTriggerPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): AppflowFlowTriggerConfigTriggerProperties | undefined {
+  public get internalValue():
+    | AppflowFlowTriggerConfigTriggerProperties
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._scheduled?.internalValue !== undefined) {
@@ -6952,23 +8387,30 @@ export class AppflowFlowTriggerConfigTriggerPropertiesOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AppflowFlowTriggerConfigTriggerProperties | undefined) {
+  public set internalValue(
+    value: AppflowFlowTriggerConfigTriggerProperties | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._scheduled.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._scheduled.internalValue = value.scheduled;
     }
   }
 
   // scheduled - computed: false, optional: true, required: false
-  private _scheduled = new AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference(this, "scheduled");
+  private _scheduled =
+    new AppflowFlowTriggerConfigTriggerPropertiesScheduledOutputReference(
+      this,
+      'scheduled',
+    );
   public get scheduled() {
     return this._scheduled;
   }
-  public putScheduled(value: AppflowFlowTriggerConfigTriggerPropertiesScheduled) {
+  public putScheduled(
+    value: AppflowFlowTriggerConfigTriggerPropertiesScheduled,
+  ) {
     this._scheduled.internalValue = value;
   }
   public resetScheduled() {
@@ -6981,36 +8423,47 @@ export class AppflowFlowTriggerConfigTriggerPropertiesOutputReference extends cd
 }
 export interface AppflowFlowTriggerConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_type AppflowFlow#trigger_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_type AppflowFlow#trigger_type}
+   */
   readonly triggerType: string;
   /**
-  * trigger_properties block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_properties AppflowFlow#trigger_properties}
-  */
+   * trigger_properties block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow#trigger_properties AppflowFlow#trigger_properties}
+   */
   readonly triggerProperties?: AppflowFlowTriggerConfigTriggerProperties;
 }
 
-export function appflowFlowTriggerConfigToTerraform(struct?: AppflowFlowTriggerConfigOutputReference | AppflowFlowTriggerConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function appflowFlowTriggerConfigToTerraform(
+  struct?: AppflowFlowTriggerConfigOutputReference | AppflowFlowTriggerConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     trigger_type: cdktf.stringToTerraform(struct!.triggerType),
-    trigger_properties: appflowFlowTriggerConfigTriggerPropertiesToTerraform(struct!.triggerProperties),
-  }
+    trigger_properties: appflowFlowTriggerConfigTriggerPropertiesToTerraform(
+      struct!.triggerProperties,
+    ),
+  };
 }
 
 export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -7023,7 +8476,8 @@ export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject
     }
     if (this._triggerProperties?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.triggerProperties = this._triggerProperties?.internalValue;
+      internalValueResult.triggerProperties =
+        this._triggerProperties?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -7033,8 +8487,7 @@ export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject
       this.isEmptyObject = false;
       this._triggerType = undefined;
       this._triggerProperties.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._triggerType = value.triggerType;
       this._triggerProperties.internalValue = value.triggerProperties;
@@ -7042,7 +8495,7 @@ export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject
   }
 
   // trigger_type - computed: false, optional: false, required: true
-  private _triggerType?: string; 
+  private _triggerType?: string;
   public get triggerType() {
     return this.getStringAttribute('trigger_type');
   }
@@ -7055,11 +8508,17 @@ export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject
   }
 
   // trigger_properties - computed: false, optional: true, required: false
-  private _triggerProperties = new AppflowFlowTriggerConfigTriggerPropertiesOutputReference(this, "trigger_properties");
+  private _triggerProperties =
+    new AppflowFlowTriggerConfigTriggerPropertiesOutputReference(
+      this,
+      'trigger_properties',
+    );
   public get triggerProperties() {
     return this._triggerProperties;
   }
-  public putTriggerProperties(value: AppflowFlowTriggerConfigTriggerProperties) {
+  public putTriggerProperties(
+    value: AppflowFlowTriggerConfigTriggerProperties,
+  ) {
     this._triggerProperties.internalValue = value;
   }
   public resetTriggerProperties() {
@@ -7072,33 +8531,32 @@ export class AppflowFlowTriggerConfigOutputReference extends cdktf.ComplexObject
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow aws_appflow_flow}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow aws_appflow_flow}
+ */
 export class AppflowFlow extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_appflow_flow";
+  public static readonly tfResourceType = 'aws_appflow_flow';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow aws_appflow_flow} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AppflowFlowConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appflow_flow aws_appflow_flow} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AppflowFlowConfig
+   */
   public constructor(scope: Construct, id: string, config: AppflowFlowConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appflow_flow',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -7106,7 +8564,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -7130,7 +8588,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -7146,7 +8604,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -7162,7 +8620,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // kms_arn - computed: true, optional: true, required: false
-  private _kmsArn?: string; 
+  private _kmsArn?: string;
   public get kmsArn() {
     return this.getStringAttribute('kms_arn');
   }
@@ -7178,7 +8636,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -7191,7 +8649,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -7207,7 +8665,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -7223,11 +8681,17 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // destination_flow_config - computed: false, optional: false, required: true
-  private _destinationFlowConfig = new AppflowFlowDestinationFlowConfigList(this, "destination_flow_config", true);
+  private _destinationFlowConfig = new AppflowFlowDestinationFlowConfigList(
+    this,
+    'destination_flow_config',
+    true,
+  );
   public get destinationFlowConfig() {
     return this._destinationFlowConfig;
   }
-  public putDestinationFlowConfig(value: AppflowFlowDestinationFlowConfig[] | cdktf.IResolvable) {
+  public putDestinationFlowConfig(
+    value: AppflowFlowDestinationFlowConfig[] | cdktf.IResolvable,
+  ) {
     this._destinationFlowConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -7236,7 +8700,10 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // source_flow_config - computed: false, optional: false, required: true
-  private _sourceFlowConfig = new AppflowFlowSourceFlowConfigOutputReference(this, "source_flow_config");
+  private _sourceFlowConfig = new AppflowFlowSourceFlowConfigOutputReference(
+    this,
+    'source_flow_config',
+  );
   public get sourceFlowConfig() {
     return this._sourceFlowConfig;
   }
@@ -7249,7 +8716,7 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // task - computed: false, optional: false, required: true
-  private _task = new AppflowFlowTaskList(this, "task", true);
+  private _task = new AppflowFlowTaskList(this, 'task', true);
   public get task() {
     return this._task;
   }
@@ -7262,7 +8729,10 @@ export class AppflowFlow extends cdktf.TerraformResource {
   }
 
   // trigger_config - computed: false, optional: false, required: true
-  private _triggerConfig = new AppflowFlowTriggerConfigOutputReference(this, "trigger_config");
+  private _triggerConfig = new AppflowFlowTriggerConfigOutputReference(
+    this,
+    'trigger_config',
+  );
   public get triggerConfig() {
     return this._triggerConfig;
   }
@@ -7286,10 +8756,20 @@ export class AppflowFlow extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      destination_flow_config: cdktf.listMapper(appflowFlowDestinationFlowConfigToTerraform, true)(this._destinationFlowConfig.internalValue),
-      source_flow_config: appflowFlowSourceFlowConfigToTerraform(this._sourceFlowConfig.internalValue),
-      task: cdktf.listMapper(appflowFlowTaskToTerraform, true)(this._task.internalValue),
-      trigger_config: appflowFlowTriggerConfigToTerraform(this._triggerConfig.internalValue),
+      destination_flow_config: cdktf.listMapper(
+        appflowFlowDestinationFlowConfigToTerraform,
+        true,
+      )(this._destinationFlowConfig.internalValue),
+      source_flow_config: appflowFlowSourceFlowConfigToTerraform(
+        this._sourceFlowConfig.internalValue,
+      ),
+      task: cdktf.listMapper(
+        appflowFlowTaskToTerraform,
+        true,
+      )(this._task.internalValue),
+      trigger_config: appflowFlowTriggerConfigToTerraform(
+        this._triggerConfig.internalValue,
+      ),
     };
   }
 }

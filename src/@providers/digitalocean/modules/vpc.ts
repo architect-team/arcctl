@@ -1,13 +1,10 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Vpc } from '../.gen/providers/digitalocean/vpc/index.js';
-import { DigitaloceanCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Vpc } from '../.gen/providers/digitalocean/vpc/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class DigitaloceanVpcModule extends ResourceModule<
-  'vpc',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCredentials> {
   vpc: Vpc;
   outputs: ResourceOutputs['vpc'];
 
@@ -28,10 +25,7 @@ export class DigitaloceanVpcModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: DigitaloceanCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
+  async genImports(credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.vpc)]: resourceId,
     };

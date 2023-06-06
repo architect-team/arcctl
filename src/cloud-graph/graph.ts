@@ -1,5 +1,5 @@
-import { CloudEdge } from './edge.js';
-import { CloudNode } from './node.js';
+import { CloudEdge } from './edge.ts';
+import { CloudNode } from './node.ts';
 
 export type CloudGraphOptions = {
   nodes?: CloudNode[];

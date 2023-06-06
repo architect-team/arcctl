@@ -1,20 +1,16 @@
-import { ProviderCredentials } from '@providers/credentials.js';
+import { ProviderCredentials } from '../@providers/credentials.ts';
+import { ResourceModule } from '../@providers/module.ts';
+import { ResourceStatus } from '../@providers/status.ts';
+import { ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import PluginManager from '../plugins/plugin-manager.ts';
+import TerraformPlugin, { TerraformVersion } from '../plugins/terraform-plugin.ts';
+import CloudCtlConfig from './config.ts';
+import { getLogger } from './logger.ts';
+import { CldCtlTerraformStack } from './stack.ts';
 import { TerraformOutput } from 'cdktf';
-import { ExecaChildProcess } from 'execa';
-import * as fs from 'fs';
-import path from 'path';
+import { Buffer } from 'https://deno.land/std@0.177.0/node/internal/buffer.mjs';
 import { BehaviorSubject } from 'rxjs';
-import * as stream from 'stream';
-import { CldCtlTerraformStack } from 'utils/stack.js';
-import { ResourceModule } from '../@providers/module.js';
-import { ResourceStatus } from '../@providers/status.js';
-import { ResourceOutputs, ResourceType } from '../@resources/index.js';
-import PluginManager from '../plugins/plugin-manager.js';
-import TerraformPlugin, {
-  TerraformVersion
-} from '../plugins/terraform-plugin.js';
-import CloudCtlConfig from './config.js';
-import { getLogger } from './logger.js';
+import * as path from 'std/path/mod.ts';
 
 export default class Terraform {
   private static terraformPlugin?: TerraformPlugin;
@@ -37,16 +33,13 @@ export default class Terraform {
       return;
     }
     if (attempts === 0) {
-      this.logger.debug(
-        `Cleaning up: ${CloudCtlConfig.getTerraformDirectory()}`,
-      );
+      this.logger.debug(`Cleaning up: ${CloudCtlConfig.getTerraformDirectory()}`);
     }
     try {
-      await fs.promises.rm(CloudCtlConfig.getTerraformDirectory(), {
+      await Deno.remove(CloudCtlConfig.getTerraformDirectory(), {
         recursive: true,
-        force: true,
       });
-    } catch (error: any) {
+    } catch {
       if (attempts === 10) {
         throw new Error('Unable to properly cleanup folder.');
       } else {
@@ -62,18 +55,12 @@ export default class Terraform {
     const tfDir = CloudCtlConfig.getTerraformDirectory();
     const tfMainFile = path.join(tfDir, 'main.tf.json');
     await this.cleanup();
-    await fs.promises.mkdir(tfDir, { recursive: true });
-    await fs.promises.writeFile(
-      tfMainFile,
-      JSON.stringify(stack.toTerraform()),
-    );
+    await Deno.mkdir(tfDir, { recursive: true });
+    await Deno.writeTextFile(tfMainFile, JSON.stringify(stack.toTerraform()));
     await this.terraformPlugin?.init(tfDir);
   }
 
-  public static async plan(
-    version: TerraformVersion,
-    stack: CldCtlTerraformStack,
-  ): Promise<string> {
+  public static async plan(version: TerraformVersion, stack: CldCtlTerraformStack): Promise<string> {
     if (version === 'fake') {
       return '';
     }
@@ -86,36 +73,32 @@ export default class Terraform {
   }
 
   private static async handleDisplay(
-    cmd: ExecaChildProcess<string>,
+    cmd: Deno.ChildProcess,
     stack: CldCtlTerraformStack,
     onStart: (name: string) => void,
     onEnd: (name: string) => void,
   ): Promise<void> {
     const resourceIdMapping = stack.getResourceDisplayNames();
-    const writableStream = new stream.Writable();
-    writableStream._write = (
-      chunk: { toString: () => any },
-      _encoding: any,
-      next: () => void,
-    ) => {
-      const line = chunk.toString();
-      for (const [resourceId, displayName] of Object.entries(
-        resourceIdMapping,
-      )) {
-        if (!line.includes(resourceId)) {
-          continue;
-        }
-        if (line.includes('Creating...') || line.includes('Destroying...')) {
-          onStart(displayName);
-        } else if (
-          line.includes('Creation complete after') ||
-          line.includes('Destruction complete after')
-        ) {
-          onEnd(displayName);
-        }
-      }
-      next();
-    };
+
+    const writableStream = new WritableStream<string | Buffer>({
+      write(chunk) {
+        return new Promise((resolve) => {
+          const line = chunk.toString();
+          for (const [resourceId, displayName] of Object.entries(resourceIdMapping)) {
+            if (!line.includes(resourceId)) {
+              continue;
+            }
+            if (line.includes('Creating...') || line.includes('Destroying...')) {
+              onStart(displayName);
+            } else if (line.includes('Creation complete after') || line.includes('Destruction complete after')) {
+              onEnd(displayName);
+            }
+          }
+          resolve();
+        });
+      },
+    });
+
     cmd?.stdout?.pipe(writableStream);
     await cmd;
   }
@@ -123,11 +106,8 @@ export default class Terraform {
   private static async writeStack(stack: CldCtlTerraformStack) {
     const tfDir = CloudCtlConfig.getTerraformDirectory();
     const tfMainFile = path.join(tfDir, 'main.tf.json');
-    await fs.promises.mkdir(tfDir, { recursive: true });
-    await fs.promises.writeFile(
-      tfMainFile,
-      JSON.stringify(stack.toTerraform()),
-    );
+    await Deno.mkdir(tfDir, { recursive: true });
+    await Deno.writeTextFile(tfMainFile, JSON.stringify(stack.toTerraform()));
   }
 
   public static async upsert(
@@ -174,7 +154,8 @@ export default class Terraform {
     stack: CldCtlTerraformStack,
     resources: {
       [T in ResourceType]?: { id: string; credentials: ProviderCredentials };
-    }): Promise<Record<string, Record<string, string>>> {
+    },
+  ): Promise<Record<string, Record<string, string>>> {
     if (version === 'fake') {
       return {};
     }
@@ -187,10 +168,7 @@ export default class Terraform {
         throw new Error(`Missing ID for the ${module.node.id} resource`);
       }
 
-      const imports = await module.genImports(
-        resourceData.credentials,
-        resourceData.id,
-      );
+      const imports = await module.genImports(resourceData.credentials, resourceData.id);
 
       import_records[module.node.id] = imports;
     }
@@ -199,7 +177,7 @@ export default class Terraform {
 
   public static async import(
     version: TerraformVersion,
-    import_records: Record<string, Record<string, string>>
+    import_records: Record<string, Record<string, string>>,
   ): Promise<void> {
     if (version === 'fake') {
       return;
@@ -208,11 +186,7 @@ export default class Terraform {
 
     for (const [_, records] of Object.entries(import_records)) {
       for (const [key, value] of Object.entries(records)) {
-        await this.terraformPlugin?.import(
-          CloudCtlConfig.getTerraformDirectory(),
-          key,
-          value,
-        );
+        await this.terraformPlugin?.import(CloudCtlConfig.getTerraformDirectory(), key, value);
       }
     }
   }
@@ -249,9 +223,7 @@ export default class Terraform {
     if (!this.terraformPlugin) {
       throw new Error('Terraform plugin has not been initialized properly');
     }
-    const cmd = this.terraformPlugin.destroy(
-      CloudCtlConfig.getTerraformDirectory(),
-    );
+    const cmd = this.terraformPlugin.destroy(CloudCtlConfig.getTerraformDirectory());
     await this.handleDisplay(
       cmd,
       stack,
@@ -261,7 +233,7 @@ export default class Terraform {
           message: displayName,
         });
       },
-      async (displayName: string) => {
+      (displayName: string) => {
         this.cleanup().then(() => {
           subject.next({
             state: 'complete',
@@ -272,22 +244,12 @@ export default class Terraform {
     );
   }
 
-  public static async getOutput<T extends ResourceType>(
-    output: TerraformOutput,
-  ): Promise<ResourceOutputs[T]> {
-    const res = await this.terraformPlugin?.output(
-      CloudCtlConfig.getTerraformDirectory(),
-      output.friendlyUniqueId,
-    );
+  public static async getOutput<T extends ResourceType>(output: TerraformOutput): Promise<ResourceOutputs[T]> {
+    const res = await this.terraformPlugin?.output(CloudCtlConfig.getTerraformDirectory(), output.friendlyUniqueId);
     return JSON.parse(res || '{}') as ResourceOutputs[T];
   }
 
-  public static async getOutputString(
-    output: TerraformOutput,
-  ): Promise<string> {
-    return await this.terraformPlugin?.output(
-      CloudCtlConfig.getTerraformDirectory(),
-      output.friendlyUniqueId,
-    ) || '';
+  public static async getOutputString(output: TerraformOutput): Promise<string> {
+    return (await this.terraformPlugin?.output(CloudCtlConfig.getTerraformDirectory(), output.friendlyUniqueId)) || '';
   }
 }

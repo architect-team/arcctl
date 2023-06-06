@@ -2493,7 +2493,12 @@
                     "description": "The path to the dockerfile defining this build step",
                     "type": "string"
                   },
+                  "image": {
+                    "description": "The resulting image that was created once the build is complete. This will change whenever the component is tagged as well.",
+                    "type": "string"
+                  },
                   "target": {
+                    "description": "The docker target to use during the build process",
                     "type": "string"
                   }
                 },
@@ -2508,7 +2513,12 @@
                 "description": "The path to the dockerfile defining this build step",
                 "type": "string"
               },
+              "image": {
+                "description": "The resulting image that was created once the build is complete. This will change whenever the component is tagged as well.",
+                "type": "string"
+              },
               "target": {
+                "description": "The docker target to use during the build process",
                 "type": "string"
               }
             },
@@ -2528,132 +2538,6 @@
                 "type": "string"
               },
               "migrate": {
-                "additionalProperties": false,
-                "properties": {
-                  "down": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "command": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "entrypoint": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "environment": {
-                        "additionalProperties": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "boolean"
-                            },
-                            {
-                              "type": "null"
-                            },
-                            {
-                              "not": {}
-                            }
-                          ]
-                        },
-                        "type": "object"
-                      },
-                      "image": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "image"
-                    ],
-                    "type": "object"
-                  },
-                  "up": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "command": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "entrypoint": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "environment": {
-                        "additionalProperties": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "boolean"
-                            },
-                            {
-                              "type": "null"
-                            },
-                            {
-                              "not": {}
-                            }
-                          ]
-                        },
-                        "type": "object"
-                      },
-                      "image": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "image"
-                    ],
-                    "type": "object"
-                  }
-                },
-                "type": "object"
-              },
-              "seed": {
                 "additionalProperties": false,
                 "properties": {
                   "down": {

@@ -1,15 +1,12 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanDnsRecordModule } from '../modules/dns-record.js';
-import { InputValidators } from '@providers/service.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
+import { InputValidators } from '../../../@providers/service.ts';
 import { createApiClient } from 'dots-wrapper';
 
-export class DigitaloceanDnsRecordService extends TerraformResourceService<
-  'dnsRecord',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(private readonly credentials: DigitaloceanCredentials) {
@@ -78,21 +75,9 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<
   get validators(): InputValidators<'dnsRecord'> {
     return {
       recordType: (input: string): string | true => {
-        const allowed_record_types = [
-          'A',
-          'AAAA',
-          'CAA',
-          'CNAME',
-          'MX',
-          'NS',
-          'SOA',
-          'SRV',
-          'TXT',
-        ];
+        const allowed_record_types = ['A', 'AAAA', 'CAA', 'CNAME', 'MX', 'NS', 'SOA', 'SRV', 'TXT'];
         if (!allowed_record_types.includes(input)) {
-          return `Record type must be one of ${allowed_record_types.join(
-            ', ',
-          )}.`;
+          return `Record type must be one of ${allowed_record_types.join(', ')}.`;
         }
         return true;
       },

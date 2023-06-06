@@ -1,102 +1,115 @@
 // https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsLakeformationPermissionsConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsLakeformationPermissionsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_resource DataAwsLakeformationPermissions#catalog_resource}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_resource DataAwsLakeformationPermissions#catalog_resource}
+   */
   readonly catalogResource?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#id DataAwsLakeformationPermissions#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#id DataAwsLakeformationPermissions#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#principal DataAwsLakeformationPermissions#principal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#principal DataAwsLakeformationPermissions#principal}
+   */
   readonly principal: string;
   /**
-  * data_location block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#data_location DataAwsLakeformationPermissions#data_location}
-  */
+   * data_location block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#data_location DataAwsLakeformationPermissions#data_location}
+   */
   readonly dataLocation?: DataAwsLakeformationPermissionsDataLocation;
   /**
-  * database block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database DataAwsLakeformationPermissions#database}
-  */
+   * database block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database DataAwsLakeformationPermissions#database}
+   */
   readonly database?: DataAwsLakeformationPermissionsDatabase;
   /**
-  * lf_tag block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#lf_tag DataAwsLakeformationPermissions#lf_tag}
-  */
+   * lf_tag block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#lf_tag DataAwsLakeformationPermissions#lf_tag}
+   */
   readonly lfTag?: DataAwsLakeformationPermissionsLfTag;
   /**
-  * lf_tag_policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#lf_tag_policy DataAwsLakeformationPermissions#lf_tag_policy}
-  */
+   * lf_tag_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#lf_tag_policy DataAwsLakeformationPermissions#lf_tag_policy}
+   */
   readonly lfTagPolicy?: DataAwsLakeformationPermissionsLfTagPolicy;
   /**
-  * table block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#table DataAwsLakeformationPermissions#table}
-  */
+   * table block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#table DataAwsLakeformationPermissions#table}
+   */
   readonly table?: DataAwsLakeformationPermissionsTable;
   /**
-  * table_with_columns block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#table_with_columns DataAwsLakeformationPermissions#table_with_columns}
-  */
+   * table_with_columns block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#table_with_columns DataAwsLakeformationPermissions#table_with_columns}
+   */
   readonly tableWithColumns?: DataAwsLakeformationPermissionsTableWithColumns;
 }
 export interface DataAwsLakeformationPermissionsDataLocation {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#arn DataAwsLakeformationPermissions#arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#arn DataAwsLakeformationPermissions#arn}
+   */
   readonly arn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
 }
 
-export function dataAwsLakeformationPermissionsDataLocationToTerraform(struct?: DataAwsLakeformationPermissionsDataLocationOutputReference | DataAwsLakeformationPermissionsDataLocation): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsDataLocationToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsDataLocationOutputReference
+    | DataAwsLakeformationPermissionsDataLocation,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
-  }
+  };
 }
 
 export class DataAwsLakeformationPermissionsDataLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsLakeformationPermissionsDataLocation | undefined {
+  public get internalValue():
+    | DataAwsLakeformationPermissionsDataLocation
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._arn !== undefined) {
@@ -110,13 +123,14 @@ export class DataAwsLakeformationPermissionsDataLocationOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsDataLocation | undefined) {
+  public set internalValue(
+    value: DataAwsLakeformationPermissionsDataLocation | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._arn = undefined;
       this._catalogId = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
       this._catalogId = value.catalogId;
@@ -124,7 +138,7 @@ export class DataAwsLakeformationPermissionsDataLocationOutputReference extends 
   }
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string; 
+  private _arn?: string;
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -137,7 +151,7 @@ export class DataAwsLakeformationPermissionsDataLocationOutputReference extends 
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -154,38 +168,51 @@ export class DataAwsLakeformationPermissionsDataLocationOutputReference extends 
 }
 export interface DataAwsLakeformationPermissionsDatabase {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#name DataAwsLakeformationPermissions#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#name DataAwsLakeformationPermissions#name}
+   */
   readonly name: string;
 }
 
-export function dataAwsLakeformationPermissionsDatabaseToTerraform(struct?: DataAwsLakeformationPermissionsDatabaseOutputReference | DataAwsLakeformationPermissionsDatabase): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsDatabaseToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsDatabaseOutputReference
+    | DataAwsLakeformationPermissionsDatabase,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsLakeformationPermissionsDatabase | undefined {
+  public get internalValue():
+    | DataAwsLakeformationPermissionsDatabase
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._catalogId !== undefined) {
@@ -199,13 +226,14 @@ export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsDatabase | undefined) {
+  public set internalValue(
+    value: DataAwsLakeformationPermissionsDatabase | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._name = value.name;
@@ -213,7 +241,7 @@ export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdkt
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -229,7 +257,7 @@ export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdkt
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -243,39 +271,50 @@ export class DataAwsLakeformationPermissionsDatabaseOutputReference extends cdkt
 }
 export interface DataAwsLakeformationPermissionsLfTag {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#key DataAwsLakeformationPermissions#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#key DataAwsLakeformationPermissions#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#values DataAwsLakeformationPermissions#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#values DataAwsLakeformationPermissions#values}
+   */
   readonly values: string[];
 }
 
-export function dataAwsLakeformationPermissionsLfTagToTerraform(struct?: DataAwsLakeformationPermissionsLfTagOutputReference | DataAwsLakeformationPermissionsLfTag): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsLfTagToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsLfTagOutputReference
+    | DataAwsLakeformationPermissionsLfTag,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     key: cdktf.stringToTerraform(struct!.key),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -297,14 +336,15 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsLfTag | undefined) {
+  public set internalValue(
+    value: DataAwsLakeformationPermissionsLfTag | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
       this._key = undefined;
       this._values = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._key = value.key;
@@ -313,7 +353,7 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -329,7 +369,7 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -342,7 +382,7 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -356,24 +396,32 @@ export class DataAwsLakeformationPermissionsLfTagOutputReference extends cdktf.C
 }
 export interface DataAwsLakeformationPermissionsLfTagPolicyExpression {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#key DataAwsLakeformationPermissions#key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#key DataAwsLakeformationPermissions#key}
+   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#values DataAwsLakeformationPermissions#values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#values DataAwsLakeformationPermissions#values}
+   */
   readonly values: string[];
 }
 
-export function dataAwsLakeformationPermissionsLfTagPolicyExpressionToTerraform(struct?: DataAwsLakeformationPermissionsLfTagPolicyExpression | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsLfTagPolicyExpressionToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsLfTagPolicyExpression
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference extends cdktf.ComplexObject {
@@ -381,16 +429,29 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DataAwsLakeformationPermissionsLfTagPolicyExpression | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsLakeformationPermissionsLfTagPolicyExpression
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -407,18 +468,21 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsLfTagPolicyExpression | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | DataAwsLakeformationPermissionsLfTagPolicyExpression
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -427,7 +491,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -440,7 +504,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -454,65 +518,96 @@ export class DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference
 }
 
 export class DataAwsLakeformationPermissionsLfTagPolicyExpressionList extends cdktf.ComplexList {
-  public internalValue? : DataAwsLakeformationPermissionsLfTagPolicyExpression[] | cdktf.IResolvable
+  public internalValue?:
+    | DataAwsLakeformationPermissionsLfTagPolicyExpression[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference {
-    return new DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference {
+    return new DataAwsLakeformationPermissionsLfTagPolicyExpressionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DataAwsLakeformationPermissionsLfTagPolicy {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#resource_type DataAwsLakeformationPermissions#resource_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#resource_type DataAwsLakeformationPermissions#resource_type}
+   */
   readonly resourceType: string;
   /**
-  * expression block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#expression DataAwsLakeformationPermissions#expression}
-  */
-  readonly expression: DataAwsLakeformationPermissionsLfTagPolicyExpression[] | cdktf.IResolvable;
+   * expression block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#expression DataAwsLakeformationPermissions#expression}
+   */
+  readonly expression:
+    | DataAwsLakeformationPermissionsLfTagPolicyExpression[]
+    | cdktf.IResolvable;
 }
 
-export function dataAwsLakeformationPermissionsLfTagPolicyToTerraform(struct?: DataAwsLakeformationPermissionsLfTagPolicyOutputReference | DataAwsLakeformationPermissionsLfTagPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsLfTagPolicyToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsLfTagPolicyOutputReference
+    | DataAwsLakeformationPermissionsLfTagPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     resource_type: cdktf.stringToTerraform(struct!.resourceType),
-    expression: cdktf.listMapper(dataAwsLakeformationPermissionsLfTagPolicyExpressionToTerraform, true)(struct!.expression),
-  }
+    expression: cdktf.listMapper(
+      dataAwsLakeformationPermissionsLfTagPolicyExpressionToTerraform,
+      true,
+    )(struct!.expression),
+  };
 }
 
 export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsLakeformationPermissionsLfTagPolicy | undefined {
+  public get internalValue():
+    | DataAwsLakeformationPermissionsLfTagPolicy
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._catalogId !== undefined) {
@@ -530,14 +625,15 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsLfTagPolicy | undefined) {
+  public set internalValue(
+    value: DataAwsLakeformationPermissionsLfTagPolicy | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
       this._resourceType = undefined;
       this._expression.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._resourceType = value.resourceType;
@@ -546,7 +642,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -562,7 +658,7 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
   }
 
   // resource_type - computed: false, optional: false, required: true
-  private _resourceType?: string; 
+  private _resourceType?: string;
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -575,11 +671,20 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
   }
 
   // expression - computed: false, optional: false, required: true
-  private _expression = new DataAwsLakeformationPermissionsLfTagPolicyExpressionList(this, "expression", false);
+  private _expression =
+    new DataAwsLakeformationPermissionsLfTagPolicyExpressionList(
+      this,
+      'expression',
+      false,
+    );
   public get expression() {
     return this._expression;
   }
-  public putExpression(value: DataAwsLakeformationPermissionsLfTagPolicyExpression[] | cdktf.IResolvable) {
+  public putExpression(
+    value:
+      | DataAwsLakeformationPermissionsLfTagPolicyExpression[]
+      | cdktf.IResolvable,
+  ) {
     this._expression.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -589,44 +694,55 @@ export class DataAwsLakeformationPermissionsLfTagPolicyOutputReference extends c
 }
 export interface DataAwsLakeformationPermissionsTable {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database_name DataAwsLakeformationPermissions#database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database_name DataAwsLakeformationPermissions#database_name}
+   */
   readonly databaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#name DataAwsLakeformationPermissions#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#name DataAwsLakeformationPermissions#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#wildcard DataAwsLakeformationPermissions#wildcard}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#wildcard DataAwsLakeformationPermissions#wildcard}
+   */
   readonly wildcard?: boolean | cdktf.IResolvable;
 }
 
-export function dataAwsLakeformationPermissionsTableToTerraform(struct?: DataAwsLakeformationPermissionsTableOutputReference | DataAwsLakeformationPermissionsTable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsTableToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsTableOutputReference
+    | DataAwsLakeformationPermissionsTable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
     database_name: cdktf.stringToTerraform(struct!.databaseName),
     name: cdktf.stringToTerraform(struct!.name),
     wildcard: cdktf.booleanToTerraform(struct!.wildcard),
-  }
+  };
 }
 
 export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -652,15 +768,16 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsTable | undefined) {
+  public set internalValue(
+    value: DataAwsLakeformationPermissionsTable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
       this._databaseName = undefined;
       this._name = undefined;
       this._wildcard = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._databaseName = value.databaseName;
@@ -670,7 +787,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -686,7 +803,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -699,7 +816,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -715,7 +832,7 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -732,58 +849,77 @@ export class DataAwsLakeformationPermissionsTableOutputReference extends cdktf.C
 }
 export interface DataAwsLakeformationPermissionsTableWithColumns {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#catalog_id DataAwsLakeformationPermissions#catalog_id}
+   */
   readonly catalogId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#column_names DataAwsLakeformationPermissions#column_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#column_names DataAwsLakeformationPermissions#column_names}
+   */
   readonly columnNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database_name DataAwsLakeformationPermissions#database_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#database_name DataAwsLakeformationPermissions#database_name}
+   */
   readonly databaseName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#excluded_column_names DataAwsLakeformationPermissions#excluded_column_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#excluded_column_names DataAwsLakeformationPermissions#excluded_column_names}
+   */
   readonly excludedColumnNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#name DataAwsLakeformationPermissions#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#name DataAwsLakeformationPermissions#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#wildcard DataAwsLakeformationPermissions#wildcard}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions#wildcard DataAwsLakeformationPermissions#wildcard}
+   */
   readonly wildcard?: boolean | cdktf.IResolvable;
 }
 
-export function dataAwsLakeformationPermissionsTableWithColumnsToTerraform(struct?: DataAwsLakeformationPermissionsTableWithColumnsOutputReference | DataAwsLakeformationPermissionsTableWithColumns): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsLakeformationPermissionsTableWithColumnsToTerraform(
+  struct?:
+    | DataAwsLakeformationPermissionsTableWithColumnsOutputReference
+    | DataAwsLakeformationPermissionsTableWithColumns,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     catalog_id: cdktf.stringToTerraform(struct!.catalogId),
-    column_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.columnNames),
+    column_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.columnNames),
     database_name: cdktf.stringToTerraform(struct!.databaseName),
-    excluded_column_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.excludedColumnNames),
+    excluded_column_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.excludedColumnNames),
     name: cdktf.stringToTerraform(struct!.name),
     wildcard: cdktf.booleanToTerraform(struct!.wildcard),
-  }
+  };
 }
 
 export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsLakeformationPermissionsTableWithColumns | undefined {
+  public get internalValue():
+    | DataAwsLakeformationPermissionsTableWithColumns
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._catalogId !== undefined) {
@@ -813,7 +949,9 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsLakeformationPermissionsTableWithColumns | undefined) {
+  public set internalValue(
+    value: DataAwsLakeformationPermissionsTableWithColumns | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalogId = undefined;
@@ -822,8 +960,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
       this._excludedColumnNames = undefined;
       this._name = undefined;
       this._wildcard = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalogId = value.catalogId;
       this._columnNames = value.columnNames;
@@ -835,7 +972,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -851,7 +988,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // column_names - computed: false, optional: true, required: false
-  private _columnNames?: string[]; 
+  private _columnNames?: string[];
   public get columnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('column_names'));
   }
@@ -867,7 +1004,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string; 
+  private _databaseName?: string;
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -880,7 +1017,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // excluded_column_names - computed: false, optional: true, required: false
-  private _excludedColumnNames?: string[]; 
+  private _excludedColumnNames?: string[];
   public get excludedColumnNames() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_column_names'));
   }
@@ -896,7 +1033,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -909,7 +1046,7 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
   }
 
   // wildcard - computed: false, optional: true, required: false
-  private _wildcard?: boolean | cdktf.IResolvable; 
+  private _wildcard?: boolean | cdktf.IResolvable;
   public get wildcard() {
     return this.getBooleanAttribute('wildcard');
   }
@@ -926,33 +1063,36 @@ export class DataAwsLakeformationPermissionsTableWithColumnsOutputReference exte
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions aws_lakeformation_permissions}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions aws_lakeformation_permissions}
+ */
 export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lakeformation_permissions";
+  public static readonly tfResourceType = 'aws_lakeformation_permissions';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions aws_lakeformation_permissions} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsLakeformationPermissionsConfig
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsLakeformationPermissionsConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/lakeformation_permissions aws_lakeformation_permissions} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsLakeformationPermissionsConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsLakeformationPermissionsConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lakeformation_permissions',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -960,7 +1100,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._catalogId = config.catalogId;
     this._catalogResource = config.catalogResource;
@@ -979,7 +1119,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   // ==========
 
   // catalog_id - computed: false, optional: true, required: false
-  private _catalogId?: string; 
+  private _catalogId?: string;
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -995,7 +1135,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // catalog_resource - computed: false, optional: true, required: false
-  private _catalogResource?: boolean | cdktf.IResolvable; 
+  private _catalogResource?: boolean | cdktf.IResolvable;
   public get catalogResource() {
     return this.getBooleanAttribute('catalog_resource');
   }
@@ -1011,7 +1151,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1037,7 +1177,7 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string; 
+  private _principal?: string;
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -1050,7 +1190,11 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // data_location - computed: false, optional: true, required: false
-  private _dataLocation = new DataAwsLakeformationPermissionsDataLocationOutputReference(this, "data_location");
+  private _dataLocation =
+    new DataAwsLakeformationPermissionsDataLocationOutputReference(
+      this,
+      'data_location',
+    );
   public get dataLocation() {
     return this._dataLocation;
   }
@@ -1066,7 +1210,11 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // database - computed: false, optional: true, required: false
-  private _database = new DataAwsLakeformationPermissionsDatabaseOutputReference(this, "database");
+  private _database =
+    new DataAwsLakeformationPermissionsDatabaseOutputReference(
+      this,
+      'database',
+    );
   public get database() {
     return this._database;
   }
@@ -1082,7 +1230,10 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // lf_tag - computed: false, optional: true, required: false
-  private _lfTag = new DataAwsLakeformationPermissionsLfTagOutputReference(this, "lf_tag");
+  private _lfTag = new DataAwsLakeformationPermissionsLfTagOutputReference(
+    this,
+    'lf_tag',
+  );
   public get lfTag() {
     return this._lfTag;
   }
@@ -1098,7 +1249,11 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // lf_tag_policy - computed: false, optional: true, required: false
-  private _lfTagPolicy = new DataAwsLakeformationPermissionsLfTagPolicyOutputReference(this, "lf_tag_policy");
+  private _lfTagPolicy =
+    new DataAwsLakeformationPermissionsLfTagPolicyOutputReference(
+      this,
+      'lf_tag_policy',
+    );
   public get lfTagPolicy() {
     return this._lfTagPolicy;
   }
@@ -1114,7 +1269,10 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // table - computed: false, optional: true, required: false
-  private _table = new DataAwsLakeformationPermissionsTableOutputReference(this, "table");
+  private _table = new DataAwsLakeformationPermissionsTableOutputReference(
+    this,
+    'table',
+  );
   public get table() {
     return this._table;
   }
@@ -1130,11 +1288,17 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
   }
 
   // table_with_columns - computed: false, optional: true, required: false
-  private _tableWithColumns = new DataAwsLakeformationPermissionsTableWithColumnsOutputReference(this, "table_with_columns");
+  private _tableWithColumns =
+    new DataAwsLakeformationPermissionsTableWithColumnsOutputReference(
+      this,
+      'table_with_columns',
+    );
   public get tableWithColumns() {
     return this._tableWithColumns;
   }
-  public putTableWithColumns(value: DataAwsLakeformationPermissionsTableWithColumns) {
+  public putTableWithColumns(
+    value: DataAwsLakeformationPermissionsTableWithColumns,
+  ) {
     this._tableWithColumns.internalValue = value;
   }
   public resetTableWithColumns() {
@@ -1155,12 +1319,25 @@ export class DataAwsLakeformationPermissions extends cdktf.TerraformDataSource {
       catalog_resource: cdktf.booleanToTerraform(this._catalogResource),
       id: cdktf.stringToTerraform(this._id),
       principal: cdktf.stringToTerraform(this._principal),
-      data_location: dataAwsLakeformationPermissionsDataLocationToTerraform(this._dataLocation.internalValue),
-      database: dataAwsLakeformationPermissionsDatabaseToTerraform(this._database.internalValue),
-      lf_tag: dataAwsLakeformationPermissionsLfTagToTerraform(this._lfTag.internalValue),
-      lf_tag_policy: dataAwsLakeformationPermissionsLfTagPolicyToTerraform(this._lfTagPolicy.internalValue),
-      table: dataAwsLakeformationPermissionsTableToTerraform(this._table.internalValue),
-      table_with_columns: dataAwsLakeformationPermissionsTableWithColumnsToTerraform(this._tableWithColumns.internalValue),
+      data_location: dataAwsLakeformationPermissionsDataLocationToTerraform(
+        this._dataLocation.internalValue,
+      ),
+      database: dataAwsLakeformationPermissionsDatabaseToTerraform(
+        this._database.internalValue,
+      ),
+      lf_tag: dataAwsLakeformationPermissionsLfTagToTerraform(
+        this._lfTag.internalValue,
+      ),
+      lf_tag_policy: dataAwsLakeformationPermissionsLfTagPolicyToTerraform(
+        this._lfTagPolicy.internalValue,
+      ),
+      table: dataAwsLakeformationPermissionsTableToTerraform(
+        this._table.internalValue,
+      ),
+      table_with_columns:
+        dataAwsLakeformationPermissionsTableWithColumnsToTerraform(
+          this._tableWithColumns.internalValue,
+        ),
     };
   }
 }

@@ -1,4 +1,4 @@
-// https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer
+// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/loadbalancer
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,7 +10,7 @@ export interface DataDigitaloceanLoadbalancerConfig extends cdktf.TerraformMetaA
   /**
   * id of the load balancer
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#id DataDigitaloceanLoadbalancer#id}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/loadbalancer#id DataDigitaloceanLoadbalancer#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -19,7 +19,7 @@ export interface DataDigitaloceanLoadbalancerConfig extends cdktf.TerraformMetaA
   /**
   * name of the load balancer
   * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer#name DataDigitaloceanLoadbalancer#name}
+  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/loadbalancer#name DataDigitaloceanLoadbalancer#name}
   */
   readonly name?: string;
 }
@@ -356,7 +356,7 @@ export class DataDigitaloceanLoadbalancerStickySessionsList extends cdktf.Comple
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer digitalocean_loadbalancer}
+* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/loadbalancer digitalocean_loadbalancer}
 */
 export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
 
@@ -370,7 +370,7 @@ export class DataDigitaloceanLoadbalancer extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/loadbalancer digitalocean_loadbalancer} Data Source
+  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/loadbalancer digitalocean_loadbalancer} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

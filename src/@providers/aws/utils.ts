@@ -1,7 +1,6 @@
+import { ResourceInputs } from '../../@resources/index.ts';
+import { AwsCredentials } from './credentials.ts';
 import AWS, { EC2 } from 'aws-sdk';
-import { SecurityGroupRule } from 'aws-sdk/clients/ec2.js';
-import { ResourceInputs } from '../../@resources';
-import { AwsCredentials } from './credentials';
 
 export interface AwsIds {
   private: string[];
@@ -44,10 +43,7 @@ export class EksIds {
 }
 
 export default class AwsUtils {
-  public static getEKS(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.EKS {
+  public static getEKS(credentials: AwsCredentials, region = 'us-east-1'): AWS.EKS {
     return new AWS.EKS({
       apiVersion: '2022-10-05',
       region: region,
@@ -58,10 +54,7 @@ export default class AwsUtils {
     });
   }
 
-  public static getRDS(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.RDS {
+  public static getRDS(credentials: AwsCredentials, region = 'us-east-1'): AWS.RDS {
     return new AWS.RDS({
       apiVersion: '2022-10-05',
       region: region,
@@ -72,10 +65,7 @@ export default class AwsUtils {
     });
   }
 
-  public static getEC2(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.EC2 {
+  public static getEC2(credentials: AwsCredentials, region = 'us-east-1'): AWS.EC2 {
     return new AWS.EC2({
       apiVersion: '2022-10-05',
       region: region,
@@ -86,10 +76,7 @@ export default class AwsUtils {
     });
   }
 
-  public static getRoute53(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.Route53 {
+  public static getRoute53(credentials: AwsCredentials, region = 'us-east-1'): AWS.Route53 {
     return new AWS.Route53({
       apiVersion: '2022-10-05',
       region: region,
@@ -100,10 +87,7 @@ export default class AwsUtils {
     });
   }
 
-  public static getIAM(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.IAM {
+  public static getIAM(credentials: AwsCredentials, region = 'us-east-1'): AWS.IAM {
     return new AWS.IAM({
       apiVersion: '2022-10-05',
       region: region,
@@ -114,10 +98,7 @@ export default class AwsUtils {
     });
   }
 
-  public static getCloudWatchLogs(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.CloudWatchLogs {
+  public static getCloudWatchLogs(credentials: AwsCredentials, region = 'us-east-1'): AWS.CloudWatchLogs {
     return new AWS.CloudWatchLogs({
       apiVersion: '2022-10-05',
       region: region,
@@ -128,10 +109,7 @@ export default class AwsUtils {
     });
   }
 
-  public static getAutoScaling(
-    credentials: AwsCredentials,
-    region = 'us-east-1',
-  ): AWS.AutoScaling {
+  public static getAutoScaling(credentials: AwsCredentials, region = 'us-east-1'): AWS.AutoScaling {
     return new AWS.AutoScaling({
       apiVersion: '2022-10-05',
       region: region,
@@ -142,11 +120,7 @@ export default class AwsUtils {
     });
   }
 
-  public static async getNatGateways(
-    credentials: AwsCredentials,
-    region: string,
-    id: string,
-  ): Promise<string[]> {
+  public static async getNatGateways(credentials: AwsCredentials, region: string, id: string): Promise<string[]> {
     const natGatewayData = await AwsUtils.getEC2(credentials, region)
       .describeNatGateways({
         Filter: [
@@ -166,11 +140,7 @@ export default class AwsUtils {
     return results;
   }
 
-  public static async getElasticIPs(
-    credentials: AwsCredentials,
-    region: string,
-    name: string,
-  ): Promise<string> {
+  public static async getElasticIPs(credentials: AwsCredentials, region: string, name: string): Promise<string> {
     const addressData = await AwsUtils.getEC2(credentials, region)
       .describeAddresses({
         Filters: [
@@ -223,16 +193,12 @@ export default class AwsUtils {
     return ids;
   }
 
-  public static async getNameForVpc(
-    credentials: AwsCredentials,
-    region: string,
-    id: string,
-  ): Promise<string> {
-    const vpcs = await AwsUtils.getEC2(credentials, region).describeVpcs({
-      VpcIds: [
-        id
-      ]
-    }).promise();
+  public static async getNameForVpc(credentials: AwsCredentials, region: string, id: string): Promise<string> {
+    const vpcs = await AwsUtils.getEC2(credentials, region)
+      .describeVpcs({
+        VpcIds: [id],
+      })
+      .promise();
     if (!vpcs.Vpcs) {
       throw new Error(`Unable to find vpc with id ${id}`);
     }
@@ -343,10 +309,9 @@ export default class AwsUtils {
                 }
                 const tags = Object.entries(data.nodegroup?.tags || {});
                 results.nodePools?.push({
-                  name:
-                    tags.find((tag) => {
-                      return tag[0] === 'Name';
-                    })?.[1] || '',
+                  name: tags.find((tag) => {
+                    return tag[0] === 'Name';
+                  })?.[1] || '',
                   count: data.nodegroup?.scalingConfig?.maxSize || 1,
                   nodeSize: (data.nodegroup?.instanceTypes || [])[0] || '',
                 });
@@ -375,14 +340,13 @@ export default class AwsUtils {
     return results as ResourceInputs['kubernetesCluster'];
   }
 
-  private static securityGroupRuleToId(rule: SecurityGroupRule): string {
+  private static securityGroupRuleToId(rule: EC2.SecurityGroupRule): string {
     const groupId = rule.GroupId || '';
     const type = rule.IsEgress ? 'egress' : 'ingress';
     const protocol = rule.IpProtocol || '';
     const fromPort = rule.FromPort || '';
     const toPort = rule.ToPort || '';
-    const source =
-      rule.CidrIpv4 || rule.CidrIpv6 || rule.ReferencedGroupInfo?.GroupId || '';
+    const source = rule.CidrIpv4 || rule.CidrIpv6 || rule.ReferencedGroupInfo?.GroupId || '';
 
     return [groupId, type, protocol, fromPort, toPort, source].join('_');
   }
@@ -418,11 +382,7 @@ export default class AwsUtils {
     return results;
   }
 
-  public static async getEksIds(
-    credentials: AwsCredentials,
-    region: string,
-    id: string,
-  ): Promise<EksIds> {
+  public static async getEksIds(credentials: AwsCredentials, region: string, id: string): Promise<EksIds> {
     const ec2 = await this.getEC2(credentials, region);
     const eks = await this.getEKS(credentials, region);
     const iam = await this.getIAM(credentials, region);
@@ -441,7 +401,7 @@ export default class AwsUtils {
           .promise();
         results.vpcId = clusterData.cluster?.resourcesVpcConfig?.vpcId || '';
         resolve();
-      })
+      }),
     );
 
     promises.push(
@@ -470,9 +430,7 @@ export default class AwsUtils {
             .promise();
           results.nodeGroups.push({
             id: `${nodeGroupData.nodegroup?.clusterName}:${nodeGroupData.nodegroup?.nodegroupName}`,
-            launchTemplate:
-              (launchTemplateData?.LaunchTemplates || [])[0]
-                ?.LaunchTemplateId || '',
+            launchTemplate: (launchTemplateData?.LaunchTemplates || [])[0]?.LaunchTemplateId || '',
             poolName: (nodeGroupData.nodegroup?.tags || {}).Name || '',
           });
         }
@@ -507,9 +465,7 @@ export default class AwsUtils {
         const rolesData = await iam.listRoles().promise();
         const roles = rolesData.Roles;
         for (const role of roles) {
-          const tagsData = await iam
-            .listRoleTags({ RoleName: role.RoleName })
-            .promise();
+          const tagsData = await iam.listRoleTags({ RoleName: role.RoleName }).promise();
           const isInCluster = (tagsData.Tags || []).find((tag) => {
             return tag.Key === 'architectResourceId' && tag.Value === id;
           });
@@ -549,9 +505,7 @@ export default class AwsUtils {
 
         const rules = await ec2
           .describeSecurityGroupRules({
-            Filters: [
-              { Name: 'group-id', Values: [results.clusterSg, results.nodeSg] },
-            ],
+            Filters: [{ Name: 'group-id', Values: [results.clusterSg, results.nodeSg] }],
           })
           .promise();
         results.securityGroupRules = this.getSecurityGroupRules(
@@ -561,13 +515,9 @@ export default class AwsUtils {
         );
 
         results.nodePoolSg = {};
-        const nodePoolSgs = securityGroupsData.SecurityGroups?.filter(
-          (group) => {
-            return (
-              group.Description === 'EKS managed node group security group'
-            );
-          },
-        );
+        const nodePoolSgs = securityGroupsData.SecurityGroups?.filter((group) => {
+          return group.Description === 'EKS managed node group security group';
+        });
         for (const nodePoolSg of nodePoolSgs || []) {
           const key = nodePoolSg.GroupName?.split('-eks-node-group-')[0] || '';
           results.nodePoolSg[key] = nodePoolSg.GroupId || '';

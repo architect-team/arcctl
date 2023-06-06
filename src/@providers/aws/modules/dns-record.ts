@@ -1,9 +1,9 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { DataAwsRoute53Zone } from '../.gen/providers/aws/data-aws-route53-zone/index.js';
-import { Route53Record } from '../.gen/providers/aws/route53-record/index.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsDnsRecordService } from '../services/dns-record.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { DataAwsRoute53Zone } from '../.gen/providers/aws/data-aws-route53-zone/index.ts';
+import { Route53Record } from '../.gen/providers/aws/route53-record/index.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsDnsRecordService } from '../services/dns-record.ts';
 import { Construct } from 'constructs';
 
 export class AwsDnsRecordModule extends ResourceModule<
@@ -65,8 +65,7 @@ export class AwsDnsRecordModule extends ResourceModule<
     }
 
     return {
-      [this.getResourceRef(this.dns_record)]:
-        dns_record_match?.name || resourceId,
+      [this.getResourceRef(this.dns_record)]: dns_record_match?.name || resourceId,
     };
   }
 

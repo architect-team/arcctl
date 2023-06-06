@@ -1,79 +1,81 @@
 // generated from terraform resource schema
-
-import { DaemonsetMetadata, 
-daemonsetMetadataToTerraform, 
-DaemonsetMetadataOutputReference, 
-DaemonsetSpec, 
-daemonsetSpecToTerraform, 
-DaemonsetSpecOutputReference, 
-DaemonsetTimeouts, 
-daemonsetTimeoutsToTerraform, 
-DaemonsetTimeoutsOutputReference} from './index-structs'
-export * from './index-structs'
-import { Construct } from 'constructs';
+import {
+  DaemonsetMetadata,
+  daemonsetMetadataToTerraform,
+  DaemonsetMetadataOutputReference,
+  DaemonsetSpec,
+  daemonsetSpecToTerraform,
+  DaemonsetSpecOutputReference,
+  DaemonsetTimeouts,
+  daemonsetTimeoutsToTerraform,
+  DaemonsetTimeoutsOutputReference,
+} from './index-structs/index.ts';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
+
+export * from './index-structs/index.ts';
+
 export interface DaemonsetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#id Daemonset#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#id Daemonset#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Wait for the rollout of the deployment to complete. Defaults to true.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#wait_for_rollout Daemonset#wait_for_rollout}
-  */
+   * Wait for the rollout of the deployment to complete. Defaults to true.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#wait_for_rollout Daemonset#wait_for_rollout}
+   */
   readonly waitForRollout?: boolean | cdktf.IResolvable;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#metadata Daemonset#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#metadata Daemonset#metadata}
+   */
   readonly metadata: DaemonsetMetadata;
   /**
-  * spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#spec Daemonset#spec}
-  */
+   * spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#spec Daemonset#spec}
+   */
   readonly spec: DaemonsetSpec;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#timeouts Daemonset#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset#timeouts Daemonset#timeouts}
+   */
   readonly timeouts?: DaemonsetTimeouts;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset kubernetes_daemonset}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset kubernetes_daemonset}
+ */
 export class Daemonset extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_daemonset";
+  public static readonly tfResourceType = 'kubernetes_daemonset';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset kubernetes_daemonset} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DaemonsetConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/daemonset kubernetes_daemonset} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DaemonsetConfig
+   */
   public constructor(scope: Construct, id: string, config: DaemonsetConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_daemonset',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -81,7 +83,7 @@ export class Daemonset extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._waitForRollout = config.waitForRollout;
@@ -95,7 +97,7 @@ export class Daemonset extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -111,7 +113,7 @@ export class Daemonset extends cdktf.TerraformResource {
   }
 
   // wait_for_rollout - computed: false, optional: true, required: false
-  private _waitForRollout?: boolean | cdktf.IResolvable; 
+  private _waitForRollout?: boolean | cdktf.IResolvable;
   public get waitForRollout() {
     return this.getBooleanAttribute('wait_for_rollout');
   }
@@ -127,7 +129,7 @@ export class Daemonset extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new DaemonsetMetadataOutputReference(this, "metadata");
+  private _metadata = new DaemonsetMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -140,7 +142,7 @@ export class Daemonset extends cdktf.TerraformResource {
   }
 
   // spec - computed: false, optional: false, required: true
-  private _spec = new DaemonsetSpecOutputReference(this, "spec");
+  private _spec = new DaemonsetSpecOutputReference(this, 'spec');
   public get spec() {
     return this._spec;
   }
@@ -153,7 +155,7 @@ export class Daemonset extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DaemonsetTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DaemonsetTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }

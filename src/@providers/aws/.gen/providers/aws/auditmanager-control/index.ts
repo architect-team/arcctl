@@ -1,63 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_control
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface AuditmanagerControlConfig extends cdktf.TerraformMetaArguments {
+export interface AuditmanagerControlConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#action_plan_instructions AuditmanagerControl#action_plan_instructions}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#action_plan_instructions AuditmanagerControl#action_plan_instructions}
+   */
   readonly actionPlanInstructions?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#action_plan_title AuditmanagerControl#action_plan_title}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#action_plan_title AuditmanagerControl#action_plan_title}
+   */
   readonly actionPlanTitle?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#description AuditmanagerControl#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#description AuditmanagerControl#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#name AuditmanagerControl#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#name AuditmanagerControl#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#tags AuditmanagerControl#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#tags AuditmanagerControl#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#testing_information AuditmanagerControl#testing_information}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#testing_information AuditmanagerControl#testing_information}
+   */
   readonly testingInformation?: string;
   /**
-  * control_mapping_sources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#control_mapping_sources AuditmanagerControl#control_mapping_sources}
-  */
-  readonly controlMappingSources?: AuditmanagerControlControlMappingSources[] | cdktf.IResolvable;
+   * control_mapping_sources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#control_mapping_sources AuditmanagerControl#control_mapping_sources}
+   */
+  readonly controlMappingSources?:
+    | AuditmanagerControlControlMappingSources[]
+    | cdktf.IResolvable;
 }
 export interface AuditmanagerControlControlMappingSourcesSourceKeyword {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#keyword_input_type AuditmanagerControl#keyword_input_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#keyword_input_type AuditmanagerControl#keyword_input_type}
+   */
   readonly keywordInputType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#keyword_value AuditmanagerControl#keyword_value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#keyword_value AuditmanagerControl#keyword_value}
+   */
   readonly keywordValue: string;
 }
 
-export function auditmanagerControlControlMappingSourcesSourceKeywordToTerraform(struct?: AuditmanagerControlControlMappingSourcesSourceKeyword | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function auditmanagerControlControlMappingSourcesSourceKeywordToTerraform(
+  struct?:
+    | AuditmanagerControlControlMappingSourcesSourceKeyword
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     keyword_input_type: cdktf.stringToTerraform(struct!.keywordInputType),
     keyword_value: cdktf.stringToTerraform(struct!.keywordValue),
-  }
+  };
 }
 
 export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReference extends cdktf.ComplexObject {
@@ -65,16 +75,29 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AuditmanagerControlControlMappingSourcesSourceKeyword | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AuditmanagerControlControlMappingSourcesSourceKeyword
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -91,18 +114,21 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AuditmanagerControlControlMappingSourcesSourceKeyword | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | AuditmanagerControlControlMappingSourcesSourceKeyword
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._keywordInputType = undefined;
       this._keywordValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._keywordInputType = value.keywordInputType;
@@ -111,7 +137,7 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
   }
 
   // keyword_input_type - computed: false, optional: false, required: true
-  private _keywordInputType?: string; 
+  private _keywordInputType?: string;
   public get keywordInputType() {
     return this.getStringAttribute('keyword_input_type');
   }
@@ -124,7 +150,7 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
   }
 
   // keyword_value - computed: false, optional: false, required: true
-  private _keywordValue?: string; 
+  private _keywordValue?: string;
   public get keywordValue() {
     return this.getStringAttribute('keyword_value');
   }
@@ -138,61 +164,82 @@ export class AuditmanagerControlControlMappingSourcesSourceKeywordOutputReferenc
 }
 
 export class AuditmanagerControlControlMappingSourcesSourceKeywordList extends cdktf.ComplexList {
-  public internalValue? : AuditmanagerControlControlMappingSourcesSourceKeyword[] | cdktf.IResolvable
+  public internalValue?:
+    | AuditmanagerControlControlMappingSourcesSourceKeyword[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): AuditmanagerControlControlMappingSourcesSourceKeywordOutputReference {
-    return new AuditmanagerControlControlMappingSourcesSourceKeywordOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): AuditmanagerControlControlMappingSourcesSourceKeywordOutputReference {
+    return new AuditmanagerControlControlMappingSourcesSourceKeywordOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface AuditmanagerControlControlMappingSources {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_description AuditmanagerControl#source_description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_description AuditmanagerControl#source_description}
+   */
   readonly sourceDescription?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_frequency AuditmanagerControl#source_frequency}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_frequency AuditmanagerControl#source_frequency}
+   */
   readonly sourceFrequency?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_name AuditmanagerControl#source_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_name AuditmanagerControl#source_name}
+   */
   readonly sourceName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_set_up_option AuditmanagerControl#source_set_up_option}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_set_up_option AuditmanagerControl#source_set_up_option}
+   */
   readonly sourceSetUpOption: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_type AuditmanagerControl#source_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_type AuditmanagerControl#source_type}
+   */
   readonly sourceType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#troubleshooting_text AuditmanagerControl#troubleshooting_text}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#troubleshooting_text AuditmanagerControl#troubleshooting_text}
+   */
   readonly troubleshootingText?: string;
   /**
-  * source_keyword block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_keyword AuditmanagerControl#source_keyword}
-  */
-  readonly sourceKeyword?: AuditmanagerControlControlMappingSourcesSourceKeyword[] | cdktf.IResolvable;
+   * source_keyword block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control#source_keyword AuditmanagerControl#source_keyword}
+   */
+  readonly sourceKeyword?:
+    | AuditmanagerControlControlMappingSourcesSourceKeyword[]
+    | cdktf.IResolvable;
 }
 
-export function auditmanagerControlControlMappingSourcesToTerraform(struct?: AuditmanagerControlControlMappingSources | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function auditmanagerControlControlMappingSourcesToTerraform(
+  struct?: AuditmanagerControlControlMappingSources | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     source_description: cdktf.stringToTerraform(struct!.sourceDescription),
@@ -201,8 +248,11 @@ export function auditmanagerControlControlMappingSourcesToTerraform(struct?: Aud
     source_set_up_option: cdktf.stringToTerraform(struct!.sourceSetUpOption),
     source_type: cdktf.stringToTerraform(struct!.sourceType),
     troubleshooting_text: cdktf.stringToTerraform(struct!.troubleshootingText),
-    source_keyword: cdktf.listMapper(auditmanagerControlControlMappingSourcesSourceKeywordToTerraform, true)(struct!.sourceKeyword),
-  }
+    source_keyword: cdktf.listMapper(
+      auditmanagerControlControlMappingSourcesSourceKeywordToTerraform,
+      true,
+    )(struct!.sourceKeyword),
+  };
 }
 
 export class AuditmanagerControlControlMappingSourcesOutputReference extends cdktf.ComplexObject {
@@ -210,16 +260,29 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): AuditmanagerControlControlMappingSources | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | AuditmanagerControlControlMappingSources
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -256,7 +319,12 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: AuditmanagerControlControlMappingSources | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | AuditmanagerControlControlMappingSources
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -267,12 +335,10 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
       this._sourceType = undefined;
       this._troubleshootingText = undefined;
       this._sourceKeyword.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._sourceDescription = value.sourceDescription;
@@ -286,7 +352,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_description - computed: false, optional: true, required: false
-  private _sourceDescription?: string; 
+  private _sourceDescription?: string;
   public get sourceDescription() {
     return this.getStringAttribute('source_description');
   }
@@ -302,7 +368,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_frequency - computed: false, optional: true, required: false
-  private _sourceFrequency?: string; 
+  private _sourceFrequency?: string;
   public get sourceFrequency() {
     return this.getStringAttribute('source_frequency');
   }
@@ -323,7 +389,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_name - computed: false, optional: false, required: true
-  private _sourceName?: string; 
+  private _sourceName?: string;
   public get sourceName() {
     return this.getStringAttribute('source_name');
   }
@@ -336,7 +402,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_set_up_option - computed: false, optional: false, required: true
-  private _sourceSetUpOption?: string; 
+  private _sourceSetUpOption?: string;
   public get sourceSetUpOption() {
     return this.getStringAttribute('source_set_up_option');
   }
@@ -349,7 +415,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_type - computed: false, optional: false, required: true
-  private _sourceType?: string; 
+  private _sourceType?: string;
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -362,7 +428,7 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // troubleshooting_text - computed: false, optional: true, required: false
-  private _troubleshootingText?: string; 
+  private _troubleshootingText?: string;
   public get troubleshootingText() {
     return this.getStringAttribute('troubleshooting_text');
   }
@@ -378,11 +444,20 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
   }
 
   // source_keyword - computed: false, optional: true, required: false
-  private _sourceKeyword = new AuditmanagerControlControlMappingSourcesSourceKeywordList(this, "source_keyword", false);
+  private _sourceKeyword =
+    new AuditmanagerControlControlMappingSourcesSourceKeywordList(
+      this,
+      'source_keyword',
+      false,
+    );
   public get sourceKeyword() {
     return this._sourceKeyword;
   }
-  public putSourceKeyword(value: AuditmanagerControlControlMappingSourcesSourceKeyword[] | cdktf.IResolvable) {
+  public putSourceKeyword(
+    value:
+      | AuditmanagerControlControlMappingSourcesSourceKeyword[]
+      | cdktf.IResolvable,
+  ) {
     this._sourceKeyword.internalValue = value;
   }
   public resetSourceKeyword() {
@@ -395,53 +470,69 @@ export class AuditmanagerControlControlMappingSourcesOutputReference extends cdk
 }
 
 export class AuditmanagerControlControlMappingSourcesList extends cdktf.ComplexList {
-  public internalValue? : AuditmanagerControlControlMappingSources[] | cdktf.IResolvable
+  public internalValue?:
+    | AuditmanagerControlControlMappingSources[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): AuditmanagerControlControlMappingSourcesOutputReference {
-    return new AuditmanagerControlControlMappingSourcesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): AuditmanagerControlControlMappingSourcesOutputReference {
+    return new AuditmanagerControlControlMappingSourcesOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control aws_auditmanager_control}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control aws_auditmanager_control}
+ */
 export class AuditmanagerControl extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_auditmanager_control";
+  public static readonly tfResourceType = 'aws_auditmanager_control';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control aws_auditmanager_control} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AuditmanagerControlConfig
-  */
-  public constructor(scope: Construct, id: string, config: AuditmanagerControlConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_control aws_auditmanager_control} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AuditmanagerControlConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AuditmanagerControlConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_auditmanager_control',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -449,7 +540,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._actionPlanInstructions = config.actionPlanInstructions;
     this._actionPlanTitle = config.actionPlanTitle;
@@ -465,7 +556,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   // ==========
 
   // action_plan_instructions - computed: false, optional: true, required: false
-  private _actionPlanInstructions?: string; 
+  private _actionPlanInstructions?: string;
   public get actionPlanInstructions() {
     return this.getStringAttribute('action_plan_instructions');
   }
@@ -481,7 +572,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // action_plan_title - computed: false, optional: true, required: false
-  private _actionPlanTitle?: string; 
+  private _actionPlanTitle?: string;
   public get actionPlanTitle() {
     return this.getStringAttribute('action_plan_title');
   }
@@ -502,7 +593,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -523,7 +614,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -536,7 +627,7 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -552,13 +643,13 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: false, required: false
-  private _tagsAll = new cdktf.StringMap(this, "tags_all");
+  private _tagsAll = new cdktf.StringMap(this, 'tags_all');
   public get tagsAll() {
     return this._tagsAll;
   }
 
   // testing_information - computed: false, optional: true, required: false
-  private _testingInformation?: string; 
+  private _testingInformation?: string;
   public get testingInformation() {
     return this.getStringAttribute('testing_information');
   }
@@ -579,11 +670,18 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
   }
 
   // control_mapping_sources - computed: false, optional: true, required: false
-  private _controlMappingSources = new AuditmanagerControlControlMappingSourcesList(this, "control_mapping_sources", true);
+  private _controlMappingSources =
+    new AuditmanagerControlControlMappingSourcesList(
+      this,
+      'control_mapping_sources',
+      true,
+    );
   public get controlMappingSources() {
     return this._controlMappingSources;
   }
-  public putControlMappingSources(value: AuditmanagerControlControlMappingSources[] | cdktf.IResolvable) {
+  public putControlMappingSources(
+    value: AuditmanagerControlControlMappingSources[] | cdktf.IResolvable,
+  ) {
     this._controlMappingSources.internalValue = value;
   }
   public resetControlMappingSources() {
@@ -600,13 +698,18 @@ export class AuditmanagerControl extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      action_plan_instructions: cdktf.stringToTerraform(this._actionPlanInstructions),
+      action_plan_instructions: cdktf.stringToTerraform(
+        this._actionPlanInstructions,
+      ),
       action_plan_title: cdktf.stringToTerraform(this._actionPlanTitle),
       description: cdktf.stringToTerraform(this._description),
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       testing_information: cdktf.stringToTerraform(this._testingInformation),
-      control_mapping_sources: cdktf.listMapper(auditmanagerControlControlMappingSourcesToTerraform, true)(this._controlMappingSources.internalValue),
+      control_mapping_sources: cdktf.listMapper(
+        auditmanagerControlControlMappingSourcesToTerraform,
+        true,
+      )(this._controlMappingSources.internalValue),
     };
   }
 }

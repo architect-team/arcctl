@@ -1,115 +1,128 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_integration
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ApiGatewayIntegrationConfig extends cdktf.TerraformMetaArguments {
+export interface ApiGatewayIntegrationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#cache_key_parameters ApiGatewayIntegration#cache_key_parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#cache_key_parameters ApiGatewayIntegration#cache_key_parameters}
+   */
   readonly cacheKeyParameters?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#cache_namespace ApiGatewayIntegration#cache_namespace}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#cache_namespace ApiGatewayIntegration#cache_namespace}
+   */
   readonly cacheNamespace?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#connection_id ApiGatewayIntegration#connection_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#connection_id ApiGatewayIntegration#connection_id}
+   */
   readonly connectionId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#connection_type ApiGatewayIntegration#connection_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#connection_type ApiGatewayIntegration#connection_type}
+   */
   readonly connectionType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#content_handling ApiGatewayIntegration#content_handling}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#content_handling ApiGatewayIntegration#content_handling}
+   */
   readonly contentHandling?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#credentials ApiGatewayIntegration#credentials}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#credentials ApiGatewayIntegration#credentials}
+   */
   readonly credentials?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#http_method ApiGatewayIntegration#http_method}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#http_method ApiGatewayIntegration#http_method}
+   */
   readonly httpMethod: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#id ApiGatewayIntegration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#id ApiGatewayIntegration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#integration_http_method ApiGatewayIntegration#integration_http_method}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#integration_http_method ApiGatewayIntegration#integration_http_method}
+   */
   readonly integrationHttpMethod?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#passthrough_behavior ApiGatewayIntegration#passthrough_behavior}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#passthrough_behavior ApiGatewayIntegration#passthrough_behavior}
+   */
   readonly passthroughBehavior?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#request_parameters ApiGatewayIntegration#request_parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#request_parameters ApiGatewayIntegration#request_parameters}
+   */
   readonly requestParameters?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#request_templates ApiGatewayIntegration#request_templates}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#request_templates ApiGatewayIntegration#request_templates}
+   */
   readonly requestTemplates?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#resource_id ApiGatewayIntegration#resource_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#resource_id ApiGatewayIntegration#resource_id}
+   */
   readonly resourceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#rest_api_id ApiGatewayIntegration#rest_api_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#rest_api_id ApiGatewayIntegration#rest_api_id}
+   */
   readonly restApiId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#timeout_milliseconds ApiGatewayIntegration#timeout_milliseconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#timeout_milliseconds ApiGatewayIntegration#timeout_milliseconds}
+   */
   readonly timeoutMilliseconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#type ApiGatewayIntegration#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#type ApiGatewayIntegration#type}
+   */
   readonly type: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#uri ApiGatewayIntegration#uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#uri ApiGatewayIntegration#uri}
+   */
   readonly uri?: string;
   /**
-  * tls_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#tls_config ApiGatewayIntegration#tls_config}
-  */
+   * tls_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#tls_config ApiGatewayIntegration#tls_config}
+   */
   readonly tlsConfig?: ApiGatewayIntegrationTlsConfig;
 }
 export interface ApiGatewayIntegrationTlsConfig {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#insecure_skip_verification ApiGatewayIntegration#insecure_skip_verification}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration#insecure_skip_verification ApiGatewayIntegration#insecure_skip_verification}
+   */
   readonly insecureSkipVerification?: boolean | cdktf.IResolvable;
 }
 
-export function apiGatewayIntegrationTlsConfigToTerraform(struct?: ApiGatewayIntegrationTlsConfigOutputReference | ApiGatewayIntegrationTlsConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apiGatewayIntegrationTlsConfigToTerraform(
+  struct?:
+    | ApiGatewayIntegrationTlsConfigOutputReference
+    | ApiGatewayIntegrationTlsConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    insecure_skip_verification: cdktf.booleanToTerraform(struct!.insecureSkipVerification),
-  }
+    insecure_skip_verification: cdktf.booleanToTerraform(
+      struct!.insecureSkipVerification,
+    ),
+  };
 }
 
 export class ApiGatewayIntegrationTlsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -118,7 +131,8 @@ export class ApiGatewayIntegrationTlsConfigOutputReference extends cdktf.Complex
     const internalValueResult: any = {};
     if (this._insecureSkipVerification !== undefined) {
       hasAnyValues = true;
-      internalValueResult.insecureSkipVerification = this._insecureSkipVerification;
+      internalValueResult.insecureSkipVerification =
+        this._insecureSkipVerification;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -127,15 +141,14 @@ export class ApiGatewayIntegrationTlsConfigOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._insecureSkipVerification = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._insecureSkipVerification = value.insecureSkipVerification;
     }
   }
 
   // insecure_skip_verification - computed: false, optional: true, required: false
-  private _insecureSkipVerification?: boolean | cdktf.IResolvable; 
+  private _insecureSkipVerification?: boolean | cdktf.IResolvable;
   public get insecureSkipVerification() {
     return this.getBooleanAttribute('insecure_skip_verification');
   }
@@ -152,33 +165,36 @@ export class ApiGatewayIntegrationTlsConfigOutputReference extends cdktf.Complex
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration aws_api_gateway_integration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration aws_api_gateway_integration}
+ */
 export class ApiGatewayIntegration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_api_gateway_integration";
+  public static readonly tfResourceType = 'aws_api_gateway_integration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration aws_api_gateway_integration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ApiGatewayIntegrationConfig
-  */
-  public constructor(scope: Construct, id: string, config: ApiGatewayIntegrationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_integration aws_api_gateway_integration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ApiGatewayIntegrationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ApiGatewayIntegrationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_integration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -186,7 +202,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._cacheKeyParameters = config.cacheKeyParameters;
     this._cacheNamespace = config.cacheNamespace;
@@ -213,7 +229,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   // ==========
 
   // cache_key_parameters - computed: false, optional: true, required: false
-  private _cacheKeyParameters?: string[]; 
+  private _cacheKeyParameters?: string[];
   public get cacheKeyParameters() {
     return cdktf.Fn.tolist(this.getListAttribute('cache_key_parameters'));
   }
@@ -229,7 +245,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // cache_namespace - computed: true, optional: true, required: false
-  private _cacheNamespace?: string; 
+  private _cacheNamespace?: string;
   public get cacheNamespace() {
     return this.getStringAttribute('cache_namespace');
   }
@@ -245,7 +261,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: true, required: false
-  private _connectionId?: string; 
+  private _connectionId?: string;
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -261,7 +277,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // connection_type - computed: false, optional: true, required: false
-  private _connectionType?: string; 
+  private _connectionType?: string;
   public get connectionType() {
     return this.getStringAttribute('connection_type');
   }
@@ -277,7 +293,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // content_handling - computed: false, optional: true, required: false
-  private _contentHandling?: string; 
+  private _contentHandling?: string;
   public get contentHandling() {
     return this.getStringAttribute('content_handling');
   }
@@ -293,7 +309,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // credentials - computed: false, optional: true, required: false
-  private _credentials?: string; 
+  private _credentials?: string;
   public get credentials() {
     return this.getStringAttribute('credentials');
   }
@@ -309,7 +325,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // http_method - computed: false, optional: false, required: true
-  private _httpMethod?: string; 
+  private _httpMethod?: string;
   public get httpMethod() {
     return this.getStringAttribute('http_method');
   }
@@ -322,7 +338,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -338,7 +354,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // integration_http_method - computed: false, optional: true, required: false
-  private _integrationHttpMethod?: string; 
+  private _integrationHttpMethod?: string;
   public get integrationHttpMethod() {
     return this.getStringAttribute('integration_http_method');
   }
@@ -354,7 +370,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // passthrough_behavior - computed: true, optional: true, required: false
-  private _passthroughBehavior?: string; 
+  private _passthroughBehavior?: string;
   public get passthroughBehavior() {
     return this.getStringAttribute('passthrough_behavior');
   }
@@ -370,7 +386,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // request_parameters - computed: false, optional: true, required: false
-  private _requestParameters?: { [key: string]: string }; 
+  private _requestParameters?: { [key: string]: string };
   public get requestParameters() {
     return this.getStringMapAttribute('request_parameters');
   }
@@ -386,7 +402,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // request_templates - computed: false, optional: true, required: false
-  private _requestTemplates?: { [key: string]: string }; 
+  private _requestTemplates?: { [key: string]: string };
   public get requestTemplates() {
     return this.getStringMapAttribute('request_templates');
   }
@@ -402,7 +418,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // resource_id - computed: false, optional: false, required: true
-  private _resourceId?: string; 
+  private _resourceId?: string;
   public get resourceId() {
     return this.getStringAttribute('resource_id');
   }
@@ -415,7 +431,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string; 
+  private _restApiId?: string;
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -428,7 +444,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // timeout_milliseconds - computed: false, optional: true, required: false
-  private _timeoutMilliseconds?: number; 
+  private _timeoutMilliseconds?: number;
   public get timeoutMilliseconds() {
     return this.getNumberAttribute('timeout_milliseconds');
   }
@@ -444,7 +460,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -457,7 +473,7 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string; 
+  private _uri?: string;
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -473,7 +489,10 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
   }
 
   // tls_config - computed: false, optional: true, required: false
-  private _tlsConfig = new ApiGatewayIntegrationTlsConfigOutputReference(this, "tls_config");
+  private _tlsConfig = new ApiGatewayIntegrationTlsConfigOutputReference(
+    this,
+    'tls_config',
+  );
   public get tlsConfig() {
     return this._tlsConfig;
   }
@@ -494,7 +513,10 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      cache_key_parameters: cdktf.listMapper(cdktf.stringToTerraform, false)(this._cacheKeyParameters),
+      cache_key_parameters: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._cacheKeyParameters),
       cache_namespace: cdktf.stringToTerraform(this._cacheNamespace),
       connection_id: cdktf.stringToTerraform(this._connectionId),
       connection_type: cdktf.stringToTerraform(this._connectionType),
@@ -502,16 +524,24 @@ export class ApiGatewayIntegration extends cdktf.TerraformResource {
       credentials: cdktf.stringToTerraform(this._credentials),
       http_method: cdktf.stringToTerraform(this._httpMethod),
       id: cdktf.stringToTerraform(this._id),
-      integration_http_method: cdktf.stringToTerraform(this._integrationHttpMethod),
+      integration_http_method: cdktf.stringToTerraform(
+        this._integrationHttpMethod,
+      ),
       passthrough_behavior: cdktf.stringToTerraform(this._passthroughBehavior),
-      request_parameters: cdktf.hashMapper(cdktf.stringToTerraform)(this._requestParameters),
-      request_templates: cdktf.hashMapper(cdktf.stringToTerraform)(this._requestTemplates),
+      request_parameters: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._requestParameters,
+      ),
+      request_templates: cdktf.hashMapper(cdktf.stringToTerraform)(
+        this._requestTemplates,
+      ),
       resource_id: cdktf.stringToTerraform(this._resourceId),
       rest_api_id: cdktf.stringToTerraform(this._restApiId),
       timeout_milliseconds: cdktf.numberToTerraform(this._timeoutMilliseconds),
       type: cdktf.stringToTerraform(this._type),
       uri: cdktf.stringToTerraform(this._uri),
-      tls_config: apiGatewayIntegrationTlsConfigToTerraform(this._tlsConfig.internalValue),
+      tls_config: apiGatewayIntegrationTlsConfigToTerraform(
+        this._tlsConfig.internalValue,
+      ),
     };
   }
 }

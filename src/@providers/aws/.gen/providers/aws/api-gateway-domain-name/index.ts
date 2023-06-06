@@ -1,109 +1,122 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ApiGatewayDomainNameConfig extends cdktf.TerraformMetaArguments {
+export interface ApiGatewayDomainNameConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_arn ApiGatewayDomainName#certificate_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_arn ApiGatewayDomainName#certificate_arn}
+   */
   readonly certificateArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_body ApiGatewayDomainName#certificate_body}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_body ApiGatewayDomainName#certificate_body}
+   */
   readonly certificateBody?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_chain ApiGatewayDomainName#certificate_chain}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_chain ApiGatewayDomainName#certificate_chain}
+   */
   readonly certificateChain?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_name ApiGatewayDomainName#certificate_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_name ApiGatewayDomainName#certificate_name}
+   */
   readonly certificateName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_private_key ApiGatewayDomainName#certificate_private_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#certificate_private_key ApiGatewayDomainName#certificate_private_key}
+   */
   readonly certificatePrivateKey?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#domain_name ApiGatewayDomainName#domain_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#domain_name ApiGatewayDomainName#domain_name}
+   */
   readonly domainName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#id ApiGatewayDomainName#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#id ApiGatewayDomainName#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#ownership_verification_certificate_arn ApiGatewayDomainName#ownership_verification_certificate_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#ownership_verification_certificate_arn ApiGatewayDomainName#ownership_verification_certificate_arn}
+   */
   readonly ownershipVerificationCertificateArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#regional_certificate_arn ApiGatewayDomainName#regional_certificate_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#regional_certificate_arn ApiGatewayDomainName#regional_certificate_arn}
+   */
   readonly regionalCertificateArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#regional_certificate_name ApiGatewayDomainName#regional_certificate_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#regional_certificate_name ApiGatewayDomainName#regional_certificate_name}
+   */
   readonly regionalCertificateName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#security_policy ApiGatewayDomainName#security_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#security_policy ApiGatewayDomainName#security_policy}
+   */
   readonly securityPolicy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#tags ApiGatewayDomainName#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#tags ApiGatewayDomainName#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#tags_all ApiGatewayDomainName#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#tags_all ApiGatewayDomainName#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * endpoint_configuration block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#endpoint_configuration ApiGatewayDomainName#endpoint_configuration}
-  */
+   * endpoint_configuration block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#endpoint_configuration ApiGatewayDomainName#endpoint_configuration}
+   */
   readonly endpointConfiguration?: ApiGatewayDomainNameEndpointConfiguration;
   /**
-  * mutual_tls_authentication block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#mutual_tls_authentication ApiGatewayDomainName#mutual_tls_authentication}
-  */
+   * mutual_tls_authentication block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#mutual_tls_authentication ApiGatewayDomainName#mutual_tls_authentication}
+   */
   readonly mutualTlsAuthentication?: ApiGatewayDomainNameMutualTlsAuthentication;
 }
 export interface ApiGatewayDomainNameEndpointConfiguration {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#types ApiGatewayDomainName#types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#types ApiGatewayDomainName#types}
+   */
   readonly types: string[];
 }
 
-export function apiGatewayDomainNameEndpointConfigurationToTerraform(struct?: ApiGatewayDomainNameEndpointConfigurationOutputReference | ApiGatewayDomainNameEndpointConfiguration): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apiGatewayDomainNameEndpointConfigurationToTerraform(
+  struct?:
+    | ApiGatewayDomainNameEndpointConfigurationOutputReference
+    | ApiGatewayDomainNameEndpointConfiguration,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.types),
-  }
+  };
 }
 
 export class ApiGatewayDomainNameEndpointConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApiGatewayDomainNameEndpointConfiguration | undefined {
+  public get internalValue():
+    | ApiGatewayDomainNameEndpointConfiguration
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._types !== undefined) {
@@ -113,19 +126,20 @@ export class ApiGatewayDomainNameEndpointConfigurationOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApiGatewayDomainNameEndpointConfiguration | undefined) {
+  public set internalValue(
+    value: ApiGatewayDomainNameEndpointConfiguration | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._types = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._types = value.types;
     }
   }
 
   // types - computed: false, optional: false, required: true
-  private _types?: string[]; 
+  private _types?: string[];
   public get types() {
     return this.getListAttribute('types');
   }
@@ -139,38 +153,51 @@ export class ApiGatewayDomainNameEndpointConfigurationOutputReference extends cd
 }
 export interface ApiGatewayDomainNameMutualTlsAuthentication {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#truststore_uri ApiGatewayDomainName#truststore_uri}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#truststore_uri ApiGatewayDomainName#truststore_uri}
+   */
   readonly truststoreUri: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#truststore_version ApiGatewayDomainName#truststore_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name#truststore_version ApiGatewayDomainName#truststore_version}
+   */
   readonly truststoreVersion?: string;
 }
 
-export function apiGatewayDomainNameMutualTlsAuthenticationToTerraform(struct?: ApiGatewayDomainNameMutualTlsAuthenticationOutputReference | ApiGatewayDomainNameMutualTlsAuthentication): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function apiGatewayDomainNameMutualTlsAuthenticationToTerraform(
+  struct?:
+    | ApiGatewayDomainNameMutualTlsAuthenticationOutputReference
+    | ApiGatewayDomainNameMutualTlsAuthentication,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     truststore_uri: cdktf.stringToTerraform(struct!.truststoreUri),
     truststore_version: cdktf.stringToTerraform(struct!.truststoreVersion),
-  }
+  };
 }
 
 export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ApiGatewayDomainNameMutualTlsAuthentication | undefined {
+  public get internalValue():
+    | ApiGatewayDomainNameMutualTlsAuthentication
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._truststoreUri !== undefined) {
@@ -184,13 +211,14 @@ export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ApiGatewayDomainNameMutualTlsAuthentication | undefined) {
+  public set internalValue(
+    value: ApiGatewayDomainNameMutualTlsAuthentication | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._truststoreUri = undefined;
       this._truststoreVersion = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._truststoreUri = value.truststoreUri;
       this._truststoreVersion = value.truststoreVersion;
@@ -198,7 +226,7 @@ export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends 
   }
 
   // truststore_uri - computed: false, optional: false, required: true
-  private _truststoreUri?: string; 
+  private _truststoreUri?: string;
   public get truststoreUri() {
     return this.getStringAttribute('truststore_uri');
   }
@@ -211,7 +239,7 @@ export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends 
   }
 
   // truststore_version - computed: false, optional: true, required: false
-  private _truststoreVersion?: string; 
+  private _truststoreVersion?: string;
   public get truststoreVersion() {
     return this.getStringAttribute('truststore_version');
   }
@@ -228,33 +256,36 @@ export class ApiGatewayDomainNameMutualTlsAuthenticationOutputReference extends 
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name aws_api_gateway_domain_name}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name aws_api_gateway_domain_name}
+ */
 export class ApiGatewayDomainName extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_api_gateway_domain_name";
+  public static readonly tfResourceType = 'aws_api_gateway_domain_name';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name aws_api_gateway_domain_name} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ApiGatewayDomainNameConfig
-  */
-  public constructor(scope: Construct, id: string, config: ApiGatewayDomainNameConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name aws_api_gateway_domain_name} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ApiGatewayDomainNameConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ApiGatewayDomainNameConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_domain_name',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -262,7 +293,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._certificateArn = config.certificateArn;
     this._certificateBody = config.certificateBody;
@@ -271,14 +302,16 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
     this._certificatePrivateKey = config.certificatePrivateKey;
     this._domainName = config.domainName;
     this._id = config.id;
-    this._ownershipVerificationCertificateArn = config.ownershipVerificationCertificateArn;
+    this._ownershipVerificationCertificateArn =
+      config.ownershipVerificationCertificateArn;
     this._regionalCertificateArn = config.regionalCertificateArn;
     this._regionalCertificateName = config.regionalCertificateName;
     this._securityPolicy = config.securityPolicy;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._endpointConfiguration.internalValue = config.endpointConfiguration;
-    this._mutualTlsAuthentication.internalValue = config.mutualTlsAuthentication;
+    this._mutualTlsAuthentication.internalValue =
+      config.mutualTlsAuthentication;
   }
 
   // ==========
@@ -291,7 +324,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_arn - computed: false, optional: true, required: false
-  private _certificateArn?: string; 
+  private _certificateArn?: string;
   public get certificateArn() {
     return this.getStringAttribute('certificate_arn');
   }
@@ -307,7 +340,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_body - computed: false, optional: true, required: false
-  private _certificateBody?: string; 
+  private _certificateBody?: string;
   public get certificateBody() {
     return this.getStringAttribute('certificate_body');
   }
@@ -323,7 +356,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_chain - computed: false, optional: true, required: false
-  private _certificateChain?: string; 
+  private _certificateChain?: string;
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -339,7 +372,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_name - computed: false, optional: true, required: false
-  private _certificateName?: string; 
+  private _certificateName?: string;
   public get certificateName() {
     return this.getStringAttribute('certificate_name');
   }
@@ -355,7 +388,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // certificate_private_key - computed: false, optional: true, required: false
-  private _certificatePrivateKey?: string; 
+  private _certificatePrivateKey?: string;
   public get certificatePrivateKey() {
     return this.getStringAttribute('certificate_private_key');
   }
@@ -386,7 +419,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string; 
+  private _domainName?: string;
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -399,7 +432,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -415,7 +448,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // ownership_verification_certificate_arn - computed: true, optional: true, required: false
-  private _ownershipVerificationCertificateArn?: string; 
+  private _ownershipVerificationCertificateArn?: string;
   public get ownershipVerificationCertificateArn() {
     return this.getStringAttribute('ownership_verification_certificate_arn');
   }
@@ -431,7 +464,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // regional_certificate_arn - computed: false, optional: true, required: false
-  private _regionalCertificateArn?: string; 
+  private _regionalCertificateArn?: string;
   public get regionalCertificateArn() {
     return this.getStringAttribute('regional_certificate_arn');
   }
@@ -447,7 +480,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // regional_certificate_name - computed: false, optional: true, required: false
-  private _regionalCertificateName?: string; 
+  private _regionalCertificateName?: string;
   public get regionalCertificateName() {
     return this.getStringAttribute('regional_certificate_name');
   }
@@ -473,7 +506,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // security_policy - computed: true, optional: true, required: false
-  private _securityPolicy?: string; 
+  private _securityPolicy?: string;
   public get securityPolicy() {
     return this.getStringAttribute('security_policy');
   }
@@ -489,7 +522,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -505,7 +538,7 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -521,11 +554,17 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // endpoint_configuration - computed: false, optional: true, required: false
-  private _endpointConfiguration = new ApiGatewayDomainNameEndpointConfigurationOutputReference(this, "endpoint_configuration");
+  private _endpointConfiguration =
+    new ApiGatewayDomainNameEndpointConfigurationOutputReference(
+      this,
+      'endpoint_configuration',
+    );
   public get endpointConfiguration() {
     return this._endpointConfiguration;
   }
-  public putEndpointConfiguration(value: ApiGatewayDomainNameEndpointConfiguration) {
+  public putEndpointConfiguration(
+    value: ApiGatewayDomainNameEndpointConfiguration,
+  ) {
     this._endpointConfiguration.internalValue = value;
   }
   public resetEndpointConfiguration() {
@@ -537,11 +576,17 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
   }
 
   // mutual_tls_authentication - computed: false, optional: true, required: false
-  private _mutualTlsAuthentication = new ApiGatewayDomainNameMutualTlsAuthenticationOutputReference(this, "mutual_tls_authentication");
+  private _mutualTlsAuthentication =
+    new ApiGatewayDomainNameMutualTlsAuthenticationOutputReference(
+      this,
+      'mutual_tls_authentication',
+    );
   public get mutualTlsAuthentication() {
     return this._mutualTlsAuthentication;
   }
-  public putMutualTlsAuthentication(value: ApiGatewayDomainNameMutualTlsAuthentication) {
+  public putMutualTlsAuthentication(
+    value: ApiGatewayDomainNameMutualTlsAuthentication,
+  ) {
     this._mutualTlsAuthentication.internalValue = value;
   }
   public resetMutualTlsAuthentication() {
@@ -562,17 +607,31 @@ export class ApiGatewayDomainName extends cdktf.TerraformResource {
       certificate_body: cdktf.stringToTerraform(this._certificateBody),
       certificate_chain: cdktf.stringToTerraform(this._certificateChain),
       certificate_name: cdktf.stringToTerraform(this._certificateName),
-      certificate_private_key: cdktf.stringToTerraform(this._certificatePrivateKey),
+      certificate_private_key: cdktf.stringToTerraform(
+        this._certificatePrivateKey,
+      ),
       domain_name: cdktf.stringToTerraform(this._domainName),
       id: cdktf.stringToTerraform(this._id),
-      ownership_verification_certificate_arn: cdktf.stringToTerraform(this._ownershipVerificationCertificateArn),
-      regional_certificate_arn: cdktf.stringToTerraform(this._regionalCertificateArn),
-      regional_certificate_name: cdktf.stringToTerraform(this._regionalCertificateName),
+      ownership_verification_certificate_arn: cdktf.stringToTerraform(
+        this._ownershipVerificationCertificateArn,
+      ),
+      regional_certificate_arn: cdktf.stringToTerraform(
+        this._regionalCertificateArn,
+      ),
+      regional_certificate_name: cdktf.stringToTerraform(
+        this._regionalCertificateName,
+      ),
       security_policy: cdktf.stringToTerraform(this._securityPolicy),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      endpoint_configuration: apiGatewayDomainNameEndpointConfigurationToTerraform(this._endpointConfiguration.internalValue),
-      mutual_tls_authentication: apiGatewayDomainNameMutualTlsAuthenticationToTerraform(this._mutualTlsAuthentication.internalValue),
+      endpoint_configuration:
+        apiGatewayDomainNameEndpointConfigurationToTerraform(
+          this._endpointConfiguration.internalValue,
+        ),
+      mutual_tls_authentication:
+        apiGatewayDomainNameMutualTlsAuthenticationToTerraform(
+          this._mutualTlsAuthentication.internalValue,
+        ),
     };
   }
 }

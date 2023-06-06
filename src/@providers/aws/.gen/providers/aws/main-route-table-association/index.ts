@@ -1,57 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/r/main_route_table_association
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface MainRouteTableAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface MainRouteTableAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association#id MainRouteTableAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association#id MainRouteTableAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association#route_table_id MainRouteTableAssociation#route_table_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association#route_table_id MainRouteTableAssociation#route_table_id}
+   */
   readonly routeTableId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association#vpc_id MainRouteTableAssociation#vpc_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association#vpc_id MainRouteTableAssociation#vpc_id}
+   */
   readonly vpcId: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association aws_main_route_table_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association aws_main_route_table_association}
+ */
 export class MainRouteTableAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_main_route_table_association";
+  public static readonly tfResourceType = 'aws_main_route_table_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association aws_main_route_table_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options MainRouteTableAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: MainRouteTableAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/main_route_table_association aws_main_route_table_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options MainRouteTableAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: MainRouteTableAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_main_route_table_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +62,7 @@ export class MainRouteTableAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._routeTableId = config.routeTableId;
@@ -71,7 +74,7 @@ export class MainRouteTableAssociation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +95,7 @@ export class MainRouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string; 
+  private _routeTableId?: string;
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -105,7 +108,7 @@ export class MainRouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string; 
+  private _vpcId?: string;
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }

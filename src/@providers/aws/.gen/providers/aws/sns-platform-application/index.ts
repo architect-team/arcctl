@@ -1,101 +1,104 @@
 // https://www.terraform.io/docs/providers/aws/r/sns_platform_application
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface SnsPlatformApplicationConfig extends cdktf.TerraformMetaArguments {
+export interface SnsPlatformApplicationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#apple_platform_bundle_id SnsPlatformApplication#apple_platform_bundle_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#apple_platform_bundle_id SnsPlatformApplication#apple_platform_bundle_id}
+   */
   readonly applePlatformBundleId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#apple_platform_team_id SnsPlatformApplication#apple_platform_team_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#apple_platform_team_id SnsPlatformApplication#apple_platform_team_id}
+   */
   readonly applePlatformTeamId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_delivery_failure_topic_arn SnsPlatformApplication#event_delivery_failure_topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_delivery_failure_topic_arn SnsPlatformApplication#event_delivery_failure_topic_arn}
+   */
   readonly eventDeliveryFailureTopicArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_endpoint_created_topic_arn SnsPlatformApplication#event_endpoint_created_topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_endpoint_created_topic_arn SnsPlatformApplication#event_endpoint_created_topic_arn}
+   */
   readonly eventEndpointCreatedTopicArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_endpoint_deleted_topic_arn SnsPlatformApplication#event_endpoint_deleted_topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_endpoint_deleted_topic_arn SnsPlatformApplication#event_endpoint_deleted_topic_arn}
+   */
   readonly eventEndpointDeletedTopicArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_endpoint_updated_topic_arn SnsPlatformApplication#event_endpoint_updated_topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#event_endpoint_updated_topic_arn SnsPlatformApplication#event_endpoint_updated_topic_arn}
+   */
   readonly eventEndpointUpdatedTopicArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#failure_feedback_role_arn SnsPlatformApplication#failure_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#failure_feedback_role_arn SnsPlatformApplication#failure_feedback_role_arn}
+   */
   readonly failureFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#id SnsPlatformApplication#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#id SnsPlatformApplication#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#name SnsPlatformApplication#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#name SnsPlatformApplication#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#platform SnsPlatformApplication#platform}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#platform SnsPlatformApplication#platform}
+   */
   readonly platform: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#platform_credential SnsPlatformApplication#platform_credential}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#platform_credential SnsPlatformApplication#platform_credential}
+   */
   readonly platformCredential: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#platform_principal SnsPlatformApplication#platform_principal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#platform_principal SnsPlatformApplication#platform_principal}
+   */
   readonly platformPrincipal?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#success_feedback_role_arn SnsPlatformApplication#success_feedback_role_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#success_feedback_role_arn SnsPlatformApplication#success_feedback_role_arn}
+   */
   readonly successFeedbackRoleArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#success_feedback_sample_rate SnsPlatformApplication#success_feedback_sample_rate}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application#success_feedback_sample_rate SnsPlatformApplication#success_feedback_sample_rate}
+   */
   readonly successFeedbackSampleRate?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application aws_sns_platform_application}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application aws_sns_platform_application}
+ */
 export class SnsPlatformApplication extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sns_platform_application";
+  public static readonly tfResourceType = 'aws_sns_platform_application';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application aws_sns_platform_application} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options SnsPlatformApplicationConfig
-  */
-  public constructor(scope: Construct, id: string, config: SnsPlatformApplicationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sns_platform_application aws_sns_platform_application} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options SnsPlatformApplicationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: SnsPlatformApplicationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sns_platform_application',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -103,7 +106,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._applePlatformBundleId = config.applePlatformBundleId;
     this._applePlatformTeamId = config.applePlatformTeamId;
@@ -126,7 +129,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   // ==========
 
   // apple_platform_bundle_id - computed: false, optional: true, required: false
-  private _applePlatformBundleId?: string; 
+  private _applePlatformBundleId?: string;
   public get applePlatformBundleId() {
     return this.getStringAttribute('apple_platform_bundle_id');
   }
@@ -142,7 +145,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // apple_platform_team_id - computed: false, optional: true, required: false
-  private _applePlatformTeamId?: string; 
+  private _applePlatformTeamId?: string;
   public get applePlatformTeamId() {
     return this.getStringAttribute('apple_platform_team_id');
   }
@@ -163,7 +166,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // event_delivery_failure_topic_arn - computed: false, optional: true, required: false
-  private _eventDeliveryFailureTopicArn?: string; 
+  private _eventDeliveryFailureTopicArn?: string;
   public get eventDeliveryFailureTopicArn() {
     return this.getStringAttribute('event_delivery_failure_topic_arn');
   }
@@ -179,7 +182,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // event_endpoint_created_topic_arn - computed: false, optional: true, required: false
-  private _eventEndpointCreatedTopicArn?: string; 
+  private _eventEndpointCreatedTopicArn?: string;
   public get eventEndpointCreatedTopicArn() {
     return this.getStringAttribute('event_endpoint_created_topic_arn');
   }
@@ -195,7 +198,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // event_endpoint_deleted_topic_arn - computed: false, optional: true, required: false
-  private _eventEndpointDeletedTopicArn?: string; 
+  private _eventEndpointDeletedTopicArn?: string;
   public get eventEndpointDeletedTopicArn() {
     return this.getStringAttribute('event_endpoint_deleted_topic_arn');
   }
@@ -211,7 +214,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // event_endpoint_updated_topic_arn - computed: false, optional: true, required: false
-  private _eventEndpointUpdatedTopicArn?: string; 
+  private _eventEndpointUpdatedTopicArn?: string;
   public get eventEndpointUpdatedTopicArn() {
     return this.getStringAttribute('event_endpoint_updated_topic_arn');
   }
@@ -227,7 +230,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // failure_feedback_role_arn - computed: false, optional: true, required: false
-  private _failureFeedbackRoleArn?: string; 
+  private _failureFeedbackRoleArn?: string;
   public get failureFeedbackRoleArn() {
     return this.getStringAttribute('failure_feedback_role_arn');
   }
@@ -243,7 +246,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -259,7 +262,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -272,7 +275,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // platform - computed: false, optional: false, required: true
-  private _platform?: string; 
+  private _platform?: string;
   public get platform() {
     return this.getStringAttribute('platform');
   }
@@ -285,7 +288,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // platform_credential - computed: false, optional: false, required: true
-  private _platformCredential?: string; 
+  private _platformCredential?: string;
   public get platformCredential() {
     return this.getStringAttribute('platform_credential');
   }
@@ -298,7 +301,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // platform_principal - computed: false, optional: true, required: false
-  private _platformPrincipal?: string; 
+  private _platformPrincipal?: string;
   public get platformPrincipal() {
     return this.getStringAttribute('platform_principal');
   }
@@ -314,7 +317,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // success_feedback_role_arn - computed: false, optional: true, required: false
-  private _successFeedbackRoleArn?: string; 
+  private _successFeedbackRoleArn?: string;
   public get successFeedbackRoleArn() {
     return this.getStringAttribute('success_feedback_role_arn');
   }
@@ -330,7 +333,7 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
   }
 
   // success_feedback_sample_rate - computed: false, optional: true, required: false
-  private _successFeedbackSampleRate?: string; 
+  private _successFeedbackSampleRate?: string;
   public get successFeedbackSampleRate() {
     return this.getStringAttribute('success_feedback_sample_rate');
   }
@@ -351,20 +354,38 @@ export class SnsPlatformApplication extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      apple_platform_bundle_id: cdktf.stringToTerraform(this._applePlatformBundleId),
-      apple_platform_team_id: cdktf.stringToTerraform(this._applePlatformTeamId),
-      event_delivery_failure_topic_arn: cdktf.stringToTerraform(this._eventDeliveryFailureTopicArn),
-      event_endpoint_created_topic_arn: cdktf.stringToTerraform(this._eventEndpointCreatedTopicArn),
-      event_endpoint_deleted_topic_arn: cdktf.stringToTerraform(this._eventEndpointDeletedTopicArn),
-      event_endpoint_updated_topic_arn: cdktf.stringToTerraform(this._eventEndpointUpdatedTopicArn),
-      failure_feedback_role_arn: cdktf.stringToTerraform(this._failureFeedbackRoleArn),
+      apple_platform_bundle_id: cdktf.stringToTerraform(
+        this._applePlatformBundleId,
+      ),
+      apple_platform_team_id: cdktf.stringToTerraform(
+        this._applePlatformTeamId,
+      ),
+      event_delivery_failure_topic_arn: cdktf.stringToTerraform(
+        this._eventDeliveryFailureTopicArn,
+      ),
+      event_endpoint_created_topic_arn: cdktf.stringToTerraform(
+        this._eventEndpointCreatedTopicArn,
+      ),
+      event_endpoint_deleted_topic_arn: cdktf.stringToTerraform(
+        this._eventEndpointDeletedTopicArn,
+      ),
+      event_endpoint_updated_topic_arn: cdktf.stringToTerraform(
+        this._eventEndpointUpdatedTopicArn,
+      ),
+      failure_feedback_role_arn: cdktf.stringToTerraform(
+        this._failureFeedbackRoleArn,
+      ),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       platform: cdktf.stringToTerraform(this._platform),
       platform_credential: cdktf.stringToTerraform(this._platformCredential),
       platform_principal: cdktf.stringToTerraform(this._platformPrincipal),
-      success_feedback_role_arn: cdktf.stringToTerraform(this._successFeedbackRoleArn),
-      success_feedback_sample_rate: cdktf.stringToTerraform(this._successFeedbackSampleRate),
+      success_feedback_role_arn: cdktf.stringToTerraform(
+        this._successFeedbackRoleArn,
+      ),
+      success_feedback_sample_rate: cdktf.stringToTerraform(
+        this._successFeedbackSampleRate,
+      ),
     };
   }
 }

@@ -1,7 +1,7 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { DeepPartial } from '../../../utils/types.js';
-import { CrudResourceService } from '../../crud.service.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { DeepPartial } from '../../../utils/types.ts';
+import { CrudResourceService } from '../../crud.service.ts';
 
 export class DockerServiceService extends CrudResourceService<'service'> {
   get(id: string): Promise<ResourceOutputs['service'] | undefined> {
@@ -14,9 +14,7 @@ export class DockerServiceService extends CrudResourceService<'service'> {
     throw new Error('Method not implemented.');
   }
 
-  async create(
-    inputs: ResourceInputs['service'],
-  ): Promise<ResourceOutputs['service']> {
+  async create(inputs: ResourceInputs['service']): Promise<ResourceOutputs['service']> {
     const protocol = inputs.protocol || 'http';
     const host = inputs.selector || '';
     const url = `${protocol}://${host}:${inputs.target_port}`;
@@ -30,9 +28,7 @@ export class DockerServiceService extends CrudResourceService<'service'> {
     };
   }
 
-  async update(
-    inputs: ResourceInputs['service'],
-  ): Promise<DeepPartial<ResourceOutputs['service']>> {
+  async update(inputs: ResourceInputs['service']): Promise<DeepPartial<ResourceOutputs['service']>> {
     const protocol = inputs.protocol || 'http';
     const host = inputs.selector || '';
     const url = `${protocol}://${host}:${inputs.target_port}`;

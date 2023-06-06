@@ -1,69 +1,56 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { ProviderStore } from '../../store.js';
-import { SupportedProviders } from '../../supported-providers.js';
-import { Rds } from '../.gen/modules/rds.js';
-import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.js';
-import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.js';
-import { AwsProvider } from '../.gen/providers/aws/provider/index.js';
-import { SecurityGroup } from '../.gen/providers/aws/security-group/index.js';
-import { AwsCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { ProviderStore } from '../../store.ts';
+import { SupportedProviders } from '../../supported-providers.ts';
+import { Rds } from '../.gen/modules/rds.ts';
+import { DataAwsSubnets } from '../.gen/providers/aws/data-aws-subnets/index.ts';
+import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.ts';
+import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
+import { SecurityGroup } from '../.gen/providers/aws/security-group/index.ts';
+import { AwsCredentials } from '../credentials.ts';
 import { Fn, TerraformOutput } from 'cdktf';
 import { Construct } from 'constructs';
 
-export class AwsDatabaseModule extends ResourceModule<
-  'database',
-  AwsCredentials
-> {
+export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials> {
   outputs: ResourceOutputs['database'];
   database: Rds;
   private username: TerraformOutput;
   private password: TerraformOutput;
   private certificate: TerraformOutput;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['database'],
-  ) {
+  constructor(scope: Construct, id: string, inputs: ResourceInputs['database']) {
     super(scope, id, inputs);
 
     const name = inputs.name.replaceAll('/', '-').toLowerCase();
-    const vpc_parts = inputs.vpc
-      ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/)
-      : [];
+    const vpc_parts = inputs.vpc ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/) : [];
     if (!vpc_parts) {
       throw new Error('VPC must be of the format, <region>/<vpc_id>');
     }
     const [region, vpc_id] = (inputs.vpc || '/').split('/');
 
     if (region) {
-      const aws_provider = this.scope.node.children.find(
-        (child) => child instanceof AwsProvider,
-      ) as AwsProvider | undefined;
+      const aws_provider = this.scope.node.children.find((child) => child instanceof AwsProvider) as
+        | AwsProvider
+        | undefined;
       if (!aws_provider) {
         throw new Error('Unable to set region on AWS provider.');
       }
       aws_provider.region = region;
     }
 
-    const database_security_group = new SecurityGroup(
-      this,
-      `database-security-group-${name}`,
-      {
-        name: `database-${name}`,
-        description: 'Allow database access',
-        vpcId: vpc_id,
-        ingress: [
-          {
-            protocol: 'tcp',
-            fromPort: 5432,
-            toPort: 5432,
-            cidrBlocks: ['0.0.0.0/0'],
-          },
-        ],
-      },
-    );
+    const database_security_group = new SecurityGroup(this, `database-security-group-${name}`, {
+      name: `database-${name}`,
+      description: 'Allow database access',
+      vpcId: vpc_id,
+      ingress: [
+        {
+          protocol: 'tcp',
+          fromPort: 5432,
+          toPort: 5432,
+          cidrBlocks: ['0.0.0.0/0'],
+        },
+      ],
+    });
 
     const subnet_ids = new DataAwsSubnets(this, `subnet_ids-${name}`, {
       filter: [
@@ -108,14 +95,10 @@ export class AwsDatabaseModule extends ResourceModule<
       sensitive: true,
     });
 
-    this.certificate = new TerraformOutput(
-      this,
-      `database-${name}-certificate`,
-      {
-        sensitive: true,
-        value: this.database.dbInstanceCaCertIdentifierOutput,
-      },
-    );
+    this.certificate = new TerraformOutput(this, `database-${name}-certificate`, {
+      sensitive: true,
+      value: this.database.dbInstanceCaCertIdentifierOutput,
+    });
 
     this.outputs = {
       id: this.database.identifier,
@@ -127,10 +110,7 @@ export class AwsDatabaseModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: AwsCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
+  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
     const moduleId = ['module', this.database.friendlyUniqueId].join('.');
 
     const [region, id] = resourceId.split('/');

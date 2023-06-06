@@ -1,5 +1,5 @@
-import { DeepPartial } from '../../utils/types.js';
-import { RuntimeSchemaV1 } from './common.js';
+import { DeepPartial } from '../../utils/types.ts';
+import { RuntimeSchemaV1 } from './common.ts';
 
 export type ServiceSchemaV1 = RuntimeSchemaV1 & {
   replicas?: number | string;
@@ -63,18 +63,18 @@ export type ServiceSchemaV1 = RuntimeSchemaV1 & {
     | number
     | string
     | {
-        host?: string;
-        port: number | string;
-        protocol?: string;
-        username?: string;
-        password?: string;
-        url?: string;
-        ingress?: {
-          subdomain?: string;
-          path?: string;
-          internal?: boolean;
-        };
-      }
+      host?: string;
+      port: number | string;
+      protocol?: string;
+      username?: string;
+      password?: string;
+      url?: string;
+      ingress?: {
+        subdomain?: string;
+        path?: string;
+        internal?: boolean;
+      };
+    }
   >;
 };
 

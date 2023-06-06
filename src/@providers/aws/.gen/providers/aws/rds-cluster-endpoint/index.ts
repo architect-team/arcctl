@@ -1,77 +1,79 @@
 // https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface RdsClusterEndpointConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#cluster_endpoint_identifier RdsClusterEndpoint#cluster_endpoint_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#cluster_endpoint_identifier RdsClusterEndpoint#cluster_endpoint_identifier}
+   */
   readonly clusterEndpointIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#cluster_identifier RdsClusterEndpoint#cluster_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#cluster_identifier RdsClusterEndpoint#cluster_identifier}
+   */
   readonly clusterIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#custom_endpoint_type RdsClusterEndpoint#custom_endpoint_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#custom_endpoint_type RdsClusterEndpoint#custom_endpoint_type}
+   */
   readonly customEndpointType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#excluded_members RdsClusterEndpoint#excluded_members}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#excluded_members RdsClusterEndpoint#excluded_members}
+   */
   readonly excludedMembers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#id RdsClusterEndpoint#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#id RdsClusterEndpoint#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#static_members RdsClusterEndpoint#static_members}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#static_members RdsClusterEndpoint#static_members}
+   */
   readonly staticMembers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#tags RdsClusterEndpoint#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#tags RdsClusterEndpoint#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#tags_all RdsClusterEndpoint#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint#tags_all RdsClusterEndpoint#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint aws_rds_cluster_endpoint}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint aws_rds_cluster_endpoint}
+ */
 export class RdsClusterEndpoint extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_rds_cluster_endpoint";
+  public static readonly tfResourceType = 'aws_rds_cluster_endpoint';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint aws_rds_cluster_endpoint} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RdsClusterEndpointConfig
-  */
-  public constructor(scope: Construct, id: string, config: RdsClusterEndpointConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rds_cluster_endpoint aws_rds_cluster_endpoint} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RdsClusterEndpointConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RdsClusterEndpointConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_rds_cluster_endpoint',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -79,7 +81,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clusterEndpointIdentifier = config.clusterEndpointIdentifier;
     this._clusterIdentifier = config.clusterIdentifier;
@@ -101,7 +103,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // cluster_endpoint_identifier - computed: false, optional: false, required: true
-  private _clusterEndpointIdentifier?: string; 
+  private _clusterEndpointIdentifier?: string;
   public get clusterEndpointIdentifier() {
     return this.getStringAttribute('cluster_endpoint_identifier');
   }
@@ -114,7 +116,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -127,7 +129,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // custom_endpoint_type - computed: false, optional: false, required: true
-  private _customEndpointType?: string; 
+  private _customEndpointType?: string;
   public get customEndpointType() {
     return this.getStringAttribute('custom_endpoint_type');
   }
@@ -145,7 +147,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // excluded_members - computed: false, optional: true, required: false
-  private _excludedMembers?: string[]; 
+  private _excludedMembers?: string[];
   public get excludedMembers() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_members'));
   }
@@ -161,7 +163,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -177,7 +179,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // static_members - computed: false, optional: true, required: false
-  private _staticMembers?: string[]; 
+  private _staticMembers?: string[];
   public get staticMembers() {
     return cdktf.Fn.tolist(this.getListAttribute('static_members'));
   }
@@ -193,7 +195,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -209,7 +211,7 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -230,12 +232,20 @@ export class RdsClusterEndpoint extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      cluster_endpoint_identifier: cdktf.stringToTerraform(this._clusterEndpointIdentifier),
+      cluster_endpoint_identifier: cdktf.stringToTerraform(
+        this._clusterEndpointIdentifier,
+      ),
       cluster_identifier: cdktf.stringToTerraform(this._clusterIdentifier),
       custom_endpoint_type: cdktf.stringToTerraform(this._customEndpointType),
-      excluded_members: cdktf.listMapper(cdktf.stringToTerraform, false)(this._excludedMembers),
+      excluded_members: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._excludedMembers),
       id: cdktf.stringToTerraform(this._id),
-      static_members: cdktf.listMapper(cdktf.stringToTerraform, false)(this._staticMembers),
+      static_members: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._staticMembers),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
     };

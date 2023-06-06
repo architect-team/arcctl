@@ -1,75 +1,88 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DatasyncLocationFsxOpenzfsFileSystemConfig extends cdktf.TerraformMetaArguments {
+export interface DatasyncLocationFsxOpenzfsFileSystemConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#fsx_filesystem_arn DatasyncLocationFsxOpenzfsFileSystem#fsx_filesystem_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#fsx_filesystem_arn DatasyncLocationFsxOpenzfsFileSystem#fsx_filesystem_arn}
+   */
   readonly fsxFilesystemArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#id DatasyncLocationFsxOpenzfsFileSystem#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#id DatasyncLocationFsxOpenzfsFileSystem#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#security_group_arns DatasyncLocationFsxOpenzfsFileSystem#security_group_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#security_group_arns DatasyncLocationFsxOpenzfsFileSystem#security_group_arns}
+   */
   readonly securityGroupArns: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#subdirectory DatasyncLocationFsxOpenzfsFileSystem#subdirectory}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#subdirectory DatasyncLocationFsxOpenzfsFileSystem#subdirectory}
+   */
   readonly subdirectory?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#tags DatasyncLocationFsxOpenzfsFileSystem#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#tags DatasyncLocationFsxOpenzfsFileSystem#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#tags_all DatasyncLocationFsxOpenzfsFileSystem#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#tags_all DatasyncLocationFsxOpenzfsFileSystem#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * protocol block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#protocol DatasyncLocationFsxOpenzfsFileSystem#protocol}
-  */
+   * protocol block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#protocol DatasyncLocationFsxOpenzfsFileSystem#protocol}
+   */
   readonly protocol: DatasyncLocationFsxOpenzfsFileSystemProtocol;
 }
 export interface DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#version DatasyncLocationFsxOpenzfsFileSystem#version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#version DatasyncLocationFsxOpenzfsFileSystem#version}
+   */
   readonly version?: string;
 }
 
-export function datasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsToTerraform(struct?: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputReference | DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsToTerraform(
+  struct?:
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputReference
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     version: cdktf.stringToTerraform(struct!.version),
-  }
+  };
 }
 
 export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions | undefined {
+  public get internalValue():
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._version !== undefined) {
@@ -79,19 +92,22 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions | undefined) {
+  public set internalValue(
+    value:
+      | DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._version = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._version = value.version;
     }
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -108,35 +124,51 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputRe
 }
 export interface DatasyncLocationFsxOpenzfsFileSystemProtocolNfs {
   /**
-  * mount_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#mount_options DatasyncLocationFsxOpenzfsFileSystem#mount_options}
-  */
+   * mount_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#mount_options DatasyncLocationFsxOpenzfsFileSystem#mount_options}
+   */
   readonly mountOptions: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions;
 }
 
-export function datasyncLocationFsxOpenzfsFileSystemProtocolNfsToTerraform(struct?: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference | DatasyncLocationFsxOpenzfsFileSystemProtocolNfs): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datasyncLocationFsxOpenzfsFileSystemProtocolNfsToTerraform(
+  struct?:
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolNfs,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    mount_options: datasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsToTerraform(struct!.mountOptions),
-  }
+    mount_options:
+      datasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsToTerraform(
+        struct!.mountOptions,
+      ),
+  };
 }
 
 export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DatasyncLocationFsxOpenzfsFileSystemProtocolNfs | undefined {
+  public get internalValue():
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolNfs
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._mountOptions?.internalValue !== undefined) {
@@ -146,23 +178,30 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatasyncLocationFsxOpenzfsFileSystemProtocolNfs | undefined) {
+  public set internalValue(
+    value: DatasyncLocationFsxOpenzfsFileSystemProtocolNfs | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._mountOptions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mountOptions.internalValue = value.mountOptions;
     }
   }
 
   // mount_options - computed: false, optional: false, required: true
-  private _mountOptions = new DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputReference(this, "mount_options");
+  private _mountOptions =
+    new DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptionsOutputReference(
+      this,
+      'mount_options',
+    );
   public get mountOptions() {
     return this._mountOptions;
   }
-  public putMountOptions(value: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions) {
+  public putMountOptions(
+    value: DatasyncLocationFsxOpenzfsFileSystemProtocolNfsMountOptions,
+  ) {
     this._mountOptions.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -172,35 +211,50 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference exte
 }
 export interface DatasyncLocationFsxOpenzfsFileSystemProtocol {
   /**
-  * nfs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#nfs DatasyncLocationFsxOpenzfsFileSystem#nfs}
-  */
+   * nfs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system#nfs DatasyncLocationFsxOpenzfsFileSystem#nfs}
+   */
   readonly nfs: DatasyncLocationFsxOpenzfsFileSystemProtocolNfs;
 }
 
-export function datasyncLocationFsxOpenzfsFileSystemProtocolToTerraform(struct?: DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference | DatasyncLocationFsxOpenzfsFileSystemProtocol): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function datasyncLocationFsxOpenzfsFileSystemProtocolToTerraform(
+  struct?:
+    | DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference
+    | DatasyncLocationFsxOpenzfsFileSystemProtocol,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    nfs: datasyncLocationFsxOpenzfsFileSystemProtocolNfsToTerraform(struct!.nfs),
-  }
+    nfs: datasyncLocationFsxOpenzfsFileSystemProtocolNfsToTerraform(
+      struct!.nfs,
+    ),
+  };
 }
 
 export class DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DatasyncLocationFsxOpenzfsFileSystemProtocol | undefined {
+  public get internalValue():
+    | DatasyncLocationFsxOpenzfsFileSystemProtocol
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._nfs?.internalValue !== undefined) {
@@ -210,19 +264,24 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DatasyncLocationFsxOpenzfsFileSystemProtocol | undefined) {
+  public set internalValue(
+    value: DatasyncLocationFsxOpenzfsFileSystemProtocol | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._nfs.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._nfs.internalValue = value.nfs;
     }
   }
 
   // nfs - computed: false, optional: false, required: true
-  private _nfs = new DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference(this, "nfs");
+  private _nfs =
+    new DatasyncLocationFsxOpenzfsFileSystemProtocolNfsOutputReference(
+      this,
+      'nfs',
+    );
   public get nfs() {
     return this._nfs;
   }
@@ -236,33 +295,37 @@ export class DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference extends
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system aws_datasync_location_fsx_openzfs_file_system}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system aws_datasync_location_fsx_openzfs_file_system}
+ */
 export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_datasync_location_fsx_openzfs_file_system";
+  public static readonly tfResourceType =
+    'aws_datasync_location_fsx_openzfs_file_system';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system aws_datasync_location_fsx_openzfs_file_system} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DatasyncLocationFsxOpenzfsFileSystemConfig
-  */
-  public constructor(scope: Construct, id: string, config: DatasyncLocationFsxOpenzfsFileSystemConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_fsx_openzfs_file_system aws_datasync_location_fsx_openzfs_file_system} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DatasyncLocationFsxOpenzfsFileSystemConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DatasyncLocationFsxOpenzfsFileSystemConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_datasync_location_fsx_openzfs_file_system',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -270,7 +333,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._fsxFilesystemArn = config.fsxFilesystemArn;
     this._id = config.id;
@@ -296,7 +359,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // fsx_filesystem_arn - computed: false, optional: false, required: true
-  private _fsxFilesystemArn?: string; 
+  private _fsxFilesystemArn?: string;
   public get fsxFilesystemArn() {
     return this.getStringAttribute('fsx_filesystem_arn');
   }
@@ -309,7 +372,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -325,7 +388,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // security_group_arns - computed: false, optional: false, required: true
-  private _securityGroupArns?: string[]; 
+  private _securityGroupArns?: string[];
   public get securityGroupArns() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_arns'));
   }
@@ -338,7 +401,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // subdirectory - computed: true, optional: true, required: false
-  private _subdirectory?: string; 
+  private _subdirectory?: string;
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -354,7 +417,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -370,7 +433,7 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -391,7 +454,11 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol = new DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference(this, "protocol");
+  private _protocol =
+    new DatasyncLocationFsxOpenzfsFileSystemProtocolOutputReference(
+      this,
+      'protocol',
+    );
   public get protocol() {
     return this._protocol;
   }
@@ -411,11 +478,16 @@ export class DatasyncLocationFsxOpenzfsFileSystem extends cdktf.TerraformResourc
     return {
       fsx_filesystem_arn: cdktf.stringToTerraform(this._fsxFilesystemArn),
       id: cdktf.stringToTerraform(this._id),
-      security_group_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupArns),
+      security_group_arns: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._securityGroupArns),
       subdirectory: cdktf.stringToTerraform(this._subdirectory),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      protocol: datasyncLocationFsxOpenzfsFileSystemProtocolToTerraform(this._protocol.internalValue),
+      protocol: datasyncLocationFsxOpenzfsFileSystemProtocolToTerraform(
+        this._protocol.internalValue,
+      ),
     };
   }
 }

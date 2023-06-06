@@ -1,7 +1,7 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { BaseService } from '../../service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { BaseService } from '../../service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
 import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanRegionService extends BaseService<'region'> {
@@ -19,9 +19,9 @@ export class DigitaloceanRegionService extends BaseService<'region'> {
     const region = regions.find((r) => r.slug === id);
     return region
       ? {
-          id: region.slug,
-          name: region.name,
-        }
+        id: region.slug,
+        name: region.name,
+      }
       : undefined;
   }
 
@@ -30,8 +30,7 @@ export class DigitaloceanRegionService extends BaseService<'region'> {
     filterOptions?: Partial<ResourceOutputs['region']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['region']>> {
-    const options =
-      await this.client.kubernetes.listAvailableOptionsOfKubernetes();
+    const options = await this.client.kubernetes.listAvailableOptionsOfKubernetes();
     const regions = options.data.options.regions;
     return {
       total: regions.length,

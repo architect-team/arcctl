@@ -1,14 +1,11 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesNamespaceModule } from '../modules/namespace.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesNamespaceModule } from '../modules/namespace.ts';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesNamespaceService extends TerraformResourceService<
-  'namespace',
-  KubernetesCredentials
-> {
+export class KubernetesNamespaceService extends TerraformResourceService<'namespace', KubernetesCredentials> {
   private client: k8s.CoreV1Api;
 
   constructor(credentials: KubernetesCredentials) {

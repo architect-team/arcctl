@@ -1,10 +1,6 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../@resources/index.js';
-import { ProviderCredentials } from './credentials.js';
-import { ProviderStore } from './store.js';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { ProviderCredentials } from './credentials.ts';
+import { ProviderStore } from './store.ts';
 import { TerraformResource } from 'cdktf';
 import { Construct } from 'constructs';
 
@@ -18,10 +14,7 @@ export interface ResourceModuleHooks<T extends ResourceType> {
   afterImport?: () => Promise<void>;
 }
 
-export abstract class ResourceModule<
-  T extends ResourceType,
-  C extends ProviderCredentials,
-> extends Construct {
+export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends Construct {
   abstract outputs: ResourceOutputs[T];
   hooks: ResourceModuleHooks<T> = {};
 
@@ -39,10 +32,7 @@ export abstract class ResourceModule<
     return [type, id].join('.');
   }
 
-  abstract genImports(
-    credentials: C,
-    resourceId: string,
-  ): Promise<Record<string, string>>;
+  abstract genImports(credentials: C, resourceId: string): Promise<Record<string, string>>;
 
   abstract getDisplayNames(): Record<string, string>;
 }

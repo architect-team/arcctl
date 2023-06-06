@@ -1,116 +1,157 @@
 // https://www.terraform.io/docs/providers/aws/r/default_route_table
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DefaultRouteTableConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#default_route_table_id DefaultRouteTable#default_route_table_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#default_route_table_id DefaultRouteTable#default_route_table_id}
+   */
   readonly defaultRouteTableId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#id DefaultRouteTable#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#id DefaultRouteTable#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#propagating_vgws DefaultRouteTable#propagating_vgws}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#propagating_vgws DefaultRouteTable#propagating_vgws}
+   */
   readonly propagatingVgws?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#route DefaultRouteTable#route}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#route DefaultRouteTable#route}
+   */
   readonly route?: DefaultRouteTableRoute[] | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#tags DefaultRouteTable#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#tags DefaultRouteTable#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#tags_all DefaultRouteTable#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#tags_all DefaultRouteTable#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#timeouts DefaultRouteTable#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#timeouts DefaultRouteTable#timeouts}
+   */
   readonly timeouts?: DefaultRouteTableTimeouts;
 }
 export interface DefaultRouteTableRoute {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#cidr_block DefaultRouteTable#cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#cidr_block DefaultRouteTable#cidr_block}
+   */
   readonly cidrBlock?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#core_network_arn DefaultRouteTable#core_network_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#core_network_arn DefaultRouteTable#core_network_arn}
+   */
   readonly coreNetworkArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#destination_prefix_list_id DefaultRouteTable#destination_prefix_list_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#destination_prefix_list_id DefaultRouteTable#destination_prefix_list_id}
+   */
   readonly destinationPrefixListId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#egress_only_gateway_id DefaultRouteTable#egress_only_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#egress_only_gateway_id DefaultRouteTable#egress_only_gateway_id}
+   */
   readonly egressOnlyGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#gateway_id DefaultRouteTable#gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#gateway_id DefaultRouteTable#gateway_id}
+   */
   readonly gatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#instance_id DefaultRouteTable#instance_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#instance_id DefaultRouteTable#instance_id}
+   */
   readonly instanceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#ipv6_cidr_block DefaultRouteTable#ipv6_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#ipv6_cidr_block DefaultRouteTable#ipv6_cidr_block}
+   */
   readonly ipv6CidrBlock?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#nat_gateway_id DefaultRouteTable#nat_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#nat_gateway_id DefaultRouteTable#nat_gateway_id}
+   */
   readonly natGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#network_interface_id DefaultRouteTable#network_interface_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#network_interface_id DefaultRouteTable#network_interface_id}
+   */
   readonly networkInterfaceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#transit_gateway_id DefaultRouteTable#transit_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#transit_gateway_id DefaultRouteTable#transit_gateway_id}
+   */
   readonly transitGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#vpc_endpoint_id DefaultRouteTable#vpc_endpoint_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#vpc_endpoint_id DefaultRouteTable#vpc_endpoint_id}
+   */
   readonly vpcEndpointId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#vpc_peering_connection_id DefaultRouteTable#vpc_peering_connection_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#vpc_peering_connection_id DefaultRouteTable#vpc_peering_connection_id}
+   */
   readonly vpcPeeringConnectionId?: string;
 }
 
-export function defaultRouteTableRouteToTerraform(struct?: DefaultRouteTableRoute | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function defaultRouteTableRouteToTerraform(
+  struct?: DefaultRouteTableRoute | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    cidr_block: struct!.cidrBlock === undefined ? null : cdktf.stringToTerraform(struct!.cidrBlock),
-    core_network_arn: struct!.coreNetworkArn === undefined ? null : cdktf.stringToTerraform(struct!.coreNetworkArn),
-    destination_prefix_list_id: struct!.destinationPrefixListId === undefined ? null : cdktf.stringToTerraform(struct!.destinationPrefixListId),
-    egress_only_gateway_id: struct!.egressOnlyGatewayId === undefined ? null : cdktf.stringToTerraform(struct!.egressOnlyGatewayId),
-    gateway_id: struct!.gatewayId === undefined ? null : cdktf.stringToTerraform(struct!.gatewayId),
-    instance_id: struct!.instanceId === undefined ? null : cdktf.stringToTerraform(struct!.instanceId),
-    ipv6_cidr_block: struct!.ipv6CidrBlock === undefined ? null : cdktf.stringToTerraform(struct!.ipv6CidrBlock),
-    nat_gateway_id: struct!.natGatewayId === undefined ? null : cdktf.stringToTerraform(struct!.natGatewayId),
-    network_interface_id: struct!.networkInterfaceId === undefined ? null : cdktf.stringToTerraform(struct!.networkInterfaceId),
-    transit_gateway_id: struct!.transitGatewayId === undefined ? null : cdktf.stringToTerraform(struct!.transitGatewayId),
-    vpc_endpoint_id: struct!.vpcEndpointId === undefined ? null : cdktf.stringToTerraform(struct!.vpcEndpointId),
-    vpc_peering_connection_id: struct!.vpcPeeringConnectionId === undefined ? null : cdktf.stringToTerraform(struct!.vpcPeeringConnectionId),
-  }
+    cidr_block:
+      struct!.cidrBlock === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.cidrBlock),
+    core_network_arn:
+      struct!.coreNetworkArn === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.coreNetworkArn),
+    destination_prefix_list_id:
+      struct!.destinationPrefixListId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.destinationPrefixListId),
+    egress_only_gateway_id:
+      struct!.egressOnlyGatewayId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.egressOnlyGatewayId),
+    gateway_id:
+      struct!.gatewayId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.gatewayId),
+    instance_id:
+      struct!.instanceId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.instanceId),
+    ipv6_cidr_block:
+      struct!.ipv6CidrBlock === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.ipv6CidrBlock),
+    nat_gateway_id:
+      struct!.natGatewayId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.natGatewayId),
+    network_interface_id:
+      struct!.networkInterfaceId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.networkInterfaceId),
+    transit_gateway_id:
+      struct!.transitGatewayId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.transitGatewayId),
+    vpc_endpoint_id:
+      struct!.vpcEndpointId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.vpcEndpointId),
+    vpc_peering_connection_id:
+      struct!.vpcPeeringConnectionId === undefined
+        ? null
+        : cdktf.stringToTerraform(struct!.vpcPeeringConnectionId),
+  };
 }
 
 export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
@@ -118,16 +159,29 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): DefaultRouteTableRoute | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DefaultRouteTableRoute
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -143,7 +197,8 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
     }
     if (this._destinationPrefixListId !== undefined) {
       hasAnyValues = true;
-      internalValueResult.destinationPrefixListId = this._destinationPrefixListId;
+      internalValueResult.destinationPrefixListId =
+        this._destinationPrefixListId;
     }
     if (this._egressOnlyGatewayId !== undefined) {
       hasAnyValues = true;
@@ -184,7 +239,9 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DefaultRouteTableRoute | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DefaultRouteTableRoute | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -200,12 +257,10 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
       this._transitGatewayId = undefined;
       this._vpcEndpointId = undefined;
       this._vpcPeeringConnectionId = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._cidrBlock = value.cidrBlock;
@@ -224,7 +279,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // cidr_block - computed: true, optional: true, required: false
-  private _cidrBlock?: string; 
+  private _cidrBlock?: string;
   public get cidrBlock() {
     return this.getStringAttribute('cidr_block');
   }
@@ -240,7 +295,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // core_network_arn - computed: true, optional: true, required: false
-  private _coreNetworkArn?: string; 
+  private _coreNetworkArn?: string;
   public get coreNetworkArn() {
     return this.getStringAttribute('core_network_arn');
   }
@@ -256,7 +311,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // destination_prefix_list_id - computed: true, optional: true, required: false
-  private _destinationPrefixListId?: string; 
+  private _destinationPrefixListId?: string;
   public get destinationPrefixListId() {
     return this.getStringAttribute('destination_prefix_list_id');
   }
@@ -272,7 +327,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // egress_only_gateway_id - computed: true, optional: true, required: false
-  private _egressOnlyGatewayId?: string; 
+  private _egressOnlyGatewayId?: string;
   public get egressOnlyGatewayId() {
     return this.getStringAttribute('egress_only_gateway_id');
   }
@@ -288,7 +343,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // gateway_id - computed: true, optional: true, required: false
-  private _gatewayId?: string; 
+  private _gatewayId?: string;
   public get gatewayId() {
     return this.getStringAttribute('gateway_id');
   }
@@ -304,7 +359,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_id - computed: true, optional: true, required: false
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -320,7 +375,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // ipv6_cidr_block - computed: true, optional: true, required: false
-  private _ipv6CidrBlock?: string; 
+  private _ipv6CidrBlock?: string;
   public get ipv6CidrBlock() {
     return this.getStringAttribute('ipv6_cidr_block');
   }
@@ -336,7 +391,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // nat_gateway_id - computed: true, optional: true, required: false
-  private _natGatewayId?: string; 
+  private _natGatewayId?: string;
   public get natGatewayId() {
     return this.getStringAttribute('nat_gateway_id');
   }
@@ -352,7 +407,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // network_interface_id - computed: true, optional: true, required: false
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -368,7 +423,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // transit_gateway_id - computed: true, optional: true, required: false
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -384,7 +439,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_endpoint_id - computed: true, optional: true, required: false
-  private _vpcEndpointId?: string; 
+  private _vpcEndpointId?: string;
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }
@@ -400,7 +455,7 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_peering_connection_id - computed: true, optional: true, required: false
-  private _vpcPeeringConnectionId?: string; 
+  private _vpcPeeringConnectionId?: string;
   public get vpcPeeringConnectionId() {
     return this.getStringAttribute('vpc_peering_connection_id');
   }
@@ -417,44 +472,62 @@ export class DefaultRouteTableRouteOutputReference extends cdktf.ComplexObject {
 }
 
 export class DefaultRouteTableRouteList extends cdktf.ComplexList {
-  public internalValue? : DefaultRouteTableRoute[] | cdktf.IResolvable
+  public internalValue?: DefaultRouteTableRoute[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): DefaultRouteTableRouteOutputReference {
-    return new DefaultRouteTableRouteOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new DefaultRouteTableRouteOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface DefaultRouteTableTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#create DefaultRouteTable#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#create DefaultRouteTable#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#update DefaultRouteTable#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/default_route_table#update DefaultRouteTable#update}
+   */
   readonly update?: string;
 }
 
-export function defaultRouteTableTimeoutsToTerraform(struct?: DefaultRouteTableTimeoutsOutputReference | DefaultRouteTableTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function defaultRouteTableTimeoutsToTerraform(
+  struct?:
+    | DefaultRouteTableTimeoutsOutputReference
+    | DefaultRouteTableTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class DefaultRouteTableTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -462,14 +535,20 @@ export class DefaultRouteTableTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DefaultRouteTableTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DefaultRouteTableTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -486,18 +565,18 @@ export class DefaultRouteTableTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DefaultRouteTableTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DefaultRouteTableTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -506,7 +585,7 @@ export class DefaultRouteTableTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -522,7 +601,7 @@ export class DefaultRouteTableTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -539,33 +618,36 @@ export class DefaultRouteTableTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/default_route_table aws_default_route_table}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/default_route_table aws_default_route_table}
+ */
 export class DefaultRouteTable extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_default_route_table";
+  public static readonly tfResourceType = 'aws_default_route_table';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/default_route_table aws_default_route_table} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DefaultRouteTableConfig
-  */
-  public constructor(scope: Construct, id: string, config: DefaultRouteTableConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/default_route_table aws_default_route_table} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DefaultRouteTableConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DefaultRouteTableConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_default_route_table',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -573,7 +655,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._defaultRouteTableId = config.defaultRouteTableId;
     this._id = config.id;
@@ -594,7 +676,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // default_route_table_id - computed: false, optional: false, required: true
-  private _defaultRouteTableId?: string; 
+  private _defaultRouteTableId?: string;
   public get defaultRouteTableId() {
     return this.getStringAttribute('default_route_table_id');
   }
@@ -607,7 +689,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -628,7 +710,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // propagating_vgws - computed: false, optional: true, required: false
-  private _propagatingVgws?: string[]; 
+  private _propagatingVgws?: string[];
   public get propagatingVgws() {
     return cdktf.Fn.tolist(this.getListAttribute('propagating_vgws'));
   }
@@ -644,7 +726,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // route - computed: true, optional: true, required: false
-  private _route = new DefaultRouteTableRouteList(this, "route", true);
+  private _route = new DefaultRouteTableRouteList(this, 'route', true);
   public get route() {
     return this._route;
   }
@@ -660,7 +742,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -676,7 +758,7 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -697,7 +779,10 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DefaultRouteTableTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DefaultRouteTableTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -718,13 +803,23 @@ export class DefaultRouteTable extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      default_route_table_id: cdktf.stringToTerraform(this._defaultRouteTableId),
+      default_route_table_id: cdktf.stringToTerraform(
+        this._defaultRouteTableId,
+      ),
       id: cdktf.stringToTerraform(this._id),
-      propagating_vgws: cdktf.listMapper(cdktf.stringToTerraform, false)(this._propagatingVgws),
-      route: cdktf.listMapper(defaultRouteTableRouteToTerraform, false)(this._route.internalValue),
+      propagating_vgws: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._propagatingVgws),
+      route: cdktf.listMapper(
+        defaultRouteTableRouteToTerraform,
+        false,
+      )(this._route.internalValue),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      timeouts: defaultRouteTableTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: defaultRouteTableTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

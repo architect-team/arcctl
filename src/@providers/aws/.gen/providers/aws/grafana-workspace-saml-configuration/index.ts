@@ -1,98 +1,107 @@
 // https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface GrafanaWorkspaceSamlConfigurationConfig extends cdktf.TerraformMetaArguments {
+export interface GrafanaWorkspaceSamlConfigurationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#admin_role_values GrafanaWorkspaceSamlConfiguration#admin_role_values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#admin_role_values GrafanaWorkspaceSamlConfiguration#admin_role_values}
+   */
   readonly adminRoleValues?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#allowed_organizations GrafanaWorkspaceSamlConfiguration#allowed_organizations}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#allowed_organizations GrafanaWorkspaceSamlConfiguration#allowed_organizations}
+   */
   readonly allowedOrganizations?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#editor_role_values GrafanaWorkspaceSamlConfiguration#editor_role_values}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#editor_role_values GrafanaWorkspaceSamlConfiguration#editor_role_values}
+   */
   readonly editorRoleValues: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#email_assertion GrafanaWorkspaceSamlConfiguration#email_assertion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#email_assertion GrafanaWorkspaceSamlConfiguration#email_assertion}
+   */
   readonly emailAssertion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#groups_assertion GrafanaWorkspaceSamlConfiguration#groups_assertion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#groups_assertion GrafanaWorkspaceSamlConfiguration#groups_assertion}
+   */
   readonly groupsAssertion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#id GrafanaWorkspaceSamlConfiguration#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#id GrafanaWorkspaceSamlConfiguration#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#idp_metadata_url GrafanaWorkspaceSamlConfiguration#idp_metadata_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#idp_metadata_url GrafanaWorkspaceSamlConfiguration#idp_metadata_url}
+   */
   readonly idpMetadataUrl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#idp_metadata_xml GrafanaWorkspaceSamlConfiguration#idp_metadata_xml}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#idp_metadata_xml GrafanaWorkspaceSamlConfiguration#idp_metadata_xml}
+   */
   readonly idpMetadataXml?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#login_assertion GrafanaWorkspaceSamlConfiguration#login_assertion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#login_assertion GrafanaWorkspaceSamlConfiguration#login_assertion}
+   */
   readonly loginAssertion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#login_validity_duration GrafanaWorkspaceSamlConfiguration#login_validity_duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#login_validity_duration GrafanaWorkspaceSamlConfiguration#login_validity_duration}
+   */
   readonly loginValidityDuration?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#name_assertion GrafanaWorkspaceSamlConfiguration#name_assertion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#name_assertion GrafanaWorkspaceSamlConfiguration#name_assertion}
+   */
   readonly nameAssertion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#org_assertion GrafanaWorkspaceSamlConfiguration#org_assertion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#org_assertion GrafanaWorkspaceSamlConfiguration#org_assertion}
+   */
   readonly orgAssertion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#role_assertion GrafanaWorkspaceSamlConfiguration#role_assertion}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#role_assertion GrafanaWorkspaceSamlConfiguration#role_assertion}
+   */
   readonly roleAssertion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#workspace_id GrafanaWorkspaceSamlConfiguration#workspace_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#workspace_id GrafanaWorkspaceSamlConfiguration#workspace_id}
+   */
   readonly workspaceId: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#timeouts GrafanaWorkspaceSamlConfiguration#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#timeouts GrafanaWorkspaceSamlConfiguration#timeouts}
+   */
   readonly timeouts?: GrafanaWorkspaceSamlConfigurationTimeouts;
 }
 export interface GrafanaWorkspaceSamlConfigurationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#create GrafanaWorkspaceSamlConfiguration#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#create GrafanaWorkspaceSamlConfiguration#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#delete GrafanaWorkspaceSamlConfiguration#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration#delete GrafanaWorkspaceSamlConfiguration#delete}
+   */
   readonly delete?: string;
 }
 
-export function grafanaWorkspaceSamlConfigurationTimeoutsToTerraform(struct?: GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference | GrafanaWorkspaceSamlConfigurationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function grafanaWorkspaceSamlConfigurationTimeoutsToTerraform(
+  struct?:
+    | GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference
+    | GrafanaWorkspaceSamlConfigurationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -100,14 +109,20 @@ export class GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): GrafanaWorkspaceSamlConfigurationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | GrafanaWorkspaceSamlConfigurationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -124,18 +139,21 @@ export class GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: GrafanaWorkspaceSamlConfigurationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | GrafanaWorkspaceSamlConfigurationTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -144,7 +162,7 @@ export class GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference extends cd
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -160,7 +178,7 @@ export class GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference extends cd
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -177,33 +195,37 @@ export class GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference extends cd
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration aws_grafana_workspace_saml_configuration}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration aws_grafana_workspace_saml_configuration}
+ */
 export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_grafana_workspace_saml_configuration";
+  public static readonly tfResourceType =
+    'aws_grafana_workspace_saml_configuration';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration aws_grafana_workspace_saml_configuration} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options GrafanaWorkspaceSamlConfigurationConfig
-  */
-  public constructor(scope: Construct, id: string, config: GrafanaWorkspaceSamlConfigurationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/grafana_workspace_saml_configuration aws_grafana_workspace_saml_configuration} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options GrafanaWorkspaceSamlConfigurationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: GrafanaWorkspaceSamlConfigurationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_grafana_workspace_saml_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -211,7 +233,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._adminRoleValues = config.adminRoleValues;
     this._allowedOrganizations = config.allowedOrganizations;
@@ -235,7 +257,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // admin_role_values - computed: false, optional: true, required: false
-  private _adminRoleValues?: string[]; 
+  private _adminRoleValues?: string[];
   public get adminRoleValues() {
     return this.getListAttribute('admin_role_values');
   }
@@ -251,7 +273,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // allowed_organizations - computed: false, optional: true, required: false
-  private _allowedOrganizations?: string[]; 
+  private _allowedOrganizations?: string[];
   public get allowedOrganizations() {
     return this.getListAttribute('allowed_organizations');
   }
@@ -267,7 +289,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // editor_role_values - computed: false, optional: false, required: true
-  private _editorRoleValues?: string[]; 
+  private _editorRoleValues?: string[];
   public get editorRoleValues() {
     return this.getListAttribute('editor_role_values');
   }
@@ -280,7 +302,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // email_assertion - computed: true, optional: true, required: false
-  private _emailAssertion?: string; 
+  private _emailAssertion?: string;
   public get emailAssertion() {
     return this.getStringAttribute('email_assertion');
   }
@@ -296,7 +318,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // groups_assertion - computed: false, optional: true, required: false
-  private _groupsAssertion?: string; 
+  private _groupsAssertion?: string;
   public get groupsAssertion() {
     return this.getStringAttribute('groups_assertion');
   }
@@ -312,7 +334,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -328,7 +350,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // idp_metadata_url - computed: false, optional: true, required: false
-  private _idpMetadataUrl?: string; 
+  private _idpMetadataUrl?: string;
   public get idpMetadataUrl() {
     return this.getStringAttribute('idp_metadata_url');
   }
@@ -344,7 +366,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // idp_metadata_xml - computed: false, optional: true, required: false
-  private _idpMetadataXml?: string; 
+  private _idpMetadataXml?: string;
   public get idpMetadataXml() {
     return this.getStringAttribute('idp_metadata_xml');
   }
@@ -360,7 +382,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // login_assertion - computed: true, optional: true, required: false
-  private _loginAssertion?: string; 
+  private _loginAssertion?: string;
   public get loginAssertion() {
     return this.getStringAttribute('login_assertion');
   }
@@ -376,7 +398,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // login_validity_duration - computed: true, optional: true, required: false
-  private _loginValidityDuration?: number; 
+  private _loginValidityDuration?: number;
   public get loginValidityDuration() {
     return this.getNumberAttribute('login_validity_duration');
   }
@@ -392,7 +414,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // name_assertion - computed: true, optional: true, required: false
-  private _nameAssertion?: string; 
+  private _nameAssertion?: string;
   public get nameAssertion() {
     return this.getStringAttribute('name_assertion');
   }
@@ -408,7 +430,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // org_assertion - computed: false, optional: true, required: false
-  private _orgAssertion?: string; 
+  private _orgAssertion?: string;
   public get orgAssertion() {
     return this.getStringAttribute('org_assertion');
   }
@@ -424,7 +446,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // role_assertion - computed: false, optional: true, required: false
-  private _roleAssertion?: string; 
+  private _roleAssertion?: string;
   public get roleAssertion() {
     return this.getStringAttribute('role_assertion');
   }
@@ -445,7 +467,7 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string; 
+  private _workspaceId?: string;
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }
@@ -458,7 +480,11 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new GrafanaWorkspaceSamlConfigurationTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -479,21 +505,34 @@ export class GrafanaWorkspaceSamlConfiguration extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      admin_role_values: cdktf.listMapper(cdktf.stringToTerraform, false)(this._adminRoleValues),
-      allowed_organizations: cdktf.listMapper(cdktf.stringToTerraform, false)(this._allowedOrganizations),
-      editor_role_values: cdktf.listMapper(cdktf.stringToTerraform, false)(this._editorRoleValues),
+      admin_role_values: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._adminRoleValues),
+      allowed_organizations: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._allowedOrganizations),
+      editor_role_values: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._editorRoleValues),
       email_assertion: cdktf.stringToTerraform(this._emailAssertion),
       groups_assertion: cdktf.stringToTerraform(this._groupsAssertion),
       id: cdktf.stringToTerraform(this._id),
       idp_metadata_url: cdktf.stringToTerraform(this._idpMetadataUrl),
       idp_metadata_xml: cdktf.stringToTerraform(this._idpMetadataXml),
       login_assertion: cdktf.stringToTerraform(this._loginAssertion),
-      login_validity_duration: cdktf.numberToTerraform(this._loginValidityDuration),
+      login_validity_duration: cdktf.numberToTerraform(
+        this._loginValidityDuration,
+      ),
       name_assertion: cdktf.stringToTerraform(this._nameAssertion),
       org_assertion: cdktf.stringToTerraform(this._orgAssertion),
       role_assertion: cdktf.stringToTerraform(this._roleAssertion),
       workspace_id: cdktf.stringToTerraform(this._workspaceId),
-      timeouts: grafanaWorkspaceSamlConfigurationTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: grafanaWorkspaceSamlConfigurationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

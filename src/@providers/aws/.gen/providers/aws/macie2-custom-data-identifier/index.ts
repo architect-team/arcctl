@@ -1,85 +1,88 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface Macie2CustomDataIdentifierConfig extends cdktf.TerraformMetaArguments {
+export interface Macie2CustomDataIdentifierConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#description Macie2CustomDataIdentifier#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#description Macie2CustomDataIdentifier#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#id Macie2CustomDataIdentifier#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#id Macie2CustomDataIdentifier#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#ignore_words Macie2CustomDataIdentifier#ignore_words}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#ignore_words Macie2CustomDataIdentifier#ignore_words}
+   */
   readonly ignoreWords?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#keywords Macie2CustomDataIdentifier#keywords}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#keywords Macie2CustomDataIdentifier#keywords}
+   */
   readonly keywords?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#maximum_match_distance Macie2CustomDataIdentifier#maximum_match_distance}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#maximum_match_distance Macie2CustomDataIdentifier#maximum_match_distance}
+   */
   readonly maximumMatchDistance?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#name Macie2CustomDataIdentifier#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#name Macie2CustomDataIdentifier#name}
+   */
   readonly name?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#name_prefix Macie2CustomDataIdentifier#name_prefix}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#name_prefix Macie2CustomDataIdentifier#name_prefix}
+   */
   readonly namePrefix?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#regex Macie2CustomDataIdentifier#regex}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#regex Macie2CustomDataIdentifier#regex}
+   */
   readonly regex?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#tags Macie2CustomDataIdentifier#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#tags Macie2CustomDataIdentifier#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#tags_all Macie2CustomDataIdentifier#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier#tags_all Macie2CustomDataIdentifier#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier aws_macie2_custom_data_identifier}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier aws_macie2_custom_data_identifier}
+ */
 export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_macie2_custom_data_identifier";
+  public static readonly tfResourceType = 'aws_macie2_custom_data_identifier';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier aws_macie2_custom_data_identifier} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Macie2CustomDataIdentifierConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: Macie2CustomDataIdentifierConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie2_custom_data_identifier aws_macie2_custom_data_identifier} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Macie2CustomDataIdentifierConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Macie2CustomDataIdentifierConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_macie2_custom_data_identifier',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -87,7 +90,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._id = config.id;
@@ -116,7 +119,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -132,7 +135,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -148,7 +151,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // ignore_words - computed: false, optional: true, required: false
-  private _ignoreWords?: string[]; 
+  private _ignoreWords?: string[];
   public get ignoreWords() {
     return cdktf.Fn.tolist(this.getListAttribute('ignore_words'));
   }
@@ -164,7 +167,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // keywords - computed: false, optional: true, required: false
-  private _keywords?: string[]; 
+  private _keywords?: string[];
   public get keywords() {
     return cdktf.Fn.tolist(this.getListAttribute('keywords'));
   }
@@ -180,7 +183,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // maximum_match_distance - computed: true, optional: true, required: false
-  private _maximumMatchDistance?: number; 
+  private _maximumMatchDistance?: number;
   public get maximumMatchDistance() {
     return this.getNumberAttribute('maximum_match_distance');
   }
@@ -196,7 +199,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -212,7 +215,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string; 
+  private _namePrefix?: string;
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -228,7 +231,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // regex - computed: false, optional: true, required: false
-  private _regex?: string; 
+  private _regex?: string;
   public get regex() {
     return this.getStringAttribute('regex');
   }
@@ -244,7 +247,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -260,7 +263,7 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -283,9 +286,17 @@ export class Macie2CustomDataIdentifier extends cdktf.TerraformResource {
     return {
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
-      ignore_words: cdktf.listMapper(cdktf.stringToTerraform, false)(this._ignoreWords),
-      keywords: cdktf.listMapper(cdktf.stringToTerraform, false)(this._keywords),
-      maximum_match_distance: cdktf.numberToTerraform(this._maximumMatchDistance),
+      ignore_words: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._ignoreWords),
+      keywords: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._keywords),
+      maximum_match_distance: cdktf.numberToTerraform(
+        this._maximumMatchDistance,
+      ),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       regex: cdktf.stringToTerraform(this._regex),

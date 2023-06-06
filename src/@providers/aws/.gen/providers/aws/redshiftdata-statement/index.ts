@@ -1,84 +1,90 @@
 // https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface RedshiftdataStatementConfig extends cdktf.TerraformMetaArguments {
+export interface RedshiftdataStatementConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#cluster_identifier RedshiftdataStatement#cluster_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#cluster_identifier RedshiftdataStatement#cluster_identifier}
+   */
   readonly clusterIdentifier?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#database RedshiftdataStatement#database}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#database RedshiftdataStatement#database}
+   */
   readonly database: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#db_user RedshiftdataStatement#db_user}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#db_user RedshiftdataStatement#db_user}
+   */
   readonly dbUser?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#id RedshiftdataStatement#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#id RedshiftdataStatement#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#secret_arn RedshiftdataStatement#secret_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#secret_arn RedshiftdataStatement#secret_arn}
+   */
   readonly secretArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#sql RedshiftdataStatement#sql}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#sql RedshiftdataStatement#sql}
+   */
   readonly sql: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#statement_name RedshiftdataStatement#statement_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#statement_name RedshiftdataStatement#statement_name}
+   */
   readonly statementName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#with_event RedshiftdataStatement#with_event}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#with_event RedshiftdataStatement#with_event}
+   */
   readonly withEvent?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#workgroup_name RedshiftdataStatement#workgroup_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#workgroup_name RedshiftdataStatement#workgroup_name}
+   */
   readonly workgroupName?: string;
   /**
-  * parameters block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#parameters RedshiftdataStatement#parameters}
-  */
+   * parameters block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#parameters RedshiftdataStatement#parameters}
+   */
   readonly parameters?: RedshiftdataStatementParameters[] | cdktf.IResolvable;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#timeouts RedshiftdataStatement#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#timeouts RedshiftdataStatement#timeouts}
+   */
   readonly timeouts?: RedshiftdataStatementTimeouts;
 }
 export interface RedshiftdataStatementParameters {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#name RedshiftdataStatement#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#name RedshiftdataStatement#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#value RedshiftdataStatement#value}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#value RedshiftdataStatement#value}
+   */
   readonly value: string;
 }
 
-export function redshiftdataStatementParametersToTerraform(struct?: RedshiftdataStatementParameters | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function redshiftdataStatementParametersToTerraform(
+  struct?: RedshiftdataStatementParameters | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class RedshiftdataStatementParametersOutputReference extends cdktf.ComplexObject {
@@ -86,16 +92,29 @@ export class RedshiftdataStatementParametersOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): RedshiftdataStatementParameters | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | RedshiftdataStatementParameters
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -112,18 +131,18 @@ export class RedshiftdataStatementParametersOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: RedshiftdataStatementParameters | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: RedshiftdataStatementParameters | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -132,7 +151,7 @@ export class RedshiftdataStatementParametersOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -145,7 +164,7 @@ export class RedshiftdataStatementParametersOutputReference extends cdktf.Comple
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -159,39 +178,57 @@ export class RedshiftdataStatementParametersOutputReference extends cdktf.Comple
 }
 
 export class RedshiftdataStatementParametersList extends cdktf.ComplexList {
-  public internalValue? : RedshiftdataStatementParameters[] | cdktf.IResolvable
+  public internalValue?: RedshiftdataStatementParameters[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): RedshiftdataStatementParametersOutputReference {
-    return new RedshiftdataStatementParametersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new RedshiftdataStatementParametersOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface RedshiftdataStatementTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#create RedshiftdataStatement#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement#create RedshiftdataStatement#create}
+   */
   readonly create?: string;
 }
 
-export function redshiftdataStatementTimeoutsToTerraform(struct?: RedshiftdataStatementTimeoutsOutputReference | RedshiftdataStatementTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function redshiftdataStatementTimeoutsToTerraform(
+  struct?:
+    | RedshiftdataStatementTimeoutsOutputReference
+    | RedshiftdataStatementTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class RedshiftdataStatementTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -199,14 +236,20 @@ export class RedshiftdataStatementTimeoutsOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): RedshiftdataStatementTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | RedshiftdataStatementTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -219,17 +262,17 @@ export class RedshiftdataStatementTimeoutsOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: RedshiftdataStatementTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: RedshiftdataStatementTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -237,7 +280,7 @@ export class RedshiftdataStatementTimeoutsOutputReference extends cdktf.ComplexO
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -254,33 +297,36 @@ export class RedshiftdataStatementTimeoutsOutputReference extends cdktf.ComplexO
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement aws_redshiftdata_statement}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement aws_redshiftdata_statement}
+ */
 export class RedshiftdataStatement extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_redshiftdata_statement";
+  public static readonly tfResourceType = 'aws_redshiftdata_statement';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement aws_redshiftdata_statement} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options RedshiftdataStatementConfig
-  */
-  public constructor(scope: Construct, id: string, config: RedshiftdataStatementConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshiftdata_statement aws_redshiftdata_statement} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options RedshiftdataStatementConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: RedshiftdataStatementConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_redshiftdata_statement',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -288,7 +334,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._clusterIdentifier = config.clusterIdentifier;
     this._database = config.database;
@@ -308,7 +354,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   // ==========
 
   // cluster_identifier - computed: false, optional: true, required: false
-  private _clusterIdentifier?: string; 
+  private _clusterIdentifier?: string;
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -324,7 +370,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string; 
+  private _database?: string;
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -337,7 +383,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // db_user - computed: false, optional: true, required: false
-  private _dbUser?: string; 
+  private _dbUser?: string;
   public get dbUser() {
     return this.getStringAttribute('db_user');
   }
@@ -353,7 +399,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -369,7 +415,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // secret_arn - computed: false, optional: true, required: false
-  private _secretArn?: string; 
+  private _secretArn?: string;
   public get secretArn() {
     return this.getStringAttribute('secret_arn');
   }
@@ -385,7 +431,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // sql - computed: false, optional: false, required: true
-  private _sql?: string; 
+  private _sql?: string;
   public get sql() {
     return this.getStringAttribute('sql');
   }
@@ -398,7 +444,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // statement_name - computed: false, optional: true, required: false
-  private _statementName?: string; 
+  private _statementName?: string;
   public get statementName() {
     return this.getStringAttribute('statement_name');
   }
@@ -414,7 +460,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // with_event - computed: false, optional: true, required: false
-  private _withEvent?: boolean | cdktf.IResolvable; 
+  private _withEvent?: boolean | cdktf.IResolvable;
   public get withEvent() {
     return this.getBooleanAttribute('with_event');
   }
@@ -430,7 +476,7 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // workgroup_name - computed: false, optional: true, required: false
-  private _workgroupName?: string; 
+  private _workgroupName?: string;
   public get workgroupName() {
     return this.getStringAttribute('workgroup_name');
   }
@@ -446,11 +492,17 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters = new RedshiftdataStatementParametersList(this, "parameters", false);
+  private _parameters = new RedshiftdataStatementParametersList(
+    this,
+    'parameters',
+    false,
+  );
   public get parameters() {
     return this._parameters;
   }
-  public putParameters(value: RedshiftdataStatementParameters[] | cdktf.IResolvable) {
+  public putParameters(
+    value: RedshiftdataStatementParameters[] | cdktf.IResolvable,
+  ) {
     this._parameters.internalValue = value;
   }
   public resetParameters() {
@@ -462,7 +514,10 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new RedshiftdataStatementTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new RedshiftdataStatementTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -492,8 +547,13 @@ export class RedshiftdataStatement extends cdktf.TerraformResource {
       statement_name: cdktf.stringToTerraform(this._statementName),
       with_event: cdktf.booleanToTerraform(this._withEvent),
       workgroup_name: cdktf.stringToTerraform(this._workgroupName),
-      parameters: cdktf.listMapper(redshiftdataStatementParametersToTerraform, true)(this._parameters.internalValue),
-      timeouts: redshiftdataStatementTimeoutsToTerraform(this._timeouts.internalValue),
+      parameters: cdktf.listMapper(
+        redshiftdataStatementParametersToTerraform,
+        true,
+      )(this._parameters.internalValue),
+      timeouts: redshiftdataStatementTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

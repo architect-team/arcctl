@@ -1,16 +1,13 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { InputValidators } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { DigitaloceanCredentials } from '../credentials.js';
-import { DigitaloceanVpcModule } from '../modules/vpc.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanVpcModule } from '../modules/vpc.ts';
 import { createApiClient } from 'dots-wrapper';
-import { IVpc } from 'dots-wrapper/dist/vpc/index.js';
+import { IVpc } from 'dots-wrapper/dist/vpc/index.ts';
 
-export class DigitaloceanVpcService extends TerraformResourceService<
-  'vpc',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanVpcService extends TerraformResourceService<'vpc', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
   constructor(credentials: DigitaloceanCredentials) {
@@ -43,8 +40,8 @@ export class DigitaloceanVpcService extends TerraformResourceService<
     } = await this.client.vpc.listVpcs({});
     const regionVpcs = filterOptions?.region
       ? vpcs.filter((vpc) => {
-          return vpc.region === filterOptions.region;
-        })
+        return vpc.region === filterOptions.region;
+      })
       : vpcs;
     return {
       total: regionVpcs.length,
@@ -62,11 +59,7 @@ export class DigitaloceanVpcService extends TerraformResourceService<
       },
 
       description: (input?: string) => {
-        return (
-          !input ||
-          input.length <= 255 ||
-          'Description must be less than 255 characters.'
-        );
+        return !input || input.length <= 255 || 'Description must be less than 255 characters.';
       },
     };
   }

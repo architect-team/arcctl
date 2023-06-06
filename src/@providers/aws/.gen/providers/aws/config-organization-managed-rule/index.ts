@@ -1,91 +1,100 @@
 // https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface ConfigOrganizationManagedRuleConfig extends cdktf.TerraformMetaArguments {
+export interface ConfigOrganizationManagedRuleConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#description ConfigOrganizationManagedRule#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#description ConfigOrganizationManagedRule#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#excluded_accounts ConfigOrganizationManagedRule#excluded_accounts}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#excluded_accounts ConfigOrganizationManagedRule#excluded_accounts}
+   */
   readonly excludedAccounts?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#id ConfigOrganizationManagedRule#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#id ConfigOrganizationManagedRule#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#input_parameters ConfigOrganizationManagedRule#input_parameters}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#input_parameters ConfigOrganizationManagedRule#input_parameters}
+   */
   readonly inputParameters?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#maximum_execution_frequency ConfigOrganizationManagedRule#maximum_execution_frequency}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#maximum_execution_frequency ConfigOrganizationManagedRule#maximum_execution_frequency}
+   */
   readonly maximumExecutionFrequency?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#name ConfigOrganizationManagedRule#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#name ConfigOrganizationManagedRule#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#resource_id_scope ConfigOrganizationManagedRule#resource_id_scope}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#resource_id_scope ConfigOrganizationManagedRule#resource_id_scope}
+   */
   readonly resourceIdScope?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#resource_types_scope ConfigOrganizationManagedRule#resource_types_scope}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#resource_types_scope ConfigOrganizationManagedRule#resource_types_scope}
+   */
   readonly resourceTypesScope?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#rule_identifier ConfigOrganizationManagedRule#rule_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#rule_identifier ConfigOrganizationManagedRule#rule_identifier}
+   */
   readonly ruleIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#tag_key_scope ConfigOrganizationManagedRule#tag_key_scope}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#tag_key_scope ConfigOrganizationManagedRule#tag_key_scope}
+   */
   readonly tagKeyScope?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#tag_value_scope ConfigOrganizationManagedRule#tag_value_scope}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#tag_value_scope ConfigOrganizationManagedRule#tag_value_scope}
+   */
   readonly tagValueScope?: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#timeouts ConfigOrganizationManagedRule#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#timeouts ConfigOrganizationManagedRule#timeouts}
+   */
   readonly timeouts?: ConfigOrganizationManagedRuleTimeouts;
 }
 export interface ConfigOrganizationManagedRuleTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#create ConfigOrganizationManagedRule#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#create ConfigOrganizationManagedRule#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#delete ConfigOrganizationManagedRule#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#delete ConfigOrganizationManagedRule#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#update ConfigOrganizationManagedRule#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule#update ConfigOrganizationManagedRule#update}
+   */
   readonly update?: string;
 }
 
-export function configOrganizationManagedRuleTimeoutsToTerraform(struct?: ConfigOrganizationManagedRuleTimeoutsOutputReference | ConfigOrganizationManagedRuleTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function configOrganizationManagedRuleTimeoutsToTerraform(
+  struct?:
+    | ConfigOrganizationManagedRuleTimeoutsOutputReference
+    | ConfigOrganizationManagedRuleTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -93,14 +102,20 @@ export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ConfigOrganizationManagedRuleTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ConfigOrganizationManagedRuleTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -121,19 +136,22 @@ export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ConfigOrganizationManagedRuleTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ConfigOrganizationManagedRuleTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -143,7 +161,7 @@ export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -159,7 +177,7 @@ export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -175,7 +193,7 @@ export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -192,33 +210,37 @@ export class ConfigOrganizationManagedRuleTimeoutsOutputReference extends cdktf.
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule aws_config_organization_managed_rule}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule aws_config_organization_managed_rule}
+ */
 export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_config_organization_managed_rule";
+  public static readonly tfResourceType =
+    'aws_config_organization_managed_rule';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule aws_config_organization_managed_rule} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ConfigOrganizationManagedRuleConfig
-  */
-  public constructor(scope: Construct, id: string, config: ConfigOrganizationManagedRuleConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_organization_managed_rule aws_config_organization_managed_rule} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ConfigOrganizationManagedRuleConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: ConfigOrganizationManagedRuleConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_config_organization_managed_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -226,7 +248,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._description = config.description;
     this._excludedAccounts = config.excludedAccounts;
@@ -252,7 +274,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -268,7 +290,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // excluded_accounts - computed: false, optional: true, required: false
-  private _excludedAccounts?: string[]; 
+  private _excludedAccounts?: string[];
   public get excludedAccounts() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_accounts'));
   }
@@ -284,7 +306,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -300,7 +322,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // input_parameters - computed: false, optional: true, required: false
-  private _inputParameters?: string; 
+  private _inputParameters?: string;
   public get inputParameters() {
     return this.getStringAttribute('input_parameters');
   }
@@ -316,7 +338,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // maximum_execution_frequency - computed: false, optional: true, required: false
-  private _maximumExecutionFrequency?: string; 
+  private _maximumExecutionFrequency?: string;
   public get maximumExecutionFrequency() {
     return this.getStringAttribute('maximum_execution_frequency');
   }
@@ -332,7 +354,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -345,7 +367,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // resource_id_scope - computed: false, optional: true, required: false
-  private _resourceIdScope?: string; 
+  private _resourceIdScope?: string;
   public get resourceIdScope() {
     return this.getStringAttribute('resource_id_scope');
   }
@@ -361,7 +383,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // resource_types_scope - computed: false, optional: true, required: false
-  private _resourceTypesScope?: string[]; 
+  private _resourceTypesScope?: string[];
   public get resourceTypesScope() {
     return cdktf.Fn.tolist(this.getListAttribute('resource_types_scope'));
   }
@@ -377,7 +399,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // rule_identifier - computed: false, optional: false, required: true
-  private _ruleIdentifier?: string; 
+  private _ruleIdentifier?: string;
   public get ruleIdentifier() {
     return this.getStringAttribute('rule_identifier');
   }
@@ -390,7 +412,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // tag_key_scope - computed: false, optional: true, required: false
-  private _tagKeyScope?: string; 
+  private _tagKeyScope?: string;
   public get tagKeyScope() {
     return this.getStringAttribute('tag_key_scope');
   }
@@ -406,7 +428,7 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // tag_value_scope - computed: false, optional: true, required: false
-  private _tagValueScope?: string; 
+  private _tagValueScope?: string;
   public get tagValueScope() {
     return this.getStringAttribute('tag_value_scope');
   }
@@ -422,7 +444,10 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ConfigOrganizationManagedRuleTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new ConfigOrganizationManagedRuleTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -444,17 +469,27 @@ export class ConfigOrganizationManagedRule extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       description: cdktf.stringToTerraform(this._description),
-      excluded_accounts: cdktf.listMapper(cdktf.stringToTerraform, false)(this._excludedAccounts),
+      excluded_accounts: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._excludedAccounts),
       id: cdktf.stringToTerraform(this._id),
       input_parameters: cdktf.stringToTerraform(this._inputParameters),
-      maximum_execution_frequency: cdktf.stringToTerraform(this._maximumExecutionFrequency),
+      maximum_execution_frequency: cdktf.stringToTerraform(
+        this._maximumExecutionFrequency,
+      ),
       name: cdktf.stringToTerraform(this._name),
       resource_id_scope: cdktf.stringToTerraform(this._resourceIdScope),
-      resource_types_scope: cdktf.listMapper(cdktf.stringToTerraform, false)(this._resourceTypesScope),
+      resource_types_scope: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._resourceTypesScope),
       rule_identifier: cdktf.stringToTerraform(this._ruleIdentifier),
       tag_key_scope: cdktf.stringToTerraform(this._tagKeyScope),
       tag_value_scope: cdktf.stringToTerraform(this._tagValueScope),
-      timeouts: configOrganizationManagedRuleTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: configOrganizationManagedRuleTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

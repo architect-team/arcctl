@@ -4,9 +4,12 @@
 /dist
 /lib
 /tmp
+/bin/arcctl
 node_modules
 oclif.manifest.json
 coverage
 /cdktf.out
 .terraform
 .DS_Store
+/build
+.local

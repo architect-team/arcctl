@@ -1,15 +1,12 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesServiceModule } from '../modules/service.js';
-import { KubernetesNamespaceService } from './namespace.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesServiceModule } from '../modules/service.ts';
+import { KubernetesNamespaceService } from './namespace.ts';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesServiceService extends TerraformResourceService<
-  'service',
-  KubernetesCredentials
-> {
+export class KubernetesServiceService extends TerraformResourceService<'service', KubernetesCredentials> {
   private _client?: k8s.CoreV1Api;
 
   constructor(private readonly credentials: KubernetesCredentials) {
@@ -43,10 +40,7 @@ export class KubernetesServiceService extends TerraformResourceService<
     }
 
     try {
-      const { body } = await this.client.readNamespacedService(
-        match[1],
-        match[0],
-      );
+      const { body } = await this.client.readNamespacedService(match[1], match[0]);
 
       if (!body.metadata?.name) {
         throw new Error('Service exists, but is malformatted.');

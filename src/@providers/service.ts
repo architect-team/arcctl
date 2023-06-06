@@ -1,15 +1,9 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../utils/paging.js';
-import { ProviderStore } from './store.js';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../utils/paging.ts';
+import { ProviderStore } from './store.ts';
 
 export type InputValidators<T extends ResourceType> = {
-  [P in keyof ResourceInputs[T]]?: (
-    value: ResourceInputs[T][P],
-  ) => string | true;
+  [P in keyof ResourceInputs[T]]?: (value: ResourceInputs[T][P]) => string | true;
 };
 
 export type ResourcePresets<T extends ResourceType> = Array<{

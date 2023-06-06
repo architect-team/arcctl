@@ -1,92 +1,99 @@
 // https://www.terraform.io/docs/providers/kubernetes/r/storage_class
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface StorageClassConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Indicates whether the storage class allow volume expand
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#allow_volume_expansion StorageClass#allow_volume_expansion}
-  */
+   * Indicates whether the storage class allow volume expand
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#allow_volume_expansion StorageClass#allow_volume_expansion}
+   */
   readonly allowVolumeExpansion?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#id StorageClass#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#id StorageClass#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Persistent Volumes that are dynamically created by a storage class will have the mount options specified
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#mount_options StorageClass#mount_options}
-  */
+   * Persistent Volumes that are dynamically created by a storage class will have the mount options specified
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#mount_options StorageClass#mount_options}
+   */
   readonly mountOptions?: string[];
   /**
-  * The parameters for the provisioner that should create volumes of this storage class
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#parameters StorageClass#parameters}
-  */
+   * The parameters for the provisioner that should create volumes of this storage class
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#parameters StorageClass#parameters}
+   */
   readonly parameters?: { [key: string]: string };
   /**
-  * Indicates the type of the reclaim policy
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#reclaim_policy StorageClass#reclaim_policy}
-  */
+   * Indicates the type of the reclaim policy
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#reclaim_policy StorageClass#reclaim_policy}
+   */
   readonly reclaimPolicy?: string;
   /**
-  * Indicates the type of the provisioner
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#storage_provisioner StorageClass#storage_provisioner}
-  */
+   * Indicates the type of the provisioner
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#storage_provisioner StorageClass#storage_provisioner}
+   */
   readonly storageProvisioner: string;
   /**
-  * Indicates when volume binding and dynamic provisioning should occur
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#volume_binding_mode StorageClass#volume_binding_mode}
-  */
+   * Indicates when volume binding and dynamic provisioning should occur
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#volume_binding_mode StorageClass#volume_binding_mode}
+   */
   readonly volumeBindingMode?: string;
   /**
-  * allowed_topologies block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#allowed_topologies StorageClass#allowed_topologies}
-  */
+   * allowed_topologies block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#allowed_topologies StorageClass#allowed_topologies}
+   */
   readonly allowedTopologies?: StorageClassAllowedTopologies;
   /**
-  * metadata block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#metadata StorageClass#metadata}
-  */
+   * metadata block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#metadata StorageClass#metadata}
+   */
   readonly metadata: StorageClassMetadata;
 }
 export interface StorageClassAllowedTopologiesMatchLabelExpressions {
   /**
-  * The label key that the selector applies to.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#key StorageClass#key}
-  */
+   * The label key that the selector applies to.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#key StorageClass#key}
+   */
   readonly key?: string;
   /**
-  * An array of string values. One value must match the label to be selected.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#values StorageClass#values}
-  */
+   * An array of string values. One value must match the label to be selected.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#values StorageClass#values}
+   */
   readonly values?: string[];
 }
 
-export function storageClassAllowedTopologiesMatchLabelExpressionsToTerraform(struct?: StorageClassAllowedTopologiesMatchLabelExpressions | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storageClassAllowedTopologiesMatchLabelExpressionsToTerraform(
+  struct?:
+    | StorageClassAllowedTopologiesMatchLabelExpressions
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  }
+  };
 }
 
 export class StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference extends cdktf.ComplexObject {
@@ -94,16 +101,29 @@ export class StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): StorageClassAllowedTopologiesMatchLabelExpressions | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | StorageClassAllowedTopologiesMatchLabelExpressions
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -120,18 +140,21 @@ export class StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: StorageClassAllowedTopologiesMatchLabelExpressions | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | StorageClassAllowedTopologiesMatchLabelExpressions
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._values = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -140,7 +163,7 @@ export class StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference e
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string; 
+  private _key?: string;
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -156,7 +179,7 @@ export class StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference e
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[]; 
+  private _values?: string[];
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -173,51 +196,80 @@ export class StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference e
 }
 
 export class StorageClassAllowedTopologiesMatchLabelExpressionsList extends cdktf.ComplexList {
-  public internalValue? : StorageClassAllowedTopologiesMatchLabelExpressions[] | cdktf.IResolvable
+  public internalValue?:
+    | StorageClassAllowedTopologiesMatchLabelExpressions[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference {
-    return new StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference {
+    return new StorageClassAllowedTopologiesMatchLabelExpressionsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface StorageClassAllowedTopologies {
   /**
-  * match_label_expressions block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#match_label_expressions StorageClass#match_label_expressions}
-  */
-  readonly matchLabelExpressions?: StorageClassAllowedTopologiesMatchLabelExpressions[] | cdktf.IResolvable;
+   * match_label_expressions block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#match_label_expressions StorageClass#match_label_expressions}
+   */
+  readonly matchLabelExpressions?:
+    | StorageClassAllowedTopologiesMatchLabelExpressions[]
+    | cdktf.IResolvable;
 }
 
-export function storageClassAllowedTopologiesToTerraform(struct?: StorageClassAllowedTopologiesOutputReference | StorageClassAllowedTopologies): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storageClassAllowedTopologiesToTerraform(
+  struct?:
+    | StorageClassAllowedTopologiesOutputReference
+    | StorageClassAllowedTopologies,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    match_label_expressions: cdktf.listMapper(storageClassAllowedTopologiesMatchLabelExpressionsToTerraform, true)(struct!.matchLabelExpressions),
-  }
+    match_label_expressions: cdktf.listMapper(
+      storageClassAllowedTopologiesMatchLabelExpressionsToTerraform,
+      true,
+    )(struct!.matchLabelExpressions),
+  };
 }
 
 export class StorageClassAllowedTopologiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -226,7 +278,8 @@ export class StorageClassAllowedTopologiesOutputReference extends cdktf.ComplexO
     const internalValueResult: any = {};
     if (this._matchLabelExpressions?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.matchLabelExpressions = this._matchLabelExpressions?.internalValue;
+      internalValueResult.matchLabelExpressions =
+        this._matchLabelExpressions?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -235,19 +288,27 @@ export class StorageClassAllowedTopologiesOutputReference extends cdktf.ComplexO
     if (value === undefined) {
       this.isEmptyObject = false;
       this._matchLabelExpressions.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._matchLabelExpressions.internalValue = value.matchLabelExpressions;
     }
   }
 
   // match_label_expressions - computed: false, optional: true, required: false
-  private _matchLabelExpressions = new StorageClassAllowedTopologiesMatchLabelExpressionsList(this, "match_label_expressions", false);
+  private _matchLabelExpressions =
+    new StorageClassAllowedTopologiesMatchLabelExpressionsList(
+      this,
+      'match_label_expressions',
+      false,
+    );
   public get matchLabelExpressions() {
     return this._matchLabelExpressions;
   }
-  public putMatchLabelExpressions(value: StorageClassAllowedTopologiesMatchLabelExpressions[] | cdktf.IResolvable) {
+  public putMatchLabelExpressions(
+    value:
+      | StorageClassAllowedTopologiesMatchLabelExpressions[]
+      | cdktf.IResolvable,
+  ) {
     this._matchLabelExpressions.internalValue = value;
   }
   public resetMatchLabelExpressions() {
@@ -260,52 +321,61 @@ export class StorageClassAllowedTopologiesOutputReference extends cdktf.ComplexO
 }
 export interface StorageClassMetadata {
   /**
-  * An unstructured key value map stored with the storage class that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#annotations StorageClass#annotations}
-  */
+   * An unstructured key value map stored with the storage class that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#annotations StorageClass#annotations}
+   */
   readonly annotations?: { [key: string]: string };
   /**
-  * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#generate_name StorageClass#generate_name}
-  */
+   * Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#generate_name StorageClass#generate_name}
+   */
   readonly generateName?: string;
   /**
-  * Map of string keys and values that can be used to organize and categorize (scope and select) the storage class. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#labels StorageClass#labels}
-  */
+   * Map of string keys and values that can be used to organize and categorize (scope and select) the storage class. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#labels StorageClass#labels}
+   */
   readonly labels?: { [key: string]: string };
   /**
-  * Name of the storage class, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#name StorageClass#name}
-  */
+   * Name of the storage class, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class#name StorageClass#name}
+   */
   readonly name?: string;
 }
 
-export function storageClassMetadataToTerraform(struct?: StorageClassMetadataOutputReference | StorageClassMetadata): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function storageClassMetadataToTerraform(
+  struct?: StorageClassMetadataOutputReference | StorageClassMetadata,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     annotations: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.annotations),
     generate_name: cdktf.stringToTerraform(struct!.generateName),
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -338,8 +408,7 @@ export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
       this._generateName = undefined;
       this._labels = undefined;
       this._name = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._annotations = value.annotations;
       this._generateName = value.generateName;
@@ -349,7 +418,7 @@ export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations?: { [key: string]: string }; 
+  private _annotations?: { [key: string]: string };
   public get annotations() {
     return this.getStringMapAttribute('annotations');
   }
@@ -365,7 +434,7 @@ export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // generate_name - computed: false, optional: true, required: false
-  private _generateName?: string; 
+  private _generateName?: string;
   public get generateName() {
     return this.getStringAttribute('generate_name');
   }
@@ -386,7 +455,7 @@ export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string }; 
+  private _labels?: { [key: string]: string };
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -402,7 +471,7 @@ export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -429,33 +498,32 @@ export class StorageClassMetadataOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class kubernetes_storage_class}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class kubernetes_storage_class}
+ */
 export class StorageClass extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "kubernetes_storage_class";
+  public static readonly tfResourceType = 'kubernetes_storage_class';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class kubernetes_storage_class} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options StorageClassConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/kubernetes/r/storage_class kubernetes_storage_class} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options StorageClassConfig
+   */
   public constructor(scope: Construct, id: string, config: StorageClassConfig) {
     super(scope, id, {
       terraformResourceType: 'kubernetes_storage_class',
       terraformGeneratorMetadata: {
         providerName: 'kubernetes',
         providerVersion: '2.18.0',
-        providerVersionConstraint: '2.18.0'
+        providerVersionConstraint: '2.18.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -463,7 +531,7 @@ export class StorageClass extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._allowVolumeExpansion = config.allowVolumeExpansion;
     this._id = config.id;
@@ -481,7 +549,7 @@ export class StorageClass extends cdktf.TerraformResource {
   // ==========
 
   // allow_volume_expansion - computed: false, optional: true, required: false
-  private _allowVolumeExpansion?: boolean | cdktf.IResolvable; 
+  private _allowVolumeExpansion?: boolean | cdktf.IResolvable;
   public get allowVolumeExpansion() {
     return this.getBooleanAttribute('allow_volume_expansion');
   }
@@ -497,7 +565,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -513,7 +581,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // mount_options - computed: false, optional: true, required: false
-  private _mountOptions?: string[]; 
+  private _mountOptions?: string[];
   public get mountOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('mount_options'));
   }
@@ -529,7 +597,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string }; 
+  private _parameters?: { [key: string]: string };
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -545,7 +613,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // reclaim_policy - computed: false, optional: true, required: false
-  private _reclaimPolicy?: string; 
+  private _reclaimPolicy?: string;
   public get reclaimPolicy() {
     return this.getStringAttribute('reclaim_policy');
   }
@@ -561,7 +629,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // storage_provisioner - computed: false, optional: false, required: true
-  private _storageProvisioner?: string; 
+  private _storageProvisioner?: string;
   public get storageProvisioner() {
     return this.getStringAttribute('storage_provisioner');
   }
@@ -574,7 +642,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // volume_binding_mode - computed: false, optional: true, required: false
-  private _volumeBindingMode?: string; 
+  private _volumeBindingMode?: string;
   public get volumeBindingMode() {
     return this.getStringAttribute('volume_binding_mode');
   }
@@ -590,7 +658,10 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // allowed_topologies - computed: false, optional: true, required: false
-  private _allowedTopologies = new StorageClassAllowedTopologiesOutputReference(this, "allowed_topologies");
+  private _allowedTopologies = new StorageClassAllowedTopologiesOutputReference(
+    this,
+    'allowed_topologies',
+  );
   public get allowedTopologies() {
     return this._allowedTopologies;
   }
@@ -606,7 +677,7 @@ export class StorageClass extends cdktf.TerraformResource {
   }
 
   // metadata - computed: false, optional: false, required: true
-  private _metadata = new StorageClassMetadataOutputReference(this, "metadata");
+  private _metadata = new StorageClassMetadataOutputReference(this, 'metadata');
   public get metadata() {
     return this._metadata;
   }
@@ -624,14 +695,21 @@ export class StorageClass extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      allow_volume_expansion: cdktf.booleanToTerraform(this._allowVolumeExpansion),
+      allow_volume_expansion: cdktf.booleanToTerraform(
+        this._allowVolumeExpansion,
+      ),
       id: cdktf.stringToTerraform(this._id),
-      mount_options: cdktf.listMapper(cdktf.stringToTerraform, false)(this._mountOptions),
+      mount_options: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._mountOptions),
       parameters: cdktf.hashMapper(cdktf.stringToTerraform)(this._parameters),
       reclaim_policy: cdktf.stringToTerraform(this._reclaimPolicy),
       storage_provisioner: cdktf.stringToTerraform(this._storageProvisioner),
       volume_binding_mode: cdktf.stringToTerraform(this._volumeBindingMode),
-      allowed_topologies: storageClassAllowedTopologiesToTerraform(this._allowedTopologies.internalValue),
+      allowed_topologies: storageClassAllowedTopologiesToTerraform(
+        this._allowedTopologies.internalValue,
+      ),
       metadata: storageClassMetadataToTerraform(this._metadata.internalValue),
     };
   }

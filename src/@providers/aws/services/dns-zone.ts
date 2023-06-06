@@ -1,24 +1,19 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { InputValidators } from '../../service.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { AwsCredentials } from '../credentials.js';
-import { AwsDnsZoneModule } from '../modules/dns-zone.js';
-import AwsUtils from '../utils.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../service.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { AwsDnsZoneModule } from '../modules/dns-zone.ts';
+import AwsUtils from '../utils.ts';
 
-export class AwsDnsZoneService extends TerraformResourceService<
-  'dnsZone',
-  AwsCredentials
-> {
+export class AwsDnsZoneService extends TerraformResourceService<'dnsZone', AwsCredentials> {
   constructor(private readonly credentials: AwsCredentials) {
     super();
   }
 
   async get(id: string): Promise<ResourceOutputs['dnsZone'] | undefined> {
     try {
-      const dns_zone = await AwsUtils.getRoute53(this.credentials)
-        .getHostedZone({ Id: id })
-        .promise();
+      const dns_zone = await AwsUtils.getRoute53(this.credentials).getHostedZone({ Id: id }).promise();
 
       return {
         id: dns_zone.HostedZone.Id || '',
@@ -34,9 +29,7 @@ export class AwsDnsZoneService extends TerraformResourceService<
     filterOptions?: Partial<ResourceOutputs['dnsZone']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsZone']>> {
-    const dns_zones = await AwsUtils.getRoute53(this.credentials)
-      .listHostedZones()
-      .promise();
+    const dns_zones = await AwsUtils.getRoute53(this.credentials).listHostedZones().promise();
 
     return {
       total: dns_zones.HostedZones?.length || 0,

@@ -1,13 +1,10 @@
-import { ResourceOutputs } from '../../../@resources/types.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesHelmChartModule } from '../modules/helm-chart.js';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesHelmChartModule } from '../modules/helm-chart.ts';
 
-export class KubernetesHelmChartService extends TerraformResourceService<
-  'helmChart',
-  KubernetesCredentials
-> {
+export class KubernetesHelmChartService extends TerraformResourceService<'helmChart', KubernetesCredentials> {
   get(id: string): Promise<ResourceOutputs['helmChart'] | undefined> {
     throw new Error('Method not implemented.');
   }

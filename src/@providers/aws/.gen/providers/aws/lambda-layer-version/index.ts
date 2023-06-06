@@ -1,93 +1,95 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_layer_version
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface LambdaLayerVersionConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#compatible_architectures LambdaLayerVersion#compatible_architectures}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#compatible_architectures LambdaLayerVersion#compatible_architectures}
+   */
   readonly compatibleArchitectures?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#compatible_runtimes LambdaLayerVersion#compatible_runtimes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#compatible_runtimes LambdaLayerVersion#compatible_runtimes}
+   */
   readonly compatibleRuntimes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#description LambdaLayerVersion#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#description LambdaLayerVersion#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#filename LambdaLayerVersion#filename}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#filename LambdaLayerVersion#filename}
+   */
   readonly filename?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#id LambdaLayerVersion#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#id LambdaLayerVersion#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#layer_name LambdaLayerVersion#layer_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#layer_name LambdaLayerVersion#layer_name}
+   */
   readonly layerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#license_info LambdaLayerVersion#license_info}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#license_info LambdaLayerVersion#license_info}
+   */
   readonly licenseInfo?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#s3_bucket LambdaLayerVersion#s3_bucket}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#s3_bucket LambdaLayerVersion#s3_bucket}
+   */
   readonly s3Bucket?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#s3_key LambdaLayerVersion#s3_key}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#s3_key LambdaLayerVersion#s3_key}
+   */
   readonly s3Key?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#s3_object_version LambdaLayerVersion#s3_object_version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#s3_object_version LambdaLayerVersion#s3_object_version}
+   */
   readonly s3ObjectVersion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#skip_destroy LambdaLayerVersion#skip_destroy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#skip_destroy LambdaLayerVersion#skip_destroy}
+   */
   readonly skipDestroy?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#source_code_hash LambdaLayerVersion#source_code_hash}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version#source_code_hash LambdaLayerVersion#source_code_hash}
+   */
   readonly sourceCodeHash?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version aws_lambda_layer_version}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version aws_lambda_layer_version}
+ */
 export class LambdaLayerVersion extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_lambda_layer_version";
+  public static readonly tfResourceType = 'aws_lambda_layer_version';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version aws_lambda_layer_version} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LambdaLayerVersionConfig
-  */
-  public constructor(scope: Construct, id: string, config: LambdaLayerVersionConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_layer_version aws_lambda_layer_version} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LambdaLayerVersionConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LambdaLayerVersionConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_layer_version',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -95,7 +97,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._compatibleArchitectures = config.compatibleArchitectures;
     this._compatibleRuntimes = config.compatibleRuntimes;
@@ -121,7 +123,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // compatible_architectures - computed: false, optional: true, required: false
-  private _compatibleArchitectures?: string[]; 
+  private _compatibleArchitectures?: string[];
   public get compatibleArchitectures() {
     return cdktf.Fn.tolist(this.getListAttribute('compatible_architectures'));
   }
@@ -137,7 +139,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // compatible_runtimes - computed: false, optional: true, required: false
-  private _compatibleRuntimes?: string[]; 
+  private _compatibleRuntimes?: string[];
   public get compatibleRuntimes() {
     return cdktf.Fn.tolist(this.getListAttribute('compatible_runtimes'));
   }
@@ -158,7 +160,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -174,7 +176,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // filename - computed: false, optional: true, required: false
-  private _filename?: string; 
+  private _filename?: string;
   public get filename() {
     return this.getStringAttribute('filename');
   }
@@ -190,7 +192,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -211,7 +213,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // layer_name - computed: false, optional: false, required: true
-  private _layerName?: string; 
+  private _layerName?: string;
   public get layerName() {
     return this.getStringAttribute('layer_name');
   }
@@ -224,7 +226,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // license_info - computed: false, optional: true, required: false
-  private _licenseInfo?: string; 
+  private _licenseInfo?: string;
   public get licenseInfo() {
     return this.getStringAttribute('license_info');
   }
@@ -240,7 +242,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // s3_bucket - computed: false, optional: true, required: false
-  private _s3Bucket?: string; 
+  private _s3Bucket?: string;
   public get s3Bucket() {
     return this.getStringAttribute('s3_bucket');
   }
@@ -256,7 +258,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // s3_key - computed: false, optional: true, required: false
-  private _s3Key?: string; 
+  private _s3Key?: string;
   public get s3Key() {
     return this.getStringAttribute('s3_key');
   }
@@ -272,7 +274,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // s3_object_version - computed: false, optional: true, required: false
-  private _s3ObjectVersion?: string; 
+  private _s3ObjectVersion?: string;
   public get s3ObjectVersion() {
     return this.getStringAttribute('s3_object_version');
   }
@@ -298,7 +300,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // skip_destroy - computed: false, optional: true, required: false
-  private _skipDestroy?: boolean | cdktf.IResolvable; 
+  private _skipDestroy?: boolean | cdktf.IResolvable;
   public get skipDestroy() {
     return this.getBooleanAttribute('skip_destroy');
   }
@@ -314,7 +316,7 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
   }
 
   // source_code_hash - computed: true, optional: true, required: false
-  private _sourceCodeHash?: string; 
+  private _sourceCodeHash?: string;
   public get sourceCodeHash() {
     return this.getStringAttribute('source_code_hash');
   }
@@ -345,8 +347,14 @@ export class LambdaLayerVersion extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      compatible_architectures: cdktf.listMapper(cdktf.stringToTerraform, false)(this._compatibleArchitectures),
-      compatible_runtimes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._compatibleRuntimes),
+      compatible_architectures: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._compatibleArchitectures),
+      compatible_runtimes: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._compatibleRuntimes),
       description: cdktf.stringToTerraform(this._description),
       filename: cdktf.stringToTerraform(this._filename),
       id: cdktf.stringToTerraform(this._id),

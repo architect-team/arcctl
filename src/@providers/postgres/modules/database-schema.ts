@@ -1,21 +1,14 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.js';
-import { ResourceModule } from '../../module.js';
-import { Database } from '../.gen/providers/postgresql/database/index.js';
-import { PostgresCredentials } from '../credentials.js';
+import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule } from '../../module.ts';
+import { Database } from '../.gen/providers/postgresql/database/index.ts';
+import { PostgresCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class PostgresDatabaseSchemaModule extends ResourceModule<
-  'databaseSchema',
-  PostgresCredentials
-> {
+export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema', PostgresCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
   db: Database;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['databaseSchema'],
-  ) {
+  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseSchema']) {
     super(scope, id, inputs);
 
     this.db = new Database(this, 'postgres-database', {
@@ -35,10 +28,7 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: PostgresCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
+  async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.db)]: resourceId,
     };

@@ -1,65 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/d/outposts_outposts
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface DataAwsOutpostsOutpostsConfig extends cdktf.TerraformMetaArguments {
+export interface DataAwsOutpostsOutpostsConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#availability_zone DataAwsOutpostsOutposts#availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#availability_zone DataAwsOutpostsOutposts#availability_zone}
+   */
   readonly availabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#availability_zone_id DataAwsOutpostsOutposts#availability_zone_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#availability_zone_id DataAwsOutpostsOutposts#availability_zone_id}
+   */
   readonly availabilityZoneId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#id DataAwsOutpostsOutposts#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#id DataAwsOutpostsOutposts#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#owner_id DataAwsOutpostsOutposts#owner_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#owner_id DataAwsOutpostsOutposts#owner_id}
+   */
   readonly ownerId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#site_id DataAwsOutpostsOutposts#site_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts#site_id DataAwsOutpostsOutposts#site_id}
+   */
   readonly siteId?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts aws_outposts_outposts}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts aws_outposts_outposts}
+ */
 export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_outposts_outposts";
+  public static readonly tfResourceType = 'aws_outposts_outposts';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts aws_outposts_outposts} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsOutpostsOutpostsConfig = {}
-  */
-  public constructor(scope: Construct, id: string, config: DataAwsOutpostsOutpostsConfig = {}) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/outposts_outposts aws_outposts_outposts} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsOutpostsOutpostsConfig = {}
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DataAwsOutpostsOutpostsConfig = {},
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_outposts_outposts',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +70,7 @@ export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._availabilityZone = config.availabilityZone;
     this._availabilityZoneId = config.availabilityZoneId;
@@ -86,7 +89,7 @@ export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -102,7 +105,7 @@ export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
   }
 
   // availability_zone_id - computed: true, optional: true, required: false
-  private _availabilityZoneId?: string; 
+  private _availabilityZoneId?: string;
   public get availabilityZoneId() {
     return this.getStringAttribute('availability_zone_id');
   }
@@ -118,7 +121,7 @@ export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +142,7 @@ export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
   }
 
   // owner_id - computed: true, optional: true, required: false
-  private _ownerId?: string; 
+  private _ownerId?: string;
   public get ownerId() {
     return this.getStringAttribute('owner_id');
   }
@@ -155,7 +158,7 @@ export class DataAwsOutpostsOutposts extends cdktf.TerraformDataSource {
   }
 
   // site_id - computed: true, optional: true, required: false
-  private _siteId?: string; 
+  private _siteId?: string;
   public get siteId() {
     return this.getStringAttribute('site_id');
   }

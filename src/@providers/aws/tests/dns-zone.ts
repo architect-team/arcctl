@@ -1,11 +1,7 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../../../@resources/types.js';
-import { CldctlTest, CldctlTestContext } from '../../tests.js';
-import { AwsCredentials } from '../credentials';
-import { expect } from 'chai';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../../../@resources/types.ts';
+import { CldctlTest, CldctlTestContext } from '../../tests.ts';
+import { AwsCredentials } from '../credentials.ts';
+import { assertEquals, assertStringIncludes } from 'std/testing/asserts.ts';
 
 export class AwsDnsZoneTest implements CldctlTest<AwsCredentials> {
   name = 'Basic DNS Zone Test';
@@ -21,15 +17,14 @@ export class AwsDnsZoneTest implements CldctlTest<AwsCredentials> {
     },
   ];
 
-  validateCreate = async (
-    context: CldctlTestContext<Partial<AwsCredentials>>,
-  ) => {
+  // deno-lint-ignore require-await
+  validateCreate = async (context: CldctlTestContext<Partial<AwsCredentials>>) => {
     const dns_zone = context.stacks[0];
     const inputs = dns_zone.inputs as ResourceInputs['dnsZone'];
     const outputs = dns_zone.outputs as ResourceOutputs['dnsZone'];
 
-    expect(inputs.name).to.equal(outputs.name);
-    expect(outputs.nameservers).length(4);
-    expect(outputs.nameservers[0]).to.include('.awsdns-');
+    assertEquals(inputs.name, outputs.name);
+    assertEquals(outputs.nameservers.length, 4);
+    assertStringIncludes(outputs.nameservers[0], '.awsdns-');
   };
 }

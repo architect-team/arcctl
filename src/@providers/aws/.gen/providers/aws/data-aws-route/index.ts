@@ -1,97 +1,105 @@
 // https://www.terraform.io/docs/providers/aws/d/route
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DataAwsRouteConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#carrier_gateway_id DataAwsRoute#carrier_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#carrier_gateway_id DataAwsRoute#carrier_gateway_id}
+   */
   readonly carrierGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#core_network_arn DataAwsRoute#core_network_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#core_network_arn DataAwsRoute#core_network_arn}
+   */
   readonly coreNetworkArn?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#destination_cidr_block DataAwsRoute#destination_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#destination_cidr_block DataAwsRoute#destination_cidr_block}
+   */
   readonly destinationCidrBlock?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#destination_ipv6_cidr_block DataAwsRoute#destination_ipv6_cidr_block}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#destination_ipv6_cidr_block DataAwsRoute#destination_ipv6_cidr_block}
+   */
   readonly destinationIpv6CidrBlock?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#destination_prefix_list_id DataAwsRoute#destination_prefix_list_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#destination_prefix_list_id DataAwsRoute#destination_prefix_list_id}
+   */
   readonly destinationPrefixListId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#egress_only_gateway_id DataAwsRoute#egress_only_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#egress_only_gateway_id DataAwsRoute#egress_only_gateway_id}
+   */
   readonly egressOnlyGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#gateway_id DataAwsRoute#gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#gateway_id DataAwsRoute#gateway_id}
+   */
   readonly gatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#id DataAwsRoute#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#id DataAwsRoute#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#instance_id DataAwsRoute#instance_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#instance_id DataAwsRoute#instance_id}
+   */
   readonly instanceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#local_gateway_id DataAwsRoute#local_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#local_gateway_id DataAwsRoute#local_gateway_id}
+   */
   readonly localGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#nat_gateway_id DataAwsRoute#nat_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#nat_gateway_id DataAwsRoute#nat_gateway_id}
+   */
   readonly natGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#network_interface_id DataAwsRoute#network_interface_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#network_interface_id DataAwsRoute#network_interface_id}
+   */
   readonly networkInterfaceId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#route_table_id DataAwsRoute#route_table_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#route_table_id DataAwsRoute#route_table_id}
+   */
   readonly routeTableId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#transit_gateway_id DataAwsRoute#transit_gateway_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#transit_gateway_id DataAwsRoute#transit_gateway_id}
+   */
   readonly transitGatewayId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#vpc_peering_connection_id DataAwsRoute#vpc_peering_connection_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#vpc_peering_connection_id DataAwsRoute#vpc_peering_connection_id}
+   */
   readonly vpcPeeringConnectionId?: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#timeouts DataAwsRoute#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#timeouts DataAwsRoute#timeouts}
+   */
   readonly timeouts?: DataAwsRouteTimeouts;
 }
 export interface DataAwsRouteTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#read DataAwsRoute#read}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route#read DataAwsRoute#read}
+   */
   readonly read?: string;
 }
 
-export function dataAwsRouteTimeoutsToTerraform(struct?: DataAwsRouteTimeoutsOutputReference | DataAwsRouteTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dataAwsRouteTimeoutsToTerraform(
+  struct?:
+    | DataAwsRouteTimeoutsOutputReference
+    | DataAwsRouteTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  }
+  };
 }
 
 export class DataAwsRouteTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -99,14 +107,20 @@ export class DataAwsRouteTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DataAwsRouteTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DataAwsRouteTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -119,17 +133,17 @@ export class DataAwsRouteTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DataAwsRouteTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DataAwsRouteTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -137,7 +151,7 @@ export class DataAwsRouteTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string; 
+  private _read?: string;
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -154,33 +168,32 @@ export class DataAwsRouteTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/d/route aws_route}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/d/route aws_route}
+ */
 export class DataAwsRoute extends cdktf.TerraformDataSource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_route";
+  public static readonly tfResourceType = 'aws_route';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route aws_route} Data Source
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DataAwsRouteConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route aws_route} Data Source
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DataAwsRouteConfig
+   */
   public constructor(scope: Construct, id: string, config: DataAwsRouteConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_route',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -188,7 +201,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._carrierGatewayId = config.carrierGatewayId;
     this._coreNetworkArn = config.coreNetworkArn;
@@ -213,7 +226,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   // ==========
 
   // carrier_gateway_id - computed: true, optional: true, required: false
-  private _carrierGatewayId?: string; 
+  private _carrierGatewayId?: string;
   public get carrierGatewayId() {
     return this.getStringAttribute('carrier_gateway_id');
   }
@@ -229,7 +242,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // core_network_arn - computed: true, optional: true, required: false
-  private _coreNetworkArn?: string; 
+  private _coreNetworkArn?: string;
   public get coreNetworkArn() {
     return this.getStringAttribute('core_network_arn');
   }
@@ -245,7 +258,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // destination_cidr_block - computed: true, optional: true, required: false
-  private _destinationCidrBlock?: string; 
+  private _destinationCidrBlock?: string;
   public get destinationCidrBlock() {
     return this.getStringAttribute('destination_cidr_block');
   }
@@ -261,7 +274,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // destination_ipv6_cidr_block - computed: true, optional: true, required: false
-  private _destinationIpv6CidrBlock?: string; 
+  private _destinationIpv6CidrBlock?: string;
   public get destinationIpv6CidrBlock() {
     return this.getStringAttribute('destination_ipv6_cidr_block');
   }
@@ -277,7 +290,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // destination_prefix_list_id - computed: true, optional: true, required: false
-  private _destinationPrefixListId?: string; 
+  private _destinationPrefixListId?: string;
   public get destinationPrefixListId() {
     return this.getStringAttribute('destination_prefix_list_id');
   }
@@ -293,7 +306,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // egress_only_gateway_id - computed: true, optional: true, required: false
-  private _egressOnlyGatewayId?: string; 
+  private _egressOnlyGatewayId?: string;
   public get egressOnlyGatewayId() {
     return this.getStringAttribute('egress_only_gateway_id');
   }
@@ -309,7 +322,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // gateway_id - computed: true, optional: true, required: false
-  private _gatewayId?: string; 
+  private _gatewayId?: string;
   public get gatewayId() {
     return this.getStringAttribute('gateway_id');
   }
@@ -325,7 +338,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -341,7 +354,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // instance_id - computed: true, optional: true, required: false
-  private _instanceId?: string; 
+  private _instanceId?: string;
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -357,7 +370,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // local_gateway_id - computed: true, optional: true, required: false
-  private _localGatewayId?: string; 
+  private _localGatewayId?: string;
   public get localGatewayId() {
     return this.getStringAttribute('local_gateway_id');
   }
@@ -373,7 +386,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // nat_gateway_id - computed: true, optional: true, required: false
-  private _natGatewayId?: string; 
+  private _natGatewayId?: string;
   public get natGatewayId() {
     return this.getStringAttribute('nat_gateway_id');
   }
@@ -389,7 +402,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // network_interface_id - computed: true, optional: true, required: false
-  private _networkInterfaceId?: string; 
+  private _networkInterfaceId?: string;
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -405,7 +418,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string; 
+  private _routeTableId?: string;
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -418,7 +431,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // transit_gateway_id - computed: true, optional: true, required: false
-  private _transitGatewayId?: string; 
+  private _transitGatewayId?: string;
   public get transitGatewayId() {
     return this.getStringAttribute('transit_gateway_id');
   }
@@ -434,7 +447,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // vpc_peering_connection_id - computed: true, optional: true, required: false
-  private _vpcPeeringConnectionId?: string; 
+  private _vpcPeeringConnectionId?: string;
   public get vpcPeeringConnectionId() {
     return this.getStringAttribute('vpc_peering_connection_id');
   }
@@ -450,7 +463,7 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsRouteTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DataAwsRouteTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -473,10 +486,18 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
     return {
       carrier_gateway_id: cdktf.stringToTerraform(this._carrierGatewayId),
       core_network_arn: cdktf.stringToTerraform(this._coreNetworkArn),
-      destination_cidr_block: cdktf.stringToTerraform(this._destinationCidrBlock),
-      destination_ipv6_cidr_block: cdktf.stringToTerraform(this._destinationIpv6CidrBlock),
-      destination_prefix_list_id: cdktf.stringToTerraform(this._destinationPrefixListId),
-      egress_only_gateway_id: cdktf.stringToTerraform(this._egressOnlyGatewayId),
+      destination_cidr_block: cdktf.stringToTerraform(
+        this._destinationCidrBlock,
+      ),
+      destination_ipv6_cidr_block: cdktf.stringToTerraform(
+        this._destinationIpv6CidrBlock,
+      ),
+      destination_prefix_list_id: cdktf.stringToTerraform(
+        this._destinationPrefixListId,
+      ),
+      egress_only_gateway_id: cdktf.stringToTerraform(
+        this._egressOnlyGatewayId,
+      ),
       gateway_id: cdktf.stringToTerraform(this._gatewayId),
       id: cdktf.stringToTerraform(this._id),
       instance_id: cdktf.stringToTerraform(this._instanceId),
@@ -485,7 +506,9 @@ export class DataAwsRoute extends cdktf.TerraformDataSource {
       network_interface_id: cdktf.stringToTerraform(this._networkInterfaceId),
       route_table_id: cdktf.stringToTerraform(this._routeTableId),
       transit_gateway_id: cdktf.stringToTerraform(this._transitGatewayId),
-      vpc_peering_connection_id: cdktf.stringToTerraform(this._vpcPeeringConnectionId),
+      vpc_peering_connection_id: cdktf.stringToTerraform(
+        this._vpcPeeringConnectionId,
+      ),
       timeouts: dataAwsRouteTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

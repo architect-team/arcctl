@@ -1,32 +1,20 @@
-import { BaseCommand } from '../../base-command.js';
-import { getProviders, saveProviders } from '../../utils/providers.js';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
-export default class RemoveAccountCmd extends BaseCommand {
-  static description = 'Delete the specified account';
-  static displayName = 'delete account';
+const RemoveAccountCommand = BaseCommand()
+  .description('Delete the specified account')
+  .arguments('[name:string]')
+  .action(remove_account_action);
 
-  static aliases: string[] = ['remove:accounts'];
+async function remove_account_action(options: GlobalOptions, name?: string) {
+  const command_helper = new CommandHelper(options);
 
-  static args = [
-    {
-      name: 'name',
-      description: 'Name of the account to delete',
-    },
-  ];
+  const provider = await command_helper.promptForAccount({
+    account: name,
+    message: 'Select the account to delete',
+  });
 
-  async run(): Promise<void> {
-    const { args } = await this.parse(RemoveAccountCmd);
-
-    const provider = await this.promptForAccount({
-      account: args.name,
-      message: 'Select the account to delete',
-    });
-
-    const providers = await getProviders(this.config.configDir);
-    await saveProviders(
-      this.config.configDir,
-      providers.filter((p) => p.name !== provider.name),
-    );
-    this.log('Account deleted');
-  }
+  command_helper.providerStore.deleteProvider(provider.name);
+  console.log('Account deleted');
 }
+
+export default RemoveAccountCommand;

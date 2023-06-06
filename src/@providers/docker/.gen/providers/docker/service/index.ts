@@ -1,115 +1,123 @@
 // https://www.terraform.io/docs/providers/docker/r/service
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface ServiceConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#id Service#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#id Service#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Name of the service
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
-  */
+   * Name of the service
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
+   */
   readonly name: string;
   /**
-  * auth block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#auth Service#auth}
-  */
+   * auth block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#auth Service#auth}
+   */
   readonly auth?: ServiceAuth;
   /**
-  * converge_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#converge_config Service#converge_config}
-  */
+   * converge_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#converge_config Service#converge_config}
+   */
   readonly convergeConfig?: ServiceConvergeConfig;
   /**
-  * endpoint_spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#endpoint_spec Service#endpoint_spec}
-  */
+   * endpoint_spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#endpoint_spec Service#endpoint_spec}
+   */
   readonly endpointSpec?: ServiceEndpointSpec;
   /**
-  * labels block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
-  */
+   * labels block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
+   */
   readonly labels?: ServiceLabels[] | cdktf.IResolvable;
   /**
-  * mode block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
-  */
+   * mode block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
+   */
   readonly mode?: ServiceMode;
   /**
-  * rollback_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#rollback_config Service#rollback_config}
-  */
+   * rollback_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#rollback_config Service#rollback_config}
+   */
   readonly rollbackConfig?: ServiceRollbackConfig;
   /**
-  * task_spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#task_spec Service#task_spec}
-  */
+   * task_spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#task_spec Service#task_spec}
+   */
   readonly taskSpec: ServiceTaskSpec;
   /**
-  * update_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#update_config Service#update_config}
-  */
+   * update_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#update_config Service#update_config}
+   */
   readonly updateConfig?: ServiceUpdateConfig;
 }
 export interface ServiceAuth {
   /**
-  * The password
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#password Service#password}
-  */
+   * The password
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#password Service#password}
+   */
   readonly password?: string;
   /**
-  * The address of the server for the authentication
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#server_address Service#server_address}
-  */
+   * The address of the server for the authentication
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#server_address Service#server_address}
+   */
   readonly serverAddress: string;
   /**
-  * The username
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#username Service#username}
-  */
+   * The username
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#username Service#username}
+   */
   readonly username?: string;
 }
 
-export function serviceAuthToTerraform(struct?: ServiceAuthOutputReference | ServiceAuth): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceAuthToTerraform(
+  struct?: ServiceAuthOutputReference | ServiceAuth,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     password: cdktf.stringToTerraform(struct!.password),
     server_address: cdktf.stringToTerraform(struct!.serverAddress),
     username: cdktf.stringToTerraform(struct!.username),
-  }
+  };
 }
 
 export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -137,8 +145,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
       this._password = undefined;
       this._serverAddress = undefined;
       this._username = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._password = value.password;
       this._serverAddress = value.serverAddress;
@@ -147,7 +154,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string; 
+  private _password?: string;
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -163,7 +170,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   }
 
   // server_address - computed: false, optional: false, required: true
-  private _serverAddress?: string; 
+  private _serverAddress?: string;
   public get serverAddress() {
     return this.getStringAttribute('server_address');
   }
@@ -176,7 +183,7 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
   }
 
   // username - computed: false, optional: true, required: false
-  private _username?: string; 
+  private _username?: string;
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -193,38 +200,47 @@ export class ServiceAuthOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceConvergeConfig {
   /**
-  * The interval to check if the desired state is reached `(ms|s)`. Defaults to `7s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
-  */
+   * The interval to check if the desired state is reached `(ms|s)`. Defaults to `7s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
+   */
   readonly delay?: string;
   /**
-  * The timeout of the service to reach the desired state `(s|m)`. Defaults to `3m`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#timeout Service#timeout}
-  */
+   * The timeout of the service to reach the desired state `(s|m)`. Defaults to `3m`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#timeout Service#timeout}
+   */
   readonly timeout?: string;
 }
 
-export function serviceConvergeConfigToTerraform(struct?: ServiceConvergeConfigOutputReference | ServiceConvergeConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceConvergeConfigToTerraform(
+  struct?: ServiceConvergeConfigOutputReference | ServiceConvergeConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delay: cdktf.stringToTerraform(struct!.delay),
     timeout: cdktf.stringToTerraform(struct!.timeout),
-  }
+  };
 }
 
 export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -247,8 +263,7 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._delay = undefined;
       this._timeout = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._delay = value.delay;
       this._timeout = value.timeout;
@@ -256,7 +271,7 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -272,7 +287,7 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: string; 
+  private _timeout?: string;
   public get timeout() {
     return this.getStringAttribute('timeout');
   }
@@ -289,41 +304,47 @@ export class ServiceConvergeConfigOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceEndpointSpecPorts {
   /**
-  * A random name for the port
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
-  */
+   * A random name for the port
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
+   */
   readonly name?: string;
   /**
-  * Rrepresents the protocol of a port: `tcp`, `udp` or `sctp`. Defaults to `tcp`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#protocol Service#protocol}
-  */
+   * Rrepresents the protocol of a port: `tcp`, `udp` or `sctp`. Defaults to `tcp`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#protocol Service#protocol}
+   */
   readonly protocol?: string;
   /**
-  * Represents the mode in which the port is to be published: 'ingress' or 'host'. Defaults to `ingress`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#publish_mode Service#publish_mode}
-  */
+   * Represents the mode in which the port is to be published: 'ingress' or 'host'. Defaults to `ingress`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#publish_mode Service#publish_mode}
+   */
   readonly publishMode?: string;
   /**
-  * The port on the swarm hosts
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#published_port Service#published_port}
-  */
+   * The port on the swarm hosts
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#published_port Service#published_port}
+   */
   readonly publishedPort?: number;
   /**
-  * The port inside the container
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#target_port Service#target_port}
-  */
+   * The port inside the container
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#target_port Service#target_port}
+   */
   readonly targetPort: number;
 }
 
-export function serviceEndpointSpecPortsToTerraform(struct?: ServiceEndpointSpecPorts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceEndpointSpecPortsToTerraform(
+  struct?: ServiceEndpointSpecPorts | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
@@ -331,7 +352,7 @@ export function serviceEndpointSpecPortsToTerraform(struct?: ServiceEndpointSpec
     publish_mode: cdktf.stringToTerraform(struct!.publishMode),
     published_port: cdktf.numberToTerraform(struct!.publishedPort),
     target_port: cdktf.numberToTerraform(struct!.targetPort),
-  }
+  };
 }
 
 export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject {
@@ -339,16 +360,29 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceEndpointSpecPorts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceEndpointSpecPorts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -377,7 +411,9 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceEndpointSpecPorts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceEndpointSpecPorts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -386,12 +422,10 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
       this._publishMode = undefined;
       this._publishedPort = undefined;
       this._targetPort = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -403,7 +437,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -419,7 +453,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // protocol - computed: false, optional: true, required: false
-  private _protocol?: string; 
+  private _protocol?: string;
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -435,7 +469,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // publish_mode - computed: false, optional: true, required: false
-  private _publishMode?: string; 
+  private _publishMode?: string;
   public get publishMode() {
     return this.getStringAttribute('publish_mode');
   }
@@ -451,7 +485,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // published_port - computed: true, optional: true, required: false
-  private _publishedPort?: number; 
+  private _publishedPort?: number;
   public get publishedPort() {
     return this.getNumberAttribute('published_port');
   }
@@ -467,7 +501,7 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
   }
 
   // target_port - computed: false, optional: false, required: true
-  private _targetPort?: number; 
+  private _targetPort?: number;
   public get targetPort() {
     return this.getNumberAttribute('target_port');
   }
@@ -481,58 +515,79 @@ export class ServiceEndpointSpecPortsOutputReference extends cdktf.ComplexObject
 }
 
 export class ServiceEndpointSpecPortsList extends cdktf.ComplexList {
-  public internalValue? : ServiceEndpointSpecPorts[] | cdktf.IResolvable
+  public internalValue?: ServiceEndpointSpecPorts[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceEndpointSpecPortsOutputReference {
-    return new ServiceEndpointSpecPortsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceEndpointSpecPortsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceEndpointSpec {
   /**
-  * The mode of resolution to use for internal load balancing between tasks
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
-  */
+   * The mode of resolution to use for internal load balancing between tasks
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
+   */
   readonly mode?: string;
   /**
-  * ports block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#ports Service#ports}
-  */
+   * ports block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#ports Service#ports}
+   */
   readonly ports?: ServiceEndpointSpecPorts[] | cdktf.IResolvable;
 }
 
-export function serviceEndpointSpecToTerraform(struct?: ServiceEndpointSpecOutputReference | ServiceEndpointSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceEndpointSpecToTerraform(
+  struct?: ServiceEndpointSpecOutputReference | ServiceEndpointSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.stringToTerraform(struct!.mode),
-    ports: cdktf.listMapper(serviceEndpointSpecPortsToTerraform, true)(struct!.ports),
-  }
+    ports: cdktf.listMapper(
+      serviceEndpointSpecPortsToTerraform,
+      true,
+    )(struct!.ports),
+  };
 }
 
 export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -555,8 +610,7 @@ export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._mode = undefined;
       this._ports.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mode = value.mode;
       this._ports.internalValue = value.ports;
@@ -564,7 +618,7 @@ export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // mode - computed: true, optional: true, required: false
-  private _mode?: string; 
+  private _mode?: string;
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -580,7 +634,7 @@ export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // ports - computed: false, optional: true, required: false
-  private _ports = new ServiceEndpointSpecPortsList(this, "ports", false);
+  private _ports = new ServiceEndpointSpecPortsList(this, 'ports', false);
   public get ports() {
     return this._ports;
   }
@@ -597,28 +651,34 @@ export class ServiceEndpointSpecOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceLabels {
   /**
-  * Name of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
-  */
+   * Name of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
+   */
   readonly label: string;
   /**
-  * Value of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
-  */
+   * Value of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
+   */
   readonly value: string;
 }
 
-export function serviceLabelsToTerraform(struct?: ServiceLabels | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceLabelsToTerraform(
+  struct?: ServiceLabels | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     label: cdktf.stringToTerraform(struct!.label),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
@@ -626,13 +686,23 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): ServiceLabels | cdktf.IResolvable | undefined {
@@ -652,18 +722,18 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceLabels | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceLabels | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._label = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._label = value.label;
@@ -672,7 +742,7 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -685,7 +755,7 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -699,51 +769,69 @@ export class ServiceLabelsOutputReference extends cdktf.ComplexObject {
 }
 
 export class ServiceLabelsList extends cdktf.ComplexList {
-  public internalValue? : ServiceLabels[] | cdktf.IResolvable
+  public internalValue?: ServiceLabels[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceLabelsOutputReference {
-    return new ServiceLabelsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceLabelsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceModeReplicated {
   /**
-  * The amount of replicas of the service. Defaults to `1`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#replicas Service#replicas}
-  */
+   * The amount of replicas of the service. Defaults to `1`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#replicas Service#replicas}
+   */
   readonly replicas?: number;
 }
 
-export function serviceModeReplicatedToTerraform(struct?: ServiceModeReplicatedOutputReference | ServiceModeReplicated): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceModeReplicatedToTerraform(
+  struct?: ServiceModeReplicatedOutputReference | ServiceModeReplicated,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     replicas: cdktf.numberToTerraform(struct!.replicas),
-  }
+  };
 }
 
 export class ServiceModeReplicatedOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -761,15 +849,14 @@ export class ServiceModeReplicatedOutputReference extends cdktf.ComplexObject {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._replicas = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._replicas = value.replicas;
     }
   }
 
   // replicas - computed: false, optional: true, required: false
-  private _replicas?: number; 
+  private _replicas?: number;
   public get replicas() {
     return this.getNumberAttribute('replicas');
   }
@@ -786,38 +873,47 @@ export class ServiceModeReplicatedOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceMode {
   /**
-  * The global service mode. Defaults to `false`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#global Service#global}
-  */
+   * The global service mode. Defaults to `false`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#global Service#global}
+   */
   readonly global?: boolean | cdktf.IResolvable;
   /**
-  * replicated block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#replicated Service#replicated}
-  */
+   * replicated block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#replicated Service#replicated}
+   */
   readonly replicated?: ServiceModeReplicated;
 }
 
-export function serviceModeToTerraform(struct?: ServiceModeOutputReference | ServiceMode): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceModeToTerraform(
+  struct?: ServiceModeOutputReference | ServiceMode,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     global: cdktf.booleanToTerraform(struct!.global),
     replicated: serviceModeReplicatedToTerraform(struct!.replicated),
-  }
+  };
 }
 
 export class ServiceModeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -840,8 +936,7 @@ export class ServiceModeOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._global = undefined;
       this._replicated.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._global = value.global;
       this._replicated.internalValue = value.replicated;
@@ -849,7 +944,7 @@ export class ServiceModeOutputReference extends cdktf.ComplexObject {
   }
 
   // global - computed: false, optional: true, required: false
-  private _global?: boolean | cdktf.IResolvable; 
+  private _global?: boolean | cdktf.IResolvable;
   public get global() {
     return this.getBooleanAttribute('global');
   }
@@ -865,7 +960,10 @@ export class ServiceModeOutputReference extends cdktf.ComplexObject {
   }
 
   // replicated - computed: false, optional: true, required: false
-  private _replicated = new ServiceModeReplicatedOutputReference(this, "replicated");
+  private _replicated = new ServiceModeReplicatedOutputReference(
+    this,
+    'replicated',
+  );
   public get replicated() {
     return this._replicated;
   }
@@ -882,47 +980,53 @@ export class ServiceModeOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceRollbackConfig {
   /**
-  * Delay between task rollbacks (ns|us|ms|s|m|h). Defaults to `0s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
-  */
+   * Delay between task rollbacks (ns|us|ms|s|m|h). Defaults to `0s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
+   */
   readonly delay?: string;
   /**
-  * Action on rollback failure: pause | continue. Defaults to `pause`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#failure_action Service#failure_action}
-  */
+   * Action on rollback failure: pause | continue. Defaults to `pause`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#failure_action Service#failure_action}
+   */
   readonly failureAction?: string;
   /**
-  * Failure rate to tolerate during a rollback. Defaults to `0.0`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_failure_ratio Service#max_failure_ratio}
-  */
+   * Failure rate to tolerate during a rollback. Defaults to `0.0`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_failure_ratio Service#max_failure_ratio}
+   */
   readonly maxFailureRatio?: string;
   /**
-  * Duration after each task rollback to monitor for failure (ns|us|ms|s|m|h). Defaults to `5s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#monitor Service#monitor}
-  */
+   * Duration after each task rollback to monitor for failure (ns|us|ms|s|m|h). Defaults to `5s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#monitor Service#monitor}
+   */
   readonly monitor?: string;
   /**
-  * Rollback order: either 'stop-first' or 'start-first'. Defaults to `stop-first`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#order Service#order}
-  */
+   * Rollback order: either 'stop-first' or 'start-first'. Defaults to `stop-first`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#order Service#order}
+   */
   readonly order?: string;
   /**
-  * Maximum number of tasks to be rollbacked in one iteration. Defaults to `1`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#parallelism Service#parallelism}
-  */
+   * Maximum number of tasks to be rollbacked in one iteration. Defaults to `1`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#parallelism Service#parallelism}
+   */
   readonly parallelism?: number;
 }
 
-export function serviceRollbackConfigToTerraform(struct?: ServiceRollbackConfigOutputReference | ServiceRollbackConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceRollbackConfigToTerraform(
+  struct?: ServiceRollbackConfigOutputReference | ServiceRollbackConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delay: cdktf.stringToTerraform(struct!.delay),
@@ -931,17 +1035,20 @@ export function serviceRollbackConfigToTerraform(struct?: ServiceRollbackConfigO
     monitor: cdktf.stringToTerraform(struct!.monitor),
     order: cdktf.stringToTerraform(struct!.order),
     parallelism: cdktf.numberToTerraform(struct!.parallelism),
-  }
+  };
 }
 
 export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -984,8 +1091,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
       this._monitor = undefined;
       this._order = undefined;
       this._parallelism = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._delay = value.delay;
       this._failureAction = value.failureAction;
@@ -997,7 +1103,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -1013,7 +1119,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // failure_action - computed: false, optional: true, required: false
-  private _failureAction?: string; 
+  private _failureAction?: string;
   public get failureAction() {
     return this.getStringAttribute('failure_action');
   }
@@ -1029,7 +1135,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // max_failure_ratio - computed: false, optional: true, required: false
-  private _maxFailureRatio?: string; 
+  private _maxFailureRatio?: string;
   public get maxFailureRatio() {
     return this.getStringAttribute('max_failure_ratio');
   }
@@ -1045,7 +1151,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // monitor - computed: false, optional: true, required: false
-  private _monitor?: string; 
+  private _monitor?: string;
   public get monitor() {
     return this.getStringAttribute('monitor');
   }
@@ -1061,7 +1167,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // order - computed: false, optional: true, required: false
-  private _order?: string; 
+  private _order?: string;
   public get order() {
     return this.getStringAttribute('order');
   }
@@ -1077,7 +1183,7 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // parallelism - computed: false, optional: true, required: false
-  private _parallelism?: number; 
+  private _parallelism?: number;
   public get parallelism() {
     return this.getNumberAttribute('parallelism');
   }
@@ -1094,47 +1200,53 @@ export class ServiceRollbackConfigOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceTaskSpecContainerSpecConfigs {
   /**
-  * ID of the specific config that we're referencing
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#config_id Service#config_id}
-  */
+   * ID of the specific config that we're referencing
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#config_id Service#config_id}
+   */
   readonly configId: string;
   /**
-  * Name of the config that this references, but this is just provided for lookup/display purposes. The config in the reference will be identified by its ID
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#config_name Service#config_name}
-  */
+   * Name of the config that this references, but this is just provided for lookup/display purposes. The config in the reference will be identified by its ID
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#config_name Service#config_name}
+   */
   readonly configName?: string;
   /**
-  * Represents the file GID. Defaults to `0`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_gid Service#file_gid}
-  */
+   * Represents the file GID. Defaults to `0`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_gid Service#file_gid}
+   */
   readonly fileGid?: string;
   /**
-  * Represents represents the FileMode of the file. Defaults to `0o444`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_mode Service#file_mode}
-  */
+   * Represents represents the FileMode of the file. Defaults to `0o444`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_mode Service#file_mode}
+   */
   readonly fileMode?: number;
   /**
-  * Represents the final filename in the filesystem
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_name Service#file_name}
-  */
+   * Represents the final filename in the filesystem
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_name Service#file_name}
+   */
   readonly fileName: string;
   /**
-  * Represents the file UID. Defaults to `0`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_uid Service#file_uid}
-  */
+   * Represents the file UID. Defaults to `0`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_uid Service#file_uid}
+   */
   readonly fileUid?: string;
 }
 
-export function serviceTaskSpecContainerSpecConfigsToTerraform(struct?: ServiceTaskSpecContainerSpecConfigs | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecConfigsToTerraform(
+  struct?: ServiceTaskSpecContainerSpecConfigs | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     config_id: cdktf.stringToTerraform(struct!.configId),
@@ -1143,7 +1255,7 @@ export function serviceTaskSpecContainerSpecConfigsToTerraform(struct?: ServiceT
     file_mode: cdktf.numberToTerraform(struct!.fileMode),
     file_name: cdktf.stringToTerraform(struct!.fileName),
     file_uid: cdktf.stringToTerraform(struct!.fileUid),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.ComplexObject {
@@ -1151,16 +1263,29 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecConfigs | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecConfigs
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1193,7 +1318,9 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecConfigs | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecConfigs | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1203,12 +1330,10 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
       this._fileMode = undefined;
       this._fileName = undefined;
       this._fileUid = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._configId = value.configId;
@@ -1221,7 +1346,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // config_id - computed: false, optional: false, required: true
-  private _configId?: string; 
+  private _configId?: string;
   public get configId() {
     return this.getStringAttribute('config_id');
   }
@@ -1234,7 +1359,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // config_name - computed: false, optional: true, required: false
-  private _configName?: string; 
+  private _configName?: string;
   public get configName() {
     return this.getStringAttribute('config_name');
   }
@@ -1250,7 +1375,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_gid - computed: false, optional: true, required: false
-  private _fileGid?: string; 
+  private _fileGid?: string;
   public get fileGid() {
     return this.getStringAttribute('file_gid');
   }
@@ -1266,7 +1391,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_mode - computed: false, optional: true, required: false
-  private _fileMode?: number; 
+  private _fileMode?: number;
   public get fileMode() {
     return this.getNumberAttribute('file_mode');
   }
@@ -1282,7 +1407,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_name - computed: false, optional: false, required: true
-  private _fileName?: string; 
+  private _fileName?: string;
   public get fileName() {
     return this.getStringAttribute('file_name');
   }
@@ -1295,7 +1420,7 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
   }
 
   // file_uid - computed: false, optional: true, required: false
-  private _fileUid?: string; 
+  private _fileUid?: string;
   public get fileUid() {
     return this.getStringAttribute('file_uid');
   }
@@ -1312,69 +1437,98 @@ export class ServiceTaskSpecContainerSpecConfigsOutputReference extends cdktf.Co
 }
 
 export class ServiceTaskSpecContainerSpecConfigsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecContainerSpecConfigs[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecContainerSpecConfigs[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ServiceTaskSpecContainerSpecConfigsOutputReference {
-    return new ServiceTaskSpecContainerSpecConfigsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ServiceTaskSpecContainerSpecConfigsOutputReference {
+    return new ServiceTaskSpecContainerSpecConfigsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecContainerSpecDnsConfig {
   /**
-  * The IP addresses of the name servers
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nameservers Service#nameservers}
-  */
+   * The IP addresses of the name servers
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nameservers Service#nameservers}
+   */
   readonly nameservers: string[];
   /**
-  * A list of internal resolver variables to be modified (e.g., `debug`, `ndots:3`, etc.)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#options Service#options}
-  */
+   * A list of internal resolver variables to be modified (e.g., `debug`, `ndots:3`, etc.)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#options Service#options}
+   */
   readonly options?: string[];
   /**
-  * A search list for host-name lookup
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#search Service#search}
-  */
+   * A search list for host-name lookup
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#search Service#search}
+   */
   readonly search?: string[];
 }
 
-export function serviceTaskSpecContainerSpecDnsConfigToTerraform(struct?: ServiceTaskSpecContainerSpecDnsConfigOutputReference | ServiceTaskSpecContainerSpecDnsConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecDnsConfigToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecDnsConfigOutputReference
+    | ServiceTaskSpecContainerSpecDnsConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    nameservers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.nameservers),
+    nameservers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.nameservers),
     options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.options),
     search: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.search),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecDnsConfig | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecDnsConfig
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._nameservers !== undefined) {
@@ -1392,14 +1546,15 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecDnsConfig | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecDnsConfig | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._nameservers = undefined;
       this._options = undefined;
       this._search = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._nameservers = value.nameservers;
       this._options = value.options;
@@ -1408,7 +1563,7 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
   }
 
   // nameservers - computed: false, optional: false, required: true
-  private _nameservers?: string[]; 
+  private _nameservers?: string[];
   public get nameservers() {
     return this.getListAttribute('nameservers');
   }
@@ -1421,7 +1576,7 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: string[]; 
+  private _options?: string[];
   public get options() {
     return this.getListAttribute('options');
   }
@@ -1437,7 +1592,7 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
   }
 
   // search - computed: false, optional: true, required: false
-  private _search?: string[]; 
+  private _search?: string[];
   public get search() {
     return this.getListAttribute('search');
   }
@@ -1454,41 +1609,49 @@ export class ServiceTaskSpecContainerSpecDnsConfigOutputReference extends cdktf.
 }
 export interface ServiceTaskSpecContainerSpecHealthcheck {
   /**
-  * Time between running the check (ms|s|m|h). Defaults to `0s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#interval Service#interval}
-  */
+   * Time between running the check (ms|s|m|h). Defaults to `0s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#interval Service#interval}
+   */
   readonly interval?: string;
   /**
-  * Consecutive failures needed to report unhealthy. Defaults to `0`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#retries Service#retries}
-  */
+   * Consecutive failures needed to report unhealthy. Defaults to `0`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#retries Service#retries}
+   */
   readonly retries?: number;
   /**
-  * Start period for the container to initialize before counting retries towards unstable (ms|s|m|h). Defaults to `0s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#start_period Service#start_period}
-  */
+   * Start period for the container to initialize before counting retries towards unstable (ms|s|m|h). Defaults to `0s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#start_period Service#start_period}
+   */
   readonly startPeriod?: string;
   /**
-  * The test to perform as list
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#test Service#test}
-  */
+   * The test to perform as list
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#test Service#test}
+   */
   readonly test: string[];
   /**
-  * Maximum time to allow one check to run (ms|s|m|h). Defaults to `0s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#timeout Service#timeout}
-  */
+   * Maximum time to allow one check to run (ms|s|m|h). Defaults to `0s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#timeout Service#timeout}
+   */
   readonly timeout?: string;
 }
 
-export function serviceTaskSpecContainerSpecHealthcheckToTerraform(struct?: ServiceTaskSpecContainerSpecHealthcheckOutputReference | ServiceTaskSpecContainerSpecHealthcheck): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecHealthcheckToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecHealthcheckOutputReference
+    | ServiceTaskSpecContainerSpecHealthcheck,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     interval: cdktf.stringToTerraform(struct!.interval),
@@ -1496,21 +1659,26 @@ export function serviceTaskSpecContainerSpecHealthcheckToTerraform(struct?: Serv
     start_period: cdktf.stringToTerraform(struct!.startPeriod),
     test: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.test),
     timeout: cdktf.stringToTerraform(struct!.timeout),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecHealthcheck | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecHealthcheck
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._interval !== undefined) {
@@ -1536,7 +1704,9 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecHealthcheck | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecHealthcheck | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._interval = undefined;
@@ -1544,8 +1714,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
       this._startPeriod = undefined;
       this._test = undefined;
       this._timeout = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._interval = value.interval;
       this._retries = value.retries;
@@ -1556,7 +1725,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // interval - computed: false, optional: true, required: false
-  private _interval?: string; 
+  private _interval?: string;
   public get interval() {
     return this.getStringAttribute('interval');
   }
@@ -1572,7 +1741,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // retries - computed: false, optional: true, required: false
-  private _retries?: number; 
+  private _retries?: number;
   public get retries() {
     return this.getNumberAttribute('retries');
   }
@@ -1588,7 +1757,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // start_period - computed: false, optional: true, required: false
-  private _startPeriod?: string; 
+  private _startPeriod?: string;
   public get startPeriod() {
     return this.getStringAttribute('start_period');
   }
@@ -1604,7 +1773,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // test - computed: false, optional: false, required: true
-  private _test?: string[]; 
+  private _test?: string[];
   public get test() {
     return this.getListAttribute('test');
   }
@@ -1617,7 +1786,7 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
   }
 
   // timeout - computed: false, optional: true, required: false
-  private _timeout?: string; 
+  private _timeout?: string;
   public get timeout() {
     return this.getStringAttribute('timeout');
   }
@@ -1634,28 +1803,34 @@ export class ServiceTaskSpecContainerSpecHealthcheckOutputReference extends cdkt
 }
 export interface ServiceTaskSpecContainerSpecHosts {
   /**
-  * The name of the host
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#host Service#host}
-  */
+   * The name of the host
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#host Service#host}
+   */
   readonly host: string;
   /**
-  * The ip of the host
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#ip Service#ip}
-  */
+   * The ip of the host
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#ip Service#ip}
+   */
   readonly ip: string;
 }
 
-export function serviceTaskSpecContainerSpecHostsToTerraform(struct?: ServiceTaskSpecContainerSpecHosts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecHostsToTerraform(
+  struct?: ServiceTaskSpecContainerSpecHosts | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     ip: cdktf.stringToTerraform(struct!.ip),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.ComplexObject {
@@ -1663,16 +1838,29 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecHosts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecHosts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1689,18 +1877,18 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecHosts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecHosts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._host = undefined;
       this._ip = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._host = value.host;
@@ -1709,7 +1897,7 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string; 
+  private _host?: string;
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1722,7 +1910,7 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
   }
 
   // ip - computed: false, optional: false, required: true
-  private _ip?: string; 
+  private _ip?: string;
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -1736,48 +1924,65 @@ export class ServiceTaskSpecContainerSpecHostsOutputReference extends cdktf.Comp
 }
 
 export class ServiceTaskSpecContainerSpecHostsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecContainerSpecHosts[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecContainerSpecHosts[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceTaskSpecContainerSpecHostsOutputReference {
-    return new ServiceTaskSpecContainerSpecHostsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceTaskSpecContainerSpecHostsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecContainerSpecLabels {
   /**
-  * Name of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
-  */
+   * Name of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
+   */
   readonly label: string;
   /**
-  * Value of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
-  */
+   * Value of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
+   */
   readonly value: string;
 }
 
-export function serviceTaskSpecContainerSpecLabelsToTerraform(struct?: ServiceTaskSpecContainerSpecLabels | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecLabelsToTerraform(
+  struct?: ServiceTaskSpecContainerSpecLabels | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     label: cdktf.stringToTerraform(struct!.label),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.ComplexObject {
@@ -1785,16 +1990,29 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecLabels | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecLabels
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1811,18 +2029,18 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecLabels | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecLabels | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._label = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._label = value.label;
@@ -1831,7 +2049,7 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -1844,7 +2062,7 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1858,55 +2076,79 @@ export class ServiceTaskSpecContainerSpecLabelsOutputReference extends cdktf.Com
 }
 
 export class ServiceTaskSpecContainerSpecLabelsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecContainerSpecLabels[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecContainerSpecLabels[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceTaskSpecContainerSpecLabelsOutputReference {
-    return new ServiceTaskSpecContainerSpecLabelsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceTaskSpecContainerSpecLabelsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecContainerSpecMountsBindOptions {
   /**
-  * Bind propagation refers to whether or not mounts created within a given bind-mount or named volume can be propagated to replicas of that mount. See the [docs](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for details. Defaults to `rprivate`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#propagation Service#propagation}
-  */
+   * Bind propagation refers to whether or not mounts created within a given bind-mount or named volume can be propagated to replicas of that mount. See the [docs](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for details. Defaults to `rprivate`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#propagation Service#propagation}
+   */
   readonly propagation?: string;
 }
 
-export function serviceTaskSpecContainerSpecMountsBindOptionsToTerraform(struct?: ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference | ServiceTaskSpecContainerSpecMountsBindOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecMountsBindOptionsToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference
+    | ServiceTaskSpecContainerSpecMountsBindOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     propagation: cdktf.stringToTerraform(struct!.propagation),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecMountsBindOptions | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecMountsBindOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._propagation !== undefined) {
@@ -1916,19 +2158,20 @@ export class ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecMountsBindOptions | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecMountsBindOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._propagation = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._propagation = value.propagation;
     }
   }
 
   // propagation - computed: false, optional: true, required: false
-  private _propagation?: string; 
+  private _propagation?: string;
   public get propagation() {
     return this.getStringAttribute('propagation');
   }
@@ -1945,42 +2188,55 @@ export class ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference extend
 }
 export interface ServiceTaskSpecContainerSpecMountsTmpfsOptions {
   /**
-  * The permission mode for the tmpfs mount in an integer
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
-  */
+   * The permission mode for the tmpfs mount in an integer
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mode Service#mode}
+   */
   readonly mode?: number;
   /**
-  * The size for the tmpfs mount in bytes
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#size_bytes Service#size_bytes}
-  */
+   * The size for the tmpfs mount in bytes
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#size_bytes Service#size_bytes}
+   */
   readonly sizeBytes?: number;
 }
 
-export function serviceTaskSpecContainerSpecMountsTmpfsOptionsToTerraform(struct?: ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference | ServiceTaskSpecContainerSpecMountsTmpfsOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecMountsTmpfsOptionsToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference
+    | ServiceTaskSpecContainerSpecMountsTmpfsOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     mode: cdktf.numberToTerraform(struct!.mode),
     size_bytes: cdktf.numberToTerraform(struct!.sizeBytes),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecMountsTmpfsOptions | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecMountsTmpfsOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._mode !== undefined) {
@@ -1994,13 +2250,14 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecMountsTmpfsOptions | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecMountsTmpfsOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._mode = undefined;
       this._sizeBytes = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._mode = value.mode;
       this._sizeBytes = value.sizeBytes;
@@ -2008,7 +2265,7 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode?: number; 
+  private _mode?: number;
   public get mode() {
     return this.getNumberAttribute('mode');
   }
@@ -2024,7 +2281,7 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
   }
 
   // size_bytes - computed: false, optional: true, required: false
-  private _sizeBytes?: number; 
+  private _sizeBytes?: number;
   public get sizeBytes() {
     return this.getNumberAttribute('size_bytes');
   }
@@ -2041,28 +2298,36 @@ export class ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference exten
 }
 export interface ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels {
   /**
-  * Name of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
-  */
+   * Name of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#label Service#label}
+   */
   readonly label: string;
   /**
-  * Value of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
-  */
+   * Value of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#value Service#value}
+   */
   readonly value: string;
 }
 
-export function serviceTaskSpecContainerSpecMountsVolumeOptionsLabelsToTerraform(struct?: ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecMountsVolumeOptionsLabelsToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     label: cdktf.stringToTerraform(struct!.label),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReference extends cdktf.ComplexObject {
@@ -2070,16 +2335,29 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2096,18 +2374,21 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._label = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._label = value.label;
@@ -2116,7 +2397,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -2129,7 +2410,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2143,76 +2424,109 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReferenc
 }
 
 export class ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReference {
-    return new ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReference {
+    return new ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecContainerSpecMountsVolumeOptions {
   /**
-  * Name of the driver to use to create the volume
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_name Service#driver_name}
-  */
+   * Name of the driver to use to create the volume
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_name Service#driver_name}
+   */
   readonly driverName?: string;
   /**
-  * key/value map of driver specific options
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_options Service#driver_options}
-  */
+   * key/value map of driver specific options
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_options Service#driver_options}
+   */
   readonly driverOptions?: { [key: string]: string };
   /**
-  * Populate volume with data from the target
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#no_copy Service#no_copy}
-  */
+   * Populate volume with data from the target
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#no_copy Service#no_copy}
+   */
   readonly noCopy?: boolean | cdktf.IResolvable;
   /**
-  * labels block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
-  */
-  readonly labels?: ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[] | cdktf.IResolvable;
+   * labels block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
+   */
+  readonly labels?:
+    | ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[]
+    | cdktf.IResolvable;
 }
 
-export function serviceTaskSpecContainerSpecMountsVolumeOptionsToTerraform(struct?: ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference | ServiceTaskSpecContainerSpecMountsVolumeOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecMountsVolumeOptionsToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference
+    | ServiceTaskSpecContainerSpecMountsVolumeOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     driver_name: cdktf.stringToTerraform(struct!.driverName),
-    driver_options: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.driverOptions),
+    driver_options: cdktf.hashMapper(cdktf.stringToTerraform)(
+      struct!.driverOptions,
+    ),
     no_copy: cdktf.booleanToTerraform(struct!.noCopy),
-    labels: cdktf.listMapper(serviceTaskSpecContainerSpecMountsVolumeOptionsLabelsToTerraform, true)(struct!.labels),
-  }
+    labels: cdktf.listMapper(
+      serviceTaskSpecContainerSpecMountsVolumeOptionsLabelsToTerraform,
+      true,
+    )(struct!.labels),
+  };
 }
 
 export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecMountsVolumeOptions | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecMountsVolumeOptions
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._driverName !== undefined) {
@@ -2234,15 +2548,16 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecMountsVolumeOptions | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecMountsVolumeOptions | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._driverName = undefined;
       this._driverOptions = undefined;
       this._noCopy = undefined;
       this._labels.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._driverName = value.driverName;
       this._driverOptions = value.driverOptions;
@@ -2252,7 +2567,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // driver_name - computed: false, optional: true, required: false
-  private _driverName?: string; 
+  private _driverName?: string;
   public get driverName() {
     return this.getStringAttribute('driver_name');
   }
@@ -2268,7 +2583,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // driver_options - computed: false, optional: true, required: false
-  private _driverOptions?: { [key: string]: string }; 
+  private _driverOptions?: { [key: string]: string };
   public get driverOptions() {
     return this.getStringMapAttribute('driver_options');
   }
@@ -2284,7 +2599,7 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // no_copy - computed: false, optional: true, required: false
-  private _noCopy?: boolean | cdktf.IResolvable; 
+  private _noCopy?: boolean | cdktf.IResolvable;
   public get noCopy() {
     return this.getBooleanAttribute('no_copy');
   }
@@ -2300,11 +2615,20 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels = new ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsList(this, "labels", true);
+  private _labels =
+    new ServiceTaskSpecContainerSpecMountsVolumeOptionsLabelsList(
+      this,
+      'labels',
+      true,
+    );
   public get labels() {
     return this._labels;
   }
-  public putLabels(value: ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[] | cdktf.IResolvable) {
+  public putLabels(
+    value:
+      | ServiceTaskSpecContainerSpecMountsVolumeOptionsLabels[]
+      | cdktf.IResolvable,
+  ) {
     this._labels.internalValue = value;
   }
   public resetLabels() {
@@ -2317,63 +2641,75 @@ export class ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference exte
 }
 export interface ServiceTaskSpecContainerSpecMounts {
   /**
-  * Whether the mount should be read-only
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#read_only Service#read_only}
-  */
+   * Whether the mount should be read-only
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#read_only Service#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Mount source (e.g. a volume name, a host path)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#source Service#source}
-  */
+   * Mount source (e.g. a volume name, a host path)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#source Service#source}
+   */
   readonly source?: string;
   /**
-  * Container path
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#target Service#target}
-  */
+   * Container path
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#target Service#target}
+   */
   readonly target: string;
   /**
-  * The mount type
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#type Service#type}
-  */
+   * The mount type
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#type Service#type}
+   */
   readonly type: string;
   /**
-  * bind_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#bind_options Service#bind_options}
-  */
+   * bind_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#bind_options Service#bind_options}
+   */
   readonly bindOptions?: ServiceTaskSpecContainerSpecMountsBindOptions;
   /**
-  * tmpfs_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#tmpfs_options Service#tmpfs_options}
-  */
+   * tmpfs_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#tmpfs_options Service#tmpfs_options}
+   */
   readonly tmpfsOptions?: ServiceTaskSpecContainerSpecMountsTmpfsOptions;
   /**
-  * volume_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#volume_options Service#volume_options}
-  */
+   * volume_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#volume_options Service#volume_options}
+   */
   readonly volumeOptions?: ServiceTaskSpecContainerSpecMountsVolumeOptions;
 }
 
-export function serviceTaskSpecContainerSpecMountsToTerraform(struct?: ServiceTaskSpecContainerSpecMounts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecMountsToTerraform(
+  struct?: ServiceTaskSpecContainerSpecMounts | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     read_only: cdktf.booleanToTerraform(struct!.readOnly),
     source: cdktf.stringToTerraform(struct!.source),
     target: cdktf.stringToTerraform(struct!.target),
     type: cdktf.stringToTerraform(struct!.type),
-    bind_options: serviceTaskSpecContainerSpecMountsBindOptionsToTerraform(struct!.bindOptions),
-    tmpfs_options: serviceTaskSpecContainerSpecMountsTmpfsOptionsToTerraform(struct!.tmpfsOptions),
-    volume_options: serviceTaskSpecContainerSpecMountsVolumeOptionsToTerraform(struct!.volumeOptions),
-  }
+    bind_options: serviceTaskSpecContainerSpecMountsBindOptionsToTerraform(
+      struct!.bindOptions,
+    ),
+    tmpfs_options: serviceTaskSpecContainerSpecMountsTmpfsOptionsToTerraform(
+      struct!.tmpfsOptions,
+    ),
+    volume_options: serviceTaskSpecContainerSpecMountsVolumeOptionsToTerraform(
+      struct!.volumeOptions,
+    ),
+  };
 }
 
 export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.ComplexObject {
@@ -2381,16 +2717,29 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecMounts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecMounts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2427,7 +2776,9 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecMounts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecMounts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2438,12 +2789,10 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
       this._bindOptions.internalValue = undefined;
       this._tmpfsOptions.internalValue = undefined;
       this._volumeOptions.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._readOnly = value.readOnly;
@@ -2457,7 +2806,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -2473,7 +2822,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // source - computed: false, optional: true, required: false
-  private _source?: string; 
+  private _source?: string;
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -2489,7 +2838,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // target - computed: false, optional: false, required: true
-  private _target?: string; 
+  private _target?: string;
   public get target() {
     return this.getStringAttribute('target');
   }
@@ -2502,7 +2851,7 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2515,7 +2864,11 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // bind_options - computed: false, optional: true, required: false
-  private _bindOptions = new ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference(this, "bind_options");
+  private _bindOptions =
+    new ServiceTaskSpecContainerSpecMountsBindOptionsOutputReference(
+      this,
+      'bind_options',
+    );
   public get bindOptions() {
     return this._bindOptions;
   }
@@ -2531,11 +2884,17 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // tmpfs_options - computed: false, optional: true, required: false
-  private _tmpfsOptions = new ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference(this, "tmpfs_options");
+  private _tmpfsOptions =
+    new ServiceTaskSpecContainerSpecMountsTmpfsOptionsOutputReference(
+      this,
+      'tmpfs_options',
+    );
   public get tmpfsOptions() {
     return this._tmpfsOptions;
   }
-  public putTmpfsOptions(value: ServiceTaskSpecContainerSpecMountsTmpfsOptions) {
+  public putTmpfsOptions(
+    value: ServiceTaskSpecContainerSpecMountsTmpfsOptions,
+  ) {
     this._tmpfsOptions.internalValue = value;
   }
   public resetTmpfsOptions() {
@@ -2547,11 +2906,17 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
   }
 
   // volume_options - computed: false, optional: true, required: false
-  private _volumeOptions = new ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference(this, "volume_options");
+  private _volumeOptions =
+    new ServiceTaskSpecContainerSpecMountsVolumeOptionsOutputReference(
+      this,
+      'volume_options',
+    );
   public get volumeOptions() {
     return this._volumeOptions;
   }
-  public putVolumeOptions(value: ServiceTaskSpecContainerSpecMountsVolumeOptions) {
+  public putVolumeOptions(
+    value: ServiceTaskSpecContainerSpecMountsVolumeOptions,
+  ) {
     this._volumeOptions.internalValue = value;
   }
   public resetVolumeOptions() {
@@ -2564,62 +2929,86 @@ export class ServiceTaskSpecContainerSpecMountsOutputReference extends cdktf.Com
 }
 
 export class ServiceTaskSpecContainerSpecMountsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecContainerSpecMounts[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecContainerSpecMounts[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceTaskSpecContainerSpecMountsOutputReference {
-    return new ServiceTaskSpecContainerSpecMountsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceTaskSpecContainerSpecMountsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecContainerSpecPrivilegesCredentialSpec {
   /**
-  * Load credential spec from this file
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file Service#file}
-  */
+   * Load credential spec from this file
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file Service#file}
+   */
   readonly file?: string;
   /**
-  * Load credential spec from this value in the Windows registry
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#registry Service#registry}
-  */
+   * Load credential spec from this value in the Windows registry
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#registry Service#registry}
+   */
   readonly registry?: string;
 }
 
-export function serviceTaskSpecContainerSpecPrivilegesCredentialSpecToTerraform(struct?: ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference | ServiceTaskSpecContainerSpecPrivilegesCredentialSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecPrivilegesCredentialSpecToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
+    | ServiceTaskSpecContainerSpecPrivilegesCredentialSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     file: cdktf.stringToTerraform(struct!.file),
     registry: cdktf.stringToTerraform(struct!.registry),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecPrivilegesCredentialSpec | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecPrivilegesCredentialSpec
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._file !== undefined) {
@@ -2633,13 +3022,14 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecPrivilegesCredentialSpec | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecPrivilegesCredentialSpec | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._file = undefined;
       this._registry = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._file = value.file;
       this._registry = value.registry;
@@ -2647,7 +3037,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
   }
 
   // file - computed: false, optional: true, required: false
-  private _file?: string; 
+  private _file?: string;
   public get file() {
     return this.getStringAttribute('file');
   }
@@ -2663,7 +3053,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
   }
 
   // registry - computed: false, optional: true, required: false
-  private _registry?: string; 
+  private _registry?: string;
   public get registry() {
     return this.getStringAttribute('registry');
   }
@@ -2680,41 +3070,49 @@ export class ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference
 }
 export interface ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext {
   /**
-  * Disable SELinux
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#disable Service#disable}
-  */
+   * Disable SELinux
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#disable Service#disable}
+   */
   readonly disable?: boolean | cdktf.IResolvable;
   /**
-  * SELinux level label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#level Service#level}
-  */
+   * SELinux level label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#level Service#level}
+   */
   readonly level?: string;
   /**
-  * SELinux role label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#role Service#role}
-  */
+   * SELinux role label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#role Service#role}
+   */
   readonly role?: string;
   /**
-  * SELinux type label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#type Service#type}
-  */
+   * SELinux type label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#type Service#type}
+   */
   readonly type?: string;
   /**
-  * SELinux user label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#user Service#user}
-  */
+   * SELinux user label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#user Service#user}
+   */
   readonly user?: string;
 }
 
-export function serviceTaskSpecContainerSpecPrivilegesSeLinuxContextToTerraform(struct?: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference | ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecPrivilegesSeLinuxContextToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
+    | ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     disable: cdktf.booleanToTerraform(struct!.disable),
@@ -2722,21 +3120,26 @@ export function serviceTaskSpecContainerSpecPrivilegesSeLinuxContextToTerraform(
     role: cdktf.stringToTerraform(struct!.role),
     type: cdktf.stringToTerraform(struct!.type),
     user: cdktf.stringToTerraform(struct!.user),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._disable !== undefined) {
@@ -2762,7 +3165,9 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._disable = undefined;
@@ -2770,8 +3175,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
       this._role = undefined;
       this._type = undefined;
       this._user = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._disable = value.disable;
       this._level = value.level;
@@ -2782,7 +3186,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // disable - computed: false, optional: true, required: false
-  private _disable?: boolean | cdktf.IResolvable; 
+  private _disable?: boolean | cdktf.IResolvable;
   public get disable() {
     return this.getBooleanAttribute('disable');
   }
@@ -2798,7 +3202,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // level - computed: false, optional: true, required: false
-  private _level?: string; 
+  private _level?: string;
   public get level() {
     return this.getStringAttribute('level');
   }
@@ -2814,7 +3218,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // role - computed: false, optional: true, required: false
-  private _role?: string; 
+  private _role?: string;
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -2830,7 +3234,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2846,7 +3250,7 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -2863,42 +3267,61 @@ export class ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference
 }
 export interface ServiceTaskSpecContainerSpecPrivileges {
   /**
-  * credential_spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#credential_spec Service#credential_spec}
-  */
+   * credential_spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#credential_spec Service#credential_spec}
+   */
   readonly credentialSpec?: ServiceTaskSpecContainerSpecPrivilegesCredentialSpec;
   /**
-  * se_linux_context block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#se_linux_context Service#se_linux_context}
-  */
+   * se_linux_context block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#se_linux_context Service#se_linux_context}
+   */
   readonly seLinuxContext?: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext;
 }
 
-export function serviceTaskSpecContainerSpecPrivilegesToTerraform(struct?: ServiceTaskSpecContainerSpecPrivilegesOutputReference | ServiceTaskSpecContainerSpecPrivileges): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecPrivilegesToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecPrivilegesOutputReference
+    | ServiceTaskSpecContainerSpecPrivileges,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    credential_spec: serviceTaskSpecContainerSpecPrivilegesCredentialSpecToTerraform(struct!.credentialSpec),
-    se_linux_context: serviceTaskSpecContainerSpecPrivilegesSeLinuxContextToTerraform(struct!.seLinuxContext),
-  }
+    credential_spec:
+      serviceTaskSpecContainerSpecPrivilegesCredentialSpecToTerraform(
+        struct!.credentialSpec,
+      ),
+    se_linux_context:
+      serviceTaskSpecContainerSpecPrivilegesSeLinuxContextToTerraform(
+        struct!.seLinuxContext,
+      ),
+  };
 }
 
 export class ServiceTaskSpecContainerSpecPrivilegesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecPrivileges | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecPrivileges
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._credentialSpec?.internalValue !== undefined) {
@@ -2912,13 +3335,14 @@ export class ServiceTaskSpecContainerSpecPrivilegesOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecPrivileges | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecPrivileges | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._credentialSpec.internalValue = undefined;
       this._seLinuxContext.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._credentialSpec.internalValue = value.credentialSpec;
       this._seLinuxContext.internalValue = value.seLinuxContext;
@@ -2926,11 +3350,17 @@ export class ServiceTaskSpecContainerSpecPrivilegesOutputReference extends cdktf
   }
 
   // credential_spec - computed: false, optional: true, required: false
-  private _credentialSpec = new ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference(this, "credential_spec");
+  private _credentialSpec =
+    new ServiceTaskSpecContainerSpecPrivilegesCredentialSpecOutputReference(
+      this,
+      'credential_spec',
+    );
   public get credentialSpec() {
     return this._credentialSpec;
   }
-  public putCredentialSpec(value: ServiceTaskSpecContainerSpecPrivilegesCredentialSpec) {
+  public putCredentialSpec(
+    value: ServiceTaskSpecContainerSpecPrivilegesCredentialSpec,
+  ) {
     this._credentialSpec.internalValue = value;
   }
   public resetCredentialSpec() {
@@ -2942,11 +3372,17 @@ export class ServiceTaskSpecContainerSpecPrivilegesOutputReference extends cdktf
   }
 
   // se_linux_context - computed: false, optional: true, required: false
-  private _seLinuxContext = new ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference(this, "se_linux_context");
+  private _seLinuxContext =
+    new ServiceTaskSpecContainerSpecPrivilegesSeLinuxContextOutputReference(
+      this,
+      'se_linux_context',
+    );
   public get seLinuxContext() {
     return this._seLinuxContext;
   }
-  public putSeLinuxContext(value: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext) {
+  public putSeLinuxContext(
+    value: ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext,
+  ) {
     this._seLinuxContext.internalValue = value;
   }
   public resetSeLinuxContext() {
@@ -2959,47 +3395,53 @@ export class ServiceTaskSpecContainerSpecPrivilegesOutputReference extends cdktf
 }
 export interface ServiceTaskSpecContainerSpecSecrets {
   /**
-  * Represents the file GID. Defaults to `0`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_gid Service#file_gid}
-  */
+   * Represents the file GID. Defaults to `0`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_gid Service#file_gid}
+   */
   readonly fileGid?: string;
   /**
-  * Represents represents the FileMode of the file. Defaults to `0o444`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_mode Service#file_mode}
-  */
+   * Represents represents the FileMode of the file. Defaults to `0o444`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_mode Service#file_mode}
+   */
   readonly fileMode?: number;
   /**
-  * Represents the final filename in the filesystem
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_name Service#file_name}
-  */
+   * Represents the final filename in the filesystem
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_name Service#file_name}
+   */
   readonly fileName: string;
   /**
-  * Represents the file UID. Defaults to `0`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_uid Service#file_uid}
-  */
+   * Represents the file UID. Defaults to `0`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#file_uid Service#file_uid}
+   */
   readonly fileUid?: string;
   /**
-  * ID of the specific secret that we're referencing
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secret_id Service#secret_id}
-  */
+   * ID of the specific secret that we're referencing
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secret_id Service#secret_id}
+   */
   readonly secretId: string;
   /**
-  * Name of the secret that this references, but this is just provided for lookup/display purposes. The config in the reference will be identified by its ID
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secret_name Service#secret_name}
-  */
+   * Name of the secret that this references, but this is just provided for lookup/display purposes. The config in the reference will be identified by its ID
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secret_name Service#secret_name}
+   */
   readonly secretName?: string;
 }
 
-export function serviceTaskSpecContainerSpecSecretsToTerraform(struct?: ServiceTaskSpecContainerSpecSecrets | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecSecretsToTerraform(
+  struct?: ServiceTaskSpecContainerSpecSecrets | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     file_gid: cdktf.stringToTerraform(struct!.fileGid),
@@ -3008,7 +3450,7 @@ export function serviceTaskSpecContainerSpecSecretsToTerraform(struct?: ServiceT
     file_uid: cdktf.stringToTerraform(struct!.fileUid),
     secret_id: cdktf.stringToTerraform(struct!.secretId),
     secret_name: cdktf.stringToTerraform(struct!.secretName),
-  }
+  };
 }
 
 export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.ComplexObject {
@@ -3016,16 +3458,29 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecContainerSpecSecrets | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecContainerSpecSecrets
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3058,7 +3513,9 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecContainerSpecSecrets | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecContainerSpecSecrets | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3068,12 +3525,10 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
       this._fileUid = undefined;
       this._secretId = undefined;
       this._secretName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._fileGid = value.fileGid;
@@ -3086,7 +3541,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_gid - computed: false, optional: true, required: false
-  private _fileGid?: string; 
+  private _fileGid?: string;
   public get fileGid() {
     return this.getStringAttribute('file_gid');
   }
@@ -3102,7 +3557,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_mode - computed: false, optional: true, required: false
-  private _fileMode?: number; 
+  private _fileMode?: number;
   public get fileMode() {
     return this.getNumberAttribute('file_mode');
   }
@@ -3118,7 +3573,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_name - computed: false, optional: false, required: true
-  private _fileName?: string; 
+  private _fileName?: string;
   public get fileName() {
     return this.getStringAttribute('file_name');
   }
@@ -3131,7 +3586,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // file_uid - computed: false, optional: true, required: false
-  private _fileUid?: string; 
+  private _fileUid?: string;
   public get fileUid() {
     return this.getStringAttribute('file_uid');
   }
@@ -3147,7 +3602,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // secret_id - computed: false, optional: false, required: true
-  private _secretId?: string; 
+  private _secretId?: string;
   public get secretId() {
     return this.getStringAttribute('secret_id');
   }
@@ -3160,7 +3615,7 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
   }
 
   // secret_name - computed: false, optional: true, required: false
-  private _secretName?: string; 
+  private _secretName?: string;
   public get secretName() {
     return this.getStringAttribute('secret_name');
   }
@@ -3177,157 +3632,178 @@ export class ServiceTaskSpecContainerSpecSecretsOutputReference extends cdktf.Co
 }
 
 export class ServiceTaskSpecContainerSpecSecretsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecContainerSpecSecrets[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecContainerSpecSecrets[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): ServiceTaskSpecContainerSpecSecretsOutputReference {
-    return new ServiceTaskSpecContainerSpecSecretsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): ServiceTaskSpecContainerSpecSecretsOutputReference {
+    return new ServiceTaskSpecContainerSpecSecretsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecContainerSpec {
   /**
-  * Arguments to the command
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#args Service#args}
-  */
+   * Arguments to the command
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#args Service#args}
+   */
   readonly args?: string[];
   /**
-  * The command/entrypoint to be run in the image. According to the [docker cli](https://github.com/docker/cli/blob/v20.10.7/cli/command/service/opts.go#L705) the override of the entrypoint is also passed to the `command` property and there is no `entrypoint` attribute in the `ContainerSpec` of the service.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#command Service#command}
-  */
+   * The command/entrypoint to be run in the image. According to the [docker cli](https://github.com/docker/cli/blob/v20.10.7/cli/command/service/opts.go#L705) the override of the entrypoint is also passed to the `command` property and there is no `entrypoint` attribute in the `ContainerSpec` of the service.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#command Service#command}
+   */
   readonly command?: string[];
   /**
-  * The working directory for commands to run in
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#dir Service#dir}
-  */
+   * The working directory for commands to run in
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#dir Service#dir}
+   */
   readonly dir?: string;
   /**
-  * A list of environment variables in the form VAR="value"
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#env Service#env}
-  */
+   * A list of environment variables in the form VAR="value"
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#env Service#env}
+   */
   readonly env?: { [key: string]: string };
   /**
-  * A list of additional groups that the container process will run as
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#groups Service#groups}
-  */
+   * A list of additional groups that the container process will run as
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#groups Service#groups}
+   */
   readonly groups?: string[];
   /**
-  * The hostname to use for the container, as a valid RFC 1123 hostname
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#hostname Service#hostname}
-  */
+   * The hostname to use for the container, as a valid RFC 1123 hostname
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#hostname Service#hostname}
+   */
   readonly hostname?: string;
   /**
-  * The image name to use for the containers of the service, like `nginx:1.17.6`. Also use the data-source or resource of `docker_image` with the `repo_digest` or `docker_registry_image` with the `name` attribute for this, as shown in the examples.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#image Service#image}
-  */
+   * The image name to use for the containers of the service, like `nginx:1.17.6`. Also use the data-source or resource of `docker_image` with the `repo_digest` or `docker_registry_image` with the `name` attribute for this, as shown in the examples.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#image Service#image}
+   */
   readonly image: string;
   /**
-  * Isolation technology of the containers running the service. (Windows only). Defaults to `default`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#isolation Service#isolation}
-  */
+   * Isolation technology of the containers running the service. (Windows only). Defaults to `default`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#isolation Service#isolation}
+   */
   readonly isolation?: string;
   /**
-  * Mount the container's root filesystem as read only
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#read_only Service#read_only}
-  */
+   * Mount the container's root filesystem as read only
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#read_only Service#read_only}
+   */
   readonly readOnly?: boolean | cdktf.IResolvable;
   /**
-  * Amount of time to wait for the container to terminate before forcefully removing it (ms|s|m|h). If not specified or '0s' the destroy will not check if all tasks/containers of the service terminate.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#stop_grace_period Service#stop_grace_period}
-  */
+   * Amount of time to wait for the container to terminate before forcefully removing it (ms|s|m|h). If not specified or '0s' the destroy will not check if all tasks/containers of the service terminate.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#stop_grace_period Service#stop_grace_period}
+   */
   readonly stopGracePeriod?: string;
   /**
-  * Signal to stop the container
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#stop_signal Service#stop_signal}
-  */
+   * Signal to stop the container
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#stop_signal Service#stop_signal}
+   */
   readonly stopSignal?: string;
   /**
-  * Sysctls config (Linux only)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#sysctl Service#sysctl}
-  */
+   * Sysctls config (Linux only)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#sysctl Service#sysctl}
+   */
   readonly sysctl?: { [key: string]: string };
   /**
-  * The user inside the container
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#user Service#user}
-  */
+   * The user inside the container
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#user Service#user}
+   */
   readonly user?: string;
   /**
-  * configs block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#configs Service#configs}
-  */
+   * configs block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#configs Service#configs}
+   */
   readonly configs?: ServiceTaskSpecContainerSpecConfigs[] | cdktf.IResolvable;
   /**
-  * dns_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#dns_config Service#dns_config}
-  */
+   * dns_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#dns_config Service#dns_config}
+   */
   readonly dnsConfig?: ServiceTaskSpecContainerSpecDnsConfig;
   /**
-  * healthcheck block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#healthcheck Service#healthcheck}
-  */
+   * healthcheck block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#healthcheck Service#healthcheck}
+   */
   readonly healthcheck?: ServiceTaskSpecContainerSpecHealthcheck;
   /**
-  * hosts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#hosts Service#hosts}
-  */
+   * hosts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#hosts Service#hosts}
+   */
   readonly hosts?: ServiceTaskSpecContainerSpecHosts[] | cdktf.IResolvable;
   /**
-  * labels block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
-  */
+   * labels block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#labels Service#labels}
+   */
   readonly labels?: ServiceTaskSpecContainerSpecLabels[] | cdktf.IResolvable;
   /**
-  * mounts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mounts Service#mounts}
-  */
+   * mounts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#mounts Service#mounts}
+   */
   readonly mounts?: ServiceTaskSpecContainerSpecMounts[] | cdktf.IResolvable;
   /**
-  * privileges block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#privileges Service#privileges}
-  */
+   * privileges block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#privileges Service#privileges}
+   */
   readonly privileges?: ServiceTaskSpecContainerSpecPrivileges;
   /**
-  * secrets block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secrets Service#secrets}
-  */
+   * secrets block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#secrets Service#secrets}
+   */
   readonly secrets?: ServiceTaskSpecContainerSpecSecrets[] | cdktf.IResolvable;
 }
 
-export function serviceTaskSpecContainerSpecToTerraform(struct?: ServiceTaskSpecContainerSpecOutputReference | ServiceTaskSpecContainerSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecContainerSpecToTerraform(
+  struct?:
+    | ServiceTaskSpecContainerSpecOutputReference
+    | ServiceTaskSpecContainerSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     args: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.args),
@@ -3343,25 +3819,49 @@ export function serviceTaskSpecContainerSpecToTerraform(struct?: ServiceTaskSpec
     stop_signal: cdktf.stringToTerraform(struct!.stopSignal),
     sysctl: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.sysctl),
     user: cdktf.stringToTerraform(struct!.user),
-    configs: cdktf.listMapper(serviceTaskSpecContainerSpecConfigsToTerraform, true)(struct!.configs),
-    dns_config: serviceTaskSpecContainerSpecDnsConfigToTerraform(struct!.dnsConfig),
-    healthcheck: serviceTaskSpecContainerSpecHealthcheckToTerraform(struct!.healthcheck),
-    hosts: cdktf.listMapper(serviceTaskSpecContainerSpecHostsToTerraform, true)(struct!.hosts),
-    labels: cdktf.listMapper(serviceTaskSpecContainerSpecLabelsToTerraform, true)(struct!.labels),
-    mounts: cdktf.listMapper(serviceTaskSpecContainerSpecMountsToTerraform, true)(struct!.mounts),
-    privileges: serviceTaskSpecContainerSpecPrivilegesToTerraform(struct!.privileges),
-    secrets: cdktf.listMapper(serviceTaskSpecContainerSpecSecretsToTerraform, true)(struct!.secrets),
-  }
+    configs: cdktf.listMapper(
+      serviceTaskSpecContainerSpecConfigsToTerraform,
+      true,
+    )(struct!.configs),
+    dns_config: serviceTaskSpecContainerSpecDnsConfigToTerraform(
+      struct!.dnsConfig,
+    ),
+    healthcheck: serviceTaskSpecContainerSpecHealthcheckToTerraform(
+      struct!.healthcheck,
+    ),
+    hosts: cdktf.listMapper(
+      serviceTaskSpecContainerSpecHostsToTerraform,
+      true,
+    )(struct!.hosts),
+    labels: cdktf.listMapper(
+      serviceTaskSpecContainerSpecLabelsToTerraform,
+      true,
+    )(struct!.labels),
+    mounts: cdktf.listMapper(
+      serviceTaskSpecContainerSpecMountsToTerraform,
+      true,
+    )(struct!.mounts),
+    privileges: serviceTaskSpecContainerSpecPrivilegesToTerraform(
+      struct!.privileges,
+    ),
+    secrets: cdktf.listMapper(
+      serviceTaskSpecContainerSpecSecretsToTerraform,
+      true,
+    )(struct!.secrets),
+  };
 }
 
 export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3479,8 +3979,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
       this._mounts.internalValue = undefined;
       this._privileges.internalValue = undefined;
       this._secrets.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._args = value.args;
       this._command = value.command;
@@ -3507,7 +4006,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // args - computed: false, optional: true, required: false
-  private _args?: string[]; 
+  private _args?: string[];
   public get args() {
     return this.getListAttribute('args');
   }
@@ -3523,7 +4022,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // command - computed: false, optional: true, required: false
-  private _command?: string[]; 
+  private _command?: string[];
   public get command() {
     return this.getListAttribute('command');
   }
@@ -3539,7 +4038,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // dir - computed: false, optional: true, required: false
-  private _dir?: string; 
+  private _dir?: string;
   public get dir() {
     return this.getStringAttribute('dir');
   }
@@ -3555,7 +4054,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // env - computed: false, optional: true, required: false
-  private _env?: { [key: string]: string }; 
+  private _env?: { [key: string]: string };
   public get env() {
     return this.getStringMapAttribute('env');
   }
@@ -3571,7 +4070,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // groups - computed: false, optional: true, required: false
-  private _groups?: string[]; 
+  private _groups?: string[];
   public get groups() {
     return this.getListAttribute('groups');
   }
@@ -3587,7 +4086,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // hostname - computed: false, optional: true, required: false
-  private _hostname?: string; 
+  private _hostname?: string;
   public get hostname() {
     return this.getStringAttribute('hostname');
   }
@@ -3603,7 +4102,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // image - computed: false, optional: false, required: true
-  private _image?: string; 
+  private _image?: string;
   public get image() {
     return this.getStringAttribute('image');
   }
@@ -3616,7 +4115,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // isolation - computed: false, optional: true, required: false
-  private _isolation?: string; 
+  private _isolation?: string;
   public get isolation() {
     return this.getStringAttribute('isolation');
   }
@@ -3632,7 +4131,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // read_only - computed: false, optional: true, required: false
-  private _readOnly?: boolean | cdktf.IResolvable; 
+  private _readOnly?: boolean | cdktf.IResolvable;
   public get readOnly() {
     return this.getBooleanAttribute('read_only');
   }
@@ -3648,7 +4147,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // stop_grace_period - computed: true, optional: true, required: false
-  private _stopGracePeriod?: string; 
+  private _stopGracePeriod?: string;
   public get stopGracePeriod() {
     return this.getStringAttribute('stop_grace_period');
   }
@@ -3664,7 +4163,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // stop_signal - computed: false, optional: true, required: false
-  private _stopSignal?: string; 
+  private _stopSignal?: string;
   public get stopSignal() {
     return this.getStringAttribute('stop_signal');
   }
@@ -3680,7 +4179,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // sysctl - computed: false, optional: true, required: false
-  private _sysctl?: { [key: string]: string }; 
+  private _sysctl?: { [key: string]: string };
   public get sysctl() {
     return this.getStringMapAttribute('sysctl');
   }
@@ -3696,7 +4195,7 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // user - computed: false, optional: true, required: false
-  private _user?: string; 
+  private _user?: string;
   public get user() {
     return this.getStringAttribute('user');
   }
@@ -3712,11 +4211,17 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // configs - computed: false, optional: true, required: false
-  private _configs = new ServiceTaskSpecContainerSpecConfigsList(this, "configs", true);
+  private _configs = new ServiceTaskSpecContainerSpecConfigsList(
+    this,
+    'configs',
+    true,
+  );
   public get configs() {
     return this._configs;
   }
-  public putConfigs(value: ServiceTaskSpecContainerSpecConfigs[] | cdktf.IResolvable) {
+  public putConfigs(
+    value: ServiceTaskSpecContainerSpecConfigs[] | cdktf.IResolvable,
+  ) {
     this._configs.internalValue = value;
   }
   public resetConfigs() {
@@ -3728,7 +4233,10 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // dns_config - computed: false, optional: true, required: false
-  private _dnsConfig = new ServiceTaskSpecContainerSpecDnsConfigOutputReference(this, "dns_config");
+  private _dnsConfig = new ServiceTaskSpecContainerSpecDnsConfigOutputReference(
+    this,
+    'dns_config',
+  );
   public get dnsConfig() {
     return this._dnsConfig;
   }
@@ -3744,7 +4252,11 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // healthcheck - computed: false, optional: true, required: false
-  private _healthcheck = new ServiceTaskSpecContainerSpecHealthcheckOutputReference(this, "healthcheck");
+  private _healthcheck =
+    new ServiceTaskSpecContainerSpecHealthcheckOutputReference(
+      this,
+      'healthcheck',
+    );
   public get healthcheck() {
     return this._healthcheck;
   }
@@ -3760,11 +4272,17 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // hosts - computed: false, optional: true, required: false
-  private _hosts = new ServiceTaskSpecContainerSpecHostsList(this, "hosts", true);
+  private _hosts = new ServiceTaskSpecContainerSpecHostsList(
+    this,
+    'hosts',
+    true,
+  );
   public get hosts() {
     return this._hosts;
   }
-  public putHosts(value: ServiceTaskSpecContainerSpecHosts[] | cdktf.IResolvable) {
+  public putHosts(
+    value: ServiceTaskSpecContainerSpecHosts[] | cdktf.IResolvable,
+  ) {
     this._hosts.internalValue = value;
   }
   public resetHosts() {
@@ -3776,11 +4294,17 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels = new ServiceTaskSpecContainerSpecLabelsList(this, "labels", true);
+  private _labels = new ServiceTaskSpecContainerSpecLabelsList(
+    this,
+    'labels',
+    true,
+  );
   public get labels() {
     return this._labels;
   }
-  public putLabels(value: ServiceTaskSpecContainerSpecLabels[] | cdktf.IResolvable) {
+  public putLabels(
+    value: ServiceTaskSpecContainerSpecLabels[] | cdktf.IResolvable,
+  ) {
     this._labels.internalValue = value;
   }
   public resetLabels() {
@@ -3792,11 +4316,17 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // mounts - computed: false, optional: true, required: false
-  private _mounts = new ServiceTaskSpecContainerSpecMountsList(this, "mounts", true);
+  private _mounts = new ServiceTaskSpecContainerSpecMountsList(
+    this,
+    'mounts',
+    true,
+  );
   public get mounts() {
     return this._mounts;
   }
-  public putMounts(value: ServiceTaskSpecContainerSpecMounts[] | cdktf.IResolvable) {
+  public putMounts(
+    value: ServiceTaskSpecContainerSpecMounts[] | cdktf.IResolvable,
+  ) {
     this._mounts.internalValue = value;
   }
   public resetMounts() {
@@ -3808,7 +4338,11 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // privileges - computed: false, optional: true, required: false
-  private _privileges = new ServiceTaskSpecContainerSpecPrivilegesOutputReference(this, "privileges");
+  private _privileges =
+    new ServiceTaskSpecContainerSpecPrivilegesOutputReference(
+      this,
+      'privileges',
+    );
   public get privileges() {
     return this._privileges;
   }
@@ -3824,11 +4358,17 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
   }
 
   // secrets - computed: false, optional: true, required: false
-  private _secrets = new ServiceTaskSpecContainerSpecSecretsList(this, "secrets", true);
+  private _secrets = new ServiceTaskSpecContainerSpecSecretsList(
+    this,
+    'secrets',
+    true,
+  );
   public get secrets() {
     return this._secrets;
   }
-  public putSecrets(value: ServiceTaskSpecContainerSpecSecrets[] | cdktf.IResolvable) {
+  public putSecrets(
+    value: ServiceTaskSpecContainerSpecSecrets[] | cdktf.IResolvable,
+  ) {
     this._secrets.internalValue = value;
   }
   public resetSecrets() {
@@ -3841,38 +4381,47 @@ export class ServiceTaskSpecContainerSpecOutputReference extends cdktf.ComplexOb
 }
 export interface ServiceTaskSpecLogDriver {
   /**
-  * The logging driver to use
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
-  */
+   * The logging driver to use
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
+   */
   readonly name: string;
   /**
-  * The options for the logging driver
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#options Service#options}
-  */
+   * The options for the logging driver
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#options Service#options}
+   */
   readonly options?: { [key: string]: string };
 }
 
-export function serviceTaskSpecLogDriverToTerraform(struct?: ServiceTaskSpecLogDriverOutputReference | ServiceTaskSpecLogDriver): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecLogDriverToTerraform(
+  struct?: ServiceTaskSpecLogDriverOutputReference | ServiceTaskSpecLogDriver,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     options: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.options),
-  }
+  };
 }
 
 export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3895,8 +4444,7 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
       this.isEmptyObject = false;
       this._name = undefined;
       this._options = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._options = value.options;
@@ -3904,7 +4452,7 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3917,7 +4465,7 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
   }
 
   // options - computed: false, optional: true, required: false
-  private _options?: { [key: string]: string }; 
+  private _options?: { [key: string]: string };
   public get options() {
     return this.getStringMapAttribute('options');
   }
@@ -3934,35 +4482,44 @@ export class ServiceTaskSpecLogDriverOutputReference extends cdktf.ComplexObject
 }
 export interface ServiceTaskSpecNetworksAdvanced {
   /**
-  * The network aliases of the container in the specific network.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#aliases Service#aliases}
-  */
+   * The network aliases of the container in the specific network.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#aliases Service#aliases}
+   */
   readonly aliases?: string[];
   /**
-  * An array of driver options for the network, e.g. `opts1=value`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_opts Service#driver_opts}
-  */
+   * An array of driver options for the network, e.g. `opts1=value`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#driver_opts Service#driver_opts}
+   */
   readonly driverOpts?: string[];
   /**
-  * The name/id of the network.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
-  */
+   * The name/id of the network.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#name Service#name}
+   */
   readonly name: string;
 }
 
-export function serviceTaskSpecNetworksAdvancedToTerraform(struct?: ServiceTaskSpecNetworksAdvanced | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecNetworksAdvancedToTerraform(
+  struct?: ServiceTaskSpecNetworksAdvanced | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     aliases: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.aliases),
-    driver_opts: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.driverOpts),
+    driver_opts: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.driverOpts),
     name: cdktf.stringToTerraform(struct!.name),
-  }
+  };
 }
 
 export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.ComplexObject {
@@ -3970,16 +4527,29 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecNetworksAdvanced | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecNetworksAdvanced
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4000,19 +4570,19 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecNetworksAdvanced | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecNetworksAdvanced | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._aliases = undefined;
       this._driverOpts = undefined;
       this._name = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._aliases = value.aliases;
@@ -4022,7 +4592,7 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   }
 
   // aliases - computed: false, optional: true, required: false
-  private _aliases?: string[]; 
+  private _aliases?: string[];
   public get aliases() {
     return cdktf.Fn.tolist(this.getListAttribute('aliases'));
   }
@@ -4038,7 +4608,7 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   }
 
   // driver_opts - computed: false, optional: true, required: false
-  private _driverOpts?: string[]; 
+  private _driverOpts?: string[];
   public get driverOpts() {
     return cdktf.Fn.tolist(this.getListAttribute('driver_opts'));
   }
@@ -4054,7 +4624,7 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -4068,48 +4638,63 @@ export class ServiceTaskSpecNetworksAdvancedOutputReference extends cdktf.Comple
 }
 
 export class ServiceTaskSpecNetworksAdvancedList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecNetworksAdvanced[] | cdktf.IResolvable
+  public internalValue?: ServiceTaskSpecNetworksAdvanced[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceTaskSpecNetworksAdvancedOutputReference {
-    return new ServiceTaskSpecNetworksAdvancedOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceTaskSpecNetworksAdvancedOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecPlacementPlatforms {
   /**
-  * The architecture, e.g. `amd64`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#architecture Service#architecture}
-  */
+   * The architecture, e.g. `amd64`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#architecture Service#architecture}
+   */
   readonly architecture: string;
   /**
-  * The operation system, e.g. `linux`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#os Service#os}
-  */
+   * The operation system, e.g. `linux`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#os Service#os}
+   */
   readonly os: string;
 }
 
-export function serviceTaskSpecPlacementPlatformsToTerraform(struct?: ServiceTaskSpecPlacementPlatforms | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecPlacementPlatformsToTerraform(
+  struct?: ServiceTaskSpecPlacementPlatforms | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     architecture: cdktf.stringToTerraform(struct!.architecture),
     os: cdktf.stringToTerraform(struct!.os),
-  }
+  };
 }
 
 export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.ComplexObject {
@@ -4117,16 +4702,29 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): ServiceTaskSpecPlacementPlatforms | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | ServiceTaskSpecPlacementPlatforms
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4143,18 +4741,18 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecPlacementPlatforms | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecPlacementPlatforms | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._architecture = undefined;
       this._os = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._architecture = value.architecture;
@@ -4163,7 +4761,7 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
   }
 
   // architecture - computed: false, optional: false, required: true
-  private _architecture?: string; 
+  private _architecture?: string;
   public get architecture() {
     return this.getStringAttribute('architecture');
   }
@@ -4176,7 +4774,7 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
   }
 
   // os - computed: false, optional: false, required: true
-  private _os?: string; 
+  private _os?: string;
   public get os() {
     return this.getStringAttribute('os');
   }
@@ -4190,72 +4788,98 @@ export class ServiceTaskSpecPlacementPlatformsOutputReference extends cdktf.Comp
 }
 
 export class ServiceTaskSpecPlacementPlatformsList extends cdktf.ComplexList {
-  public internalValue? : ServiceTaskSpecPlacementPlatforms[] | cdktf.IResolvable
+  public internalValue?:
+    | ServiceTaskSpecPlacementPlatforms[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): ServiceTaskSpecPlacementPlatformsOutputReference {
-    return new ServiceTaskSpecPlacementPlatformsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new ServiceTaskSpecPlacementPlatformsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface ServiceTaskSpecPlacement {
   /**
-  * An array of constraints. e.g.: `node.role==manager`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#constraints Service#constraints}
-  */
+   * An array of constraints. e.g.: `node.role==manager`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#constraints Service#constraints}
+   */
   readonly constraints?: string[];
   /**
-  * Maximum number of replicas for per node (default value is `0`, which is unlimited)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_replicas Service#max_replicas}
-  */
+   * Maximum number of replicas for per node (default value is `0`, which is unlimited)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_replicas Service#max_replicas}
+   */
   readonly maxReplicas?: number;
   /**
-  * Preferences provide a way to make the scheduler aware of factors such as topology. They are provided in order from highest to lowest precedence, e.g.: `spread=node.role.manager`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#prefs Service#prefs}
-  */
+   * Preferences provide a way to make the scheduler aware of factors such as topology. They are provided in order from highest to lowest precedence, e.g.: `spread=node.role.manager`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#prefs Service#prefs}
+   */
   readonly prefs?: string[];
   /**
-  * platforms block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#platforms Service#platforms}
-  */
+   * platforms block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#platforms Service#platforms}
+   */
   readonly platforms?: ServiceTaskSpecPlacementPlatforms[] | cdktf.IResolvable;
 }
 
-export function serviceTaskSpecPlacementToTerraform(struct?: ServiceTaskSpecPlacementOutputReference | ServiceTaskSpecPlacement): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecPlacementToTerraform(
+  struct?: ServiceTaskSpecPlacementOutputReference | ServiceTaskSpecPlacement,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    constraints: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.constraints),
+    constraints: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.constraints),
     max_replicas: cdktf.numberToTerraform(struct!.maxReplicas),
     prefs: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.prefs),
-    platforms: cdktf.listMapper(serviceTaskSpecPlacementPlatformsToTerraform, true)(struct!.platforms),
-  }
+    platforms: cdktf.listMapper(
+      serviceTaskSpecPlacementPlatformsToTerraform,
+      true,
+    )(struct!.platforms),
+  };
 }
 
 export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4288,8 +4912,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
       this._maxReplicas = undefined;
       this._prefs = undefined;
       this._platforms.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._constraints = value.constraints;
       this._maxReplicas = value.maxReplicas;
@@ -4299,7 +4922,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // constraints - computed: false, optional: true, required: false
-  private _constraints?: string[]; 
+  private _constraints?: string[];
   public get constraints() {
     return cdktf.Fn.tolist(this.getListAttribute('constraints'));
   }
@@ -4315,7 +4938,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // max_replicas - computed: false, optional: true, required: false
-  private _maxReplicas?: number; 
+  private _maxReplicas?: number;
   public get maxReplicas() {
     return this.getNumberAttribute('max_replicas');
   }
@@ -4331,7 +4954,7 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // prefs - computed: false, optional: true, required: false
-  private _prefs?: string[]; 
+  private _prefs?: string[];
   public get prefs() {
     return cdktf.Fn.tolist(this.getListAttribute('prefs'));
   }
@@ -4347,11 +4970,17 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
   }
 
   // platforms - computed: false, optional: true, required: false
-  private _platforms = new ServiceTaskSpecPlacementPlatformsList(this, "platforms", true);
+  private _platforms = new ServiceTaskSpecPlacementPlatformsList(
+    this,
+    'platforms',
+    true,
+  );
   public get platforms() {
     return this._platforms;
   }
-  public putPlatforms(value: ServiceTaskSpecPlacementPlatforms[] | cdktf.IResolvable) {
+  public putPlatforms(
+    value: ServiceTaskSpecPlacementPlatforms[] | cdktf.IResolvable,
+  ) {
     this._platforms.internalValue = value;
   }
   public resetPlatforms() {
@@ -4364,38 +4993,49 @@ export class ServiceTaskSpecPlacementOutputReference extends cdktf.ComplexObject
 }
 export interface ServiceTaskSpecResourcesLimits {
   /**
-  * The amounf of memory in bytes the container allocates
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#memory_bytes Service#memory_bytes}
-  */
+   * The amounf of memory in bytes the container allocates
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#memory_bytes Service#memory_bytes}
+   */
   readonly memoryBytes?: number;
   /**
-  * CPU shares in units of `1/1e9` (or `10^-9`) of the CPU. Should be at least `1000000`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nano_cpus Service#nano_cpus}
-  */
+   * CPU shares in units of `1/1e9` (or `10^-9`) of the CPU. Should be at least `1000000`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nano_cpus Service#nano_cpus}
+   */
   readonly nanoCpus?: number;
 }
 
-export function serviceTaskSpecResourcesLimitsToTerraform(struct?: ServiceTaskSpecResourcesLimitsOutputReference | ServiceTaskSpecResourcesLimits): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecResourcesLimitsToTerraform(
+  struct?:
+    | ServiceTaskSpecResourcesLimitsOutputReference
+    | ServiceTaskSpecResourcesLimits,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     memory_bytes: cdktf.numberToTerraform(struct!.memoryBytes),
     nano_cpus: cdktf.numberToTerraform(struct!.nanoCpus),
-  }
+  };
 }
 
 export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4418,8 +5058,7 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._memoryBytes = undefined;
       this._nanoCpus = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._memoryBytes = value.memoryBytes;
       this._nanoCpus = value.nanoCpus;
@@ -4427,7 +5066,7 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
   }
 
   // memory_bytes - computed: false, optional: true, required: false
-  private _memoryBytes?: number; 
+  private _memoryBytes?: number;
   public get memoryBytes() {
     return this.getNumberAttribute('memory_bytes');
   }
@@ -4443,7 +5082,7 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
   }
 
   // nano_cpus - computed: false, optional: true, required: false
-  private _nanoCpus?: number; 
+  private _nanoCpus?: number;
   public get nanoCpus() {
     return this.getNumberAttribute('nano_cpus');
   }
@@ -4460,42 +5099,61 @@ export class ServiceTaskSpecResourcesLimitsOutputReference extends cdktf.Complex
 }
 export interface ServiceTaskSpecResourcesReservationGenericResources {
   /**
-  * The Integer resources
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#discrete_resources_spec Service#discrete_resources_spec}
-  */
+   * The Integer resources
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#discrete_resources_spec Service#discrete_resources_spec}
+   */
   readonly discreteResourcesSpec?: string[];
   /**
-  * The String resources
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#named_resources_spec Service#named_resources_spec}
-  */
+   * The String resources
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#named_resources_spec Service#named_resources_spec}
+   */
   readonly namedResourcesSpec?: string[];
 }
 
-export function serviceTaskSpecResourcesReservationGenericResourcesToTerraform(struct?: ServiceTaskSpecResourcesReservationGenericResourcesOutputReference | ServiceTaskSpecResourcesReservationGenericResources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecResourcesReservationGenericResourcesToTerraform(
+  struct?:
+    | ServiceTaskSpecResourcesReservationGenericResourcesOutputReference
+    | ServiceTaskSpecResourcesReservationGenericResources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    discrete_resources_spec: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.discreteResourcesSpec),
-    named_resources_spec: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.namedResourcesSpec),
-  }
+    discrete_resources_spec: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.discreteResourcesSpec),
+    named_resources_spec: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.namedResourcesSpec),
+  };
 }
 
 export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): ServiceTaskSpecResourcesReservationGenericResources | undefined {
+  public get internalValue():
+    | ServiceTaskSpecResourcesReservationGenericResources
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._discreteResourcesSpec !== undefined) {
@@ -4509,13 +5167,14 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecResourcesReservationGenericResources | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecResourcesReservationGenericResources | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._discreteResourcesSpec = undefined;
       this._namedResourcesSpec = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._discreteResourcesSpec = value.discreteResourcesSpec;
       this._namedResourcesSpec = value.namedResourcesSpec;
@@ -4523,7 +5182,7 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
   }
 
   // discrete_resources_spec - computed: false, optional: true, required: false
-  private _discreteResourcesSpec?: string[]; 
+  private _discreteResourcesSpec?: string[];
   public get discreteResourcesSpec() {
     return cdktf.Fn.tolist(this.getListAttribute('discrete_resources_spec'));
   }
@@ -4539,7 +5198,7 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
   }
 
   // named_resources_spec - computed: false, optional: true, required: false
-  private _namedResourcesSpec?: string[]; 
+  private _namedResourcesSpec?: string[];
   public get namedResourcesSpec() {
     return cdktf.Fn.tolist(this.getListAttribute('named_resources_spec'));
   }
@@ -4556,45 +5215,59 @@ export class ServiceTaskSpecResourcesReservationGenericResourcesOutputReference 
 }
 export interface ServiceTaskSpecResourcesReservation {
   /**
-  * The amounf of memory in bytes the container allocates
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#memory_bytes Service#memory_bytes}
-  */
+   * The amounf of memory in bytes the container allocates
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#memory_bytes Service#memory_bytes}
+   */
   readonly memoryBytes?: number;
   /**
-  * CPU shares in units of 1/1e9 (or 10^-9) of the CPU. Should be at least `1000000`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nano_cpus Service#nano_cpus}
-  */
+   * CPU shares in units of 1/1e9 (or 10^-9) of the CPU. Should be at least `1000000`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#nano_cpus Service#nano_cpus}
+   */
   readonly nanoCpus?: number;
   /**
-  * generic_resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#generic_resources Service#generic_resources}
-  */
+   * generic_resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#generic_resources Service#generic_resources}
+   */
   readonly genericResources?: ServiceTaskSpecResourcesReservationGenericResources;
 }
 
-export function serviceTaskSpecResourcesReservationToTerraform(struct?: ServiceTaskSpecResourcesReservationOutputReference | ServiceTaskSpecResourcesReservation): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecResourcesReservationToTerraform(
+  struct?:
+    | ServiceTaskSpecResourcesReservationOutputReference
+    | ServiceTaskSpecResourcesReservation,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     memory_bytes: cdktf.numberToTerraform(struct!.memoryBytes),
     nano_cpus: cdktf.numberToTerraform(struct!.nanoCpus),
-    generic_resources: serviceTaskSpecResourcesReservationGenericResourcesToTerraform(struct!.genericResources),
-  }
+    generic_resources:
+      serviceTaskSpecResourcesReservationGenericResourcesToTerraform(
+        struct!.genericResources,
+      ),
+  };
 }
 
 export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4611,19 +5284,21 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
     }
     if (this._genericResources?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.genericResources = this._genericResources?.internalValue;
+      internalValueResult.genericResources =
+        this._genericResources?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: ServiceTaskSpecResourcesReservation | undefined) {
+  public set internalValue(
+    value: ServiceTaskSpecResourcesReservation | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._memoryBytes = undefined;
       this._nanoCpus = undefined;
       this._genericResources.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._memoryBytes = value.memoryBytes;
       this._nanoCpus = value.nanoCpus;
@@ -4632,7 +5307,7 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
   }
 
   // memory_bytes - computed: false, optional: true, required: false
-  private _memoryBytes?: number; 
+  private _memoryBytes?: number;
   public get memoryBytes() {
     return this.getNumberAttribute('memory_bytes');
   }
@@ -4648,7 +5323,7 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
   }
 
   // nano_cpus - computed: false, optional: true, required: false
-  private _nanoCpus?: number; 
+  private _nanoCpus?: number;
   public get nanoCpus() {
     return this.getNumberAttribute('nano_cpus');
   }
@@ -4664,11 +5339,17 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
   }
 
   // generic_resources - computed: false, optional: true, required: false
-  private _genericResources = new ServiceTaskSpecResourcesReservationGenericResourcesOutputReference(this, "generic_resources");
+  private _genericResources =
+    new ServiceTaskSpecResourcesReservationGenericResourcesOutputReference(
+      this,
+      'generic_resources',
+    );
   public get genericResources() {
     return this._genericResources;
   }
-  public putGenericResources(value: ServiceTaskSpecResourcesReservationGenericResources) {
+  public putGenericResources(
+    value: ServiceTaskSpecResourcesReservationGenericResources,
+  ) {
     this._genericResources.internalValue = value;
   }
   public resetGenericResources() {
@@ -4681,38 +5362,49 @@ export class ServiceTaskSpecResourcesReservationOutputReference extends cdktf.Co
 }
 export interface ServiceTaskSpecResources {
   /**
-  * limits block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#limits Service#limits}
-  */
+   * limits block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#limits Service#limits}
+   */
   readonly limits?: ServiceTaskSpecResourcesLimits;
   /**
-  * reservation block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#reservation Service#reservation}
-  */
+   * reservation block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#reservation Service#reservation}
+   */
   readonly reservation?: ServiceTaskSpecResourcesReservation;
 }
 
-export function serviceTaskSpecResourcesToTerraform(struct?: ServiceTaskSpecResourcesOutputReference | ServiceTaskSpecResources): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecResourcesToTerraform(
+  struct?: ServiceTaskSpecResourcesOutputReference | ServiceTaskSpecResources,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     limits: serviceTaskSpecResourcesLimitsToTerraform(struct!.limits),
-    reservation: serviceTaskSpecResourcesReservationToTerraform(struct!.reservation),
-  }
+    reservation: serviceTaskSpecResourcesReservationToTerraform(
+      struct!.reservation,
+    ),
+  };
 }
 
 export class ServiceTaskSpecResourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4735,8 +5427,7 @@ export class ServiceTaskSpecResourcesOutputReference extends cdktf.ComplexObject
       this.isEmptyObject = false;
       this._limits.internalValue = undefined;
       this._reservation.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._limits.internalValue = value.limits;
       this._reservation.internalValue = value.reservation;
@@ -4744,7 +5435,10 @@ export class ServiceTaskSpecResourcesOutputReference extends cdktf.ComplexObject
   }
 
   // limits - computed: false, optional: true, required: false
-  private _limits = new ServiceTaskSpecResourcesLimitsOutputReference(this, "limits");
+  private _limits = new ServiceTaskSpecResourcesLimitsOutputReference(
+    this,
+    'limits',
+  );
   public get limits() {
     return this._limits;
   }
@@ -4760,7 +5454,10 @@ export class ServiceTaskSpecResourcesOutputReference extends cdktf.ComplexObject
   }
 
   // reservation - computed: false, optional: true, required: false
-  private _reservation = new ServiceTaskSpecResourcesReservationOutputReference(this, "reservation");
+  private _reservation = new ServiceTaskSpecResourcesReservationOutputReference(
+    this,
+    'reservation',
+  );
   public get reservation() {
     return this._reservation;
   }
@@ -4777,52 +5474,63 @@ export class ServiceTaskSpecResourcesOutputReference extends cdktf.ComplexObject
 }
 export interface ServiceTaskSpecRestartPolicy {
   /**
-  * Condition for restart
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#condition Service#condition}
-  */
+   * Condition for restart
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#condition Service#condition}
+   */
   readonly condition?: string;
   /**
-  * Delay between restart attempts (ms|s|m|h)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
-  */
+   * Delay between restart attempts (ms|s|m|h)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
+   */
   readonly delay?: string;
   /**
-  * Maximum attempts to restart a given container before giving up (default value is `0`, which is ignored)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_attempts Service#max_attempts}
-  */
+   * Maximum attempts to restart a given container before giving up (default value is `0`, which is ignored)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_attempts Service#max_attempts}
+   */
   readonly maxAttempts?: number;
   /**
-  * The time window used to evaluate the restart policy (default value is `0`, which is unbounded) (ms|s|m|h)
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#window Service#window}
-  */
+   * The time window used to evaluate the restart policy (default value is `0`, which is unbounded) (ms|s|m|h)
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#window Service#window}
+   */
   readonly window?: string;
 }
 
-export function serviceTaskSpecRestartPolicyToTerraform(struct?: ServiceTaskSpecRestartPolicyOutputReference | ServiceTaskSpecRestartPolicy): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecRestartPolicyToTerraform(
+  struct?:
+    | ServiceTaskSpecRestartPolicyOutputReference
+    | ServiceTaskSpecRestartPolicy,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     condition: cdktf.stringToTerraform(struct!.condition),
     delay: cdktf.stringToTerraform(struct!.delay),
     max_attempts: cdktf.numberToTerraform(struct!.maxAttempts),
     window: cdktf.stringToTerraform(struct!.window),
-  }
+  };
 }
 
 export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4855,8 +5563,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
       this._delay = undefined;
       this._maxAttempts = undefined;
       this._window = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._condition = value.condition;
       this._delay = value.delay;
@@ -4866,7 +5573,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // condition - computed: false, optional: true, required: false
-  private _condition?: string; 
+  private _condition?: string;
   public get condition() {
     return this.getStringAttribute('condition');
   }
@@ -4882,7 +5589,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -4898,7 +5605,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // max_attempts - computed: false, optional: true, required: false
-  private _maxAttempts?: number; 
+  private _maxAttempts?: number;
   public get maxAttempts() {
     return this.getNumberAttribute('max_attempts');
   }
@@ -4914,7 +5621,7 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
   }
 
   // window - computed: false, optional: true, required: false
-  private _window?: string; 
+  private _window?: string;
   public get window() {
     return this.getStringAttribute('window');
   }
@@ -4931,80 +5638,98 @@ export class ServiceTaskSpecRestartPolicyOutputReference extends cdktf.ComplexOb
 }
 export interface ServiceTaskSpec {
   /**
-  * A counter that triggers an update even if no relevant parameters have been changed. See the [spec](https://github.com/docker/swarmkit/blob/master/api/specs.proto#L126).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#force_update Service#force_update}
-  */
+   * A counter that triggers an update even if no relevant parameters have been changed. See the [spec](https://github.com/docker/swarmkit/blob/master/api/specs.proto#L126).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#force_update Service#force_update}
+   */
   readonly forceUpdate?: number;
   /**
-  * Runtime is the type of runtime specified for the task executor. See the [types](https://github.com/moby/moby/blob/master/api/types/swarm/runtime.go).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#runtime Service#runtime}
-  */
+   * Runtime is the type of runtime specified for the task executor. See the [types](https://github.com/moby/moby/blob/master/api/types/swarm/runtime.go).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#runtime Service#runtime}
+   */
   readonly runtime?: string;
   /**
-  * container_spec block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#container_spec Service#container_spec}
-  */
+   * container_spec block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#container_spec Service#container_spec}
+   */
   readonly containerSpec: ServiceTaskSpecContainerSpec;
   /**
-  * log_driver block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#log_driver Service#log_driver}
-  */
+   * log_driver block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#log_driver Service#log_driver}
+   */
   readonly logDriver?: ServiceTaskSpecLogDriver;
   /**
-  * networks_advanced block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#networks_advanced Service#networks_advanced}
-  */
-  readonly networksAdvanced?: ServiceTaskSpecNetworksAdvanced[] | cdktf.IResolvable;
+   * networks_advanced block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#networks_advanced Service#networks_advanced}
+   */
+  readonly networksAdvanced?:
+    | ServiceTaskSpecNetworksAdvanced[]
+    | cdktf.IResolvable;
   /**
-  * placement block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#placement Service#placement}
-  */
+   * placement block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#placement Service#placement}
+   */
   readonly placement?: ServiceTaskSpecPlacement;
   /**
-  * resources block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#resources Service#resources}
-  */
+   * resources block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#resources Service#resources}
+   */
   readonly resources?: ServiceTaskSpecResources;
   /**
-  * restart_policy block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#restart_policy Service#restart_policy}
-  */
+   * restart_policy block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#restart_policy Service#restart_policy}
+   */
   readonly restartPolicy?: ServiceTaskSpecRestartPolicy;
 }
 
-export function serviceTaskSpecToTerraform(struct?: ServiceTaskSpecOutputReference | ServiceTaskSpec): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceTaskSpecToTerraform(
+  struct?: ServiceTaskSpecOutputReference | ServiceTaskSpec,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     force_update: cdktf.numberToTerraform(struct!.forceUpdate),
     runtime: cdktf.stringToTerraform(struct!.runtime),
-    container_spec: serviceTaskSpecContainerSpecToTerraform(struct!.containerSpec),
+    container_spec: serviceTaskSpecContainerSpecToTerraform(
+      struct!.containerSpec,
+    ),
     log_driver: serviceTaskSpecLogDriverToTerraform(struct!.logDriver),
-    networks_advanced: cdktf.listMapper(serviceTaskSpecNetworksAdvancedToTerraform, true)(struct!.networksAdvanced),
+    networks_advanced: cdktf.listMapper(
+      serviceTaskSpecNetworksAdvancedToTerraform,
+      true,
+    )(struct!.networksAdvanced),
     placement: serviceTaskSpecPlacementToTerraform(struct!.placement),
     resources: serviceTaskSpecResourcesToTerraform(struct!.resources),
-    restart_policy: serviceTaskSpecRestartPolicyToTerraform(struct!.restartPolicy),
-  }
+    restart_policy: serviceTaskSpecRestartPolicyToTerraform(
+      struct!.restartPolicy,
+    ),
+  };
 }
 
 export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5029,7 +5754,8 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
     }
     if (this._networksAdvanced?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networksAdvanced = this._networksAdvanced?.internalValue;
+      internalValueResult.networksAdvanced =
+        this._networksAdvanced?.internalValue;
     }
     if (this._placement?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -5057,8 +5783,7 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
       this._placement.internalValue = undefined;
       this._resources.internalValue = undefined;
       this._restartPolicy.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._forceUpdate = value.forceUpdate;
       this._runtime = value.runtime;
@@ -5072,7 +5797,7 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // force_update - computed: true, optional: true, required: false
-  private _forceUpdate?: number; 
+  private _forceUpdate?: number;
   public get forceUpdate() {
     return this.getNumberAttribute('force_update');
   }
@@ -5088,7 +5813,7 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // runtime - computed: true, optional: true, required: false
-  private _runtime?: string; 
+  private _runtime?: string;
   public get runtime() {
     return this.getStringAttribute('runtime');
   }
@@ -5104,7 +5829,10 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // container_spec - computed: false, optional: false, required: true
-  private _containerSpec = new ServiceTaskSpecContainerSpecOutputReference(this, "container_spec");
+  private _containerSpec = new ServiceTaskSpecContainerSpecOutputReference(
+    this,
+    'container_spec',
+  );
   public get containerSpec() {
     return this._containerSpec;
   }
@@ -5117,7 +5845,10 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // log_driver - computed: false, optional: true, required: false
-  private _logDriver = new ServiceTaskSpecLogDriverOutputReference(this, "log_driver");
+  private _logDriver = new ServiceTaskSpecLogDriverOutputReference(
+    this,
+    'log_driver',
+  );
   public get logDriver() {
     return this._logDriver;
   }
@@ -5133,11 +5864,17 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // networks_advanced - computed: false, optional: true, required: false
-  private _networksAdvanced = new ServiceTaskSpecNetworksAdvancedList(this, "networks_advanced", true);
+  private _networksAdvanced = new ServiceTaskSpecNetworksAdvancedList(
+    this,
+    'networks_advanced',
+    true,
+  );
   public get networksAdvanced() {
     return this._networksAdvanced;
   }
-  public putNetworksAdvanced(value: ServiceTaskSpecNetworksAdvanced[] | cdktf.IResolvable) {
+  public putNetworksAdvanced(
+    value: ServiceTaskSpecNetworksAdvanced[] | cdktf.IResolvable,
+  ) {
     this._networksAdvanced.internalValue = value;
   }
   public resetNetworksAdvanced() {
@@ -5149,7 +5886,10 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // placement - computed: false, optional: true, required: false
-  private _placement = new ServiceTaskSpecPlacementOutputReference(this, "placement");
+  private _placement = new ServiceTaskSpecPlacementOutputReference(
+    this,
+    'placement',
+  );
   public get placement() {
     return this._placement;
   }
@@ -5165,7 +5905,10 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // resources - computed: false, optional: true, required: false
-  private _resources = new ServiceTaskSpecResourcesOutputReference(this, "resources");
+  private _resources = new ServiceTaskSpecResourcesOutputReference(
+    this,
+    'resources',
+  );
   public get resources() {
     return this._resources;
   }
@@ -5181,7 +5924,10 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
   }
 
   // restart_policy - computed: false, optional: true, required: false
-  private _restartPolicy = new ServiceTaskSpecRestartPolicyOutputReference(this, "restart_policy");
+  private _restartPolicy = new ServiceTaskSpecRestartPolicyOutputReference(
+    this,
+    'restart_policy',
+  );
   public get restartPolicy() {
     return this._restartPolicy;
   }
@@ -5198,47 +5944,53 @@ export class ServiceTaskSpecOutputReference extends cdktf.ComplexObject {
 }
 export interface ServiceUpdateConfig {
   /**
-  * Delay between task updates `(ns|us|ms|s|m|h)`. Defaults to `0s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
-  */
+   * Delay between task updates `(ns|us|ms|s|m|h)`. Defaults to `0s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#delay Service#delay}
+   */
   readonly delay?: string;
   /**
-  * Action on update failure: `pause`, `continue` or `rollback`. Defaults to `pause`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#failure_action Service#failure_action}
-  */
+   * Action on update failure: `pause`, `continue` or `rollback`. Defaults to `pause`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#failure_action Service#failure_action}
+   */
   readonly failureAction?: string;
   /**
-  * Failure rate to tolerate during an update. Defaults to `0.0`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_failure_ratio Service#max_failure_ratio}
-  */
+   * Failure rate to tolerate during an update. Defaults to `0.0`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#max_failure_ratio Service#max_failure_ratio}
+   */
   readonly maxFailureRatio?: string;
   /**
-  * Duration after each task update to monitor for failure (ns|us|ms|s|m|h). Defaults to `5s`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#monitor Service#monitor}
-  */
+   * Duration after each task update to monitor for failure (ns|us|ms|s|m|h). Defaults to `5s`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#monitor Service#monitor}
+   */
   readonly monitor?: string;
   /**
-  * Update order: either 'stop-first' or 'start-first'. Defaults to `stop-first`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#order Service#order}
-  */
+   * Update order: either 'stop-first' or 'start-first'. Defaults to `stop-first`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#order Service#order}
+   */
   readonly order?: string;
   /**
-  * Maximum number of tasks to be updated in one iteration. Defaults to `1`
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#parallelism Service#parallelism}
-  */
+   * Maximum number of tasks to be updated in one iteration. Defaults to `1`
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/service#parallelism Service#parallelism}
+   */
   readonly parallelism?: number;
 }
 
-export function serviceUpdateConfigToTerraform(struct?: ServiceUpdateConfigOutputReference | ServiceUpdateConfig): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function serviceUpdateConfigToTerraform(
+  struct?: ServiceUpdateConfigOutputReference | ServiceUpdateConfig,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     delay: cdktf.stringToTerraform(struct!.delay),
@@ -5247,17 +5999,20 @@ export function serviceUpdateConfigToTerraform(struct?: ServiceUpdateConfigOutpu
     monitor: cdktf.stringToTerraform(struct!.monitor),
     order: cdktf.stringToTerraform(struct!.order),
     parallelism: cdktf.numberToTerraform(struct!.parallelism),
-  }
+  };
 }
 
 export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5300,8 +6055,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
       this._monitor = undefined;
       this._order = undefined;
       this._parallelism = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._delay = value.delay;
       this._failureAction = value.failureAction;
@@ -5313,7 +6067,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // delay - computed: false, optional: true, required: false
-  private _delay?: string; 
+  private _delay?: string;
   public get delay() {
     return this.getStringAttribute('delay');
   }
@@ -5329,7 +6083,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // failure_action - computed: false, optional: true, required: false
-  private _failureAction?: string; 
+  private _failureAction?: string;
   public get failureAction() {
     return this.getStringAttribute('failure_action');
   }
@@ -5345,7 +6099,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // max_failure_ratio - computed: false, optional: true, required: false
-  private _maxFailureRatio?: string; 
+  private _maxFailureRatio?: string;
   public get maxFailureRatio() {
     return this.getStringAttribute('max_failure_ratio');
   }
@@ -5361,7 +6115,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // monitor - computed: false, optional: true, required: false
-  private _monitor?: string; 
+  private _monitor?: string;
   public get monitor() {
     return this.getStringAttribute('monitor');
   }
@@ -5377,7 +6131,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // order - computed: false, optional: true, required: false
-  private _order?: string; 
+  private _order?: string;
   public get order() {
     return this.getStringAttribute('order');
   }
@@ -5393,7 +6147,7 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // parallelism - computed: false, optional: true, required: false
-  private _parallelism?: number; 
+  private _parallelism?: number;
   public get parallelism() {
     return this.getNumberAttribute('parallelism');
   }
@@ -5410,33 +6164,32 @@ export class ServiceUpdateConfigOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/r/service docker_service}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/r/service docker_service}
+ */
 export class Service extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_service";
+  public static readonly tfResourceType = 'docker_service';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/r/service docker_service} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options ServiceConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/r/service docker_service} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options ServiceConfig
+   */
   public constructor(scope: Construct, id: string, config: ServiceConfig) {
     super(scope, id, {
       terraformResourceType: 'docker_service',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -5444,7 +6197,7 @@ export class Service extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._name = config.name;
@@ -5463,7 +6216,7 @@ export class Service extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -5479,7 +6232,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5492,7 +6245,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // auth - computed: false, optional: true, required: false
-  private _auth = new ServiceAuthOutputReference(this, "auth");
+  private _auth = new ServiceAuthOutputReference(this, 'auth');
   public get auth() {
     return this._auth;
   }
@@ -5508,7 +6261,10 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // converge_config - computed: false, optional: true, required: false
-  private _convergeConfig = new ServiceConvergeConfigOutputReference(this, "converge_config");
+  private _convergeConfig = new ServiceConvergeConfigOutputReference(
+    this,
+    'converge_config',
+  );
   public get convergeConfig() {
     return this._convergeConfig;
   }
@@ -5524,7 +6280,10 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // endpoint_spec - computed: false, optional: true, required: false
-  private _endpointSpec = new ServiceEndpointSpecOutputReference(this, "endpoint_spec");
+  private _endpointSpec = new ServiceEndpointSpecOutputReference(
+    this,
+    'endpoint_spec',
+  );
   public get endpointSpec() {
     return this._endpointSpec;
   }
@@ -5540,7 +6299,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels = new ServiceLabelsList(this, "labels", true);
+  private _labels = new ServiceLabelsList(this, 'labels', true);
   public get labels() {
     return this._labels;
   }
@@ -5556,7 +6315,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // mode - computed: false, optional: true, required: false
-  private _mode = new ServiceModeOutputReference(this, "mode");
+  private _mode = new ServiceModeOutputReference(this, 'mode');
   public get mode() {
     return this._mode;
   }
@@ -5572,7 +6331,10 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // rollback_config - computed: false, optional: true, required: false
-  private _rollbackConfig = new ServiceRollbackConfigOutputReference(this, "rollback_config");
+  private _rollbackConfig = new ServiceRollbackConfigOutputReference(
+    this,
+    'rollback_config',
+  );
   public get rollbackConfig() {
     return this._rollbackConfig;
   }
@@ -5588,7 +6350,7 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // task_spec - computed: false, optional: false, required: true
-  private _taskSpec = new ServiceTaskSpecOutputReference(this, "task_spec");
+  private _taskSpec = new ServiceTaskSpecOutputReference(this, 'task_spec');
   public get taskSpec() {
     return this._taskSpec;
   }
@@ -5601,7 +6363,10 @@ export class Service extends cdktf.TerraformResource {
   }
 
   // update_config - computed: false, optional: true, required: false
-  private _updateConfig = new ServiceUpdateConfigOutputReference(this, "update_config");
+  private _updateConfig = new ServiceUpdateConfigOutputReference(
+    this,
+    'update_config',
+  );
   public get updateConfig() {
     return this._updateConfig;
   }
@@ -5625,13 +6390,24 @@ export class Service extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       auth: serviceAuthToTerraform(this._auth.internalValue),
-      converge_config: serviceConvergeConfigToTerraform(this._convergeConfig.internalValue),
-      endpoint_spec: serviceEndpointSpecToTerraform(this._endpointSpec.internalValue),
-      labels: cdktf.listMapper(serviceLabelsToTerraform, true)(this._labels.internalValue),
+      converge_config: serviceConvergeConfigToTerraform(
+        this._convergeConfig.internalValue,
+      ),
+      endpoint_spec: serviceEndpointSpecToTerraform(
+        this._endpointSpec.internalValue,
+      ),
+      labels: cdktf.listMapper(
+        serviceLabelsToTerraform,
+        true,
+      )(this._labels.internalValue),
       mode: serviceModeToTerraform(this._mode.internalValue),
-      rollback_config: serviceRollbackConfigToTerraform(this._rollbackConfig.internalValue),
+      rollback_config: serviceRollbackConfigToTerraform(
+        this._rollbackConfig.internalValue,
+      ),
       task_spec: serviceTaskSpecToTerraform(this._taskSpec.internalValue),
-      update_config: serviceUpdateConfigToTerraform(this._updateConfig.internalValue),
+      update_config: serviceUpdateConfigToTerraform(
+        this._updateConfig.internalValue,
+      ),
     };
   }
 }

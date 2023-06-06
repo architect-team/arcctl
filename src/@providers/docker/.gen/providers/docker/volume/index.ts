@@ -1,68 +1,73 @@
 // https://www.terraform.io/docs/providers/docker/r/volume
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface VolumeConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Driver type for the volume. Defaults to `local`.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#driver Volume#driver}
-  */
+   * Driver type for the volume. Defaults to `local`.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#driver Volume#driver}
+   */
   readonly driver?: string;
   /**
-  * Options specific to the driver.
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#driver_opts Volume#driver_opts}
-  */
+   * Options specific to the driver.
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#driver_opts Volume#driver_opts}
+   */
   readonly driverOpts?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#id Volume#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#id Volume#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * The name of the Docker volume (will be generated if not provided).
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#name Volume#name}
-  */
+   * The name of the Docker volume (will be generated if not provided).
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#name Volume#name}
+   */
   readonly name?: string;
   /**
-  * labels block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#labels Volume#labels}
-  */
+   * labels block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#labels Volume#labels}
+   */
   readonly labels?: VolumeLabels[] | cdktf.IResolvable;
 }
 export interface VolumeLabels {
   /**
-  * Name of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#label Volume#label}
-  */
+   * Name of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#label Volume#label}
+   */
   readonly label: string;
   /**
-  * Value of the label
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#value Volume#value}
-  */
+   * Value of the label
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/docker/r/volume#value Volume#value}
+   */
   readonly value: string;
 }
 
-export function volumeLabelsToTerraform(struct?: VolumeLabels | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function volumeLabelsToTerraform(
+  struct?: VolumeLabels | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     label: cdktf.stringToTerraform(struct!.label),
     value: cdktf.stringToTerraform(struct!.value),
-  }
+  };
 }
 
 export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
@@ -70,13 +75,23 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
   public get internalValue(): VolumeLabels | cdktf.IResolvable | undefined {
@@ -96,18 +111,18 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: VolumeLabels | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: VolumeLabels | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._label = undefined;
       this._value = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._label = value.label;
@@ -116,7 +131,7 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // label - computed: false, optional: false, required: true
-  private _label?: string; 
+  private _label?: string;
   public get label() {
     return this.getStringAttribute('label');
   }
@@ -129,7 +144,7 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string; 
+  private _value?: string;
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -143,53 +158,61 @@ export class VolumeLabelsOutputReference extends cdktf.ComplexObject {
 }
 
 export class VolumeLabelsList extends cdktf.ComplexList {
-  public internalValue? : VolumeLabels[] | cdktf.IResolvable
+  public internalValue?: VolumeLabels[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): VolumeLabelsOutputReference {
-    return new VolumeLabelsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new VolumeLabelsOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/docker/r/volume docker_volume}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/docker/r/volume docker_volume}
+ */
 export class Volume extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "docker_volume";
+  public static readonly tfResourceType = 'docker_volume';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/docker/r/volume docker_volume} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options VolumeConfig = {}
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/docker/r/volume docker_volume} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options VolumeConfig = {}
+   */
   public constructor(scope: Construct, id: string, config: VolumeConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'docker_volume',
       terraformGeneratorMetadata: {
         providerName: 'docker',
         providerVersion: '3.0.2',
-        providerVersionConstraint: '3.0.2'
+        providerVersionConstraint: '3.0.2',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -197,7 +220,7 @@ export class Volume extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._driver = config.driver;
     this._driverOpts = config.driverOpts;
@@ -211,7 +234,7 @@ export class Volume extends cdktf.TerraformResource {
   // ==========
 
   // driver - computed: true, optional: true, required: false
-  private _driver?: string; 
+  private _driver?: string;
   public get driver() {
     return this.getStringAttribute('driver');
   }
@@ -227,7 +250,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // driver_opts - computed: false, optional: true, required: false
-  private _driverOpts?: { [key: string]: string }; 
+  private _driverOpts?: { [key: string]: string };
   public get driverOpts() {
     return this.getStringMapAttribute('driver_opts');
   }
@@ -243,7 +266,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -264,7 +287,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -280,7 +303,7 @@ export class Volume extends cdktf.TerraformResource {
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels = new VolumeLabelsList(this, "labels", true);
+  private _labels = new VolumeLabelsList(this, 'labels', true);
   public get labels() {
     return this._labels;
   }
@@ -305,7 +328,10 @@ export class Volume extends cdktf.TerraformResource {
       driver_opts: cdktf.hashMapper(cdktf.stringToTerraform)(this._driverOpts),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      labels: cdktf.listMapper(volumeLabelsToTerraform, true)(this._labels.internalValue),
+      labels: cdktf.listMapper(
+        volumeLabelsToTerraform,
+        true,
+      )(this._labels.internalValue),
     };
   }
 }

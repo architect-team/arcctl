@@ -1,27 +1,24 @@
-import { Provider } from '../provider.js';
-import { CldctlTestResource } from '../tests.js';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from './.gen/providers/digitalocean/provider/index.js';
-import {
-  DigitaloceanCredentials,
-  DigitaloceanCredentialsSchema,
-} from './credentials.js';
-import { DigitaloceanDatabaseSchemaService } from './services/database-schema.js';
-import { DigitaloceanDatabaseSizeService } from './services/database-size.js';
-import { DigitaloceanDatabaseTypeService } from './services/database-type.js';
-import { DigitaloceanDatabaseUserService } from './services/database-user.js';
-import { DigitaloceanDatabaseVersionService } from './services/database-version.js';
-import { DigitaloceanDatabaseService } from './services/database.js';
-import { DigitaloceanDnsRecordService } from './services/dns-record.js';
-import { DigitaloceanDnsZoneService } from './services/dns-zone.js';
-import { DigitaloceanKubernetesClusterService } from './services/kubernetes-cluster.js';
-import { DigitaloceanKubernetesVersionService } from './services/kubernetes-version.js';
-import { DigitaloceanNodeSizeService } from './services/node-size.js';
-import { DigitaloceanRegionService } from './services/region.js';
-import { DigitaloceanVpcService } from './services/vpc.js';
-import { DigitalOceanDatabaseTest } from './tests/database.js';
-import { DigitalOceanDnsRecordTest } from './tests/dns-record.js';
-import { DigitalOceanDnsZoneTest } from './tests/dns-zone.js';
-import { DigitalOceanVpcTest } from './tests/vpc.js';
+import { Provider } from '../provider.ts';
+import { CldctlTestResource } from '../tests.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from './.gen/providers/digitalocean/provider/index.ts';
+import { DigitaloceanCredentials, DigitaloceanCredentialsSchema } from './credentials.ts';
+import { DigitaloceanDatabaseSchemaService } from './services/database-schema.ts';
+import { DigitaloceanDatabaseSizeService } from './services/database-size.ts';
+import { DigitaloceanDatabaseTypeService } from './services/database-type.ts';
+import { DigitaloceanDatabaseUserService } from './services/database-user.ts';
+import { DigitaloceanDatabaseVersionService } from './services/database-version.ts';
+import { DigitaloceanDatabaseService } from './services/database.ts';
+import { DigitaloceanDnsRecordService } from './services/dns-record.ts';
+import { DigitaloceanDnsZoneService } from './services/dns-zone.ts';
+import { DigitaloceanKubernetesClusterService } from './services/kubernetes-cluster.ts';
+import { DigitaloceanKubernetesVersionService } from './services/kubernetes-version.ts';
+import { DigitaloceanNodeSizeService } from './services/node-size.ts';
+import { DigitaloceanRegionService } from './services/region.ts';
+import { DigitaloceanVpcService } from './services/vpc.ts';
+import { DigitalOceanDatabaseTest } from './tests/database.ts';
+import { DigitalOceanDnsRecordTest } from './tests/dns-record.ts';
+import { DigitalOceanDnsZoneTest } from './tests/dns-zone.ts';
+import { DigitalOceanVpcTest } from './tests/vpc.ts';
 import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
 
@@ -35,12 +32,8 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
     region: new DigitaloceanRegionService(this.credentials),
     vpc: new DigitaloceanVpcService(this.credentials),
     nodeSize: new DigitaloceanNodeSizeService(this.credentials),
-    kubernetesVersion: new DigitaloceanKubernetesVersionService(
-      this.credentials,
-    ),
-    kubernetesCluster: new DigitaloceanKubernetesClusterService(
-      this.credentials,
-    ),
+    kubernetesVersion: new DigitaloceanKubernetesVersionService(this.credentials),
+    kubernetesCluster: new DigitaloceanKubernetesClusterService(this.credentials),
     database: new DigitaloceanDatabaseService(this.credentials),
     databaseSize: new DigitaloceanDatabaseSizeService(this.credentials),
     databaseType: new DigitaloceanDatabaseTypeService(this.credentials),
@@ -61,9 +54,7 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
     return true;
   }
 
-  public configureTerraformProviders(
-    scope: Construct,
-  ): TerraformDigitaloceanProvider {
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
     return new TerraformDigitaloceanProvider(scope, this.name, {
       token: this.credentials.token,
     });

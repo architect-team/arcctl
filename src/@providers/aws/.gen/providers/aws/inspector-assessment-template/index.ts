@@ -1,70 +1,78 @@
 // https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface InspectorAssessmentTemplateConfig extends cdktf.TerraformMetaArguments {
+export interface InspectorAssessmentTemplateConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#duration InspectorAssessmentTemplate#duration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#duration InspectorAssessmentTemplate#duration}
+   */
   readonly duration: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#id InspectorAssessmentTemplate#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#id InspectorAssessmentTemplate#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#name InspectorAssessmentTemplate#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#name InspectorAssessmentTemplate#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#rules_package_arns InspectorAssessmentTemplate#rules_package_arns}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#rules_package_arns InspectorAssessmentTemplate#rules_package_arns}
+   */
   readonly rulesPackageArns: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#tags InspectorAssessmentTemplate#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#tags InspectorAssessmentTemplate#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#tags_all InspectorAssessmentTemplate#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#tags_all InspectorAssessmentTemplate#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#target_arn InspectorAssessmentTemplate#target_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#target_arn InspectorAssessmentTemplate#target_arn}
+   */
   readonly targetArn: string;
   /**
-  * event_subscription block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#event_subscription InspectorAssessmentTemplate#event_subscription}
-  */
-  readonly eventSubscription?: InspectorAssessmentTemplateEventSubscription[] | cdktf.IResolvable;
+   * event_subscription block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#event_subscription InspectorAssessmentTemplate#event_subscription}
+   */
+  readonly eventSubscription?:
+    | InspectorAssessmentTemplateEventSubscription[]
+    | cdktf.IResolvable;
 }
 export interface InspectorAssessmentTemplateEventSubscription {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#event InspectorAssessmentTemplate#event}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#event InspectorAssessmentTemplate#event}
+   */
   readonly event: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#topic_arn InspectorAssessmentTemplate#topic_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template#topic_arn InspectorAssessmentTemplate#topic_arn}
+   */
   readonly topicArn: string;
 }
 
-export function inspectorAssessmentTemplateEventSubscriptionToTerraform(struct?: InspectorAssessmentTemplateEventSubscription | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function inspectorAssessmentTemplateEventSubscriptionToTerraform(
+  struct?: InspectorAssessmentTemplateEventSubscription | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     event: cdktf.stringToTerraform(struct!.event),
     topic_arn: cdktf.stringToTerraform(struct!.topicArn),
-  }
+  };
 }
 
 export class InspectorAssessmentTemplateEventSubscriptionOutputReference extends cdktf.ComplexObject {
@@ -72,16 +80,29 @@ export class InspectorAssessmentTemplateEventSubscriptionOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): InspectorAssessmentTemplateEventSubscription | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | InspectorAssessmentTemplateEventSubscription
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -98,18 +119,21 @@ export class InspectorAssessmentTemplateEventSubscriptionOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: InspectorAssessmentTemplateEventSubscription | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | InspectorAssessmentTemplateEventSubscription
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._event = undefined;
       this._topicArn = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._event = value.event;
@@ -118,7 +142,7 @@ export class InspectorAssessmentTemplateEventSubscriptionOutputReference extends
   }
 
   // event - computed: false, optional: false, required: true
-  private _event?: string; 
+  private _event?: string;
   public get event() {
     return this.getStringAttribute('event');
   }
@@ -131,7 +155,7 @@ export class InspectorAssessmentTemplateEventSubscriptionOutputReference extends
   }
 
   // topic_arn - computed: false, optional: false, required: true
-  private _topicArn?: string; 
+  private _topicArn?: string;
   public get topicArn() {
     return this.getStringAttribute('topic_arn');
   }
@@ -145,53 +169,69 @@ export class InspectorAssessmentTemplateEventSubscriptionOutputReference extends
 }
 
 export class InspectorAssessmentTemplateEventSubscriptionList extends cdktf.ComplexList {
-  public internalValue? : InspectorAssessmentTemplateEventSubscription[] | cdktf.IResolvable
+  public internalValue?:
+    | InspectorAssessmentTemplateEventSubscription[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): InspectorAssessmentTemplateEventSubscriptionOutputReference {
-    return new InspectorAssessmentTemplateEventSubscriptionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): InspectorAssessmentTemplateEventSubscriptionOutputReference {
+    return new InspectorAssessmentTemplateEventSubscriptionOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template aws_inspector_assessment_template}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template aws_inspector_assessment_template}
+ */
 export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_inspector_assessment_template";
+  public static readonly tfResourceType = 'aws_inspector_assessment_template';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template aws_inspector_assessment_template} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options InspectorAssessmentTemplateConfig
-  */
-  public constructor(scope: Construct, id: string, config: InspectorAssessmentTemplateConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/inspector_assessment_template aws_inspector_assessment_template} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options InspectorAssessmentTemplateConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: InspectorAssessmentTemplateConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_inspector_assessment_template',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -199,7 +239,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._duration = config.duration;
     this._id = config.id;
@@ -221,7 +261,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // duration - computed: false, optional: false, required: true
-  private _duration?: number; 
+  private _duration?: number;
   public get duration() {
     return this.getNumberAttribute('duration');
   }
@@ -234,7 +274,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -250,7 +290,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -263,7 +303,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // rules_package_arns - computed: false, optional: false, required: true
-  private _rulesPackageArns?: string[]; 
+  private _rulesPackageArns?: string[];
   public get rulesPackageArns() {
     return cdktf.Fn.tolist(this.getListAttribute('rules_package_arns'));
   }
@@ -276,7 +316,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -292,7 +332,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -308,7 +348,7 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // target_arn - computed: false, optional: false, required: true
-  private _targetArn?: string; 
+  private _targetArn?: string;
   public get targetArn() {
     return this.getStringAttribute('target_arn');
   }
@@ -321,11 +361,18 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
   }
 
   // event_subscription - computed: false, optional: true, required: false
-  private _eventSubscription = new InspectorAssessmentTemplateEventSubscriptionList(this, "event_subscription", true);
+  private _eventSubscription =
+    new InspectorAssessmentTemplateEventSubscriptionList(
+      this,
+      'event_subscription',
+      true,
+    );
   public get eventSubscription() {
     return this._eventSubscription;
   }
-  public putEventSubscription(value: InspectorAssessmentTemplateEventSubscription[] | cdktf.IResolvable) {
+  public putEventSubscription(
+    value: InspectorAssessmentTemplateEventSubscription[] | cdktf.IResolvable,
+  ) {
     this._eventSubscription.internalValue = value;
   }
   public resetEventSubscription() {
@@ -345,11 +392,17 @@ export class InspectorAssessmentTemplate extends cdktf.TerraformResource {
       duration: cdktf.numberToTerraform(this._duration),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      rules_package_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._rulesPackageArns),
+      rules_package_arns: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._rulesPackageArns),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       target_arn: cdktf.stringToTerraform(this._targetArn),
-      event_subscription: cdktf.listMapper(inspectorAssessmentTemplateEventSubscriptionToTerraform, true)(this._eventSubscription.internalValue),
+      event_subscription: cdktf.listMapper(
+        inspectorAssessmentTemplateEventSubscriptionToTerraform,
+        true,
+      )(this._eventSubscription.internalValue),
     };
   }
 }

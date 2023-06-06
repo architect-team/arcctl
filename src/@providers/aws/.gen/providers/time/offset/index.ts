@@ -1,81 +1,79 @@
 // https://www.terraform.io/docs/providers/time/r/offset
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface OffsetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#base_rfc3339 Offset#base_rfc3339}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#base_rfc3339 Offset#base_rfc3339}
+   */
   readonly baseRfc3339?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#id Offset#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#id Offset#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_days Offset#offset_days}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_days Offset#offset_days}
+   */
   readonly offsetDays?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_hours Offset#offset_hours}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_hours Offset#offset_hours}
+   */
   readonly offsetHours?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_minutes Offset#offset_minutes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_minutes Offset#offset_minutes}
+   */
   readonly offsetMinutes?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_months Offset#offset_months}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_months Offset#offset_months}
+   */
   readonly offsetMonths?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_seconds Offset#offset_seconds}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_seconds Offset#offset_seconds}
+   */
   readonly offsetSeconds?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_years Offset#offset_years}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#offset_years Offset#offset_years}
+   */
   readonly offsetYears?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#triggers Offset#triggers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/offset#triggers Offset#triggers}
+   */
   readonly triggers?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/time/r/offset time_offset}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/time/r/offset time_offset}
+ */
 export class Offset extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "time_offset";
+  public static readonly tfResourceType = 'time_offset';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/time/r/offset time_offset} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options OffsetConfig = {}
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/time/r/offset time_offset} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options OffsetConfig = {}
+   */
   public constructor(scope: Construct, id: string, config: OffsetConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'time_offset',
       terraformGeneratorMetadata: {
         providerName: 'time',
         providerVersion: '0.5.0',
-        providerVersionConstraint: '0.5.0'
+        providerVersionConstraint: '0.5.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -83,7 +81,7 @@ export class Offset extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._baseRfc3339 = config.baseRfc3339;
     this._id = config.id;
@@ -101,7 +99,7 @@ export class Offset extends cdktf.TerraformResource {
   // ==========
 
   // base_rfc3339 - computed: true, optional: true, required: false
-  private _baseRfc3339?: string; 
+  private _baseRfc3339?: string;
   public get baseRfc3339() {
     return this.getStringAttribute('base_rfc3339');
   }
@@ -127,7 +125,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -153,7 +151,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_days - computed: false, optional: true, required: false
-  private _offsetDays?: number; 
+  private _offsetDays?: number;
   public get offsetDays() {
     return this.getNumberAttribute('offset_days');
   }
@@ -169,7 +167,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_hours - computed: false, optional: true, required: false
-  private _offsetHours?: number; 
+  private _offsetHours?: number;
   public get offsetHours() {
     return this.getNumberAttribute('offset_hours');
   }
@@ -185,7 +183,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_minutes - computed: false, optional: true, required: false
-  private _offsetMinutes?: number; 
+  private _offsetMinutes?: number;
   public get offsetMinutes() {
     return this.getNumberAttribute('offset_minutes');
   }
@@ -201,7 +199,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_months - computed: false, optional: true, required: false
-  private _offsetMonths?: number; 
+  private _offsetMonths?: number;
   public get offsetMonths() {
     return this.getNumberAttribute('offset_months');
   }
@@ -217,7 +215,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_seconds - computed: false, optional: true, required: false
-  private _offsetSeconds?: number; 
+  private _offsetSeconds?: number;
   public get offsetSeconds() {
     return this.getNumberAttribute('offset_seconds');
   }
@@ -233,7 +231,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // offset_years - computed: false, optional: true, required: false
-  private _offsetYears?: number; 
+  private _offsetYears?: number;
   public get offsetYears() {
     return this.getNumberAttribute('offset_years');
   }
@@ -259,7 +257,7 @@ export class Offset extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string }; 
+  private _triggers?: { [key: string]: string };
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

@@ -1,72 +1,79 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface Sesv2ContactListConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#contact_list_name Sesv2ContactList#contact_list_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#contact_list_name Sesv2ContactList#contact_list_name}
+   */
   readonly contactListName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#description Sesv2ContactList#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#description Sesv2ContactList#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#id Sesv2ContactList#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#id Sesv2ContactList#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#tags Sesv2ContactList#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#tags Sesv2ContactList#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#tags_all Sesv2ContactList#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#tags_all Sesv2ContactList#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * topic block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#topic Sesv2ContactList#topic}
-  */
+   * topic block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#topic Sesv2ContactList#topic}
+   */
   readonly topic?: Sesv2ContactListTopic[] | cdktf.IResolvable;
 }
 export interface Sesv2ContactListTopic {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#default_subscription_status Sesv2ContactList#default_subscription_status}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#default_subscription_status Sesv2ContactList#default_subscription_status}
+   */
   readonly defaultSubscriptionStatus: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#description Sesv2ContactList#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#description Sesv2ContactList#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#display_name Sesv2ContactList#display_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#display_name Sesv2ContactList#display_name}
+   */
   readonly displayName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#topic_name Sesv2ContactList#topic_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list#topic_name Sesv2ContactList#topic_name}
+   */
   readonly topicName: string;
 }
 
-export function sesv2ContactListTopicToTerraform(struct?: Sesv2ContactListTopic | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function sesv2ContactListTopicToTerraform(
+  struct?: Sesv2ContactListTopic | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    default_subscription_status: cdktf.stringToTerraform(struct!.defaultSubscriptionStatus),
+    default_subscription_status: cdktf.stringToTerraform(
+      struct!.defaultSubscriptionStatus,
+    ),
     description: cdktf.stringToTerraform(struct!.description),
     display_name: cdktf.stringToTerraform(struct!.displayName),
     topic_name: cdktf.stringToTerraform(struct!.topicName),
-  }
+  };
 }
 
 export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
@@ -74,16 +81,29 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): Sesv2ContactListTopic | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Sesv2ContactListTopic
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -91,7 +111,8 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
     const internalValueResult: any = {};
     if (this._defaultSubscriptionStatus !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultSubscriptionStatus = this._defaultSubscriptionStatus;
+      internalValueResult.defaultSubscriptionStatus =
+        this._defaultSubscriptionStatus;
     }
     if (this._description !== undefined) {
       hasAnyValues = true;
@@ -108,7 +129,9 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Sesv2ContactListTopic | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Sesv2ContactListTopic | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -116,12 +139,10 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
       this._description = undefined;
       this._displayName = undefined;
       this._topicName = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._defaultSubscriptionStatus = value.defaultSubscriptionStatus;
@@ -132,7 +153,7 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
   }
 
   // default_subscription_status - computed: false, optional: false, required: true
-  private _defaultSubscriptionStatus?: string; 
+  private _defaultSubscriptionStatus?: string;
   public get defaultSubscriptionStatus() {
     return this.getStringAttribute('default_subscription_status');
   }
@@ -145,7 +166,7 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -161,7 +182,7 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
   }
 
   // display_name - computed: false, optional: false, required: true
-  private _displayName?: string; 
+  private _displayName?: string;
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -174,7 +195,7 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
   }
 
   // topic_name - computed: false, optional: false, required: true
-  private _topicName?: string; 
+  private _topicName?: string;
   public get topicName() {
     return this.getStringAttribute('topic_name');
   }
@@ -188,53 +209,65 @@ export class Sesv2ContactListTopicOutputReference extends cdktf.ComplexObject {
 }
 
 export class Sesv2ContactListTopicList extends cdktf.ComplexList {
-  public internalValue? : Sesv2ContactListTopic[] | cdktf.IResolvable
+  public internalValue?: Sesv2ContactListTopic[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): Sesv2ContactListTopicOutputReference {
-    return new Sesv2ContactListTopicOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new Sesv2ContactListTopicOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list aws_sesv2_contact_list}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list aws_sesv2_contact_list}
+ */
 export class Sesv2ContactList extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_sesv2_contact_list";
+  public static readonly tfResourceType = 'aws_sesv2_contact_list';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list aws_sesv2_contact_list} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Sesv2ContactListConfig
-  */
-  public constructor(scope: Construct, id: string, config: Sesv2ContactListConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sesv2_contact_list aws_sesv2_contact_list} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Sesv2ContactListConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: Sesv2ContactListConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_sesv2_contact_list',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -242,7 +275,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._contactListName = config.contactListName;
     this._description = config.description;
@@ -262,7 +295,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
   }
 
   // contact_list_name - computed: false, optional: false, required: true
-  private _contactListName?: string; 
+  private _contactListName?: string;
   public get contactListName() {
     return this.getStringAttribute('contact_list_name');
   }
@@ -280,7 +313,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -296,7 +329,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -317,7 +350,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -333,7 +366,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -349,7 +382,7 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
   }
 
   // topic - computed: false, optional: true, required: false
-  private _topic = new Sesv2ContactListTopicList(this, "topic", true);
+  private _topic = new Sesv2ContactListTopicList(this, 'topic', true);
   public get topic() {
     return this._topic;
   }
@@ -375,7 +408,10 @@ export class Sesv2ContactList extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      topic: cdktf.listMapper(sesv2ContactListTopicToTerraform, true)(this._topic.internalValue),
+      topic: cdktf.listMapper(
+        sesv2ContactListTopicToTerraform,
+        true,
+      )(this._topic.internalValue),
     };
   }
 }

@@ -1,69 +1,71 @@
 // https://www.terraform.io/docs/providers/aws/r/detective_member
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DetectiveMemberConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#account_id DetectiveMember#account_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#account_id DetectiveMember#account_id}
+   */
   readonly accountId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#disable_email_notification DetectiveMember#disable_email_notification}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#disable_email_notification DetectiveMember#disable_email_notification}
+   */
   readonly disableEmailNotification?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#email_address DetectiveMember#email_address}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#email_address DetectiveMember#email_address}
+   */
   readonly emailAddress: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#graph_arn DetectiveMember#graph_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#graph_arn DetectiveMember#graph_arn}
+   */
   readonly graphArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#id DetectiveMember#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#id DetectiveMember#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#message DetectiveMember#message}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/detective_member#message DetectiveMember#message}
+   */
   readonly message?: string;
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/detective_member aws_detective_member}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/detective_member aws_detective_member}
+ */
 export class DetectiveMember extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_detective_member";
+  public static readonly tfResourceType = 'aws_detective_member';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/detective_member aws_detective_member} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DetectiveMemberConfig
-  */
-  public constructor(scope: Construct, id: string, config: DetectiveMemberConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/detective_member aws_detective_member} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DetectiveMemberConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DetectiveMemberConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_detective_member',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -71,7 +73,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._accountId = config.accountId;
     this._disableEmailNotification = config.disableEmailNotification;
@@ -86,7 +88,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: false, optional: false, required: true
-  private _accountId?: string; 
+  private _accountId?: string;
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -104,7 +106,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // disable_email_notification - computed: false, optional: true, required: false
-  private _disableEmailNotification?: boolean | cdktf.IResolvable; 
+  private _disableEmailNotification?: boolean | cdktf.IResolvable;
   public get disableEmailNotification() {
     return this.getBooleanAttribute('disable_email_notification');
   }
@@ -125,7 +127,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // email_address - computed: false, optional: false, required: true
-  private _emailAddress?: string; 
+  private _emailAddress?: string;
   public get emailAddress() {
     return this.getStringAttribute('email_address');
   }
@@ -138,7 +140,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // graph_arn - computed: false, optional: false, required: true
-  private _graphArn?: string; 
+  private _graphArn?: string;
   public get graphArn() {
     return this.getStringAttribute('graph_arn');
   }
@@ -151,7 +153,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -172,7 +174,7 @@ export class DetectiveMember extends cdktf.TerraformResource {
   }
 
   // message - computed: false, optional: true, required: false
-  private _message?: string; 
+  private _message?: string;
   public get message() {
     return this.getStringAttribute('message');
   }
@@ -209,7 +211,9 @@ export class DetectiveMember extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       account_id: cdktf.stringToTerraform(this._accountId),
-      disable_email_notification: cdktf.booleanToTerraform(this._disableEmailNotification),
+      disable_email_notification: cdktf.booleanToTerraform(
+        this._disableEmailNotification,
+      ),
       email_address: cdktf.stringToTerraform(this._emailAddress),
       graph_arn: cdktf.stringToTerraform(this._graphArn),
       id: cdktf.stringToTerraform(this._id),

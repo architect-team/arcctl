@@ -1,61 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface LoadBalancerBackendServerPolicyConfig extends cdktf.TerraformMetaArguments {
+export interface LoadBalancerBackendServerPolicyConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#id LoadBalancerBackendServerPolicy#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#id LoadBalancerBackendServerPolicy#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#instance_port LoadBalancerBackendServerPolicy#instance_port}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#instance_port LoadBalancerBackendServerPolicy#instance_port}
+   */
   readonly instancePort: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#load_balancer_name LoadBalancerBackendServerPolicy#load_balancer_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#load_balancer_name LoadBalancerBackendServerPolicy#load_balancer_name}
+   */
   readonly loadBalancerName: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#policy_names LoadBalancerBackendServerPolicy#policy_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy#policy_names LoadBalancerBackendServerPolicy#policy_names}
+   */
   readonly policyNames?: string[];
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy aws_load_balancer_backend_server_policy}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy aws_load_balancer_backend_server_policy}
+ */
 export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_load_balancer_backend_server_policy";
+  public static readonly tfResourceType =
+    'aws_load_balancer_backend_server_policy';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy aws_load_balancer_backend_server_policy} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options LoadBalancerBackendServerPolicyConfig
-  */
-  public constructor(scope: Construct, id: string, config: LoadBalancerBackendServerPolicyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/load_balancer_backend_server_policy aws_load_balancer_backend_server_policy} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options LoadBalancerBackendServerPolicyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: LoadBalancerBackendServerPolicyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_load_balancer_backend_server_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +67,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._id = config.id;
     this._instancePort = config.instancePort;
@@ -76,7 +80,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -92,7 +96,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   }
 
   // instance_port - computed: false, optional: false, required: true
-  private _instancePort?: number; 
+  private _instancePort?: number;
   public get instancePort() {
     return this.getNumberAttribute('instance_port');
   }
@@ -105,7 +109,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer_name - computed: false, optional: false, required: true
-  private _loadBalancerName?: string; 
+  private _loadBalancerName?: string;
   public get loadBalancerName() {
     return this.getStringAttribute('load_balancer_name');
   }
@@ -118,7 +122,7 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
   }
 
   // policy_names - computed: false, optional: true, required: false
-  private _policyNames?: string[]; 
+  private _policyNames?: string[];
   public get policyNames() {
     return cdktf.Fn.tolist(this.getListAttribute('policy_names'));
   }
@@ -142,7 +146,10 @@ export class LoadBalancerBackendServerPolicy extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       instance_port: cdktf.numberToTerraform(this._instancePort),
       load_balancer_name: cdktf.stringToTerraform(this._loadBalancerName),
-      policy_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._policyNames),
+      policy_names: cdktf.listMapper(
+        cdktf.stringToTerraform,
+        false,
+      )(this._policyNames),
     };
   }
 }

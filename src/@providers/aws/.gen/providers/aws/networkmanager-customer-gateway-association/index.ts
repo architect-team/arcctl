@@ -1,62 +1,71 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface NetworkmanagerCustomerGatewayAssociationConfig extends cdktf.TerraformMetaArguments {
+export interface NetworkmanagerCustomerGatewayAssociationConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#customer_gateway_arn NetworkmanagerCustomerGatewayAssociation#customer_gateway_arn}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#customer_gateway_arn NetworkmanagerCustomerGatewayAssociation#customer_gateway_arn}
+   */
   readonly customerGatewayArn: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#device_id NetworkmanagerCustomerGatewayAssociation#device_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#device_id NetworkmanagerCustomerGatewayAssociation#device_id}
+   */
   readonly deviceId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#global_network_id NetworkmanagerCustomerGatewayAssociation#global_network_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#global_network_id NetworkmanagerCustomerGatewayAssociation#global_network_id}
+   */
   readonly globalNetworkId: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#id NetworkmanagerCustomerGatewayAssociation#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#id NetworkmanagerCustomerGatewayAssociation#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#link_id NetworkmanagerCustomerGatewayAssociation#link_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#link_id NetworkmanagerCustomerGatewayAssociation#link_id}
+   */
   readonly linkId?: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#timeouts NetworkmanagerCustomerGatewayAssociation#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#timeouts NetworkmanagerCustomerGatewayAssociation#timeouts}
+   */
   readonly timeouts?: NetworkmanagerCustomerGatewayAssociationTimeouts;
 }
 export interface NetworkmanagerCustomerGatewayAssociationTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#create NetworkmanagerCustomerGatewayAssociation#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#create NetworkmanagerCustomerGatewayAssociation#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#delete NetworkmanagerCustomerGatewayAssociation#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association#delete NetworkmanagerCustomerGatewayAssociation#delete}
+   */
   readonly delete?: string;
 }
 
-export function networkmanagerCustomerGatewayAssociationTimeoutsToTerraform(struct?: NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference | NetworkmanagerCustomerGatewayAssociationTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function networkmanagerCustomerGatewayAssociationTimeoutsToTerraform(
+  struct?:
+    | NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference
+    | NetworkmanagerCustomerGatewayAssociationTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  }
+  };
 }
 
 export class NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -64,14 +73,20 @@ export class NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference ext
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): NetworkmanagerCustomerGatewayAssociationTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | NetworkmanagerCustomerGatewayAssociationTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -88,18 +103,21 @@ export class NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: NetworkmanagerCustomerGatewayAssociationTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value:
+      | NetworkmanagerCustomerGatewayAssociationTimeouts
+      | cdktf.IResolvable
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -108,7 +126,7 @@ export class NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference ext
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -124,7 +142,7 @@ export class NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference ext
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -141,33 +159,37 @@ export class NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference ext
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association aws_networkmanager_customer_gateway_association}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association aws_networkmanager_customer_gateway_association}
+ */
 export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_networkmanager_customer_gateway_association";
+  public static readonly tfResourceType =
+    'aws_networkmanager_customer_gateway_association';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association aws_networkmanager_customer_gateway_association} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options NetworkmanagerCustomerGatewayAssociationConfig
-  */
-  public constructor(scope: Construct, id: string, config: NetworkmanagerCustomerGatewayAssociationConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_customer_gateway_association aws_networkmanager_customer_gateway_association} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options NetworkmanagerCustomerGatewayAssociationConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: NetworkmanagerCustomerGatewayAssociationConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_networkmanager_customer_gateway_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -175,7 +197,7 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._customerGatewayArn = config.customerGatewayArn;
     this._deviceId = config.deviceId;
@@ -190,7 +212,7 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
   // ==========
 
   // customer_gateway_arn - computed: false, optional: false, required: true
-  private _customerGatewayArn?: string; 
+  private _customerGatewayArn?: string;
   public get customerGatewayArn() {
     return this.getStringAttribute('customer_gateway_arn');
   }
@@ -203,7 +225,7 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
   }
 
   // device_id - computed: false, optional: false, required: true
-  private _deviceId?: string; 
+  private _deviceId?: string;
   public get deviceId() {
     return this.getStringAttribute('device_id');
   }
@@ -216,7 +238,7 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string; 
+  private _globalNetworkId?: string;
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -229,7 +251,7 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -245,7 +267,7 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
   }
 
   // link_id - computed: false, optional: true, required: false
-  private _linkId?: string; 
+  private _linkId?: string;
   public get linkId() {
     return this.getStringAttribute('link_id');
   }
@@ -261,7 +283,11 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference(this, "timeouts");
+  private _timeouts =
+    new NetworkmanagerCustomerGatewayAssociationTimeoutsOutputReference(
+      this,
+      'timeouts',
+    );
   public get timeouts() {
     return this._timeouts;
   }
@@ -287,7 +313,9 @@ export class NetworkmanagerCustomerGatewayAssociation extends cdktf.TerraformRes
       global_network_id: cdktf.stringToTerraform(this._globalNetworkId),
       id: cdktf.stringToTerraform(this._id),
       link_id: cdktf.stringToTerraform(this._linkId),
-      timeouts: networkmanagerCustomerGatewayAssociationTimeoutsToTerraform(this._timeouts.internalValue),
+      timeouts: networkmanagerCustomerGatewayAssociationTimeoutsToTerraform(
+        this._timeouts.internalValue,
+      ),
     };
   }
 }

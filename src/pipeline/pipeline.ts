@@ -1,12 +1,9 @@
-import { CloudEdge, CloudGraph } from '../cloud-graph/index.js';
-import { Terraform } from '../terraform/terraform.js';
-import CloudCtlConfig from '../utils/config.js';
-import { replaceAsync } from '../utils/string.js';
-import { PipelineStep } from './step.js';
-import { ApplyOptions, ApplyStepOptions } from './types.js';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
+import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
+import { Terraform } from '../terraform/terraform.ts';
+import CloudCtlConfig from '../utils/config.ts';
+import { replaceAsync } from '../utils/string.ts';
+import { PipelineStep } from './step.ts';
+import { ApplyOptions, ApplyStepOptions } from './types.ts';
 
 export type PlanOptions = {
   before: Pipeline;
@@ -62,25 +59,18 @@ export class Pipeline {
   /**
    * Replace step references with actual output values
    */
-  private async replaceRefsWithOutputValues<T>(
-    input: T,
-    options: ApplyStepOptions,
-  ): Promise<T> {
-    const strVal = await replaceAsync(
-      JSON.stringify(input),
-      /\${{\s?([^.]+).(\S+)\s?}}/g,
-      async (_, step_id, key) => {
-        const step = this.steps.find((s) => s.id === step_id);
-        const outputs = await step?.getOutputs(options);
-        if (!step || !outputs) {
-          throw new Error(`Missing outputs for ${step_id}`);
-        } else if (!(outputs as any)[key]) {
-          throw new Error(`Invalid key, ${key}, for ${step.type}`);
-        }
+  private async replaceRefsWithOutputValues<T>(input: T, options: ApplyStepOptions): Promise<T> {
+    const strVal = await replaceAsync(JSON.stringify(input), /\${{\s?([^.]+).(\S+)\s?}}/g, async (_, step_id, key) => {
+      const step = this.steps.find((s) => s.id === step_id);
+      const outputs = await step?.getOutputs(options);
+      if (!step || !outputs) {
+        throw new Error(`Missing outputs for ${step_id}`);
+      } else if (!(outputs as any)[key]) {
+        throw new Error(`Invalid key, ${key}, for ${step.type}`);
+      }
 
-        return (outputs as any)[key];
-      },
-    );
+      return (outputs as any)[key];
+    });
 
     return JSON.parse(strVal);
   }
@@ -90,10 +80,7 @@ export class Pipeline {
       return this._terraform;
     }
 
-    this._terraform = await Terraform.generate(
-      CloudCtlConfig.getPluginDirectory(),
-      '1.4.5',
-    );
+    this._terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
 
     return this._terraform;
   }
@@ -111,12 +98,7 @@ export class Pipeline {
       )
       .filter((step) => {
         const isStepSeen = seenIds.includes(step.id);
-        const hasDeps = this.edges.some(
-          (edge) =>
-            edge.required &&
-            edge.from === step.id &&
-            !seenIds.includes(edge.to),
-        );
+        const hasDeps = this.edges.some((edge) => edge.required && edge.from === step.id && !seenIds.includes(edge.to));
 
         return !isStepSeen && !hasDeps;
       });
@@ -172,9 +154,7 @@ export class Pipeline {
           options.to &&
           this.edges[index].from === options.from &&
           this.edges[index].to === options.to) ||
-        (options.from &&
-          !options.to &&
-          this.edges[index].from === options.from) ||
+        (options.from && !options.to && this.edges[index].from === options.from) ||
         (options.to && !options.from && this.edges[index].to === options.to)
       ) {
         this.edges.splice(Number(index), 1);
@@ -182,9 +162,7 @@ export class Pipeline {
       }
     }
 
-    throw new Error(
-      `No edge found matching options: ${JSON.stringify(options)}`,
-    );
+    throw new Error(`No edge found matching options: ${JSON.stringify(options)}`);
   }
 
   public validate(): void {
@@ -192,26 +170,20 @@ export class Pipeline {
       if (!this.steps.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the pipeline`);
       } else if (!this.steps.some((n) => n.id === edge.to)) {
-        throw new Error(
-          `${edge.to} is missing from the pipeline, but required by ${edge.from}`,
-        );
+        throw new Error(`${edge.to} is missing from the pipeline, but required by ${edge.from}`);
       }
     }
   }
 
   public getDependencies(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) =>
-        step.id !== step_id &&
-        this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
+      (step) => step.id !== step_id && this.edges.some((edge) => edge.from === step_id && edge.to === step.id),
     );
   }
 
   public getDependents(step_id: string): PipelineStep[] {
     return this.steps.filter(
-      (step) =>
-        step.id !== step_id &&
-        this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
+      (step) => step.id !== step_id && this.edges.some((edge) => edge.to === step_id && edge.from === step.id),
     );
   }
 
@@ -225,16 +197,10 @@ export class Pipeline {
 
     const replacements: Record<string, string> = {};
     for (const newNode of options.after.nodes) {
-      const previousStep = options.before.steps.find((n) =>
-        n.id.startsWith(newNode.id),
-      );
+      const previousStep = options.before.steps.find((n) => n.id.startsWith(newNode.id));
 
       const oldId = newNode.id;
-      if (
-        !previousStep ||
-        previousStep.status.state !== 'complete' ||
-        previousStep.action === 'delete'
-      ) {
+      if (!previousStep || previousStep.status.state !== 'complete' || previousStep.action === 'delete') {
         const newStep = new PipelineStep({
           ...newNode,
           type: newNode.type,
@@ -269,16 +235,11 @@ export class Pipeline {
 
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
-      if (
-        previousStep.action === 'delete' &&
-        previousStep.status.state !== 'error'
-      ) {
+      if (previousStep.action === 'delete' && previousStep.status.state !== 'error') {
         continue;
       }
 
-      const newNode = options.after.nodes.find((n) =>
-        previousStep.id.startsWith(n.id),
-      );
+      const newNode = options.after.nodes.find((n) => previousStep.id.startsWith(n.id));
       if (!newNode) {
         const rmStep = new PipelineStep({
           ...previousStep,
@@ -311,18 +272,13 @@ export class Pipeline {
    * Kick off the pipeline
    */
   public async apply(options: ApplyOptions): Promise<void> {
-    const cwd =
-      options.cwd || fs.mkdtempSync(path.join(os.tmpdir(), 'cldctl-'));
+    const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     let step: PipelineStep | undefined;
     const terraform = await this.getTerraformPlugin();
     while (
       (step = this.getNextStep(
-        ...this.steps
-          .filter(
-            (n) => n.status.state === 'complete' || n.status.state === 'error',
-          )
-          .map((n) => n.id),
+        ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
       ))
     ) {
       if (!step) {

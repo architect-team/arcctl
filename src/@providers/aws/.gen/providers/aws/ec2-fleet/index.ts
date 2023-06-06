@@ -1,138 +1,148 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_fleet
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface Ec2FleetConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#context Ec2Fleet#context}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#context Ec2Fleet#context}
+   */
   readonly context?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#excess_capacity_termination_policy Ec2Fleet#excess_capacity_termination_policy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#excess_capacity_termination_policy Ec2Fleet#excess_capacity_termination_policy}
+   */
   readonly excessCapacityTerminationPolicy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fleet_state Ec2Fleet#fleet_state}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fleet_state Ec2Fleet#fleet_state}
+   */
   readonly fleetState?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fulfilled_capacity Ec2Fleet#fulfilled_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fulfilled_capacity Ec2Fleet#fulfilled_capacity}
+   */
   readonly fulfilledCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fulfilled_on_demand_capacity Ec2Fleet#fulfilled_on_demand_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fulfilled_on_demand_capacity Ec2Fleet#fulfilled_on_demand_capacity}
+   */
   readonly fulfilledOnDemandCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#id Ec2Fleet#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#id Ec2Fleet#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#replace_unhealthy_instances Ec2Fleet#replace_unhealthy_instances}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#replace_unhealthy_instances Ec2Fleet#replace_unhealthy_instances}
+   */
   readonly replaceUnhealthyInstances?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#tags Ec2Fleet#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#tags Ec2Fleet#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#tags_all Ec2Fleet#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#tags_all Ec2Fleet#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#terminate_instances Ec2Fleet#terminate_instances}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#terminate_instances Ec2Fleet#terminate_instances}
+   */
   readonly terminateInstances?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#terminate_instances_with_expiration Ec2Fleet#terminate_instances_with_expiration}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#terminate_instances_with_expiration Ec2Fleet#terminate_instances_with_expiration}
+   */
   readonly terminateInstancesWithExpiration?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#type Ec2Fleet#type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#type Ec2Fleet#type}
+   */
   readonly type?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#valid_from Ec2Fleet#valid_from}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#valid_from Ec2Fleet#valid_from}
+   */
   readonly validFrom?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#valid_until Ec2Fleet#valid_until}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#valid_until Ec2Fleet#valid_until}
+   */
   readonly validUntil?: string;
   /**
-  * fleet_instance_set block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fleet_instance_set Ec2Fleet#fleet_instance_set}
-  */
+   * fleet_instance_set block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#fleet_instance_set Ec2Fleet#fleet_instance_set}
+   */
   readonly fleetInstanceSet?: Ec2FleetFleetInstanceSet[] | cdktf.IResolvable;
   /**
-  * launch_template_config block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_config Ec2Fleet#launch_template_config}
-  */
-  readonly launchTemplateConfig: Ec2FleetLaunchTemplateConfig[] | cdktf.IResolvable;
+   * launch_template_config block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_config Ec2Fleet#launch_template_config}
+   */
+  readonly launchTemplateConfig:
+    | Ec2FleetLaunchTemplateConfig[]
+    | cdktf.IResolvable;
   /**
-  * on_demand_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#on_demand_options Ec2Fleet#on_demand_options}
-  */
+   * on_demand_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#on_demand_options Ec2Fleet#on_demand_options}
+   */
   readonly onDemandOptions?: Ec2FleetOnDemandOptions;
   /**
-  * spot_options block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#spot_options Ec2Fleet#spot_options}
-  */
+   * spot_options block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#spot_options Ec2Fleet#spot_options}
+   */
   readonly spotOptions?: Ec2FleetSpotOptions;
   /**
-  * target_capacity_specification block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#target_capacity_specification Ec2Fleet#target_capacity_specification}
-  */
+   * target_capacity_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#target_capacity_specification Ec2Fleet#target_capacity_specification}
+   */
   readonly targetCapacitySpecification: Ec2FleetTargetCapacitySpecification;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#timeouts Ec2Fleet#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#timeouts Ec2Fleet#timeouts}
+   */
   readonly timeouts?: Ec2FleetTimeouts;
 }
 export interface Ec2FleetFleetInstanceSet {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_ids Ec2Fleet#instance_ids}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_ids Ec2Fleet#instance_ids}
+   */
   readonly instanceIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_type Ec2Fleet#instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_type Ec2Fleet#instance_type}
+   */
   readonly instanceType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#lifecycle Ec2Fleet#lifecycle}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#lifecycle Ec2Fleet#lifecycle}
+   */
   readonly lifecycle?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#platform Ec2Fleet#platform}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#platform Ec2Fleet#platform}
+   */
   readonly platform?: string;
 }
 
-export function ec2FleetFleetInstanceSetToTerraform(struct?: Ec2FleetFleetInstanceSet | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetFleetInstanceSetToTerraform(
+  struct?: Ec2FleetFleetInstanceSet | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    instance_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.instanceIds),
+    instance_ids: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.instanceIds),
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle: cdktf.stringToTerraform(struct!.lifecycle),
     platform: cdktf.stringToTerraform(struct!.platform),
-  }
+  };
 }
 
 export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject {
@@ -140,16 +150,29 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): Ec2FleetFleetInstanceSet | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Ec2FleetFleetInstanceSet
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -174,7 +197,9 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetFleetInstanceSet | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Ec2FleetFleetInstanceSet | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -182,12 +207,10 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
       this._instanceType = undefined;
       this._lifecycle = undefined;
       this._platform = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._instanceIds = value.instanceIds;
@@ -198,7 +221,7 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
   }
 
   // instance_ids - computed: true, optional: true, required: false
-  private _instanceIds?: string[]; 
+  private _instanceIds?: string[];
   public get instanceIds() {
     return this.getListAttribute('instance_ids');
   }
@@ -214,7 +237,7 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
   }
 
   // instance_type - computed: true, optional: true, required: false
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -230,7 +253,7 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
   }
 
   // lifecycle - computed: true, optional: true, required: false
-  private _lifecycle?: string; 
+  private _lifecycle?: string;
   public get lifecycle() {
     return this.getStringAttribute('lifecycle');
   }
@@ -246,7 +269,7 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
   }
 
   // platform - computed: true, optional: true, required: false
-  private _platform?: string; 
+  private _platform?: string;
   public get platform() {
     return this.getStringAttribute('platform');
   }
@@ -263,63 +286,85 @@ export class Ec2FleetFleetInstanceSetOutputReference extends cdktf.ComplexObject
 }
 
 export class Ec2FleetFleetInstanceSetList extends cdktf.ComplexList {
-  public internalValue? : Ec2FleetFleetInstanceSet[] | cdktf.IResolvable
+  public internalValue?: Ec2FleetFleetInstanceSet[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): Ec2FleetFleetInstanceSetOutputReference {
-    return new Ec2FleetFleetInstanceSetOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new Ec2FleetFleetInstanceSetOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_id Ec2Fleet#launch_template_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_id Ec2Fleet#launch_template_id}
+   */
   readonly launchTemplateId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_name Ec2Fleet#launch_template_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_name Ec2Fleet#launch_template_name}
+   */
   readonly launchTemplateName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#version Ec2Fleet#version}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#version Ec2Fleet#version}
+   */
   readonly version: string;
 }
 
-export function ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(struct?: Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputReference | Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputReference
+    | Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     launch_template_id: cdktf.stringToTerraform(struct!.launchTemplateId),
     launch_template_name: cdktf.stringToTerraform(struct!.launchTemplateName),
     version: cdktf.stringToTerraform(struct!.version),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._launchTemplateId !== undefined) {
@@ -337,14 +382,15 @@ export class Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification | undefined) {
+  public set internalValue(
+    value: Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._launchTemplateId = undefined;
       this._launchTemplateName = undefined;
       this._version = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._launchTemplateId = value.launchTemplateId;
       this._launchTemplateName = value.launchTemplateName;
@@ -353,7 +399,7 @@ export class Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputRefere
   }
 
   // launch_template_id - computed: false, optional: true, required: false
-  private _launchTemplateId?: string; 
+  private _launchTemplateId?: string;
   public get launchTemplateId() {
     return this.getStringAttribute('launch_template_id');
   }
@@ -369,7 +415,7 @@ export class Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputRefere
   }
 
   // launch_template_name - computed: false, optional: true, required: false
-  private _launchTemplateName?: string; 
+  private _launchTemplateName?: string;
   public get launchTemplateName() {
     return this.getStringAttribute('launch_template_name');
   }
@@ -385,7 +431,7 @@ export class Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputRefere
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string; 
+  private _version?: string;
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -399,38 +445,51 @@ export class Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputRefere
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -444,13 +503,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -458,7 +520,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -474,7 +536,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -491,38 +553,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -536,13 +611,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -550,7 +628,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -566,7 +644,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -583,38 +661,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -628,13 +719,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbs
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -642,7 +736,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbs
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -658,7 +752,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbs
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -675,38 +769,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbs
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -720,13 +827,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -734,7 +844,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -750,7 +860,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -767,38 +877,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPe
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -812,13 +935,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -826,7 +952,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOu
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -842,7 +968,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOu
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -856,38 +982,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOu
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -901,13 +1040,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBand
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -915,7 +1057,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBand
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -931,7 +1073,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBand
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -948,38 +1090,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBand
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -993,13 +1148,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -1007,7 +1165,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInte
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1023,7 +1181,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInte
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1040,38 +1198,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInte
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min?: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -1085,13 +1256,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalS
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -1099,7 +1273,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalS
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1115,7 +1289,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalS
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1132,38 +1306,51 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalS
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max Ec2Fleet#max}
+   */
   readonly max?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min Ec2Fleet#min}
+   */
   readonly min: number;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  }
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -1177,13 +1364,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -1191,7 +1381,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOu
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number; 
+  private _max?: number;
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1207,7 +1397,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOu
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number; 
+  private _min?: number;
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1221,166 +1411,239 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOu
 }
 export interface Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_manufacturers Ec2Fleet#accelerator_manufacturers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_manufacturers Ec2Fleet#accelerator_manufacturers}
+   */
   readonly acceleratorManufacturers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_names Ec2Fleet#accelerator_names}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_names Ec2Fleet#accelerator_names}
+   */
   readonly acceleratorNames?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_types Ec2Fleet#accelerator_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_types Ec2Fleet#accelerator_types}
+   */
   readonly acceleratorTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#allowed_instance_types Ec2Fleet#allowed_instance_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#allowed_instance_types Ec2Fleet#allowed_instance_types}
+   */
   readonly allowedInstanceTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#bare_metal Ec2Fleet#bare_metal}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#bare_metal Ec2Fleet#bare_metal}
+   */
   readonly bareMetal?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#burstable_performance Ec2Fleet#burstable_performance}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#burstable_performance Ec2Fleet#burstable_performance}
+   */
   readonly burstablePerformance?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#cpu_manufacturers Ec2Fleet#cpu_manufacturers}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#cpu_manufacturers Ec2Fleet#cpu_manufacturers}
+   */
   readonly cpuManufacturers?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#excluded_instance_types Ec2Fleet#excluded_instance_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#excluded_instance_types Ec2Fleet#excluded_instance_types}
+   */
   readonly excludedInstanceTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_generations Ec2Fleet#instance_generations}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_generations Ec2Fleet#instance_generations}
+   */
   readonly instanceGenerations?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#local_storage Ec2Fleet#local_storage}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#local_storage Ec2Fleet#local_storage}
+   */
   readonly localStorage?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#local_storage_types Ec2Fleet#local_storage_types}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#local_storage_types Ec2Fleet#local_storage_types}
+   */
   readonly localStorageTypes?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#on_demand_max_price_percentage_over_lowest_price Ec2Fleet#on_demand_max_price_percentage_over_lowest_price}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#on_demand_max_price_percentage_over_lowest_price Ec2Fleet#on_demand_max_price_percentage_over_lowest_price}
+   */
   readonly onDemandMaxPricePercentageOverLowestPrice?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#require_hibernate_support Ec2Fleet#require_hibernate_support}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#require_hibernate_support Ec2Fleet#require_hibernate_support}
+   */
   readonly requireHibernateSupport?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#spot_max_price_percentage_over_lowest_price Ec2Fleet#spot_max_price_percentage_over_lowest_price}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#spot_max_price_percentage_over_lowest_price Ec2Fleet#spot_max_price_percentage_over_lowest_price}
+   */
   readonly spotMaxPricePercentageOverLowestPrice?: number;
   /**
-  * accelerator_count block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_count Ec2Fleet#accelerator_count}
-  */
+   * accelerator_count block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_count Ec2Fleet#accelerator_count}
+   */
   readonly acceleratorCount?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount;
   /**
-  * accelerator_total_memory_mib block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_total_memory_mib Ec2Fleet#accelerator_total_memory_mib}
-  */
+   * accelerator_total_memory_mib block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#accelerator_total_memory_mib Ec2Fleet#accelerator_total_memory_mib}
+   */
   readonly acceleratorTotalMemoryMib?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
   /**
-  * baseline_ebs_bandwidth_mbps block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#baseline_ebs_bandwidth_mbps Ec2Fleet#baseline_ebs_bandwidth_mbps}
-  */
+   * baseline_ebs_bandwidth_mbps block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#baseline_ebs_bandwidth_mbps Ec2Fleet#baseline_ebs_bandwidth_mbps}
+   */
   readonly baselineEbsBandwidthMbps?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps;
   /**
-  * memory_gib_per_vcpu block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#memory_gib_per_vcpu Ec2Fleet#memory_gib_per_vcpu}
-  */
+   * memory_gib_per_vcpu block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#memory_gib_per_vcpu Ec2Fleet#memory_gib_per_vcpu}
+   */
   readonly memoryGibPerVcpu?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu;
   /**
-  * memory_mib block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#memory_mib Ec2Fleet#memory_mib}
-  */
+   * memory_mib block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#memory_mib Ec2Fleet#memory_mib}
+   */
   readonly memoryMib: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib;
   /**
-  * network_bandwidth_gbps block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#network_bandwidth_gbps Ec2Fleet#network_bandwidth_gbps}
-  */
+   * network_bandwidth_gbps block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#network_bandwidth_gbps Ec2Fleet#network_bandwidth_gbps}
+   */
   readonly networkBandwidthGbps?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps;
   /**
-  * network_interface_count block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#network_interface_count Ec2Fleet#network_interface_count}
-  */
+   * network_interface_count block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#network_interface_count Ec2Fleet#network_interface_count}
+   */
   readonly networkInterfaceCount?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount;
   /**
-  * total_local_storage_gb block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#total_local_storage_gb Ec2Fleet#total_local_storage_gb}
-  */
+   * total_local_storage_gb block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#total_local_storage_gb Ec2Fleet#total_local_storage_gb}
+   */
   readonly totalLocalStorageGb?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb;
   /**
-  * vcpu_count block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#vcpu_count Ec2Fleet#vcpu_count}
-  */
+   * vcpu_count block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#vcpu_count Ec2Fleet#vcpu_count}
+   */
   readonly vcpuCount: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputReference | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsToTerraform(
+  struct?:
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputReference
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    accelerator_manufacturers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorManufacturers),
-    accelerator_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorNames),
-    accelerator_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorTypes),
-    allowed_instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedInstanceTypes),
+    accelerator_manufacturers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.acceleratorManufacturers),
+    accelerator_names: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.acceleratorNames),
+    accelerator_types: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.acceleratorTypes),
+    allowed_instance_types: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.allowedInstanceTypes),
     bare_metal: cdktf.stringToTerraform(struct!.bareMetal),
-    burstable_performance: cdktf.stringToTerraform(struct!.burstablePerformance),
-    cpu_manufacturers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cpuManufacturers),
-    excluded_instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.excludedInstanceTypes),
-    instance_generations: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.instanceGenerations),
+    burstable_performance: cdktf.stringToTerraform(
+      struct!.burstablePerformance,
+    ),
+    cpu_manufacturers: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.cpuManufacturers),
+    excluded_instance_types: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.excludedInstanceTypes),
+    instance_generations: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.instanceGenerations),
     local_storage: cdktf.stringToTerraform(struct!.localStorage),
-    local_storage_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.localStorageTypes),
-    on_demand_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(struct!.onDemandMaxPricePercentageOverLowestPrice),
-    require_hibernate_support: cdktf.booleanToTerraform(struct!.requireHibernateSupport),
-    spot_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(struct!.spotMaxPricePercentageOverLowestPrice),
-    accelerator_count: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountToTerraform(struct!.acceleratorCount),
-    accelerator_total_memory_mib: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(struct!.acceleratorTotalMemoryMib),
-    baseline_ebs_bandwidth_mbps: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(struct!.baselineEbsBandwidthMbps),
-    memory_gib_per_vcpu: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuToTerraform(struct!.memoryGibPerVcpu),
-    memory_mib: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibToTerraform(struct!.memoryMib),
-    network_bandwidth_gbps: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsToTerraform(struct!.networkBandwidthGbps),
-    network_interface_count: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountToTerraform(struct!.networkInterfaceCount),
-    total_local_storage_gb: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbToTerraform(struct!.totalLocalStorageGb),
-    vcpu_count: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountToTerraform(struct!.vcpuCount),
-  }
+    local_storage_types: cdktf.listMapper(
+      cdktf.stringToTerraform,
+      false,
+    )(struct!.localStorageTypes),
+    on_demand_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(
+      struct!.onDemandMaxPricePercentageOverLowestPrice,
+    ),
+    require_hibernate_support: cdktf.booleanToTerraform(
+      struct!.requireHibernateSupport,
+    ),
+    spot_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(
+      struct!.spotMaxPricePercentageOverLowestPrice,
+    ),
+    accelerator_count:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountToTerraform(
+        struct!.acceleratorCount,
+      ),
+    accelerator_total_memory_mib:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(
+        struct!.acceleratorTotalMemoryMib,
+      ),
+    baseline_ebs_bandwidth_mbps:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(
+        struct!.baselineEbsBandwidthMbps,
+      ),
+    memory_gib_per_vcpu:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuToTerraform(
+        struct!.memoryGibPerVcpu,
+      ),
+    memory_mib:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibToTerraform(
+        struct!.memoryMib,
+      ),
+    network_bandwidth_gbps:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsToTerraform(
+        struct!.networkBandwidthGbps,
+      ),
+    network_interface_count:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountToTerraform(
+        struct!.networkInterfaceCount,
+      ),
+    total_local_storage_gb:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbToTerraform(
+        struct!.totalLocalStorageGb,
+      ),
+    vcpu_count:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountToTerraform(
+        struct!.vcpuCount,
+      ),
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._acceleratorManufacturers !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorManufacturers = this._acceleratorManufacturers;
+      internalValueResult.acceleratorManufacturers =
+        this._acceleratorManufacturers;
     }
     if (this._acceleratorNames !== undefined) {
       hasAnyValues = true;
@@ -1424,31 +1687,38 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
     }
     if (this._onDemandMaxPricePercentageOverLowestPrice !== undefined) {
       hasAnyValues = true;
-      internalValueResult.onDemandMaxPricePercentageOverLowestPrice = this._onDemandMaxPricePercentageOverLowestPrice;
+      internalValueResult.onDemandMaxPricePercentageOverLowestPrice =
+        this._onDemandMaxPricePercentageOverLowestPrice;
     }
     if (this._requireHibernateSupport !== undefined) {
       hasAnyValues = true;
-      internalValueResult.requireHibernateSupport = this._requireHibernateSupport;
+      internalValueResult.requireHibernateSupport =
+        this._requireHibernateSupport;
     }
     if (this._spotMaxPricePercentageOverLowestPrice !== undefined) {
       hasAnyValues = true;
-      internalValueResult.spotMaxPricePercentageOverLowestPrice = this._spotMaxPricePercentageOverLowestPrice;
+      internalValueResult.spotMaxPricePercentageOverLowestPrice =
+        this._spotMaxPricePercentageOverLowestPrice;
     }
     if (this._acceleratorCount?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorCount = this._acceleratorCount?.internalValue;
+      internalValueResult.acceleratorCount =
+        this._acceleratorCount?.internalValue;
     }
     if (this._acceleratorTotalMemoryMib?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorTotalMemoryMib = this._acceleratorTotalMemoryMib?.internalValue;
+      internalValueResult.acceleratorTotalMemoryMib =
+        this._acceleratorTotalMemoryMib?.internalValue;
     }
     if (this._baselineEbsBandwidthMbps?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.baselineEbsBandwidthMbps = this._baselineEbsBandwidthMbps?.internalValue;
+      internalValueResult.baselineEbsBandwidthMbps =
+        this._baselineEbsBandwidthMbps?.internalValue;
     }
     if (this._memoryGibPerVcpu?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.memoryGibPerVcpu = this._memoryGibPerVcpu?.internalValue;
+      internalValueResult.memoryGibPerVcpu =
+        this._memoryGibPerVcpu?.internalValue;
     }
     if (this._memoryMib?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1456,15 +1726,18 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
     }
     if (this._networkBandwidthGbps?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkBandwidthGbps = this._networkBandwidthGbps?.internalValue;
+      internalValueResult.networkBandwidthGbps =
+        this._networkBandwidthGbps?.internalValue;
     }
     if (this._networkInterfaceCount?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkInterfaceCount = this._networkInterfaceCount?.internalValue;
+      internalValueResult.networkInterfaceCount =
+        this._networkInterfaceCount?.internalValue;
     }
     if (this._totalLocalStorageGb?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.totalLocalStorageGb = this._totalLocalStorageGb?.internalValue;
+      internalValueResult.totalLocalStorageGb =
+        this._totalLocalStorageGb?.internalValue;
     }
     if (this._vcpuCount?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1473,7 +1746,9 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements | undefined) {
+  public set internalValue(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._acceleratorManufacturers = undefined;
@@ -1499,8 +1774,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
       this._networkInterfaceCount.internalValue = undefined;
       this._totalLocalStorageGb.internalValue = undefined;
       this._vcpuCount.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._acceleratorManufacturers = value.acceleratorManufacturers;
       this._acceleratorNames = value.acceleratorNames;
@@ -1513,12 +1787,16 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
       this._instanceGenerations = value.instanceGenerations;
       this._localStorage = value.localStorage;
       this._localStorageTypes = value.localStorageTypes;
-      this._onDemandMaxPricePercentageOverLowestPrice = value.onDemandMaxPricePercentageOverLowestPrice;
+      this._onDemandMaxPricePercentageOverLowestPrice =
+        value.onDemandMaxPricePercentageOverLowestPrice;
       this._requireHibernateSupport = value.requireHibernateSupport;
-      this._spotMaxPricePercentageOverLowestPrice = value.spotMaxPricePercentageOverLowestPrice;
+      this._spotMaxPricePercentageOverLowestPrice =
+        value.spotMaxPricePercentageOverLowestPrice;
       this._acceleratorCount.internalValue = value.acceleratorCount;
-      this._acceleratorTotalMemoryMib.internalValue = value.acceleratorTotalMemoryMib;
-      this._baselineEbsBandwidthMbps.internalValue = value.baselineEbsBandwidthMbps;
+      this._acceleratorTotalMemoryMib.internalValue =
+        value.acceleratorTotalMemoryMib;
+      this._baselineEbsBandwidthMbps.internalValue =
+        value.baselineEbsBandwidthMbps;
       this._memoryGibPerVcpu.internalValue = value.memoryGibPerVcpu;
       this._memoryMib.internalValue = value.memoryMib;
       this._networkBandwidthGbps.internalValue = value.networkBandwidthGbps;
@@ -1529,7 +1807,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // accelerator_manufacturers - computed: false, optional: true, required: false
-  private _acceleratorManufacturers?: string[]; 
+  private _acceleratorManufacturers?: string[];
   public get acceleratorManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_manufacturers'));
   }
@@ -1545,7 +1823,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // accelerator_names - computed: false, optional: true, required: false
-  private _acceleratorNames?: string[]; 
+  private _acceleratorNames?: string[];
   public get acceleratorNames() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_names'));
   }
@@ -1561,7 +1839,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // accelerator_types - computed: false, optional: true, required: false
-  private _acceleratorTypes?: string[]; 
+  private _acceleratorTypes?: string[];
   public get acceleratorTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_types'));
   }
@@ -1577,7 +1855,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // allowed_instance_types - computed: false, optional: true, required: false
-  private _allowedInstanceTypes?: string[]; 
+  private _allowedInstanceTypes?: string[];
   public get allowedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_instance_types'));
   }
@@ -1593,7 +1871,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // bare_metal - computed: false, optional: true, required: false
-  private _bareMetal?: string; 
+  private _bareMetal?: string;
   public get bareMetal() {
     return this.getStringAttribute('bare_metal');
   }
@@ -1609,7 +1887,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // burstable_performance - computed: false, optional: true, required: false
-  private _burstablePerformance?: string; 
+  private _burstablePerformance?: string;
   public get burstablePerformance() {
     return this.getStringAttribute('burstable_performance');
   }
@@ -1625,7 +1903,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // cpu_manufacturers - computed: false, optional: true, required: false
-  private _cpuManufacturers?: string[]; 
+  private _cpuManufacturers?: string[];
   public get cpuManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('cpu_manufacturers'));
   }
@@ -1641,7 +1919,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // excluded_instance_types - computed: false, optional: true, required: false
-  private _excludedInstanceTypes?: string[]; 
+  private _excludedInstanceTypes?: string[];
   public get excludedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_instance_types'));
   }
@@ -1657,7 +1935,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // instance_generations - computed: false, optional: true, required: false
-  private _instanceGenerations?: string[]; 
+  private _instanceGenerations?: string[];
   public get instanceGenerations() {
     return cdktf.Fn.tolist(this.getListAttribute('instance_generations'));
   }
@@ -1673,7 +1951,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // local_storage - computed: false, optional: true, required: false
-  private _localStorage?: string; 
+  private _localStorage?: string;
   public get localStorage() {
     return this.getStringAttribute('local_storage');
   }
@@ -1689,7 +1967,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // local_storage_types - computed: false, optional: true, required: false
-  private _localStorageTypes?: string[]; 
+  private _localStorageTypes?: string[];
   public get localStorageTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('local_storage_types'));
   }
@@ -1705,9 +1983,11 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // on_demand_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _onDemandMaxPricePercentageOverLowestPrice?: number; 
+  private _onDemandMaxPricePercentageOverLowestPrice?: number;
   public get onDemandMaxPricePercentageOverLowestPrice() {
-    return this.getNumberAttribute('on_demand_max_price_percentage_over_lowest_price');
+    return this.getNumberAttribute(
+      'on_demand_max_price_percentage_over_lowest_price',
+    );
   }
   public set onDemandMaxPricePercentageOverLowestPrice(value: number) {
     this._onDemandMaxPricePercentageOverLowestPrice = value;
@@ -1721,7 +2001,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // require_hibernate_support - computed: false, optional: true, required: false
-  private _requireHibernateSupport?: boolean | cdktf.IResolvable; 
+  private _requireHibernateSupport?: boolean | cdktf.IResolvable;
   public get requireHibernateSupport() {
     return this.getBooleanAttribute('require_hibernate_support');
   }
@@ -1737,9 +2017,11 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // spot_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _spotMaxPricePercentageOverLowestPrice?: number; 
+  private _spotMaxPricePercentageOverLowestPrice?: number;
   public get spotMaxPricePercentageOverLowestPrice() {
-    return this.getNumberAttribute('spot_max_price_percentage_over_lowest_price');
+    return this.getNumberAttribute(
+      'spot_max_price_percentage_over_lowest_price',
+    );
   }
   public set spotMaxPricePercentageOverLowestPrice(value: number) {
     this._spotMaxPricePercentageOverLowestPrice = value;
@@ -1753,11 +2035,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // accelerator_count - computed: false, optional: true, required: false
-  private _acceleratorCount = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputReference(this, "accelerator_count");
+  private _acceleratorCount =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputReference(
+      this,
+      'accelerator_count',
+    );
   public get acceleratorCount() {
     return this._acceleratorCount;
   }
-  public putAcceleratorCount(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) {
+  public putAcceleratorCount(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount,
+  ) {
     this._acceleratorCount.internalValue = value;
   }
   public resetAcceleratorCount() {
@@ -1769,11 +2057,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // accelerator_total_memory_mib - computed: false, optional: true, required: false
-  private _acceleratorTotalMemoryMib = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputReference(this, "accelerator_total_memory_mib");
+  private _acceleratorTotalMemoryMib =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputReference(
+      this,
+      'accelerator_total_memory_mib',
+    );
   public get acceleratorTotalMemoryMib() {
     return this._acceleratorTotalMemoryMib;
   }
-  public putAcceleratorTotalMemoryMib(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) {
+  public putAcceleratorTotalMemoryMib(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib,
+  ) {
     this._acceleratorTotalMemoryMib.internalValue = value;
   }
   public resetAcceleratorTotalMemoryMib() {
@@ -1785,11 +2079,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // baseline_ebs_bandwidth_mbps - computed: false, optional: true, required: false
-  private _baselineEbsBandwidthMbps = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference(this, "baseline_ebs_bandwidth_mbps");
+  private _baselineEbsBandwidthMbps =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference(
+      this,
+      'baseline_ebs_bandwidth_mbps',
+    );
   public get baselineEbsBandwidthMbps() {
     return this._baselineEbsBandwidthMbps;
   }
-  public putBaselineEbsBandwidthMbps(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) {
+  public putBaselineEbsBandwidthMbps(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps,
+  ) {
     this._baselineEbsBandwidthMbps.internalValue = value;
   }
   public resetBaselineEbsBandwidthMbps() {
@@ -1801,11 +2101,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // memory_gib_per_vcpu - computed: false, optional: true, required: false
-  private _memoryGibPerVcpu = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputReference(this, "memory_gib_per_vcpu");
+  private _memoryGibPerVcpu =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputReference(
+      this,
+      'memory_gib_per_vcpu',
+    );
   public get memoryGibPerVcpu() {
     return this._memoryGibPerVcpu;
   }
-  public putMemoryGibPerVcpu(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) {
+  public putMemoryGibPerVcpu(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu,
+  ) {
     this._memoryGibPerVcpu.internalValue = value;
   }
   public resetMemoryGibPerVcpu() {
@@ -1817,11 +2123,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // memory_mib - computed: false, optional: false, required: true
-  private _memoryMib = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputReference(this, "memory_mib");
+  private _memoryMib =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputReference(
+      this,
+      'memory_mib',
+    );
   public get memoryMib() {
     return this._memoryMib;
   }
-  public putMemoryMib(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) {
+  public putMemoryMib(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib,
+  ) {
     this._memoryMib.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1830,11 +2142,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // network_bandwidth_gbps - computed: false, optional: true, required: false
-  private _networkBandwidthGbps = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputReference(this, "network_bandwidth_gbps");
+  private _networkBandwidthGbps =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutputReference(
+      this,
+      'network_bandwidth_gbps',
+    );
   public get networkBandwidthGbps() {
     return this._networkBandwidthGbps;
   }
-  public putNetworkBandwidthGbps(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) {
+  public putNetworkBandwidthGbps(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps,
+  ) {
     this._networkBandwidthGbps.internalValue = value;
   }
   public resetNetworkBandwidthGbps() {
@@ -1846,11 +2164,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // network_interface_count - computed: false, optional: true, required: false
-  private _networkInterfaceCount = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputReference(this, "network_interface_count");
+  private _networkInterfaceCount =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputReference(
+      this,
+      'network_interface_count',
+    );
   public get networkInterfaceCount() {
     return this._networkInterfaceCount;
   }
-  public putNetworkInterfaceCount(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) {
+  public putNetworkInterfaceCount(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount,
+  ) {
     this._networkInterfaceCount.internalValue = value;
   }
   public resetNetworkInterfaceCount() {
@@ -1862,11 +2186,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // total_local_storage_gb - computed: false, optional: true, required: false
-  private _totalLocalStorageGb = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputReference(this, "total_local_storage_gb");
+  private _totalLocalStorageGb =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputReference(
+      this,
+      'total_local_storage_gb',
+    );
   public get totalLocalStorageGb() {
     return this._totalLocalStorageGb;
   }
-  public putTotalLocalStorageGb(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) {
+  public putTotalLocalStorageGb(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb,
+  ) {
     this._totalLocalStorageGb.internalValue = value;
   }
   public resetTotalLocalStorageGb() {
@@ -1878,11 +2208,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
   }
 
   // vcpu_count - computed: false, optional: false, required: true
-  private _vcpuCount = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputReference(this, "vcpu_count");
+  private _vcpuCount =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputReference(
+      this,
+      'vcpu_count',
+    );
   public get vcpuCount() {
     return this._vcpuCount;
   }
-  public putVcpuCount(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) {
+  public putVcpuCount(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount,
+  ) {
     this._vcpuCount.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1892,41 +2228,47 @@ export class Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputRefer
 }
 export interface Ec2FleetLaunchTemplateConfigOverride {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#availability_zone Ec2Fleet#availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#availability_zone Ec2Fleet#availability_zone}
+   */
   readonly availabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_type Ec2Fleet#instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_type Ec2Fleet#instance_type}
+   */
   readonly instanceType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max_price Ec2Fleet#max_price}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max_price Ec2Fleet#max_price}
+   */
   readonly maxPrice?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#priority Ec2Fleet#priority}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#priority Ec2Fleet#priority}
+   */
   readonly priority?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#subnet_id Ec2Fleet#subnet_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#subnet_id Ec2Fleet#subnet_id}
+   */
   readonly subnetId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#weighted_capacity Ec2Fleet#weighted_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#weighted_capacity Ec2Fleet#weighted_capacity}
+   */
   readonly weightedCapacity?: number;
   /**
-  * instance_requirements block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_requirements Ec2Fleet#instance_requirements}
-  */
+   * instance_requirements block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_requirements Ec2Fleet#instance_requirements}
+   */
   readonly instanceRequirements?: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements;
 }
 
-export function ec2FleetLaunchTemplateConfigOverrideToTerraform(struct?: Ec2FleetLaunchTemplateConfigOverride | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigOverrideToTerraform(
+  struct?: Ec2FleetLaunchTemplateConfigOverride | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     availability_zone: cdktf.stringToTerraform(struct!.availabilityZone),
@@ -1935,8 +2277,11 @@ export function ec2FleetLaunchTemplateConfigOverrideToTerraform(struct?: Ec2Flee
     priority: cdktf.numberToTerraform(struct!.priority),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
     weighted_capacity: cdktf.numberToTerraform(struct!.weightedCapacity),
-    instance_requirements: ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsToTerraform(struct!.instanceRequirements),
-  }
+    instance_requirements:
+      ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsToTerraform(
+        struct!.instanceRequirements,
+      ),
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.ComplexObject {
@@ -1944,16 +2289,29 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfigOverride | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfigOverride
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1985,12 +2343,15 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
     }
     if (this._instanceRequirements?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.instanceRequirements = this._instanceRequirements?.internalValue;
+      internalValueResult.instanceRequirements =
+        this._instanceRequirements?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfigOverride | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Ec2FleetLaunchTemplateConfigOverride | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2001,12 +2362,10 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
       this._subnetId = undefined;
       this._weightedCapacity = undefined;
       this._instanceRequirements.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._availabilityZone = value.availabilityZone;
@@ -2020,7 +2379,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string; 
+  private _availabilityZone?: string;
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -2036,7 +2395,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string; 
+  private _instanceType?: string;
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -2052,7 +2411,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // max_price - computed: false, optional: true, required: false
-  private _maxPrice?: string; 
+  private _maxPrice?: string;
   public get maxPrice() {
     return this.getStringAttribute('max_price');
   }
@@ -2068,7 +2427,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number; 
+  private _priority?: number;
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -2084,7 +2443,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string; 
+  private _subnetId?: string;
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -2100,7 +2459,7 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // weighted_capacity - computed: false, optional: true, required: false
-  private _weightedCapacity?: number; 
+  private _weightedCapacity?: number;
   public get weightedCapacity() {
     return this.getNumberAttribute('weighted_capacity');
   }
@@ -2116,11 +2475,17 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
   }
 
   // instance_requirements - computed: false, optional: true, required: false
-  private _instanceRequirements = new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputReference(this, "instance_requirements");
+  private _instanceRequirements =
+    new Ec2FleetLaunchTemplateConfigOverrideInstanceRequirementsOutputReference(
+      this,
+      'instance_requirements',
+    );
   public get instanceRequirements() {
     return this._instanceRequirements;
   }
-  public putInstanceRequirements(value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements) {
+  public putInstanceRequirements(
+    value: Ec2FleetLaunchTemplateConfigOverrideInstanceRequirements,
+  ) {
     this._instanceRequirements.internalValue = value;
   }
   public resetInstanceRequirements() {
@@ -2133,48 +2498,75 @@ export class Ec2FleetLaunchTemplateConfigOverrideOutputReference extends cdktf.C
 }
 
 export class Ec2FleetLaunchTemplateConfigOverrideList extends cdktf.ComplexList {
-  public internalValue? : Ec2FleetLaunchTemplateConfigOverride[] | cdktf.IResolvable
+  public internalValue?:
+    | Ec2FleetLaunchTemplateConfigOverride[]
+    | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
-  public get(index: number): Ec2FleetLaunchTemplateConfigOverrideOutputReference {
-    return new Ec2FleetLaunchTemplateConfigOverrideOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+   * @param index the index of the item to return
+   */
+  public get(
+    index: number,
+  ): Ec2FleetLaunchTemplateConfigOverrideOutputReference {
+    return new Ec2FleetLaunchTemplateConfigOverrideOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface Ec2FleetLaunchTemplateConfig {
   /**
-  * launch_template_specification block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_specification Ec2Fleet#launch_template_specification}
-  */
+   * launch_template_specification block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#launch_template_specification Ec2Fleet#launch_template_specification}
+   */
   readonly launchTemplateSpecification?: Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification;
   /**
-  * override block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#override Ec2Fleet#override}
-  */
-  readonly override?: Ec2FleetLaunchTemplateConfigOverride[] | cdktf.IResolvable;
+   * override block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#override Ec2Fleet#override}
+   */
+  readonly override?:
+    | Ec2FleetLaunchTemplateConfigOverride[]
+    | cdktf.IResolvable;
 }
 
-export function ec2FleetLaunchTemplateConfigToTerraform(struct?: Ec2FleetLaunchTemplateConfig | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetLaunchTemplateConfigToTerraform(
+  struct?: Ec2FleetLaunchTemplateConfig | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    launch_template_specification: ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(struct!.launchTemplateSpecification),
-    override: cdktf.listMapper(ec2FleetLaunchTemplateConfigOverrideToTerraform, true)(struct!.override),
-  }
+    launch_template_specification:
+      ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(
+        struct!.launchTemplateSpecification,
+      ),
+    override: cdktf.listMapper(
+      ec2FleetLaunchTemplateConfigOverrideToTerraform,
+      true,
+    )(struct!.override),
+  };
 }
 
 export class Ec2FleetLaunchTemplateConfigOutputReference extends cdktf.ComplexObject {
@@ -2182,16 +2574,29 @@ export class Ec2FleetLaunchTemplateConfigOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param complexObjectIndex the index of this item in the list
-  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
-    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param complexObjectIndex the index of this item in the list
+   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+    complexObjectIndex: number,
+    complexObjectIsFromSet: boolean,
+  ) {
+    super(
+      terraformResource,
+      terraformAttribute,
+      complexObjectIsFromSet,
+      complexObjectIndex,
+    );
   }
 
-  public get internalValue(): Ec2FleetLaunchTemplateConfig | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | Ec2FleetLaunchTemplateConfig
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2199,7 +2604,8 @@ export class Ec2FleetLaunchTemplateConfigOutputReference extends cdktf.ComplexOb
     const internalValueResult: any = {};
     if (this._launchTemplateSpecification?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.launchTemplateSpecification = this._launchTemplateSpecification?.internalValue;
+      internalValueResult.launchTemplateSpecification =
+        this._launchTemplateSpecification?.internalValue;
     }
     if (this._override?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2208,31 +2614,38 @@ export class Ec2FleetLaunchTemplateConfigOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetLaunchTemplateConfig | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Ec2FleetLaunchTemplateConfig | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._launchTemplateSpecification.internalValue = undefined;
       this._override.internalValue = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
-      this._launchTemplateSpecification.internalValue = value.launchTemplateSpecification;
+      this._launchTemplateSpecification.internalValue =
+        value.launchTemplateSpecification;
       this._override.internalValue = value.override;
     }
   }
 
   // launch_template_specification - computed: false, optional: true, required: false
-  private _launchTemplateSpecification = new Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputReference(this, "launch_template_specification");
+  private _launchTemplateSpecification =
+    new Ec2FleetLaunchTemplateConfigLaunchTemplateSpecificationOutputReference(
+      this,
+      'launch_template_specification',
+    );
   public get launchTemplateSpecification() {
     return this._launchTemplateSpecification;
   }
-  public putLaunchTemplateSpecification(value: Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification) {
+  public putLaunchTemplateSpecification(
+    value: Ec2FleetLaunchTemplateConfigLaunchTemplateSpecification,
+  ) {
     this._launchTemplateSpecification.internalValue = value;
   }
   public resetLaunchTemplateSpecification() {
@@ -2244,11 +2657,17 @@ export class Ec2FleetLaunchTemplateConfigOutputReference extends cdktf.ComplexOb
   }
 
   // override - computed: false, optional: true, required: false
-  private _override = new Ec2FleetLaunchTemplateConfigOverrideList(this, "override", false);
+  private _override = new Ec2FleetLaunchTemplateConfigOverrideList(
+    this,
+    'override',
+    false,
+  );
   public get override() {
     return this._override;
   }
-  public putOverride(value: Ec2FleetLaunchTemplateConfigOverride[] | cdktf.IResolvable) {
+  public putOverride(
+    value: Ec2FleetLaunchTemplateConfigOverride[] | cdktf.IResolvable,
+  ) {
     this._override.internalValue = value;
   }
   public resetOverride() {
@@ -2261,69 +2680,89 @@ export class Ec2FleetLaunchTemplateConfigOutputReference extends cdktf.ComplexOb
 }
 
 export class Ec2FleetLaunchTemplateConfigList extends cdktf.ComplexList {
-  public internalValue? : Ec2FleetLaunchTemplateConfig[] | cdktf.IResolvable
+  public internalValue?: Ec2FleetLaunchTemplateConfig[] | cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-  */
-  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
-    super(terraformResource, terraformAttribute, wrapsSet)
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+   */
+  constructor(
+    protected terraformResource: cdktf.IInterpolatingParent,
+    protected terraformAttribute: string,
+    protected wrapsSet: boolean,
+  ) {
+    super(terraformResource, terraformAttribute, wrapsSet);
   }
 
   /**
-  * @param index the index of the item to return
-  */
+   * @param index the index of the item to return
+   */
   public get(index: number): Ec2FleetLaunchTemplateConfigOutputReference {
-    return new Ec2FleetLaunchTemplateConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
+    return new Ec2FleetLaunchTemplateConfigOutputReference(
+      this.terraformResource,
+      this.terraformAttribute,
+      index,
+      this.wrapsSet,
+    );
   }
 }
 export interface Ec2FleetOnDemandOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#allocation_strategy Ec2Fleet#allocation_strategy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#allocation_strategy Ec2Fleet#allocation_strategy}
+   */
   readonly allocationStrategy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max_total_price Ec2Fleet#max_total_price}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#max_total_price Ec2Fleet#max_total_price}
+   */
   readonly maxTotalPrice?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min_target_capacity Ec2Fleet#min_target_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#min_target_capacity Ec2Fleet#min_target_capacity}
+   */
   readonly minTargetCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#single_availability_zone Ec2Fleet#single_availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#single_availability_zone Ec2Fleet#single_availability_zone}
+   */
   readonly singleAvailabilityZone?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#single_instance_type Ec2Fleet#single_instance_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#single_instance_type Ec2Fleet#single_instance_type}
+   */
   readonly singleInstanceType?: boolean | cdktf.IResolvable;
 }
 
-export function ec2FleetOnDemandOptionsToTerraform(struct?: Ec2FleetOnDemandOptionsOutputReference | Ec2FleetOnDemandOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetOnDemandOptionsToTerraform(
+  struct?: Ec2FleetOnDemandOptionsOutputReference | Ec2FleetOnDemandOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     allocation_strategy: cdktf.stringToTerraform(struct!.allocationStrategy),
     max_total_price: cdktf.stringToTerraform(struct!.maxTotalPrice),
     min_target_capacity: cdktf.numberToTerraform(struct!.minTargetCapacity),
-    single_availability_zone: cdktf.booleanToTerraform(struct!.singleAvailabilityZone),
+    single_availability_zone: cdktf.booleanToTerraform(
+      struct!.singleAvailabilityZone,
+    ),
     single_instance_type: cdktf.booleanToTerraform(struct!.singleInstanceType),
-  }
+  };
 }
 
 export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2361,8 +2800,7 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
       this._minTargetCapacity = undefined;
       this._singleAvailabilityZone = undefined;
       this._singleInstanceType = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allocationStrategy = value.allocationStrategy;
       this._maxTotalPrice = value.maxTotalPrice;
@@ -2373,7 +2811,7 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
   }
 
   // allocation_strategy - computed: false, optional: true, required: false
-  private _allocationStrategy?: string; 
+  private _allocationStrategy?: string;
   public get allocationStrategy() {
     return this.getStringAttribute('allocation_strategy');
   }
@@ -2389,7 +2827,7 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
   }
 
   // max_total_price - computed: false, optional: true, required: false
-  private _maxTotalPrice?: string; 
+  private _maxTotalPrice?: string;
   public get maxTotalPrice() {
     return this.getStringAttribute('max_total_price');
   }
@@ -2405,7 +2843,7 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
   }
 
   // min_target_capacity - computed: false, optional: true, required: false
-  private _minTargetCapacity?: number; 
+  private _minTargetCapacity?: number;
   public get minTargetCapacity() {
     return this.getNumberAttribute('min_target_capacity');
   }
@@ -2421,7 +2859,7 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
   }
 
   // single_availability_zone - computed: false, optional: true, required: false
-  private _singleAvailabilityZone?: boolean | cdktf.IResolvable; 
+  private _singleAvailabilityZone?: boolean | cdktf.IResolvable;
   public get singleAvailabilityZone() {
     return this.getBooleanAttribute('single_availability_zone');
   }
@@ -2437,7 +2875,7 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
   }
 
   // single_instance_type - computed: false, optional: true, required: false
-  private _singleInstanceType?: boolean | cdktf.IResolvable; 
+  private _singleInstanceType?: boolean | cdktf.IResolvable;
   public get singleInstanceType() {
     return this.getBooleanAttribute('single_instance_type');
   }
@@ -2454,38 +2892,51 @@ export class Ec2FleetOnDemandOptionsOutputReference extends cdktf.ComplexObject 
 }
 export interface Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#replacement_strategy Ec2Fleet#replacement_strategy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#replacement_strategy Ec2Fleet#replacement_strategy}
+   */
   readonly replacementStrategy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#termination_delay Ec2Fleet#termination_delay}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#termination_delay Ec2Fleet#termination_delay}
+   */
   readonly terminationDelay?: number;
 }
 
-export function ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceToTerraform(struct?: Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputReference | Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceToTerraform(
+  struct?:
+    | Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputReference
+    | Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     replacement_strategy: cdktf.stringToTerraform(struct!.replacementStrategy),
     termination_delay: cdktf.numberToTerraform(struct!.terminationDelay),
-  }
+  };
 }
 
 export class Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance | undefined {
+  public get internalValue():
+    | Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._replacementStrategy !== undefined) {
@@ -2499,13 +2950,16 @@ export class Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance | undefined) {
+  public set internalValue(
+    value:
+      | Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance
+      | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._replacementStrategy = undefined;
       this._terminationDelay = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._replacementStrategy = value.replacementStrategy;
       this._terminationDelay = value.terminationDelay;
@@ -2513,7 +2967,7 @@ export class Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputRefe
   }
 
   // replacement_strategy - computed: false, optional: true, required: false
-  private _replacementStrategy?: string; 
+  private _replacementStrategy?: string;
   public get replacementStrategy() {
     return this.getStringAttribute('replacement_strategy');
   }
@@ -2529,7 +2983,7 @@ export class Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputRefe
   }
 
   // termination_delay - computed: false, optional: true, required: false
-  private _terminationDelay?: number; 
+  private _terminationDelay?: number;
   public get terminationDelay() {
     return this.getNumberAttribute('termination_delay');
   }
@@ -2546,61 +3000,85 @@ export class Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputRefe
 }
 export interface Ec2FleetSpotOptionsMaintenanceStrategies {
   /**
-  * capacity_rebalance block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#capacity_rebalance Ec2Fleet#capacity_rebalance}
-  */
+   * capacity_rebalance block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#capacity_rebalance Ec2Fleet#capacity_rebalance}
+   */
   readonly capacityRebalance?: Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance;
 }
 
-export function ec2FleetSpotOptionsMaintenanceStrategiesToTerraform(struct?: Ec2FleetSpotOptionsMaintenanceStrategiesOutputReference | Ec2FleetSpotOptionsMaintenanceStrategies): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetSpotOptionsMaintenanceStrategiesToTerraform(
+  struct?:
+    | Ec2FleetSpotOptionsMaintenanceStrategiesOutputReference
+    | Ec2FleetSpotOptionsMaintenanceStrategies,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    capacity_rebalance: ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceToTerraform(struct!.capacityRebalance),
-  }
+    capacity_rebalance:
+      ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceToTerraform(
+        struct!.capacityRebalance,
+      ),
+  };
 }
 
 export class Ec2FleetSpotOptionsMaintenanceStrategiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): Ec2FleetSpotOptionsMaintenanceStrategies | undefined {
+  public get internalValue():
+    | Ec2FleetSpotOptionsMaintenanceStrategies
+    | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._capacityRebalance?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityRebalance = this._capacityRebalance?.internalValue;
+      internalValueResult.capacityRebalance =
+        this._capacityRebalance?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetSpotOptionsMaintenanceStrategies | undefined) {
+  public set internalValue(
+    value: Ec2FleetSpotOptionsMaintenanceStrategies | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._capacityRebalance.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._capacityRebalance.internalValue = value.capacityRebalance;
     }
   }
 
   // capacity_rebalance - computed: false, optional: true, required: false
-  private _capacityRebalance = new Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputReference(this, "capacity_rebalance");
+  private _capacityRebalance =
+    new Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutputReference(
+      this,
+      'capacity_rebalance',
+    );
   public get capacityRebalance() {
     return this._capacityRebalance;
   }
-  public putCapacityRebalance(value: Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) {
+  public putCapacityRebalance(
+    value: Ec2FleetSpotOptionsMaintenanceStrategiesCapacityRebalance,
+  ) {
     this._capacityRebalance.internalValue = value;
   }
   public resetCapacityRebalance() {
@@ -2613,46 +3091,61 @@ export class Ec2FleetSpotOptionsMaintenanceStrategiesOutputReference extends cdk
 }
 export interface Ec2FleetSpotOptions {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#allocation_strategy Ec2Fleet#allocation_strategy}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#allocation_strategy Ec2Fleet#allocation_strategy}
+   */
   readonly allocationStrategy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_interruption_behavior Ec2Fleet#instance_interruption_behavior}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_interruption_behavior Ec2Fleet#instance_interruption_behavior}
+   */
   readonly instanceInterruptionBehavior?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_pools_to_use_count Ec2Fleet#instance_pools_to_use_count}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#instance_pools_to_use_count Ec2Fleet#instance_pools_to_use_count}
+   */
   readonly instancePoolsToUseCount?: number;
   /**
-  * maintenance_strategies block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#maintenance_strategies Ec2Fleet#maintenance_strategies}
-  */
+   * maintenance_strategies block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#maintenance_strategies Ec2Fleet#maintenance_strategies}
+   */
   readonly maintenanceStrategies?: Ec2FleetSpotOptionsMaintenanceStrategies;
 }
 
-export function ec2FleetSpotOptionsToTerraform(struct?: Ec2FleetSpotOptionsOutputReference | Ec2FleetSpotOptions): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetSpotOptionsToTerraform(
+  struct?: Ec2FleetSpotOptionsOutputReference | Ec2FleetSpotOptions,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     allocation_strategy: cdktf.stringToTerraform(struct!.allocationStrategy),
-    instance_interruption_behavior: cdktf.stringToTerraform(struct!.instanceInterruptionBehavior),
-    instance_pools_to_use_count: cdktf.numberToTerraform(struct!.instancePoolsToUseCount),
-    maintenance_strategies: ec2FleetSpotOptionsMaintenanceStrategiesToTerraform(struct!.maintenanceStrategies),
-  }
+    instance_interruption_behavior: cdktf.stringToTerraform(
+      struct!.instanceInterruptionBehavior,
+    ),
+    instance_pools_to_use_count: cdktf.numberToTerraform(
+      struct!.instancePoolsToUseCount,
+    ),
+    maintenance_strategies: ec2FleetSpotOptionsMaintenanceStrategiesToTerraform(
+      struct!.maintenanceStrategies,
+    ),
+  };
 }
 
 export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2665,15 +3158,18 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
     }
     if (this._instanceInterruptionBehavior !== undefined) {
       hasAnyValues = true;
-      internalValueResult.instanceInterruptionBehavior = this._instanceInterruptionBehavior;
+      internalValueResult.instanceInterruptionBehavior =
+        this._instanceInterruptionBehavior;
     }
     if (this._instancePoolsToUseCount !== undefined) {
       hasAnyValues = true;
-      internalValueResult.instancePoolsToUseCount = this._instancePoolsToUseCount;
+      internalValueResult.instancePoolsToUseCount =
+        this._instancePoolsToUseCount;
     }
     if (this._maintenanceStrategies?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.maintenanceStrategies = this._maintenanceStrategies?.internalValue;
+      internalValueResult.maintenanceStrategies =
+        this._maintenanceStrategies?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -2685,8 +3181,7 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
       this._instanceInterruptionBehavior = undefined;
       this._instancePoolsToUseCount = undefined;
       this._maintenanceStrategies.internalValue = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allocationStrategy = value.allocationStrategy;
       this._instanceInterruptionBehavior = value.instanceInterruptionBehavior;
@@ -2696,7 +3191,7 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // allocation_strategy - computed: false, optional: true, required: false
-  private _allocationStrategy?: string; 
+  private _allocationStrategy?: string;
   public get allocationStrategy() {
     return this.getStringAttribute('allocation_strategy');
   }
@@ -2712,7 +3207,7 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_interruption_behavior - computed: false, optional: true, required: false
-  private _instanceInterruptionBehavior?: string; 
+  private _instanceInterruptionBehavior?: string;
   public get instanceInterruptionBehavior() {
     return this.getStringAttribute('instance_interruption_behavior');
   }
@@ -2728,7 +3223,7 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // instance_pools_to_use_count - computed: false, optional: true, required: false
-  private _instancePoolsToUseCount?: number; 
+  private _instancePoolsToUseCount?: number;
   public get instancePoolsToUseCount() {
     return this.getNumberAttribute('instance_pools_to_use_count');
   }
@@ -2744,11 +3239,17 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // maintenance_strategies - computed: false, optional: true, required: false
-  private _maintenanceStrategies = new Ec2FleetSpotOptionsMaintenanceStrategiesOutputReference(this, "maintenance_strategies");
+  private _maintenanceStrategies =
+    new Ec2FleetSpotOptionsMaintenanceStrategiesOutputReference(
+      this,
+      'maintenance_strategies',
+    );
   public get maintenanceStrategies() {
     return this._maintenanceStrategies;
   }
-  public putMaintenanceStrategies(value: Ec2FleetSpotOptionsMaintenanceStrategies) {
+  public putMaintenanceStrategies(
+    value: Ec2FleetSpotOptionsMaintenanceStrategies,
+  ) {
     this._maintenanceStrategies.internalValue = value;
   }
   public resetMaintenanceStrategies() {
@@ -2761,49 +3262,66 @@ export class Ec2FleetSpotOptionsOutputReference extends cdktf.ComplexObject {
 }
 export interface Ec2FleetTargetCapacitySpecification {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#default_target_capacity_type Ec2Fleet#default_target_capacity_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#default_target_capacity_type Ec2Fleet#default_target_capacity_type}
+   */
   readonly defaultTargetCapacityType: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#on_demand_target_capacity Ec2Fleet#on_demand_target_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#on_demand_target_capacity Ec2Fleet#on_demand_target_capacity}
+   */
   readonly onDemandTargetCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#spot_target_capacity Ec2Fleet#spot_target_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#spot_target_capacity Ec2Fleet#spot_target_capacity}
+   */
   readonly spotTargetCapacity?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#target_capacity_unit_type Ec2Fleet#target_capacity_unit_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#target_capacity_unit_type Ec2Fleet#target_capacity_unit_type}
+   */
   readonly targetCapacityUnitType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#total_target_capacity Ec2Fleet#total_target_capacity}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#total_target_capacity Ec2Fleet#total_target_capacity}
+   */
   readonly totalTargetCapacity: number;
 }
 
-export function ec2FleetTargetCapacitySpecificationToTerraform(struct?: Ec2FleetTargetCapacitySpecificationOutputReference | Ec2FleetTargetCapacitySpecification): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetTargetCapacitySpecificationToTerraform(
+  struct?:
+    | Ec2FleetTargetCapacitySpecificationOutputReference
+    | Ec2FleetTargetCapacitySpecification,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
-    default_target_capacity_type: cdktf.stringToTerraform(struct!.defaultTargetCapacityType),
-    on_demand_target_capacity: cdktf.numberToTerraform(struct!.onDemandTargetCapacity),
+    default_target_capacity_type: cdktf.stringToTerraform(
+      struct!.defaultTargetCapacityType,
+    ),
+    on_demand_target_capacity: cdktf.numberToTerraform(
+      struct!.onDemandTargetCapacity,
+    ),
     spot_target_capacity: cdktf.numberToTerraform(struct!.spotTargetCapacity),
-    target_capacity_unit_type: cdktf.stringToTerraform(struct!.targetCapacityUnitType),
+    target_capacity_unit_type: cdktf.stringToTerraform(
+      struct!.targetCapacityUnitType,
+    ),
     total_target_capacity: cdktf.numberToTerraform(struct!.totalTargetCapacity),
-  }
+  };
 }
 
 export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2812,7 +3330,8 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
     const internalValueResult: any = {};
     if (this._defaultTargetCapacityType !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultTargetCapacityType = this._defaultTargetCapacityType;
+      internalValueResult.defaultTargetCapacityType =
+        this._defaultTargetCapacityType;
     }
     if (this._onDemandTargetCapacity !== undefined) {
       hasAnyValues = true;
@@ -2833,7 +3352,9 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetTargetCapacitySpecification | undefined) {
+  public set internalValue(
+    value: Ec2FleetTargetCapacitySpecification | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultTargetCapacityType = undefined;
@@ -2841,8 +3362,7 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
       this._spotTargetCapacity = undefined;
       this._targetCapacityUnitType = undefined;
       this._totalTargetCapacity = undefined;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultTargetCapacityType = value.defaultTargetCapacityType;
       this._onDemandTargetCapacity = value.onDemandTargetCapacity;
@@ -2853,7 +3373,7 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // default_target_capacity_type - computed: false, optional: false, required: true
-  private _defaultTargetCapacityType?: string; 
+  private _defaultTargetCapacityType?: string;
   public get defaultTargetCapacityType() {
     return this.getStringAttribute('default_target_capacity_type');
   }
@@ -2866,7 +3386,7 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // on_demand_target_capacity - computed: false, optional: true, required: false
-  private _onDemandTargetCapacity?: number; 
+  private _onDemandTargetCapacity?: number;
   public get onDemandTargetCapacity() {
     return this.getNumberAttribute('on_demand_target_capacity');
   }
@@ -2882,7 +3402,7 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // spot_target_capacity - computed: false, optional: true, required: false
-  private _spotTargetCapacity?: number; 
+  private _spotTargetCapacity?: number;
   public get spotTargetCapacity() {
     return this.getNumberAttribute('spot_target_capacity');
   }
@@ -2898,7 +3418,7 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // target_capacity_unit_type - computed: false, optional: true, required: false
-  private _targetCapacityUnitType?: string; 
+  private _targetCapacityUnitType?: string;
   public get targetCapacityUnitType() {
     return this.getStringAttribute('target_capacity_unit_type');
   }
@@ -2914,7 +3434,7 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
   }
 
   // total_target_capacity - computed: false, optional: false, required: true
-  private _totalTargetCapacity?: number; 
+  private _totalTargetCapacity?: number;
   public get totalTargetCapacity() {
     return this.getNumberAttribute('total_target_capacity');
   }
@@ -2928,29 +3448,38 @@ export class Ec2FleetTargetCapacitySpecificationOutputReference extends cdktf.Co
 }
 export interface Ec2FleetTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#create Ec2Fleet#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#create Ec2Fleet#create}
+   */
   readonly create?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#delete Ec2Fleet#delete}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#delete Ec2Fleet#delete}
+   */
   readonly delete?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#update Ec2Fleet#update}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet#update Ec2Fleet#update}
+   */
   readonly update?: string;
 }
 
-export function ec2FleetTimeoutsToTerraform(struct?: Ec2FleetTimeoutsOutputReference | Ec2FleetTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function ec2FleetTimeoutsToTerraform(
+  struct?:
+    | Ec2FleetTimeoutsOutputReference
+    | Ec2FleetTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  }
+  };
 }
 
 export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -2958,10 +3487,13 @@ export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2986,19 +3518,19 @@ export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: Ec2FleetTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: Ec2FleetTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -3008,7 +3540,7 @@ export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -3024,7 +3556,7 @@ export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string; 
+  private _delete?: string;
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -3040,7 +3572,7 @@ export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string; 
+  private _update?: string;
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -3057,33 +3589,32 @@ export class Ec2FleetTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet aws_ec2_fleet}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet aws_ec2_fleet}
+ */
 export class Ec2Fleet extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_ec2_fleet";
+  public static readonly tfResourceType = 'aws_ec2_fleet';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet aws_ec2_fleet} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options Ec2FleetConfig
-  */
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_fleet aws_ec2_fleet} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options Ec2FleetConfig
+   */
   public constructor(scope: Construct, id: string, config: Ec2FleetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_fleet',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -3091,10 +3622,11 @@ export class Ec2Fleet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._context = config.context;
-    this._excessCapacityTerminationPolicy = config.excessCapacityTerminationPolicy;
+    this._excessCapacityTerminationPolicy =
+      config.excessCapacityTerminationPolicy;
     this._fleetState = config.fleetState;
     this._fulfilledCapacity = config.fulfilledCapacity;
     this._fulfilledOnDemandCapacity = config.fulfilledOnDemandCapacity;
@@ -3103,7 +3635,8 @@ export class Ec2Fleet extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._terminateInstances = config.terminateInstances;
-    this._terminateInstancesWithExpiration = config.terminateInstancesWithExpiration;
+    this._terminateInstancesWithExpiration =
+      config.terminateInstancesWithExpiration;
     this._type = config.type;
     this._validFrom = config.validFrom;
     this._validUntil = config.validUntil;
@@ -3111,7 +3644,8 @@ export class Ec2Fleet extends cdktf.TerraformResource {
     this._launchTemplateConfig.internalValue = config.launchTemplateConfig;
     this._onDemandOptions.internalValue = config.onDemandOptions;
     this._spotOptions.internalValue = config.spotOptions;
-    this._targetCapacitySpecification.internalValue = config.targetCapacitySpecification;
+    this._targetCapacitySpecification.internalValue =
+      config.targetCapacitySpecification;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -3125,7 +3659,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // context - computed: false, optional: true, required: false
-  private _context?: string; 
+  private _context?: string;
   public get context() {
     return this.getStringAttribute('context');
   }
@@ -3141,7 +3675,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // excess_capacity_termination_policy - computed: false, optional: true, required: false
-  private _excessCapacityTerminationPolicy?: string; 
+  private _excessCapacityTerminationPolicy?: string;
   public get excessCapacityTerminationPolicy() {
     return this.getStringAttribute('excess_capacity_termination_policy');
   }
@@ -3157,7 +3691,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // fleet_state - computed: true, optional: true, required: false
-  private _fleetState?: string; 
+  private _fleetState?: string;
   public get fleetState() {
     return this.getStringAttribute('fleet_state');
   }
@@ -3173,7 +3707,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // fulfilled_capacity - computed: true, optional: true, required: false
-  private _fulfilledCapacity?: number; 
+  private _fulfilledCapacity?: number;
   public get fulfilledCapacity() {
     return this.getNumberAttribute('fulfilled_capacity');
   }
@@ -3189,7 +3723,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // fulfilled_on_demand_capacity - computed: true, optional: true, required: false
-  private _fulfilledOnDemandCapacity?: number; 
+  private _fulfilledOnDemandCapacity?: number;
   public get fulfilledOnDemandCapacity() {
     return this.getNumberAttribute('fulfilled_on_demand_capacity');
   }
@@ -3205,7 +3739,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3221,7 +3755,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // replace_unhealthy_instances - computed: false, optional: true, required: false
-  private _replaceUnhealthyInstances?: boolean | cdktf.IResolvable; 
+  private _replaceUnhealthyInstances?: boolean | cdktf.IResolvable;
   public get replaceUnhealthyInstances() {
     return this.getBooleanAttribute('replace_unhealthy_instances');
   }
@@ -3237,7 +3771,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3253,7 +3787,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -3269,7 +3803,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // terminate_instances - computed: false, optional: true, required: false
-  private _terminateInstances?: boolean | cdktf.IResolvable; 
+  private _terminateInstances?: boolean | cdktf.IResolvable;
   public get terminateInstances() {
     return this.getBooleanAttribute('terminate_instances');
   }
@@ -3285,11 +3819,13 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // terminate_instances_with_expiration - computed: false, optional: true, required: false
-  private _terminateInstancesWithExpiration?: boolean | cdktf.IResolvable; 
+  private _terminateInstancesWithExpiration?: boolean | cdktf.IResolvable;
   public get terminateInstancesWithExpiration() {
     return this.getBooleanAttribute('terminate_instances_with_expiration');
   }
-  public set terminateInstancesWithExpiration(value: boolean | cdktf.IResolvable) {
+  public set terminateInstancesWithExpiration(
+    value: boolean | cdktf.IResolvable,
+  ) {
     this._terminateInstancesWithExpiration = value;
   }
   public resetTerminateInstancesWithExpiration() {
@@ -3301,7 +3837,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string; 
+  private _type?: string;
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3317,7 +3853,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // valid_from - computed: false, optional: true, required: false
-  private _validFrom?: string; 
+  private _validFrom?: string;
   public get validFrom() {
     return this.getStringAttribute('valid_from');
   }
@@ -3333,7 +3869,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // valid_until - computed: false, optional: true, required: false
-  private _validUntil?: string; 
+  private _validUntil?: string;
   public get validUntil() {
     return this.getStringAttribute('valid_until');
   }
@@ -3349,11 +3885,17 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // fleet_instance_set - computed: false, optional: true, required: false
-  private _fleetInstanceSet = new Ec2FleetFleetInstanceSetList(this, "fleet_instance_set", false);
+  private _fleetInstanceSet = new Ec2FleetFleetInstanceSetList(
+    this,
+    'fleet_instance_set',
+    false,
+  );
   public get fleetInstanceSet() {
     return this._fleetInstanceSet;
   }
-  public putFleetInstanceSet(value: Ec2FleetFleetInstanceSet[] | cdktf.IResolvable) {
+  public putFleetInstanceSet(
+    value: Ec2FleetFleetInstanceSet[] | cdktf.IResolvable,
+  ) {
     this._fleetInstanceSet.internalValue = value;
   }
   public resetFleetInstanceSet() {
@@ -3365,11 +3907,17 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // launch_template_config - computed: false, optional: false, required: true
-  private _launchTemplateConfig = new Ec2FleetLaunchTemplateConfigList(this, "launch_template_config", false);
+  private _launchTemplateConfig = new Ec2FleetLaunchTemplateConfigList(
+    this,
+    'launch_template_config',
+    false,
+  );
   public get launchTemplateConfig() {
     return this._launchTemplateConfig;
   }
-  public putLaunchTemplateConfig(value: Ec2FleetLaunchTemplateConfig[] | cdktf.IResolvable) {
+  public putLaunchTemplateConfig(
+    value: Ec2FleetLaunchTemplateConfig[] | cdktf.IResolvable,
+  ) {
     this._launchTemplateConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3378,7 +3926,10 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // on_demand_options - computed: false, optional: true, required: false
-  private _onDemandOptions = new Ec2FleetOnDemandOptionsOutputReference(this, "on_demand_options");
+  private _onDemandOptions = new Ec2FleetOnDemandOptionsOutputReference(
+    this,
+    'on_demand_options',
+  );
   public get onDemandOptions() {
     return this._onDemandOptions;
   }
@@ -3394,7 +3945,10 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // spot_options - computed: false, optional: true, required: false
-  private _spotOptions = new Ec2FleetSpotOptionsOutputReference(this, "spot_options");
+  private _spotOptions = new Ec2FleetSpotOptionsOutputReference(
+    this,
+    'spot_options',
+  );
   public get spotOptions() {
     return this._spotOptions;
   }
@@ -3410,11 +3964,17 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // target_capacity_specification - computed: false, optional: false, required: true
-  private _targetCapacitySpecification = new Ec2FleetTargetCapacitySpecificationOutputReference(this, "target_capacity_specification");
+  private _targetCapacitySpecification =
+    new Ec2FleetTargetCapacitySpecificationOutputReference(
+      this,
+      'target_capacity_specification',
+    );
   public get targetCapacitySpecification() {
     return this._targetCapacitySpecification;
   }
-  public putTargetCapacitySpecification(value: Ec2FleetTargetCapacitySpecification) {
+  public putTargetCapacitySpecification(
+    value: Ec2FleetTargetCapacitySpecification,
+  ) {
     this._targetCapacitySpecification.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3423,7 +3983,7 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Ec2FleetTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new Ec2FleetTimeoutsOutputReference(this, 'timeouts');
   public get timeouts() {
     return this._timeouts;
   }
@@ -3445,24 +4005,45 @@ export class Ec2Fleet extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       context: cdktf.stringToTerraform(this._context),
-      excess_capacity_termination_policy: cdktf.stringToTerraform(this._excessCapacityTerminationPolicy),
+      excess_capacity_termination_policy: cdktf.stringToTerraform(
+        this._excessCapacityTerminationPolicy,
+      ),
       fleet_state: cdktf.stringToTerraform(this._fleetState),
       fulfilled_capacity: cdktf.numberToTerraform(this._fulfilledCapacity),
-      fulfilled_on_demand_capacity: cdktf.numberToTerraform(this._fulfilledOnDemandCapacity),
+      fulfilled_on_demand_capacity: cdktf.numberToTerraform(
+        this._fulfilledOnDemandCapacity,
+      ),
       id: cdktf.stringToTerraform(this._id),
-      replace_unhealthy_instances: cdktf.booleanToTerraform(this._replaceUnhealthyInstances),
+      replace_unhealthy_instances: cdktf.booleanToTerraform(
+        this._replaceUnhealthyInstances,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       terminate_instances: cdktf.booleanToTerraform(this._terminateInstances),
-      terminate_instances_with_expiration: cdktf.booleanToTerraform(this._terminateInstancesWithExpiration),
+      terminate_instances_with_expiration: cdktf.booleanToTerraform(
+        this._terminateInstancesWithExpiration,
+      ),
       type: cdktf.stringToTerraform(this._type),
       valid_from: cdktf.stringToTerraform(this._validFrom),
       valid_until: cdktf.stringToTerraform(this._validUntil),
-      fleet_instance_set: cdktf.listMapper(ec2FleetFleetInstanceSetToTerraform, true)(this._fleetInstanceSet.internalValue),
-      launch_template_config: cdktf.listMapper(ec2FleetLaunchTemplateConfigToTerraform, true)(this._launchTemplateConfig.internalValue),
-      on_demand_options: ec2FleetOnDemandOptionsToTerraform(this._onDemandOptions.internalValue),
-      spot_options: ec2FleetSpotOptionsToTerraform(this._spotOptions.internalValue),
-      target_capacity_specification: ec2FleetTargetCapacitySpecificationToTerraform(this._targetCapacitySpecification.internalValue),
+      fleet_instance_set: cdktf.listMapper(
+        ec2FleetFleetInstanceSetToTerraform,
+        true,
+      )(this._fleetInstanceSet.internalValue),
+      launch_template_config: cdktf.listMapper(
+        ec2FleetLaunchTemplateConfigToTerraform,
+        true,
+      )(this._launchTemplateConfig.internalValue),
+      on_demand_options: ec2FleetOnDemandOptionsToTerraform(
+        this._onDemandOptions.internalValue,
+      ),
+      spot_options: ec2FleetSpotOptionsToTerraform(
+        this._spotOptions.internalValue,
+      ),
+      target_capacity_specification:
+        ec2FleetTargetCapacitySpecificationToTerraform(
+          this._targetCapacitySpecification.internalValue,
+        ),
       timeouts: ec2FleetTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

@@ -1,15 +1,12 @@
-import { ResourceOutputs } from '../../../@resources/index.js';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.js';
-import { TerraformResourceService } from '../../terraform.service.js';
-import { KubernetesCredentials } from '../credentials.js';
-import { KubernetesDeploymentModule } from '../modules/deployment.js';
-import { KubernetesNamespaceService } from './namespace.js';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesDeploymentModule } from '../modules/deployment.ts';
+import { KubernetesNamespaceService } from './namespace.ts';
 import k8s from '@kubernetes/client-node';
 
-export class KubernetesDeploymentService extends TerraformResourceService<
-  'deployment',
-  KubernetesCredentials
-> {
+export class KubernetesDeploymentService extends TerraformResourceService<'deployment', KubernetesCredentials> {
   private _client?: k8s.AppsV1Api;
 
   constructor(private readonly credentials: KubernetesCredentials) {
@@ -43,10 +40,7 @@ export class KubernetesDeploymentService extends TerraformResourceService<
     }
 
     try {
-      const { body } = await this.client.readNamespacedDeployment(
-        match[1],
-        match[0],
-      );
+      const { body } = await this.client.readNamespacedDeployment(match[1], match[0]);
 
       if (!body.metadata?.name) {
         throw new Error('Deployment exists, but is malformatted.');

@@ -1,85 +1,88 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
-export interface AppconfigDeploymentStrategyConfig extends cdktf.TerraformMetaArguments {
+export interface AppconfigDeploymentStrategyConfig
+  extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#deployment_duration_in_minutes AppconfigDeploymentStrategy#deployment_duration_in_minutes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#deployment_duration_in_minutes AppconfigDeploymentStrategy#deployment_duration_in_minutes}
+   */
   readonly deploymentDurationInMinutes: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#description AppconfigDeploymentStrategy#description}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#description AppconfigDeploymentStrategy#description}
+   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#final_bake_time_in_minutes AppconfigDeploymentStrategy#final_bake_time_in_minutes}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#final_bake_time_in_minutes AppconfigDeploymentStrategy#final_bake_time_in_minutes}
+   */
   readonly finalBakeTimeInMinutes?: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#growth_factor AppconfigDeploymentStrategy#growth_factor}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#growth_factor AppconfigDeploymentStrategy#growth_factor}
+   */
   readonly growthFactor: number;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#growth_type AppconfigDeploymentStrategy#growth_type}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#growth_type AppconfigDeploymentStrategy#growth_type}
+   */
   readonly growthType?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#id AppconfigDeploymentStrategy#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#id AppconfigDeploymentStrategy#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#name AppconfigDeploymentStrategy#name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#name AppconfigDeploymentStrategy#name}
+   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#replicate_to AppconfigDeploymentStrategy#replicate_to}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#replicate_to AppconfigDeploymentStrategy#replicate_to}
+   */
   readonly replicateTo: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#tags AppconfigDeploymentStrategy#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#tags AppconfigDeploymentStrategy#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#tags_all AppconfigDeploymentStrategy#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy#tags_all AppconfigDeploymentStrategy#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy aws_appconfig_deployment_strategy}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy aws_appconfig_deployment_strategy}
+ */
 export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_appconfig_deployment_strategy";
+  public static readonly tfResourceType = 'aws_appconfig_deployment_strategy';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy aws_appconfig_deployment_strategy} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options AppconfigDeploymentStrategyConfig
-  */
-  public constructor(scope: Construct, id: string, config: AppconfigDeploymentStrategyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appconfig_deployment_strategy aws_appconfig_deployment_strategy} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options AppconfigDeploymentStrategyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: AppconfigDeploymentStrategyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_appconfig_deployment_strategy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -87,7 +90,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._deploymentDurationInMinutes = config.deploymentDurationInMinutes;
     this._description = config.description;
@@ -111,7 +114,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // deployment_duration_in_minutes - computed: false, optional: false, required: true
-  private _deploymentDurationInMinutes?: number; 
+  private _deploymentDurationInMinutes?: number;
   public get deploymentDurationInMinutes() {
     return this.getNumberAttribute('deployment_duration_in_minutes');
   }
@@ -124,7 +127,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string; 
+  private _description?: string;
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -140,7 +143,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // final_bake_time_in_minutes - computed: false, optional: true, required: false
-  private _finalBakeTimeInMinutes?: number; 
+  private _finalBakeTimeInMinutes?: number;
   public get finalBakeTimeInMinutes() {
     return this.getNumberAttribute('final_bake_time_in_minutes');
   }
@@ -156,7 +159,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // growth_factor - computed: false, optional: false, required: true
-  private _growthFactor?: number; 
+  private _growthFactor?: number;
   public get growthFactor() {
     return this.getNumberAttribute('growth_factor');
   }
@@ -169,7 +172,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // growth_type - computed: false, optional: true, required: false
-  private _growthType?: string; 
+  private _growthType?: string;
   public get growthType() {
     return this.getStringAttribute('growth_type');
   }
@@ -185,7 +188,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -201,7 +204,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string; 
+  private _name?: string;
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -214,7 +217,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // replicate_to - computed: false, optional: false, required: true
-  private _replicateTo?: string; 
+  private _replicateTo?: string;
   public get replicateTo() {
     return this.getStringAttribute('replicate_to');
   }
@@ -227,7 +230,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -243,7 +246,7 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -264,9 +267,13 @@ export class AppconfigDeploymentStrategy extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      deployment_duration_in_minutes: cdktf.numberToTerraform(this._deploymentDurationInMinutes),
+      deployment_duration_in_minutes: cdktf.numberToTerraform(
+        this._deploymentDurationInMinutes,
+      ),
       description: cdktf.stringToTerraform(this._description),
-      final_bake_time_in_minutes: cdktf.numberToTerraform(this._finalBakeTimeInMinutes),
+      final_bake_time_in_minutes: cdktf.numberToTerraform(
+        this._finalBakeTimeInMinutes,
+      ),
       growth_factor: cdktf.numberToTerraform(this._growthFactor),
       growth_type: cdktf.stringToTerraform(this._growthType),
       id: cdktf.stringToTerraform(this._id),

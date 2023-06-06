@@ -1,81 +1,89 @@
 // https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy
 // generated from terraform resource schema
-
-import { Construct } from 'constructs';
 import * as cdktf from 'cdktf';
+import { Construct } from 'constructs';
 
 // Configuration
 
 export interface DbSnapshotCopyConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#copy_tags DbSnapshotCopy#copy_tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#copy_tags DbSnapshotCopy#copy_tags}
+   */
   readonly copyTags?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#destination_region DbSnapshotCopy#destination_region}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#destination_region DbSnapshotCopy#destination_region}
+   */
   readonly destinationRegion?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#id DbSnapshotCopy#id}
-  *
-  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#id DbSnapshotCopy#id}
+   *
+   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#kms_key_id DbSnapshotCopy#kms_key_id}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#kms_key_id DbSnapshotCopy#kms_key_id}
+   */
   readonly kmsKeyId?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#option_group_name DbSnapshotCopy#option_group_name}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#option_group_name DbSnapshotCopy#option_group_name}
+   */
   readonly optionGroupName?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#presigned_url DbSnapshotCopy#presigned_url}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#presigned_url DbSnapshotCopy#presigned_url}
+   */
   readonly presignedUrl?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#source_db_snapshot_identifier DbSnapshotCopy#source_db_snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#source_db_snapshot_identifier DbSnapshotCopy#source_db_snapshot_identifier}
+   */
   readonly sourceDbSnapshotIdentifier: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#tags DbSnapshotCopy#tags}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#tags DbSnapshotCopy#tags}
+   */
   readonly tags?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#tags_all DbSnapshotCopy#tags_all}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#tags_all DbSnapshotCopy#tags_all}
+   */
   readonly tagsAll?: { [key: string]: string };
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#target_custom_availability_zone DbSnapshotCopy#target_custom_availability_zone}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#target_custom_availability_zone DbSnapshotCopy#target_custom_availability_zone}
+   */
   readonly targetCustomAvailabilityZone?: string;
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#target_db_snapshot_identifier DbSnapshotCopy#target_db_snapshot_identifier}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#target_db_snapshot_identifier DbSnapshotCopy#target_db_snapshot_identifier}
+   */
   readonly targetDbSnapshotIdentifier: string;
   /**
-  * timeouts block
-  * 
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#timeouts DbSnapshotCopy#timeouts}
-  */
+   * timeouts block
+   *
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#timeouts DbSnapshotCopy#timeouts}
+   */
   readonly timeouts?: DbSnapshotCopyTimeouts;
 }
 export interface DbSnapshotCopyTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#create DbSnapshotCopy#create}
-  */
+   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy#create DbSnapshotCopy#create}
+   */
   readonly create?: string;
 }
 
-export function dbSnapshotCopyTimeoutsToTerraform(struct?: DbSnapshotCopyTimeoutsOutputReference | DbSnapshotCopyTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
+export function dbSnapshotCopyTimeoutsToTerraform(
+  struct?:
+    | DbSnapshotCopyTimeoutsOutputReference
+    | DbSnapshotCopyTimeouts
+    | cdktf.IResolvable,
+): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
+    return struct;
+  }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+    throw new Error(
+      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
+    );
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  }
+  };
 }
 
 export class DbSnapshotCopyTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -83,14 +91,20 @@ export class DbSnapshotCopyTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-  * @param terraformResource The parent resource
-  * @param terraformAttribute The attribute on the parent resource this class is referencing
-  */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+   * @param terraformResource The parent resource
+   * @param terraformAttribute The attribute on the parent resource this class is referencing
+   */
+  public constructor(
+    terraformResource: cdktf.IInterpolatingParent,
+    terraformAttribute: string,
+  ) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue(): DbSnapshotCopyTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue():
+    | DbSnapshotCopyTimeouts
+    | cdktf.IResolvable
+    | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -103,17 +117,17 @@ export class DbSnapshotCopyTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: DbSnapshotCopyTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(
+    value: DbSnapshotCopyTimeouts | cdktf.IResolvable | undefined,
+  ) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    } else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    }
-    else {
+    } else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -121,7 +135,7 @@ export class DbSnapshotCopyTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string; 
+  private _create?: string;
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -138,33 +152,36 @@ export class DbSnapshotCopyTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy aws_db_snapshot_copy}
-*/
+ * Represents a {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy aws_db_snapshot_copy}
+ */
 export class DbSnapshotCopy extends cdktf.TerraformResource {
-
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = "aws_db_snapshot_copy";
+  public static readonly tfResourceType = 'aws_db_snapshot_copy';
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy aws_db_snapshot_copy} Resource
-  *
-  * @param scope The scope in which to define this construct
-  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-  * @param options DbSnapshotCopyConfig
-  */
-  public constructor(scope: Construct, id: string, config: DbSnapshotCopyConfig) {
+   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/db_snapshot_copy aws_db_snapshot_copy} Resource
+   *
+   * @param scope The scope in which to define this construct
+   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+   * @param options DbSnapshotCopyConfig
+   */
+  public constructor(
+    scope: Construct,
+    id: string,
+    config: DbSnapshotCopyConfig,
+  ) {
     super(scope, id, {
       terraformResourceType: 'aws_db_snapshot_copy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0'
+        providerVersionConstraint: '4.61.0',
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -172,7 +189,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach
+      forEach: config.forEach,
     });
     this._copyTags = config.copyTags;
     this._destinationRegion = config.destinationRegion;
@@ -203,7 +220,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // copy_tags - computed: false, optional: true, required: false
-  private _copyTags?: boolean | cdktf.IResolvable; 
+  private _copyTags?: boolean | cdktf.IResolvable;
   public get copyTags() {
     return this.getBooleanAttribute('copy_tags');
   }
@@ -224,7 +241,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // destination_region - computed: false, optional: true, required: false
-  private _destinationRegion?: string; 
+  private _destinationRegion?: string;
   public get destinationRegion() {
     return this.getStringAttribute('destination_region');
   }
@@ -255,7 +272,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string; 
+  private _id?: string;
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -276,7 +293,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string; 
+  private _kmsKeyId?: string;
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -297,7 +314,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // option_group_name - computed: true, optional: true, required: false
-  private _optionGroupName?: string; 
+  private _optionGroupName?: string;
   public get optionGroupName() {
     return this.getStringAttribute('option_group_name');
   }
@@ -318,7 +335,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // presigned_url - computed: false, optional: true, required: false
-  private _presignedUrl?: string; 
+  private _presignedUrl?: string;
   public get presignedUrl() {
     return this.getStringAttribute('presigned_url');
   }
@@ -339,7 +356,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // source_db_snapshot_identifier - computed: false, optional: false, required: true
-  private _sourceDbSnapshotIdentifier?: string; 
+  private _sourceDbSnapshotIdentifier?: string;
   public get sourceDbSnapshotIdentifier() {
     return this.getStringAttribute('source_db_snapshot_identifier');
   }
@@ -362,7 +379,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string }; 
+  private _tags?: { [key: string]: string };
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -378,7 +395,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string }; 
+  private _tagsAll?: { [key: string]: string };
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -394,7 +411,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // target_custom_availability_zone - computed: false, optional: true, required: false
-  private _targetCustomAvailabilityZone?: string; 
+  private _targetCustomAvailabilityZone?: string;
   public get targetCustomAvailabilityZone() {
     return this.getStringAttribute('target_custom_availability_zone');
   }
@@ -410,7 +427,7 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // target_db_snapshot_identifier - computed: false, optional: false, required: true
-  private _targetDbSnapshotIdentifier?: string; 
+  private _targetDbSnapshotIdentifier?: string;
   public get targetDbSnapshotIdentifier() {
     return this.getStringAttribute('target_db_snapshot_identifier');
   }
@@ -428,7 +445,10 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DbSnapshotCopyTimeoutsOutputReference(this, "timeouts");
+  private _timeouts = new DbSnapshotCopyTimeoutsOutputReference(
+    this,
+    'timeouts',
+  );
   public get timeouts() {
     return this._timeouts;
   }
@@ -455,11 +475,17 @@ export class DbSnapshotCopy extends cdktf.TerraformResource {
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
       option_group_name: cdktf.stringToTerraform(this._optionGroupName),
       presigned_url: cdktf.stringToTerraform(this._presignedUrl),
-      source_db_snapshot_identifier: cdktf.stringToTerraform(this._sourceDbSnapshotIdentifier),
+      source_db_snapshot_identifier: cdktf.stringToTerraform(
+        this._sourceDbSnapshotIdentifier,
+      ),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      target_custom_availability_zone: cdktf.stringToTerraform(this._targetCustomAvailabilityZone),
-      target_db_snapshot_identifier: cdktf.stringToTerraform(this._targetDbSnapshotIdentifier),
+      target_custom_availability_zone: cdktf.stringToTerraform(
+        this._targetCustomAvailabilityZone,
+      ),
+      target_db_snapshot_identifier: cdktf.stringToTerraform(
+        this._targetDbSnapshotIdentifier,
+      ),
       timeouts: dbSnapshotCopyTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

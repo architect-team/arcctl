@@ -1,96 +1,86 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_script
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface GameliftScriptConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#id GameliftScript#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#id GameliftScript#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#name GameliftScript#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#name GameliftScript#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#tags GameliftScript#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#tags GameliftScript#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#tags_all GameliftScript#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#tags_all GameliftScript#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#version GameliftScript#version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#version GameliftScript#version}
+  */
   readonly version?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#zip_file GameliftScript#zip_file}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#zip_file GameliftScript#zip_file}
+  */
   readonly zipFile?: string;
   /**
-   * storage_location block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#storage_location GameliftScript#storage_location}
-   */
+  * storage_location block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#storage_location GameliftScript#storage_location}
+  */
   readonly storageLocation?: GameliftScriptStorageLocation;
 }
 export interface GameliftScriptStorageLocation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#bucket GameliftScript#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#bucket GameliftScript#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#key GameliftScript#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#key GameliftScript#key}
+  */
   readonly key: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#object_version GameliftScript#object_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#object_version GameliftScript#object_version}
+  */
   readonly objectVersion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#role_arn GameliftScript#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script#role_arn GameliftScript#role_arn}
+  */
   readonly roleArn: string;
 }
 
-export function gameliftScriptStorageLocationToTerraform(
-  struct?:
-    | GameliftScriptStorageLocationOutputReference
-    | GameliftScriptStorageLocation,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftScriptStorageLocationToTerraform(struct?: GameliftScriptStorageLocationOutputReference | GameliftScriptStorageLocation): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     key: cdktf.stringToTerraform(struct!.key),
     object_version: cdktf.stringToTerraform(struct!.objectVersion),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
-  };
+  }
 }
 
 export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -123,7 +113,8 @@ export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexO
       this._key = undefined;
       this._objectVersion = undefined;
       this._roleArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._key = value.key;
@@ -133,7 +124,7 @@ export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexO
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -146,7 +137,7 @@ export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexO
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -159,7 +150,7 @@ export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexO
   }
 
   // object_version - computed: false, optional: true, required: false
-  private _objectVersion?: string;
+  private _objectVersion?: string; 
   public get objectVersion() {
     return this.getStringAttribute('object_version');
   }
@@ -175,7 +166,7 @@ export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexO
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -189,36 +180,33 @@ export class GameliftScriptStorageLocationOutputReference extends cdktf.ComplexO
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script aws_gamelift_script}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script aws_gamelift_script}
+*/
 export class GameliftScript extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_gamelift_script';
+  public static readonly tfResourceType = "aws_gamelift_script";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script aws_gamelift_script} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GameliftScriptConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GameliftScriptConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/gamelift_script aws_gamelift_script} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GameliftScriptConfig
+  */
+  public constructor(scope: Construct, id: string, config: GameliftScriptConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_gamelift_script',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -226,7 +214,7 @@ export class GameliftScript extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -247,7 +235,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -263,7 +251,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -276,7 +264,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -292,7 +280,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -308,7 +296,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string;
+  private _version?: string; 
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -324,7 +312,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // zip_file - computed: false, optional: true, required: false
-  private _zipFile?: string;
+  private _zipFile?: string; 
   public get zipFile() {
     return this.getStringAttribute('zip_file');
   }
@@ -340,10 +328,7 @@ export class GameliftScript extends cdktf.TerraformResource {
   }
 
   // storage_location - computed: false, optional: true, required: false
-  private _storageLocation = new GameliftScriptStorageLocationOutputReference(
-    this,
-    'storage_location',
-  );
+  private _storageLocation = new GameliftScriptStorageLocationOutputReference(this, "storage_location");
   public get storageLocation() {
     return this._storageLocation;
   }
@@ -370,9 +355,7 @@ export class GameliftScript extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       version: cdktf.stringToTerraform(this._version),
       zip_file: cdktf.stringToTerraform(this._zipFile),
-      storage_location: gameliftScriptStorageLocationToTerraform(
-        this._storageLocation.internalValue,
-      ),
+      storage_location: gameliftScriptStorageLocationToTerraform(this._storageLocation.internalValue),
     };
   }
 }

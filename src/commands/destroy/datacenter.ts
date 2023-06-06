@@ -15,7 +15,7 @@ type DestroyDatacenterOptions = {
 
 const DestroyDatacenterCommand = BaseCommand()
   .description('Destroy a datacenter and all the environments managed by it')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
   .arguments('[name:string]')
   .action(destroy_datacenter_action);

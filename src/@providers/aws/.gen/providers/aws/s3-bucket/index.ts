@@ -1,172 +1,155 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface S3BucketConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#acceleration_status S3Bucket#acceleration_status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#acceleration_status S3Bucket#acceleration_status}
+  */
   readonly accelerationStatus?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#acl S3Bucket#acl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#acl S3Bucket#acl}
+  */
   readonly acl?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket S3Bucket#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket S3Bucket#bucket}
+  */
   readonly bucket?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket_prefix S3Bucket#bucket_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket_prefix S3Bucket#bucket_prefix}
+  */
   readonly bucketPrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#force_destroy S3Bucket#force_destroy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#force_destroy S3Bucket#force_destroy}
+  */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_enabled S3Bucket#object_lock_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_enabled S3Bucket#object_lock_enabled}
+  */
   readonly objectLockEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#policy S3Bucket#policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#policy S3Bucket#policy}
+  */
   readonly policy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#request_payer S3Bucket#request_payer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#request_payer S3Bucket#request_payer}
+  */
   readonly requestPayer?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags S3Bucket#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags S3Bucket#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags_all S3Bucket#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags_all S3Bucket#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * cors_rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#cors_rule S3Bucket#cors_rule}
-   */
+  * cors_rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#cors_rule S3Bucket#cors_rule}
+  */
   readonly corsRule?: S3BucketCorsRule[] | cdktf.IResolvable;
   /**
-   * grant block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#grant S3Bucket#grant}
-   */
+  * grant block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#grant S3Bucket#grant}
+  */
   readonly grant?: S3BucketGrant[] | cdktf.IResolvable;
   /**
-   * lifecycle_rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#lifecycle_rule S3Bucket#lifecycle_rule}
-   */
+  * lifecycle_rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#lifecycle_rule S3Bucket#lifecycle_rule}
+  */
   readonly lifecycleRule?: S3BucketLifecycleRule[] | cdktf.IResolvable;
   /**
-   * logging block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#logging S3Bucket#logging}
-   */
+  * logging block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#logging S3Bucket#logging}
+  */
   readonly logging?: S3BucketLogging;
   /**
-   * object_lock_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_configuration S3Bucket#object_lock_configuration}
-   */
+  * object_lock_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_configuration S3Bucket#object_lock_configuration}
+  */
   readonly objectLockConfiguration?: S3BucketObjectLockConfiguration;
   /**
-   * replication_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replication_configuration S3Bucket#replication_configuration}
-   */
+  * replication_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replication_configuration S3Bucket#replication_configuration}
+  */
   readonly replicationConfiguration?: S3BucketReplicationConfiguration;
   /**
-   * server_side_encryption_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#server_side_encryption_configuration S3Bucket#server_side_encryption_configuration}
-   */
+  * server_side_encryption_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#server_side_encryption_configuration S3Bucket#server_side_encryption_configuration}
+  */
   readonly serverSideEncryptionConfiguration?: S3BucketServerSideEncryptionConfiguration;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#timeouts S3Bucket#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#timeouts S3Bucket#timeouts}
+  */
   readonly timeouts?: S3BucketTimeouts;
   /**
-   * versioning block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#versioning S3Bucket#versioning}
-   */
+  * versioning block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#versioning S3Bucket#versioning}
+  */
   readonly versioning?: S3BucketVersioning;
   /**
-   * website block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#website S3Bucket#website}
-   */
+  * website block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#website S3Bucket#website}
+  */
   readonly website?: S3BucketWebsite;
 }
 export interface S3BucketCorsRule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#allowed_headers S3Bucket#allowed_headers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#allowed_headers S3Bucket#allowed_headers}
+  */
   readonly allowedHeaders?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#allowed_methods S3Bucket#allowed_methods}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#allowed_methods S3Bucket#allowed_methods}
+  */
   readonly allowedMethods: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#allowed_origins S3Bucket#allowed_origins}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#allowed_origins S3Bucket#allowed_origins}
+  */
   readonly allowedOrigins: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expose_headers S3Bucket#expose_headers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expose_headers S3Bucket#expose_headers}
+  */
   readonly exposeHeaders?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#max_age_seconds S3Bucket#max_age_seconds}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#max_age_seconds S3Bucket#max_age_seconds}
+  */
   readonly maxAgeSeconds?: number;
 }
 
-export function s3BucketCorsRuleToTerraform(
-  struct?: S3BucketCorsRule | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketCorsRuleToTerraform(struct?: S3BucketCorsRule | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    allowed_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedHeaders),
-    allowed_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedMethods),
-    allowed_origins: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedOrigins),
-    expose_headers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.exposeHeaders),
+    allowed_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedHeaders),
+    allowed_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedMethods),
+    allowed_origins: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedOrigins),
+    expose_headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.exposeHeaders),
     max_age_seconds: cdktf.numberToTerraform(struct!.maxAgeSeconds),
-  };
+  }
 }
 
 export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
@@ -174,23 +157,13 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): S3BucketCorsRule | cdktf.IResolvable | undefined {
@@ -222,9 +195,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketCorsRule | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: S3BucketCorsRule | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -233,10 +204,12 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
       this._allowedOrigins = undefined;
       this._exposeHeaders = undefined;
       this._maxAgeSeconds = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._allowedHeaders = value.allowedHeaders;
@@ -248,7 +221,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_headers - computed: false, optional: true, required: false
-  private _allowedHeaders?: string[];
+  private _allowedHeaders?: string[]; 
   public get allowedHeaders() {
     return this.getListAttribute('allowed_headers');
   }
@@ -264,7 +237,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[];
+  private _allowedMethods?: string[]; 
   public get allowedMethods() {
     return this.getListAttribute('allowed_methods');
   }
@@ -277,7 +250,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // allowed_origins - computed: false, optional: false, required: true
-  private _allowedOrigins?: string[];
+  private _allowedOrigins?: string[]; 
   public get allowedOrigins() {
     return this.getListAttribute('allowed_origins');
   }
@@ -290,7 +263,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // expose_headers - computed: false, optional: true, required: false
-  private _exposeHeaders?: string[];
+  private _exposeHeaders?: string[]; 
   public get exposeHeaders() {
     return this.getListAttribute('expose_headers');
   }
@@ -306,7 +279,7 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // max_age_seconds - computed: false, optional: true, required: false
-  private _maxAgeSeconds?: number;
+  private _maxAgeSeconds?: number; 
   public get maxAgeSeconds() {
     return this.getNumberAttribute('max_age_seconds');
   }
@@ -323,75 +296,57 @@ export class S3BucketCorsRuleOutputReference extends cdktf.ComplexObject {
 }
 
 export class S3BucketCorsRuleList extends cdktf.ComplexList {
-  public internalValue?: S3BucketCorsRule[] | cdktf.IResolvable;
+  public internalValue? : S3BucketCorsRule[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): S3BucketCorsRuleOutputReference {
-    return new S3BucketCorsRuleOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new S3BucketCorsRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketGrant {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#permissions S3Bucket#permissions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#permissions S3Bucket#permissions}
+  */
   readonly permissions: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#type S3Bucket#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#type S3Bucket#type}
+  */
   readonly type: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#uri S3Bucket#uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#uri S3Bucket#uri}
+  */
   readonly uri?: string;
 }
 
-export function s3BucketGrantToTerraform(
-  struct?: S3BucketGrant | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketGrantToTerraform(struct?: S3BucketGrant | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
-    permissions: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.permissions),
+    permissions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.permissions),
     type: cdktf.stringToTerraform(struct!.type),
     uri: cdktf.stringToTerraform(struct!.uri),
-  };
+  }
 }
 
 export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
@@ -399,23 +354,13 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): S3BucketGrant | cdktf.IResolvable | undefined {
@@ -443,9 +388,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketGrant | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: S3BucketGrant | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -453,10 +396,12 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
       this._permissions = undefined;
       this._type = undefined;
       this._uri = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._id = value.id;
@@ -467,7 +412,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -483,7 +428,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // permissions - computed: false, optional: false, required: true
-  private _permissions?: string[];
+  private _permissions?: string[]; 
   public get permissions() {
     return cdktf.Fn.tolist(this.getListAttribute('permissions'));
   }
@@ -496,7 +441,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -509,7 +454,7 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string;
+  private _uri?: string; 
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -526,81 +471,59 @@ export class S3BucketGrantOutputReference extends cdktf.ComplexObject {
 }
 
 export class S3BucketGrantList extends cdktf.ComplexList {
-  public internalValue?: S3BucketGrant[] | cdktf.IResolvable;
+  public internalValue? : S3BucketGrant[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): S3BucketGrantOutputReference {
-    return new S3BucketGrantOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new S3BucketGrantOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketLifecycleRuleExpiration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#date S3Bucket#date}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#date S3Bucket#date}
+  */
   readonly date?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
+  */
   readonly days?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expired_object_delete_marker S3Bucket#expired_object_delete_marker}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expired_object_delete_marker S3Bucket#expired_object_delete_marker}
+  */
   readonly expiredObjectDeleteMarker?: boolean | cdktf.IResolvable;
 }
 
-export function s3BucketLifecycleRuleExpirationToTerraform(
-  struct?:
-    | S3BucketLifecycleRuleExpirationOutputReference
-    | S3BucketLifecycleRuleExpiration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketLifecycleRuleExpirationToTerraform(struct?: S3BucketLifecycleRuleExpirationOutputReference | S3BucketLifecycleRuleExpiration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     date: cdktf.stringToTerraform(struct!.date),
     days: cdktf.numberToTerraform(struct!.days),
-    expired_object_delete_marker: cdktf.booleanToTerraform(
-      struct!.expiredObjectDeleteMarker,
-    ),
-  };
+    expired_object_delete_marker: cdktf.booleanToTerraform(struct!.expiredObjectDeleteMarker),
+  }
 }
 
 export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -617,8 +540,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
     }
     if (this._expiredObjectDeleteMarker !== undefined) {
       hasAnyValues = true;
-      internalValueResult.expiredObjectDeleteMarker =
-        this._expiredObjectDeleteMarker;
+      internalValueResult.expiredObjectDeleteMarker = this._expiredObjectDeleteMarker;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -629,7 +551,8 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
       this._date = undefined;
       this._days = undefined;
       this._expiredObjectDeleteMarker = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._date = value.date;
       this._days = value.days;
@@ -638,7 +561,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
   }
 
   // date - computed: false, optional: true, required: false
-  private _date?: string;
+  private _date?: string; 
   public get date() {
     return this.getStringAttribute('date');
   }
@@ -654,7 +577,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number;
+  private _days?: number; 
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -670,7 +593,7 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
   }
 
   // expired_object_delete_marker - computed: false, optional: true, required: false
-  private _expiredObjectDeleteMarker?: boolean | cdktf.IResolvable;
+  private _expiredObjectDeleteMarker?: boolean | cdktf.IResolvable; 
   public get expiredObjectDeleteMarker() {
     return this.getBooleanAttribute('expired_object_delete_marker');
   }
@@ -687,46 +610,33 @@ export class S3BucketLifecycleRuleExpirationOutputReference extends cdktf.Comple
 }
 export interface S3BucketLifecycleRuleNoncurrentVersionExpiration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
+  */
   readonly days?: number;
 }
 
-export function s3BucketLifecycleRuleNoncurrentVersionExpirationToTerraform(
-  struct?:
-    | S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference
-    | S3BucketLifecycleRuleNoncurrentVersionExpiration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketLifecycleRuleNoncurrentVersionExpirationToTerraform(struct?: S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference | S3BucketLifecycleRuleNoncurrentVersionExpiration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     days: cdktf.numberToTerraform(struct!.days),
-  };
+  }
 }
 
 export class S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketLifecycleRuleNoncurrentVersionExpiration
-    | undefined {
+  public get internalValue(): S3BucketLifecycleRuleNoncurrentVersionExpiration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._days !== undefined) {
@@ -736,20 +646,19 @@ export class S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketLifecycleRuleNoncurrentVersionExpiration | undefined,
-  ) {
+  public set internalValue(value: S3BucketLifecycleRuleNoncurrentVersionExpiration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._days = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._days = value.days;
     }
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number;
+  private _days?: number; 
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -766,30 +675,24 @@ export class S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference ext
 }
 export interface S3BucketLifecycleRuleNoncurrentVersionTransition {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
+  */
   readonly days?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#storage_class S3Bucket#storage_class}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#storage_class S3Bucket#storage_class}
+  */
   readonly storageClass: string;
 }
 
-export function s3BucketLifecycleRuleNoncurrentVersionTransitionToTerraform(
-  struct?: S3BucketLifecycleRuleNoncurrentVersionTransition | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketLifecycleRuleNoncurrentVersionTransitionToTerraform(struct?: S3BucketLifecycleRuleNoncurrentVersionTransition | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     days: cdktf.numberToTerraform(struct!.days),
     storage_class: cdktf.stringToTerraform(struct!.storageClass),
-  };
+  }
 }
 
 export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference extends cdktf.ComplexObject {
@@ -797,29 +700,16 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | S3BucketLifecycleRuleNoncurrentVersionTransition
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3BucketLifecycleRuleNoncurrentVersionTransition | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -836,21 +726,18 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketLifecycleRuleNoncurrentVersionTransition
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketLifecycleRuleNoncurrentVersionTransition | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._days = undefined;
       this._storageClass = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._days = value.days;
@@ -859,7 +746,7 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number;
+  private _days?: number; 
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -875,7 +762,7 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
   }
 
   // storage_class - computed: false, optional: false, required: true
-  private _storageClass?: string;
+  private _storageClass?: string; 
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -889,68 +776,49 @@ export class S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference ext
 }
 
 export class S3BucketLifecycleRuleNoncurrentVersionTransitionList extends cdktf.ComplexList {
-  public internalValue?:
-    | S3BucketLifecycleRuleNoncurrentVersionTransition[]
-    | cdktf.IResolvable;
+  public internalValue? : S3BucketLifecycleRuleNoncurrentVersionTransition[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference {
-    return new S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference {
+    return new S3BucketLifecycleRuleNoncurrentVersionTransitionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketLifecycleRuleTransition {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#date S3Bucket#date}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#date S3Bucket#date}
+  */
   readonly date?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
+  */
   readonly days?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#storage_class S3Bucket#storage_class}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#storage_class S3Bucket#storage_class}
+  */
   readonly storageClass: string;
 }
 
-export function s3BucketLifecycleRuleTransitionToTerraform(
-  struct?: S3BucketLifecycleRuleTransition | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketLifecycleRuleTransitionToTerraform(struct?: S3BucketLifecycleRuleTransition | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     date: cdktf.stringToTerraform(struct!.date),
     days: cdktf.numberToTerraform(struct!.days),
     storage_class: cdktf.stringToTerraform(struct!.storageClass),
-  };
+  }
 }
 
 export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.ComplexObject {
@@ -958,29 +826,16 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | S3BucketLifecycleRuleTransition
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3BucketLifecycleRuleTransition | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1001,19 +856,19 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketLifecycleRuleTransition | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: S3BucketLifecycleRuleTransition | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._date = undefined;
       this._days = undefined;
       this._storageClass = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._date = value.date;
@@ -1023,7 +878,7 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   }
 
   // date - computed: false, optional: true, required: false
-  private _date?: string;
+  private _date?: string; 
   public get date() {
     return this.getStringAttribute('date');
   }
@@ -1039,7 +894,7 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number;
+  private _days?: number; 
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -1055,7 +910,7 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
   }
 
   // storage_class - computed: false, optional: false, required: true
-  private _storageClass?: string;
+  private _storageClass?: string; 
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -1069,118 +924,90 @@ export class S3BucketLifecycleRuleTransitionOutputReference extends cdktf.Comple
 }
 
 export class S3BucketLifecycleRuleTransitionList extends cdktf.ComplexList {
-  public internalValue?: S3BucketLifecycleRuleTransition[] | cdktf.IResolvable;
+  public internalValue? : S3BucketLifecycleRuleTransition[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): S3BucketLifecycleRuleTransitionOutputReference {
-    return new S3BucketLifecycleRuleTransitionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new S3BucketLifecycleRuleTransitionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketLifecycleRule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#abort_incomplete_multipart_upload_days S3Bucket#abort_incomplete_multipart_upload_days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#abort_incomplete_multipart_upload_days S3Bucket#abort_incomplete_multipart_upload_days}
+  */
   readonly abortIncompleteMultipartUploadDays?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#enabled S3Bucket#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#enabled S3Bucket#enabled}
+  */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#prefix S3Bucket#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#prefix S3Bucket#prefix}
+  */
   readonly prefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags S3Bucket#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags S3Bucket#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * expiration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expiration S3Bucket#expiration}
-   */
+  * expiration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#expiration S3Bucket#expiration}
+  */
   readonly expiration?: S3BucketLifecycleRuleExpiration;
   /**
-   * noncurrent_version_expiration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#noncurrent_version_expiration S3Bucket#noncurrent_version_expiration}
-   */
+  * noncurrent_version_expiration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#noncurrent_version_expiration S3Bucket#noncurrent_version_expiration}
+  */
   readonly noncurrentVersionExpiration?: S3BucketLifecycleRuleNoncurrentVersionExpiration;
   /**
-   * noncurrent_version_transition block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#noncurrent_version_transition S3Bucket#noncurrent_version_transition}
-   */
-  readonly noncurrentVersionTransition?:
-    | S3BucketLifecycleRuleNoncurrentVersionTransition[]
-    | cdktf.IResolvable;
+  * noncurrent_version_transition block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#noncurrent_version_transition S3Bucket#noncurrent_version_transition}
+  */
+  readonly noncurrentVersionTransition?: S3BucketLifecycleRuleNoncurrentVersionTransition[] | cdktf.IResolvable;
   /**
-   * transition block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#transition S3Bucket#transition}
-   */
+  * transition block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#transition S3Bucket#transition}
+  */
   readonly transition?: S3BucketLifecycleRuleTransition[] | cdktf.IResolvable;
 }
 
-export function s3BucketLifecycleRuleToTerraform(
-  struct?: S3BucketLifecycleRule | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketLifecycleRuleToTerraform(struct?: S3BucketLifecycleRule | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    abort_incomplete_multipart_upload_days: cdktf.numberToTerraform(
-      struct!.abortIncompleteMultipartUploadDays,
-    ),
+    abort_incomplete_multipart_upload_days: cdktf.numberToTerraform(struct!.abortIncompleteMultipartUploadDays),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     id: cdktf.stringToTerraform(struct!.id),
     prefix: cdktf.stringToTerraform(struct!.prefix),
     tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
     expiration: s3BucketLifecycleRuleExpirationToTerraform(struct!.expiration),
-    noncurrent_version_expiration:
-      s3BucketLifecycleRuleNoncurrentVersionExpirationToTerraform(
-        struct!.noncurrentVersionExpiration,
-      ),
-    noncurrent_version_transition: cdktf.listMapper(
-      s3BucketLifecycleRuleNoncurrentVersionTransitionToTerraform,
-      true,
-    )(struct!.noncurrentVersionTransition),
-    transition: cdktf.listMapper(
-      s3BucketLifecycleRuleTransitionToTerraform,
-      true,
-    )(struct!.transition),
-  };
+    noncurrent_version_expiration: s3BucketLifecycleRuleNoncurrentVersionExpirationToTerraform(struct!.noncurrentVersionExpiration),
+    noncurrent_version_transition: cdktf.listMapper(s3BucketLifecycleRuleNoncurrentVersionTransitionToTerraform, true)(struct!.noncurrentVersionTransition),
+    transition: cdktf.listMapper(s3BucketLifecycleRuleTransitionToTerraform, true)(struct!.transition),
+  }
 }
 
 export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
@@ -1188,29 +1015,16 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | S3BucketLifecycleRule
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3BucketLifecycleRule | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1218,8 +1032,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
     const internalValueResult: any = {};
     if (this._abortIncompleteMultipartUploadDays !== undefined) {
       hasAnyValues = true;
-      internalValueResult.abortIncompleteMultipartUploadDays =
-        this._abortIncompleteMultipartUploadDays;
+      internalValueResult.abortIncompleteMultipartUploadDays = this._abortIncompleteMultipartUploadDays;
     }
     if (this._enabled !== undefined) {
       hasAnyValues = true;
@@ -1243,13 +1056,11 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
     }
     if (this._noncurrentVersionExpiration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.noncurrentVersionExpiration =
-        this._noncurrentVersionExpiration?.internalValue;
+      internalValueResult.noncurrentVersionExpiration = this._noncurrentVersionExpiration?.internalValue;
     }
     if (this._noncurrentVersionTransition?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.noncurrentVersionTransition =
-        this._noncurrentVersionTransition?.internalValue;
+      internalValueResult.noncurrentVersionTransition = this._noncurrentVersionTransition?.internalValue;
     }
     if (this._transition?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -1258,9 +1069,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketLifecycleRule | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: S3BucketLifecycleRule | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1273,29 +1082,28 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
       this._noncurrentVersionExpiration.internalValue = undefined;
       this._noncurrentVersionTransition.internalValue = undefined;
       this._transition.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
-      this._abortIncompleteMultipartUploadDays =
-        value.abortIncompleteMultipartUploadDays;
+      this._abortIncompleteMultipartUploadDays = value.abortIncompleteMultipartUploadDays;
       this._enabled = value.enabled;
       this._id = value.id;
       this._prefix = value.prefix;
       this._tags = value.tags;
       this._expiration.internalValue = value.expiration;
-      this._noncurrentVersionExpiration.internalValue =
-        value.noncurrentVersionExpiration;
-      this._noncurrentVersionTransition.internalValue =
-        value.noncurrentVersionTransition;
+      this._noncurrentVersionExpiration.internalValue = value.noncurrentVersionExpiration;
+      this._noncurrentVersionTransition.internalValue = value.noncurrentVersionTransition;
       this._transition.internalValue = value.transition;
     }
   }
 
   // abort_incomplete_multipart_upload_days - computed: false, optional: true, required: false
-  private _abortIncompleteMultipartUploadDays?: number;
+  private _abortIncompleteMultipartUploadDays?: number; 
   public get abortIncompleteMultipartUploadDays() {
     return this.getNumberAttribute('abort_incomplete_multipart_upload_days');
   }
@@ -1311,7 +1119,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1324,7 +1132,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1340,7 +1148,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -1356,7 +1164,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1372,10 +1180,7 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // expiration - computed: false, optional: true, required: false
-  private _expiration = new S3BucketLifecycleRuleExpirationOutputReference(
-    this,
-    'expiration',
-  );
+  private _expiration = new S3BucketLifecycleRuleExpirationOutputReference(this, "expiration");
   public get expiration() {
     return this._expiration;
   }
@@ -1391,17 +1196,11 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // noncurrent_version_expiration - computed: false, optional: true, required: false
-  private _noncurrentVersionExpiration =
-    new S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference(
-      this,
-      'noncurrent_version_expiration',
-    );
+  private _noncurrentVersionExpiration = new S3BucketLifecycleRuleNoncurrentVersionExpirationOutputReference(this, "noncurrent_version_expiration");
   public get noncurrentVersionExpiration() {
     return this._noncurrentVersionExpiration;
   }
-  public putNoncurrentVersionExpiration(
-    value: S3BucketLifecycleRuleNoncurrentVersionExpiration,
-  ) {
+  public putNoncurrentVersionExpiration(value: S3BucketLifecycleRuleNoncurrentVersionExpiration) {
     this._noncurrentVersionExpiration.internalValue = value;
   }
   public resetNoncurrentVersionExpiration() {
@@ -1413,20 +1212,11 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // noncurrent_version_transition - computed: false, optional: true, required: false
-  private _noncurrentVersionTransition =
-    new S3BucketLifecycleRuleNoncurrentVersionTransitionList(
-      this,
-      'noncurrent_version_transition',
-      true,
-    );
+  private _noncurrentVersionTransition = new S3BucketLifecycleRuleNoncurrentVersionTransitionList(this, "noncurrent_version_transition", true);
   public get noncurrentVersionTransition() {
     return this._noncurrentVersionTransition;
   }
-  public putNoncurrentVersionTransition(
-    value:
-      | S3BucketLifecycleRuleNoncurrentVersionTransition[]
-      | cdktf.IResolvable,
-  ) {
+  public putNoncurrentVersionTransition(value: S3BucketLifecycleRuleNoncurrentVersionTransition[] | cdktf.IResolvable) {
     this._noncurrentVersionTransition.internalValue = value;
   }
   public resetNoncurrentVersionTransition() {
@@ -1438,17 +1228,11 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
   }
 
   // transition - computed: false, optional: true, required: false
-  private _transition = new S3BucketLifecycleRuleTransitionList(
-    this,
-    'transition',
-    true,
-  );
+  private _transition = new S3BucketLifecycleRuleTransitionList(this, "transition", true);
   public get transition() {
     return this._transition;
   }
-  public putTransition(
-    value: S3BucketLifecycleRuleTransition[] | cdktf.IResolvable,
-  ) {
+  public putTransition(value: S3BucketLifecycleRuleTransition[] | cdktf.IResolvable) {
     this._transition.internalValue = value;
   }
   public resetTransition() {
@@ -1461,72 +1245,54 @@ export class S3BucketLifecycleRuleOutputReference extends cdktf.ComplexObject {
 }
 
 export class S3BucketLifecycleRuleList extends cdktf.ComplexList {
-  public internalValue?: S3BucketLifecycleRule[] | cdktf.IResolvable;
+  public internalValue? : S3BucketLifecycleRule[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): S3BucketLifecycleRuleOutputReference {
-    return new S3BucketLifecycleRuleOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new S3BucketLifecycleRuleOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketLogging {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#target_bucket S3Bucket#target_bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#target_bucket S3Bucket#target_bucket}
+  */
   readonly targetBucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#target_prefix S3Bucket#target_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#target_prefix S3Bucket#target_prefix}
+  */
   readonly targetPrefix?: string;
 }
 
-export function s3BucketLoggingToTerraform(
-  struct?: S3BucketLoggingOutputReference | S3BucketLogging,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketLoggingToTerraform(struct?: S3BucketLoggingOutputReference | S3BucketLogging): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     target_bucket: cdktf.stringToTerraform(struct!.targetBucket),
     target_prefix: cdktf.stringToTerraform(struct!.targetPrefix),
-  };
+  }
 }
 
 export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1549,7 +1315,8 @@ export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._targetBucket = undefined;
       this._targetPrefix = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._targetBucket = value.targetBucket;
       this._targetPrefix = value.targetPrefix;
@@ -1557,7 +1324,7 @@ export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
   }
 
   // target_bucket - computed: false, optional: false, required: true
-  private _targetBucket?: string;
+  private _targetBucket?: string; 
   public get targetBucket() {
     return this.getStringAttribute('target_bucket');
   }
@@ -1570,7 +1337,7 @@ export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
   }
 
   // target_prefix - computed: false, optional: true, required: false
-  private _targetPrefix?: string;
+  private _targetPrefix?: string; 
   public get targetPrefix() {
     return this.getStringAttribute('target_prefix');
   }
@@ -1587,56 +1354,43 @@ export class S3BucketLoggingOutputReference extends cdktf.ComplexObject {
 }
 export interface S3BucketObjectLockConfigurationRuleDefaultRetention {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#days S3Bucket#days}
+  */
   readonly days?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#mode S3Bucket#mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#mode S3Bucket#mode}
+  */
   readonly mode: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#years S3Bucket#years}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#years S3Bucket#years}
+  */
   readonly years?: number;
 }
 
-export function s3BucketObjectLockConfigurationRuleDefaultRetentionToTerraform(
-  struct?:
-    | S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference
-    | S3BucketObjectLockConfigurationRuleDefaultRetention,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketObjectLockConfigurationRuleDefaultRetentionToTerraform(struct?: S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference | S3BucketObjectLockConfigurationRuleDefaultRetention): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     days: cdktf.numberToTerraform(struct!.days),
     mode: cdktf.stringToTerraform(struct!.mode),
     years: cdktf.numberToTerraform(struct!.years),
-  };
+  }
 }
 
 export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketObjectLockConfigurationRuleDefaultRetention
-    | undefined {
+  public get internalValue(): S3BucketObjectLockConfigurationRuleDefaultRetention | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._days !== undefined) {
@@ -1654,15 +1408,14 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketObjectLockConfigurationRuleDefaultRetention | undefined,
-  ) {
+  public set internalValue(value: S3BucketObjectLockConfigurationRuleDefaultRetention | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._days = undefined;
       this._mode = undefined;
       this._years = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._days = value.days;
       this._mode = value.mode;
@@ -1671,7 +1424,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
   }
 
   // days - computed: false, optional: true, required: false
-  private _days?: number;
+  private _days?: number; 
   public get days() {
     return this.getNumberAttribute('days');
   }
@@ -1687,7 +1440,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
   }
 
   // mode - computed: false, optional: false, required: true
-  private _mode?: string;
+  private _mode?: string; 
   public get mode() {
     return this.getStringAttribute('mode');
   }
@@ -1700,7 +1453,7 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
   }
 
   // years - computed: false, optional: true, required: false
-  private _years?: number;
+  private _years?: number; 
   public get years() {
     return this.getNumberAttribute('years');
   }
@@ -1717,45 +1470,31 @@ export class S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference 
 }
 export interface S3BucketObjectLockConfigurationRule {
   /**
-   * default_retention block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#default_retention S3Bucket#default_retention}
-   */
+  * default_retention block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#default_retention S3Bucket#default_retention}
+  */
   readonly defaultRetention: S3BucketObjectLockConfigurationRuleDefaultRetention;
 }
 
-export function s3BucketObjectLockConfigurationRuleToTerraform(
-  struct?:
-    | S3BucketObjectLockConfigurationRuleOutputReference
-    | S3BucketObjectLockConfigurationRule,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketObjectLockConfigurationRuleToTerraform(struct?: S3BucketObjectLockConfigurationRuleOutputReference | S3BucketObjectLockConfigurationRule): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    default_retention:
-      s3BucketObjectLockConfigurationRuleDefaultRetentionToTerraform(
-        struct!.defaultRetention,
-      ),
-  };
+    default_retention: s3BucketObjectLockConfigurationRuleDefaultRetentionToTerraform(struct!.defaultRetention),
+  }
 }
 
 export class S3BucketObjectLockConfigurationRuleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1764,36 +1503,28 @@ export class S3BucketObjectLockConfigurationRuleOutputReference extends cdktf.Co
     const internalValueResult: any = {};
     if (this._defaultRetention?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultRetention =
-        this._defaultRetention?.internalValue;
+      internalValueResult.defaultRetention = this._defaultRetention?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketObjectLockConfigurationRule | undefined,
-  ) {
+  public set internalValue(value: S3BucketObjectLockConfigurationRule | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultRetention.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultRetention.internalValue = value.defaultRetention;
     }
   }
 
   // default_retention - computed: false, optional: false, required: true
-  private _defaultRetention =
-    new S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference(
-      this,
-      'default_retention',
-    );
+  private _defaultRetention = new S3BucketObjectLockConfigurationRuleDefaultRetentionOutputReference(this, "default_retention");
   public get defaultRetention() {
     return this._defaultRetention;
   }
-  public putDefaultRetention(
-    value: S3BucketObjectLockConfigurationRuleDefaultRetention,
-  ) {
+  public putDefaultRetention(value: S3BucketObjectLockConfigurationRuleDefaultRetention) {
     this._defaultRetention.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1803,47 +1534,36 @@ export class S3BucketObjectLockConfigurationRuleOutputReference extends cdktf.Co
 }
 export interface S3BucketObjectLockConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_enabled S3Bucket#object_lock_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#object_lock_enabled S3Bucket#object_lock_enabled}
+  */
   readonly objectLockEnabled?: string;
   /**
-   * rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rule S3Bucket#rule}
-   */
+  * rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rule S3Bucket#rule}
+  */
   readonly rule?: S3BucketObjectLockConfigurationRule;
 }
 
-export function s3BucketObjectLockConfigurationToTerraform(
-  struct?:
-    | S3BucketObjectLockConfigurationOutputReference
-    | S3BucketObjectLockConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketObjectLockConfigurationToTerraform(struct?: S3BucketObjectLockConfigurationOutputReference | S3BucketObjectLockConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     object_lock_enabled: cdktf.stringToTerraform(struct!.objectLockEnabled),
     rule: s3BucketObjectLockConfigurationRuleToTerraform(struct!.rule),
-  };
+  }
 }
 
 export class S3BucketObjectLockConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1866,7 +1586,8 @@ export class S3BucketObjectLockConfigurationOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._objectLockEnabled = undefined;
       this._rule.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._objectLockEnabled = value.objectLockEnabled;
       this._rule.internalValue = value.rule;
@@ -1874,7 +1595,7 @@ export class S3BucketObjectLockConfigurationOutputReference extends cdktf.Comple
   }
 
   // object_lock_enabled - computed: false, optional: true, required: false
-  private _objectLockEnabled?: string;
+  private _objectLockEnabled?: string; 
   public get objectLockEnabled() {
     return this.getStringAttribute('object_lock_enabled');
   }
@@ -1890,10 +1611,7 @@ export class S3BucketObjectLockConfigurationOutputReference extends cdktf.Comple
   }
 
   // rule - computed: false, optional: true, required: false
-  private _rule = new S3BucketObjectLockConfigurationRuleOutputReference(
-    this,
-    'rule',
-  );
+  private _rule = new S3BucketObjectLockConfigurationRuleOutputReference(this, "rule");
   public get rule() {
     return this._rule;
   }
@@ -1910,46 +1628,33 @@ export class S3BucketObjectLockConfigurationOutputReference extends cdktf.Comple
 }
 export interface S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#owner S3Bucket#owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#owner S3Bucket#owner}
+  */
   readonly owner: string;
 }
 
-export function s3BucketReplicationConfigurationRulesDestinationAccessControlTranslationToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesDestinationAccessControlTranslationOutputReference
-    | S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesDestinationAccessControlTranslationToTerraform(struct?: S3BucketReplicationConfigurationRulesDestinationAccessControlTranslationOutputReference | S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     owner: cdktf.stringToTerraform(struct!.owner),
-  };
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesDestinationAccessControlTranslationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._owner !== undefined) {
@@ -1959,22 +1664,19 @@ export class S3BucketReplicationConfigurationRulesDestinationAccessControlTransl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._owner = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._owner = value.owner;
     }
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string;
+  private _owner?: string; 
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -1988,51 +1690,38 @@ export class S3BucketReplicationConfigurationRulesDestinationAccessControlTransl
 }
 export interface S3BucketReplicationConfigurationRulesDestinationMetrics {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#minutes S3Bucket#minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#minutes S3Bucket#minutes}
+  */
   readonly minutes?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#status S3Bucket#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#status S3Bucket#status}
+  */
   readonly status?: string;
 }
 
-export function s3BucketReplicationConfigurationRulesDestinationMetricsToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesDestinationMetricsOutputReference
-    | S3BucketReplicationConfigurationRulesDestinationMetrics,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesDestinationMetricsToTerraform(struct?: S3BucketReplicationConfigurationRulesDestinationMetricsOutputReference | S3BucketReplicationConfigurationRulesDestinationMetrics): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     minutes: cdktf.numberToTerraform(struct!.minutes),
     status: cdktf.stringToTerraform(struct!.status),
-  };
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesDestinationMetrics
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesDestinationMetrics | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._minutes !== undefined) {
@@ -2046,14 +1735,13 @@ export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketReplicationConfigurationRulesDestinationMetrics | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesDestinationMetrics | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._minutes = undefined;
       this._status = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._minutes = value.minutes;
       this._status = value.status;
@@ -2061,7 +1749,7 @@ export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputRefere
   }
 
   // minutes - computed: false, optional: true, required: false
-  private _minutes?: number;
+  private _minutes?: number; 
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -2077,7 +1765,7 @@ export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputRefere
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -2094,51 +1782,38 @@ export class S3BucketReplicationConfigurationRulesDestinationMetricsOutputRefere
 }
 export interface S3BucketReplicationConfigurationRulesDestinationReplicationTime {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#minutes S3Bucket#minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#minutes S3Bucket#minutes}
+  */
   readonly minutes?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#status S3Bucket#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#status S3Bucket#status}
+  */
   readonly status?: string;
 }
 
-export function s3BucketReplicationConfigurationRulesDestinationReplicationTimeToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutputReference
-    | S3BucketReplicationConfigurationRulesDestinationReplicationTime,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesDestinationReplicationTimeToTerraform(struct?: S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutputReference | S3BucketReplicationConfigurationRulesDestinationReplicationTime): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     minutes: cdktf.numberToTerraform(struct!.minutes),
     status: cdktf.stringToTerraform(struct!.status),
-  };
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesDestinationReplicationTime
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesDestinationReplicationTime | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._minutes !== undefined) {
@@ -2152,16 +1827,13 @@ export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketReplicationConfigurationRulesDestinationReplicationTime
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesDestinationReplicationTime | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._minutes = undefined;
       this._status = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._minutes = value.minutes;
       this._status = value.status;
@@ -2169,7 +1841,7 @@ export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutp
   }
 
   // minutes - computed: false, optional: true, required: false
-  private _minutes?: number;
+  private _minutes?: number; 
   public get minutes() {
     return this.getNumberAttribute('minutes');
   }
@@ -2185,7 +1857,7 @@ export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutp
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -2202,90 +1874,69 @@ export class S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutp
 }
 export interface S3BucketReplicationConfigurationRulesDestination {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#account_id S3Bucket#account_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#account_id S3Bucket#account_id}
+  */
   readonly accountId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket S3Bucket#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket S3Bucket#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replica_kms_key_id S3Bucket#replica_kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replica_kms_key_id S3Bucket#replica_kms_key_id}
+  */
   readonly replicaKmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#storage_class S3Bucket#storage_class}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#storage_class S3Bucket#storage_class}
+  */
   readonly storageClass?: string;
   /**
-   * access_control_translation block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#access_control_translation S3Bucket#access_control_translation}
-   */
+  * access_control_translation block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#access_control_translation S3Bucket#access_control_translation}
+  */
   readonly accessControlTranslation?: S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation;
   /**
-   * metrics block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#metrics S3Bucket#metrics}
-   */
+  * metrics block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#metrics S3Bucket#metrics}
+  */
   readonly metrics?: S3BucketReplicationConfigurationRulesDestinationMetrics;
   /**
-   * replication_time block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replication_time S3Bucket#replication_time}
-   */
+  * replication_time block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#replication_time S3Bucket#replication_time}
+  */
   readonly replicationTime?: S3BucketReplicationConfigurationRulesDestinationReplicationTime;
 }
 
-export function s3BucketReplicationConfigurationRulesDestinationToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesDestinationOutputReference
-    | S3BucketReplicationConfigurationRulesDestination,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesDestinationToTerraform(struct?: S3BucketReplicationConfigurationRulesDestinationOutputReference | S3BucketReplicationConfigurationRulesDestination): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     account_id: cdktf.stringToTerraform(struct!.accountId),
     bucket: cdktf.stringToTerraform(struct!.bucket),
     replica_kms_key_id: cdktf.stringToTerraform(struct!.replicaKmsKeyId),
     storage_class: cdktf.stringToTerraform(struct!.storageClass),
-    access_control_translation:
-      s3BucketReplicationConfigurationRulesDestinationAccessControlTranslationToTerraform(
-        struct!.accessControlTranslation,
-      ),
-    metrics: s3BucketReplicationConfigurationRulesDestinationMetricsToTerraform(
-      struct!.metrics,
-    ),
-    replication_time:
-      s3BucketReplicationConfigurationRulesDestinationReplicationTimeToTerraform(
-        struct!.replicationTime,
-      ),
-  };
+    access_control_translation: s3BucketReplicationConfigurationRulesDestinationAccessControlTranslationToTerraform(struct!.accessControlTranslation),
+    metrics: s3BucketReplicationConfigurationRulesDestinationMetricsToTerraform(struct!.metrics),
+    replication_time: s3BucketReplicationConfigurationRulesDestinationReplicationTimeToTerraform(struct!.replicationTime),
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesDestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesDestination
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesDestination | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._accountId !== undefined) {
@@ -2306,8 +1957,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
     }
     if (this._accessControlTranslation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.accessControlTranslation =
-        this._accessControlTranslation?.internalValue;
+      internalValueResult.accessControlTranslation = this._accessControlTranslation?.internalValue;
     }
     if (this._metrics?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2315,15 +1965,12 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
     }
     if (this._replicationTime?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.replicationTime =
-        this._replicationTime?.internalValue;
+      internalValueResult.replicationTime = this._replicationTime?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketReplicationConfigurationRulesDestination | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesDestination | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accountId = undefined;
@@ -2333,21 +1980,21 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
       this._accessControlTranslation.internalValue = undefined;
       this._metrics.internalValue = undefined;
       this._replicationTime.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accountId = value.accountId;
       this._bucket = value.bucket;
       this._replicaKmsKeyId = value.replicaKmsKeyId;
       this._storageClass = value.storageClass;
-      this._accessControlTranslation.internalValue =
-        value.accessControlTranslation;
+      this._accessControlTranslation.internalValue = value.accessControlTranslation;
       this._metrics.internalValue = value.metrics;
       this._replicationTime.internalValue = value.replicationTime;
     }
   }
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string;
+  private _accountId?: string; 
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -2363,7 +2010,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -2376,7 +2023,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // replica_kms_key_id - computed: false, optional: true, required: false
-  private _replicaKmsKeyId?: string;
+  private _replicaKmsKeyId?: string; 
   public get replicaKmsKeyId() {
     return this.getStringAttribute('replica_kms_key_id');
   }
@@ -2392,7 +2039,7 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // storage_class - computed: false, optional: true, required: false
-  private _storageClass?: string;
+  private _storageClass?: string; 
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -2408,17 +2055,11 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // access_control_translation - computed: false, optional: true, required: false
-  private _accessControlTranslation =
-    new S3BucketReplicationConfigurationRulesDestinationAccessControlTranslationOutputReference(
-      this,
-      'access_control_translation',
-    );
+  private _accessControlTranslation = new S3BucketReplicationConfigurationRulesDestinationAccessControlTranslationOutputReference(this, "access_control_translation");
   public get accessControlTranslation() {
     return this._accessControlTranslation;
   }
-  public putAccessControlTranslation(
-    value: S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation,
-  ) {
+  public putAccessControlTranslation(value: S3BucketReplicationConfigurationRulesDestinationAccessControlTranslation) {
     this._accessControlTranslation.internalValue = value;
   }
   public resetAccessControlTranslation() {
@@ -2430,17 +2071,11 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // metrics - computed: false, optional: true, required: false
-  private _metrics =
-    new S3BucketReplicationConfigurationRulesDestinationMetricsOutputReference(
-      this,
-      'metrics',
-    );
+  private _metrics = new S3BucketReplicationConfigurationRulesDestinationMetricsOutputReference(this, "metrics");
   public get metrics() {
     return this._metrics;
   }
-  public putMetrics(
-    value: S3BucketReplicationConfigurationRulesDestinationMetrics,
-  ) {
+  public putMetrics(value: S3BucketReplicationConfigurationRulesDestinationMetrics) {
     this._metrics.internalValue = value;
   }
   public resetMetrics() {
@@ -2452,17 +2087,11 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
   }
 
   // replication_time - computed: false, optional: true, required: false
-  private _replicationTime =
-    new S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutputReference(
-      this,
-      'replication_time',
-    );
+  private _replicationTime = new S3BucketReplicationConfigurationRulesDestinationReplicationTimeOutputReference(this, "replication_time");
   public get replicationTime() {
     return this._replicationTime;
   }
-  public putReplicationTime(
-    value: S3BucketReplicationConfigurationRulesDestinationReplicationTime,
-  ) {
+  public putReplicationTime(value: S3BucketReplicationConfigurationRulesDestinationReplicationTime) {
     this._replicationTime.internalValue = value;
   }
   public resetReplicationTime() {
@@ -2475,51 +2104,38 @@ export class S3BucketReplicationConfigurationRulesDestinationOutputReference ext
 }
 export interface S3BucketReplicationConfigurationRulesFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#prefix S3Bucket#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#prefix S3Bucket#prefix}
+  */
   readonly prefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags S3Bucket#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#tags S3Bucket#tags}
+  */
   readonly tags?: { [key: string]: string };
 }
 
-export function s3BucketReplicationConfigurationRulesFilterToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesFilterOutputReference
-    | S3BucketReplicationConfigurationRulesFilter,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesFilterToTerraform(struct?: S3BucketReplicationConfigurationRulesFilterOutputReference | S3BucketReplicationConfigurationRulesFilter): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     prefix: cdktf.stringToTerraform(struct!.prefix),
     tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
-  };
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesFilterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesFilter
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesFilter | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._prefix !== undefined) {
@@ -2533,14 +2149,13 @@ export class S3BucketReplicationConfigurationRulesFilterOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketReplicationConfigurationRulesFilter | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesFilter | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._prefix = undefined;
       this._tags = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._prefix = value.prefix;
       this._tags = value.tags;
@@ -2548,7 +2163,7 @@ export class S3BucketReplicationConfigurationRulesFilterOutputReference extends 
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2564,7 +2179,7 @@ export class S3BucketReplicationConfigurationRulesFilterOutputReference extends 
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -2581,46 +2196,33 @@ export class S3BucketReplicationConfigurationRulesFilterOutputReference extends 
 }
 export interface S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#enabled S3Bucket#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#enabled S3Bucket#enabled}
+  */
   readonly enabled: boolean | cdktf.IResolvable;
 }
 
-export function s3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsOutputReference
-    | S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsToTerraform(struct?: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsOutputReference | S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  };
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -2630,22 +2232,19 @@ export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsE
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -2659,87 +2258,61 @@ export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsE
 }
 export interface S3BucketReplicationConfigurationRulesSourceSelectionCriteria {
   /**
-   * sse_kms_encrypted_objects block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#sse_kms_encrypted_objects S3Bucket#sse_kms_encrypted_objects}
-   */
+  * sse_kms_encrypted_objects block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#sse_kms_encrypted_objects S3Bucket#sse_kms_encrypted_objects}
+  */
   readonly sseKmsEncryptedObjects?: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects;
 }
 
-export function s3BucketReplicationConfigurationRulesSourceSelectionCriteriaToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationRulesSourceSelectionCriteriaOutputReference
-    | S3BucketReplicationConfigurationRulesSourceSelectionCriteria,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesSourceSelectionCriteriaToTerraform(struct?: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaOutputReference | S3BucketReplicationConfigurationRulesSourceSelectionCriteria): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    sse_kms_encrypted_objects:
-      s3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsToTerraform(
-        struct!.sseKmsEncryptedObjects,
-      ),
-  };
+    sse_kms_encrypted_objects: s3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsToTerraform(struct!.sseKmsEncryptedObjects),
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRulesSourceSelectionCriteria
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRulesSourceSelectionCriteria | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._sseKmsEncryptedObjects?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sseKmsEncryptedObjects =
-        this._sseKmsEncryptedObjects?.internalValue;
+      internalValueResult.sseKmsEncryptedObjects = this._sseKmsEncryptedObjects?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketReplicationConfigurationRulesSourceSelectionCriteria
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRulesSourceSelectionCriteria | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._sseKmsEncryptedObjects.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._sseKmsEncryptedObjects.internalValue = value.sseKmsEncryptedObjects;
     }
   }
 
   // sse_kms_encrypted_objects - computed: false, optional: true, required: false
-  private _sseKmsEncryptedObjects =
-    new S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsOutputReference(
-      this,
-      'sse_kms_encrypted_objects',
-    );
+  private _sseKmsEncryptedObjects = new S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjectsOutputReference(this, "sse_kms_encrypted_objects");
   public get sseKmsEncryptedObjects() {
     return this._sseKmsEncryptedObjects;
   }
-  public putSseKmsEncryptedObjects(
-    value: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects,
-  ) {
+  public putSseKmsEncryptedObjects(value: S3BucketReplicationConfigurationRulesSourceSelectionCriteriaSseKmsEncryptedObjects) {
     this._sseKmsEncryptedObjects.internalValue = value;
   }
   public resetSseKmsEncryptedObjects() {
@@ -2752,78 +2325,63 @@ export class S3BucketReplicationConfigurationRulesSourceSelectionCriteriaOutputR
 }
 export interface S3BucketReplicationConfigurationRules {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#delete_marker_replication_status S3Bucket#delete_marker_replication_status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#delete_marker_replication_status S3Bucket#delete_marker_replication_status}
+  */
   readonly deleteMarkerReplicationStatus?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#id S3Bucket#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#prefix S3Bucket#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#prefix S3Bucket#prefix}
+  */
   readonly prefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#priority S3Bucket#priority}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#priority S3Bucket#priority}
+  */
   readonly priority?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#status S3Bucket#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#status S3Bucket#status}
+  */
   readonly status: string;
   /**
-   * destination block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#destination S3Bucket#destination}
-   */
+  * destination block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#destination S3Bucket#destination}
+  */
   readonly destination: S3BucketReplicationConfigurationRulesDestination;
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#filter S3Bucket#filter}
-   */
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#filter S3Bucket#filter}
+  */
   readonly filter?: S3BucketReplicationConfigurationRulesFilter;
   /**
-   * source_selection_criteria block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#source_selection_criteria S3Bucket#source_selection_criteria}
-   */
+  * source_selection_criteria block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#source_selection_criteria S3Bucket#source_selection_criteria}
+  */
   readonly sourceSelectionCriteria?: S3BucketReplicationConfigurationRulesSourceSelectionCriteria;
 }
 
-export function s3BucketReplicationConfigurationRulesToTerraform(
-  struct?: S3BucketReplicationConfigurationRules | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationRulesToTerraform(struct?: S3BucketReplicationConfigurationRules | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    delete_marker_replication_status: cdktf.stringToTerraform(
-      struct!.deleteMarkerReplicationStatus,
-    ),
+    delete_marker_replication_status: cdktf.stringToTerraform(struct!.deleteMarkerReplicationStatus),
     id: cdktf.stringToTerraform(struct!.id),
     prefix: cdktf.stringToTerraform(struct!.prefix),
     priority: cdktf.numberToTerraform(struct!.priority),
     status: cdktf.stringToTerraform(struct!.status),
-    destination: s3BucketReplicationConfigurationRulesDestinationToTerraform(
-      struct!.destination,
-    ),
-    filter: s3BucketReplicationConfigurationRulesFilterToTerraform(
-      struct!.filter,
-    ),
-    source_selection_criteria:
-      s3BucketReplicationConfigurationRulesSourceSelectionCriteriaToTerraform(
-        struct!.sourceSelectionCriteria,
-      ),
-  };
+    destination: s3BucketReplicationConfigurationRulesDestinationToTerraform(struct!.destination),
+    filter: s3BucketReplicationConfigurationRulesFilterToTerraform(struct!.filter),
+    source_selection_criteria: s3BucketReplicationConfigurationRulesSourceSelectionCriteriaToTerraform(struct!.sourceSelectionCriteria),
+  }
 }
 
 export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.ComplexObject {
@@ -2831,29 +2389,16 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | S3BucketReplicationConfigurationRules
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3BucketReplicationConfigurationRules | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2861,8 +2406,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
     const internalValueResult: any = {};
     if (this._deleteMarkerReplicationStatus !== undefined) {
       hasAnyValues = true;
-      internalValueResult.deleteMarkerReplicationStatus =
-        this._deleteMarkerReplicationStatus;
+      internalValueResult.deleteMarkerReplicationStatus = this._deleteMarkerReplicationStatus;
     }
     if (this._id !== undefined) {
       hasAnyValues = true;
@@ -2890,18 +2434,12 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
     }
     if (this._sourceSelectionCriteria?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sourceSelectionCriteria =
-        this._sourceSelectionCriteria?.internalValue;
+      internalValueResult.sourceSelectionCriteria = this._sourceSelectionCriteria?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketReplicationConfigurationRules
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfigurationRules | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -2913,10 +2451,12 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
       this._destination.internalValue = undefined;
       this._filter.internalValue = undefined;
       this._sourceSelectionCriteria.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deleteMarkerReplicationStatus = value.deleteMarkerReplicationStatus;
@@ -2926,13 +2466,12 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
       this._status = value.status;
       this._destination.internalValue = value.destination;
       this._filter.internalValue = value.filter;
-      this._sourceSelectionCriteria.internalValue =
-        value.sourceSelectionCriteria;
+      this._sourceSelectionCriteria.internalValue = value.sourceSelectionCriteria;
     }
   }
 
   // delete_marker_replication_status - computed: false, optional: true, required: false
-  private _deleteMarkerReplicationStatus?: string;
+  private _deleteMarkerReplicationStatus?: string; 
   public get deleteMarkerReplicationStatus() {
     return this.getStringAttribute('delete_marker_replication_status');
   }
@@ -2948,7 +2487,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2964,7 +2503,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2980,7 +2519,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // priority - computed: false, optional: true, required: false
-  private _priority?: number;
+  private _priority?: number; 
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -2996,7 +2535,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // status - computed: false, optional: false, required: true
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -3009,17 +2548,11 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination =
-    new S3BucketReplicationConfigurationRulesDestinationOutputReference(
-      this,
-      'destination',
-    );
+  private _destination = new S3BucketReplicationConfigurationRulesDestinationOutputReference(this, "destination");
   public get destination() {
     return this._destination;
   }
-  public putDestination(
-    value: S3BucketReplicationConfigurationRulesDestination,
-  ) {
+  public putDestination(value: S3BucketReplicationConfigurationRulesDestination) {
     this._destination.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3028,11 +2561,7 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter =
-    new S3BucketReplicationConfigurationRulesFilterOutputReference(
-      this,
-      'filter',
-    );
+  private _filter = new S3BucketReplicationConfigurationRulesFilterOutputReference(this, "filter");
   public get filter() {
     return this._filter;
   }
@@ -3048,17 +2577,11 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
   }
 
   // source_selection_criteria - computed: false, optional: true, required: false
-  private _sourceSelectionCriteria =
-    new S3BucketReplicationConfigurationRulesSourceSelectionCriteriaOutputReference(
-      this,
-      'source_selection_criteria',
-    );
+  private _sourceSelectionCriteria = new S3BucketReplicationConfigurationRulesSourceSelectionCriteriaOutputReference(this, "source_selection_criteria");
   public get sourceSelectionCriteria() {
     return this._sourceSelectionCriteria;
   }
-  public putSourceSelectionCriteria(
-    value: S3BucketReplicationConfigurationRulesSourceSelectionCriteria,
-  ) {
+  public putSourceSelectionCriteria(value: S3BucketReplicationConfigurationRulesSourceSelectionCriteria) {
     this._sourceSelectionCriteria.internalValue = value;
   }
   public resetSourceSelectionCriteria() {
@@ -3071,83 +2594,56 @@ export class S3BucketReplicationConfigurationRulesOutputReference extends cdktf.
 }
 
 export class S3BucketReplicationConfigurationRulesList extends cdktf.ComplexList {
-  public internalValue?:
-    | S3BucketReplicationConfigurationRules[]
-    | cdktf.IResolvable;
+  public internalValue? : S3BucketReplicationConfigurationRules[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): S3BucketReplicationConfigurationRulesOutputReference {
-    return new S3BucketReplicationConfigurationRulesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): S3BucketReplicationConfigurationRulesOutputReference {
+    return new S3BucketReplicationConfigurationRulesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketReplicationConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#role S3Bucket#role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#role S3Bucket#role}
+  */
   readonly role: string;
   /**
-   * rules block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rules S3Bucket#rules}
-   */
+  * rules block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rules S3Bucket#rules}
+  */
   readonly rules: S3BucketReplicationConfigurationRules[] | cdktf.IResolvable;
 }
 
-export function s3BucketReplicationConfigurationToTerraform(
-  struct?:
-    | S3BucketReplicationConfigurationOutputReference
-    | S3BucketReplicationConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketReplicationConfigurationToTerraform(struct?: S3BucketReplicationConfigurationOutputReference | S3BucketReplicationConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     role: cdktf.stringToTerraform(struct!.role),
-    rules: cdktf.listMapper(
-      s3BucketReplicationConfigurationRulesToTerraform,
-      true,
-    )(struct!.rules),
-  };
+    rules: cdktf.listMapper(s3BucketReplicationConfigurationRulesToTerraform, true)(struct!.rules),
+  }
 }
 
 export class S3BucketReplicationConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3165,14 +2661,13 @@ export class S3BucketReplicationConfigurationOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketReplicationConfiguration | undefined,
-  ) {
+  public set internalValue(value: S3BucketReplicationConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._role = undefined;
       this._rules.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._role = value.role;
       this._rules.internalValue = value.rules;
@@ -3180,7 +2675,7 @@ export class S3BucketReplicationConfigurationOutputReference extends cdktf.Compl
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string;
+  private _role?: string; 
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -3193,17 +2688,11 @@ export class S3BucketReplicationConfigurationOutputReference extends cdktf.Compl
   }
 
   // rules - computed: false, optional: false, required: true
-  private _rules = new S3BucketReplicationConfigurationRulesList(
-    this,
-    'rules',
-    true,
-  );
+  private _rules = new S3BucketReplicationConfigurationRulesList(this, "rules", true);
   public get rules() {
     return this._rules;
   }
-  public putRules(
-    value: S3BucketReplicationConfigurationRules[] | cdktf.IResolvable,
-  ) {
+  public putRules(value: S3BucketReplicationConfigurationRules[] | cdktf.IResolvable) {
     this._rules.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3213,51 +2702,38 @@ export class S3BucketReplicationConfigurationOutputReference extends cdktf.Compl
 }
 export interface S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#kms_master_key_id S3Bucket#kms_master_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#kms_master_key_id S3Bucket#kms_master_key_id}
+  */
   readonly kmsMasterKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#sse_algorithm S3Bucket#sse_algorithm}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#sse_algorithm S3Bucket#sse_algorithm}
+  */
   readonly sseAlgorithm: string;
 }
 
-export function s3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultToTerraform(
-  struct?:
-    | S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputReference
-    | S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultToTerraform(struct?: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputReference | S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     kms_master_key_id: cdktf.stringToTerraform(struct!.kmsMasterKeyId),
     sse_algorithm: cdktf.stringToTerraform(struct!.sseAlgorithm),
-  };
+  }
 }
 
 export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault
-    | undefined {
+  public get internalValue(): S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._kmsMasterKeyId !== undefined) {
@@ -3271,16 +2747,13 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault
-      | undefined,
-  ) {
+  public set internalValue(value: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._kmsMasterKeyId = undefined;
       this._sseAlgorithm = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._kmsMasterKeyId = value.kmsMasterKeyId;
       this._sseAlgorithm = value.sseAlgorithm;
@@ -3288,7 +2761,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
   }
 
   // kms_master_key_id - computed: false, optional: true, required: false
-  private _kmsMasterKeyId?: string;
+  private _kmsMasterKeyId?: string; 
   public get kmsMasterKeyId() {
     return this.getStringAttribute('kms_master_key_id');
   }
@@ -3304,7 +2777,7 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
   }
 
   // sse_algorithm - computed: false, optional: false, required: true
-  private _sseAlgorithm?: string;
+  private _sseAlgorithm?: string; 
   public get sseAlgorithm() {
     return this.getStringAttribute('sse_algorithm');
   }
@@ -3318,56 +2791,40 @@ export class S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncrypt
 }
 export interface S3BucketServerSideEncryptionConfigurationRule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket_key_enabled S3Bucket#bucket_key_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#bucket_key_enabled S3Bucket#bucket_key_enabled}
+  */
   readonly bucketKeyEnabled?: boolean | cdktf.IResolvable;
   /**
-   * apply_server_side_encryption_by_default block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#apply_server_side_encryption_by_default S3Bucket#apply_server_side_encryption_by_default}
-   */
+  * apply_server_side_encryption_by_default block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#apply_server_side_encryption_by_default S3Bucket#apply_server_side_encryption_by_default}
+  */
   readonly applyServerSideEncryptionByDefault: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
 }
 
-export function s3BucketServerSideEncryptionConfigurationRuleToTerraform(
-  struct?:
-    | S3BucketServerSideEncryptionConfigurationRuleOutputReference
-    | S3BucketServerSideEncryptionConfigurationRule,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketServerSideEncryptionConfigurationRuleToTerraform(struct?: S3BucketServerSideEncryptionConfigurationRuleOutputReference | S3BucketServerSideEncryptionConfigurationRule): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket_key_enabled: cdktf.booleanToTerraform(struct!.bucketKeyEnabled),
-    apply_server_side_encryption_by_default:
-      s3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultToTerraform(
-        struct!.applyServerSideEncryptionByDefault,
-      ),
-  };
+    apply_server_side_encryption_by_default: s3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultToTerraform(struct!.applyServerSideEncryptionByDefault),
+  }
 }
 
 export class S3BucketServerSideEncryptionConfigurationRuleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketServerSideEncryptionConfigurationRule
-    | undefined {
+  public get internalValue(): S3BucketServerSideEncryptionConfigurationRule | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketKeyEnabled !== undefined) {
@@ -3376,29 +2833,26 @@ export class S3BucketServerSideEncryptionConfigurationRuleOutputReference extend
     }
     if (this._applyServerSideEncryptionByDefault?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.applyServerSideEncryptionByDefault =
-        this._applyServerSideEncryptionByDefault?.internalValue;
+      internalValueResult.applyServerSideEncryptionByDefault = this._applyServerSideEncryptionByDefault?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketServerSideEncryptionConfigurationRule | undefined,
-  ) {
+  public set internalValue(value: S3BucketServerSideEncryptionConfigurationRule | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketKeyEnabled = undefined;
       this._applyServerSideEncryptionByDefault.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketKeyEnabled = value.bucketKeyEnabled;
-      this._applyServerSideEncryptionByDefault.internalValue =
-        value.applyServerSideEncryptionByDefault;
+      this._applyServerSideEncryptionByDefault.internalValue = value.applyServerSideEncryptionByDefault;
     }
   }
 
   // bucket_key_enabled - computed: false, optional: true, required: false
-  private _bucketKeyEnabled?: boolean | cdktf.IResolvable;
+  private _bucketKeyEnabled?: boolean | cdktf.IResolvable; 
   public get bucketKeyEnabled() {
     return this.getBooleanAttribute('bucket_key_enabled');
   }
@@ -3414,17 +2868,11 @@ export class S3BucketServerSideEncryptionConfigurationRuleOutputReference extend
   }
 
   // apply_server_side_encryption_by_default - computed: false, optional: false, required: true
-  private _applyServerSideEncryptionByDefault =
-    new S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputReference(
-      this,
-      'apply_server_side_encryption_by_default',
-    );
+  private _applyServerSideEncryptionByDefault = new S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputReference(this, "apply_server_side_encryption_by_default");
   public get applyServerSideEncryptionByDefault() {
     return this._applyServerSideEncryptionByDefault;
   }
-  public putApplyServerSideEncryptionByDefault(
-    value: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault,
-  ) {
+  public putApplyServerSideEncryptionByDefault(value: S3BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) {
     this._applyServerSideEncryptionByDefault.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3434,50 +2882,35 @@ export class S3BucketServerSideEncryptionConfigurationRuleOutputReference extend
 }
 export interface S3BucketServerSideEncryptionConfiguration {
   /**
-   * rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rule S3Bucket#rule}
-   */
+  * rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#rule S3Bucket#rule}
+  */
   readonly rule: S3BucketServerSideEncryptionConfigurationRule;
 }
 
-export function s3BucketServerSideEncryptionConfigurationToTerraform(
-  struct?:
-    | S3BucketServerSideEncryptionConfigurationOutputReference
-    | S3BucketServerSideEncryptionConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketServerSideEncryptionConfigurationToTerraform(struct?: S3BucketServerSideEncryptionConfigurationOutputReference | S3BucketServerSideEncryptionConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    rule: s3BucketServerSideEncryptionConfigurationRuleToTerraform(
-      struct!.rule,
-    ),
-  };
+    rule: s3BucketServerSideEncryptionConfigurationRuleToTerraform(struct!.rule),
+  }
 }
 
 export class S3BucketServerSideEncryptionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketServerSideEncryptionConfiguration
-    | undefined {
+  public get internalValue(): S3BucketServerSideEncryptionConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._rule?.internalValue !== undefined) {
@@ -3487,24 +2920,19 @@ export class S3BucketServerSideEncryptionConfigurationOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketServerSideEncryptionConfiguration | undefined,
-  ) {
+  public set internalValue(value: S3BucketServerSideEncryptionConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._rule.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._rule.internalValue = value.rule;
     }
   }
 
   // rule - computed: false, optional: false, required: true
-  private _rule =
-    new S3BucketServerSideEncryptionConfigurationRuleOutputReference(
-      this,
-      'rule',
-    );
+  private _rule = new S3BucketServerSideEncryptionConfigurationRuleOutputReference(this, "rule");
   public get rule() {
     return this._rule;
   }
@@ -3518,43 +2946,34 @@ export class S3BucketServerSideEncryptionConfigurationOutputReference extends cd
 }
 export interface S3BucketTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#create S3Bucket#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#create S3Bucket#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#delete S3Bucket#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#delete S3Bucket#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#read S3Bucket#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#read S3Bucket#read}
+  */
   readonly read?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#update S3Bucket#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#update S3Bucket#update}
+  */
   readonly update?: string;
 }
 
-export function s3BucketTimeoutsToTerraform(
-  struct?:
-    | S3BucketTimeoutsOutputReference
-    | S3BucketTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketTimeoutsToTerraform(struct?: S3BucketTimeoutsOutputReference | S3BucketTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -3562,13 +2981,10 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3597,9 +3013,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: S3BucketTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3607,10 +3021,12 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
       this._delete = undefined;
       this._read = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -3621,7 +3037,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -3637,7 +3053,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -3653,7 +3069,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -3669,7 +3085,7 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -3686,43 +3102,34 @@ export class S3BucketTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 export interface S3BucketVersioning {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#enabled S3Bucket#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#enabled S3Bucket#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#mfa_delete S3Bucket#mfa_delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#mfa_delete S3Bucket#mfa_delete}
+  */
   readonly mfaDelete?: boolean | cdktf.IResolvable;
 }
 
-export function s3BucketVersioningToTerraform(
-  struct?: S3BucketVersioningOutputReference | S3BucketVersioning,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketVersioningToTerraform(struct?: S3BucketVersioningOutputReference | S3BucketVersioning): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     mfa_delete: cdktf.booleanToTerraform(struct!.mfaDelete),
-  };
+  }
 }
 
 export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3745,7 +3152,8 @@ export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._mfaDelete = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._mfaDelete = value.mfaDelete;
@@ -3753,7 +3161,7 @@ export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3769,7 +3177,7 @@ export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
   }
 
   // mfa_delete - computed: false, optional: true, required: false
-  private _mfaDelete?: boolean | cdktf.IResolvable;
+  private _mfaDelete?: boolean | cdktf.IResolvable; 
   public get mfaDelete() {
     return this.getBooleanAttribute('mfa_delete');
   }
@@ -3786,55 +3194,44 @@ export class S3BucketVersioningOutputReference extends cdktf.ComplexObject {
 }
 export interface S3BucketWebsite {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#error_document S3Bucket#error_document}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#error_document S3Bucket#error_document}
+  */
   readonly errorDocument?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#index_document S3Bucket#index_document}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#index_document S3Bucket#index_document}
+  */
   readonly indexDocument?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#redirect_all_requests_to S3Bucket#redirect_all_requests_to}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#redirect_all_requests_to S3Bucket#redirect_all_requests_to}
+  */
   readonly redirectAllRequestsTo?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#routing_rules S3Bucket#routing_rules}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket#routing_rules S3Bucket#routing_rules}
+  */
   readonly routingRules?: string;
 }
 
-export function s3BucketWebsiteToTerraform(
-  struct?: S3BucketWebsiteOutputReference | S3BucketWebsite,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketWebsiteToTerraform(struct?: S3BucketWebsiteOutputReference | S3BucketWebsite): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     error_document: cdktf.stringToTerraform(struct!.errorDocument),
     index_document: cdktf.stringToTerraform(struct!.indexDocument),
-    redirect_all_requests_to: cdktf.stringToTerraform(
-      struct!.redirectAllRequestsTo,
-    ),
+    redirect_all_requests_to: cdktf.stringToTerraform(struct!.redirectAllRequestsTo),
     routing_rules: cdktf.stringToTerraform(struct!.routingRules),
-  };
+  }
 }
 
 export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3867,7 +3264,8 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
       this._indexDocument = undefined;
       this._redirectAllRequestsTo = undefined;
       this._routingRules = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._errorDocument = value.errorDocument;
       this._indexDocument = value.indexDocument;
@@ -3877,7 +3275,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // error_document - computed: false, optional: true, required: false
-  private _errorDocument?: string;
+  private _errorDocument?: string; 
   public get errorDocument() {
     return this.getStringAttribute('error_document');
   }
@@ -3893,7 +3291,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // index_document - computed: false, optional: true, required: false
-  private _indexDocument?: string;
+  private _indexDocument?: string; 
   public get indexDocument() {
     return this.getStringAttribute('index_document');
   }
@@ -3909,7 +3307,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // redirect_all_requests_to - computed: false, optional: true, required: false
-  private _redirectAllRequestsTo?: string;
+  private _redirectAllRequestsTo?: string; 
   public get redirectAllRequestsTo() {
     return this.getStringAttribute('redirect_all_requests_to');
   }
@@ -3925,7 +3323,7 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
   }
 
   // routing_rules - computed: false, optional: true, required: false
-  private _routingRules?: string;
+  private _routingRules?: string; 
   public get routingRules() {
     return this.getStringAttribute('routing_rules');
   }
@@ -3942,36 +3340,33 @@ export class S3BucketWebsiteOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket aws_s3_bucket}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket aws_s3_bucket}
+*/
 export class S3Bucket extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_s3_bucket';
+  public static readonly tfResourceType = "aws_s3_bucket";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket aws_s3_bucket} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options S3BucketConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: S3BucketConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket aws_s3_bucket} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options S3BucketConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: S3BucketConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_bucket',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -3979,7 +3374,7 @@ export class S3Bucket extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accelerationStatus = config.accelerationStatus;
     this._acl = config.acl;
@@ -3996,12 +3391,9 @@ export class S3Bucket extends cdktf.TerraformResource {
     this._grant.internalValue = config.grant;
     this._lifecycleRule.internalValue = config.lifecycleRule;
     this._logging.internalValue = config.logging;
-    this._objectLockConfiguration.internalValue =
-      config.objectLockConfiguration;
-    this._replicationConfiguration.internalValue =
-      config.replicationConfiguration;
-    this._serverSideEncryptionConfiguration.internalValue =
-      config.serverSideEncryptionConfiguration;
+    this._objectLockConfiguration.internalValue = config.objectLockConfiguration;
+    this._replicationConfiguration.internalValue = config.replicationConfiguration;
+    this._serverSideEncryptionConfiguration.internalValue = config.serverSideEncryptionConfiguration;
     this._timeouts.internalValue = config.timeouts;
     this._versioning.internalValue = config.versioning;
     this._website.internalValue = config.website;
@@ -4012,7 +3404,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   // ==========
 
   // acceleration_status - computed: true, optional: true, required: false
-  private _accelerationStatus?: string;
+  private _accelerationStatus?: string; 
   public get accelerationStatus() {
     return this.getStringAttribute('acceleration_status');
   }
@@ -4028,7 +3420,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // acl - computed: true, optional: true, required: false
-  private _acl?: string;
+  private _acl?: string; 
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -4049,7 +3441,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // bucket - computed: true, optional: true, required: false
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -4070,7 +3462,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // bucket_prefix - computed: true, optional: true, required: false
-  private _bucketPrefix?: string;
+  private _bucketPrefix?: string; 
   public get bucketPrefix() {
     return this.getStringAttribute('bucket_prefix');
   }
@@ -4091,7 +3483,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable;
+  private _forceDestroy?: boolean | cdktf.IResolvable; 
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -4112,7 +3504,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -4128,7 +3520,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // object_lock_enabled - computed: true, optional: true, required: false
-  private _objectLockEnabled?: boolean | cdktf.IResolvable;
+  private _objectLockEnabled?: boolean | cdktf.IResolvable; 
   public get objectLockEnabled() {
     return this.getBooleanAttribute('object_lock_enabled');
   }
@@ -4144,7 +3536,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string;
+  private _policy?: string; 
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -4165,7 +3557,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // request_payer - computed: true, optional: true, required: false
-  private _requestPayer?: string;
+  private _requestPayer?: string; 
   public get requestPayer() {
     return this.getStringAttribute('request_payer');
   }
@@ -4181,7 +3573,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -4197,7 +3589,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -4223,7 +3615,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // cors_rule - computed: false, optional: true, required: false
-  private _corsRule = new S3BucketCorsRuleList(this, 'cors_rule', false);
+  private _corsRule = new S3BucketCorsRuleList(this, "cors_rule", false);
   public get corsRule() {
     return this._corsRule;
   }
@@ -4239,7 +3631,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // grant - computed: false, optional: true, required: false
-  private _grant = new S3BucketGrantList(this, 'grant', true);
+  private _grant = new S3BucketGrantList(this, "grant", true);
   public get grant() {
     return this._grant;
   }
@@ -4255,11 +3647,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // lifecycle_rule - computed: false, optional: true, required: false
-  private _lifecycleRule = new S3BucketLifecycleRuleList(
-    this,
-    'lifecycle_rule',
-    false,
-  );
+  private _lifecycleRule = new S3BucketLifecycleRuleList(this, "lifecycle_rule", false);
   public get lifecycleRule() {
     return this._lifecycleRule;
   }
@@ -4275,7 +3663,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // logging - computed: false, optional: true, required: false
-  private _logging = new S3BucketLoggingOutputReference(this, 'logging');
+  private _logging = new S3BucketLoggingOutputReference(this, "logging");
   public get logging() {
     return this._logging;
   }
@@ -4291,11 +3679,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // object_lock_configuration - computed: false, optional: true, required: false
-  private _objectLockConfiguration =
-    new S3BucketObjectLockConfigurationOutputReference(
-      this,
-      'object_lock_configuration',
-    );
+  private _objectLockConfiguration = new S3BucketObjectLockConfigurationOutputReference(this, "object_lock_configuration");
   public get objectLockConfiguration() {
     return this._objectLockConfiguration;
   }
@@ -4311,11 +3695,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // replication_configuration - computed: false, optional: true, required: false
-  private _replicationConfiguration =
-    new S3BucketReplicationConfigurationOutputReference(
-      this,
-      'replication_configuration',
-    );
+  private _replicationConfiguration = new S3BucketReplicationConfigurationOutputReference(this, "replication_configuration");
   public get replicationConfiguration() {
     return this._replicationConfiguration;
   }
@@ -4331,17 +3711,11 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // server_side_encryption_configuration - computed: false, optional: true, required: false
-  private _serverSideEncryptionConfiguration =
-    new S3BucketServerSideEncryptionConfigurationOutputReference(
-      this,
-      'server_side_encryption_configuration',
-    );
+  private _serverSideEncryptionConfiguration = new S3BucketServerSideEncryptionConfigurationOutputReference(this, "server_side_encryption_configuration");
   public get serverSideEncryptionConfiguration() {
     return this._serverSideEncryptionConfiguration;
   }
-  public putServerSideEncryptionConfiguration(
-    value: S3BucketServerSideEncryptionConfiguration,
-  ) {
+  public putServerSideEncryptionConfiguration(value: S3BucketServerSideEncryptionConfiguration) {
     this._serverSideEncryptionConfiguration.internalValue = value;
   }
   public resetServerSideEncryptionConfiguration() {
@@ -4353,7 +3727,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new S3BucketTimeoutsOutputReference(this, 'timeouts');
+  private _timeouts = new S3BucketTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -4369,10 +3743,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // versioning - computed: false, optional: true, required: false
-  private _versioning = new S3BucketVersioningOutputReference(
-    this,
-    'versioning',
-  );
+  private _versioning = new S3BucketVersioningOutputReference(this, "versioning");
   public get versioning() {
     return this._versioning;
   }
@@ -4388,7 +3759,7 @@ export class S3Bucket extends cdktf.TerraformResource {
   }
 
   // website - computed: false, optional: true, required: false
-  private _website = new S3BucketWebsiteOutputReference(this, 'website');
+  private _website = new S3BucketWebsiteOutputReference(this, "website");
   public get website() {
     return this._website;
   }
@@ -4420,29 +3791,13 @@ export class S3Bucket extends cdktf.TerraformResource {
       request_payer: cdktf.stringToTerraform(this._requestPayer),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      cors_rule: cdktf.listMapper(
-        s3BucketCorsRuleToTerraform,
-        true,
-      )(this._corsRule.internalValue),
-      grant: cdktf.listMapper(
-        s3BucketGrantToTerraform,
-        true,
-      )(this._grant.internalValue),
-      lifecycle_rule: cdktf.listMapper(
-        s3BucketLifecycleRuleToTerraform,
-        true,
-      )(this._lifecycleRule.internalValue),
+      cors_rule: cdktf.listMapper(s3BucketCorsRuleToTerraform, true)(this._corsRule.internalValue),
+      grant: cdktf.listMapper(s3BucketGrantToTerraform, true)(this._grant.internalValue),
+      lifecycle_rule: cdktf.listMapper(s3BucketLifecycleRuleToTerraform, true)(this._lifecycleRule.internalValue),
       logging: s3BucketLoggingToTerraform(this._logging.internalValue),
-      object_lock_configuration: s3BucketObjectLockConfigurationToTerraform(
-        this._objectLockConfiguration.internalValue,
-      ),
-      replication_configuration: s3BucketReplicationConfigurationToTerraform(
-        this._replicationConfiguration.internalValue,
-      ),
-      server_side_encryption_configuration:
-        s3BucketServerSideEncryptionConfigurationToTerraform(
-          this._serverSideEncryptionConfiguration.internalValue,
-        ),
+      object_lock_configuration: s3BucketObjectLockConfigurationToTerraform(this._objectLockConfiguration.internalValue),
+      replication_configuration: s3BucketReplicationConfigurationToTerraform(this._replicationConfiguration.internalValue),
+      server_side_encryption_configuration: s3BucketServerSideEncryptionConfigurationToTerraform(this._serverSideEncryptionConfiguration.internalValue),
       timeouts: s3BucketTimeoutsToTerraform(this._timeouts.internalValue),
       versioning: s3BucketVersioningToTerraform(this._versioning.internalValue),
       website: s3BucketWebsiteToTerraform(this._website.internalValue),

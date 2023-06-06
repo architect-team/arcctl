@@ -1,57 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_cidr_location
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Route53CidrLocationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Route53CidrLocationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location#cidr_blocks Route53CidrLocation#cidr_blocks}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location#cidr_blocks Route53CidrLocation#cidr_blocks}
+  */
   readonly cidrBlocks: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location#cidr_collection_id Route53CidrLocation#cidr_collection_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location#cidr_collection_id Route53CidrLocation#cidr_collection_id}
+  */
   readonly cidrCollectionId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location#name Route53CidrLocation#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location#name Route53CidrLocation#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location aws_route53_cidr_location}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location aws_route53_cidr_location}
+*/
 export class Route53CidrLocation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_route53_cidr_location';
+  public static readonly tfResourceType = "aws_route53_cidr_location";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location aws_route53_cidr_location} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Route53CidrLocationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Route53CidrLocationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_cidr_location aws_route53_cidr_location} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Route53CidrLocationConfig
+  */
+  public constructor(scope: Construct, id: string, config: Route53CidrLocationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_cidr_location',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +56,7 @@ export class Route53CidrLocation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cidrBlocks = config.cidrBlocks;
     this._cidrCollectionId = config.cidrCollectionId;
@@ -71,7 +68,7 @@ export class Route53CidrLocation extends cdktf.TerraformResource {
   // ==========
 
   // cidr_blocks - computed: false, optional: false, required: true
-  private _cidrBlocks?: string[];
+  private _cidrBlocks?: string[]; 
   public get cidrBlocks() {
     return cdktf.Fn.tolist(this.getListAttribute('cidr_blocks'));
   }
@@ -84,7 +81,7 @@ export class Route53CidrLocation extends cdktf.TerraformResource {
   }
 
   // cidr_collection_id - computed: false, optional: false, required: true
-  private _cidrCollectionId?: string;
+  private _cidrCollectionId?: string; 
   public get cidrCollectionId() {
     return this.getStringAttribute('cidr_collection_id');
   }
@@ -102,7 +99,7 @@ export class Route53CidrLocation extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -120,10 +117,7 @@ export class Route53CidrLocation extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      cidr_blocks: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._cidrBlocks),
+      cidr_blocks: cdktf.listMapper(cdktf.stringToTerraform, false)(this._cidrBlocks),
       cidr_collection_id: cdktf.stringToTerraform(this._cidrCollectionId),
       name: cdktf.stringToTerraform(this._name),
     };

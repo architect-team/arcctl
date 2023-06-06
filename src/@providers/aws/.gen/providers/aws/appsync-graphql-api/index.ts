@@ -1,137 +1,118 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface AppsyncGraphqlApiConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authentication_type AppsyncGraphqlApi#authentication_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authentication_type AppsyncGraphqlApi#authentication_type}
+  */
   readonly authenticationType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#id AppsyncGraphqlApi#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#id AppsyncGraphqlApi#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#name AppsyncGraphqlApi#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#name AppsyncGraphqlApi#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#schema AppsyncGraphqlApi#schema}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#schema AppsyncGraphqlApi#schema}
+  */
   readonly schema?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#tags AppsyncGraphqlApi#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#tags AppsyncGraphqlApi#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#tags_all AppsyncGraphqlApi#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#tags_all AppsyncGraphqlApi#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#xray_enabled AppsyncGraphqlApi#xray_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#xray_enabled AppsyncGraphqlApi#xray_enabled}
+  */
   readonly xrayEnabled?: boolean | cdktf.IResolvable;
   /**
-   * additional_authentication_provider block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#additional_authentication_provider AppsyncGraphqlApi#additional_authentication_provider}
-   */
-  readonly additionalAuthenticationProvider?:
-    | AppsyncGraphqlApiAdditionalAuthenticationProvider[]
-    | cdktf.IResolvable;
+  * additional_authentication_provider block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#additional_authentication_provider AppsyncGraphqlApi#additional_authentication_provider}
+  */
+  readonly additionalAuthenticationProvider?: AppsyncGraphqlApiAdditionalAuthenticationProvider[] | cdktf.IResolvable;
   /**
-   * lambda_authorizer_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#lambda_authorizer_config AppsyncGraphqlApi#lambda_authorizer_config}
-   */
+  * lambda_authorizer_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#lambda_authorizer_config AppsyncGraphqlApi#lambda_authorizer_config}
+  */
   readonly lambdaAuthorizerConfig?: AppsyncGraphqlApiLambdaAuthorizerConfig;
   /**
-   * log_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#log_config AppsyncGraphqlApi#log_config}
-   */
+  * log_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#log_config AppsyncGraphqlApi#log_config}
+  */
   readonly logConfig?: AppsyncGraphqlApiLogConfig;
   /**
-   * openid_connect_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#openid_connect_config AppsyncGraphqlApi#openid_connect_config}
-   */
+  * openid_connect_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#openid_connect_config AppsyncGraphqlApi#openid_connect_config}
+  */
   readonly openidConnectConfig?: AppsyncGraphqlApiOpenidConnectConfig;
   /**
-   * user_pool_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_config AppsyncGraphqlApi#user_pool_config}
-   */
+  * user_pool_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_config AppsyncGraphqlApi#user_pool_config}
+  */
   readonly userPoolConfig?: AppsyncGraphqlApiUserPoolConfig;
 }
 export interface AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_result_ttl_in_seconds AppsyncGraphqlApi#authorizer_result_ttl_in_seconds}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_result_ttl_in_seconds AppsyncGraphqlApi#authorizer_result_ttl_in_seconds}
+  */
   readonly authorizerResultTtlInSeconds?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_uri AppsyncGraphqlApi#authorizer_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_uri AppsyncGraphqlApi#authorizer_uri}
+  */
   readonly authorizerUri: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#identity_validation_expression AppsyncGraphqlApi#identity_validation_expression}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#identity_validation_expression AppsyncGraphqlApi#identity_validation_expression}
+  */
   readonly identityValidationExpression?: string;
 }
 
-export function appsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputReference
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigToTerraform(struct?: AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputReference | AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    authorizer_result_ttl_in_seconds: cdktf.numberToTerraform(
-      struct!.authorizerResultTtlInSeconds,
-    ),
+    authorizer_result_ttl_in_seconds: cdktf.numberToTerraform(struct!.authorizerResultTtlInSeconds),
     authorizer_uri: cdktf.stringToTerraform(struct!.authorizerUri),
-    identity_validation_expression: cdktf.stringToTerraform(
-      struct!.identityValidationExpression,
-    ),
-  };
+    identity_validation_expression: cdktf.stringToTerraform(struct!.identityValidationExpression),
+  }
 }
 
 export class AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig
-    | undefined {
+  public get internalValue(): AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._authorizerResultTtlInSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.authorizerResultTtlInSeconds =
-        this._authorizerResultTtlInSeconds;
+      internalValueResult.authorizerResultTtlInSeconds = this._authorizerResultTtlInSeconds;
     }
     if (this._authorizerUri !== undefined) {
       hasAnyValues = true;
@@ -139,23 +120,19 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerCo
     }
     if (this._identityValidationExpression !== undefined) {
       hasAnyValues = true;
-      internalValueResult.identityValidationExpression =
-        this._identityValidationExpression;
+      internalValueResult.identityValidationExpression = this._identityValidationExpression;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig
-      | undefined,
-  ) {
+  public set internalValue(value: AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._authorizerResultTtlInSeconds = undefined;
       this._authorizerUri = undefined;
       this._identityValidationExpression = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._authorizerResultTtlInSeconds = value.authorizerResultTtlInSeconds;
       this._authorizerUri = value.authorizerUri;
@@ -164,7 +141,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerCo
   }
 
   // authorizer_result_ttl_in_seconds - computed: false, optional: true, required: false
-  private _authorizerResultTtlInSeconds?: number;
+  private _authorizerResultTtlInSeconds?: number; 
   public get authorizerResultTtlInSeconds() {
     return this.getNumberAttribute('authorizer_result_ttl_in_seconds');
   }
@@ -180,7 +157,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerCo
   }
 
   // authorizer_uri - computed: false, optional: false, required: true
-  private _authorizerUri?: string;
+  private _authorizerUri?: string; 
   public get authorizerUri() {
     return this.getStringAttribute('authorizer_uri');
   }
@@ -193,7 +170,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerCo
   }
 
   // identity_validation_expression - computed: false, optional: true, required: false
-  private _identityValidationExpression?: string;
+  private _identityValidationExpression?: string; 
   public get identityValidationExpression() {
     return this.getStringAttribute('identity_validation_expression');
   }
@@ -210,61 +187,48 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerCo
 }
 export interface AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#auth_ttl AppsyncGraphqlApi#auth_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#auth_ttl AppsyncGraphqlApi#auth_ttl}
+  */
   readonly authTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#client_id AppsyncGraphqlApi#client_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#client_id AppsyncGraphqlApi#client_id}
+  */
   readonly clientId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#iat_ttl AppsyncGraphqlApi#iat_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#iat_ttl AppsyncGraphqlApi#iat_ttl}
+  */
   readonly iatTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#issuer AppsyncGraphqlApi#issuer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#issuer AppsyncGraphqlApi#issuer}
+  */
   readonly issuer: string;
 }
 
-export function appsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigOutputReference
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigToTerraform(struct?: AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigOutputReference | AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     auth_ttl: cdktf.numberToTerraform(struct!.authTtl),
     client_id: cdktf.stringToTerraform(struct!.clientId),
     iat_ttl: cdktf.numberToTerraform(struct!.iatTtl),
     issuer: cdktf.stringToTerraform(struct!.issuer),
-  };
+  }
 }
 
 export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig
-    | undefined {
+  public get internalValue(): AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._authTtl !== undefined) {
@@ -286,18 +250,15 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfi
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig
-      | undefined,
-  ) {
+  public set internalValue(value: AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._authTtl = undefined;
       this._clientId = undefined;
       this._iatTtl = undefined;
       this._issuer = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._authTtl = value.authTtl;
       this._clientId = value.clientId;
@@ -307,7 +268,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfi
   }
 
   // auth_ttl - computed: false, optional: true, required: false
-  private _authTtl?: number;
+  private _authTtl?: number; 
   public get authTtl() {
     return this.getNumberAttribute('auth_ttl');
   }
@@ -323,7 +284,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfi
   }
 
   // client_id - computed: false, optional: true, required: false
-  private _clientId?: string;
+  private _clientId?: string; 
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -339,7 +300,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfi
   }
 
   // iat_ttl - computed: false, optional: true, required: false
-  private _iatTtl?: number;
+  private _iatTtl?: number; 
   public get iatTtl() {
     return this.getNumberAttribute('iat_ttl');
   }
@@ -355,7 +316,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfi
   }
 
   // issuer - computed: false, optional: false, required: true
-  private _issuer?: string;
+  private _issuer?: string; 
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -369,56 +330,43 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfi
 }
 export interface AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#app_id_client_regex AppsyncGraphqlApi#app_id_client_regex}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#app_id_client_regex AppsyncGraphqlApi#app_id_client_regex}
+  */
   readonly appIdClientRegex?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#aws_region AppsyncGraphqlApi#aws_region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#aws_region AppsyncGraphqlApi#aws_region}
+  */
   readonly awsRegion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_id AppsyncGraphqlApi#user_pool_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_id AppsyncGraphqlApi#user_pool_id}
+  */
   readonly userPoolId: string;
 }
 
-export function appsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutputReference
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigToTerraform(struct?: AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutputReference | AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     app_id_client_regex: cdktf.stringToTerraform(struct!.appIdClientRegex),
     aws_region: cdktf.stringToTerraform(struct!.awsRegion),
     user_pool_id: cdktf.stringToTerraform(struct!.userPoolId),
-  };
+  }
 }
 
 export class AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig
-    | undefined {
+  public get internalValue(): AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._appIdClientRegex !== undefined) {
@@ -436,17 +384,14 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig
-      | undefined,
-  ) {
+  public set internalValue(value: AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._appIdClientRegex = undefined;
       this._awsRegion = undefined;
       this._userPoolId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._appIdClientRegex = value.appIdClientRegex;
       this._awsRegion = value.awsRegion;
@@ -455,7 +400,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutp
   }
 
   // app_id_client_regex - computed: false, optional: true, required: false
-  private _appIdClientRegex?: string;
+  private _appIdClientRegex?: string; 
   public get appIdClientRegex() {
     return this.getStringAttribute('app_id_client_regex');
   }
@@ -471,7 +416,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutp
   }
 
   // aws_region - computed: true, optional: true, required: false
-  private _awsRegion?: string;
+  private _awsRegion?: string; 
   public get awsRegion() {
     return this.getStringAttribute('aws_region');
   }
@@ -487,7 +432,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutp
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string;
+  private _userPoolId?: string; 
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }
@@ -501,57 +446,40 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutp
 }
 export interface AppsyncGraphqlApiAdditionalAuthenticationProvider {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authentication_type AppsyncGraphqlApi#authentication_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authentication_type AppsyncGraphqlApi#authentication_type}
+  */
   readonly authenticationType: string;
   /**
-   * lambda_authorizer_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#lambda_authorizer_config AppsyncGraphqlApi#lambda_authorizer_config}
-   */
+  * lambda_authorizer_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#lambda_authorizer_config AppsyncGraphqlApi#lambda_authorizer_config}
+  */
   readonly lambdaAuthorizerConfig?: AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig;
   /**
-   * openid_connect_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#openid_connect_config AppsyncGraphqlApi#openid_connect_config}
-   */
+  * openid_connect_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#openid_connect_config AppsyncGraphqlApi#openid_connect_config}
+  */
   readonly openidConnectConfig?: AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig;
   /**
-   * user_pool_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_config AppsyncGraphqlApi#user_pool_config}
-   */
+  * user_pool_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_config AppsyncGraphqlApi#user_pool_config}
+  */
   readonly userPoolConfig?: AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig;
 }
 
-export function appsyncGraphqlApiAdditionalAuthenticationProviderToTerraform(
-  struct?:
-    | AppsyncGraphqlApiAdditionalAuthenticationProvider
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiAdditionalAuthenticationProviderToTerraform(struct?: AppsyncGraphqlApiAdditionalAuthenticationProvider | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     authentication_type: cdktf.stringToTerraform(struct!.authenticationType),
-    lambda_authorizer_config:
-      appsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigToTerraform(
-        struct!.lambdaAuthorizerConfig,
-      ),
-    openid_connect_config:
-      appsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigToTerraform(
-        struct!.openidConnectConfig,
-      ),
-    user_pool_config:
-      appsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigToTerraform(
-        struct!.userPoolConfig,
-      ),
-  };
+    lambda_authorizer_config: appsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigToTerraform(struct!.lambdaAuthorizerConfig),
+    openid_connect_config: appsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigToTerraform(struct!.openidConnectConfig),
+    user_pool_config: appsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigToTerraform(struct!.userPoolConfig),
+  }
 }
 
 export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference extends cdktf.ComplexObject {
@@ -559,29 +487,16 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppsyncGraphqlApiAdditionalAuthenticationProvider
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppsyncGraphqlApiAdditionalAuthenticationProvider | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -593,13 +508,11 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
     }
     if (this._lambdaAuthorizerConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaAuthorizerConfig =
-        this._lambdaAuthorizerConfig?.internalValue;
+      internalValueResult.lambdaAuthorizerConfig = this._lambdaAuthorizerConfig?.internalValue;
     }
     if (this._openidConnectConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.openidConnectConfig =
-        this._openidConnectConfig?.internalValue;
+      internalValueResult.openidConnectConfig = this._openidConnectConfig?.internalValue;
     }
     if (this._userPoolConfig?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -608,12 +521,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | AppsyncGraphqlApiAdditionalAuthenticationProvider
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: AppsyncGraphqlApiAdditionalAuthenticationProvider | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -621,10 +529,12 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
       this._lambdaAuthorizerConfig.internalValue = undefined;
       this._openidConnectConfig.internalValue = undefined;
       this._userPoolConfig.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._authenticationType = value.authenticationType;
@@ -635,7 +545,7 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
   }
 
   // authentication_type - computed: false, optional: false, required: true
-  private _authenticationType?: string;
+  private _authenticationType?: string; 
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -648,17 +558,11 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
   }
 
   // lambda_authorizer_config - computed: false, optional: true, required: false
-  private _lambdaAuthorizerConfig =
-    new AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputReference(
-      this,
-      'lambda_authorizer_config',
-    );
+  private _lambdaAuthorizerConfig = new AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputReference(this, "lambda_authorizer_config");
   public get lambdaAuthorizerConfig() {
     return this._lambdaAuthorizerConfig;
   }
-  public putLambdaAuthorizerConfig(
-    value: AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig,
-  ) {
+  public putLambdaAuthorizerConfig(value: AppsyncGraphqlApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) {
     this._lambdaAuthorizerConfig.internalValue = value;
   }
   public resetLambdaAuthorizerConfig() {
@@ -670,17 +574,11 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
   }
 
   // openid_connect_config - computed: false, optional: true, required: false
-  private _openidConnectConfig =
-    new AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigOutputReference(
-      this,
-      'openid_connect_config',
-    );
+  private _openidConnectConfig = new AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfigOutputReference(this, "openid_connect_config");
   public get openidConnectConfig() {
     return this._openidConnectConfig;
   }
-  public putOpenidConnectConfig(
-    value: AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig,
-  ) {
+  public putOpenidConnectConfig(value: AppsyncGraphqlApiAdditionalAuthenticationProviderOpenidConnectConfig) {
     this._openidConnectConfig.internalValue = value;
   }
   public resetOpenidConnectConfig() {
@@ -692,17 +590,11 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
   }
 
   // user_pool_config - computed: false, optional: true, required: false
-  private _userPoolConfig =
-    new AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutputReference(
-      this,
-      'user_pool_config',
-    );
+  private _userPoolConfig = new AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfigOutputReference(this, "user_pool_config");
   public get userPoolConfig() {
     return this._userPoolConfig;
   }
-  public putUserPoolConfig(
-    value: AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig,
-  ) {
+  public putUserPoolConfig(value: AppsyncGraphqlApiAdditionalAuthenticationProviderUserPoolConfig) {
     this._userPoolConfig.internalValue = value;
   }
   public resetUserPoolConfig() {
@@ -715,99 +607,68 @@ export class AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference ex
 }
 
 export class AppsyncGraphqlApiAdditionalAuthenticationProviderList extends cdktf.ComplexList {
-  public internalValue?:
-    | AppsyncGraphqlApiAdditionalAuthenticationProvider[]
-    | cdktf.IResolvable;
+  public internalValue? : AppsyncGraphqlApiAdditionalAuthenticationProvider[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference {
-    return new AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference {
+    return new AppsyncGraphqlApiAdditionalAuthenticationProviderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppsyncGraphqlApiLambdaAuthorizerConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_result_ttl_in_seconds AppsyncGraphqlApi#authorizer_result_ttl_in_seconds}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_result_ttl_in_seconds AppsyncGraphqlApi#authorizer_result_ttl_in_seconds}
+  */
   readonly authorizerResultTtlInSeconds?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_uri AppsyncGraphqlApi#authorizer_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#authorizer_uri AppsyncGraphqlApi#authorizer_uri}
+  */
   readonly authorizerUri: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#identity_validation_expression AppsyncGraphqlApi#identity_validation_expression}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#identity_validation_expression AppsyncGraphqlApi#identity_validation_expression}
+  */
   readonly identityValidationExpression?: string;
 }
 
-export function appsyncGraphqlApiLambdaAuthorizerConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference
-    | AppsyncGraphqlApiLambdaAuthorizerConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiLambdaAuthorizerConfigToTerraform(struct?: AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference | AppsyncGraphqlApiLambdaAuthorizerConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    authorizer_result_ttl_in_seconds: cdktf.numberToTerraform(
-      struct!.authorizerResultTtlInSeconds,
-    ),
+    authorizer_result_ttl_in_seconds: cdktf.numberToTerraform(struct!.authorizerResultTtlInSeconds),
     authorizer_uri: cdktf.stringToTerraform(struct!.authorizerUri),
-    identity_validation_expression: cdktf.stringToTerraform(
-      struct!.identityValidationExpression,
-    ),
-  };
+    identity_validation_expression: cdktf.stringToTerraform(struct!.identityValidationExpression),
+  }
 }
 
 export class AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppsyncGraphqlApiLambdaAuthorizerConfig
-    | undefined {
+  public get internalValue(): AppsyncGraphqlApiLambdaAuthorizerConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._authorizerResultTtlInSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.authorizerResultTtlInSeconds =
-        this._authorizerResultTtlInSeconds;
+      internalValueResult.authorizerResultTtlInSeconds = this._authorizerResultTtlInSeconds;
     }
     if (this._authorizerUri !== undefined) {
       hasAnyValues = true;
@@ -815,21 +676,19 @@ export class AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference extends cdkt
     }
     if (this._identityValidationExpression !== undefined) {
       hasAnyValues = true;
-      internalValueResult.identityValidationExpression =
-        this._identityValidationExpression;
+      internalValueResult.identityValidationExpression = this._identityValidationExpression;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppsyncGraphqlApiLambdaAuthorizerConfig | undefined,
-  ) {
+  public set internalValue(value: AppsyncGraphqlApiLambdaAuthorizerConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._authorizerResultTtlInSeconds = undefined;
       this._authorizerUri = undefined;
       this._identityValidationExpression = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._authorizerResultTtlInSeconds = value.authorizerResultTtlInSeconds;
       this._authorizerUri = value.authorizerUri;
@@ -838,7 +697,7 @@ export class AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference extends cdkt
   }
 
   // authorizer_result_ttl_in_seconds - computed: false, optional: true, required: false
-  private _authorizerResultTtlInSeconds?: number;
+  private _authorizerResultTtlInSeconds?: number; 
   public get authorizerResultTtlInSeconds() {
     return this.getNumberAttribute('authorizer_result_ttl_in_seconds');
   }
@@ -854,7 +713,7 @@ export class AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference extends cdkt
   }
 
   // authorizer_uri - computed: false, optional: false, required: true
-  private _authorizerUri?: string;
+  private _authorizerUri?: string; 
   public get authorizerUri() {
     return this.getStringAttribute('authorizer_uri');
   }
@@ -867,7 +726,7 @@ export class AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference extends cdkt
   }
 
   // identity_validation_expression - computed: false, optional: true, required: false
-  private _identityValidationExpression?: string;
+  private _identityValidationExpression?: string; 
   public get identityValidationExpression() {
     return this.getStringAttribute('identity_validation_expression');
   }
@@ -884,54 +743,39 @@ export class AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference extends cdkt
 }
 export interface AppsyncGraphqlApiLogConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#cloudwatch_logs_role_arn AppsyncGraphqlApi#cloudwatch_logs_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#cloudwatch_logs_role_arn AppsyncGraphqlApi#cloudwatch_logs_role_arn}
+  */
   readonly cloudwatchLogsRoleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#exclude_verbose_content AppsyncGraphqlApi#exclude_verbose_content}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#exclude_verbose_content AppsyncGraphqlApi#exclude_verbose_content}
+  */
   readonly excludeVerboseContent?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#field_log_level AppsyncGraphqlApi#field_log_level}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#field_log_level AppsyncGraphqlApi#field_log_level}
+  */
   readonly fieldLogLevel: string;
 }
 
-export function appsyncGraphqlApiLogConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiLogConfigOutputReference
-    | AppsyncGraphqlApiLogConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiLogConfigToTerraform(struct?: AppsyncGraphqlApiLogConfigOutputReference | AppsyncGraphqlApiLogConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    cloudwatch_logs_role_arn: cdktf.stringToTerraform(
-      struct!.cloudwatchLogsRoleArn,
-    ),
-    exclude_verbose_content: cdktf.booleanToTerraform(
-      struct!.excludeVerboseContent,
-    ),
+    cloudwatch_logs_role_arn: cdktf.stringToTerraform(struct!.cloudwatchLogsRoleArn),
+    exclude_verbose_content: cdktf.booleanToTerraform(struct!.excludeVerboseContent),
     field_log_level: cdktf.stringToTerraform(struct!.fieldLogLevel),
-  };
+  }
 }
 
 export class AppsyncGraphqlApiLogConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -959,7 +803,8 @@ export class AppsyncGraphqlApiLogConfigOutputReference extends cdktf.ComplexObje
       this._cloudwatchLogsRoleArn = undefined;
       this._excludeVerboseContent = undefined;
       this._fieldLogLevel = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchLogsRoleArn = value.cloudwatchLogsRoleArn;
       this._excludeVerboseContent = value.excludeVerboseContent;
@@ -968,7 +813,7 @@ export class AppsyncGraphqlApiLogConfigOutputReference extends cdktf.ComplexObje
   }
 
   // cloudwatch_logs_role_arn - computed: false, optional: false, required: true
-  private _cloudwatchLogsRoleArn?: string;
+  private _cloudwatchLogsRoleArn?: string; 
   public get cloudwatchLogsRoleArn() {
     return this.getStringAttribute('cloudwatch_logs_role_arn');
   }
@@ -981,7 +826,7 @@ export class AppsyncGraphqlApiLogConfigOutputReference extends cdktf.ComplexObje
   }
 
   // exclude_verbose_content - computed: false, optional: true, required: false
-  private _excludeVerboseContent?: boolean | cdktf.IResolvable;
+  private _excludeVerboseContent?: boolean | cdktf.IResolvable; 
   public get excludeVerboseContent() {
     return this.getBooleanAttribute('exclude_verbose_content');
   }
@@ -997,7 +842,7 @@ export class AppsyncGraphqlApiLogConfigOutputReference extends cdktf.ComplexObje
   }
 
   // field_log_level - computed: false, optional: false, required: true
-  private _fieldLogLevel?: string;
+  private _fieldLogLevel?: string; 
   public get fieldLogLevel() {
     return this.getStringAttribute('field_log_level');
   }
@@ -1011,55 +856,44 @@ export class AppsyncGraphqlApiLogConfigOutputReference extends cdktf.ComplexObje
 }
 export interface AppsyncGraphqlApiOpenidConnectConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#auth_ttl AppsyncGraphqlApi#auth_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#auth_ttl AppsyncGraphqlApi#auth_ttl}
+  */
   readonly authTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#client_id AppsyncGraphqlApi#client_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#client_id AppsyncGraphqlApi#client_id}
+  */
   readonly clientId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#iat_ttl AppsyncGraphqlApi#iat_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#iat_ttl AppsyncGraphqlApi#iat_ttl}
+  */
   readonly iatTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#issuer AppsyncGraphqlApi#issuer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#issuer AppsyncGraphqlApi#issuer}
+  */
   readonly issuer: string;
 }
 
-export function appsyncGraphqlApiOpenidConnectConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiOpenidConnectConfigOutputReference
-    | AppsyncGraphqlApiOpenidConnectConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiOpenidConnectConfigToTerraform(struct?: AppsyncGraphqlApiOpenidConnectConfigOutputReference | AppsyncGraphqlApiOpenidConnectConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     auth_ttl: cdktf.numberToTerraform(struct!.authTtl),
     client_id: cdktf.stringToTerraform(struct!.clientId),
     iat_ttl: cdktf.numberToTerraform(struct!.iatTtl),
     issuer: cdktf.stringToTerraform(struct!.issuer),
-  };
+  }
 }
 
 export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1085,16 +919,15 @@ export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppsyncGraphqlApiOpenidConnectConfig | undefined,
-  ) {
+  public set internalValue(value: AppsyncGraphqlApiOpenidConnectConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._authTtl = undefined;
       this._clientId = undefined;
       this._iatTtl = undefined;
       this._issuer = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._authTtl = value.authTtl;
       this._clientId = value.clientId;
@@ -1104,7 +937,7 @@ export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.C
   }
 
   // auth_ttl - computed: false, optional: true, required: false
-  private _authTtl?: number;
+  private _authTtl?: number; 
   public get authTtl() {
     return this.getNumberAttribute('auth_ttl');
   }
@@ -1120,7 +953,7 @@ export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.C
   }
 
   // client_id - computed: false, optional: true, required: false
-  private _clientId?: string;
+  private _clientId?: string; 
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -1136,7 +969,7 @@ export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.C
   }
 
   // iat_ttl - computed: false, optional: true, required: false
-  private _iatTtl?: number;
+  private _iatTtl?: number; 
   public get iatTtl() {
     return this.getNumberAttribute('iat_ttl');
   }
@@ -1152,7 +985,7 @@ export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.C
   }
 
   // issuer - computed: false, optional: false, required: true
-  private _issuer?: string;
+  private _issuer?: string; 
   public get issuer() {
     return this.getStringAttribute('issuer');
   }
@@ -1166,55 +999,44 @@ export class AppsyncGraphqlApiOpenidConnectConfigOutputReference extends cdktf.C
 }
 export interface AppsyncGraphqlApiUserPoolConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#app_id_client_regex AppsyncGraphqlApi#app_id_client_regex}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#app_id_client_regex AppsyncGraphqlApi#app_id_client_regex}
+  */
   readonly appIdClientRegex?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#aws_region AppsyncGraphqlApi#aws_region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#aws_region AppsyncGraphqlApi#aws_region}
+  */
   readonly awsRegion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#default_action AppsyncGraphqlApi#default_action}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#default_action AppsyncGraphqlApi#default_action}
+  */
   readonly defaultAction: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_id AppsyncGraphqlApi#user_pool_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api#user_pool_id AppsyncGraphqlApi#user_pool_id}
+  */
   readonly userPoolId: string;
 }
 
-export function appsyncGraphqlApiUserPoolConfigToTerraform(
-  struct?:
-    | AppsyncGraphqlApiUserPoolConfigOutputReference
-    | AppsyncGraphqlApiUserPoolConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncGraphqlApiUserPoolConfigToTerraform(struct?: AppsyncGraphqlApiUserPoolConfigOutputReference | AppsyncGraphqlApiUserPoolConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     app_id_client_regex: cdktf.stringToTerraform(struct!.appIdClientRegex),
     aws_region: cdktf.stringToTerraform(struct!.awsRegion),
     default_action: cdktf.stringToTerraform(struct!.defaultAction),
     user_pool_id: cdktf.stringToTerraform(struct!.userPoolId),
-  };
+  }
 }
 
 export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1247,7 +1069,8 @@ export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.Comple
       this._awsRegion = undefined;
       this._defaultAction = undefined;
       this._userPoolId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._appIdClientRegex = value.appIdClientRegex;
       this._awsRegion = value.awsRegion;
@@ -1257,7 +1080,7 @@ export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.Comple
   }
 
   // app_id_client_regex - computed: false, optional: true, required: false
-  private _appIdClientRegex?: string;
+  private _appIdClientRegex?: string; 
   public get appIdClientRegex() {
     return this.getStringAttribute('app_id_client_regex');
   }
@@ -1273,7 +1096,7 @@ export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.Comple
   }
 
   // aws_region - computed: true, optional: true, required: false
-  private _awsRegion?: string;
+  private _awsRegion?: string; 
   public get awsRegion() {
     return this.getStringAttribute('aws_region');
   }
@@ -1289,7 +1112,7 @@ export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.Comple
   }
 
   // default_action - computed: false, optional: false, required: true
-  private _defaultAction?: string;
+  private _defaultAction?: string; 
   public get defaultAction() {
     return this.getStringAttribute('default_action');
   }
@@ -1302,7 +1125,7 @@ export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.Comple
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string;
+  private _userPoolId?: string; 
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }
@@ -1316,36 +1139,33 @@ export class AppsyncGraphqlApiUserPoolConfigOutputReference extends cdktf.Comple
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api aws_appsync_graphql_api}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api aws_appsync_graphql_api}
+*/
 export class AppsyncGraphqlApi extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_appsync_graphql_api';
+  public static readonly tfResourceType = "aws_appsync_graphql_api";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api aws_appsync_graphql_api} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppsyncGraphqlApiConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AppsyncGraphqlApiConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_graphql_api aws_appsync_graphql_api} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppsyncGraphqlApiConfig
+  */
+  public constructor(scope: Construct, id: string, config: AppsyncGraphqlApiConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appsync_graphql_api',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1353,7 +1173,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._authenticationType = config.authenticationType;
     this._id = config.id;
@@ -1362,8 +1182,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._xrayEnabled = config.xrayEnabled;
-    this._additionalAuthenticationProvider.internalValue =
-      config.additionalAuthenticationProvider;
+    this._additionalAuthenticationProvider.internalValue = config.additionalAuthenticationProvider;
     this._lambdaAuthorizerConfig.internalValue = config.lambdaAuthorizerConfig;
     this._logConfig.internalValue = config.logConfig;
     this._openidConnectConfig.internalValue = config.openidConnectConfig;
@@ -1380,7 +1199,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // authentication_type - computed: false, optional: false, required: true
-  private _authenticationType?: string;
+  private _authenticationType?: string; 
   public get authenticationType() {
     return this.getStringAttribute('authentication_type');
   }
@@ -1393,7 +1212,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1409,7 +1228,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1422,7 +1241,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // schema - computed: false, optional: true, required: false
-  private _schema?: string;
+  private _schema?: string; 
   public get schema() {
     return this.getStringAttribute('schema');
   }
@@ -1438,7 +1257,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1454,7 +1273,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1470,13 +1289,13 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // uris - computed: true, optional: false, required: false
-  private _uris = new cdktf.StringMap(this, 'uris');
+  private _uris = new cdktf.StringMap(this, "uris");
   public get uris() {
     return this._uris;
   }
 
   // xray_enabled - computed: false, optional: true, required: false
-  private _xrayEnabled?: boolean | cdktf.IResolvable;
+  private _xrayEnabled?: boolean | cdktf.IResolvable; 
   public get xrayEnabled() {
     return this.getBooleanAttribute('xray_enabled');
   }
@@ -1492,20 +1311,11 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // additional_authentication_provider - computed: false, optional: true, required: false
-  private _additionalAuthenticationProvider =
-    new AppsyncGraphqlApiAdditionalAuthenticationProviderList(
-      this,
-      'additional_authentication_provider',
-      false,
-    );
+  private _additionalAuthenticationProvider = new AppsyncGraphqlApiAdditionalAuthenticationProviderList(this, "additional_authentication_provider", false);
   public get additionalAuthenticationProvider() {
     return this._additionalAuthenticationProvider;
   }
-  public putAdditionalAuthenticationProvider(
-    value:
-      | AppsyncGraphqlApiAdditionalAuthenticationProvider[]
-      | cdktf.IResolvable,
-  ) {
+  public putAdditionalAuthenticationProvider(value: AppsyncGraphqlApiAdditionalAuthenticationProvider[] | cdktf.IResolvable) {
     this._additionalAuthenticationProvider.internalValue = value;
   }
   public resetAdditionalAuthenticationProvider() {
@@ -1517,17 +1327,11 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // lambda_authorizer_config - computed: false, optional: true, required: false
-  private _lambdaAuthorizerConfig =
-    new AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference(
-      this,
-      'lambda_authorizer_config',
-    );
+  private _lambdaAuthorizerConfig = new AppsyncGraphqlApiLambdaAuthorizerConfigOutputReference(this, "lambda_authorizer_config");
   public get lambdaAuthorizerConfig() {
     return this._lambdaAuthorizerConfig;
   }
-  public putLambdaAuthorizerConfig(
-    value: AppsyncGraphqlApiLambdaAuthorizerConfig,
-  ) {
+  public putLambdaAuthorizerConfig(value: AppsyncGraphqlApiLambdaAuthorizerConfig) {
     this._lambdaAuthorizerConfig.internalValue = value;
   }
   public resetLambdaAuthorizerConfig() {
@@ -1539,10 +1343,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // log_config - computed: false, optional: true, required: false
-  private _logConfig = new AppsyncGraphqlApiLogConfigOutputReference(
-    this,
-    'log_config',
-  );
+  private _logConfig = new AppsyncGraphqlApiLogConfigOutputReference(this, "log_config");
   public get logConfig() {
     return this._logConfig;
   }
@@ -1558,11 +1359,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // openid_connect_config - computed: false, optional: true, required: false
-  private _openidConnectConfig =
-    new AppsyncGraphqlApiOpenidConnectConfigOutputReference(
-      this,
-      'openid_connect_config',
-    );
+  private _openidConnectConfig = new AppsyncGraphqlApiOpenidConnectConfigOutputReference(this, "openid_connect_config");
   public get openidConnectConfig() {
     return this._openidConnectConfig;
   }
@@ -1578,10 +1375,7 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
   }
 
   // user_pool_config - computed: false, optional: true, required: false
-  private _userPoolConfig = new AppsyncGraphqlApiUserPoolConfigOutputReference(
-    this,
-    'user_pool_config',
-  );
+  private _userPoolConfig = new AppsyncGraphqlApiUserPoolConfigOutputReference(this, "user_pool_config");
   public get userPoolConfig() {
     return this._userPoolConfig;
   }
@@ -1609,23 +1403,11 @@ export class AppsyncGraphqlApi extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       xray_enabled: cdktf.booleanToTerraform(this._xrayEnabled),
-      additional_authentication_provider: cdktf.listMapper(
-        appsyncGraphqlApiAdditionalAuthenticationProviderToTerraform,
-        true,
-      )(this._additionalAuthenticationProvider.internalValue),
-      lambda_authorizer_config:
-        appsyncGraphqlApiLambdaAuthorizerConfigToTerraform(
-          this._lambdaAuthorizerConfig.internalValue,
-        ),
-      log_config: appsyncGraphqlApiLogConfigToTerraform(
-        this._logConfig.internalValue,
-      ),
-      openid_connect_config: appsyncGraphqlApiOpenidConnectConfigToTerraform(
-        this._openidConnectConfig.internalValue,
-      ),
-      user_pool_config: appsyncGraphqlApiUserPoolConfigToTerraform(
-        this._userPoolConfig.internalValue,
-      ),
+      additional_authentication_provider: cdktf.listMapper(appsyncGraphqlApiAdditionalAuthenticationProviderToTerraform, true)(this._additionalAuthenticationProvider.internalValue),
+      lambda_authorizer_config: appsyncGraphqlApiLambdaAuthorizerConfigToTerraform(this._lambdaAuthorizerConfig.internalValue),
+      log_config: appsyncGraphqlApiLogConfigToTerraform(this._logConfig.internalValue),
+      openid_connect_config: appsyncGraphqlApiOpenidConnectConfigToTerraform(this._openidConnectConfig.internalValue),
+      user_pool_config: appsyncGraphqlApiUserPoolConfigToTerraform(this._userPoolConfig.internalValue),
     };
   }
 }

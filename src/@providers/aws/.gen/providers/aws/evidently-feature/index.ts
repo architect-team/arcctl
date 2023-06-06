@@ -1,100 +1,87 @@
 // https://www.terraform.io/docs/providers/aws/r/evidently_feature
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface EvidentlyFeatureConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#default_variation EvidentlyFeature#default_variation}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#default_variation EvidentlyFeature#default_variation}
+  */
   readonly defaultVariation?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#description EvidentlyFeature#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#description EvidentlyFeature#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#entity_overrides EvidentlyFeature#entity_overrides}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#entity_overrides EvidentlyFeature#entity_overrides}
+  */
   readonly entityOverrides?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#evaluation_strategy EvidentlyFeature#evaluation_strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#evaluation_strategy EvidentlyFeature#evaluation_strategy}
+  */
   readonly evaluationStrategy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#id EvidentlyFeature#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#id EvidentlyFeature#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#name EvidentlyFeature#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#name EvidentlyFeature#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#project EvidentlyFeature#project}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#project EvidentlyFeature#project}
+  */
   readonly project: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#tags EvidentlyFeature#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#tags EvidentlyFeature#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#tags_all EvidentlyFeature#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#tags_all EvidentlyFeature#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#timeouts EvidentlyFeature#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#timeouts EvidentlyFeature#timeouts}
+  */
   readonly timeouts?: EvidentlyFeatureTimeouts;
   /**
-   * variations block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#variations EvidentlyFeature#variations}
-   */
+  * variations block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#variations EvidentlyFeature#variations}
+  */
   readonly variations: EvidentlyFeatureVariations[] | cdktf.IResolvable;
 }
-export interface EvidentlyFeatureEvaluationRules {}
+export interface EvidentlyFeatureEvaluationRules {
+}
 
-export function evidentlyFeatureEvaluationRulesToTerraform(
-  struct?: EvidentlyFeatureEvaluationRules,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function evidentlyFeatureEvaluationRulesToTerraform(struct?: EvidentlyFeatureEvaluationRules): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class EvidentlyFeatureEvaluationRulesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): EvidentlyFeatureEvaluationRules | undefined {
@@ -106,7 +93,8 @@ export class EvidentlyFeatureEvaluationRulesOutputReference extends cdktf.Comple
   public set internalValue(value: EvidentlyFeatureEvaluationRules | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -123,65 +111,48 @@ export class EvidentlyFeatureEvaluationRulesOutputReference extends cdktf.Comple
 }
 
 export class EvidentlyFeatureEvaluationRulesList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): EvidentlyFeatureEvaluationRulesOutputReference {
-    return new EvidentlyFeatureEvaluationRulesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new EvidentlyFeatureEvaluationRulesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface EvidentlyFeatureTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#create EvidentlyFeature#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#create EvidentlyFeature#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#delete EvidentlyFeature#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#delete EvidentlyFeature#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#update EvidentlyFeature#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#update EvidentlyFeature#update}
+  */
   readonly update?: string;
 }
 
-export function evidentlyFeatureTimeoutsToTerraform(
-  struct?:
-    | EvidentlyFeatureTimeoutsOutputReference
-    | EvidentlyFeatureTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function evidentlyFeatureTimeoutsToTerraform(struct?: EvidentlyFeatureTimeoutsOutputReference | EvidentlyFeatureTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -189,20 +160,14 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EvidentlyFeatureTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): EvidentlyFeatureTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -223,19 +188,19 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EvidentlyFeatureTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: EvidentlyFeatureTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -245,7 +210,7 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -261,7 +226,7 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -277,7 +242,7 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -294,55 +259,44 @@ export class EvidentlyFeatureTimeoutsOutputReference extends cdktf.ComplexObject
 }
 export interface EvidentlyFeatureVariationsValue {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#bool_value EvidentlyFeature#bool_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#bool_value EvidentlyFeature#bool_value}
+  */
   readonly boolValue?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#double_value EvidentlyFeature#double_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#double_value EvidentlyFeature#double_value}
+  */
   readonly doubleValue?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#long_value EvidentlyFeature#long_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#long_value EvidentlyFeature#long_value}
+  */
   readonly longValue?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#string_value EvidentlyFeature#string_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#string_value EvidentlyFeature#string_value}
+  */
   readonly stringValue?: string;
 }
 
-export function evidentlyFeatureVariationsValueToTerraform(
-  struct?:
-    | EvidentlyFeatureVariationsValueOutputReference
-    | EvidentlyFeatureVariationsValue,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function evidentlyFeatureVariationsValueToTerraform(struct?: EvidentlyFeatureVariationsValueOutputReference | EvidentlyFeatureVariationsValue): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bool_value: cdktf.stringToTerraform(struct!.boolValue),
     double_value: cdktf.stringToTerraform(struct!.doubleValue),
     long_value: cdktf.stringToTerraform(struct!.longValue),
     string_value: cdktf.stringToTerraform(struct!.stringValue),
-  };
+  }
 }
 
 export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -375,7 +329,8 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
       this._doubleValue = undefined;
       this._longValue = undefined;
       this._stringValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._boolValue = value.boolValue;
       this._doubleValue = value.doubleValue;
@@ -385,7 +340,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // bool_value - computed: false, optional: true, required: false
-  private _boolValue?: string;
+  private _boolValue?: string; 
   public get boolValue() {
     return this.getStringAttribute('bool_value');
   }
@@ -401,7 +356,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // double_value - computed: false, optional: true, required: false
-  private _doubleValue?: string;
+  private _doubleValue?: string; 
   public get doubleValue() {
     return this.getStringAttribute('double_value');
   }
@@ -417,7 +372,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // long_value - computed: false, optional: true, required: false
-  private _longValue?: string;
+  private _longValue?: string; 
   public get longValue() {
     return this.getStringAttribute('long_value');
   }
@@ -433,7 +388,7 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
   }
 
   // string_value - computed: false, optional: true, required: false
-  private _stringValue?: string;
+  private _stringValue?: string; 
   public get stringValue() {
     return this.getStringAttribute('string_value');
   }
@@ -450,32 +405,26 @@ export class EvidentlyFeatureVariationsValueOutputReference extends cdktf.Comple
 }
 export interface EvidentlyFeatureVariations {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#name EvidentlyFeature#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#name EvidentlyFeature#name}
+  */
   readonly name: string;
   /**
-   * value block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#value EvidentlyFeature#value}
-   */
+  * value block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature#value EvidentlyFeature#value}
+  */
   readonly value: EvidentlyFeatureVariationsValue;
 }
 
-export function evidentlyFeatureVariationsToTerraform(
-  struct?: EvidentlyFeatureVariations | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function evidentlyFeatureVariationsToTerraform(struct?: EvidentlyFeatureVariations | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: evidentlyFeatureVariationsValueToTerraform(struct!.value),
-  };
+  }
 }
 
 export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObject {
@@ -483,29 +432,16 @@ export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObje
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | EvidentlyFeatureVariations
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): EvidentlyFeatureVariations | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -522,18 +458,18 @@ export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObje
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EvidentlyFeatureVariations | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: EvidentlyFeatureVariations | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -542,7 +478,7 @@ export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObje
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -555,10 +491,7 @@ export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObje
   }
 
   // value - computed: false, optional: false, required: true
-  private _value = new EvidentlyFeatureVariationsValueOutputReference(
-    this,
-    'value',
-  );
+  private _value = new EvidentlyFeatureVariationsValueOutputReference(this, "value");
   public get value() {
     return this._value;
   }
@@ -572,65 +505,53 @@ export class EvidentlyFeatureVariationsOutputReference extends cdktf.ComplexObje
 }
 
 export class EvidentlyFeatureVariationsList extends cdktf.ComplexList {
-  public internalValue?: EvidentlyFeatureVariations[] | cdktf.IResolvable;
+  public internalValue? : EvidentlyFeatureVariations[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): EvidentlyFeatureVariationsOutputReference {
-    return new EvidentlyFeatureVariationsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new EvidentlyFeatureVariationsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature aws_evidently_feature}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature aws_evidently_feature}
+*/
 export class EvidentlyFeature extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_evidently_feature';
+  public static readonly tfResourceType = "aws_evidently_feature";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature aws_evidently_feature} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options EvidentlyFeatureConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: EvidentlyFeatureConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/evidently_feature aws_evidently_feature} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options EvidentlyFeatureConfig
+  */
+  public constructor(scope: Construct, id: string, config: EvidentlyFeatureConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_evidently_feature',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -638,7 +559,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._defaultVariation = config.defaultVariation;
     this._description = config.description;
@@ -668,7 +589,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // default_variation - computed: true, optional: true, required: false
-  private _defaultVariation?: string;
+  private _defaultVariation?: string; 
   public get defaultVariation() {
     return this.getStringAttribute('default_variation');
   }
@@ -684,7 +605,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -700,7 +621,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // entity_overrides - computed: false, optional: true, required: false
-  private _entityOverrides?: { [key: string]: string };
+  private _entityOverrides?: { [key: string]: string }; 
   public get entityOverrides() {
     return this.getStringMapAttribute('entity_overrides');
   }
@@ -716,17 +637,13 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // evaluation_rules - computed: true, optional: false, required: false
-  private _evaluationRules = new EvidentlyFeatureEvaluationRulesList(
-    this,
-    'evaluation_rules',
-    true,
-  );
+  private _evaluationRules = new EvidentlyFeatureEvaluationRulesList(this, "evaluation_rules", true);
   public get evaluationRules() {
     return this._evaluationRules;
   }
 
   // evaluation_strategy - computed: true, optional: true, required: false
-  private _evaluationStrategy?: string;
+  private _evaluationStrategy?: string; 
   public get evaluationStrategy() {
     return this.getStringAttribute('evaluation_strategy');
   }
@@ -742,7 +659,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -763,7 +680,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -776,7 +693,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // project - computed: false, optional: false, required: true
-  private _project?: string;
+  private _project?: string; 
   public get project() {
     return this.getStringAttribute('project');
   }
@@ -794,7 +711,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -810,7 +727,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -831,10 +748,7 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EvidentlyFeatureTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new EvidentlyFeatureTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -850,17 +764,11 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
   }
 
   // variations - computed: false, optional: false, required: true
-  private _variations = new EvidentlyFeatureVariationsList(
-    this,
-    'variations',
-    true,
-  );
+  private _variations = new EvidentlyFeatureVariationsList(this, "variations", true);
   public get variations() {
     return this._variations;
   }
-  public putVariations(
-    value: EvidentlyFeatureVariations[] | cdktf.IResolvable,
-  ) {
+  public putVariations(value: EvidentlyFeatureVariations[] | cdktf.IResolvable) {
     this._variations.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -876,22 +784,15 @@ export class EvidentlyFeature extends cdktf.TerraformResource {
     return {
       default_variation: cdktf.stringToTerraform(this._defaultVariation),
       description: cdktf.stringToTerraform(this._description),
-      entity_overrides: cdktf.hashMapper(cdktf.stringToTerraform)(
-        this._entityOverrides,
-      ),
+      entity_overrides: cdktf.hashMapper(cdktf.stringToTerraform)(this._entityOverrides),
       evaluation_strategy: cdktf.stringToTerraform(this._evaluationStrategy),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       project: cdktf.stringToTerraform(this._project),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      timeouts: evidentlyFeatureTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
-      variations: cdktf.listMapper(
-        evidentlyFeatureVariationsToTerraform,
-        true,
-      )(this._variations.internalValue),
+      timeouts: evidentlyFeatureTimeoutsToTerraform(this._timeouts.internalValue),
+      variations: cdktf.listMapper(evidentlyFeatureVariationsToTerraform, true)(this._variations.internalValue),
     };
   }
 }

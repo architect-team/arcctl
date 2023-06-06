@@ -1,95 +1,93 @@
 // https://www.terraform.io/docs/providers/aws/r/network_acl_rule
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface NetworkAclRuleConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#cidr_block NetworkAclRule#cidr_block}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#cidr_block NetworkAclRule#cidr_block}
+  */
   readonly cidrBlock?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#egress NetworkAclRule#egress}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#egress NetworkAclRule#egress}
+  */
   readonly egress?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#from_port NetworkAclRule#from_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#from_port NetworkAclRule#from_port}
+  */
   readonly fromPort?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#icmp_code NetworkAclRule#icmp_code}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#icmp_code NetworkAclRule#icmp_code}
+  */
   readonly icmpCode?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#icmp_type NetworkAclRule#icmp_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#icmp_type NetworkAclRule#icmp_type}
+  */
   readonly icmpType?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#id NetworkAclRule#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#id NetworkAclRule#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#ipv6_cidr_block NetworkAclRule#ipv6_cidr_block}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#ipv6_cidr_block NetworkAclRule#ipv6_cidr_block}
+  */
   readonly ipv6CidrBlock?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#network_acl_id NetworkAclRule#network_acl_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#network_acl_id NetworkAclRule#network_acl_id}
+  */
   readonly networkAclId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#protocol NetworkAclRule#protocol}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#protocol NetworkAclRule#protocol}
+  */
   readonly protocol: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#rule_action NetworkAclRule#rule_action}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#rule_action NetworkAclRule#rule_action}
+  */
   readonly ruleAction: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#rule_number NetworkAclRule#rule_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#rule_number NetworkAclRule#rule_number}
+  */
   readonly ruleNumber: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#to_port NetworkAclRule#to_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule#to_port NetworkAclRule#to_port}
+  */
   readonly toPort?: number;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule aws_network_acl_rule}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule aws_network_acl_rule}
+*/
 export class NetworkAclRule extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_network_acl_rule';
+  public static readonly tfResourceType = "aws_network_acl_rule";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule aws_network_acl_rule} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options NetworkAclRuleConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: NetworkAclRuleConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/network_acl_rule aws_network_acl_rule} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options NetworkAclRuleConfig
+  */
+  public constructor(scope: Construct, id: string, config: NetworkAclRuleConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_network_acl_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -97,7 +95,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cidrBlock = config.cidrBlock;
     this._egress = config.egress;
@@ -118,7 +116,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   // ==========
 
   // cidr_block - computed: false, optional: true, required: false
-  private _cidrBlock?: string;
+  private _cidrBlock?: string; 
   public get cidrBlock() {
     return this.getStringAttribute('cidr_block');
   }
@@ -134,7 +132,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // egress - computed: false, optional: true, required: false
-  private _egress?: boolean | cdktf.IResolvable;
+  private _egress?: boolean | cdktf.IResolvable; 
   public get egress() {
     return this.getBooleanAttribute('egress');
   }
@@ -150,7 +148,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // from_port - computed: false, optional: true, required: false
-  private _fromPort?: number;
+  private _fromPort?: number; 
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -166,7 +164,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // icmp_code - computed: false, optional: true, required: false
-  private _icmpCode?: number;
+  private _icmpCode?: number; 
   public get icmpCode() {
     return this.getNumberAttribute('icmp_code');
   }
@@ -182,7 +180,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // icmp_type - computed: false, optional: true, required: false
-  private _icmpType?: number;
+  private _icmpType?: number; 
   public get icmpType() {
     return this.getNumberAttribute('icmp_type');
   }
@@ -198,7 +196,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -214,7 +212,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // ipv6_cidr_block - computed: false, optional: true, required: false
-  private _ipv6CidrBlock?: string;
+  private _ipv6CidrBlock?: string; 
   public get ipv6CidrBlock() {
     return this.getStringAttribute('ipv6_cidr_block');
   }
@@ -230,7 +228,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // network_acl_id - computed: false, optional: false, required: true
-  private _networkAclId?: string;
+  private _networkAclId?: string; 
   public get networkAclId() {
     return this.getStringAttribute('network_acl_id');
   }
@@ -243,7 +241,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string;
+  private _protocol?: string; 
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -256,7 +254,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // rule_action - computed: false, optional: false, required: true
-  private _ruleAction?: string;
+  private _ruleAction?: string; 
   public get ruleAction() {
     return this.getStringAttribute('rule_action');
   }
@@ -269,7 +267,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // rule_number - computed: false, optional: false, required: true
-  private _ruleNumber?: number;
+  private _ruleNumber?: number; 
   public get ruleNumber() {
     return this.getNumberAttribute('rule_number');
   }
@@ -282,7 +280,7 @@ export class NetworkAclRule extends cdktf.TerraformResource {
   }
 
   // to_port - computed: false, optional: true, required: false
-  private _toPort?: number;
+  private _toPort?: number; 
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }

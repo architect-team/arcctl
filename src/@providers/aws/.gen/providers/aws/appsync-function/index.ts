@@ -1,106 +1,98 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_function
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface AppsyncFunctionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#api_id AppsyncFunction#api_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#api_id AppsyncFunction#api_id}
+  */
   readonly apiId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#code AppsyncFunction#code}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#code AppsyncFunction#code}
+  */
   readonly code?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#data_source AppsyncFunction#data_source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#data_source AppsyncFunction#data_source}
+  */
   readonly dataSource: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#description AppsyncFunction#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#description AppsyncFunction#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#function_version AppsyncFunction#function_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#function_version AppsyncFunction#function_version}
+  */
   readonly functionVersion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#id AppsyncFunction#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#id AppsyncFunction#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#max_batch_size AppsyncFunction#max_batch_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#max_batch_size AppsyncFunction#max_batch_size}
+  */
   readonly maxBatchSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#name AppsyncFunction#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#name AppsyncFunction#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#request_mapping_template AppsyncFunction#request_mapping_template}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#request_mapping_template AppsyncFunction#request_mapping_template}
+  */
   readonly requestMappingTemplate?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#response_mapping_template AppsyncFunction#response_mapping_template}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#response_mapping_template AppsyncFunction#response_mapping_template}
+  */
   readonly responseMappingTemplate?: string;
   /**
-   * runtime block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#runtime AppsyncFunction#runtime}
-   */
+  * runtime block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#runtime AppsyncFunction#runtime}
+  */
   readonly runtime?: AppsyncFunctionRuntime;
   /**
-   * sync_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#sync_config AppsyncFunction#sync_config}
-   */
+  * sync_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#sync_config AppsyncFunction#sync_config}
+  */
   readonly syncConfig?: AppsyncFunctionSyncConfig;
 }
 export interface AppsyncFunctionRuntime {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#name AppsyncFunction#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#name AppsyncFunction#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#runtime_version AppsyncFunction#runtime_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#runtime_version AppsyncFunction#runtime_version}
+  */
   readonly runtimeVersion: string;
 }
 
-export function appsyncFunctionRuntimeToTerraform(
-  struct?: AppsyncFunctionRuntimeOutputReference | AppsyncFunctionRuntime,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncFunctionRuntimeToTerraform(struct?: AppsyncFunctionRuntimeOutputReference | AppsyncFunctionRuntime): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     runtime_version: cdktf.stringToTerraform(struct!.runtimeVersion),
-  };
+  }
 }
 
 export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -123,7 +115,8 @@ export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._name = undefined;
       this._runtimeVersion = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._runtimeVersion = value.runtimeVersion;
@@ -131,7 +124,7 @@ export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -144,7 +137,7 @@ export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
   }
 
   // runtime_version - computed: false, optional: false, required: true
-  private _runtimeVersion?: string;
+  private _runtimeVersion?: string; 
   public get runtimeVersion() {
     return this.getStringAttribute('runtime_version');
   }
@@ -158,72 +151,55 @@ export class AppsyncFunctionRuntimeOutputReference extends cdktf.ComplexObject {
 }
 export interface AppsyncFunctionSyncConfigLambdaConflictHandlerConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#lambda_conflict_handler_arn AppsyncFunction#lambda_conflict_handler_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#lambda_conflict_handler_arn AppsyncFunction#lambda_conflict_handler_arn}
+  */
   readonly lambdaConflictHandlerArn?: string;
 }
 
-export function appsyncFunctionSyncConfigLambdaConflictHandlerConfigToTerraform(
-  struct?:
-    | AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference
-    | AppsyncFunctionSyncConfigLambdaConflictHandlerConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncFunctionSyncConfigLambdaConflictHandlerConfigToTerraform(struct?: AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference | AppsyncFunctionSyncConfigLambdaConflictHandlerConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    lambda_conflict_handler_arn: cdktf.stringToTerraform(
-      struct!.lambdaConflictHandlerArn,
-    ),
-  };
+    lambda_conflict_handler_arn: cdktf.stringToTerraform(struct!.lambdaConflictHandlerArn),
+  }
 }
 
 export class AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppsyncFunctionSyncConfigLambdaConflictHandlerConfig
-    | undefined {
+  public get internalValue(): AppsyncFunctionSyncConfigLambdaConflictHandlerConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lambdaConflictHandlerArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaConflictHandlerArn =
-        this._lambdaConflictHandlerArn;
+      internalValueResult.lambdaConflictHandlerArn = this._lambdaConflictHandlerArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig | undefined,
-  ) {
+  public set internalValue(value: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lambdaConflictHandlerArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lambdaConflictHandlerArn = value.lambdaConflictHandlerArn;
     }
   }
 
   // lambda_conflict_handler_arn - computed: false, optional: true, required: false
-  private _lambdaConflictHandlerArn?: string;
+  private _lambdaConflictHandlerArn?: string; 
   public get lambdaConflictHandlerArn() {
     return this.getStringAttribute('lambda_conflict_handler_arn');
   }
@@ -240,53 +216,41 @@ export class AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference
 }
 export interface AppsyncFunctionSyncConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#conflict_detection AppsyncFunction#conflict_detection}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#conflict_detection AppsyncFunction#conflict_detection}
+  */
   readonly conflictDetection?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#conflict_handler AppsyncFunction#conflict_handler}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#conflict_handler AppsyncFunction#conflict_handler}
+  */
   readonly conflictHandler?: string;
   /**
-   * lambda_conflict_handler_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#lambda_conflict_handler_config AppsyncFunction#lambda_conflict_handler_config}
-   */
+  * lambda_conflict_handler_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_function#lambda_conflict_handler_config AppsyncFunction#lambda_conflict_handler_config}
+  */
   readonly lambdaConflictHandlerConfig?: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig;
 }
 
-export function appsyncFunctionSyncConfigToTerraform(
-  struct?: AppsyncFunctionSyncConfigOutputReference | AppsyncFunctionSyncConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appsyncFunctionSyncConfigToTerraform(struct?: AppsyncFunctionSyncConfigOutputReference | AppsyncFunctionSyncConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     conflict_detection: cdktf.stringToTerraform(struct!.conflictDetection),
     conflict_handler: cdktf.stringToTerraform(struct!.conflictHandler),
-    lambda_conflict_handler_config:
-      appsyncFunctionSyncConfigLambdaConflictHandlerConfigToTerraform(
-        struct!.lambdaConflictHandlerConfig,
-      ),
-  };
+    lambda_conflict_handler_config: appsyncFunctionSyncConfigLambdaConflictHandlerConfigToTerraform(struct!.lambdaConflictHandlerConfig),
+  }
 }
 
 export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -303,8 +267,7 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
     }
     if (this._lambdaConflictHandlerConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaConflictHandlerConfig =
-        this._lambdaConflictHandlerConfig?.internalValue;
+      internalValueResult.lambdaConflictHandlerConfig = this._lambdaConflictHandlerConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -315,17 +278,17 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
       this._conflictDetection = undefined;
       this._conflictHandler = undefined;
       this._lambdaConflictHandlerConfig.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._conflictDetection = value.conflictDetection;
       this._conflictHandler = value.conflictHandler;
-      this._lambdaConflictHandlerConfig.internalValue =
-        value.lambdaConflictHandlerConfig;
+      this._lambdaConflictHandlerConfig.internalValue = value.lambdaConflictHandlerConfig;
     }
   }
 
   // conflict_detection - computed: false, optional: true, required: false
-  private _conflictDetection?: string;
+  private _conflictDetection?: string; 
   public get conflictDetection() {
     return this.getStringAttribute('conflict_detection');
   }
@@ -341,7 +304,7 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // conflict_handler - computed: false, optional: true, required: false
-  private _conflictHandler?: string;
+  private _conflictHandler?: string; 
   public get conflictHandler() {
     return this.getStringAttribute('conflict_handler');
   }
@@ -357,17 +320,11 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
   }
 
   // lambda_conflict_handler_config - computed: false, optional: true, required: false
-  private _lambdaConflictHandlerConfig =
-    new AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference(
-      this,
-      'lambda_conflict_handler_config',
-    );
+  private _lambdaConflictHandlerConfig = new AppsyncFunctionSyncConfigLambdaConflictHandlerConfigOutputReference(this, "lambda_conflict_handler_config");
   public get lambdaConflictHandlerConfig() {
     return this._lambdaConflictHandlerConfig;
   }
-  public putLambdaConflictHandlerConfig(
-    value: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig,
-  ) {
+  public putLambdaConflictHandlerConfig(value: AppsyncFunctionSyncConfigLambdaConflictHandlerConfig) {
     this._lambdaConflictHandlerConfig.internalValue = value;
   }
   public resetLambdaConflictHandlerConfig() {
@@ -380,36 +337,33 @@ export class AppsyncFunctionSyncConfigOutputReference extends cdktf.ComplexObjec
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_function aws_appsync_function}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_function aws_appsync_function}
+*/
 export class AppsyncFunction extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_appsync_function';
+  public static readonly tfResourceType = "aws_appsync_function";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_function aws_appsync_function} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppsyncFunctionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AppsyncFunctionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_function aws_appsync_function} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppsyncFunctionConfig
+  */
+  public constructor(scope: Construct, id: string, config: AppsyncFunctionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appsync_function',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -417,7 +371,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._apiId = config.apiId;
     this._code = config.code;
@@ -438,7 +392,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string;
+  private _apiId?: string; 
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -456,7 +410,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // code - computed: false, optional: true, required: false
-  private _code?: string;
+  private _code?: string; 
   public get code() {
     return this.getStringAttribute('code');
   }
@@ -472,7 +426,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // data_source - computed: false, optional: false, required: true
-  private _dataSource?: string;
+  private _dataSource?: string; 
   public get dataSource() {
     return this.getStringAttribute('data_source');
   }
@@ -485,7 +439,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -506,7 +460,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // function_version - computed: true, optional: true, required: false
-  private _functionVersion?: string;
+  private _functionVersion?: string; 
   public get functionVersion() {
     return this.getStringAttribute('function_version');
   }
@@ -522,7 +476,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -538,7 +492,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // max_batch_size - computed: false, optional: true, required: false
-  private _maxBatchSize?: number;
+  private _maxBatchSize?: number; 
   public get maxBatchSize() {
     return this.getNumberAttribute('max_batch_size');
   }
@@ -554,7 +508,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -567,7 +521,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // request_mapping_template - computed: false, optional: true, required: false
-  private _requestMappingTemplate?: string;
+  private _requestMappingTemplate?: string; 
   public get requestMappingTemplate() {
     return this.getStringAttribute('request_mapping_template');
   }
@@ -583,7 +537,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // response_mapping_template - computed: false, optional: true, required: false
-  private _responseMappingTemplate?: string;
+  private _responseMappingTemplate?: string; 
   public get responseMappingTemplate() {
     return this.getStringAttribute('response_mapping_template');
   }
@@ -599,7 +553,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // runtime - computed: false, optional: true, required: false
-  private _runtime = new AppsyncFunctionRuntimeOutputReference(this, 'runtime');
+  private _runtime = new AppsyncFunctionRuntimeOutputReference(this, "runtime");
   public get runtime() {
     return this._runtime;
   }
@@ -615,10 +569,7 @@ export class AppsyncFunction extends cdktf.TerraformResource {
   }
 
   // sync_config - computed: false, optional: true, required: false
-  private _syncConfig = new AppsyncFunctionSyncConfigOutputReference(
-    this,
-    'sync_config',
-  );
+  private _syncConfig = new AppsyncFunctionSyncConfigOutputReference(this, "sync_config");
   public get syncConfig() {
     return this._syncConfig;
   }
@@ -647,16 +598,10 @@ export class AppsyncFunction extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       max_batch_size: cdktf.numberToTerraform(this._maxBatchSize),
       name: cdktf.stringToTerraform(this._name),
-      request_mapping_template: cdktf.stringToTerraform(
-        this._requestMappingTemplate,
-      ),
-      response_mapping_template: cdktf.stringToTerraform(
-        this._responseMappingTemplate,
-      ),
+      request_mapping_template: cdktf.stringToTerraform(this._requestMappingTemplate),
+      response_mapping_template: cdktf.stringToTerraform(this._responseMappingTemplate),
       runtime: appsyncFunctionRuntimeToTerraform(this._runtime.internalValue),
-      sync_config: appsyncFunctionSyncConfigToTerraform(
-        this._syncConfig.internalValue,
-      ),
+      sync_config: appsyncFunctionSyncConfigToTerraform(this._syncConfig.internalValue),
     };
   }
 }

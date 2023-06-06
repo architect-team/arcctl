@@ -1,53 +1,46 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { IngressV1 } from '../.gen/providers/kubernetes/ingress-v1/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class KubernetesIngressRuleModule extends ResourceModule<
-  'ingressRule',
-  KubernetesCredentials
-> {
+export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', KubernetesCredentials> {
   ingress: IngressV1;
   outputs: ResourceOutputs['ingressRule'];
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['ingressRule'],
-  ) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'ingressRule'>) {
+    super(scope, options);
 
     const hostParts = [];
-    if (inputs.listener?.subdomain) {
-      hostParts.push(inputs.listener.subdomain);
+    if (this.inputs?.listener?.subdomain) {
+      hostParts.push(this.inputs.listener.subdomain);
     }
 
-    if (inputs.listener?.hostZone) {
-      hostParts.push(inputs.listener.hostZone);
+    if (this.inputs?.listener?.hostZone) {
+      hostParts.push(this.inputs.listener.hostZone);
     }
 
     const host = hostParts.join('.');
     this.ingress = new IngressV1(this, 'ingress', {
       waitForLoadBalancer: true,
       metadata: {
-        name: id.replace(/\//g, '--'),
-        namespace: inputs.namespace,
+        name: options.id.replace(/\//g, '--'),
+        namespace: this.inputs?.namespace,
       },
       spec: {
-        ingressClassName: inputs.loadBalancer,
+        ingressClassName: this.inputs?.loadBalancer,
         rule: [
           {
             host,
             http: {
               path: [
                 {
-                  path: inputs.listener?.path || '/',
+                  path: this.inputs?.listener?.path || '/',
                   backend: {
                     service: {
-                      name: inputs.service.replace(/\//g, '--'),
+                      name: this.inputs?.service.replace(/\//g, '--') || 'unknown',
                       port: {
-                        number: Number(inputs.port),
+                        number: Number(this.inputs?.port || 80),
                       },
                     },
                   },
@@ -60,35 +53,26 @@ export class KubernetesIngressRuleModule extends ResourceModule<
     });
 
     let url = `http://${host}`;
-    if (inputs.port !== 80) {
-      url += ':' + inputs.port;
+    if (this.inputs?.port && this.inputs.port !== 80) {
+      url += ':' + this.inputs.port;
     }
-    url += inputs.listener?.path || '/';
+    url += this.inputs?.listener?.path || '/';
 
-    const ip_address = this.ingress.status
-      .get(0)
-      .loadBalancer.get(0)
-      .ingress.get(0).ip;
+    const ip_address = this.ingress.status.get(0).loadBalancer.get(0).ingress.get(0).ip;
 
-    const hostname = this.ingress.status
-      .get(0)
-      .loadBalancer.get(0)
-      .ingress.get(0).hostname;
+    const hostname = this.ingress.status.get(0).loadBalancer.get(0).ingress.get(0).hostname;
 
     this.outputs = {
       id: `${this.ingress.metadata.namespace}/${this.ingress.metadata.name}`,
       host,
-      port: inputs.port,
-      path: inputs.listener?.path || '/',
+      port: this.inputs?.port || 80,
+      path: this.inputs?.listener?.path || '/',
       url,
       loadBalancerHostname: `\${${ip_address} != "" ? ${ip_address} : ${hostname}}`,
     };
   }
 
-  genImports(
-    _credentials: KubernetesCredentials,
-    _resourceId: string,
-  ): Promise<Record<string, string>> {
+  genImports(_credentials: KubernetesCredentials, _resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.ingress)]: 'Ingress Rule',
     });

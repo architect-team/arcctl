@@ -1,57 +1,53 @@
 // https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsRoute53ResolverFirewallDomainListConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsRoute53ResolverFirewallDomainListConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list#firewall_domain_list_id DataAwsRoute53ResolverFirewallDomainList#firewall_domain_list_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list#firewall_domain_list_id DataAwsRoute53ResolverFirewallDomainList#firewall_domain_list_id}
+  */
   readonly firewallDomainListId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list#id DataAwsRoute53ResolverFirewallDomainList#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list#id DataAwsRoute53ResolverFirewallDomainList#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list aws_route53_resolver_firewall_domain_list}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list aws_route53_resolver_firewall_domain_list}
+*/
 export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_route53_resolver_firewall_domain_list';
+  public static readonly tfResourceType = "aws_route53_resolver_firewall_domain_list";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list aws_route53_resolver_firewall_domain_list} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsRoute53ResolverFirewallDomainListConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsRoute53ResolverFirewallDomainListConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/route53_resolver_firewall_domain_list aws_route53_resolver_firewall_domain_list} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsRoute53ResolverFirewallDomainListConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsRoute53ResolverFirewallDomainListConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_resolver_firewall_domain_list',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +55,7 @@ export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDat
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._firewallDomainListId = config.firewallDomainListId;
     this._id = config.id;
@@ -90,7 +86,7 @@ export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDat
   }
 
   // firewall_domain_list_id - computed: false, optional: false, required: true
-  private _firewallDomainListId?: string;
+  private _firewallDomainListId?: string; 
   public get firewallDomainListId() {
     return this.getStringAttribute('firewall_domain_list_id');
   }
@@ -103,7 +99,7 @@ export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDat
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,9 +145,7 @@ export class DataAwsRoute53ResolverFirewallDomainList extends cdktf.TerraformDat
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      firewall_domain_list_id: cdktf.stringToTerraform(
-        this._firewallDomainListId,
-      ),
+      firewall_domain_list_id: cdktf.stringToTerraform(this._firewallDomainListId),
       id: cdktf.stringToTerraform(this._id),
     };
   }

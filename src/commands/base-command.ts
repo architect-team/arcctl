@@ -1,11 +1,10 @@
-import { Provider, SupportedProviders, ProviderStore } from '../@providers/index.ts';
+import { Provider, SupportedProviders, ProviderStore, WritableResourceService } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
 import { Datacenter, DatacenterRecord, DatacenterStore } from '../datacenters/index.ts';
 import { EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
-import { Terraform } from '../terraform/terraform.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import { createProvider } from '../utils/providers.ts';
@@ -62,35 +61,27 @@ export class CommandHelper {
    * it to the datacenter store
    */
   public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const secretStep = new PipelineStep({
         action: 'create',
         type: 'secret',
         name: `${datacenterName}-datacenter-pipeline`,
         inputs: {
           type: 'secret',
-          name: `datacenter-pipeline`,
+          name: 'datacenter-pipeline',
           namespace: datacenterName,
           account: datacenter.getSecretsConfig().account,
           data: JSON.stringify(pipeline),
         },
       });
 
-      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-
       secretStep
         .apply({
           providerStore: this.providerStore,
-          terraform: terraform,
         })
         .subscribe({
           complete: async () => {
-            const outputs = await secretStep.getOutputs({
-              providerStore: this.providerStore,
-              terraform: terraform,
-            });
-
-            if (!outputs) {
+            if (!secretStep.outputs) {
               console.error('Something went wrong storing the pipeline');
               Deno.exit(1);
             }
@@ -100,34 +91,40 @@ export class CommandHelper {
               config: datacenter,
               lastPipeline: {
                 account: datacenter.getSecretsConfig().account,
-                secret: outputs.id,
+                secret: secretStep.outputs.id,
               },
             });
             resolve();
           },
-          error: reject,
+          error: (err) => {
+            reject(err);
+          },
         });
     });
   }
 
   public removeDatacenter(record: DatacenterRecord): Promise<void> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const secretStep = new PipelineStep({
         action: 'delete',
         type: 'secret',
         name: `${record.name}-datacenter-pipeline`,
-        resource: {
+        inputs: {
+          type: 'secret',
+          name: 'datacenter-pipeline',
+          namespace: record.name,
+          data: '',
           account: record.config.getSecretsConfig().account,
+        },
+        outputs: {
           id: `${record.name}/datacenter-pipeline`,
+          data: '',
         },
       });
-
-      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
 
       secretStep
         .apply({
           providerStore: this.providerStore,
-          terraform: terraform,
         })
         .subscribe({
           complete: async () => {
@@ -456,10 +453,10 @@ export class CommandHelper {
   /**
    * Look through all providers and determine if a resource type is creatable
    */
-  public async isCreatableResourceType(resourceType: ResourceType): Promise<boolean> {
+  public isCreatableResourceType(resourceType: ResourceType): boolean {
     for (const [provider_name, provider_constructor] of Object.entries(SupportedProviders)) {
       const any_value: any = {};
-      const provider = new provider_constructor(provider_name, any_value, any_value) as Provider<any>;
+      const provider = new provider_constructor(provider_name, any_value) as Provider<any>;
 
       const service = provider.resources[resourceType];
       if (service && ('construct' in service || 'create' in service)) {

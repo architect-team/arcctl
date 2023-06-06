@@ -1,104 +1,91 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_container_service
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface LightsailContainerServiceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface LightsailContainerServiceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#id LightsailContainerService#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#id LightsailContainerService#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#is_disabled LightsailContainerService#is_disabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#is_disabled LightsailContainerService#is_disabled}
+  */
   readonly isDisabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#name LightsailContainerService#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#name LightsailContainerService#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#power LightsailContainerService#power}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#power LightsailContainerService#power}
+  */
   readonly power: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#scale LightsailContainerService#scale}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#scale LightsailContainerService#scale}
+  */
   readonly scale: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#tags LightsailContainerService#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#tags LightsailContainerService#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#tags_all LightsailContainerService#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#tags_all LightsailContainerService#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * private_registry_access block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#private_registry_access LightsailContainerService#private_registry_access}
-   */
+  * private_registry_access block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#private_registry_access LightsailContainerService#private_registry_access}
+  */
   readonly privateRegistryAccess?: LightsailContainerServicePrivateRegistryAccess;
   /**
-   * public_domain_names block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#public_domain_names LightsailContainerService#public_domain_names}
-   */
+  * public_domain_names block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#public_domain_names LightsailContainerService#public_domain_names}
+  */
   readonly publicDomainNames?: LightsailContainerServicePublicDomainNames;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#timeouts LightsailContainerService#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#timeouts LightsailContainerService#timeouts}
+  */
   readonly timeouts?: LightsailContainerServiceTimeouts;
 }
 export interface LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#is_active LightsailContainerService#is_active}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#is_active LightsailContainerService#is_active}
+  */
   readonly isActive?: boolean | cdktf.IResolvable;
 }
 
-export function lightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleToTerraform(
-  struct?:
-    | LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputReference
-    | LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function lightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleToTerraform(struct?: LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputReference | LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     is_active: cdktf.booleanToTerraform(struct!.isActive),
-  };
+  }
 }
 
 export class LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole
-    | undefined {
+  public get internalValue(): LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._isActive !== undefined) {
@@ -108,22 +95,19 @@ export class LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole
-      | undefined,
-  ) {
+  public set internalValue(value: LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._isActive = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._isActive = value.isActive;
     }
   }
 
   // is_active - computed: false, optional: true, required: false
-  private _isActive?: boolean | cdktf.IResolvable;
+  private _isActive?: boolean | cdktf.IResolvable; 
   public get isActive() {
     return this.getBooleanAttribute('is_active');
   }
@@ -145,85 +129,61 @@ export class LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOut
 }
 export interface LightsailContainerServicePrivateRegistryAccess {
   /**
-   * ecr_image_puller_role block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#ecr_image_puller_role LightsailContainerService#ecr_image_puller_role}
-   */
+  * ecr_image_puller_role block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#ecr_image_puller_role LightsailContainerService#ecr_image_puller_role}
+  */
   readonly ecrImagePullerRole?: LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole;
 }
 
-export function lightsailContainerServicePrivateRegistryAccessToTerraform(
-  struct?:
-    | LightsailContainerServicePrivateRegistryAccessOutputReference
-    | LightsailContainerServicePrivateRegistryAccess,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function lightsailContainerServicePrivateRegistryAccessToTerraform(struct?: LightsailContainerServicePrivateRegistryAccessOutputReference | LightsailContainerServicePrivateRegistryAccess): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    ecr_image_puller_role:
-      lightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleToTerraform(
-        struct!.ecrImagePullerRole,
-      ),
-  };
+    ecr_image_puller_role: lightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleToTerraform(struct!.ecrImagePullerRole),
+  }
 }
 
 export class LightsailContainerServicePrivateRegistryAccessOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LightsailContainerServicePrivateRegistryAccess
-    | undefined {
+  public get internalValue(): LightsailContainerServicePrivateRegistryAccess | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._ecrImagePullerRole?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.ecrImagePullerRole =
-        this._ecrImagePullerRole?.internalValue;
+      internalValueResult.ecrImagePullerRole = this._ecrImagePullerRole?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LightsailContainerServicePrivateRegistryAccess | undefined,
-  ) {
+  public set internalValue(value: LightsailContainerServicePrivateRegistryAccess | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._ecrImagePullerRole.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._ecrImagePullerRole.internalValue = value.ecrImagePullerRole;
     }
   }
 
   // ecr_image_puller_role - computed: false, optional: true, required: false
-  private _ecrImagePullerRole =
-    new LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputReference(
-      this,
-      'ecr_image_puller_role',
-    );
+  private _ecrImagePullerRole = new LightsailContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputReference(this, "ecr_image_puller_role");
   public get ecrImagePullerRole() {
     return this._ecrImagePullerRole;
   }
-  public putEcrImagePullerRole(
-    value: LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole,
-  ) {
+  public putEcrImagePullerRole(value: LightsailContainerServicePrivateRegistryAccessEcrImagePullerRole) {
     this._ecrImagePullerRole.internalValue = value;
   }
   public resetEcrImagePullerRole() {
@@ -236,35 +196,24 @@ export class LightsailContainerServicePrivateRegistryAccessOutputReference exten
 }
 export interface LightsailContainerServicePublicDomainNamesCertificate {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#certificate_name LightsailContainerService#certificate_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#certificate_name LightsailContainerService#certificate_name}
+  */
   readonly certificateName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#domain_names LightsailContainerService#domain_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#domain_names LightsailContainerService#domain_names}
+  */
   readonly domainNames: string[];
 }
 
-export function lightsailContainerServicePublicDomainNamesCertificateToTerraform(
-  struct?:
-    | LightsailContainerServicePublicDomainNamesCertificate
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function lightsailContainerServicePublicDomainNamesCertificateToTerraform(struct?: LightsailContainerServicePublicDomainNamesCertificate | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     certificate_name: cdktf.stringToTerraform(struct!.certificateName),
-    domain_names: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.domainNames),
-  };
+    domain_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.domainNames),
+  }
 }
 
 export class LightsailContainerServicePublicDomainNamesCertificateOutputReference extends cdktf.ComplexObject {
@@ -272,29 +221,16 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LightsailContainerServicePublicDomainNamesCertificate
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LightsailContainerServicePublicDomainNamesCertificate | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -311,21 +247,18 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | LightsailContainerServicePublicDomainNamesCertificate
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: LightsailContainerServicePublicDomainNamesCertificate | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._certificateName = undefined;
       this._domainNames = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._certificateName = value.certificateName;
@@ -334,7 +267,7 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
   }
 
   // certificate_name - computed: false, optional: false, required: true
-  private _certificateName?: string;
+  private _certificateName?: string; 
   public get certificateName() {
     return this.getStringAttribute('certificate_name');
   }
@@ -347,7 +280,7 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
   }
 
   // domain_names - computed: false, optional: false, required: true
-  private _domainNames?: string[];
+  private _domainNames?: string[]; 
   public get domainNames() {
     return this.getListAttribute('domain_names');
   }
@@ -361,86 +294,55 @@ export class LightsailContainerServicePublicDomainNamesCertificateOutputReferenc
 }
 
 export class LightsailContainerServicePublicDomainNamesCertificateList extends cdktf.ComplexList {
-  public internalValue?:
-    | LightsailContainerServicePublicDomainNamesCertificate[]
-    | cdktf.IResolvable;
+  public internalValue? : LightsailContainerServicePublicDomainNamesCertificate[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): LightsailContainerServicePublicDomainNamesCertificateOutputReference {
-    return new LightsailContainerServicePublicDomainNamesCertificateOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): LightsailContainerServicePublicDomainNamesCertificateOutputReference {
+    return new LightsailContainerServicePublicDomainNamesCertificateOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface LightsailContainerServicePublicDomainNames {
   /**
-   * certificate block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#certificate LightsailContainerService#certificate}
-   */
-  readonly certificate:
-    | LightsailContainerServicePublicDomainNamesCertificate[]
-    | cdktf.IResolvable;
+  * certificate block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#certificate LightsailContainerService#certificate}
+  */
+  readonly certificate: LightsailContainerServicePublicDomainNamesCertificate[] | cdktf.IResolvable;
 }
 
-export function lightsailContainerServicePublicDomainNamesToTerraform(
-  struct?:
-    | LightsailContainerServicePublicDomainNamesOutputReference
-    | LightsailContainerServicePublicDomainNames,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function lightsailContainerServicePublicDomainNamesToTerraform(struct?: LightsailContainerServicePublicDomainNamesOutputReference | LightsailContainerServicePublicDomainNames): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    certificate: cdktf.listMapper(
-      lightsailContainerServicePublicDomainNamesCertificateToTerraform,
-      true,
-    )(struct!.certificate),
-  };
+    certificate: cdktf.listMapper(lightsailContainerServicePublicDomainNamesCertificateToTerraform, true)(struct!.certificate),
+  }
 }
 
 export class LightsailContainerServicePublicDomainNamesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LightsailContainerServicePublicDomainNames
-    | undefined {
+  public get internalValue(): LightsailContainerServicePublicDomainNames | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._certificate?.internalValue !== undefined) {
@@ -450,33 +352,23 @@ export class LightsailContainerServicePublicDomainNamesOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LightsailContainerServicePublicDomainNames | undefined,
-  ) {
+  public set internalValue(value: LightsailContainerServicePublicDomainNames | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._certificate.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._certificate.internalValue = value.certificate;
     }
   }
 
   // certificate - computed: false, optional: false, required: true
-  private _certificate =
-    new LightsailContainerServicePublicDomainNamesCertificateList(
-      this,
-      'certificate',
-      true,
-    );
+  private _certificate = new LightsailContainerServicePublicDomainNamesCertificateList(this, "certificate", true);
   public get certificate() {
     return this._certificate;
   }
-  public putCertificate(
-    value:
-      | LightsailContainerServicePublicDomainNamesCertificate[]
-      | cdktf.IResolvable,
-  ) {
+  public putCertificate(value: LightsailContainerServicePublicDomainNamesCertificate[] | cdktf.IResolvable) {
     this._certificate.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -486,38 +378,29 @@ export class LightsailContainerServicePublicDomainNamesOutputReference extends c
 }
 export interface LightsailContainerServiceTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#create LightsailContainerService#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#create LightsailContainerService#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#delete LightsailContainerService#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#delete LightsailContainerService#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#update LightsailContainerService#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service#update LightsailContainerService#update}
+  */
   readonly update?: string;
 }
 
-export function lightsailContainerServiceTimeoutsToTerraform(
-  struct?:
-    | LightsailContainerServiceTimeoutsOutputReference
-    | LightsailContainerServiceTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function lightsailContainerServiceTimeoutsToTerraform(struct?: LightsailContainerServiceTimeoutsOutputReference | LightsailContainerServiceTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -525,20 +408,14 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LightsailContainerServiceTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LightsailContainerServiceTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -559,19 +436,19 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LightsailContainerServiceTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: LightsailContainerServiceTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -581,7 +458,7 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -597,7 +474,7 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -613,7 +490,7 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -630,36 +507,33 @@ export class LightsailContainerServiceTimeoutsOutputReference extends cdktf.Comp
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service aws_lightsail_container_service}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service aws_lightsail_container_service}
+*/
 export class LightsailContainerService extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_lightsail_container_service';
+  public static readonly tfResourceType = "aws_lightsail_container_service";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service aws_lightsail_container_service} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options LightsailContainerServiceConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: LightsailContainerServiceConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_container_service aws_lightsail_container_service} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options LightsailContainerServiceConfig
+  */
+  public constructor(scope: Construct, id: string, config: LightsailContainerServiceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_lightsail_container_service',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -667,7 +541,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._isDisabled = config.isDisabled;
@@ -701,7 +575,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -717,7 +591,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // is_disabled - computed: false, optional: true, required: false
-  private _isDisabled?: boolean | cdktf.IResolvable;
+  private _isDisabled?: boolean | cdktf.IResolvable; 
   public get isDisabled() {
     return this.getBooleanAttribute('is_disabled');
   }
@@ -733,7 +607,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -746,7 +620,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // power - computed: false, optional: false, required: true
-  private _power?: string;
+  private _power?: string; 
   public get power() {
     return this.getStringAttribute('power');
   }
@@ -779,7 +653,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // scale - computed: false, optional: false, required: true
-  private _scale?: number;
+  private _scale?: number; 
   public get scale() {
     return this.getNumberAttribute('scale');
   }
@@ -797,7 +671,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -813,7 +687,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -834,17 +708,11 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // private_registry_access - computed: false, optional: true, required: false
-  private _privateRegistryAccess =
-    new LightsailContainerServicePrivateRegistryAccessOutputReference(
-      this,
-      'private_registry_access',
-    );
+  private _privateRegistryAccess = new LightsailContainerServicePrivateRegistryAccessOutputReference(this, "private_registry_access");
   public get privateRegistryAccess() {
     return this._privateRegistryAccess;
   }
-  public putPrivateRegistryAccess(
-    value: LightsailContainerServicePrivateRegistryAccess,
-  ) {
+  public putPrivateRegistryAccess(value: LightsailContainerServicePrivateRegistryAccess) {
     this._privateRegistryAccess.internalValue = value;
   }
   public resetPrivateRegistryAccess() {
@@ -856,17 +724,11 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // public_domain_names - computed: false, optional: true, required: false
-  private _publicDomainNames =
-    new LightsailContainerServicePublicDomainNamesOutputReference(
-      this,
-      'public_domain_names',
-    );
+  private _publicDomainNames = new LightsailContainerServicePublicDomainNamesOutputReference(this, "public_domain_names");
   public get publicDomainNames() {
     return this._publicDomainNames;
   }
-  public putPublicDomainNames(
-    value: LightsailContainerServicePublicDomainNames,
-  ) {
+  public putPublicDomainNames(value: LightsailContainerServicePublicDomainNames) {
     this._publicDomainNames.internalValue = value;
   }
   public resetPublicDomainNames() {
@@ -878,10 +740,7 @@ export class LightsailContainerService extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new LightsailContainerServiceTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new LightsailContainerServiceTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -909,17 +768,9 @@ export class LightsailContainerService extends cdktf.TerraformResource {
       scale: cdktf.numberToTerraform(this._scale),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      private_registry_access:
-        lightsailContainerServicePrivateRegistryAccessToTerraform(
-          this._privateRegistryAccess.internalValue,
-        ),
-      public_domain_names:
-        lightsailContainerServicePublicDomainNamesToTerraform(
-          this._publicDomainNames.internalValue,
-        ),
-      timeouts: lightsailContainerServiceTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      private_registry_access: lightsailContainerServicePrivateRegistryAccessToTerraform(this._privateRegistryAccess.internalValue),
+      public_domain_names: lightsailContainerServicePublicDomainNamesToTerraform(this._publicDomainNames.internalValue),
+      timeouts: lightsailContainerServiceTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

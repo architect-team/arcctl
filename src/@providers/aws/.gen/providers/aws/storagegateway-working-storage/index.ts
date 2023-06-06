@@ -1,60 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface StoragegatewayWorkingStorageConfig
-  extends cdktf.TerraformMetaArguments {
+export interface StoragegatewayWorkingStorageConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage#disk_id StoragegatewayWorkingStorage#disk_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage#disk_id StoragegatewayWorkingStorage#disk_id}
+  */
   readonly diskId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage#gateway_arn StoragegatewayWorkingStorage#gateway_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage#gateway_arn StoragegatewayWorkingStorage#gateway_arn}
+  */
   readonly gatewayArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage#id StoragegatewayWorkingStorage#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage#id StoragegatewayWorkingStorage#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage aws_storagegateway_working_storage}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage aws_storagegateway_working_storage}
+*/
 export class StoragegatewayWorkingStorage extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_storagegateway_working_storage';
+  public static readonly tfResourceType = "aws_storagegateway_working_storage";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage aws_storagegateway_working_storage} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options StoragegatewayWorkingStorageConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: StoragegatewayWorkingStorageConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_working_storage aws_storagegateway_working_storage} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options StoragegatewayWorkingStorageConfig
+  */
+  public constructor(scope: Construct, id: string, config: StoragegatewayWorkingStorageConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_storagegateway_working_storage',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -62,7 +59,7 @@ export class StoragegatewayWorkingStorage extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._diskId = config.diskId;
     this._gatewayArn = config.gatewayArn;
@@ -74,7 +71,7 @@ export class StoragegatewayWorkingStorage extends cdktf.TerraformResource {
   // ==========
 
   // disk_id - computed: false, optional: false, required: true
-  private _diskId?: string;
+  private _diskId?: string; 
   public get diskId() {
     return this.getStringAttribute('disk_id');
   }
@@ -87,7 +84,7 @@ export class StoragegatewayWorkingStorage extends cdktf.TerraformResource {
   }
 
   // gateway_arn - computed: false, optional: false, required: true
-  private _gatewayArn?: string;
+  private _gatewayArn?: string; 
   public get gatewayArn() {
     return this.getStringAttribute('gateway_arn');
   }
@@ -100,7 +97,7 @@ export class StoragegatewayWorkingStorage extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }

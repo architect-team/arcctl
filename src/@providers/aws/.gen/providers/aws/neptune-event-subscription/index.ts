@@ -1,96 +1,87 @@
 // https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface NeptuneEventSubscriptionConfig
-  extends cdktf.TerraformMetaArguments {
+export interface NeptuneEventSubscriptionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#enabled NeptuneEventSubscription#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#enabled NeptuneEventSubscription#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#event_categories NeptuneEventSubscription#event_categories}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#event_categories NeptuneEventSubscription#event_categories}
+  */
   readonly eventCategories?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#id NeptuneEventSubscription#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#id NeptuneEventSubscription#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#name NeptuneEventSubscription#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#name NeptuneEventSubscription#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#name_prefix NeptuneEventSubscription#name_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#name_prefix NeptuneEventSubscription#name_prefix}
+  */
   readonly namePrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#sns_topic_arn NeptuneEventSubscription#sns_topic_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#sns_topic_arn NeptuneEventSubscription#sns_topic_arn}
+  */
   readonly snsTopicArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#source_ids NeptuneEventSubscription#source_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#source_ids NeptuneEventSubscription#source_ids}
+  */
   readonly sourceIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#source_type NeptuneEventSubscription#source_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#source_type NeptuneEventSubscription#source_type}
+  */
   readonly sourceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#tags NeptuneEventSubscription#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#tags NeptuneEventSubscription#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#tags_all NeptuneEventSubscription#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#tags_all NeptuneEventSubscription#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#timeouts NeptuneEventSubscription#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#timeouts NeptuneEventSubscription#timeouts}
+  */
   readonly timeouts?: NeptuneEventSubscriptionTimeouts;
 }
 export interface NeptuneEventSubscriptionTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#create NeptuneEventSubscription#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#create NeptuneEventSubscription#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#delete NeptuneEventSubscription#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#delete NeptuneEventSubscription#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#update NeptuneEventSubscription#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription#update NeptuneEventSubscription#update}
+  */
   readonly update?: string;
 }
 
-export function neptuneEventSubscriptionTimeoutsToTerraform(
-  struct?:
-    | NeptuneEventSubscriptionTimeoutsOutputReference
-    | NeptuneEventSubscriptionTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function neptuneEventSubscriptionTimeoutsToTerraform(struct?: NeptuneEventSubscriptionTimeoutsOutputReference | NeptuneEventSubscriptionTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -98,20 +89,14 @@ export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | NeptuneEventSubscriptionTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): NeptuneEventSubscriptionTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -132,19 +117,19 @@ export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: NeptuneEventSubscriptionTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: NeptuneEventSubscriptionTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -154,7 +139,7 @@ export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.Compl
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -170,7 +155,7 @@ export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.Compl
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -186,7 +171,7 @@ export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.Compl
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -203,36 +188,33 @@ export class NeptuneEventSubscriptionTimeoutsOutputReference extends cdktf.Compl
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription aws_neptune_event_subscription}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription aws_neptune_event_subscription}
+*/
 export class NeptuneEventSubscription extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_neptune_event_subscription';
+  public static readonly tfResourceType = "aws_neptune_event_subscription";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription aws_neptune_event_subscription} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options NeptuneEventSubscriptionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: NeptuneEventSubscriptionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/neptune_event_subscription aws_neptune_event_subscription} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options NeptuneEventSubscriptionConfig
+  */
+  public constructor(scope: Construct, id: string, config: NeptuneEventSubscriptionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_neptune_event_subscription',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -240,7 +222,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._enabled = config.enabled;
     this._eventCategories = config.eventCategories;
@@ -270,7 +252,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -286,7 +268,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // event_categories - computed: false, optional: true, required: false
-  private _eventCategories?: string[];
+  private _eventCategories?: string[]; 
   public get eventCategories() {
     return cdktf.Fn.tolist(this.getListAttribute('event_categories'));
   }
@@ -302,7 +284,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -318,7 +300,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -334,7 +316,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string;
+  private _namePrefix?: string; 
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -350,7 +332,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // sns_topic_arn - computed: false, optional: false, required: true
-  private _snsTopicArn?: string;
+  private _snsTopicArn?: string; 
   public get snsTopicArn() {
     return this.getStringAttribute('sns_topic_arn');
   }
@@ -363,7 +345,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // source_ids - computed: false, optional: true, required: false
-  private _sourceIds?: string[];
+  private _sourceIds?: string[]; 
   public get sourceIds() {
     return cdktf.Fn.tolist(this.getListAttribute('source_ids'));
   }
@@ -379,7 +361,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // source_type - computed: false, optional: true, required: false
-  private _sourceType?: string;
+  private _sourceType?: string; 
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -395,7 +377,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -411,7 +393,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -427,10 +409,7 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new NeptuneEventSubscriptionTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new NeptuneEventSubscriptionTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -452,24 +431,16 @@ export class NeptuneEventSubscription extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       enabled: cdktf.booleanToTerraform(this._enabled),
-      event_categories: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._eventCategories),
+      event_categories: cdktf.listMapper(cdktf.stringToTerraform, false)(this._eventCategories),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       sns_topic_arn: cdktf.stringToTerraform(this._snsTopicArn),
-      source_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._sourceIds),
+      source_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._sourceIds),
       source_type: cdktf.stringToTerraform(this._sourceType),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      timeouts: neptuneEventSubscriptionTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: neptuneEventSubscriptionTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

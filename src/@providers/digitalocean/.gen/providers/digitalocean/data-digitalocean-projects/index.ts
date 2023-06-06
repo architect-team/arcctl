@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects
+// https://www.terraform.io/docs/providers/digitalocean/d/projects
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,7 +8,7 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanProjectsConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#id DataDigitaloceanProjects#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#id DataDigitaloceanProjects#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -17,13 +17,13 @@ export interface DataDigitaloceanProjectsConfig extends cdktf.TerraformMetaArgum
   /**
   * filter block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#filter DataDigitaloceanProjects#filter}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#filter DataDigitaloceanProjects#filter}
   */
   readonly filter?: DataDigitaloceanProjectsFilter[] | cdktf.IResolvable;
   /**
   * sort block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#sort DataDigitaloceanProjects#sort}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#sort DataDigitaloceanProjects#sort}
   */
   readonly sort?: DataDigitaloceanProjectsSort[] | cdktf.IResolvable;
 }
@@ -143,19 +143,19 @@ export class DataDigitaloceanProjectsProjectsList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanProjectsFilter {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#all DataDigitaloceanProjects#all}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#all DataDigitaloceanProjects#all}
   */
   readonly all?: boolean | cdktf.IResolvable;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#key DataDigitaloceanProjects#key}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#key DataDigitaloceanProjects#key}
   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#match_by DataDigitaloceanProjects#match_by}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#match_by DataDigitaloceanProjects#match_by}
   */
   readonly matchBy?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#values DataDigitaloceanProjects#values}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#values DataDigitaloceanProjects#values}
   */
   readonly values: string[];
 }
@@ -315,11 +315,11 @@ export class DataDigitaloceanProjectsFilterList extends cdktf.ComplexList {
 }
 export interface DataDigitaloceanProjectsSort {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#direction DataDigitaloceanProjects#direction}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#direction DataDigitaloceanProjects#direction}
   */
   readonly direction?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects#key DataDigitaloceanProjects#key}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/projects#key DataDigitaloceanProjects#key}
   */
   readonly key: string;
 }
@@ -436,7 +436,7 @@ export class DataDigitaloceanProjectsSortList extends cdktf.ComplexList {
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects digitalocean_projects}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/projects digitalocean_projects}
 */
 export class DataDigitaloceanProjects extends cdktf.TerraformDataSource {
 
@@ -450,7 +450,7 @@ export class DataDigitaloceanProjects extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/projects digitalocean_projects} Data Source
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/projects digitalocean_projects} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

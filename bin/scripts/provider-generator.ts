@@ -1,4 +1,4 @@
-import Mustache from 'mustache';
+import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
@@ -34,9 +34,7 @@ for (const type of all_providers) {
 Deno.writeTextFileSync(
   path.join(providers_dir, 'supported-providers.ts'),
   Mustache.render(
-    await Deno.readTextFile(
-      path.join(providers_dir, 'supported-providers.ts.stache'),
-    ),
+    await Deno.readTextFile(path.join(providers_dir, 'supported-providers.ts.stache')),
     provider_type_file_options,
   ),
 );

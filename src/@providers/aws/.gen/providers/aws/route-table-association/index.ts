@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/route_table_association
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface RouteTableAssociationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface RouteTableAssociationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#gateway_id RouteTableAssociation#gateway_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#gateway_id RouteTableAssociation#gateway_id}
+  */
   readonly gatewayId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#id RouteTableAssociation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#id RouteTableAssociation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#route_table_id RouteTableAssociation#route_table_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#route_table_id RouteTableAssociation#route_table_id}
+  */
   readonly routeTableId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#subnet_id RouteTableAssociation#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route_table_association#subnet_id RouteTableAssociation#subnet_id}
+  */
   readonly subnetId?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route_table_association aws_route_table_association}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route_table_association aws_route_table_association}
+*/
 export class RouteTableAssociation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_route_table_association';
+  public static readonly tfResourceType = "aws_route_table_association";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route_table_association aws_route_table_association} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options RouteTableAssociationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: RouteTableAssociationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route_table_association aws_route_table_association} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options RouteTableAssociationConfig
+  */
+  public constructor(scope: Construct, id: string, config: RouteTableAssociationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_route_table_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._gatewayId = config.gatewayId;
     this._id = config.id;
@@ -79,7 +76,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   // ==========
 
   // gateway_id - computed: false, optional: true, required: false
-  private _gatewayId?: string;
+  private _gatewayId?: string; 
   public get gatewayId() {
     return this.getStringAttribute('gateway_id');
   }
@@ -95,7 +92,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -111,7 +108,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string;
+  private _routeTableId?: string; 
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -124,7 +121,7 @@ export class RouteTableAssociation extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }

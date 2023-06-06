@@ -16,8 +16,8 @@ export type ResourcePresets<T extends ResourceType> = Array<{
 }>;
 
 export type ApplyOptions<S = any> = {
+  id: string;
   providerStore: ProviderStore;
-  terraform: Terraform;
   cwd: string;
   logger?: Logger;
   state?: S;

@@ -90,30 +90,35 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
 
   delete(id: string): Observable<ApplyOutputs<'secret'>> {
     return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'destroying',
-          message: 'Destroying secret',
-          startTime,
-        },
-      });
+      try {
+        const startTime = Date.now();
+        subscriber.next({
+          status: {
+            state: 'destroying',
+            message: 'Destroying secret',
+            startTime,
+          },
+        });
 
-      const file = path.join(this.credentials.directory, id);
-      if (!existsSync(file)) {
-        throw new Error(`The ${id} secret does not exist`);
+        const file = path.join(this.credentials.directory, id);
+        if (!existsSync(file)) {
+          throw new Error(`The ${id} secret does not exist`);
+        }
+
+        Deno.removeSync(file);
+
+        subscriber.next({
+          status: {
+            state: 'complete',
+            message: '',
+            startTime,
+            endTime: Date.now(),
+          },
+        });
+        subscriber.complete();
+      } catch (err) {
+        subscriber.error(err);
       }
-
-      Deno.removeSync(file);
-
-      subscriber.next({
-        status: {
-          state: 'complete',
-          message: '',
-          startTime,
-          endTime: Date.now(),
-        },
-      });
     });
   }
 }

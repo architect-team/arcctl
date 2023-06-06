@@ -1,7 +1,7 @@
 import { ResourceService, WritableResourceService, ApplyOutputs } from '../@providers/index.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
-import { ApplyStepOptions, StepAction, StepColor, StepStatus } from './types.ts';
+import { ApplyOptions, StepAction, StepColor, StepStatus } from './types.ts';
 import * as path from 'std/path/mod.ts';
 import { Observable } from 'rxjs';
 
@@ -15,7 +15,7 @@ export type PipelineStepOptions<T extends ResourceType> = {
   environment?: string;
   state?: any;
   inputs?: ResourceInputs[T];
-  resource?: { id: string; account: string };
+  outputs?: ResourceOutputs[T];
 };
 
 export class PipelineStep<T extends ResourceType = ResourceType> {
@@ -29,7 +29,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
   state?: any;
   inputs?: ResourceInputs[T];
   outputs?: ResourceOutputs[T];
-  resource?: { id: string; account: string };
 
   constructor(options: PipelineStepOptions<T>) {
     this.name = options.name;
@@ -43,7 +42,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     this.environment = options.environment;
     this.state = options.state;
     this.inputs = options.inputs;
-    this.resource = options.resource;
+    this.outputs = options.outputs;
   }
 
   get id(): string {
@@ -54,7 +53,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     return CloudNode.genResourceId(this) + '-' + this.color;
   }
 
-  public apply(options: ApplyStepOptions): Observable<PipelineStep<T>> {
+  public apply(options: ApplyOptions): Observable<PipelineStep<T>> {
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     return new Observable((subscriber) => {
@@ -70,9 +69,9 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         return;
       }
 
-      const account = options.providerStore.getProvider(this.inputs?.account || this.resource?.account || '');
+      const account = options.providerStore.getProvider(this.inputs?.account || '');
       if (!account) {
-        subscriber.error(new Error(`Invalid account: ${this.inputs?.account || this.resource?.account}`));
+        subscriber.error(new Error(`Invalid account: ${this.inputs?.account}`));
         return;
       }
 
@@ -88,24 +87,26 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
       const writableService = service as WritableResourceService<any, any>;
       let applyObservable: Observable<ApplyOutputs<any>> | undefined;
 
-      if (this.action === 'delete' && !this.resource?.id) {
-        subscriber.error(new Error(`Missing ID needed to clean up resource`));
-      } else if (this.action === 'delete') {
+      if (this.action === 'delete') {
         applyObservable = writableService.destroy({
+          id: this.id,
           cwd: nodeDir,
-          terraform: options.terraform,
           providerStore: options.providerStore,
           logger: options.logger,
-          state: {
-            id: this.resource!.id,
-          },
+          state:
+            this.state ||
+            (this.outputs
+              ? {
+                  id: this.outputs.id,
+                }
+              : undefined),
         });
       } else if (!this.inputs) {
         subscriber.error(new Error(`Missing inputs for ${this.id}`));
       } else {
         applyObservable = writableService.apply(this.inputs, {
+          id: this.id,
           cwd: nodeDir,
-          terraform: options.terraform,
           providerStore: options.providerStore,
           logger: options.logger,
           state: this.state,
@@ -117,6 +118,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           this.status = res.status;
           this.state = res.state;
           this.outputs = res.outputs;
+          subscriber.next(this);
         },
         complete: () => {
           this.status.state = 'complete';

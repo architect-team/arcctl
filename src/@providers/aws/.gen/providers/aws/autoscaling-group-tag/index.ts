@@ -1,74 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AutoscalingGroupTagAConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AutoscalingGroupTagAConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#autoscaling_group_name AutoscalingGroupTagA#autoscaling_group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#autoscaling_group_name AutoscalingGroupTagA#autoscaling_group_name}
+  */
   readonly autoscalingGroupName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#id AutoscalingGroupTagA#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#id AutoscalingGroupTagA#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * tag block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#tag AutoscalingGroupTagA#tag}
-   */
+  * tag block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#tag AutoscalingGroupTagA#tag}
+  */
   readonly tag: AutoscalingGroupTagTag;
 }
 export interface AutoscalingGroupTagTag {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#key AutoscalingGroupTagA#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#key AutoscalingGroupTagA#key}
+  */
   readonly key: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#propagate_at_launch AutoscalingGroupTagA#propagate_at_launch}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#propagate_at_launch AutoscalingGroupTagA#propagate_at_launch}
+  */
   readonly propagateAtLaunch: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#value AutoscalingGroupTagA#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag#value AutoscalingGroupTagA#value}
+  */
   readonly value: string;
 }
 
-export function autoscalingGroupTagTagToTerraform(
-  struct?: AutoscalingGroupTagTagOutputReference | AutoscalingGroupTagTag,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function autoscalingGroupTagTagToTerraform(struct?: AutoscalingGroupTagTagOutputReference | AutoscalingGroupTagTag): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     propagate_at_launch: cdktf.booleanToTerraform(struct!.propagateAtLaunch),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -96,7 +87,8 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
       this._key = undefined;
       this._propagateAtLaunch = undefined;
       this._value = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._propagateAtLaunch = value.propagateAtLaunch;
@@ -105,7 +97,7 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -118,7 +110,7 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   }
 
   // propagate_at_launch - computed: false, optional: false, required: true
-  private _propagateAtLaunch?: boolean | cdktf.IResolvable;
+  private _propagateAtLaunch?: boolean | cdktf.IResolvable; 
   public get propagateAtLaunch() {
     return this.getBooleanAttribute('propagate_at_launch');
   }
@@ -131,7 +123,7 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -145,36 +137,33 @@ export class AutoscalingGroupTagTagOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag aws_autoscaling_group_tag}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag aws_autoscaling_group_tag}
+*/
 export class AutoscalingGroupTagA extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_autoscaling_group_tag';
+  public static readonly tfResourceType = "aws_autoscaling_group_tag";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag aws_autoscaling_group_tag} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AutoscalingGroupTagAConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AutoscalingGroupTagAConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/autoscaling_group_tag aws_autoscaling_group_tag} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AutoscalingGroupTagAConfig
+  */
+  public constructor(scope: Construct, id: string, config: AutoscalingGroupTagAConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_autoscaling_group_tag',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -182,7 +171,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._autoscalingGroupName = config.autoscalingGroupName;
     this._id = config.id;
@@ -194,7 +183,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
   // ==========
 
   // autoscaling_group_name - computed: false, optional: false, required: true
-  private _autoscalingGroupName?: string;
+  private _autoscalingGroupName?: string; 
   public get autoscalingGroupName() {
     return this.getStringAttribute('autoscaling_group_name');
   }
@@ -207,7 +196,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -223,7 +212,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
   }
 
   // tag - computed: false, optional: false, required: true
-  private _tag = new AutoscalingGroupTagTagOutputReference(this, 'tag');
+  private _tag = new AutoscalingGroupTagTagOutputReference(this, "tag");
   public get tag() {
     return this._tag;
   }
@@ -241,9 +230,7 @@ export class AutoscalingGroupTagA extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      autoscaling_group_name: cdktf.stringToTerraform(
-        this._autoscalingGroupName,
-      ),
+      autoscaling_group_name: cdktf.stringToTerraform(this._autoscalingGroupName),
       id: cdktf.stringToTerraform(this._id),
       tag: autoscalingGroupTagTagToTerraform(this._tag.internalValue),
     };

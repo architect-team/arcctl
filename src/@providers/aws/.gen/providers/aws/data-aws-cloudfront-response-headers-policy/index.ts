@@ -1,79 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsCloudfrontResponseHeadersPolicyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsCloudfrontResponseHeadersPolicyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy#id DataAwsCloudfrontResponseHeadersPolicy#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy#id DataAwsCloudfrontResponseHeadersPolicy#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy#name DataAwsCloudfrontResponseHeadersPolicy#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy#name DataAwsCloudfrontResponseHeadersPolicy#name}
+  */
   readonly name?: string;
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeaders | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -85,88 +66,59 @@ export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowH
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethods | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -178,88 +130,59 @@ export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowM
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOrigins | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -271,88 +194,59 @@ export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowO
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeaders | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -364,86 +258,59 @@ export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExpose
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfig {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCorsConfig {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCorsConfigToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCorsConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCorsConfig
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCorsConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCloudfrontResponseHeadersPolicyCorsConfig | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCorsConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -454,45 +321,25 @@ export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference ext
   }
 
   // access_control_allow_headers - computed: true, optional: false, required: false
-  private _accessControlAllowHeaders =
-    new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersList(
-      this,
-      'access_control_allow_headers',
-      false,
-    );
+  private _accessControlAllowHeaders = new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowHeadersList(this, "access_control_allow_headers", false);
   public get accessControlAllowHeaders() {
     return this._accessControlAllowHeaders;
   }
 
   // access_control_allow_methods - computed: true, optional: false, required: false
-  private _accessControlAllowMethods =
-    new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsList(
-      this,
-      'access_control_allow_methods',
-      false,
-    );
+  private _accessControlAllowMethods = new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowMethodsList(this, "access_control_allow_methods", false);
   public get accessControlAllowMethods() {
     return this._accessControlAllowMethods;
   }
 
   // access_control_allow_origins - computed: true, optional: false, required: false
-  private _accessControlAllowOrigins =
-    new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsList(
-      this,
-      'access_control_allow_origins',
-      false,
-    );
+  private _accessControlAllowOrigins = new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlAllowOriginsList(this, "access_control_allow_origins", false);
   public get accessControlAllowOrigins() {
     return this._accessControlAllowOrigins;
   }
 
   // access_control_expose_headers - computed: true, optional: false, required: false
-  private _accessControlExposeHeaders =
-    new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersList(
-      this,
-      'access_control_expose_headers',
-      false,
-    );
+  private _accessControlExposeHeaders = new DataAwsCloudfrontResponseHeadersPolicyCorsConfigAccessControlExposeHeadersList(this, "access_control_expose_headers", false);
   public get accessControlExposeHeaders() {
     return this._accessControlExposeHeaders;
   }
@@ -509,88 +356,59 @@ export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference ext
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCorsConfigList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCorsConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItems | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -612,187 +430,124 @@ export class DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutpu
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig {}
+export interface DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // items - computed: true, optional: false, required: false
-  private _items =
-    new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList(
-      this,
-      'items',
-      true,
-    );
+  private _items = new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigItemsList(this, "items", true);
   public get items() {
     return this._items;
   }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -809,88 +564,59 @@ export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentS
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -902,88 +628,59 @@ export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentT
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1000,88 +697,59 @@ export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOpt
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicy | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1098,88 +766,59 @@ export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrer
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1206,88 +845,59 @@ export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTr
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtection | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1314,242 +924,154 @@ export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProte
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig {}
+export interface DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // content_security_policy - computed: true, optional: false, required: false
-  private _contentSecurityPolicy =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyList(
-      this,
-      'content_security_policy',
-      false,
-    );
+  private _contentSecurityPolicy = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyList(this, "content_security_policy", false);
   public get contentSecurityPolicy() {
     return this._contentSecurityPolicy;
   }
 
   // content_type_options - computed: true, optional: false, required: false
-  private _contentTypeOptions =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsList(
-      this,
-      'content_type_options',
-      false,
-    );
+  private _contentTypeOptions = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsList(this, "content_type_options", false);
   public get contentTypeOptions() {
     return this._contentTypeOptions;
   }
 
   // frame_options - computed: true, optional: false, required: false
-  private _frameOptions =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsList(
-      this,
-      'frame_options',
-      false,
-    );
+  private _frameOptions = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigFrameOptionsList(this, "frame_options", false);
   public get frameOptions() {
     return this._frameOptions;
   }
 
   // referrer_policy - computed: true, optional: false, required: false
-  private _referrerPolicy =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyList(
-      this,
-      'referrer_policy',
-      false,
-    );
+  private _referrerPolicy = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigReferrerPolicyList(this, "referrer_policy", false);
   public get referrerPolicy() {
     return this._referrerPolicy;
   }
 
   // strict_transport_security - computed: true, optional: false, required: false
-  private _strictTransportSecurity =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityList(
-      this,
-      'strict_transport_security',
-      false,
-    );
+  private _strictTransportSecurity = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityList(this, "strict_transport_security", false);
   public get strictTransportSecurity() {
     return this._strictTransportSecurity;
   }
 
   // xss_protection - computed: true, optional: false, required: false
-  private _xssProtection =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionList(
-      this,
-      'xss_protection',
-      false,
-    );
+  private _xssProtection = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigXssProtectionList(this, "xss_protection", false);
   public get xssProtection() {
     return this._xssProtection;
   }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig {}
+export interface DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig {
+}
 
-export function dataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigToTerraform(
-  struct?: DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigToTerraform(struct?: DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig
-    | undefined {
+  public get internalValue(): DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1566,66 +1088,52 @@ export class DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutp
 }
 
 export class DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference {
-    return new DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference {
+    return new DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy}
+*/
 export class DataAwsCloudfrontResponseHeadersPolicy extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_cloudfront_response_headers_policy';
+  public static readonly tfResourceType = "aws_cloudfront_response_headers_policy";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsCloudfrontResponseHeadersPolicyConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsCloudfrontResponseHeadersPolicyConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/cloudfront_response_headers_policy aws_cloudfront_response_headers_policy} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsCloudfrontResponseHeadersPolicyConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsCloudfrontResponseHeadersPolicyConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudfront_response_headers_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1633,7 +1141,7 @@ export class DataAwsCloudfrontResponseHeadersPolicy extends cdktf.TerraformDataS
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -1649,23 +1157,13 @@ export class DataAwsCloudfrontResponseHeadersPolicy extends cdktf.TerraformDataS
   }
 
   // cors_config - computed: true, optional: false, required: false
-  private _corsConfig =
-    new DataAwsCloudfrontResponseHeadersPolicyCorsConfigList(
-      this,
-      'cors_config',
-      false,
-    );
+  private _corsConfig = new DataAwsCloudfrontResponseHeadersPolicyCorsConfigList(this, "cors_config", false);
   public get corsConfig() {
     return this._corsConfig;
   }
 
   // custom_headers_config - computed: true, optional: false, required: false
-  private _customHeadersConfig =
-    new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigList(
-      this,
-      'custom_headers_config',
-      false,
-    );
+  private _customHeadersConfig = new DataAwsCloudfrontResponseHeadersPolicyCustomHeadersConfigList(this, "custom_headers_config", false);
   public get customHeadersConfig() {
     return this._customHeadersConfig;
   }
@@ -1676,7 +1174,7 @@ export class DataAwsCloudfrontResponseHeadersPolicy extends cdktf.TerraformDataS
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1692,7 +1190,7 @@ export class DataAwsCloudfrontResponseHeadersPolicy extends cdktf.TerraformDataS
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1708,23 +1206,13 @@ export class DataAwsCloudfrontResponseHeadersPolicy extends cdktf.TerraformDataS
   }
 
   // security_headers_config - computed: true, optional: false, required: false
-  private _securityHeadersConfig =
-    new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigList(
-      this,
-      'security_headers_config',
-      false,
-    );
+  private _securityHeadersConfig = new DataAwsCloudfrontResponseHeadersPolicySecurityHeadersConfigList(this, "security_headers_config", false);
   public get securityHeadersConfig() {
     return this._securityHeadersConfig;
   }
 
   // server_timing_headers_config - computed: true, optional: false, required: false
-  private _serverTimingHeadersConfig =
-    new DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigList(
-      this,
-      'server_timing_headers_config',
-      false,
-    );
+  private _serverTimingHeadersConfig = new DataAwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigList(this, "server_timing_headers_config", false);
   public get serverTimingHeadersConfig() {
     return this._serverTimingHeadersConfig;
   }

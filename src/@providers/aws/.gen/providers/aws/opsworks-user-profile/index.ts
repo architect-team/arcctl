@@ -1,68 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface OpsworksUserProfileConfig
-  extends cdktf.TerraformMetaArguments {
+export interface OpsworksUserProfileConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#allow_self_management OpsworksUserProfile#allow_self_management}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#allow_self_management OpsworksUserProfile#allow_self_management}
+  */
   readonly allowSelfManagement?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#id OpsworksUserProfile#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#id OpsworksUserProfile#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#ssh_public_key OpsworksUserProfile#ssh_public_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#ssh_public_key OpsworksUserProfile#ssh_public_key}
+  */
   readonly sshPublicKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#ssh_username OpsworksUserProfile#ssh_username}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#ssh_username OpsworksUserProfile#ssh_username}
+  */
   readonly sshUsername: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#user_arn OpsworksUserProfile#user_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile#user_arn OpsworksUserProfile#user_arn}
+  */
   readonly userArn: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile aws_opsworks_user_profile}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile aws_opsworks_user_profile}
+*/
 export class OpsworksUserProfile extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_opsworks_user_profile';
+  public static readonly tfResourceType = "aws_opsworks_user_profile";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile aws_opsworks_user_profile} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options OpsworksUserProfileConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: OpsworksUserProfileConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_user_profile aws_opsworks_user_profile} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options OpsworksUserProfileConfig
+  */
+  public constructor(scope: Construct, id: string, config: OpsworksUserProfileConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_opsworks_user_profile',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -70,7 +67,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._allowSelfManagement = config.allowSelfManagement;
     this._id = config.id;
@@ -84,7 +81,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   // ==========
 
   // allow_self_management - computed: false, optional: true, required: false
-  private _allowSelfManagement?: boolean | cdktf.IResolvable;
+  private _allowSelfManagement?: boolean | cdktf.IResolvable; 
   public get allowSelfManagement() {
     return this.getBooleanAttribute('allow_self_management');
   }
@@ -100,7 +97,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -116,7 +113,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // ssh_public_key - computed: false, optional: true, required: false
-  private _sshPublicKey?: string;
+  private _sshPublicKey?: string; 
   public get sshPublicKey() {
     return this.getStringAttribute('ssh_public_key');
   }
@@ -132,7 +129,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // ssh_username - computed: false, optional: false, required: true
-  private _sshUsername?: string;
+  private _sshUsername?: string; 
   public get sshUsername() {
     return this.getStringAttribute('ssh_username');
   }
@@ -145,7 +142,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
   }
 
   // user_arn - computed: false, optional: false, required: true
-  private _userArn?: string;
+  private _userArn?: string; 
   public get userArn() {
     return this.getStringAttribute('user_arn');
   }
@@ -163,9 +160,7 @@ export class OpsworksUserProfile extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      allow_self_management: cdktf.booleanToTerraform(
-        this._allowSelfManagement,
-      ),
+      allow_self_management: cdktf.booleanToTerraform(this._allowSelfManagement),
       id: cdktf.stringToTerraform(this._id),
       ssh_public_key: cdktf.stringToTerraform(this._sshPublicKey),
       ssh_username: cdktf.stringToTerraform(this._sshUsername),

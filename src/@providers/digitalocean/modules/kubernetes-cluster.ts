@@ -1,5 +1,5 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { KubernetesCluster } from '../.gen/providers/digitalocean/kubernetes-cluster/index.ts';
 import { KubernetesNodePool } from '../.gen/providers/digitalocean/kubernetes-node-pool/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
@@ -9,11 +9,11 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<'kuberne
   private cluster: KubernetesCluster;
   outputs: ResourceOutputs['kubernetesCluster'];
 
-  constructor(scope: Construct, private id: string, readonly inputs: ResourceInputs['kubernetesCluster']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'kubernetesCluster'>) {
+    super(scope, options);
 
     const nodePools = [
-      ...(inputs.nodePools || [
+      ...(this.inputs?.nodePools || [
         {
           name: 'default',
           nodeSize: 's-1vcpu-2gb',
@@ -23,10 +23,10 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<'kuberne
     ];
     const firstNodePool = nodePools.shift()!;
     this.cluster = new KubernetesCluster(this, 'kubernetesCluster', {
-      name: inputs.name,
-      region: inputs.region,
-      vpcUuid: inputs.vpc,
-      version: inputs.kubernetesVersion || 'version',
+      name: this.inputs?.name || 'unknown',
+      region: this.inputs?.region || 'unknown',
+      vpcUuid: this.inputs?.vpc || 'unknown',
+      version: this.inputs?.kubernetesVersion || 'unknown',
       nodePool: {
         name: firstNodePool.name,
         size: firstNodePool.nodeSize,
@@ -43,17 +43,38 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<'kuberne
       });
     }
 
+    const file = new options.FileConstruct(this, 'configFile', {
+      filename: 'config.yml',
+      content: `apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${this.cluster.kubeConfig.get(0).clusterCaCertificate}
+    server: ${this.cluster.endpoint}
+  name: cluster
+contexts:
+- context:
+    cluster: cluster
+    user: cluster
+  name: cluster
+current-context: cluster
+kind: Config
+preferences: {}
+users:
+- name: cluster
+  user:
+    token: ${this.cluster.kubeConfig.get(0).token}`,
+    });
+
     this.outputs = {
       id: this.cluster.id,
       name: this.cluster.name,
-      vpc: inputs.vpc,
+      vpc: this.inputs?.vpc || 'unknown',
       kubernetesVersion: this.cluster.version,
-      account: `kubernetesCluster-${this.cluster.name}`,
+      configPath: file.filename,
     };
   }
 
   genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
-    this.id = resourceId;
     return Promise.resolve({
       [this.getResourceRef(this.cluster)]: resourceId,
     });

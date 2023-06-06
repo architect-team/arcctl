@@ -25,7 +25,8 @@ export class DigitaloceanDatabaseService extends TerraformResourceService<'datab
       id: database.id,
       host: database.connection.host,
       port: database.connection.port,
-      account: '',
+      username: database.connection.user,
+      password: database.connection.password,
       protocol: database.engine === 'pg' ? 'postgresql' : database.engine,
     };
   }

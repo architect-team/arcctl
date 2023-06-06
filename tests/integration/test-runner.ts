@@ -1,11 +1,7 @@
 import { ProviderCredentials } from '../../src/@providers/credentials.ts';
 import { Provider } from '../../src/@providers/provider.ts';
 import { SupportedProviders } from '../../src/@providers/supported-providers.ts';
-import {
-  CldctlTest,
-  CldctlTestStack,
-  CldctlTestStackOutputs,
-} from '../../src/@providers/tests.ts';
+import { CldctlTest, CldctlTestStack, CldctlTestStackOutputs } from '../../src/@providers/tests.ts';
 import { ResourceOutputs, ResourceType } from '../../src/@resources/index.ts';
 import PluginManager from '../../src/plugins/plugin-manager.ts';
 import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
@@ -36,39 +32,25 @@ export class TestStackGenerator {
     for (const child_stack of stacks) {
       const service = child_stack.serviceType;
       const inputs = child_stack.inputs;
-      if (
-        !provider.resources[service]?.manage ||
-        !provider.resources[service]?.manage?.module
-      ) {
+      if (!provider.resources[service]?.manage || !provider.resources[service]?.manage?.module) {
         throw new Error(`Unsupported resource type: ${service}`);
       }
       const children = child_stack.children
-        ? await this.addResourceToStack(
-            stack,
-            provider,
-            child_stack.children,
-            ids,
-          )
+        ? await this.addResourceToStack(stack, provider, child_stack.children, ids)
         : [];
       for (const child of children) {
-        (child_stack.inputs as any)[child.serviceType] =
-          child.module?.outputs?.id;
+        (child_stack.inputs as any)[child.serviceType] = child.module?.outputs?.id;
       }
-      const { module, output: tfOutputs } = stack.addModule(
-        (provider.resources[service] as any).manage.module,
-        child_stack.serviceType as ResourceType,
+      const { module, output: tfOutputs } = stack.addModule((provider.resources[service] as any).manage.module, {
         inputs,
-      );
+      });
       result_stacks.push({
         ...child_stack,
         module,
         children,
         tfOutputs,
         imports: (ids || {})[child_stack.serviceType]
-          ? await module.genImports(
-              this.credentials,
-              (ids || {})[child_stack.serviceType],
-            )
+          ? await module.genImports(this.credentials, (ids || {})[child_stack.serviceType])
           : undefined,
       });
     }
@@ -93,13 +75,8 @@ export class TestRunner {
   public destroyOutputStacks: CldctlTestStackOutputs[] = [];
   public ids: Record<string, string> = {};
 
-  public async getOutput<T extends ResourceType>(
-    output: TerraformOutput,
-  ): Promise<ResourceOutputs[T]> {
-    const res = await terraformPlugin?.output(
-      this.createDirectory!,
-      output.friendlyUniqueId,
-    );
+  public async getOutput<T extends ResourceType>(output: TerraformOutput): Promise<ResourceOutputs[T]> {
+    const res = await terraformPlugin?.output(this.createDirectory!, output.friendlyUniqueId);
     return JSON.parse(res || '{}') as ResourceOutputs[T];
   }
 
@@ -145,11 +122,7 @@ export class TestRunner {
     const stack = new CldCtlTerraformStack(app, 'cldctl');
 
     const test_stack_generator = new TestStackGenerator(credentials);
-    this.createOutputStacks = await test_stack_generator.generateStack(
-      stack,
-      provider,
-      test,
-    );
+    this.createOutputStacks = await test_stack_generator.generateStack(stack, provider, test);
 
     const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
     await Deno.mkdir(tf_tmp_dir, { recursive: true });
@@ -177,12 +150,7 @@ export class TestRunner {
     const stack = new CldCtlTerraformStack(app, 'cldctl');
 
     const test_stack_generator = new TestStackGenerator(credentials);
-    this.destroyOutputStacks = await test_stack_generator.generateStack(
-      stack,
-      provider,
-      test,
-      this.ids,
-    );
+    this.destroyOutputStacks = await test_stack_generator.generateStack(stack, provider, test, this.ids);
 
     const tfMainFile = path.join(tf_tmp_dir, 'main.tf.json');
     await Deno.mkdir(tf_tmp_dir, { recursive: true });
@@ -199,17 +167,10 @@ export class TestRunner {
       if (!supported_providers_keys.includes(context.provider)) {
         throw new Error(`Unsupported provider: ${context.provider}`);
       }
-      const name_regex = context.name_regex
-        ? new RegExp(context.name_regex)
-        : undefined;
+      const name_regex = context.name_regex ? new RegExp(context.name_regex) : undefined;
       console.log(`Running tests for ${context.provider}...`);
-      const provider_module = await import(
-        `../../src/@providers/${context.provider}/provider.js`
-      );
-      const provider: Provider = new provider_module.default(
-        context.provider,
-        context.credentials,
-      );
+      const provider_module = await import(`../../src/@providers/${context.provider}/provider.js`);
+      const provider: Provider = new provider_module.default(context.provider, context.credentials);
       const plugins_path = path.join(Deno.makeTempDirSync(), '/plugins');
       await Deno.mkdir(plugins_path, { recursive: true });
       terraformPlugin = await PluginManager.getPlugin<TerraformPlugin>(
@@ -256,17 +217,13 @@ export class TestRunner {
               await Deno.remove(this.createDirectory, {
                 recursive: true,
               });
-              console.log(
-                `    Removed Create Directory ${this.createDirectory}...`,
-              );
+              console.log(`    Removed Create Directory ${this.createDirectory}...`);
             }
             if (this.deleteDirectory) {
               await Deno.remove(this.deleteDirectory, {
                 recursive: true,
               });
-              console.log(
-                `    Removed Delete Directory ${this.deleteDirectory}...`,
-              );
+              console.log(`    Removed Delete Directory ${this.deleteDirectory}...`);
             }
           }
         }
@@ -281,7 +238,5 @@ if (!configuration_file_path) {
 }
 
 const configuration_file = Deno.readTextFileSync(configuration_file_path);
-const configuration = JSON.parse(
-  configuration_file,
-) as TestRunnerContext<any>[];
+const configuration = JSON.parse(configuration_file) as TestRunnerContext<any>[];
 new TestRunner().runTests(configuration);

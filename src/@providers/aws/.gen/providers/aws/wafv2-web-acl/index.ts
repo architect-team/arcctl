@@ -1,106 +1,102 @@
 // generated from terraform resource schema
-import {
-  Wafv2WebAclCustomResponseBody,
-  wafv2WebAclCustomResponseBodyToTerraform,
-  Wafv2WebAclCustomResponseBodyList,
-  Wafv2WebAclDefaultAction,
-  wafv2WebAclDefaultActionToTerraform,
-  Wafv2WebAclDefaultActionOutputReference,
-  Wafv2WebAclRule,
-  wafv2WebAclRuleToTerraform,
-  Wafv2WebAclRuleList,
-  Wafv2WebAclVisibilityConfig,
-  wafv2WebAclVisibilityConfigToTerraform,
-  Wafv2WebAclVisibilityConfigOutputReference,
-} from './index-structs/index.ts';
-import * as cdktf from 'cdktf';
+
+import { Wafv2WebAclCustomResponseBody, 
+wafv2WebAclCustomResponseBodyToTerraform, 
+Wafv2WebAclCustomResponseBodyList, 
+Wafv2WebAclDefaultAction, 
+wafv2WebAclDefaultActionToTerraform, 
+Wafv2WebAclDefaultActionOutputReference, 
+Wafv2WebAclRule, 
+wafv2WebAclRuleToTerraform, 
+Wafv2WebAclRuleList, 
+Wafv2WebAclVisibilityConfig, 
+wafv2WebAclVisibilityConfigToTerraform, 
+Wafv2WebAclVisibilityConfigOutputReference} from './index-structs'
+export * from './index-structs'
 import { Construct } from 'constructs';
-
-export * from './index-structs/index.ts';
-
+import * as cdktf from 'cdktf';
 export interface Wafv2WebAclConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#description Wafv2WebAcl#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#description Wafv2WebAcl#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#id Wafv2WebAcl#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#id Wafv2WebAcl#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#name Wafv2WebAcl#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#name Wafv2WebAcl#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#scope Wafv2WebAcl#scope}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#scope Wafv2WebAcl#scope}
+  */
   readonly scope: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#tags Wafv2WebAcl#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#tags Wafv2WebAcl#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#tags_all Wafv2WebAcl#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#tags_all Wafv2WebAcl#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * custom_response_body block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#custom_response_body Wafv2WebAcl#custom_response_body}
-   */
-  readonly customResponseBody?:
-    | Wafv2WebAclCustomResponseBody[]
-    | cdktf.IResolvable;
+  * custom_response_body block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#custom_response_body Wafv2WebAcl#custom_response_body}
+  */
+  readonly customResponseBody?: Wafv2WebAclCustomResponseBody[] | cdktf.IResolvable;
   /**
-   * default_action block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#default_action Wafv2WebAcl#default_action}
-   */
+  * default_action block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#default_action Wafv2WebAcl#default_action}
+  */
   readonly defaultAction: Wafv2WebAclDefaultAction;
   /**
-   * rule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#rule Wafv2WebAcl#rule}
-   */
+  * rule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#rule Wafv2WebAcl#rule}
+  */
   readonly rule?: Wafv2WebAclRule[] | cdktf.IResolvable;
   /**
-   * visibility_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#visibility_config Wafv2WebAcl#visibility_config}
-   */
+  * visibility_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl#visibility_config Wafv2WebAcl#visibility_config}
+  */
   readonly visibilityConfig: Wafv2WebAclVisibilityConfig;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl aws_wafv2_web_acl}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl aws_wafv2_web_acl}
+*/
 export class Wafv2WebAcl extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_wafv2_web_acl';
+  public static readonly tfResourceType = "aws_wafv2_web_acl";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl aws_wafv2_web_acl} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Wafv2WebAclConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/wafv2_web_acl aws_wafv2_web_acl} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Wafv2WebAclConfig
+  */
   public constructor(scope: Construct, id: string, config: Wafv2WebAclConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_wafv2_web_acl',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -108,7 +104,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._id = config.id;
@@ -137,7 +133,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -153,7 +149,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -174,7 +170,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -187,7 +183,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // scope - computed: false, optional: false, required: true
-  private _scope?: string;
+  private _scope?: string; 
   public get scope() {
     return this.getStringAttribute('scope');
   }
@@ -200,7 +196,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -216,7 +212,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -232,17 +228,11 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // custom_response_body - computed: false, optional: true, required: false
-  private _customResponseBody = new Wafv2WebAclCustomResponseBodyList(
-    this,
-    'custom_response_body',
-    true,
-  );
+  private _customResponseBody = new Wafv2WebAclCustomResponseBodyList(this, "custom_response_body", true);
   public get customResponseBody() {
     return this._customResponseBody;
   }
-  public putCustomResponseBody(
-    value: Wafv2WebAclCustomResponseBody[] | cdktf.IResolvable,
-  ) {
+  public putCustomResponseBody(value: Wafv2WebAclCustomResponseBody[] | cdktf.IResolvable) {
     this._customResponseBody.internalValue = value;
   }
   public resetCustomResponseBody() {
@@ -254,10 +244,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // default_action - computed: false, optional: false, required: true
-  private _defaultAction = new Wafv2WebAclDefaultActionOutputReference(
-    this,
-    'default_action',
-  );
+  private _defaultAction = new Wafv2WebAclDefaultActionOutputReference(this, "default_action");
   public get defaultAction() {
     return this._defaultAction;
   }
@@ -270,7 +257,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // rule - computed: false, optional: true, required: false
-  private _rule = new Wafv2WebAclRuleList(this, 'rule', true);
+  private _rule = new Wafv2WebAclRuleList(this, "rule", true);
   public get rule() {
     return this._rule;
   }
@@ -286,10 +273,7 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
   }
 
   // visibility_config - computed: false, optional: false, required: true
-  private _visibilityConfig = new Wafv2WebAclVisibilityConfigOutputReference(
-    this,
-    'visibility_config',
-  );
+  private _visibilityConfig = new Wafv2WebAclVisibilityConfigOutputReference(this, "visibility_config");
   public get visibilityConfig() {
     return this._visibilityConfig;
   }
@@ -313,20 +297,10 @@ export class Wafv2WebAcl extends cdktf.TerraformResource {
       scope: cdktf.stringToTerraform(this._scope),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      custom_response_body: cdktf.listMapper(
-        wafv2WebAclCustomResponseBodyToTerraform,
-        true,
-      )(this._customResponseBody.internalValue),
-      default_action: wafv2WebAclDefaultActionToTerraform(
-        this._defaultAction.internalValue,
-      ),
-      rule: cdktf.listMapper(
-        wafv2WebAclRuleToTerraform,
-        true,
-      )(this._rule.internalValue),
-      visibility_config: wafv2WebAclVisibilityConfigToTerraform(
-        this._visibilityConfig.internalValue,
-      ),
+      custom_response_body: cdktf.listMapper(wafv2WebAclCustomResponseBodyToTerraform, true)(this._customResponseBody.internalValue),
+      default_action: wafv2WebAclDefaultActionToTerraform(this._defaultAction.internalValue),
+      rule: cdktf.listMapper(wafv2WebAclRuleToTerraform, true)(this._rule.internalValue),
+      visibility_config: wafv2WebAclVisibilityConfigToTerraform(this._visibilityConfig.internalValue),
     };
   }
 }

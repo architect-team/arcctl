@@ -9,7 +9,7 @@ export default class LocalProvider extends Provider<LocalCredentials> {
 
   static readonly CredentialsSchema = LocalCredentialsSchema;
 
-  resources: ProviderResources<LocalCredentials> = {
+  resources = {
     secret: new LocalSecretService(this.credentials),
     namespace: new LocalNamespaceService(this.credentials),
   };

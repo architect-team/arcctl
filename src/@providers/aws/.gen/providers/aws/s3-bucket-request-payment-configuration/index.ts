@@ -1,65 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface S3BucketRequestPaymentConfigurationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface S3BucketRequestPaymentConfigurationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#bucket S3BucketRequestPaymentConfiguration#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#bucket S3BucketRequestPaymentConfiguration#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#expected_bucket_owner S3BucketRequestPaymentConfiguration#expected_bucket_owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#expected_bucket_owner S3BucketRequestPaymentConfiguration#expected_bucket_owner}
+  */
   readonly expectedBucketOwner?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#id S3BucketRequestPaymentConfiguration#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#id S3BucketRequestPaymentConfiguration#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#payer S3BucketRequestPaymentConfiguration#payer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration#payer S3BucketRequestPaymentConfiguration#payer}
+  */
   readonly payer: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration aws_s3_bucket_request_payment_configuration}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration aws_s3_bucket_request_payment_configuration}
+*/
 export class S3BucketRequestPaymentConfiguration extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_s3_bucket_request_payment_configuration';
+  public static readonly tfResourceType = "aws_s3_bucket_request_payment_configuration";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration aws_s3_bucket_request_payment_configuration} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options S3BucketRequestPaymentConfigurationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: S3BucketRequestPaymentConfigurationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_request_payment_configuration aws_s3_bucket_request_payment_configuration} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options S3BucketRequestPaymentConfigurationConfig
+  */
+  public constructor(scope: Construct, id: string, config: S3BucketRequestPaymentConfigurationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_bucket_request_payment_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,7 +63,7 @@ export class S3BucketRequestPaymentConfiguration extends cdktf.TerraformResource
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._bucket = config.bucket;
     this._expectedBucketOwner = config.expectedBucketOwner;
@@ -80,7 +76,7 @@ export class S3BucketRequestPaymentConfiguration extends cdktf.TerraformResource
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -93,7 +89,7 @@ export class S3BucketRequestPaymentConfiguration extends cdktf.TerraformResource
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string;
+  private _expectedBucketOwner?: string; 
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -109,7 +105,7 @@ export class S3BucketRequestPaymentConfiguration extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -125,7 +121,7 @@ export class S3BucketRequestPaymentConfiguration extends cdktf.TerraformResource
   }
 
   // payer - computed: false, optional: false, required: true
-  private _payer?: string;
+  private _payer?: string; 
   public get payer() {
     return this.getStringAttribute('payer');
   }

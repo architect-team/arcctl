@@ -1,95 +1,80 @@
 // https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface S3ControlMultiRegionAccessPointConfig
-  extends cdktf.TerraformMetaArguments {
+export interface S3ControlMultiRegionAccessPointConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#account_id S3ControlMultiRegionAccessPoint#account_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#account_id S3ControlMultiRegionAccessPoint#account_id}
+  */
   readonly accountId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#id S3ControlMultiRegionAccessPoint#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#id S3ControlMultiRegionAccessPoint#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * details block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#details S3ControlMultiRegionAccessPoint#details}
-   */
+  * details block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#details S3ControlMultiRegionAccessPoint#details}
+  */
   readonly details: S3ControlMultiRegionAccessPointDetails;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#timeouts S3ControlMultiRegionAccessPoint#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#timeouts S3ControlMultiRegionAccessPoint#timeouts}
+  */
   readonly timeouts?: S3ControlMultiRegionAccessPointTimeouts;
 }
 export interface S3ControlMultiRegionAccessPointDetailsPublicAccessBlock {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#block_public_acls S3ControlMultiRegionAccessPoint#block_public_acls}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#block_public_acls S3ControlMultiRegionAccessPoint#block_public_acls}
+  */
   readonly blockPublicAcls?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#block_public_policy S3ControlMultiRegionAccessPoint#block_public_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#block_public_policy S3ControlMultiRegionAccessPoint#block_public_policy}
+  */
   readonly blockPublicPolicy?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#ignore_public_acls S3ControlMultiRegionAccessPoint#ignore_public_acls}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#ignore_public_acls S3ControlMultiRegionAccessPoint#ignore_public_acls}
+  */
   readonly ignorePublicAcls?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#restrict_public_buckets S3ControlMultiRegionAccessPoint#restrict_public_buckets}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#restrict_public_buckets S3ControlMultiRegionAccessPoint#restrict_public_buckets}
+  */
   readonly restrictPublicBuckets?: boolean | cdktf.IResolvable;
 }
 
-export function s3ControlMultiRegionAccessPointDetailsPublicAccessBlockToTerraform(
-  struct?:
-    | S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputReference
-    | S3ControlMultiRegionAccessPointDetailsPublicAccessBlock,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3ControlMultiRegionAccessPointDetailsPublicAccessBlockToTerraform(struct?: S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputReference | S3ControlMultiRegionAccessPointDetailsPublicAccessBlock): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     block_public_acls: cdktf.booleanToTerraform(struct!.blockPublicAcls),
     block_public_policy: cdktf.booleanToTerraform(struct!.blockPublicPolicy),
     ignore_public_acls: cdktf.booleanToTerraform(struct!.ignorePublicAcls),
-    restrict_public_buckets: cdktf.booleanToTerraform(
-      struct!.restrictPublicBuckets,
-    ),
-  };
+    restrict_public_buckets: cdktf.booleanToTerraform(struct!.restrictPublicBuckets),
+  }
 }
 
 export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3ControlMultiRegionAccessPointDetailsPublicAccessBlock
-    | undefined {
+  public get internalValue(): S3ControlMultiRegionAccessPointDetailsPublicAccessBlock | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._blockPublicAcls !== undefined) {
@@ -111,16 +96,15 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3ControlMultiRegionAccessPointDetailsPublicAccessBlock | undefined,
-  ) {
+  public set internalValue(value: S3ControlMultiRegionAccessPointDetailsPublicAccessBlock | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._blockPublicAcls = undefined;
       this._blockPublicPolicy = undefined;
       this._ignorePublicAcls = undefined;
       this._restrictPublicBuckets = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._blockPublicAcls = value.blockPublicAcls;
       this._blockPublicPolicy = value.blockPublicPolicy;
@@ -130,7 +114,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // block_public_acls - computed: false, optional: true, required: false
-  private _blockPublicAcls?: boolean | cdktf.IResolvable;
+  private _blockPublicAcls?: boolean | cdktf.IResolvable; 
   public get blockPublicAcls() {
     return this.getBooleanAttribute('block_public_acls');
   }
@@ -146,7 +130,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // block_public_policy - computed: false, optional: true, required: false
-  private _blockPublicPolicy?: boolean | cdktf.IResolvable;
+  private _blockPublicPolicy?: boolean | cdktf.IResolvable; 
   public get blockPublicPolicy() {
     return this.getBooleanAttribute('block_public_policy');
   }
@@ -162,7 +146,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // ignore_public_acls - computed: false, optional: true, required: false
-  private _ignorePublicAcls?: boolean | cdktf.IResolvable;
+  private _ignorePublicAcls?: boolean | cdktf.IResolvable; 
   public get ignorePublicAcls() {
     return this.getBooleanAttribute('ignore_public_acls');
   }
@@ -178,7 +162,7 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
   }
 
   // restrict_public_buckets - computed: false, optional: true, required: false
-  private _restrictPublicBuckets?: boolean | cdktf.IResolvable;
+  private _restrictPublicBuckets?: boolean | cdktf.IResolvable; 
   public get restrictPublicBuckets() {
     return this.getBooleanAttribute('restrict_public_buckets');
   }
@@ -195,25 +179,19 @@ export class S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputRefere
 }
 export interface S3ControlMultiRegionAccessPointDetailsRegion {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#bucket S3ControlMultiRegionAccessPoint#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#bucket S3ControlMultiRegionAccessPoint#bucket}
+  */
   readonly bucket: string;
 }
 
-export function s3ControlMultiRegionAccessPointDetailsRegionToTerraform(
-  struct?: S3ControlMultiRegionAccessPointDetailsRegion | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3ControlMultiRegionAccessPointDetailsRegionToTerraform(struct?: S3ControlMultiRegionAccessPointDetailsRegion | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
-  };
+  }
 }
 
 export class S3ControlMultiRegionAccessPointDetailsRegionOutputReference extends cdktf.ComplexObject {
@@ -221,29 +199,16 @@ export class S3ControlMultiRegionAccessPointDetailsRegionOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | S3ControlMultiRegionAccessPointDetailsRegion
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3ControlMultiRegionAccessPointDetailsRegion | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -256,20 +221,17 @@ export class S3ControlMultiRegionAccessPointDetailsRegionOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3ControlMultiRegionAccessPointDetailsRegion
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: S3ControlMultiRegionAccessPointDetailsRegion | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._bucket = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._bucket = value.bucket;
@@ -277,7 +239,7 @@ export class S3ControlMultiRegionAccessPointDetailsRegionOutputReference extends
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -291,101 +253,67 @@ export class S3ControlMultiRegionAccessPointDetailsRegionOutputReference extends
 }
 
 export class S3ControlMultiRegionAccessPointDetailsRegionList extends cdktf.ComplexList {
-  public internalValue?:
-    | S3ControlMultiRegionAccessPointDetailsRegion[]
-    | cdktf.IResolvable;
+  public internalValue? : S3ControlMultiRegionAccessPointDetailsRegion[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): S3ControlMultiRegionAccessPointDetailsRegionOutputReference {
-    return new S3ControlMultiRegionAccessPointDetailsRegionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): S3ControlMultiRegionAccessPointDetailsRegionOutputReference {
+    return new S3ControlMultiRegionAccessPointDetailsRegionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3ControlMultiRegionAccessPointDetails {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#name S3ControlMultiRegionAccessPoint#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#name S3ControlMultiRegionAccessPoint#name}
+  */
   readonly name: string;
   /**
-   * public_access_block block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#public_access_block S3ControlMultiRegionAccessPoint#public_access_block}
-   */
+  * public_access_block block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#public_access_block S3ControlMultiRegionAccessPoint#public_access_block}
+  */
   readonly publicAccessBlock?: S3ControlMultiRegionAccessPointDetailsPublicAccessBlock;
   /**
-   * region block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#region S3ControlMultiRegionAccessPoint#region}
-   */
-  readonly region:
-    | S3ControlMultiRegionAccessPointDetailsRegion[]
-    | cdktf.IResolvable;
+  * region block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#region S3ControlMultiRegionAccessPoint#region}
+  */
+  readonly region: S3ControlMultiRegionAccessPointDetailsRegion[] | cdktf.IResolvable;
 }
 
-export function s3ControlMultiRegionAccessPointDetailsToTerraform(
-  struct?:
-    | S3ControlMultiRegionAccessPointDetailsOutputReference
-    | S3ControlMultiRegionAccessPointDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3ControlMultiRegionAccessPointDetailsToTerraform(struct?: S3ControlMultiRegionAccessPointDetailsOutputReference | S3ControlMultiRegionAccessPointDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    public_access_block:
-      s3ControlMultiRegionAccessPointDetailsPublicAccessBlockToTerraform(
-        struct!.publicAccessBlock,
-      ),
-    region: cdktf.listMapper(
-      s3ControlMultiRegionAccessPointDetailsRegionToTerraform,
-      true,
-    )(struct!.region),
-  };
+    public_access_block: s3ControlMultiRegionAccessPointDetailsPublicAccessBlockToTerraform(struct!.publicAccessBlock),
+    region: cdktf.listMapper(s3ControlMultiRegionAccessPointDetailsRegionToTerraform, true)(struct!.region),
+  }
 }
 
 export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3ControlMultiRegionAccessPointDetails
-    | undefined {
+  public get internalValue(): S3ControlMultiRegionAccessPointDetails | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -394,8 +322,7 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
     }
     if (this._publicAccessBlock?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.publicAccessBlock =
-        this._publicAccessBlock?.internalValue;
+      internalValueResult.publicAccessBlock = this._publicAccessBlock?.internalValue;
     }
     if (this._region?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -404,15 +331,14 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3ControlMultiRegionAccessPointDetails | undefined,
-  ) {
+  public set internalValue(value: S3ControlMultiRegionAccessPointDetails | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
       this._publicAccessBlock.internalValue = undefined;
       this._region.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
       this._publicAccessBlock.internalValue = value.publicAccessBlock;
@@ -421,7 +347,7 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -434,17 +360,11 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
   }
 
   // public_access_block - computed: false, optional: true, required: false
-  private _publicAccessBlock =
-    new S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputReference(
-      this,
-      'public_access_block',
-    );
+  private _publicAccessBlock = new S3ControlMultiRegionAccessPointDetailsPublicAccessBlockOutputReference(this, "public_access_block");
   public get publicAccessBlock() {
     return this._publicAccessBlock;
   }
-  public putPublicAccessBlock(
-    value: S3ControlMultiRegionAccessPointDetailsPublicAccessBlock,
-  ) {
+  public putPublicAccessBlock(value: S3ControlMultiRegionAccessPointDetailsPublicAccessBlock) {
     this._publicAccessBlock.internalValue = value;
   }
   public resetPublicAccessBlock() {
@@ -456,17 +376,11 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
   }
 
   // region - computed: false, optional: false, required: true
-  private _region = new S3ControlMultiRegionAccessPointDetailsRegionList(
-    this,
-    'region',
-    true,
-  );
+  private _region = new S3ControlMultiRegionAccessPointDetailsRegionList(this, "region", true);
   public get region() {
     return this._region;
   }
-  public putRegion(
-    value: S3ControlMultiRegionAccessPointDetailsRegion[] | cdktf.IResolvable,
-  ) {
+  public putRegion(value: S3ControlMultiRegionAccessPointDetailsRegion[] | cdktf.IResolvable) {
     this._region.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -476,33 +390,24 @@ export class S3ControlMultiRegionAccessPointDetailsOutputReference extends cdktf
 }
 export interface S3ControlMultiRegionAccessPointTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#create S3ControlMultiRegionAccessPoint#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#create S3ControlMultiRegionAccessPoint#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#delete S3ControlMultiRegionAccessPoint#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point#delete S3ControlMultiRegionAccessPoint#delete}
+  */
   readonly delete?: string;
 }
 
-export function s3ControlMultiRegionAccessPointTimeoutsToTerraform(
-  struct?:
-    | S3ControlMultiRegionAccessPointTimeoutsOutputReference
-    | S3ControlMultiRegionAccessPointTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3ControlMultiRegionAccessPointTimeoutsToTerraform(struct?: S3ControlMultiRegionAccessPointTimeoutsOutputReference | S3ControlMultiRegionAccessPointTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -510,20 +415,14 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3ControlMultiRegionAccessPointTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3ControlMultiRegionAccessPointTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -540,21 +439,18 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | S3ControlMultiRegionAccessPointTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: S3ControlMultiRegionAccessPointTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -563,7 +459,7 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -579,7 +475,7 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -596,37 +492,33 @@ export class S3ControlMultiRegionAccessPointTimeoutsOutputReference extends cdkt
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point aws_s3control_multi_region_access_point}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point aws_s3control_multi_region_access_point}
+*/
 export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_s3control_multi_region_access_point';
+  public static readonly tfResourceType = "aws_s3control_multi_region_access_point";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point aws_s3control_multi_region_access_point} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options S3ControlMultiRegionAccessPointConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: S3ControlMultiRegionAccessPointConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3control_multi_region_access_point aws_s3control_multi_region_access_point} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options S3ControlMultiRegionAccessPointConfig
+  */
+  public constructor(scope: Construct, id: string, config: S3ControlMultiRegionAccessPointConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_s3control_multi_region_access_point',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -634,7 +526,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accountId = config.accountId;
     this._id = config.id;
@@ -647,7 +539,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
   // ==========
 
   // account_id - computed: true, optional: true, required: false
-  private _accountId?: string;
+  private _accountId?: string; 
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -678,7 +570,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -699,10 +591,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
   }
 
   // details - computed: false, optional: false, required: true
-  private _details = new S3ControlMultiRegionAccessPointDetailsOutputReference(
-    this,
-    'details',
-  );
+  private _details = new S3ControlMultiRegionAccessPointDetailsOutputReference(this, "details");
   public get details() {
     return this._details;
   }
@@ -715,11 +604,7 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new S3ControlMultiRegionAccessPointTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new S3ControlMultiRegionAccessPointTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -742,12 +627,8 @@ export class S3ControlMultiRegionAccessPoint extends cdktf.TerraformResource {
     return {
       account_id: cdktf.stringToTerraform(this._accountId),
       id: cdktf.stringToTerraform(this._id),
-      details: s3ControlMultiRegionAccessPointDetailsToTerraform(
-        this._details.internalValue,
-      ),
-      timeouts: s3ControlMultiRegionAccessPointTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      details: s3ControlMultiRegionAccessPointDetailsToTerraform(this._details.internalValue),
+      timeouts: s3ControlMultiRegionAccessPointTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

@@ -1,89 +1,70 @@
 // https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsServicecatalogLaunchPathsConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsServicecatalogLaunchPathsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#accept_language DataAwsServicecatalogLaunchPaths#accept_language}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#accept_language DataAwsServicecatalogLaunchPaths#accept_language}
+  */
   readonly acceptLanguage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#id DataAwsServicecatalogLaunchPaths#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#id DataAwsServicecatalogLaunchPaths#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#product_id DataAwsServicecatalogLaunchPaths#product_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#product_id DataAwsServicecatalogLaunchPaths#product_id}
+  */
   readonly productId: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#timeouts DataAwsServicecatalogLaunchPaths#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#timeouts DataAwsServicecatalogLaunchPaths#timeouts}
+  */
   readonly timeouts?: DataAwsServicecatalogLaunchPathsTimeouts;
 }
-export interface DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries {}
+export interface DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries {
+}
 
-export function dataAwsServicecatalogLaunchPathsSummariesConstraintSummariesToTerraform(
-  struct?: DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsServicecatalogLaunchPathsSummariesConstraintSummariesToTerraform(struct?: DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries
-    | undefined {
+  public get internalValue(): DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsServicecatalogLaunchPathsSummariesConstraintSummaries | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -100,97 +81,65 @@ export class DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesOutputR
 }
 
 export class DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesOutputReference {
-    return new DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesOutputReference {
+    return new DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsServicecatalogLaunchPathsSummaries {}
+export interface DataAwsServicecatalogLaunchPathsSummaries {
+}
 
-export function dataAwsServicecatalogLaunchPathsSummariesToTerraform(
-  struct?: DataAwsServicecatalogLaunchPathsSummaries,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsServicecatalogLaunchPathsSummariesToTerraform(struct?: DataAwsServicecatalogLaunchPathsSummaries): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsServicecatalogLaunchPathsSummariesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsServicecatalogLaunchPathsSummaries
-    | undefined {
+  public get internalValue(): DataAwsServicecatalogLaunchPathsSummaries | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsServicecatalogLaunchPathsSummaries | undefined,
-  ) {
+  public set internalValue(value: DataAwsServicecatalogLaunchPathsSummaries | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // constraint_summaries - computed: true, optional: false, required: false
-  private _constraintSummaries =
-    new DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesList(
-      this,
-      'constraint_summaries',
-      false,
-    );
+  private _constraintSummaries = new DataAwsServicecatalogLaunchPathsSummariesConstraintSummariesList(this, "constraint_summaries", false);
   public get constraintSummaries() {
     return this._constraintSummaries;
   }
@@ -206,64 +155,45 @@ export class DataAwsServicecatalogLaunchPathsSummariesOutputReference extends cd
   }
 
   // tags - computed: true, optional: false, required: false
-  private _tags = new cdktf.StringMap(this, 'tags');
+  private _tags = new cdktf.StringMap(this, "tags");
   public get tags() {
     return this._tags;
   }
 }
 
 export class DataAwsServicecatalogLaunchPathsSummariesList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsServicecatalogLaunchPathsSummariesOutputReference {
-    return new DataAwsServicecatalogLaunchPathsSummariesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsServicecatalogLaunchPathsSummariesOutputReference {
+    return new DataAwsServicecatalogLaunchPathsSummariesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsServicecatalogLaunchPathsTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#read DataAwsServicecatalogLaunchPaths#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths#read DataAwsServicecatalogLaunchPaths#read}
+  */
   readonly read?: string;
 }
 
-export function dataAwsServicecatalogLaunchPathsTimeoutsToTerraform(
-  struct?:
-    | DataAwsServicecatalogLaunchPathsTimeoutsOutputReference
-    | DataAwsServicecatalogLaunchPathsTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsServicecatalogLaunchPathsTimeoutsToTerraform(struct?: DataAwsServicecatalogLaunchPathsTimeoutsOutputReference | DataAwsServicecatalogLaunchPathsTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  };
+  }
 }
 
 export class DataAwsServicecatalogLaunchPathsTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -271,20 +201,14 @@ export class DataAwsServicecatalogLaunchPathsTimeoutsOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DataAwsServicecatalogLaunchPathsTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsServicecatalogLaunchPathsTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -297,20 +221,17 @@ export class DataAwsServicecatalogLaunchPathsTimeoutsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsServicecatalogLaunchPathsTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsServicecatalogLaunchPathsTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -318,7 +239,7 @@ export class DataAwsServicecatalogLaunchPathsTimeoutsOutputReference extends cdk
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -335,36 +256,33 @@ export class DataAwsServicecatalogLaunchPathsTimeoutsOutputReference extends cdk
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths aws_servicecatalog_launch_paths}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths aws_servicecatalog_launch_paths}
+*/
 export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_servicecatalog_launch_paths';
+  public static readonly tfResourceType = "aws_servicecatalog_launch_paths";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths aws_servicecatalog_launch_paths} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsServicecatalogLaunchPathsConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsServicecatalogLaunchPathsConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_launch_paths aws_servicecatalog_launch_paths} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsServicecatalogLaunchPathsConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsServicecatalogLaunchPathsConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_launch_paths',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -372,7 +290,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._acceptLanguage = config.acceptLanguage;
     this._id = config.id;
@@ -385,7 +303,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string;
+  private _acceptLanguage?: string; 
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -401,7 +319,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -417,7 +335,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string;
+  private _productId?: string; 
   public get productId() {
     return this.getStringAttribute('product_id');
   }
@@ -430,21 +348,13 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
   }
 
   // summaries - computed: true, optional: false, required: false
-  private _summaries = new DataAwsServicecatalogLaunchPathsSummariesList(
-    this,
-    'summaries',
-    false,
-  );
+  private _summaries = new DataAwsServicecatalogLaunchPathsSummariesList(this, "summaries", false);
   public get summaries() {
     return this._summaries;
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new DataAwsServicecatalogLaunchPathsTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new DataAwsServicecatalogLaunchPathsTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -468,9 +378,7 @@ export class DataAwsServicecatalogLaunchPaths extends cdktf.TerraformDataSource 
       accept_language: cdktf.stringToTerraform(this._acceptLanguage),
       id: cdktf.stringToTerraform(this._id),
       product_id: cdktf.stringToTerraform(this._productId),
-      timeouts: dataAwsServicecatalogLaunchPathsTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: dataAwsServicecatalogLaunchPathsTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

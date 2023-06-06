@@ -25,9 +25,14 @@ export type DatabaseSchemaOutputs = {
   url: string;
 
   /**
-   * New or existing account that brokers access to the database
+   * Username used to authenticate with the schema
    */
-  account: string;
+  username: string;
+
+  /**
+   * Passowrd used to authenticate with the schema
+   */
+  password: string;
 
   /**
    * SSL certificate used to authenticate with the database

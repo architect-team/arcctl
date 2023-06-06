@@ -1,103 +1,84 @@
 // https://www.terraform.io/docs/providers/aws/d/alb_listener
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DataAwsAlbListenerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#arn DataAwsAlbListener#arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#arn DataAwsAlbListener#arn}
+  */
   readonly arn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#id DataAwsAlbListener#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#id DataAwsAlbListener#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#load_balancer_arn DataAwsAlbListener#load_balancer_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#load_balancer_arn DataAwsAlbListener#load_balancer_arn}
+  */
   readonly loadBalancerArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#port DataAwsAlbListener#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#port DataAwsAlbListener#port}
+  */
   readonly port?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#tags DataAwsAlbListener#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#tags DataAwsAlbListener#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#timeouts DataAwsAlbListener#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#timeouts DataAwsAlbListener#timeouts}
+  */
   readonly timeouts?: DataAwsAlbListenerTimeouts;
 }
-export interface DataAwsAlbListenerDefaultActionAuthenticateCognito {}
+export interface DataAwsAlbListenerDefaultActionAuthenticateCognito {
+}
 
-export function dataAwsAlbListenerDefaultActionAuthenticateCognitoToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionAuthenticateCognito,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionAuthenticateCognitoToTerraform(struct?: DataAwsAlbListenerDefaultActionAuthenticateCognito): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionAuthenticateCognitoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionAuthenticateCognito
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionAuthenticateCognito | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionAuthenticateCognito | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionAuthenticateCognito | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // authentication_request_extra_params - computed: true, optional: false, required: false
-  private _authenticationRequestExtraParams = new cdktf.StringMap(
-    this,
-    'authentication_request_extra_params',
-  );
+  private _authenticationRequestExtraParams = new cdktf.StringMap(this, "authentication_request_extra_params");
   public get authenticationRequestExtraParams() {
     return this._authenticationRequestExtraParams;
   }
@@ -139,95 +120,65 @@ export class DataAwsAlbListenerDefaultActionAuthenticateCognitoOutputReference e
 }
 
 export class DataAwsAlbListenerDefaultActionAuthenticateCognitoList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionAuthenticateCognitoOutputReference {
-    return new DataAwsAlbListenerDefaultActionAuthenticateCognitoOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionAuthenticateCognitoOutputReference {
+    return new DataAwsAlbListenerDefaultActionAuthenticateCognitoOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultActionAuthenticateOidc {}
+export interface DataAwsAlbListenerDefaultActionAuthenticateOidc {
+}
 
-export function dataAwsAlbListenerDefaultActionAuthenticateOidcToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionAuthenticateOidc,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionAuthenticateOidcToTerraform(struct?: DataAwsAlbListenerDefaultActionAuthenticateOidc): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionAuthenticateOidcOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionAuthenticateOidc
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionAuthenticateOidc | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionAuthenticateOidc | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionAuthenticateOidc | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // authentication_request_extra_params - computed: true, optional: false, required: false
-  private _authenticationRequestExtraParams = new cdktf.StringMap(
-    this,
-    'authentication_request_extra_params',
-  );
+  private _authenticationRequestExtraParams = new cdktf.StringMap(this, "authentication_request_extra_params");
   public get authenticationRequestExtraParams() {
     return this._authenticationRequestExtraParams;
   }
@@ -284,86 +235,59 @@ export class DataAwsAlbListenerDefaultActionAuthenticateOidcOutputReference exte
 }
 
 export class DataAwsAlbListenerDefaultActionAuthenticateOidcList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionAuthenticateOidcOutputReference {
-    return new DataAwsAlbListenerDefaultActionAuthenticateOidcOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionAuthenticateOidcOutputReference {
+    return new DataAwsAlbListenerDefaultActionAuthenticateOidcOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultActionFixedResponse {}
+export interface DataAwsAlbListenerDefaultActionFixedResponse {
+}
 
-export function dataAwsAlbListenerDefaultActionFixedResponseToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionFixedResponse,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionFixedResponseToTerraform(struct?: DataAwsAlbListenerDefaultActionFixedResponse): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionFixedResponseOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionFixedResponse
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionFixedResponse | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionFixedResponse | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionFixedResponse | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -385,86 +309,59 @@ export class DataAwsAlbListenerDefaultActionFixedResponseOutputReference extends
 }
 
 export class DataAwsAlbListenerDefaultActionFixedResponseList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionFixedResponseOutputReference {
-    return new DataAwsAlbListenerDefaultActionFixedResponseOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionFixedResponseOutputReference {
+    return new DataAwsAlbListenerDefaultActionFixedResponseOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultActionForwardStickiness {}
+export interface DataAwsAlbListenerDefaultActionForwardStickiness {
+}
 
-export function dataAwsAlbListenerDefaultActionForwardStickinessToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionForwardStickiness,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionForwardStickinessToTerraform(struct?: DataAwsAlbListenerDefaultActionForwardStickiness): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionForwardStickinessOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionForwardStickiness
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionForwardStickiness | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionForwardStickiness | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionForwardStickiness | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -481,86 +378,59 @@ export class DataAwsAlbListenerDefaultActionForwardStickinessOutputReference ext
 }
 
 export class DataAwsAlbListenerDefaultActionForwardStickinessList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionForwardStickinessOutputReference {
-    return new DataAwsAlbListenerDefaultActionForwardStickinessOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionForwardStickinessOutputReference {
+    return new DataAwsAlbListenerDefaultActionForwardStickinessOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultActionForwardTargetGroup {}
+export interface DataAwsAlbListenerDefaultActionForwardTargetGroup {
+}
 
-export function dataAwsAlbListenerDefaultActionForwardTargetGroupToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionForwardTargetGroup,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionForwardTargetGroupToTerraform(struct?: DataAwsAlbListenerDefaultActionForwardTargetGroup): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionForwardTargetGroupOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionForwardTargetGroup
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionForwardTargetGroup | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionForwardTargetGroup | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionForwardTargetGroup | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -577,194 +447,130 @@ export class DataAwsAlbListenerDefaultActionForwardTargetGroupOutputReference ex
 }
 
 export class DataAwsAlbListenerDefaultActionForwardTargetGroupList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionForwardTargetGroupOutputReference {
-    return new DataAwsAlbListenerDefaultActionForwardTargetGroupOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionForwardTargetGroupOutputReference {
+    return new DataAwsAlbListenerDefaultActionForwardTargetGroupOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultActionForward {}
+export interface DataAwsAlbListenerDefaultActionForward {
+}
 
-export function dataAwsAlbListenerDefaultActionForwardToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionForward,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionForwardToTerraform(struct?: DataAwsAlbListenerDefaultActionForward): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionForwardOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionForward
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionForward | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionForward | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionForward | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // stickiness - computed: true, optional: false, required: false
-  private _stickiness =
-    new DataAwsAlbListenerDefaultActionForwardStickinessList(
-      this,
-      'stickiness',
-      false,
-    );
+  private _stickiness = new DataAwsAlbListenerDefaultActionForwardStickinessList(this, "stickiness", false);
   public get stickiness() {
     return this._stickiness;
   }
 
   // target_group - computed: true, optional: false, required: false
-  private _targetGroup =
-    new DataAwsAlbListenerDefaultActionForwardTargetGroupList(
-      this,
-      'target_group',
-      true,
-    );
+  private _targetGroup = new DataAwsAlbListenerDefaultActionForwardTargetGroupList(this, "target_group", true);
   public get targetGroup() {
     return this._targetGroup;
   }
 }
 
 export class DataAwsAlbListenerDefaultActionForwardList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionForwardOutputReference {
-    return new DataAwsAlbListenerDefaultActionForwardOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionForwardOutputReference {
+    return new DataAwsAlbListenerDefaultActionForwardOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultActionRedirect {}
+export interface DataAwsAlbListenerDefaultActionRedirect {
+}
 
-export function dataAwsAlbListenerDefaultActionRedirectToTerraform(
-  struct?: DataAwsAlbListenerDefaultActionRedirect,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionRedirectToTerraform(struct?: DataAwsAlbListenerDefaultActionRedirect): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionRedirectOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerDefaultActionRedirect
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerDefaultActionRedirect | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerDefaultActionRedirect | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerDefaultActionRedirect | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -801,70 +607,46 @@ export class DataAwsAlbListenerDefaultActionRedirectOutputReference extends cdkt
 }
 
 export class DataAwsAlbListenerDefaultActionRedirectList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsAlbListenerDefaultActionRedirectOutputReference {
-    return new DataAwsAlbListenerDefaultActionRedirectOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsAlbListenerDefaultActionRedirectOutputReference {
+    return new DataAwsAlbListenerDefaultActionRedirectOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsAlbListenerDefaultAction {}
+export interface DataAwsAlbListenerDefaultAction {
+}
 
-export function dataAwsAlbListenerDefaultActionToTerraform(
-  struct?: DataAwsAlbListenerDefaultAction,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerDefaultActionToTerraform(struct?: DataAwsAlbListenerDefaultAction): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsAlbListenerDefaultActionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): DataAwsAlbListenerDefaultAction | undefined {
@@ -876,49 +658,32 @@ export class DataAwsAlbListenerDefaultActionOutputReference extends cdktf.Comple
   public set internalValue(value: DataAwsAlbListenerDefaultAction | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // authenticate_cognito - computed: true, optional: false, required: false
-  private _authenticateCognito =
-    new DataAwsAlbListenerDefaultActionAuthenticateCognitoList(
-      this,
-      'authenticate_cognito',
-      false,
-    );
+  private _authenticateCognito = new DataAwsAlbListenerDefaultActionAuthenticateCognitoList(this, "authenticate_cognito", false);
   public get authenticateCognito() {
     return this._authenticateCognito;
   }
 
   // authenticate_oidc - computed: true, optional: false, required: false
-  private _authenticateOidc =
-    new DataAwsAlbListenerDefaultActionAuthenticateOidcList(
-      this,
-      'authenticate_oidc',
-      false,
-    );
+  private _authenticateOidc = new DataAwsAlbListenerDefaultActionAuthenticateOidcList(this, "authenticate_oidc", false);
   public get authenticateOidc() {
     return this._authenticateOidc;
   }
 
   // fixed_response - computed: true, optional: false, required: false
-  private _fixedResponse = new DataAwsAlbListenerDefaultActionFixedResponseList(
-    this,
-    'fixed_response',
-    false,
-  );
+  private _fixedResponse = new DataAwsAlbListenerDefaultActionFixedResponseList(this, "fixed_response", false);
   public get fixedResponse() {
     return this._fixedResponse;
   }
 
   // forward - computed: true, optional: false, required: false
-  private _forward = new DataAwsAlbListenerDefaultActionForwardList(
-    this,
-    'forward',
-    false,
-  );
+  private _forward = new DataAwsAlbListenerDefaultActionForwardList(this, "forward", false);
   public get forward() {
     return this._forward;
   }
@@ -929,11 +694,7 @@ export class DataAwsAlbListenerDefaultActionOutputReference extends cdktf.Comple
   }
 
   // redirect - computed: true, optional: false, required: false
-  private _redirect = new DataAwsAlbListenerDefaultActionRedirectList(
-    this,
-    'redirect',
-    false,
-  );
+  private _redirect = new DataAwsAlbListenerDefaultActionRedirectList(this, "redirect", false);
   public get redirect() {
     return this._redirect;
   }
@@ -950,55 +711,38 @@ export class DataAwsAlbListenerDefaultActionOutputReference extends cdktf.Comple
 }
 
 export class DataAwsAlbListenerDefaultActionList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataAwsAlbListenerDefaultActionOutputReference {
-    return new DataAwsAlbListenerDefaultActionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataAwsAlbListenerDefaultActionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsAlbListenerTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#read DataAwsAlbListener#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/alb_listener#read DataAwsAlbListener#read}
+  */
   readonly read?: string;
 }
 
-export function dataAwsAlbListenerTimeoutsToTerraform(
-  struct?:
-    | DataAwsAlbListenerTimeoutsOutputReference
-    | DataAwsAlbListenerTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsAlbListenerTimeoutsToTerraform(struct?: DataAwsAlbListenerTimeoutsOutputReference | DataAwsAlbListenerTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  };
+  }
 }
 
 export class DataAwsAlbListenerTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -1006,20 +750,14 @@ export class DataAwsAlbListenerTimeoutsOutputReference extends cdktf.ComplexObje
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DataAwsAlbListenerTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsAlbListenerTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1032,17 +770,17 @@ export class DataAwsAlbListenerTimeoutsOutputReference extends cdktf.ComplexObje
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsAlbListenerTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataAwsAlbListenerTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -1050,7 +788,7 @@ export class DataAwsAlbListenerTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -1067,36 +805,33 @@ export class DataAwsAlbListenerTimeoutsOutputReference extends cdktf.ComplexObje
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/alb_listener aws_alb_listener}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/alb_listener aws_alb_listener}
+*/
 export class DataAwsAlbListener extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_alb_listener';
+  public static readonly tfResourceType = "aws_alb_listener";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/alb_listener aws_alb_listener} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsAlbListenerConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsAlbListenerConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/alb_listener aws_alb_listener} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsAlbListenerConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsAlbListenerConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_alb_listener',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1104,7 +839,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._arn = config.arn;
     this._id = config.id;
@@ -1124,7 +859,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
   }
 
   // arn - computed: true, optional: true, required: false
-  private _arn?: string;
+  private _arn?: string; 
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1145,17 +880,13 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
   }
 
   // default_action - computed: true, optional: false, required: false
-  private _defaultAction = new DataAwsAlbListenerDefaultActionList(
-    this,
-    'default_action',
-    false,
-  );
+  private _defaultAction = new DataAwsAlbListenerDefaultActionList(this, "default_action", false);
   public get defaultAction() {
     return this._defaultAction;
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1171,7 +902,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
   }
 
   // load_balancer_arn - computed: true, optional: true, required: false
-  private _loadBalancerArn?: string;
+  private _loadBalancerArn?: string; 
   public get loadBalancerArn() {
     return this.getStringAttribute('load_balancer_arn');
   }
@@ -1187,7 +918,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
   }
 
   // port - computed: true, optional: true, required: false
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1213,7 +944,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1229,10 +960,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsAlbListenerTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new DataAwsAlbListenerTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1258,9 +986,7 @@ export class DataAwsAlbListener extends cdktf.TerraformDataSource {
       load_balancer_arn: cdktf.stringToTerraform(this._loadBalancerArn),
       port: cdktf.numberToTerraform(this._port),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
-      timeouts: dataAwsAlbListenerTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: dataAwsAlbListenerTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

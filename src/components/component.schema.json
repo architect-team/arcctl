@@ -2540,127 +2540,121 @@
               "migrate": {
                 "additionalProperties": false,
                 "properties": {
-                  "down": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "command": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "entrypoint": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "environment": {
-                        "additionalProperties": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "boolean"
-                            },
-                            {
-                              "type": "null"
-                            },
-                            {
-                              "not": {}
-                            }
-                          ]
-                        },
-                        "type": "object"
-                      },
-                      "image": {
+                  "command": {
+                    "anyOf": [
+                      {
                         "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
                       }
+                    ]
+                  },
+                  "entrypoint": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "environment": {
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "not": {}
+                        }
+                      ]
                     },
-                    "required": [
-                      "image"
-                    ],
                     "type": "object"
                   },
-                  "up": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "command": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "entrypoint": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      },
-                      "environment": {
-                        "additionalProperties": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "boolean"
-                            },
-                            {
-                              "type": "null"
-                            },
-                            {
-                              "not": {}
-                            }
-                          ]
-                        },
-                        "type": "object"
-                      },
-                      "image": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "image"
-                    ],
-                    "type": "object"
+                  "image": {
+                    "type": "string"
                   }
                 },
+                "required": [
+                  "image"
+                ],
+                "type": "object"
+              },
+              "seed": {
+                "additionalProperties": false,
+                "properties": {
+                  "command": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "entrypoint": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "environment": {
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "not": {}
+                        }
+                      ]
+                    },
+                    "type": "object"
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "image"
+                ],
                 "type": "object"
               },
               "type": {

@@ -58,11 +58,7 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
     credentials[key] = cred;
   }
 
-  const account = new SupportedProviders[providerType](
-    name,
-    credentials as any,
-    command_helper.providerStore.saveFile.bind(command_helper.providerStore),
-  );
+  const account = new SupportedProviders[providerType](name, credentials as any);
   const validCredentials = await account.testCredentials();
   if (!validCredentials) {
     throw new Error('Invalid credentials');

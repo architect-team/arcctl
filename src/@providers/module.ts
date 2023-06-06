@@ -1,36 +1,28 @@
-import {
-  ResourceInputs,
-  ResourceOutputs,
-  ResourceType,
-} from '../@resources/index.ts';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { ProviderCredentials } from './credentials.ts';
-import { ProviderStore } from './store.ts';
+import { SensitiveFile, SensitiveFileConfig } from '../cdktf-modules/.gen/providers/local/sensitive-file/index.ts';
 import { TerraformResource } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface ResourceModuleHooks<T extends ResourceType> {
-  afterCreate?: (
-    providerStore: ProviderStore,
-    outputs: ResourceOutputs[T],
-    getRawOutputValue: (id: string) => Promise<any>,
-  ) => Promise<void>;
-  afterDelete?: () => Promise<void>;
-  afterImport?: () => Promise<void>;
+export type FileConstruct = new (_scope: Construct, _id: string, _config: SensitiveFileConfig) => SensitiveFile;
+
+export type ResourceModuleOptions<T extends ResourceType> = {
+  id: string;
+  inputs?: ResourceInputs[T];
+  FileConstruct: FileConstruct;
+};
+
+export interface ResourceModuleConstructor<T extends ResourceType, C extends ProviderCredentials> {
+  new (scope: Construct, options: ResourceModuleOptions<T>): ResourceModule<T, C>;
 }
 
-export abstract class ResourceModule<
-  T extends ResourceType,
-  C extends ProviderCredentials,
-> extends Construct {
+export abstract class ResourceModule<T extends ResourceType, C extends ProviderCredentials> extends Construct {
+  inputs?: ResourceInputs[T];
   abstract outputs: ResourceOutputs[T];
-  hooks: ResourceModuleHooks<T> = {};
 
-  constructor(
-    public readonly scope: Construct,
-    public readonly name: string,
-    public readonly inputs: ResourceInputs[T],
-  ) {
-    super(scope, name);
+  constructor(scope: Construct, options: ResourceModuleOptions<T>) {
+    super(scope, options.id);
+    this.inputs = options.inputs;
   }
 
   getResourceRef(resource: TerraformResource): string {
@@ -39,10 +31,7 @@ export abstract class ResourceModule<
     return [type, id].join('.');
   }
 
-  abstract genImports(
-    credentials: C,
-    resourceId: string,
-  ): Promise<Record<string, string>>;
+  abstract genImports(credentials: C, resourceId: string): Promise<Record<string, string>>;
 
   abstract getDisplayNames(): Record<string, string>;
 }

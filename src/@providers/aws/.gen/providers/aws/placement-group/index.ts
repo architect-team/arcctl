@@ -1,75 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/placement_group
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface PlacementGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#id PlacementGroup#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#id PlacementGroup#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#name PlacementGroup#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#name PlacementGroup#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#partition_count PlacementGroup#partition_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#partition_count PlacementGroup#partition_count}
+  */
   readonly partitionCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#spread_level PlacementGroup#spread_level}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#spread_level PlacementGroup#spread_level}
+  */
   readonly spreadLevel?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#strategy PlacementGroup#strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#strategy PlacementGroup#strategy}
+  */
   readonly strategy: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#tags PlacementGroup#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#tags PlacementGroup#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#tags_all PlacementGroup#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/placement_group#tags_all PlacementGroup#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/placement_group aws_placement_group}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/placement_group aws_placement_group}
+*/
 export class PlacementGroup extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_placement_group';
+  public static readonly tfResourceType = "aws_placement_group";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/placement_group aws_placement_group} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options PlacementGroupConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: PlacementGroupConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/placement_group aws_placement_group} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options PlacementGroupConfig
+  */
+  public constructor(scope: Construct, id: string, config: PlacementGroupConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_placement_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -77,7 +75,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -98,7 +96,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -114,7 +112,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -127,7 +125,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // partition_count - computed: true, optional: true, required: false
-  private _partitionCount?: number;
+  private _partitionCount?: number; 
   public get partitionCount() {
     return this.getNumberAttribute('partition_count');
   }
@@ -148,7 +146,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // spread_level - computed: true, optional: true, required: false
-  private _spreadLevel?: string;
+  private _spreadLevel?: string; 
   public get spreadLevel() {
     return this.getStringAttribute('spread_level');
   }
@@ -164,7 +162,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // strategy - computed: false, optional: false, required: true
-  private _strategy?: string;
+  private _strategy?: string; 
   public get strategy() {
     return this.getStringAttribute('strategy');
   }
@@ -177,7 +175,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -193,7 +191,7 @@ export class PlacementGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

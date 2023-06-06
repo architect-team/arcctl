@@ -1,170 +1,151 @@
 // https://www.terraform.io/docs/providers/aws/r/transfer_server
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface TransferServerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#certificate TransferServer#certificate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#certificate TransferServer#certificate}
+  */
   readonly certificate?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#directory_id TransferServer#directory_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#directory_id TransferServer#directory_id}
+  */
   readonly directoryId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#domain TransferServer#domain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#domain TransferServer#domain}
+  */
   readonly domain?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#endpoint_type TransferServer#endpoint_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#endpoint_type TransferServer#endpoint_type}
+  */
   readonly endpointType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#force_destroy TransferServer#force_destroy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#force_destroy TransferServer#force_destroy}
+  */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#function TransferServer#function}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#function TransferServer#function}
+  */
   readonly function?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#host_key TransferServer#host_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#host_key TransferServer#host_key}
+  */
   readonly hostKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#id TransferServer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#id TransferServer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#identity_provider_type TransferServer#identity_provider_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#identity_provider_type TransferServer#identity_provider_type}
+  */
   readonly identityProviderType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#invocation_role TransferServer#invocation_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#invocation_role TransferServer#invocation_role}
+  */
   readonly invocationRole?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#logging_role TransferServer#logging_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#logging_role TransferServer#logging_role}
+  */
   readonly loggingRole?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#post_authentication_login_banner TransferServer#post_authentication_login_banner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#post_authentication_login_banner TransferServer#post_authentication_login_banner}
+  */
   readonly postAuthenticationLoginBanner?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#pre_authentication_login_banner TransferServer#pre_authentication_login_banner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#pre_authentication_login_banner TransferServer#pre_authentication_login_banner}
+  */
   readonly preAuthenticationLoginBanner?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#protocols TransferServer#protocols}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#protocols TransferServer#protocols}
+  */
   readonly protocols?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#security_policy_name TransferServer#security_policy_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#security_policy_name TransferServer#security_policy_name}
+  */
   readonly securityPolicyName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#tags TransferServer#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#tags TransferServer#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#tags_all TransferServer#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#tags_all TransferServer#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#url TransferServer#url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#url TransferServer#url}
+  */
   readonly url?: string;
   /**
-   * endpoint_details block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#endpoint_details TransferServer#endpoint_details}
-   */
+  * endpoint_details block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#endpoint_details TransferServer#endpoint_details}
+  */
   readonly endpointDetails?: TransferServerEndpointDetails;
   /**
-   * protocol_details block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#protocol_details TransferServer#protocol_details}
-   */
+  * protocol_details block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#protocol_details TransferServer#protocol_details}
+  */
   readonly protocolDetails?: TransferServerProtocolDetails;
   /**
-   * workflow_details block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#workflow_details TransferServer#workflow_details}
-   */
+  * workflow_details block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#workflow_details TransferServer#workflow_details}
+  */
   readonly workflowDetails?: TransferServerWorkflowDetails;
 }
 export interface TransferServerEndpointDetails {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#address_allocation_ids TransferServer#address_allocation_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#address_allocation_ids TransferServer#address_allocation_ids}
+  */
   readonly addressAllocationIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#security_group_ids TransferServer#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#security_group_ids TransferServer#security_group_ids}
+  */
   readonly securityGroupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#subnet_ids TransferServer#subnet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#subnet_ids TransferServer#subnet_ids}
+  */
   readonly subnetIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#vpc_endpoint_id TransferServer#vpc_endpoint_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#vpc_endpoint_id TransferServer#vpc_endpoint_id}
+  */
   readonly vpcEndpointId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#vpc_id TransferServer#vpc_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#vpc_id TransferServer#vpc_id}
+  */
   readonly vpcId?: string;
 }
 
-export function transferServerEndpointDetailsToTerraform(
-  struct?:
-    | TransferServerEndpointDetailsOutputReference
-    | TransferServerEndpointDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function transferServerEndpointDetailsToTerraform(struct?: TransferServerEndpointDetailsOutputReference | TransferServerEndpointDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    address_allocation_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.addressAllocationIds),
-    security_group_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.subnetIds),
+    address_allocation_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.addressAllocationIds),
+    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
     vpc_endpoint_id: cdktf.stringToTerraform(struct!.vpcEndpointId),
     vpc_id: cdktf.stringToTerraform(struct!.vpcId),
-  };
+  }
 }
 
 export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -202,7 +183,8 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
       this._subnetIds = undefined;
       this._vpcEndpointId = undefined;
       this._vpcId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._addressAllocationIds = value.addressAllocationIds;
       this._securityGroupIds = value.securityGroupIds;
@@ -213,7 +195,7 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
   }
 
   // address_allocation_ids - computed: false, optional: true, required: false
-  private _addressAllocationIds?: string[];
+  private _addressAllocationIds?: string[]; 
   public get addressAllocationIds() {
     return cdktf.Fn.tolist(this.getListAttribute('address_allocation_ids'));
   }
@@ -229,7 +211,7 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -245,7 +227,7 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
   }
 
   // subnet_ids - computed: false, optional: true, required: false
-  private _subnetIds?: string[];
+  private _subnetIds?: string[]; 
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -261,7 +243,7 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
   }
 
   // vpc_endpoint_id - computed: true, optional: true, required: false
-  private _vpcEndpointId?: string;
+  private _vpcEndpointId?: string; 
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }
@@ -277,7 +259,7 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
   }
 
   // vpc_id - computed: false, optional: true, required: false
-  private _vpcId?: string;
+  private _vpcId?: string; 
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -294,60 +276,44 @@ export class TransferServerEndpointDetailsOutputReference extends cdktf.ComplexO
 }
 export interface TransferServerProtocolDetails {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#as2_transports TransferServer#as2_transports}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#as2_transports TransferServer#as2_transports}
+  */
   readonly as2Transports?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#passive_ip TransferServer#passive_ip}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#passive_ip TransferServer#passive_ip}
+  */
   readonly passiveIp?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#set_stat_option TransferServer#set_stat_option}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#set_stat_option TransferServer#set_stat_option}
+  */
   readonly setStatOption?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#tls_session_resumption_mode TransferServer#tls_session_resumption_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#tls_session_resumption_mode TransferServer#tls_session_resumption_mode}
+  */
   readonly tlsSessionResumptionMode?: string;
 }
 
-export function transferServerProtocolDetailsToTerraform(
-  struct?:
-    | TransferServerProtocolDetailsOutputReference
-    | TransferServerProtocolDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function transferServerProtocolDetailsToTerraform(struct?: TransferServerProtocolDetailsOutputReference | TransferServerProtocolDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    as2_transports: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.as2Transports),
+    as2_transports: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.as2Transports),
     passive_ip: cdktf.stringToTerraform(struct!.passiveIp),
     set_stat_option: cdktf.stringToTerraform(struct!.setStatOption),
-    tls_session_resumption_mode: cdktf.stringToTerraform(
-      struct!.tlsSessionResumptionMode,
-    ),
-  };
+    tls_session_resumption_mode: cdktf.stringToTerraform(struct!.tlsSessionResumptionMode),
+  }
 }
 
 export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -368,8 +334,7 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
     }
     if (this._tlsSessionResumptionMode !== undefined) {
       hasAnyValues = true;
-      internalValueResult.tlsSessionResumptionMode =
-        this._tlsSessionResumptionMode;
+      internalValueResult.tlsSessionResumptionMode = this._tlsSessionResumptionMode;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -381,7 +346,8 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
       this._passiveIp = undefined;
       this._setStatOption = undefined;
       this._tlsSessionResumptionMode = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._as2Transports = value.as2Transports;
       this._passiveIp = value.passiveIp;
@@ -391,7 +357,7 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
   }
 
   // as2_transports - computed: true, optional: true, required: false
-  private _as2Transports?: string[];
+  private _as2Transports?: string[]; 
   public get as2Transports() {
     return cdktf.Fn.tolist(this.getListAttribute('as2_transports'));
   }
@@ -407,7 +373,7 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
   }
 
   // passive_ip - computed: true, optional: true, required: false
-  private _passiveIp?: string;
+  private _passiveIp?: string; 
   public get passiveIp() {
     return this.getStringAttribute('passive_ip');
   }
@@ -423,7 +389,7 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
   }
 
   // set_stat_option - computed: true, optional: true, required: false
-  private _setStatOption?: string;
+  private _setStatOption?: string; 
   public get setStatOption() {
     return this.getStringAttribute('set_stat_option');
   }
@@ -439,7 +405,7 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
   }
 
   // tls_session_resumption_mode - computed: true, optional: true, required: false
-  private _tlsSessionResumptionMode?: string;
+  private _tlsSessionResumptionMode?: string; 
   public get tlsSessionResumptionMode() {
     return this.getStringAttribute('tls_session_resumption_mode');
   }
@@ -456,51 +422,38 @@ export class TransferServerProtocolDetailsOutputReference extends cdktf.ComplexO
 }
 export interface TransferServerWorkflowDetailsOnPartialUpload {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#execution_role TransferServer#execution_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#execution_role TransferServer#execution_role}
+  */
   readonly executionRole: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#workflow_id TransferServer#workflow_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#workflow_id TransferServer#workflow_id}
+  */
   readonly workflowId: string;
 }
 
-export function transferServerWorkflowDetailsOnPartialUploadToTerraform(
-  struct?:
-    | TransferServerWorkflowDetailsOnPartialUploadOutputReference
-    | TransferServerWorkflowDetailsOnPartialUpload,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function transferServerWorkflowDetailsOnPartialUploadToTerraform(struct?: TransferServerWorkflowDetailsOnPartialUploadOutputReference | TransferServerWorkflowDetailsOnPartialUpload): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     execution_role: cdktf.stringToTerraform(struct!.executionRole),
     workflow_id: cdktf.stringToTerraform(struct!.workflowId),
-  };
+  }
 }
 
 export class TransferServerWorkflowDetailsOnPartialUploadOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | TransferServerWorkflowDetailsOnPartialUpload
-    | undefined {
+  public get internalValue(): TransferServerWorkflowDetailsOnPartialUpload | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._executionRole !== undefined) {
@@ -514,14 +467,13 @@ export class TransferServerWorkflowDetailsOnPartialUploadOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: TransferServerWorkflowDetailsOnPartialUpload | undefined,
-  ) {
+  public set internalValue(value: TransferServerWorkflowDetailsOnPartialUpload | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._executionRole = undefined;
       this._workflowId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._executionRole = value.executionRole;
       this._workflowId = value.workflowId;
@@ -529,7 +481,7 @@ export class TransferServerWorkflowDetailsOnPartialUploadOutputReference extends
   }
 
   // execution_role - computed: false, optional: false, required: true
-  private _executionRole?: string;
+  private _executionRole?: string; 
   public get executionRole() {
     return this.getStringAttribute('execution_role');
   }
@@ -542,7 +494,7 @@ export class TransferServerWorkflowDetailsOnPartialUploadOutputReference extends
   }
 
   // workflow_id - computed: false, optional: false, required: true
-  private _workflowId?: string;
+  private _workflowId?: string; 
   public get workflowId() {
     return this.getStringAttribute('workflow_id');
   }
@@ -556,51 +508,38 @@ export class TransferServerWorkflowDetailsOnPartialUploadOutputReference extends
 }
 export interface TransferServerWorkflowDetailsOnUpload {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#execution_role TransferServer#execution_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#execution_role TransferServer#execution_role}
+  */
   readonly executionRole: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#workflow_id TransferServer#workflow_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#workflow_id TransferServer#workflow_id}
+  */
   readonly workflowId: string;
 }
 
-export function transferServerWorkflowDetailsOnUploadToTerraform(
-  struct?:
-    | TransferServerWorkflowDetailsOnUploadOutputReference
-    | TransferServerWorkflowDetailsOnUpload,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function transferServerWorkflowDetailsOnUploadToTerraform(struct?: TransferServerWorkflowDetailsOnUploadOutputReference | TransferServerWorkflowDetailsOnUpload): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     execution_role: cdktf.stringToTerraform(struct!.executionRole),
     workflow_id: cdktf.stringToTerraform(struct!.workflowId),
-  };
+  }
 }
 
 export class TransferServerWorkflowDetailsOnUploadOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | TransferServerWorkflowDetailsOnUpload
-    | undefined {
+  public get internalValue(): TransferServerWorkflowDetailsOnUpload | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._executionRole !== undefined) {
@@ -614,14 +553,13 @@ export class TransferServerWorkflowDetailsOnUploadOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: TransferServerWorkflowDetailsOnUpload | undefined,
-  ) {
+  public set internalValue(value: TransferServerWorkflowDetailsOnUpload | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._executionRole = undefined;
       this._workflowId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._executionRole = value.executionRole;
       this._workflowId = value.workflowId;
@@ -629,7 +567,7 @@ export class TransferServerWorkflowDetailsOnUploadOutputReference extends cdktf.
   }
 
   // execution_role - computed: false, optional: false, required: true
-  private _executionRole?: string;
+  private _executionRole?: string; 
   public get executionRole() {
     return this.getStringAttribute('execution_role');
   }
@@ -642,7 +580,7 @@ export class TransferServerWorkflowDetailsOnUploadOutputReference extends cdktf.
   }
 
   // workflow_id - computed: false, optional: false, required: true
-  private _workflowId?: string;
+  private _workflowId?: string; 
   public get workflowId() {
     return this.getStringAttribute('workflow_id');
   }
@@ -656,53 +594,38 @@ export class TransferServerWorkflowDetailsOnUploadOutputReference extends cdktf.
 }
 export interface TransferServerWorkflowDetails {
   /**
-   * on_partial_upload block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#on_partial_upload TransferServer#on_partial_upload}
-   */
+  * on_partial_upload block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#on_partial_upload TransferServer#on_partial_upload}
+  */
   readonly onPartialUpload?: TransferServerWorkflowDetailsOnPartialUpload;
   /**
-   * on_upload block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#on_upload TransferServer#on_upload}
-   */
+  * on_upload block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/transfer_server#on_upload TransferServer#on_upload}
+  */
   readonly onUpload?: TransferServerWorkflowDetailsOnUpload;
 }
 
-export function transferServerWorkflowDetailsToTerraform(
-  struct?:
-    | TransferServerWorkflowDetailsOutputReference
-    | TransferServerWorkflowDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function transferServerWorkflowDetailsToTerraform(struct?: TransferServerWorkflowDetailsOutputReference | TransferServerWorkflowDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    on_partial_upload: transferServerWorkflowDetailsOnPartialUploadToTerraform(
-      struct!.onPartialUpload,
-    ),
-    on_upload: transferServerWorkflowDetailsOnUploadToTerraform(
-      struct!.onUpload,
-    ),
-  };
+    on_partial_upload: transferServerWorkflowDetailsOnPartialUploadToTerraform(struct!.onPartialUpload),
+    on_upload: transferServerWorkflowDetailsOnUploadToTerraform(struct!.onUpload),
+  }
 }
 
 export class TransferServerWorkflowDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -711,8 +634,7 @@ export class TransferServerWorkflowDetailsOutputReference extends cdktf.ComplexO
     const internalValueResult: any = {};
     if (this._onPartialUpload?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.onPartialUpload =
-        this._onPartialUpload?.internalValue;
+      internalValueResult.onPartialUpload = this._onPartialUpload?.internalValue;
     }
     if (this._onUpload?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -726,7 +648,8 @@ export class TransferServerWorkflowDetailsOutputReference extends cdktf.ComplexO
       this.isEmptyObject = false;
       this._onPartialUpload.internalValue = undefined;
       this._onUpload.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._onPartialUpload.internalValue = value.onPartialUpload;
       this._onUpload.internalValue = value.onUpload;
@@ -734,17 +657,11 @@ export class TransferServerWorkflowDetailsOutputReference extends cdktf.ComplexO
   }
 
   // on_partial_upload - computed: false, optional: true, required: false
-  private _onPartialUpload =
-    new TransferServerWorkflowDetailsOnPartialUploadOutputReference(
-      this,
-      'on_partial_upload',
-    );
+  private _onPartialUpload = new TransferServerWorkflowDetailsOnPartialUploadOutputReference(this, "on_partial_upload");
   public get onPartialUpload() {
     return this._onPartialUpload;
   }
-  public putOnPartialUpload(
-    value: TransferServerWorkflowDetailsOnPartialUpload,
-  ) {
+  public putOnPartialUpload(value: TransferServerWorkflowDetailsOnPartialUpload) {
     this._onPartialUpload.internalValue = value;
   }
   public resetOnPartialUpload() {
@@ -756,10 +673,7 @@ export class TransferServerWorkflowDetailsOutputReference extends cdktf.ComplexO
   }
 
   // on_upload - computed: false, optional: true, required: false
-  private _onUpload = new TransferServerWorkflowDetailsOnUploadOutputReference(
-    this,
-    'on_upload',
-  );
+  private _onUpload = new TransferServerWorkflowDetailsOnUploadOutputReference(this, "on_upload");
   public get onUpload() {
     return this._onUpload;
   }
@@ -776,36 +690,33 @@ export class TransferServerWorkflowDetailsOutputReference extends cdktf.ComplexO
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/transfer_server aws_transfer_server}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/transfer_server aws_transfer_server}
+*/
 export class TransferServer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_transfer_server';
+  public static readonly tfResourceType = "aws_transfer_server";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/transfer_server aws_transfer_server} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options TransferServerConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: TransferServerConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/transfer_server aws_transfer_server} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options TransferServerConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: TransferServerConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_transfer_server',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -813,7 +724,7 @@ export class TransferServer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._certificate = config.certificate;
     this._directoryId = config.directoryId;
@@ -848,7 +759,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // certificate - computed: false, optional: true, required: false
-  private _certificate?: string;
+  private _certificate?: string; 
   public get certificate() {
     return this.getStringAttribute('certificate');
   }
@@ -864,7 +775,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: true, required: false
-  private _directoryId?: string;
+  private _directoryId?: string; 
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -880,7 +791,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // domain - computed: false, optional: true, required: false
-  private _domain?: string;
+  private _domain?: string; 
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -901,7 +812,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // endpoint_type - computed: false, optional: true, required: false
-  private _endpointType?: string;
+  private _endpointType?: string; 
   public get endpointType() {
     return this.getStringAttribute('endpoint_type');
   }
@@ -917,7 +828,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable;
+  private _forceDestroy?: boolean | cdktf.IResolvable; 
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -933,7 +844,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // function - computed: false, optional: true, required: false
-  private _function?: string;
+  private _function?: string; 
   public get function() {
     return this.getStringAttribute('function');
   }
@@ -949,7 +860,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // host_key - computed: false, optional: true, required: false
-  private _hostKey?: string;
+  private _hostKey?: string; 
   public get hostKey() {
     return this.getStringAttribute('host_key');
   }
@@ -970,7 +881,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -986,7 +897,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // identity_provider_type - computed: false, optional: true, required: false
-  private _identityProviderType?: string;
+  private _identityProviderType?: string; 
   public get identityProviderType() {
     return this.getStringAttribute('identity_provider_type');
   }
@@ -1002,7 +913,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // invocation_role - computed: false, optional: true, required: false
-  private _invocationRole?: string;
+  private _invocationRole?: string; 
   public get invocationRole() {
     return this.getStringAttribute('invocation_role');
   }
@@ -1018,7 +929,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // logging_role - computed: false, optional: true, required: false
-  private _loggingRole?: string;
+  private _loggingRole?: string; 
   public get loggingRole() {
     return this.getStringAttribute('logging_role');
   }
@@ -1034,7 +945,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // post_authentication_login_banner - computed: false, optional: true, required: false
-  private _postAuthenticationLoginBanner?: string;
+  private _postAuthenticationLoginBanner?: string; 
   public get postAuthenticationLoginBanner() {
     return this.getStringAttribute('post_authentication_login_banner');
   }
@@ -1050,7 +961,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // pre_authentication_login_banner - computed: false, optional: true, required: false
-  private _preAuthenticationLoginBanner?: string;
+  private _preAuthenticationLoginBanner?: string; 
   public get preAuthenticationLoginBanner() {
     return this.getStringAttribute('pre_authentication_login_banner');
   }
@@ -1066,7 +977,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // protocols - computed: true, optional: true, required: false
-  private _protocols?: string[];
+  private _protocols?: string[]; 
   public get protocols() {
     return cdktf.Fn.tolist(this.getListAttribute('protocols'));
   }
@@ -1082,7 +993,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // security_policy_name - computed: false, optional: true, required: false
-  private _securityPolicyName?: string;
+  private _securityPolicyName?: string; 
   public get securityPolicyName() {
     return this.getStringAttribute('security_policy_name');
   }
@@ -1098,7 +1009,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1114,7 +1025,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1130,7 +1041,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // url - computed: false, optional: true, required: false
-  private _url?: string;
+  private _url?: string; 
   public get url() {
     return this.getStringAttribute('url');
   }
@@ -1146,10 +1057,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // endpoint_details - computed: false, optional: true, required: false
-  private _endpointDetails = new TransferServerEndpointDetailsOutputReference(
-    this,
-    'endpoint_details',
-  );
+  private _endpointDetails = new TransferServerEndpointDetailsOutputReference(this, "endpoint_details");
   public get endpointDetails() {
     return this._endpointDetails;
   }
@@ -1165,10 +1073,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // protocol_details - computed: false, optional: true, required: false
-  private _protocolDetails = new TransferServerProtocolDetailsOutputReference(
-    this,
-    'protocol_details',
-  );
+  private _protocolDetails = new TransferServerProtocolDetailsOutputReference(this, "protocol_details");
   public get protocolDetails() {
     return this._protocolDetails;
   }
@@ -1184,10 +1089,7 @@ export class TransferServer extends cdktf.TerraformResource {
   }
 
   // workflow_details - computed: false, optional: true, required: false
-  private _workflowDetails = new TransferServerWorkflowDetailsOutputReference(
-    this,
-    'workflow_details',
-  );
+  private _workflowDetails = new TransferServerWorkflowDetailsOutputReference(this, "workflow_details");
   public get workflowDetails() {
     return this._workflowDetails;
   }
@@ -1216,34 +1118,19 @@ export class TransferServer extends cdktf.TerraformResource {
       function: cdktf.stringToTerraform(this._function),
       host_key: cdktf.stringToTerraform(this._hostKey),
       id: cdktf.stringToTerraform(this._id),
-      identity_provider_type: cdktf.stringToTerraform(
-        this._identityProviderType,
-      ),
+      identity_provider_type: cdktf.stringToTerraform(this._identityProviderType),
       invocation_role: cdktf.stringToTerraform(this._invocationRole),
       logging_role: cdktf.stringToTerraform(this._loggingRole),
-      post_authentication_login_banner: cdktf.stringToTerraform(
-        this._postAuthenticationLoginBanner,
-      ),
-      pre_authentication_login_banner: cdktf.stringToTerraform(
-        this._preAuthenticationLoginBanner,
-      ),
-      protocols: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._protocols),
+      post_authentication_login_banner: cdktf.stringToTerraform(this._postAuthenticationLoginBanner),
+      pre_authentication_login_banner: cdktf.stringToTerraform(this._preAuthenticationLoginBanner),
+      protocols: cdktf.listMapper(cdktf.stringToTerraform, false)(this._protocols),
       security_policy_name: cdktf.stringToTerraform(this._securityPolicyName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       url: cdktf.stringToTerraform(this._url),
-      endpoint_details: transferServerEndpointDetailsToTerraform(
-        this._endpointDetails.internalValue,
-      ),
-      protocol_details: transferServerProtocolDetailsToTerraform(
-        this._protocolDetails.internalValue,
-      ),
-      workflow_details: transferServerWorkflowDetailsToTerraform(
-        this._workflowDetails.internalValue,
-      ),
+      endpoint_details: transferServerEndpointDetailsToTerraform(this._endpointDetails.internalValue),
+      protocol_details: transferServerProtocolDetailsToTerraform(this._protocolDetails.internalValue),
+      workflow_details: transferServerWorkflowDetailsToTerraform(this._workflowDetails.internalValue),
     };
   }
 }

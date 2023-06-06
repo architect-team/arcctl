@@ -1,83 +1,81 @@
 // https://www.terraform.io/docs/providers/aws/r/mq_configuration
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface MqConfigurationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#authentication_strategy MqConfiguration#authentication_strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#authentication_strategy MqConfiguration#authentication_strategy}
+  */
   readonly authenticationStrategy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#data MqConfiguration#data}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#data MqConfiguration#data}
+  */
   readonly data: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#description MqConfiguration#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#description MqConfiguration#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#engine_type MqConfiguration#engine_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#engine_type MqConfiguration#engine_type}
+  */
   readonly engineType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#engine_version MqConfiguration#engine_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#engine_version MqConfiguration#engine_version}
+  */
   readonly engineVersion: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#id MqConfiguration#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#id MqConfiguration#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#name MqConfiguration#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#name MqConfiguration#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#tags MqConfiguration#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#tags MqConfiguration#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#tags_all MqConfiguration#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration#tags_all MqConfiguration#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration aws_mq_configuration}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration aws_mq_configuration}
+*/
 export class MqConfiguration extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_mq_configuration';
+  public static readonly tfResourceType = "aws_mq_configuration";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration aws_mq_configuration} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options MqConfigurationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: MqConfigurationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/mq_configuration aws_mq_configuration} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options MqConfigurationConfig
+  */
+  public constructor(scope: Construct, id: string, config: MqConfigurationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_mq_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -85,7 +83,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._authenticationStrategy = config.authenticationStrategy;
     this._data = config.data;
@@ -108,7 +106,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // authentication_strategy - computed: true, optional: true, required: false
-  private _authenticationStrategy?: string;
+  private _authenticationStrategy?: string; 
   public get authenticationStrategy() {
     return this.getStringAttribute('authentication_strategy');
   }
@@ -124,7 +122,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // data - computed: false, optional: false, required: true
-  private _data?: string;
+  private _data?: string; 
   public get data() {
     return this.getStringAttribute('data');
   }
@@ -137,7 +135,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -153,7 +151,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // engine_type - computed: false, optional: false, required: true
-  private _engineType?: string;
+  private _engineType?: string; 
   public get engineType() {
     return this.getStringAttribute('engine_type');
   }
@@ -166,7 +164,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: false, optional: false, required: true
-  private _engineVersion?: string;
+  private _engineVersion?: string; 
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -179,7 +177,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -200,7 +198,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -213,7 +211,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -229,7 +227,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -250,9 +248,7 @@ export class MqConfiguration extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      authentication_strategy: cdktf.stringToTerraform(
-        this._authenticationStrategy,
-      ),
+      authentication_strategy: cdktf.stringToTerraform(this._authenticationStrategy),
       data: cdktf.stringToTerraform(this._data),
       description: cdktf.stringToTerraform(this._description),
       engine_type: cdktf.stringToTerraform(this._engineType),

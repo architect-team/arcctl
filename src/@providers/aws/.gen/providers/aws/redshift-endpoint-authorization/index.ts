@@ -1,68 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface RedshiftEndpointAuthorizationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface RedshiftEndpointAuthorizationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#account RedshiftEndpointAuthorization#account}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#account RedshiftEndpointAuthorization#account}
+  */
   readonly account: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#cluster_identifier RedshiftEndpointAuthorization#cluster_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#cluster_identifier RedshiftEndpointAuthorization#cluster_identifier}
+  */
   readonly clusterIdentifier: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#force_delete RedshiftEndpointAuthorization#force_delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#force_delete RedshiftEndpointAuthorization#force_delete}
+  */
   readonly forceDelete?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#id RedshiftEndpointAuthorization#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#id RedshiftEndpointAuthorization#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#vpc_ids RedshiftEndpointAuthorization#vpc_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization#vpc_ids RedshiftEndpointAuthorization#vpc_ids}
+  */
   readonly vpcIds?: string[];
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization aws_redshift_endpoint_authorization}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization aws_redshift_endpoint_authorization}
+*/
 export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_redshift_endpoint_authorization';
+  public static readonly tfResourceType = "aws_redshift_endpoint_authorization";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization aws_redshift_endpoint_authorization} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options RedshiftEndpointAuthorizationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: RedshiftEndpointAuthorizationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/redshift_endpoint_authorization aws_redshift_endpoint_authorization} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options RedshiftEndpointAuthorizationConfig
+  */
+  public constructor(scope: Construct, id: string, config: RedshiftEndpointAuthorizationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_redshift_endpoint_authorization',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -70,7 +67,7 @@ export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._account = config.account;
     this._clusterIdentifier = config.clusterIdentifier;
@@ -84,7 +81,7 @@ export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
   // ==========
 
   // account - computed: false, optional: false, required: true
-  private _account?: string;
+  private _account?: string; 
   public get account() {
     return this.getStringAttribute('account');
   }
@@ -102,7 +99,7 @@ export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
   }
 
   // cluster_identifier - computed: false, optional: false, required: true
-  private _clusterIdentifier?: string;
+  private _clusterIdentifier?: string; 
   public get clusterIdentifier() {
     return this.getStringAttribute('cluster_identifier');
   }
@@ -120,7 +117,7 @@ export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
   }
 
   // force_delete - computed: false, optional: true, required: false
-  private _forceDelete?: boolean | cdktf.IResolvable;
+  private _forceDelete?: boolean | cdktf.IResolvable; 
   public get forceDelete() {
     return this.getBooleanAttribute('force_delete');
   }
@@ -146,7 +143,7 @@ export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +159,7 @@ export class RedshiftEndpointAuthorization extends cdktf.TerraformResource {
   }
 
   // vpc_ids - computed: false, optional: true, required: false
-  private _vpcIds?: string[];
+  private _vpcIds?: string[]; 
   public get vpcIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_ids'));
   }

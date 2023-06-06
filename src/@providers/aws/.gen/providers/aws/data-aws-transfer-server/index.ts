@@ -1,56 +1,53 @@
 // https://www.terraform.io/docs/providers/aws/d/transfer_server
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsTransferServerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsTransferServerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/transfer_server#id DataAwsTransferServer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/transfer_server#id DataAwsTransferServer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/transfer_server#server_id DataAwsTransferServer#server_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/transfer_server#server_id DataAwsTransferServer#server_id}
+  */
   readonly serverId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/transfer_server aws_transfer_server}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/transfer_server aws_transfer_server}
+*/
 export class DataAwsTransferServer extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_transfer_server';
+  public static readonly tfResourceType = "aws_transfer_server";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/transfer_server aws_transfer_server} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsTransferServerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsTransferServerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/transfer_server aws_transfer_server} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsTransferServerConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsTransferServerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_transfer_server',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -58,7 +55,7 @@ export class DataAwsTransferServer extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._serverId = config.serverId;
@@ -94,7 +91,7 @@ export class DataAwsTransferServer extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -135,7 +132,7 @@ export class DataAwsTransferServer extends cdktf.TerraformDataSource {
   }
 
   // server_id - computed: false, optional: false, required: true
-  private _serverId?: string;
+  private _serverId?: string; 
   public get serverId() {
     return this.getStringAttribute('server_id');
   }

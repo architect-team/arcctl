@@ -1,63 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface VpnGatewayRoutePropagationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface VpnGatewayRoutePropagationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#id VpnGatewayRoutePropagation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#id VpnGatewayRoutePropagation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#route_table_id VpnGatewayRoutePropagation#route_table_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#route_table_id VpnGatewayRoutePropagation#route_table_id}
+  */
   readonly routeTableId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#vpn_gateway_id VpnGatewayRoutePropagation#vpn_gateway_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#vpn_gateway_id VpnGatewayRoutePropagation#vpn_gateway_id}
+  */
   readonly vpnGatewayId: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#timeouts VpnGatewayRoutePropagation#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#timeouts VpnGatewayRoutePropagation#timeouts}
+  */
   readonly timeouts?: VpnGatewayRoutePropagationTimeouts;
 }
 export interface VpnGatewayRoutePropagationTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#create VpnGatewayRoutePropagation#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#create VpnGatewayRoutePropagation#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#delete VpnGatewayRoutePropagation#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation#delete VpnGatewayRoutePropagation#delete}
+  */
   readonly delete?: string;
 }
 
-export function vpnGatewayRoutePropagationTimeoutsToTerraform(
-  struct?:
-    | VpnGatewayRoutePropagationTimeoutsOutputReference
-    | VpnGatewayRoutePropagationTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function vpnGatewayRoutePropagationTimeoutsToTerraform(struct?: VpnGatewayRoutePropagationTimeoutsOutputReference | VpnGatewayRoutePropagationTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -65,20 +56,14 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | VpnGatewayRoutePropagationTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): VpnGatewayRoutePropagationTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -95,18 +80,18 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: VpnGatewayRoutePropagationTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: VpnGatewayRoutePropagationTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -115,7 +100,7 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -131,7 +116,7 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -148,36 +133,33 @@ export class VpnGatewayRoutePropagationTimeoutsOutputReference extends cdktf.Com
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation aws_vpn_gateway_route_propagation}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation aws_vpn_gateway_route_propagation}
+*/
 export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_vpn_gateway_route_propagation';
+  public static readonly tfResourceType = "aws_vpn_gateway_route_propagation";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation aws_vpn_gateway_route_propagation} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options VpnGatewayRoutePropagationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: VpnGatewayRoutePropagationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpn_gateway_route_propagation aws_vpn_gateway_route_propagation} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options VpnGatewayRoutePropagationConfig
+  */
+  public constructor(scope: Construct, id: string, config: VpnGatewayRoutePropagationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_vpn_gateway_route_propagation',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -185,7 +167,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._routeTableId = config.routeTableId;
@@ -198,7 +180,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -214,7 +196,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   }
 
   // route_table_id - computed: false, optional: false, required: true
-  private _routeTableId?: string;
+  private _routeTableId?: string; 
   public get routeTableId() {
     return this.getStringAttribute('route_table_id');
   }
@@ -227,7 +209,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   }
 
   // vpn_gateway_id - computed: false, optional: false, required: true
-  private _vpnGatewayId?: string;
+  private _vpnGatewayId?: string; 
   public get vpnGatewayId() {
     return this.getStringAttribute('vpn_gateway_id');
   }
@@ -240,10 +222,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new VpnGatewayRoutePropagationTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new VpnGatewayRoutePropagationTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -267,9 +246,7 @@ export class VpnGatewayRoutePropagation extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       route_table_id: cdktf.stringToTerraform(this._routeTableId),
       vpn_gateway_id: cdktf.stringToTerraform(this._vpnGatewayId),
-      timeouts: vpnGatewayRoutePropagationTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: vpnGatewayRoutePropagationTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

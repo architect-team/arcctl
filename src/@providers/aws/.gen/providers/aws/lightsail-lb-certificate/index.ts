@@ -1,89 +1,72 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface LightsailLbCertificateConfig
-  extends cdktf.TerraformMetaArguments {
+export interface LightsailLbCertificateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#domain_name LightsailLbCertificate#domain_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#domain_name LightsailLbCertificate#domain_name}
+  */
   readonly domainName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#id LightsailLbCertificate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#id LightsailLbCertificate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#lb_name LightsailLbCertificate#lb_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#lb_name LightsailLbCertificate#lb_name}
+  */
   readonly lbName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#name LightsailLbCertificate#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#name LightsailLbCertificate#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#subject_alternative_names LightsailLbCertificate#subject_alternative_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate#subject_alternative_names LightsailLbCertificate#subject_alternative_names}
+  */
   readonly subjectAlternativeNames?: string[];
 }
-export interface LightsailLbCertificateDomainValidationRecords {}
+export interface LightsailLbCertificateDomainValidationRecords {
+}
 
-export function lightsailLbCertificateDomainValidationRecordsToTerraform(
-  struct?: LightsailLbCertificateDomainValidationRecords,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function lightsailLbCertificateDomainValidationRecordsToTerraform(struct?: LightsailLbCertificateDomainValidationRecords): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class LightsailLbCertificateDomainValidationRecordsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LightsailLbCertificateDomainValidationRecords
-    | undefined {
+  public get internalValue(): LightsailLbCertificateDomainValidationRecords | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LightsailLbCertificateDomainValidationRecords | undefined,
-  ) {
+  public set internalValue(value: LightsailLbCertificateDomainValidationRecords | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -110,65 +93,52 @@ export class LightsailLbCertificateDomainValidationRecordsOutputReference extend
 }
 
 export class LightsailLbCertificateDomainValidationRecordsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): LightsailLbCertificateDomainValidationRecordsOutputReference {
-    return new LightsailLbCertificateDomainValidationRecordsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): LightsailLbCertificateDomainValidationRecordsOutputReference {
+    return new LightsailLbCertificateDomainValidationRecordsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate aws_lightsail_lb_certificate}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate aws_lightsail_lb_certificate}
+*/
 export class LightsailLbCertificate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_lightsail_lb_certificate';
+  public static readonly tfResourceType = "aws_lightsail_lb_certificate";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate aws_lightsail_lb_certificate} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options LightsailLbCertificateConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: LightsailLbCertificateConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_lb_certificate aws_lightsail_lb_certificate} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options LightsailLbCertificateConfig
+  */
+  public constructor(scope: Construct, id: string, config: LightsailLbCertificateConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_lightsail_lb_certificate',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -176,7 +146,7 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._domainName = config.domainName;
     this._id = config.id;
@@ -200,7 +170,7 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: true, optional: true, required: false
-  private _domainName?: string;
+  private _domainName?: string; 
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -216,18 +186,13 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
   }
 
   // domain_validation_records - computed: true, optional: false, required: false
-  private _domainValidationRecords =
-    new LightsailLbCertificateDomainValidationRecordsList(
-      this,
-      'domain_validation_records',
-      true,
-    );
+  private _domainValidationRecords = new LightsailLbCertificateDomainValidationRecordsList(this, "domain_validation_records", true);
   public get domainValidationRecords() {
     return this._domainValidationRecords;
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -243,7 +208,7 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
   }
 
   // lb_name - computed: false, optional: false, required: true
-  private _lbName?: string;
+  private _lbName?: string; 
   public get lbName() {
     return this.getStringAttribute('lb_name');
   }
@@ -256,7 +221,7 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -269,7 +234,7 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
   }
 
   // subject_alternative_names - computed: true, optional: true, required: false
-  private _subjectAlternativeNames?: string[];
+  private _subjectAlternativeNames?: string[]; 
   public get subjectAlternativeNames() {
     return cdktf.Fn.tolist(this.getListAttribute('subject_alternative_names'));
   }
@@ -299,10 +264,7 @@ export class LightsailLbCertificate extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       lb_name: cdktf.stringToTerraform(this._lbName),
       name: cdktf.stringToTerraform(this._name),
-      subject_alternative_names: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._subjectAlternativeNames),
+      subject_alternative_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subjectAlternativeNames),
     };
   }
 }

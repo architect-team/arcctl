@@ -1,115 +1,104 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_device
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface NetworkmanagerDeviceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface NetworkmanagerDeviceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#description NetworkmanagerDevice#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#description NetworkmanagerDevice#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#global_network_id NetworkmanagerDevice#global_network_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#global_network_id NetworkmanagerDevice#global_network_id}
+  */
   readonly globalNetworkId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#id NetworkmanagerDevice#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#id NetworkmanagerDevice#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#model NetworkmanagerDevice#model}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#model NetworkmanagerDevice#model}
+  */
   readonly model?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#serial_number NetworkmanagerDevice#serial_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#serial_number NetworkmanagerDevice#serial_number}
+  */
   readonly serialNumber?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#site_id NetworkmanagerDevice#site_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#site_id NetworkmanagerDevice#site_id}
+  */
   readonly siteId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#tags NetworkmanagerDevice#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#tags NetworkmanagerDevice#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#tags_all NetworkmanagerDevice#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#tags_all NetworkmanagerDevice#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#type NetworkmanagerDevice#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#type NetworkmanagerDevice#type}
+  */
   readonly type?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#vendor NetworkmanagerDevice#vendor}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#vendor NetworkmanagerDevice#vendor}
+  */
   readonly vendor?: string;
   /**
-   * aws_location block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#aws_location NetworkmanagerDevice#aws_location}
-   */
+  * aws_location block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#aws_location NetworkmanagerDevice#aws_location}
+  */
   readonly awsLocation?: NetworkmanagerDeviceAwsLocation;
   /**
-   * location block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#location NetworkmanagerDevice#location}
-   */
+  * location block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#location NetworkmanagerDevice#location}
+  */
   readonly location?: NetworkmanagerDeviceLocation;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#timeouts NetworkmanagerDevice#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#timeouts NetworkmanagerDevice#timeouts}
+  */
   readonly timeouts?: NetworkmanagerDeviceTimeouts;
 }
 export interface NetworkmanagerDeviceAwsLocation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#subnet_arn NetworkmanagerDevice#subnet_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#subnet_arn NetworkmanagerDevice#subnet_arn}
+  */
   readonly subnetArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#zone NetworkmanagerDevice#zone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#zone NetworkmanagerDevice#zone}
+  */
   readonly zone?: string;
 }
 
-export function networkmanagerDeviceAwsLocationToTerraform(
-  struct?:
-    | NetworkmanagerDeviceAwsLocationOutputReference
-    | NetworkmanagerDeviceAwsLocation,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerDeviceAwsLocationToTerraform(struct?: NetworkmanagerDeviceAwsLocationOutputReference | NetworkmanagerDeviceAwsLocation): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     subnet_arn: cdktf.stringToTerraform(struct!.subnetArn),
     zone: cdktf.stringToTerraform(struct!.zone),
-  };
+  }
 }
 
 export class NetworkmanagerDeviceAwsLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -132,7 +121,8 @@ export class NetworkmanagerDeviceAwsLocationOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._subnetArn = undefined;
       this._zone = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._subnetArn = value.subnetArn;
       this._zone = value.zone;
@@ -140,7 +130,7 @@ export class NetworkmanagerDeviceAwsLocationOutputReference extends cdktf.Comple
   }
 
   // subnet_arn - computed: false, optional: true, required: false
-  private _subnetArn?: string;
+  private _subnetArn?: string; 
   public get subnetArn() {
     return this.getStringAttribute('subnet_arn');
   }
@@ -156,7 +146,7 @@ export class NetworkmanagerDeviceAwsLocationOutputReference extends cdktf.Comple
   }
 
   // zone - computed: false, optional: true, required: false
-  private _zone?: string;
+  private _zone?: string; 
   public get zone() {
     return this.getStringAttribute('zone');
   }
@@ -173,50 +163,39 @@ export class NetworkmanagerDeviceAwsLocationOutputReference extends cdktf.Comple
 }
 export interface NetworkmanagerDeviceLocation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#address NetworkmanagerDevice#address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#address NetworkmanagerDevice#address}
+  */
   readonly address?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#latitude NetworkmanagerDevice#latitude}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#latitude NetworkmanagerDevice#latitude}
+  */
   readonly latitude?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#longitude NetworkmanagerDevice#longitude}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#longitude NetworkmanagerDevice#longitude}
+  */
   readonly longitude?: string;
 }
 
-export function networkmanagerDeviceLocationToTerraform(
-  struct?:
-    | NetworkmanagerDeviceLocationOutputReference
-    | NetworkmanagerDeviceLocation,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerDeviceLocationToTerraform(struct?: NetworkmanagerDeviceLocationOutputReference | NetworkmanagerDeviceLocation): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     address: cdktf.stringToTerraform(struct!.address),
     latitude: cdktf.stringToTerraform(struct!.latitude),
     longitude: cdktf.stringToTerraform(struct!.longitude),
-  };
+  }
 }
 
 export class NetworkmanagerDeviceLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -244,7 +223,8 @@ export class NetworkmanagerDeviceLocationOutputReference extends cdktf.ComplexOb
       this._address = undefined;
       this._latitude = undefined;
       this._longitude = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._address = value.address;
       this._latitude = value.latitude;
@@ -253,7 +233,7 @@ export class NetworkmanagerDeviceLocationOutputReference extends cdktf.ComplexOb
   }
 
   // address - computed: false, optional: true, required: false
-  private _address?: string;
+  private _address?: string; 
   public get address() {
     return this.getStringAttribute('address');
   }
@@ -269,7 +249,7 @@ export class NetworkmanagerDeviceLocationOutputReference extends cdktf.ComplexOb
   }
 
   // latitude - computed: false, optional: true, required: false
-  private _latitude?: string;
+  private _latitude?: string; 
   public get latitude() {
     return this.getStringAttribute('latitude');
   }
@@ -285,7 +265,7 @@ export class NetworkmanagerDeviceLocationOutputReference extends cdktf.ComplexOb
   }
 
   // longitude - computed: false, optional: true, required: false
-  private _longitude?: string;
+  private _longitude?: string; 
   public get longitude() {
     return this.getStringAttribute('longitude');
   }
@@ -302,38 +282,29 @@ export class NetworkmanagerDeviceLocationOutputReference extends cdktf.ComplexOb
 }
 export interface NetworkmanagerDeviceTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#create NetworkmanagerDevice#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#create NetworkmanagerDevice#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#delete NetworkmanagerDevice#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#delete NetworkmanagerDevice#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#update NetworkmanagerDevice#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device#update NetworkmanagerDevice#update}
+  */
   readonly update?: string;
 }
 
-export function networkmanagerDeviceTimeoutsToTerraform(
-  struct?:
-    | NetworkmanagerDeviceTimeoutsOutputReference
-    | NetworkmanagerDeviceTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerDeviceTimeoutsToTerraform(struct?: NetworkmanagerDeviceTimeoutsOutputReference | NetworkmanagerDeviceTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -341,20 +312,14 @@ export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | NetworkmanagerDeviceTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): NetworkmanagerDeviceTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -375,19 +340,19 @@ export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: NetworkmanagerDeviceTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: NetworkmanagerDeviceTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -397,7 +362,7 @@ export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -413,7 +378,7 @@ export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -429,7 +394,7 @@ export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexOb
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -446,36 +411,33 @@ export class NetworkmanagerDeviceTimeoutsOutputReference extends cdktf.ComplexOb
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device aws_networkmanager_device}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device aws_networkmanager_device}
+*/
 export class NetworkmanagerDevice extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_networkmanager_device';
+  public static readonly tfResourceType = "aws_networkmanager_device";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device aws_networkmanager_device} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options NetworkmanagerDeviceConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: NetworkmanagerDeviceConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_device aws_networkmanager_device} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options NetworkmanagerDeviceConfig
+  */
+  public constructor(scope: Construct, id: string, config: NetworkmanagerDeviceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_networkmanager_device',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -483,7 +445,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._globalNetworkId = config.globalNetworkId;
@@ -510,7 +472,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -526,7 +488,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // global_network_id - computed: false, optional: false, required: true
-  private _globalNetworkId?: string;
+  private _globalNetworkId?: string; 
   public get globalNetworkId() {
     return this.getStringAttribute('global_network_id');
   }
@@ -539,7 +501,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -555,7 +517,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // model - computed: false, optional: true, required: false
-  private _model?: string;
+  private _model?: string; 
   public get model() {
     return this.getStringAttribute('model');
   }
@@ -571,7 +533,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // serial_number - computed: false, optional: true, required: false
-  private _serialNumber?: string;
+  private _serialNumber?: string; 
   public get serialNumber() {
     return this.getStringAttribute('serial_number');
   }
@@ -587,7 +549,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // site_id - computed: false, optional: true, required: false
-  private _siteId?: string;
+  private _siteId?: string; 
   public get siteId() {
     return this.getStringAttribute('site_id');
   }
@@ -603,7 +565,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -619,7 +581,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -635,7 +597,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -651,7 +613,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // vendor - computed: false, optional: true, required: false
-  private _vendor?: string;
+  private _vendor?: string; 
   public get vendor() {
     return this.getStringAttribute('vendor');
   }
@@ -667,10 +629,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // aws_location - computed: false, optional: true, required: false
-  private _awsLocation = new NetworkmanagerDeviceAwsLocationOutputReference(
-    this,
-    'aws_location',
-  );
+  private _awsLocation = new NetworkmanagerDeviceAwsLocationOutputReference(this, "aws_location");
   public get awsLocation() {
     return this._awsLocation;
   }
@@ -686,10 +645,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // location - computed: false, optional: true, required: false
-  private _location = new NetworkmanagerDeviceLocationOutputReference(
-    this,
-    'location',
-  );
+  private _location = new NetworkmanagerDeviceLocationOutputReference(this, "location");
   public get location() {
     return this._location;
   }
@@ -705,10 +661,7 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new NetworkmanagerDeviceTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new NetworkmanagerDeviceTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -739,15 +692,9 @@ export class NetworkmanagerDevice extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       type: cdktf.stringToTerraform(this._type),
       vendor: cdktf.stringToTerraform(this._vendor),
-      aws_location: networkmanagerDeviceAwsLocationToTerraform(
-        this._awsLocation.internalValue,
-      ),
-      location: networkmanagerDeviceLocationToTerraform(
-        this._location.internalValue,
-      ),
-      timeouts: networkmanagerDeviceTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      aws_location: networkmanagerDeviceAwsLocationToTerraform(this._awsLocation.internalValue),
+      location: networkmanagerDeviceLocationToTerraform(this._location.internalValue),
+      timeouts: networkmanagerDeviceTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

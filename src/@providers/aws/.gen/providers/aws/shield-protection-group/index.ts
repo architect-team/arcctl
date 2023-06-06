@@ -1,80 +1,77 @@
 // https://www.terraform.io/docs/providers/aws/r/shield_protection_group
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ShieldProtectionGroupConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ShieldProtectionGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#aggregation ShieldProtectionGroup#aggregation}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#aggregation ShieldProtectionGroup#aggregation}
+  */
   readonly aggregation: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#id ShieldProtectionGroup#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#id ShieldProtectionGroup#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#members ShieldProtectionGroup#members}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#members ShieldProtectionGroup#members}
+  */
   readonly members?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#pattern ShieldProtectionGroup#pattern}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#pattern ShieldProtectionGroup#pattern}
+  */
   readonly pattern: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#protection_group_id ShieldProtectionGroup#protection_group_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#protection_group_id ShieldProtectionGroup#protection_group_id}
+  */
   readonly protectionGroupId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#resource_type ShieldProtectionGroup#resource_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#resource_type ShieldProtectionGroup#resource_type}
+  */
   readonly resourceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#tags ShieldProtectionGroup#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#tags ShieldProtectionGroup#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#tags_all ShieldProtectionGroup#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group#tags_all ShieldProtectionGroup#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group aws_shield_protection_group}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group aws_shield_protection_group}
+*/
 export class ShieldProtectionGroup extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_shield_protection_group';
+  public static readonly tfResourceType = "aws_shield_protection_group";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group aws_shield_protection_group} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ShieldProtectionGroupConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ShieldProtectionGroupConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/shield_protection_group aws_shield_protection_group} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ShieldProtectionGroupConfig
+  */
+  public constructor(scope: Construct, id: string, config: ShieldProtectionGroupConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_shield_protection_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -82,7 +79,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._aggregation = config.aggregation;
     this._id = config.id;
@@ -99,7 +96,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   // ==========
 
   // aggregation - computed: false, optional: false, required: true
-  private _aggregation?: string;
+  private _aggregation?: string; 
   public get aggregation() {
     return this.getStringAttribute('aggregation');
   }
@@ -112,7 +109,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -128,7 +125,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // members - computed: false, optional: true, required: false
-  private _members?: string[];
+  private _members?: string[]; 
   public get members() {
     return this.getListAttribute('members');
   }
@@ -144,7 +141,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // pattern - computed: false, optional: false, required: true
-  private _pattern?: string;
+  private _pattern?: string; 
   public get pattern() {
     return this.getStringAttribute('pattern');
   }
@@ -162,7 +159,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // protection_group_id - computed: false, optional: false, required: true
-  private _protectionGroupId?: string;
+  private _protectionGroupId?: string; 
   public get protectionGroupId() {
     return this.getStringAttribute('protection_group_id');
   }
@@ -175,7 +172,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // resource_type - computed: false, optional: true, required: false
-  private _resourceType?: string;
+  private _resourceType?: string; 
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -191,7 +188,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -207,7 +204,7 @@ export class ShieldProtectionGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

@@ -1,90 +1,79 @@
 // https://www.terraform.io/docs/providers/aws/r/efs_access_point
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface EfsAccessPointConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#file_system_id EfsAccessPoint#file_system_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#file_system_id EfsAccessPoint#file_system_id}
+  */
   readonly fileSystemId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#id EfsAccessPoint#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#id EfsAccessPoint#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#tags EfsAccessPoint#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#tags EfsAccessPoint#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#tags_all EfsAccessPoint#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#tags_all EfsAccessPoint#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * posix_user block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#posix_user EfsAccessPoint#posix_user}
-   */
+  * posix_user block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#posix_user EfsAccessPoint#posix_user}
+  */
   readonly posixUser?: EfsAccessPointPosixUser;
   /**
-   * root_directory block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#root_directory EfsAccessPoint#root_directory}
-   */
+  * root_directory block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#root_directory EfsAccessPoint#root_directory}
+  */
   readonly rootDirectory?: EfsAccessPointRootDirectory;
 }
 export interface EfsAccessPointPosixUser {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#gid EfsAccessPoint#gid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#gid EfsAccessPoint#gid}
+  */
   readonly gid: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#secondary_gids EfsAccessPoint#secondary_gids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#secondary_gids EfsAccessPoint#secondary_gids}
+  */
   readonly secondaryGids?: number[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#uid EfsAccessPoint#uid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#uid EfsAccessPoint#uid}
+  */
   readonly uid: number;
 }
 
-export function efsAccessPointPosixUserToTerraform(
-  struct?: EfsAccessPointPosixUserOutputReference | EfsAccessPointPosixUser,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function efsAccessPointPosixUserToTerraform(struct?: EfsAccessPointPosixUserOutputReference | EfsAccessPointPosixUser): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     gid: cdktf.numberToTerraform(struct!.gid),
-    secondary_gids: cdktf.listMapper(
-      cdktf.numberToTerraform,
-      false,
-    )(struct!.secondaryGids),
+    secondary_gids: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.secondaryGids),
     uid: cdktf.numberToTerraform(struct!.uid),
-  };
+  }
 }
 
 export class EfsAccessPointPosixUserOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -112,7 +101,8 @@ export class EfsAccessPointPosixUserOutputReference extends cdktf.ComplexObject 
       this._gid = undefined;
       this._secondaryGids = undefined;
       this._uid = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._gid = value.gid;
       this._secondaryGids = value.secondaryGids;
@@ -121,7 +111,7 @@ export class EfsAccessPointPosixUserOutputReference extends cdktf.ComplexObject 
   }
 
   // gid - computed: false, optional: false, required: true
-  private _gid?: number;
+  private _gid?: number; 
   public get gid() {
     return this.getNumberAttribute('gid');
   }
@@ -134,11 +124,9 @@ export class EfsAccessPointPosixUserOutputReference extends cdktf.ComplexObject 
   }
 
   // secondary_gids - computed: false, optional: true, required: false
-  private _secondaryGids?: number[];
+  private _secondaryGids?: number[]; 
   public get secondaryGids() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('secondary_gids')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('secondary_gids')));
   }
   public set secondaryGids(value: number[]) {
     this._secondaryGids = value;
@@ -152,7 +140,7 @@ export class EfsAccessPointPosixUserOutputReference extends cdktf.ComplexObject 
   }
 
   // uid - computed: false, optional: false, required: true
-  private _uid?: number;
+  private _uid?: number; 
   public get uid() {
     return this.getNumberAttribute('uid');
   }
@@ -166,56 +154,43 @@ export class EfsAccessPointPosixUserOutputReference extends cdktf.ComplexObject 
 }
 export interface EfsAccessPointRootDirectoryCreationInfo {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#owner_gid EfsAccessPoint#owner_gid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#owner_gid EfsAccessPoint#owner_gid}
+  */
   readonly ownerGid: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#owner_uid EfsAccessPoint#owner_uid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#owner_uid EfsAccessPoint#owner_uid}
+  */
   readonly ownerUid: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#permissions EfsAccessPoint#permissions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#permissions EfsAccessPoint#permissions}
+  */
   readonly permissions: string;
 }
 
-export function efsAccessPointRootDirectoryCreationInfoToTerraform(
-  struct?:
-    | EfsAccessPointRootDirectoryCreationInfoOutputReference
-    | EfsAccessPointRootDirectoryCreationInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function efsAccessPointRootDirectoryCreationInfoToTerraform(struct?: EfsAccessPointRootDirectoryCreationInfoOutputReference | EfsAccessPointRootDirectoryCreationInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     owner_gid: cdktf.numberToTerraform(struct!.ownerGid),
     owner_uid: cdktf.numberToTerraform(struct!.ownerUid),
     permissions: cdktf.stringToTerraform(struct!.permissions),
-  };
+  }
 }
 
 export class EfsAccessPointRootDirectoryCreationInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EfsAccessPointRootDirectoryCreationInfo
-    | undefined {
+  public get internalValue(): EfsAccessPointRootDirectoryCreationInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._ownerGid !== undefined) {
@@ -233,15 +208,14 @@ export class EfsAccessPointRootDirectoryCreationInfoOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EfsAccessPointRootDirectoryCreationInfo | undefined,
-  ) {
+  public set internalValue(value: EfsAccessPointRootDirectoryCreationInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._ownerGid = undefined;
       this._ownerUid = undefined;
       this._permissions = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._ownerGid = value.ownerGid;
       this._ownerUid = value.ownerUid;
@@ -250,7 +224,7 @@ export class EfsAccessPointRootDirectoryCreationInfoOutputReference extends cdkt
   }
 
   // owner_gid - computed: false, optional: false, required: true
-  private _ownerGid?: number;
+  private _ownerGid?: number; 
   public get ownerGid() {
     return this.getNumberAttribute('owner_gid');
   }
@@ -263,7 +237,7 @@ export class EfsAccessPointRootDirectoryCreationInfoOutputReference extends cdkt
   }
 
   // owner_uid - computed: false, optional: false, required: true
-  private _ownerUid?: number;
+  private _ownerUid?: number; 
   public get ownerUid() {
     return this.getNumberAttribute('owner_uid');
   }
@@ -276,7 +250,7 @@ export class EfsAccessPointRootDirectoryCreationInfoOutputReference extends cdkt
   }
 
   // permissions - computed: false, optional: false, required: true
-  private _permissions?: string;
+  private _permissions?: string; 
   public get permissions() {
     return this.getStringAttribute('permissions');
   }
@@ -290,49 +264,36 @@ export class EfsAccessPointRootDirectoryCreationInfoOutputReference extends cdkt
 }
 export interface EfsAccessPointRootDirectory {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#path EfsAccessPoint#path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#path EfsAccessPoint#path}
+  */
   readonly path?: string;
   /**
-   * creation_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#creation_info EfsAccessPoint#creation_info}
-   */
+  * creation_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point#creation_info EfsAccessPoint#creation_info}
+  */
   readonly creationInfo?: EfsAccessPointRootDirectoryCreationInfo;
 }
 
-export function efsAccessPointRootDirectoryToTerraform(
-  struct?:
-    | EfsAccessPointRootDirectoryOutputReference
-    | EfsAccessPointRootDirectory,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function efsAccessPointRootDirectoryToTerraform(struct?: EfsAccessPointRootDirectoryOutputReference | EfsAccessPointRootDirectory): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     path: cdktf.stringToTerraform(struct!.path),
-    creation_info: efsAccessPointRootDirectoryCreationInfoToTerraform(
-      struct!.creationInfo,
-    ),
-  };
+    creation_info: efsAccessPointRootDirectoryCreationInfoToTerraform(struct!.creationInfo),
+  }
 }
 
 export class EfsAccessPointRootDirectoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -355,7 +316,8 @@ export class EfsAccessPointRootDirectoryOutputReference extends cdktf.ComplexObj
       this.isEmptyObject = false;
       this._path = undefined;
       this._creationInfo.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._path = value.path;
       this._creationInfo.internalValue = value.creationInfo;
@@ -363,7 +325,7 @@ export class EfsAccessPointRootDirectoryOutputReference extends cdktf.ComplexObj
   }
 
   // path - computed: true, optional: true, required: false
-  private _path?: string;
+  private _path?: string; 
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -379,11 +341,7 @@ export class EfsAccessPointRootDirectoryOutputReference extends cdktf.ComplexObj
   }
 
   // creation_info - computed: false, optional: true, required: false
-  private _creationInfo =
-    new EfsAccessPointRootDirectoryCreationInfoOutputReference(
-      this,
-      'creation_info',
-    );
+  private _creationInfo = new EfsAccessPointRootDirectoryCreationInfoOutputReference(this, "creation_info");
   public get creationInfo() {
     return this._creationInfo;
   }
@@ -400,36 +358,33 @@ export class EfsAccessPointRootDirectoryOutputReference extends cdktf.ComplexObj
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point aws_efs_access_point}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point aws_efs_access_point}
+*/
 export class EfsAccessPoint extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_efs_access_point';
+  public static readonly tfResourceType = "aws_efs_access_point";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point aws_efs_access_point} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options EfsAccessPointConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: EfsAccessPointConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/efs_access_point aws_efs_access_point} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options EfsAccessPointConfig
+  */
+  public constructor(scope: Construct, id: string, config: EfsAccessPointConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_efs_access_point',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -437,7 +392,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._fileSystemId = config.fileSystemId;
     this._id = config.id;
@@ -462,7 +417,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string;
+  private _fileSystemId?: string; 
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -475,7 +430,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -496,7 +451,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -512,7 +467,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -528,10 +483,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
   }
 
   // posix_user - computed: false, optional: true, required: false
-  private _posixUser = new EfsAccessPointPosixUserOutputReference(
-    this,
-    'posix_user',
-  );
+  private _posixUser = new EfsAccessPointPosixUserOutputReference(this, "posix_user");
   public get posixUser() {
     return this._posixUser;
   }
@@ -547,10 +499,7 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
   }
 
   // root_directory - computed: false, optional: true, required: false
-  private _rootDirectory = new EfsAccessPointRootDirectoryOutputReference(
-    this,
-    'root_directory',
-  );
+  private _rootDirectory = new EfsAccessPointRootDirectoryOutputReference(this, "root_directory");
   public get rootDirectory() {
     return this._rootDirectory;
   }
@@ -575,12 +524,8 @@ export class EfsAccessPoint extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      posix_user: efsAccessPointPosixUserToTerraform(
-        this._posixUser.internalValue,
-      ),
-      root_directory: efsAccessPointRootDirectoryToTerraform(
-        this._rootDirectory.internalValue,
-      ),
+      posix_user: efsAccessPointPosixUserToTerraform(this._posixUser.internalValue),
+      root_directory: efsAccessPointRootDirectoryToTerraform(this._rootDirectory.internalValue),
     };
   }
 }

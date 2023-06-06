@@ -1,8 +1,7 @@
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
-import { Terraform } from '../terraform/terraform.ts';
-import CloudCtlConfig from '../utils/config.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
+import { SupportedProviders } from '../@providers/supported-providers.ts';
 
 export type PlanOptions = {
   before: Pipeline;
@@ -15,8 +14,6 @@ export type PipelineOptions = {
 };
 
 export class Pipeline {
-  private _terraform?: Terraform;
-
   steps: PipelineStep[];
   edges: CloudEdge[];
 
@@ -72,16 +69,6 @@ export class Pipeline {
         return (outputs as any)[key];
       }),
     );
-  }
-
-  private async getTerraformPlugin(): Promise<Terraform> {
-    if (this._terraform) {
-      return this._terraform;
-    }
-
-    this._terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-
-    return this._terraform;
   }
 
   /**
@@ -234,7 +221,7 @@ export class Pipeline {
 
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
-      if (previousStep.action === 'delete' && previousStep.status.state !== 'error') {
+      if (previousStep.action === 'delete' && previousStep.status.state === 'complete') {
         continue;
       }
 
@@ -274,7 +261,6 @@ export class Pipeline {
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     let step: PipelineStep | undefined;
-    const terraform = await this.getTerraformPlugin();
     while (
       (step = this.getNextStep(
         ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
@@ -294,11 +280,59 @@ export class Pipeline {
         }
       }
 
+      // Hijack the arcctl account type to execute w/out a provider
+      if (step.inputs?.type === 'arcctlAccount') {
+        if (!Object.keys(SupportedProviders).includes(step.inputs.provider)) {
+          step.status.state = 'error';
+          step.status.message = 'Invalid provider specified';
+          throw new Error(`Invalid provider specified: ${step.inputs.provider}`);
+        }
+
+        if (step.action === 'delete') {
+          step.status = {
+            state: 'destroying',
+            message: '',
+            startTime: Date.now(),
+            endTime: Date.now(),
+          };
+
+          options.providerStore.deleteProvider(step.inputs.name);
+        } else {
+          step.status = {
+            state: 'applying',
+            message: '',
+            startTime: Date.now(),
+            endTime: Date.now(),
+          };
+
+          options.providerStore.saveProvider(
+            new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
+              step.inputs.name,
+              step.inputs.credentials as any,
+            ),
+          );
+        }
+
+        step.outputs = {
+          id: step.inputs.name,
+        };
+        step.state = {
+          id: step.inputs.name,
+        };
+
+        step.status = {
+          state: 'complete',
+          message: '',
+          startTime: Date.now(),
+          endTime: Date.now(),
+        };
+        continue;
+      }
+
       await new Promise<void>((resolve, reject) => {
         step!
           .apply({
             ...options,
-            terraform,
             cwd,
           })
           .subscribe({

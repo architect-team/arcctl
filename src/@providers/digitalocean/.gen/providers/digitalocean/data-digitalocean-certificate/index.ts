@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/certificate
+// https://www.terraform.io/docs/providers/digitalocean/d/certificate
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,7 +8,7 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanCertificateConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/certificate#id DataDigitaloceanCertificate#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/certificate#id DataDigitaloceanCertificate#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -17,13 +17,13 @@ export interface DataDigitaloceanCertificateConfig extends cdktf.TerraformMetaAr
   /**
   * name of the certificate
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/certificate#name DataDigitaloceanCertificate#name}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/certificate#name DataDigitaloceanCertificate#name}
   */
   readonly name: string;
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/certificate digitalocean_certificate}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/certificate digitalocean_certificate}
 */
 export class DataDigitaloceanCertificate extends cdktf.TerraformDataSource {
 
@@ -37,7 +37,7 @@ export class DataDigitaloceanCertificate extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/certificate digitalocean_certificate} Data Source
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/certificate digitalocean_certificate} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

@@ -1,105 +1,86 @@
 // https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface Sesv2EmailIdentityConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#configuration_set_name Sesv2EmailIdentity#configuration_set_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#configuration_set_name Sesv2EmailIdentity#configuration_set_name}
+  */
   readonly configurationSetName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#email_identity Sesv2EmailIdentity#email_identity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#email_identity Sesv2EmailIdentity#email_identity}
+  */
   readonly emailIdentity: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#id Sesv2EmailIdentity#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#id Sesv2EmailIdentity#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#tags Sesv2EmailIdentity#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#tags Sesv2EmailIdentity#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#tags_all Sesv2EmailIdentity#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#tags_all Sesv2EmailIdentity#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * dkim_signing_attributes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#dkim_signing_attributes Sesv2EmailIdentity#dkim_signing_attributes}
-   */
+  * dkim_signing_attributes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#dkim_signing_attributes Sesv2EmailIdentity#dkim_signing_attributes}
+  */
   readonly dkimSigningAttributes?: Sesv2EmailIdentityDkimSigningAttributes;
 }
 export interface Sesv2EmailIdentityDkimSigningAttributes {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#domain_signing_private_key Sesv2EmailIdentity#domain_signing_private_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#domain_signing_private_key Sesv2EmailIdentity#domain_signing_private_key}
+  */
   readonly domainSigningPrivateKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#domain_signing_selector Sesv2EmailIdentity#domain_signing_selector}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#domain_signing_selector Sesv2EmailIdentity#domain_signing_selector}
+  */
   readonly domainSigningSelector?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#next_signing_key_length Sesv2EmailIdentity#next_signing_key_length}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity#next_signing_key_length Sesv2EmailIdentity#next_signing_key_length}
+  */
   readonly nextSigningKeyLength?: string;
 }
 
-export function sesv2EmailIdentityDkimSigningAttributesToTerraform(
-  struct?:
-    | Sesv2EmailIdentityDkimSigningAttributesOutputReference
-    | Sesv2EmailIdentityDkimSigningAttributes,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sesv2EmailIdentityDkimSigningAttributesToTerraform(struct?: Sesv2EmailIdentityDkimSigningAttributesOutputReference | Sesv2EmailIdentityDkimSigningAttributes): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    domain_signing_private_key: cdktf.stringToTerraform(
-      struct!.domainSigningPrivateKey,
-    ),
-    domain_signing_selector: cdktf.stringToTerraform(
-      struct!.domainSigningSelector,
-    ),
-    next_signing_key_length: cdktf.stringToTerraform(
-      struct!.nextSigningKeyLength,
-    ),
-  };
+    domain_signing_private_key: cdktf.stringToTerraform(struct!.domainSigningPrivateKey),
+    domain_signing_selector: cdktf.stringToTerraform(struct!.domainSigningSelector),
+    next_signing_key_length: cdktf.stringToTerraform(struct!.nextSigningKeyLength),
+  }
 }
 
 export class Sesv2EmailIdentityDkimSigningAttributesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | Sesv2EmailIdentityDkimSigningAttributes
-    | undefined {
+  public get internalValue(): Sesv2EmailIdentityDkimSigningAttributes | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._domainSigningPrivateKey !== undefined) {
       hasAnyValues = true;
-      internalValueResult.domainSigningPrivateKey =
-        this._domainSigningPrivateKey;
+      internalValueResult.domainSigningPrivateKey = this._domainSigningPrivateKey;
     }
     if (this._domainSigningSelector !== undefined) {
       hasAnyValues = true;
@@ -112,15 +93,14 @@ export class Sesv2EmailIdentityDkimSigningAttributesOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: Sesv2EmailIdentityDkimSigningAttributes | undefined,
-  ) {
+  public set internalValue(value: Sesv2EmailIdentityDkimSigningAttributes | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._domainSigningPrivateKey = undefined;
       this._domainSigningSelector = undefined;
       this._nextSigningKeyLength = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domainSigningPrivateKey = value.domainSigningPrivateKey;
       this._domainSigningSelector = value.domainSigningSelector;
@@ -134,7 +114,7 @@ export class Sesv2EmailIdentityDkimSigningAttributesOutputReference extends cdkt
   }
 
   // domain_signing_private_key - computed: false, optional: true, required: false
-  private _domainSigningPrivateKey?: string;
+  private _domainSigningPrivateKey?: string; 
   public get domainSigningPrivateKey() {
     return this.getStringAttribute('domain_signing_private_key');
   }
@@ -150,7 +130,7 @@ export class Sesv2EmailIdentityDkimSigningAttributesOutputReference extends cdkt
   }
 
   // domain_signing_selector - computed: false, optional: true, required: false
-  private _domainSigningSelector?: string;
+  private _domainSigningSelector?: string; 
   public get domainSigningSelector() {
     return this.getStringAttribute('domain_signing_selector');
   }
@@ -171,7 +151,7 @@ export class Sesv2EmailIdentityDkimSigningAttributesOutputReference extends cdkt
   }
 
   // next_signing_key_length - computed: true, optional: true, required: false
-  private _nextSigningKeyLength?: string;
+  private _nextSigningKeyLength?: string; 
   public get nextSigningKeyLength() {
     return this.getStringAttribute('next_signing_key_length');
   }
@@ -203,36 +183,33 @@ export class Sesv2EmailIdentityDkimSigningAttributesOutputReference extends cdkt
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity aws_sesv2_email_identity}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity aws_sesv2_email_identity}
+*/
 export class Sesv2EmailIdentity extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_sesv2_email_identity';
+  public static readonly tfResourceType = "aws_sesv2_email_identity";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity aws_sesv2_email_identity} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Sesv2EmailIdentityConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Sesv2EmailIdentityConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sesv2_email_identity aws_sesv2_email_identity} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Sesv2EmailIdentityConfig
+  */
+  public constructor(scope: Construct, id: string, config: Sesv2EmailIdentityConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_sesv2_email_identity',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -240,7 +217,7 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._configurationSetName = config.configurationSetName;
     this._emailIdentity = config.emailIdentity;
@@ -260,7 +237,7 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
   }
 
   // configuration_set_name - computed: false, optional: true, required: false
-  private _configurationSetName?: string;
+  private _configurationSetName?: string; 
   public get configurationSetName() {
     return this.getStringAttribute('configuration_set_name');
   }
@@ -276,7 +253,7 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
   }
 
   // email_identity - computed: false, optional: false, required: true
-  private _emailIdentity?: string;
+  private _emailIdentity?: string; 
   public get emailIdentity() {
     return this.getStringAttribute('email_identity');
   }
@@ -289,7 +266,7 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -310,7 +287,7 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -326,7 +303,7 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -347,17 +324,11 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
   }
 
   // dkim_signing_attributes - computed: false, optional: true, required: false
-  private _dkimSigningAttributes =
-    new Sesv2EmailIdentityDkimSigningAttributesOutputReference(
-      this,
-      'dkim_signing_attributes',
-    );
+  private _dkimSigningAttributes = new Sesv2EmailIdentityDkimSigningAttributesOutputReference(this, "dkim_signing_attributes");
   public get dkimSigningAttributes() {
     return this._dkimSigningAttributes;
   }
-  public putDkimSigningAttributes(
-    value: Sesv2EmailIdentityDkimSigningAttributes,
-  ) {
+  public putDkimSigningAttributes(value: Sesv2EmailIdentityDkimSigningAttributes) {
     this._dkimSigningAttributes.internalValue = value;
   }
   public resetDkimSigningAttributes() {
@@ -374,17 +345,12 @@ export class Sesv2EmailIdentity extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      configuration_set_name: cdktf.stringToTerraform(
-        this._configurationSetName,
-      ),
+      configuration_set_name: cdktf.stringToTerraform(this._configurationSetName),
       email_identity: cdktf.stringToTerraform(this._emailIdentity),
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      dkim_signing_attributes:
-        sesv2EmailIdentityDkimSigningAttributesToTerraform(
-          this._dkimSigningAttributes.internalValue,
-        ),
+      dkim_signing_attributes: sesv2EmailIdentityDkimSigningAttributesToTerraform(this._dkimSigningAttributes.internalValue),
     };
   }
 }

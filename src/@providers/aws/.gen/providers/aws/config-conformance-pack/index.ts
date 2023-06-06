@@ -1,74 +1,66 @@
 // https://www.terraform.io/docs/providers/aws/r/config_conformance_pack
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ConfigConformancePackConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ConfigConformancePackConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#delivery_s3_bucket ConfigConformancePack#delivery_s3_bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#delivery_s3_bucket ConfigConformancePack#delivery_s3_bucket}
+  */
   readonly deliveryS3Bucket?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#delivery_s3_key_prefix ConfigConformancePack#delivery_s3_key_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#delivery_s3_key_prefix ConfigConformancePack#delivery_s3_key_prefix}
+  */
   readonly deliveryS3KeyPrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#id ConfigConformancePack#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#id ConfigConformancePack#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#name ConfigConformancePack#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#name ConfigConformancePack#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#template_body ConfigConformancePack#template_body}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#template_body ConfigConformancePack#template_body}
+  */
   readonly templateBody?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#template_s3_uri ConfigConformancePack#template_s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#template_s3_uri ConfigConformancePack#template_s3_uri}
+  */
   readonly templateS3Uri?: string;
   /**
-   * input_parameter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#input_parameter ConfigConformancePack#input_parameter}
-   */
-  readonly inputParameter?:
-    | ConfigConformancePackInputParameter[]
-    | cdktf.IResolvable;
+  * input_parameter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#input_parameter ConfigConformancePack#input_parameter}
+  */
+  readonly inputParameter?: ConfigConformancePackInputParameter[] | cdktf.IResolvable;
 }
 export interface ConfigConformancePackInputParameter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#parameter_name ConfigConformancePack#parameter_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#parameter_name ConfigConformancePack#parameter_name}
+  */
   readonly parameterName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#parameter_value ConfigConformancePack#parameter_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack#parameter_value ConfigConformancePack#parameter_value}
+  */
   readonly parameterValue: string;
 }
 
-export function configConformancePackInputParameterToTerraform(
-  struct?: ConfigConformancePackInputParameter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function configConformancePackInputParameterToTerraform(struct?: ConfigConformancePackInputParameter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     parameter_name: cdktf.stringToTerraform(struct!.parameterName),
     parameter_value: cdktf.stringToTerraform(struct!.parameterValue),
-  };
+  }
 }
 
 export class ConfigConformancePackInputParameterOutputReference extends cdktf.ComplexObject {
@@ -76,29 +68,16 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | ConfigConformancePackInputParameter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ConfigConformancePackInputParameter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -115,18 +94,18 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConfigConformancePackInputParameter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: ConfigConformancePackInputParameter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._parameterName = undefined;
       this._parameterValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._parameterName = value.parameterName;
@@ -135,7 +114,7 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
   }
 
   // parameter_name - computed: false, optional: false, required: true
-  private _parameterName?: string;
+  private _parameterName?: string; 
   public get parameterName() {
     return this.getStringAttribute('parameter_name');
   }
@@ -148,7 +127,7 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
   }
 
   // parameter_value - computed: false, optional: false, required: true
-  private _parameterValue?: string;
+  private _parameterValue?: string; 
   public get parameterValue() {
     return this.getStringAttribute('parameter_value');
   }
@@ -162,69 +141,53 @@ export class ConfigConformancePackInputParameterOutputReference extends cdktf.Co
 }
 
 export class ConfigConformancePackInputParameterList extends cdktf.ComplexList {
-  public internalValue?:
-    | ConfigConformancePackInputParameter[]
-    | cdktf.IResolvable;
+  public internalValue? : ConfigConformancePackInputParameter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): ConfigConformancePackInputParameterOutputReference {
-    return new ConfigConformancePackInputParameterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): ConfigConformancePackInputParameterOutputReference {
+    return new ConfigConformancePackInputParameterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack aws_config_conformance_pack}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack aws_config_conformance_pack}
+*/
 export class ConfigConformancePack extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_config_conformance_pack';
+  public static readonly tfResourceType = "aws_config_conformance_pack";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack aws_config_conformance_pack} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ConfigConformancePackConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ConfigConformancePackConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_conformance_pack aws_config_conformance_pack} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ConfigConformancePackConfig
+  */
+  public constructor(scope: Construct, id: string, config: ConfigConformancePackConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_config_conformance_pack',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -232,7 +195,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._deliveryS3Bucket = config.deliveryS3Bucket;
     this._deliveryS3KeyPrefix = config.deliveryS3KeyPrefix;
@@ -253,7 +216,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // delivery_s3_bucket - computed: false, optional: true, required: false
-  private _deliveryS3Bucket?: string;
+  private _deliveryS3Bucket?: string; 
   public get deliveryS3Bucket() {
     return this.getStringAttribute('delivery_s3_bucket');
   }
@@ -269,7 +232,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // delivery_s3_key_prefix - computed: false, optional: true, required: false
-  private _deliveryS3KeyPrefix?: string;
+  private _deliveryS3KeyPrefix?: string; 
   public get deliveryS3KeyPrefix() {
     return this.getStringAttribute('delivery_s3_key_prefix');
   }
@@ -285,7 +248,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -301,7 +264,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -314,7 +277,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // template_body - computed: false, optional: true, required: false
-  private _templateBody?: string;
+  private _templateBody?: string; 
   public get templateBody() {
     return this.getStringAttribute('template_body');
   }
@@ -330,7 +293,7 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // template_s3_uri - computed: false, optional: true, required: false
-  private _templateS3Uri?: string;
+  private _templateS3Uri?: string; 
   public get templateS3Uri() {
     return this.getStringAttribute('template_s3_uri');
   }
@@ -346,17 +309,11 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   }
 
   // input_parameter - computed: false, optional: true, required: false
-  private _inputParameter = new ConfigConformancePackInputParameterList(
-    this,
-    'input_parameter',
-    true,
-  );
+  private _inputParameter = new ConfigConformancePackInputParameterList(this, "input_parameter", true);
   public get inputParameter() {
     return this._inputParameter;
   }
-  public putInputParameter(
-    value: ConfigConformancePackInputParameter[] | cdktf.IResolvable,
-  ) {
+  public putInputParameter(value: ConfigConformancePackInputParameter[] | cdktf.IResolvable) {
     this._inputParameter.internalValue = value;
   }
   public resetInputParameter() {
@@ -374,17 +331,12 @@ export class ConfigConformancePack extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       delivery_s3_bucket: cdktf.stringToTerraform(this._deliveryS3Bucket),
-      delivery_s3_key_prefix: cdktf.stringToTerraform(
-        this._deliveryS3KeyPrefix,
-      ),
+      delivery_s3_key_prefix: cdktf.stringToTerraform(this._deliveryS3KeyPrefix),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       template_body: cdktf.stringToTerraform(this._templateBody),
       template_s3_uri: cdktf.stringToTerraform(this._templateS3Uri),
-      input_parameter: cdktf.listMapper(
-        configConformancePackInputParameterToTerraform,
-        true,
-      )(this._inputParameter.internalValue),
+      input_parameter: cdktf.listMapper(configConformancePackInputParameterToTerraform, true)(this._inputParameter.internalValue),
     };
   }
 }

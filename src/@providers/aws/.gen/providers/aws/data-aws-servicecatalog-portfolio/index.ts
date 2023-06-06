@@ -1,58 +1,49 @@
 // https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsServicecatalogPortfolioConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsServicecatalogPortfolioConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#accept_language DataAwsServicecatalogPortfolio#accept_language}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#accept_language DataAwsServicecatalogPortfolio#accept_language}
+  */
   readonly acceptLanguage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#id DataAwsServicecatalogPortfolio#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#id DataAwsServicecatalogPortfolio#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#tags DataAwsServicecatalogPortfolio#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#tags DataAwsServicecatalogPortfolio#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#timeouts DataAwsServicecatalogPortfolio#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#timeouts DataAwsServicecatalogPortfolio#timeouts}
+  */
   readonly timeouts?: DataAwsServicecatalogPortfolioTimeouts;
 }
 export interface DataAwsServicecatalogPortfolioTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#read DataAwsServicecatalogPortfolio#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio#read DataAwsServicecatalogPortfolio#read}
+  */
   readonly read?: string;
 }
 
-export function dataAwsServicecatalogPortfolioTimeoutsToTerraform(
-  struct?:
-    | DataAwsServicecatalogPortfolioTimeoutsOutputReference
-    | DataAwsServicecatalogPortfolioTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsServicecatalogPortfolioTimeoutsToTerraform(struct?: DataAwsServicecatalogPortfolioTimeoutsOutputReference | DataAwsServicecatalogPortfolioTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  };
+  }
 }
 
 export class DataAwsServicecatalogPortfolioTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -60,20 +51,14 @@ export class DataAwsServicecatalogPortfolioTimeoutsOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DataAwsServicecatalogPortfolioTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsServicecatalogPortfolioTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -86,20 +71,17 @@ export class DataAwsServicecatalogPortfolioTimeoutsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsServicecatalogPortfolioTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsServicecatalogPortfolioTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -107,7 +89,7 @@ export class DataAwsServicecatalogPortfolioTimeoutsOutputReference extends cdktf
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -124,36 +106,33 @@ export class DataAwsServicecatalogPortfolioTimeoutsOutputReference extends cdktf
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio aws_servicecatalog_portfolio}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio aws_servicecatalog_portfolio}
+*/
 export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_servicecatalog_portfolio';
+  public static readonly tfResourceType = "aws_servicecatalog_portfolio";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio aws_servicecatalog_portfolio} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsServicecatalogPortfolioConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsServicecatalogPortfolioConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_portfolio aws_servicecatalog_portfolio} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsServicecatalogPortfolioConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsServicecatalogPortfolioConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_portfolio',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -161,7 +140,7 @@ export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._acceptLanguage = config.acceptLanguage;
     this._id = config.id;
@@ -174,7 +153,7 @@ export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string;
+  private _acceptLanguage?: string; 
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -205,7 +184,7 @@ export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -228,7 +207,7 @@ export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -244,10 +223,7 @@ export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DataAwsServicecatalogPortfolioTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new DataAwsServicecatalogPortfolioTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -271,9 +247,7 @@ export class DataAwsServicecatalogPortfolio extends cdktf.TerraformDataSource {
       accept_language: cdktf.stringToTerraform(this._acceptLanguage),
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
-      timeouts: dataAwsServicecatalogPortfolioTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: dataAwsServicecatalogPortfolioTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

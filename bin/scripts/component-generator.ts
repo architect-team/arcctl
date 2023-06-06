@@ -1,4 +1,4 @@
-import Mustache from 'mustache';
+import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
 import { build, emptyDir } from 'dnt';
 import { exec } from '../../src/utils/command.ts';

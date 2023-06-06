@@ -21,8 +21,8 @@ export default async function arcctl() {
     .command('create', CreateCommands)
     .command('destroy', DestroyCommands)
     .command('get', GetCommands)
-    .command('list', ListCommands.alias('ls'))
-    .command('remove', RemoveCommands.alias('rm'))
+    .command('list', ListCommands)
+    .command('remove', RemoveCommands)
     .command('update', UpdateCommands)
     .parse(Deno.args);
 }

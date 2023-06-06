@@ -1,3 +1,5 @@
+import type arcctlAccountInputs from './arcctlAccount/inputs.ts';
+import type arcctlAccountOutputs from './arcctlAccount/outputs.ts';
 import type cronjobInputs from './cronjob/inputs.ts';
 import type cronjobOutputs from './cronjob/outputs.ts';
 import type databaseInputs from './database/inputs.ts';
@@ -52,6 +54,7 @@ import type vpcInputs from './vpc/inputs.ts';
 import type vpcOutputs from './vpc/outputs.ts';
 
 export type ResourceType =
+  | 'arcctlAccount'
   | 'cronjob'
   | 'database'
   | 'databaseSchema'
@@ -81,6 +84,7 @@ export type ResourceType =
 ;
 
 export const ResourceTypeList: ResourceType[] = [
+  'arcctlAccount',
   'cronjob',
   'database',
   'databaseSchema',
@@ -110,6 +114,10 @@ export const ResourceTypeList: ResourceType[] = [
 ];
 
 export type ResourceInputs = {
+  'arcctlAccount': {
+    type: 'arcctlAccount',
+    account?: string,
+  } & arcctlAccountInputs;
   'cronjob': {
     type: 'cronjob',
     account?: string,
@@ -217,6 +225,9 @@ export type ResourceInputs = {
 };
 
 export type ResourceOutputs = {
+  'arcctlAccount': {
+    id: string;
+  } & arcctlAccountOutputs;
   'cronjob': {
     id: string;
   } & cronjobOutputs;

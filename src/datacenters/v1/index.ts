@@ -1,5 +1,5 @@
-/* eslint-disable unicorn/consistent-function-scoping */
 import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
+import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
 import { Datacenter, DatacenterSecretsConfig } from '../datacenter.ts';
@@ -13,6 +13,9 @@ type Hook<T extends ResourceType = ResourceType> = {
   when?: { type: T } & DeepPartial<ResourceInputs[T]>;
   resources?: {
     [key: string]: FullResource;
+  };
+  accounts?: {
+    [key: string]: ArcctlAccountInputs;
   };
   modules?: {
     [key: string]: {
@@ -45,6 +48,13 @@ export default class DatacenterV1 extends Datacenter {
   };
 
   /**
+   * Cloud accounts to register and remove with the lifecycle of the datacenter
+   */
+  accounts?: {
+    [key: string]: ArcctlAccountInputs;
+  };
+
+  /**
    * Create terraform modules that live and die with the lifecycle of the datacenter
    */
   modules?: {
@@ -62,6 +72,13 @@ export default class DatacenterV1 extends Datacenter {
      */
     resources?: {
       [key: string]: FullResource;
+    };
+
+    /**
+     * Cloud accounts to register and remove with the lifecycle of the environment
+     */
+    accounts?: {
+      [key: string]: ArcctlAccountInputs;
     };
 
     /**
@@ -127,6 +144,35 @@ export default class DatacenterV1 extends Datacenter {
     );
   }
 
+  private replaceDatacenterAccountRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
+    return JSON.parse(
+      JSON.stringify(contents).replace(
+        /\${{\s?accounts\.([\w-]+)\.(\S+)\s?}}/g,
+        (full_ref, account_id, resource_key) => {
+          const account = this.accounts?.[account_id];
+          if (!account) {
+            throw new Error(`Invalid expression: ${full_ref}`);
+          }
+
+          const target_node_id = CloudNode.genId({
+            type: 'arcctlAccount',
+            name: account.name,
+          });
+
+          graph.insertEdges(
+            new CloudEdge({
+              from: from_node_id,
+              to: target_node_id,
+              required: true,
+            }),
+          );
+
+          return `\${{ ${target_node_id}.${resource_key} }}`;
+        },
+      ),
+    );
+  }
+
   private replaceEnvironmentResourceRefs<T>(
     graph: CloudGraph,
     environmentName: string,
@@ -162,16 +208,68 @@ export default class DatacenterV1 extends Datacenter {
     );
   }
 
+  private replaceEnvironmentAccountRefs<T>(
+    graph: CloudGraph,
+    environmentName: string,
+    from_node_id: string,
+    contents: T,
+  ): T {
+    return JSON.parse(
+      JSON.stringify(contents).replace(
+        /\${{\s?environment\.accounts\.([\w-]+)\.(\S+)\s?}}/g,
+        (full_ref, account_id, resource_key) => {
+          const account = this.environment?.accounts?.[account_id];
+          if (!account) {
+            throw new Error(`Invalid expression: ${full_ref}`);
+          }
+
+          const target_node_id = CloudNode.genId({
+            type: 'arcctlAccount',
+            name: account.name,
+            environment: environmentName,
+          });
+
+          graph.insertEdges(
+            new CloudEdge({
+              from: from_node_id,
+              to: target_node_id,
+              required: true,
+            }),
+          );
+
+          return `\${{ ${target_node_id}.${resource_key} }}`;
+        },
+      ),
+    );
+  }
+
   private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
     return JSON.parse(JSON.stringify(contents).replace(/\${{\s?environment\.name\s?}}/g, environmentName));
   }
 
-  public async enrichGraph(graph: CloudGraph, environmentName?: string): Promise<CloudGraph> {
+  public enrichGraph(graph: CloudGraph, environmentName?: string): Promise<CloudGraph> {
     // Create nodes for explicit resources of the datacenter
     for (const [key, value] of Object.entries(this.resources || {})) {
       const node = new CloudNode({
         name: key,
         inputs: value,
+      });
+
+      node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
+      node.inputs = this.replaceDatacenterAccountRefs(graph, node.id, node.inputs);
+
+      graph.insertNodes(node);
+    }
+
+    // Create nodes for datacenter accounts
+    for (const value of Object.values(this.accounts || {})) {
+      const node = new CloudNode({
+        name: value.name,
+        inputs: {
+          type: 'arcctlAccount',
+          account: 'n/a', // Helps it skip hook mutations
+          ...value,
+        },
       });
 
       node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
@@ -190,9 +288,28 @@ export default class DatacenterV1 extends Datacenter {
         });
 
         node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
-
+        node.inputs = this.replaceDatacenterAccountRefs(graph, node.id, node.inputs);
         node.inputs = this.replaceEnvironmentResourceRefs(graph, environmentName, node.id, node.inputs);
+        node.inputs = this.replaceEnvironmentAccountRefs(graph, environmentName, node.id, node.inputs);
         node.inputs = this.replaceEnvironmentNameRefs(environmentName, node.inputs);
+
+        graph.insertNodes(node);
+      }
+
+      // Create nodes for environment accounts
+      for (const value of Object.values(this.environment?.accounts || {})) {
+        const node = new CloudNode({
+          name: value.name,
+          environment: environmentName,
+          inputs: {
+            type: 'arcctlAccount',
+            account: 'n/a', // Helps it skip hook mutations
+            ...value,
+          },
+        });
+
+        node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
+        node.inputs = this.replaceEnvironmentResourceRefs(graph, environmentName, node.id, node.inputs);
 
         graph.insertNodes(node);
       }
@@ -214,6 +331,7 @@ export default class DatacenterV1 extends Datacenter {
 
           const replaceHookExpressions = <T>(
             resources: { [key: string]: InputSchema },
+            accounts: { [key: string]: ArcctlAccountInputs },
             from_node_name: string,
             from_node_id: string,
             contents: T,
@@ -229,6 +347,28 @@ export default class DatacenterV1 extends Datacenter {
                   const target_node_id = CloudNode.genId({
                     type: resource.type,
                     name: `${from_node_name}/${resource_id}`,
+                    environment: environmentName,
+                    component: node.component,
+                  });
+                  graph.insertEdges(
+                    new CloudEdge({
+                      from: from_node_id,
+                      to: target_node_id,
+                      required: true,
+                    }),
+                  );
+
+                  return `\${{ ${target_node_id}.${resource_key} }}`;
+                })
+                .replace(/\${{\s?this\.accounts\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, account_id, resource_key) => {
+                  const account = accounts?.[account_id];
+                  if (!account) {
+                    throw new Error(`Invalid expression: ${full_ref}`);
+                  }
+
+                  const target_node_id = CloudNode.genId({
+                    type: 'arcctlAccount',
+                    name: account.name,
                     environment: environmentName,
                     component: node.component,
                   });
@@ -262,33 +402,105 @@ export default class DatacenterV1 extends Datacenter {
                 name: newResourceName,
                 environment: environmentName,
                 component: node.component,
-                inputs: this.replaceDatacenterResourceRefs(
+                inputs: this.replaceDatacenterAccountRefs(
                   graph,
                   hook_node_id,
-                  this.replaceEnvironmentNameRefs(
-                    environmentName,
-                    this.replaceEnvironmentResourceRefs(
-                      graph,
+                  this.replaceDatacenterResourceRefs(
+                    graph,
+                    hook_node_id,
+                    this.replaceEnvironmentNameRefs(
                       environmentName,
-                      hook_node_id,
-                      replaceHookExpressions(
-                        hook.resources || {},
-                        newResourceName,
+                      this.replaceEnvironmentAccountRefs(
+                        graph,
+                        environmentName,
                         hook_node_id,
-                        JSON.parse(
-                          JSON.stringify(resource_config).replace(
-                            /\${{\s?this\.outputs\.(\S+)\s?}}/g,
-                            (_, key: string) => {
-                              graph.insertEdges(
-                                new CloudEdge({
-                                  from: hook_node_id,
-                                  to: node.id,
-                                  required: true,
-                                }),
-                              );
+                        this.replaceEnvironmentResourceRefs(
+                          graph,
+                          environmentName,
+                          hook_node_id,
+                          replaceHookExpressions(
+                            hook.resources || {},
+                            hook.accounts || {},
+                            newResourceName,
+                            hook_node_id,
+                            JSON.parse(
+                              JSON.stringify(resource_config).replace(
+                                /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                                (_, key: string) => {
+                                  graph.insertEdges(
+                                    new CloudEdge({
+                                      from: hook_node_id,
+                                      to: node.id,
+                                      required: true,
+                                    }),
+                                  );
 
-                              return `\${{ ${node.id}.${key} }}`;
-                            },
+                                  return `\${{ ${node.id}.${key} }}`;
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              }),
+            );
+          }
+
+          // Create inline accounts defined by the hook
+          for (const account_config of Object.values(hook.accounts || {})) {
+            const newResourceName = account_config.name;
+
+            const hook_node_id = CloudNode.genId({
+              type: 'arcctlAccount',
+              name: newResourceName,
+              component: node.component,
+              environment: environmentName,
+            });
+            graph.insertNodes(
+              new CloudNode({
+                name: newResourceName,
+                environment: environmentName,
+                component: node.component,
+                inputs: this.replaceDatacenterAccountRefs(
+                  graph,
+                  hook_node_id,
+                  this.replaceDatacenterResourceRefs(
+                    graph,
+                    hook_node_id,
+                    this.replaceEnvironmentNameRefs(
+                      environmentName,
+                      this.replaceEnvironmentAccountRefs(
+                        graph,
+                        environmentName,
+                        hook_node_id,
+                        this.replaceEnvironmentResourceRefs(
+                          graph,
+                          environmentName,
+                          hook_node_id,
+                          replaceHookExpressions(
+                            hook.resources || {},
+                            hook.accounts || {},
+                            newResourceName,
+                            hook_node_id,
+                            JSON.parse(
+                              JSON.stringify(account_config).replace(
+                                /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                                (_, key: string) => {
+                                  graph.insertEdges(
+                                    new CloudEdge({
+                                      from: hook_node_id,
+                                      to: node.id,
+                                      required: true,
+                                    }),
+                                  );
+
+                                  return `\${{ ${node.id}.${key} }}`;
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -302,21 +514,32 @@ export default class DatacenterV1 extends Datacenter {
           // Update
           const hookData = { ...hook };
           const hookResources = hookData.resources || {};
+          const hookAccounts = hookData.accounts || {};
           delete hookData.when;
           delete hookData.resources;
+          delete hookData.accounts;
 
-          node.inputs = this.replaceDatacenterResourceRefs(
+          node.inputs = this.replaceDatacenterAccountRefs(
             graph,
             node.id,
-            this.replaceEnvironmentResourceRefs(
+            this.replaceDatacenterResourceRefs(
               graph,
-              environmentName,
               node.id,
-              replaceHookExpressions(hookResources, node.name, node.id, {
-                ...node.inputs,
-                ...hookData,
-                account: node.inputs.account || hookData.account,
-              } as any),
+              this.replaceEnvironmentAccountRefs(
+                graph,
+                environmentName,
+                node.id,
+                this.replaceEnvironmentResourceRefs(
+                  graph,
+                  environmentName,
+                  node.id,
+                  replaceHookExpressions(hookResources, hookAccounts, node.name, node.id, {
+                    ...node.inputs,
+                    ...hookData,
+                    account: node.inputs.account || hookData.account,
+                  } as any),
+                ),
+              ),
             ),
           );
 
@@ -329,7 +552,7 @@ export default class DatacenterV1 extends Datacenter {
       }
     }
 
-    return graph;
+    return Promise.resolve(graph);
   }
 
   public getSecretsConfig(): DatacenterSecretsConfig {

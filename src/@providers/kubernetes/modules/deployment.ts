@@ -1,33 +1,26 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Deployment } from '../.gen/providers/kubernetes/deployment/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
-export class KubernetesDeploymentModule extends ResourceModule<
-  'deployment',
-  KubernetesCredentials
-> {
+export class KubernetesDeploymentModule extends ResourceModule<'deployment', KubernetesCredentials> {
   private deployment: Deployment;
   outputs: ResourceOutputs['deployment'];
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['deployment'],
-  ) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'deployment'>) {
+    super(scope, options);
 
-    const normalizedName = inputs.name.replace(/\//g, '--');
+    const normalizedName = this.inputs?.name.replace(/\//g, '--') || 'unknown';
 
-    this.deployment = new Deployment(this, inputs.name, {
+    this.deployment = new Deployment(this, 'deployment', {
       metadata: {
         name: normalizedName,
-        namespace: inputs.namespace,
-        labels: inputs.labels,
+        namespace: this.inputs?.namespace,
+        labels: this.inputs?.labels,
       },
       spec: {
-        replicas: String(inputs.replicas),
+        replicas: String(this.inputs?.replicas || 1),
         selector: {
           matchLabels: {
             'architect.io/name': normalizedName,
@@ -35,56 +28,47 @@ export class KubernetesDeploymentModule extends ResourceModule<
         },
         template: {
           metadata: {
-            name: inputs.name.replace(/\//g, '.'),
-            namespace: inputs.namespace,
+            name: normalizedName,
+            namespace: this.inputs?.namespace,
             labels: {
               'architect.io/name': normalizedName,
-              ...inputs.labels,
+              ...this.inputs?.labels,
             },
           },
           spec: {
             container: [
               {
                 name: normalizedName,
-                image: inputs.image,
+                image: this.inputs?.image || 'unknown',
                 command:
-                  typeof inputs.command === 'string'
-                    ? inputs.command.split(' ')
-                    : inputs.command,
-                env: Object.entries(inputs.environment || {}).map(
-                  ([key, value]) => ({
-                    name: key,
-                    value: String(value),
-                  }),
-                ),
-                volumeMount: inputs.volume_mounts?.map((mount) => ({
+                  typeof this.inputs?.command === 'string' ? this.inputs.command.split(' ') : this.inputs?.command,
+                env: Object.entries(this.inputs?.environment || {}).map(([key, value]) => ({
+                  name: key,
+                  value: String(value),
+                })),
+                volumeMount: this.inputs?.volume_mounts?.map((mount) => ({
                   name: mount.volume,
                   mountPath: mount.mount_path,
                 })),
                 resources: {
                   requests: {
-                    ...(inputs.cpu ? { cpu: String(inputs.cpu) } : {}),
-                    ...(inputs.memory ? { memory: inputs.memory } : {}),
+                    ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),
+                    ...(this.inputs?.memory ? { memory: this.inputs.memory } : {}),
                   },
                   limits: {
-                    ...(inputs.cpu ? { cpu: String(inputs.cpu) } : {}),
-                    ...(inputs.memory ? { memory: inputs.memory } : {}),
+                    ...(this.inputs?.cpu ? { cpu: String(this.inputs.cpu) } : {}),
+                    ...(this.inputs?.memory ? { memory: this.inputs.memory } : {}),
                   },
                 },
               },
-              ...(inputs.sidecars?.map((container, index) => ({
+              ...(this.inputs?.sidecars?.map((container, index) => ({
                 name: `${normalizedName}-sidecar-${index}`,
-                command:
-                  typeof container.command === 'string'
-                    ? container.command.split(' ')
-                    : container.command,
+                command: typeof container.command === 'string' ? container.command.split(' ') : container.command,
                 image: container.image,
-                env: Object.entries(container.environment || {}).map(
-                  ([key, value]) => ({
-                    name: key,
-                    value: String(value),
-                  }),
-                ),
+                env: Object.entries(container.environment || {}).map(([key, value]) => ({
+                  name: key,
+                  value: String(value),
+                })),
                 volumeMount: container.volume_mounts.map((mount) => ({
                   name: mount.volume,
                   mountPath: mount.mount_path,
@@ -107,14 +91,11 @@ export class KubernetesDeploymentModule extends ResourceModule<
     });
 
     this.outputs = {
-      id: `${inputs.namespace}/${inputs.name}`,
+      id: `${this.inputs?.namespace}/${this.inputs?.name}`,
     };
   }
 
-  genImports(
-    _credentials: KubernetesCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
+  genImports(_credentials: KubernetesCredentials, resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.deployment)]: resourceId,
     });

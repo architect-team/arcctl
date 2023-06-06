@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project
+// https://www.terraform.io/docs/providers/digitalocean/r/project
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,17 +10,17 @@ export interface ProjectConfig extends cdktf.TerraformMetaArguments {
   /**
   * the description of the project
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#description Project#description}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#description Project#description}
   */
   readonly description?: string;
   /**
   * the environment of the project's resources
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#environment Project#environment}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#environment Project#environment}
   */
   readonly environment?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#id Project#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#id Project#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -29,42 +29,42 @@ export interface ProjectConfig extends cdktf.TerraformMetaArguments {
   /**
   * determine if the project is the default or not.
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#is_default Project#is_default}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#is_default Project#is_default}
   */
   readonly isDefault?: boolean | cdktf.IResolvable;
   /**
   * the human-readable name for the project
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#name Project#name}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#name Project#name}
   */
   readonly name: string;
   /**
   * the purpose of the project
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#purpose Project#purpose}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#purpose Project#purpose}
   */
   readonly purpose?: string;
   /**
   * the resources associated with the project
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#resources Project#resources}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#resources Project#resources}
   */
   readonly resources?: string[];
   /**
   * timeouts block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#timeouts Project#timeouts}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#timeouts Project#timeouts}
   */
   readonly timeouts?: ProjectTimeouts;
 }
 export interface ProjectTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project#delete Project#delete}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/project#delete Project#delete}
   */
   readonly delete?: string;
 }
 
-export function projectTimeoutsToTerraform(struct?: ProjectTimeouts | cdktf.IResolvable): any {
+export function projectTimeoutsToTerraform(struct?: ProjectTimeoutsOutputReference | ProjectTimeouts | cdktf.IResolvable): any {
   if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
     throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
@@ -83,7 +83,7 @@ export class ProjectTimeoutsOutputReference extends cdktf.ComplexObject {
   * @param terraformAttribute The attribute on the parent resource this class is referencing
   */
   public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
-    super(terraformResource, terraformAttribute, false);
+    super(terraformResource, terraformAttribute, false, 0);
   }
 
   public get internalValue(): ProjectTimeouts | cdktf.IResolvable | undefined {
@@ -134,7 +134,7 @@ export class ProjectTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project digitalocean_project}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/project digitalocean_project}
 */
 export class Project extends cdktf.TerraformResource {
 
@@ -148,7 +148,7 @@ export class Project extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/project digitalocean_project} Resource
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/project digitalocean_project} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

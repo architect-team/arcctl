@@ -1,84 +1,81 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_server_certificate
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface IamServerCertificateConfig
-  extends cdktf.TerraformMetaArguments {
+export interface IamServerCertificateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#certificate_body IamServerCertificate#certificate_body}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#certificate_body IamServerCertificate#certificate_body}
+  */
   readonly certificateBody: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#certificate_chain IamServerCertificate#certificate_chain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#certificate_chain IamServerCertificate#certificate_chain}
+  */
   readonly certificateChain?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#id IamServerCertificate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#id IamServerCertificate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#name IamServerCertificate#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#name IamServerCertificate#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#name_prefix IamServerCertificate#name_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#name_prefix IamServerCertificate#name_prefix}
+  */
   readonly namePrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#path IamServerCertificate#path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#path IamServerCertificate#path}
+  */
   readonly path?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#private_key IamServerCertificate#private_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#private_key IamServerCertificate#private_key}
+  */
   readonly privateKey: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#tags IamServerCertificate#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#tags IamServerCertificate#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#tags_all IamServerCertificate#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate#tags_all IamServerCertificate#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate aws_iam_server_certificate}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate aws_iam_server_certificate}
+*/
 export class IamServerCertificate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_iam_server_certificate';
+  public static readonly tfResourceType = "aws_iam_server_certificate";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate aws_iam_server_certificate} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options IamServerCertificateConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: IamServerCertificateConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_server_certificate aws_iam_server_certificate} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options IamServerCertificateConfig
+  */
+  public constructor(scope: Construct, id: string, config: IamServerCertificateConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_server_certificate',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -86,7 +83,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._certificateBody = config.certificateBody;
     this._certificateChain = config.certificateChain;
@@ -109,7 +106,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // certificate_body - computed: false, optional: false, required: true
-  private _certificateBody?: string;
+  private _certificateBody?: string; 
   public get certificateBody() {
     return this.getStringAttribute('certificate_body');
   }
@@ -122,7 +119,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // certificate_chain - computed: false, optional: true, required: false
-  private _certificateChain?: string;
+  private _certificateChain?: string; 
   public get certificateChain() {
     return this.getStringAttribute('certificate_chain');
   }
@@ -143,7 +140,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -159,7 +156,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -175,7 +172,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string;
+  private _namePrefix?: string; 
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -191,7 +188,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // path - computed: false, optional: true, required: false
-  private _path?: string;
+  private _path?: string; 
   public get path() {
     return this.getStringAttribute('path');
   }
@@ -207,7 +204,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // private_key - computed: false, optional: false, required: true
-  private _privateKey?: string;
+  private _privateKey?: string; 
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -220,7 +217,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -236,7 +233,7 @@ export class IamServerCertificate extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

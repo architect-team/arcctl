@@ -1,88 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsSecretsmanagerRandomPasswordConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsSecretsmanagerRandomPasswordConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_characters DataAwsSecretsmanagerRandomPassword#exclude_characters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_characters DataAwsSecretsmanagerRandomPassword#exclude_characters}
+  */
   readonly excludeCharacters?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_lowercase DataAwsSecretsmanagerRandomPassword#exclude_lowercase}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_lowercase DataAwsSecretsmanagerRandomPassword#exclude_lowercase}
+  */
   readonly excludeLowercase?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_numbers DataAwsSecretsmanagerRandomPassword#exclude_numbers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_numbers DataAwsSecretsmanagerRandomPassword#exclude_numbers}
+  */
   readonly excludeNumbers?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_punctuation DataAwsSecretsmanagerRandomPassword#exclude_punctuation}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_punctuation DataAwsSecretsmanagerRandomPassword#exclude_punctuation}
+  */
   readonly excludePunctuation?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_uppercase DataAwsSecretsmanagerRandomPassword#exclude_uppercase}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#exclude_uppercase DataAwsSecretsmanagerRandomPassword#exclude_uppercase}
+  */
   readonly excludeUppercase?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#id DataAwsSecretsmanagerRandomPassword#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#id DataAwsSecretsmanagerRandomPassword#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#include_space DataAwsSecretsmanagerRandomPassword#include_space}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#include_space DataAwsSecretsmanagerRandomPassword#include_space}
+  */
   readonly includeSpace?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#password_length DataAwsSecretsmanagerRandomPassword#password_length}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#password_length DataAwsSecretsmanagerRandomPassword#password_length}
+  */
   readonly passwordLength?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#random_password DataAwsSecretsmanagerRandomPassword#random_password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#random_password DataAwsSecretsmanagerRandomPassword#random_password}
+  */
   readonly randomPassword?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#require_each_included_type DataAwsSecretsmanagerRandomPassword#require_each_included_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password#require_each_included_type DataAwsSecretsmanagerRandomPassword#require_each_included_type}
+  */
   readonly requireEachIncludedType?: boolean | cdktf.IResolvable;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password aws_secretsmanager_random_password}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password aws_secretsmanager_random_password}
+*/
 export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_secretsmanager_random_password';
+  public static readonly tfResourceType = "aws_secretsmanager_random_password";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password aws_secretsmanager_random_password} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsSecretsmanagerRandomPasswordConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsSecretsmanagerRandomPasswordConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/secretsmanager_random_password aws_secretsmanager_random_password} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsSecretsmanagerRandomPasswordConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsSecretsmanagerRandomPasswordConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_secretsmanager_random_password',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -90,7 +87,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._excludeCharacters = config.excludeCharacters;
     this._excludeLowercase = config.excludeLowercase;
@@ -109,7 +106,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   // ==========
 
   // exclude_characters - computed: false, optional: true, required: false
-  private _excludeCharacters?: string;
+  private _excludeCharacters?: string; 
   public get excludeCharacters() {
     return this.getStringAttribute('exclude_characters');
   }
@@ -125,7 +122,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // exclude_lowercase - computed: false, optional: true, required: false
-  private _excludeLowercase?: boolean | cdktf.IResolvable;
+  private _excludeLowercase?: boolean | cdktf.IResolvable; 
   public get excludeLowercase() {
     return this.getBooleanAttribute('exclude_lowercase');
   }
@@ -141,7 +138,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // exclude_numbers - computed: false, optional: true, required: false
-  private _excludeNumbers?: boolean | cdktf.IResolvable;
+  private _excludeNumbers?: boolean | cdktf.IResolvable; 
   public get excludeNumbers() {
     return this.getBooleanAttribute('exclude_numbers');
   }
@@ -157,7 +154,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // exclude_punctuation - computed: false, optional: true, required: false
-  private _excludePunctuation?: boolean | cdktf.IResolvable;
+  private _excludePunctuation?: boolean | cdktf.IResolvable; 
   public get excludePunctuation() {
     return this.getBooleanAttribute('exclude_punctuation');
   }
@@ -173,7 +170,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // exclude_uppercase - computed: false, optional: true, required: false
-  private _excludeUppercase?: boolean | cdktf.IResolvable;
+  private _excludeUppercase?: boolean | cdktf.IResolvable; 
   public get excludeUppercase() {
     return this.getBooleanAttribute('exclude_uppercase');
   }
@@ -189,7 +186,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -205,7 +202,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // include_space - computed: false, optional: true, required: false
-  private _includeSpace?: boolean | cdktf.IResolvable;
+  private _includeSpace?: boolean | cdktf.IResolvable; 
   public get includeSpace() {
     return this.getBooleanAttribute('include_space');
   }
@@ -221,7 +218,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // password_length - computed: false, optional: true, required: false
-  private _passwordLength?: number;
+  private _passwordLength?: number; 
   public get passwordLength() {
     return this.getNumberAttribute('password_length');
   }
@@ -237,7 +234,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // random_password - computed: true, optional: true, required: false
-  private _randomPassword?: string;
+  private _randomPassword?: string; 
   public get randomPassword() {
     return this.getStringAttribute('random_password');
   }
@@ -253,7 +250,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
   }
 
   // require_each_included_type - computed: false, optional: true, required: false
-  private _requireEachIncludedType?: boolean | cdktf.IResolvable;
+  private _requireEachIncludedType?: boolean | cdktf.IResolvable; 
   public get requireEachIncludedType() {
     return this.getBooleanAttribute('require_each_included_type');
   }
@@ -283,9 +280,7 @@ export class DataAwsSecretsmanagerRandomPassword extends cdktf.TerraformDataSour
       include_space: cdktf.booleanToTerraform(this._includeSpace),
       password_length: cdktf.numberToTerraform(this._passwordLength),
       random_password: cdktf.stringToTerraform(this._randomPassword),
-      require_each_included_type: cdktf.booleanToTerraform(
-        this._requireEachIncludedType,
-      ),
+      require_each_included_type: cdktf.booleanToTerraform(this._requireEachIncludedType),
     };
   }
 }

@@ -1,99 +1,87 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CloudwatchMetricStreamConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CloudwatchMetricStreamConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#firehose_arn CloudwatchMetricStream#firehose_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#firehose_arn CloudwatchMetricStream#firehose_arn}
+  */
   readonly firehoseArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#id CloudwatchMetricStream#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#id CloudwatchMetricStream#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#name CloudwatchMetricStream#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#name CloudwatchMetricStream#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#name_prefix CloudwatchMetricStream#name_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#name_prefix CloudwatchMetricStream#name_prefix}
+  */
   readonly namePrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#output_format CloudwatchMetricStream#output_format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#output_format CloudwatchMetricStream#output_format}
+  */
   readonly outputFormat: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#role_arn CloudwatchMetricStream#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#role_arn CloudwatchMetricStream#role_arn}
+  */
   readonly roleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#tags CloudwatchMetricStream#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#tags CloudwatchMetricStream#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#tags_all CloudwatchMetricStream#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#tags_all CloudwatchMetricStream#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * exclude_filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#exclude_filter CloudwatchMetricStream#exclude_filter}
-   */
-  readonly excludeFilter?:
-    | CloudwatchMetricStreamExcludeFilter[]
-    | cdktf.IResolvable;
+  * exclude_filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#exclude_filter CloudwatchMetricStream#exclude_filter}
+  */
+  readonly excludeFilter?: CloudwatchMetricStreamExcludeFilter[] | cdktf.IResolvable;
   /**
-   * include_filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#include_filter CloudwatchMetricStream#include_filter}
-   */
-  readonly includeFilter?:
-    | CloudwatchMetricStreamIncludeFilter[]
-    | cdktf.IResolvable;
+  * include_filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#include_filter CloudwatchMetricStream#include_filter}
+  */
+  readonly includeFilter?: CloudwatchMetricStreamIncludeFilter[] | cdktf.IResolvable;
   /**
-   * statistics_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#statistics_configuration CloudwatchMetricStream#statistics_configuration}
-   */
-  readonly statisticsConfiguration?:
-    | CloudwatchMetricStreamStatisticsConfiguration[]
-    | cdktf.IResolvable;
+  * statistics_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#statistics_configuration CloudwatchMetricStream#statistics_configuration}
+  */
+  readonly statisticsConfiguration?: CloudwatchMetricStreamStatisticsConfiguration[] | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#timeouts CloudwatchMetricStream#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#timeouts CloudwatchMetricStream#timeouts}
+  */
   readonly timeouts?: CloudwatchMetricStreamTimeouts;
 }
 export interface CloudwatchMetricStreamExcludeFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#namespace CloudwatchMetricStream#namespace}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#namespace CloudwatchMetricStream#namespace}
+  */
   readonly namespace: string;
 }
 
-export function cloudwatchMetricStreamExcludeFilterToTerraform(
-  struct?: CloudwatchMetricStreamExcludeFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudwatchMetricStreamExcludeFilterToTerraform(struct?: CloudwatchMetricStreamExcludeFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  };
+  }
 }
 
 export class CloudwatchMetricStreamExcludeFilterOutputReference extends cdktf.ComplexObject {
@@ -101,29 +89,16 @@ export class CloudwatchMetricStreamExcludeFilterOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudwatchMetricStreamExcludeFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudwatchMetricStreamExcludeFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -136,17 +111,17 @@ export class CloudwatchMetricStreamExcludeFilterOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudwatchMetricStreamExcludeFilter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CloudwatchMetricStreamExcludeFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._namespace = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._namespace = value.namespace;
@@ -154,7 +129,7 @@ export class CloudwatchMetricStreamExcludeFilterOutputReference extends cdktf.Co
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string;
+  private _namespace?: string; 
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -168,58 +143,39 @@ export class CloudwatchMetricStreamExcludeFilterOutputReference extends cdktf.Co
 }
 
 export class CloudwatchMetricStreamExcludeFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudwatchMetricStreamExcludeFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudwatchMetricStreamExcludeFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudwatchMetricStreamExcludeFilterOutputReference {
-    return new CloudwatchMetricStreamExcludeFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudwatchMetricStreamExcludeFilterOutputReference {
+    return new CloudwatchMetricStreamExcludeFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudwatchMetricStreamIncludeFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#namespace CloudwatchMetricStream#namespace}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#namespace CloudwatchMetricStream#namespace}
+  */
   readonly namespace: string;
 }
 
-export function cloudwatchMetricStreamIncludeFilterToTerraform(
-  struct?: CloudwatchMetricStreamIncludeFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudwatchMetricStreamIncludeFilterToTerraform(struct?: CloudwatchMetricStreamIncludeFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  };
+  }
 }
 
 export class CloudwatchMetricStreamIncludeFilterOutputReference extends cdktf.ComplexObject {
@@ -227,29 +183,16 @@ export class CloudwatchMetricStreamIncludeFilterOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudwatchMetricStreamIncludeFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudwatchMetricStreamIncludeFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -262,17 +205,17 @@ export class CloudwatchMetricStreamIncludeFilterOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudwatchMetricStreamIncludeFilter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CloudwatchMetricStreamIncludeFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._namespace = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._namespace = value.namespace;
@@ -280,7 +223,7 @@ export class CloudwatchMetricStreamIncludeFilterOutputReference extends cdktf.Co
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string;
+  private _namespace?: string; 
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -294,65 +237,44 @@ export class CloudwatchMetricStreamIncludeFilterOutputReference extends cdktf.Co
 }
 
 export class CloudwatchMetricStreamIncludeFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudwatchMetricStreamIncludeFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudwatchMetricStreamIncludeFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudwatchMetricStreamIncludeFilterOutputReference {
-    return new CloudwatchMetricStreamIncludeFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudwatchMetricStreamIncludeFilterOutputReference {
+    return new CloudwatchMetricStreamIncludeFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudwatchMetricStreamStatisticsConfigurationIncludeMetric {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#metric_name CloudwatchMetricStream#metric_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#metric_name CloudwatchMetricStream#metric_name}
+  */
   readonly metricName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#namespace CloudwatchMetricStream#namespace}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#namespace CloudwatchMetricStream#namespace}
+  */
   readonly namespace: string;
 }
 
-export function cloudwatchMetricStreamStatisticsConfigurationIncludeMetricToTerraform(
-  struct?:
-    | CloudwatchMetricStreamStatisticsConfigurationIncludeMetric
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudwatchMetricStreamStatisticsConfigurationIncludeMetricToTerraform(struct?: CloudwatchMetricStreamStatisticsConfigurationIncludeMetric | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     metric_name: cdktf.stringToTerraform(struct!.metricName),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  };
+  }
 }
 
 export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputReference extends cdktf.ComplexObject {
@@ -360,29 +282,16 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudwatchMetricStreamStatisticsConfigurationIncludeMetric
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudwatchMetricStreamStatisticsConfigurationIncludeMetric | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -399,21 +308,18 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudwatchMetricStreamStatisticsConfigurationIncludeMetric
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudwatchMetricStreamStatisticsConfigurationIncludeMetric | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._metricName = undefined;
       this._namespace = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._metricName = value.metricName;
@@ -422,7 +328,7 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
   }
 
   // metric_name - computed: false, optional: false, required: true
-  private _metricName?: string;
+  private _metricName?: string; 
   public get metricName() {
     return this.getStringAttribute('metric_name');
   }
@@ -435,7 +341,7 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string;
+  private _namespace?: string; 
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -449,73 +355,46 @@ export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputRef
 }
 
 export class CloudwatchMetricStreamStatisticsConfigurationIncludeMetricList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputReference {
-    return new CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputReference {
+    return new CloudwatchMetricStreamStatisticsConfigurationIncludeMetricOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudwatchMetricStreamStatisticsConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#additional_statistics CloudwatchMetricStream#additional_statistics}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#additional_statistics CloudwatchMetricStream#additional_statistics}
+  */
   readonly additionalStatistics: string[];
   /**
-   * include_metric block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#include_metric CloudwatchMetricStream#include_metric}
-   */
-  readonly includeMetric:
-    | CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[]
-    | cdktf.IResolvable;
+  * include_metric block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#include_metric CloudwatchMetricStream#include_metric}
+  */
+  readonly includeMetric: CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[] | cdktf.IResolvable;
 }
 
-export function cloudwatchMetricStreamStatisticsConfigurationToTerraform(
-  struct?: CloudwatchMetricStreamStatisticsConfiguration | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudwatchMetricStreamStatisticsConfigurationToTerraform(struct?: CloudwatchMetricStreamStatisticsConfiguration | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    additional_statistics: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.additionalStatistics),
-    include_metric: cdktf.listMapper(
-      cloudwatchMetricStreamStatisticsConfigurationIncludeMetricToTerraform,
-      true,
-    )(struct!.includeMetric),
-  };
+    additional_statistics: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.additionalStatistics),
+    include_metric: cdktf.listMapper(cloudwatchMetricStreamStatisticsConfigurationIncludeMetricToTerraform, true)(struct!.includeMetric),
+  }
 }
 
 export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extends cdktf.ComplexObject {
@@ -523,29 +402,16 @@ export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudwatchMetricStreamStatisticsConfiguration
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudwatchMetricStreamStatisticsConfiguration | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -562,21 +428,18 @@ export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudwatchMetricStreamStatisticsConfiguration
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudwatchMetricStreamStatisticsConfiguration | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._additionalStatistics = undefined;
       this._includeMetric.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._additionalStatistics = value.additionalStatistics;
@@ -585,7 +448,7 @@ export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extend
   }
 
   // additional_statistics - computed: false, optional: false, required: true
-  private _additionalStatistics?: string[];
+  private _additionalStatistics?: string[]; 
   public get additionalStatistics() {
     return cdktf.Fn.tolist(this.getListAttribute('additional_statistics'));
   }
@@ -598,20 +461,11 @@ export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extend
   }
 
   // include_metric - computed: false, optional: false, required: true
-  private _includeMetric =
-    new CloudwatchMetricStreamStatisticsConfigurationIncludeMetricList(
-      this,
-      'include_metric',
-      true,
-    );
+  private _includeMetric = new CloudwatchMetricStreamStatisticsConfigurationIncludeMetricList(this, "include_metric", true);
   public get includeMetric() {
     return this._includeMetric;
   }
-  public putIncludeMetric(
-    value:
-      | CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[]
-      | cdktf.IResolvable,
-  ) {
+  public putIncludeMetric(value: CloudwatchMetricStreamStatisticsConfigurationIncludeMetric[] | cdktf.IResolvable) {
     this._includeMetric.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -621,71 +475,49 @@ export class CloudwatchMetricStreamStatisticsConfigurationOutputReference extend
 }
 
 export class CloudwatchMetricStreamStatisticsConfigurationList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudwatchMetricStreamStatisticsConfiguration[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudwatchMetricStreamStatisticsConfiguration[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudwatchMetricStreamStatisticsConfigurationOutputReference {
-    return new CloudwatchMetricStreamStatisticsConfigurationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudwatchMetricStreamStatisticsConfigurationOutputReference {
+    return new CloudwatchMetricStreamStatisticsConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudwatchMetricStreamTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#create CloudwatchMetricStream#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#create CloudwatchMetricStream#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#delete CloudwatchMetricStream#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#delete CloudwatchMetricStream#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#update CloudwatchMetricStream#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream#update CloudwatchMetricStream#update}
+  */
   readonly update?: string;
 }
 
-export function cloudwatchMetricStreamTimeoutsToTerraform(
-  struct?:
-    | CloudwatchMetricStreamTimeoutsOutputReference
-    | CloudwatchMetricStreamTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudwatchMetricStreamTimeoutsToTerraform(struct?: CloudwatchMetricStreamTimeoutsOutputReference | CloudwatchMetricStreamTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -693,20 +525,14 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudwatchMetricStreamTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudwatchMetricStreamTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -727,19 +553,19 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudwatchMetricStreamTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CloudwatchMetricStreamTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -749,7 +575,7 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -765,7 +591,7 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -781,7 +607,7 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -798,36 +624,33 @@ export class CloudwatchMetricStreamTimeoutsOutputReference extends cdktf.Complex
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream aws_cloudwatch_metric_stream}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream aws_cloudwatch_metric_stream}
+*/
 export class CloudwatchMetricStream extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_cloudwatch_metric_stream';
+  public static readonly tfResourceType = "aws_cloudwatch_metric_stream";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream aws_cloudwatch_metric_stream} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CloudwatchMetricStreamConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CloudwatchMetricStreamConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_stream aws_cloudwatch_metric_stream} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CloudwatchMetricStreamConfig
+  */
+  public constructor(scope: Construct, id: string, config: CloudwatchMetricStreamConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudwatch_metric_stream',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -835,7 +658,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._firehoseArn = config.firehoseArn;
     this._id = config.id;
@@ -847,8 +670,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
     this._tagsAll = config.tagsAll;
     this._excludeFilter.internalValue = config.excludeFilter;
     this._includeFilter.internalValue = config.includeFilter;
-    this._statisticsConfiguration.internalValue =
-      config.statisticsConfiguration;
+    this._statisticsConfiguration.internalValue = config.statisticsConfiguration;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -867,7 +689,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // firehose_arn - computed: false, optional: false, required: true
-  private _firehoseArn?: string;
+  private _firehoseArn?: string; 
   public get firehoseArn() {
     return this.getStringAttribute('firehose_arn');
   }
@@ -880,7 +702,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -901,7 +723,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -917,7 +739,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string;
+  private _namePrefix?: string; 
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -933,7 +755,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // output_format - computed: false, optional: false, required: true
-  private _outputFormat?: string;
+  private _outputFormat?: string; 
   public get outputFormat() {
     return this.getStringAttribute('output_format');
   }
@@ -946,7 +768,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -964,7 +786,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -980,7 +802,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -996,17 +818,11 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // exclude_filter - computed: false, optional: true, required: false
-  private _excludeFilter = new CloudwatchMetricStreamExcludeFilterList(
-    this,
-    'exclude_filter',
-    true,
-  );
+  private _excludeFilter = new CloudwatchMetricStreamExcludeFilterList(this, "exclude_filter", true);
   public get excludeFilter() {
     return this._excludeFilter;
   }
-  public putExcludeFilter(
-    value: CloudwatchMetricStreamExcludeFilter[] | cdktf.IResolvable,
-  ) {
+  public putExcludeFilter(value: CloudwatchMetricStreamExcludeFilter[] | cdktf.IResolvable) {
     this._excludeFilter.internalValue = value;
   }
   public resetExcludeFilter() {
@@ -1018,17 +834,11 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // include_filter - computed: false, optional: true, required: false
-  private _includeFilter = new CloudwatchMetricStreamIncludeFilterList(
-    this,
-    'include_filter',
-    true,
-  );
+  private _includeFilter = new CloudwatchMetricStreamIncludeFilterList(this, "include_filter", true);
   public get includeFilter() {
     return this._includeFilter;
   }
-  public putIncludeFilter(
-    value: CloudwatchMetricStreamIncludeFilter[] | cdktf.IResolvable,
-  ) {
+  public putIncludeFilter(value: CloudwatchMetricStreamIncludeFilter[] | cdktf.IResolvable) {
     this._includeFilter.internalValue = value;
   }
   public resetIncludeFilter() {
@@ -1040,18 +850,11 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // statistics_configuration - computed: false, optional: true, required: false
-  private _statisticsConfiguration =
-    new CloudwatchMetricStreamStatisticsConfigurationList(
-      this,
-      'statistics_configuration',
-      true,
-    );
+  private _statisticsConfiguration = new CloudwatchMetricStreamStatisticsConfigurationList(this, "statistics_configuration", true);
   public get statisticsConfiguration() {
     return this._statisticsConfiguration;
   }
-  public putStatisticsConfiguration(
-    value: CloudwatchMetricStreamStatisticsConfiguration[] | cdktf.IResolvable,
-  ) {
+  public putStatisticsConfiguration(value: CloudwatchMetricStreamStatisticsConfiguration[] | cdktf.IResolvable) {
     this._statisticsConfiguration.internalValue = value;
   }
   public resetStatisticsConfiguration() {
@@ -1063,10 +866,7 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new CloudwatchMetricStreamTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new CloudwatchMetricStreamTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1095,21 +895,10 @@ export class CloudwatchMetricStream extends cdktf.TerraformResource {
       role_arn: cdktf.stringToTerraform(this._roleArn),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      exclude_filter: cdktf.listMapper(
-        cloudwatchMetricStreamExcludeFilterToTerraform,
-        true,
-      )(this._excludeFilter.internalValue),
-      include_filter: cdktf.listMapper(
-        cloudwatchMetricStreamIncludeFilterToTerraform,
-        true,
-      )(this._includeFilter.internalValue),
-      statistics_configuration: cdktf.listMapper(
-        cloudwatchMetricStreamStatisticsConfigurationToTerraform,
-        true,
-      )(this._statisticsConfiguration.internalValue),
-      timeouts: cloudwatchMetricStreamTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      exclude_filter: cdktf.listMapper(cloudwatchMetricStreamExcludeFilterToTerraform, true)(this._excludeFilter.internalValue),
+      include_filter: cdktf.listMapper(cloudwatchMetricStreamIncludeFilterToTerraform, true)(this._includeFilter.internalValue),
+      statistics_configuration: cdktf.listMapper(cloudwatchMetricStreamStatisticsConfigurationToTerraform, true)(this._statisticsConfiguration.internalValue),
+      timeouts: cloudwatchMetricStreamTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

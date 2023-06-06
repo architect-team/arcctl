@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object
+// https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,36 +8,36 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanSpacesBucketObjectConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object#bucket DataDigitaloceanSpacesBucketObject#bucket}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object#bucket DataDigitaloceanSpacesBucketObject#bucket}
   */
   readonly bucket: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object#id DataDigitaloceanSpacesBucketObject#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object#id DataDigitaloceanSpacesBucketObject#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object#key DataDigitaloceanSpacesBucketObject#key}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object#key DataDigitaloceanSpacesBucketObject#key}
   */
   readonly key: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object#range DataDigitaloceanSpacesBucketObject#range}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object#range DataDigitaloceanSpacesBucketObject#range}
   */
   readonly range?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object#region DataDigitaloceanSpacesBucketObject#region}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object#region DataDigitaloceanSpacesBucketObject#region}
   */
   readonly region: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object#version_id DataDigitaloceanSpacesBucketObject#version_id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object#version_id DataDigitaloceanSpacesBucketObject#version_id}
   */
   readonly versionId?: string;
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object digitalocean_spaces_bucket_object}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object digitalocean_spaces_bucket_object}
 */
 export class DataDigitaloceanSpacesBucketObject extends cdktf.TerraformDataSource {
 
@@ -51,7 +51,7 @@ export class DataDigitaloceanSpacesBucketObject extends cdktf.TerraformDataSourc
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/spaces_bucket_object digitalocean_spaces_bucket_object} Data Source
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/spaces_bucket_object digitalocean_spaces_bucket_object} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

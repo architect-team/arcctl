@@ -1,95 +1,93 @@
 // https://www.terraform.io/docs/providers/aws/r/lambda_permission
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface LambdaPermissionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#action LambdaPermission#action}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#action LambdaPermission#action}
+  */
   readonly action: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#event_source_token LambdaPermission#event_source_token}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#event_source_token LambdaPermission#event_source_token}
+  */
   readonly eventSourceToken?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#function_name LambdaPermission#function_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#function_name LambdaPermission#function_name}
+  */
   readonly functionName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#function_url_auth_type LambdaPermission#function_url_auth_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#function_url_auth_type LambdaPermission#function_url_auth_type}
+  */
   readonly functionUrlAuthType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#id LambdaPermission#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#id LambdaPermission#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#principal LambdaPermission#principal}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#principal LambdaPermission#principal}
+  */
   readonly principal: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#principal_org_id LambdaPermission#principal_org_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#principal_org_id LambdaPermission#principal_org_id}
+  */
   readonly principalOrgId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#qualifier LambdaPermission#qualifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#qualifier LambdaPermission#qualifier}
+  */
   readonly qualifier?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#source_account LambdaPermission#source_account}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#source_account LambdaPermission#source_account}
+  */
   readonly sourceAccount?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#source_arn LambdaPermission#source_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#source_arn LambdaPermission#source_arn}
+  */
   readonly sourceArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#statement_id LambdaPermission#statement_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#statement_id LambdaPermission#statement_id}
+  */
   readonly statementId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#statement_id_prefix LambdaPermission#statement_id_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission#statement_id_prefix LambdaPermission#statement_id_prefix}
+  */
   readonly statementIdPrefix?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission aws_lambda_permission}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission aws_lambda_permission}
+*/
 export class LambdaPermission extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_lambda_permission';
+  public static readonly tfResourceType = "aws_lambda_permission";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission aws_lambda_permission} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options LambdaPermissionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: LambdaPermissionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lambda_permission aws_lambda_permission} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options LambdaPermissionConfig
+  */
+  public constructor(scope: Construct, id: string, config: LambdaPermissionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_lambda_permission',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -97,7 +95,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._action = config.action;
     this._eventSourceToken = config.eventSourceToken;
@@ -118,7 +116,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   // ==========
 
   // action - computed: false, optional: false, required: true
-  private _action?: string;
+  private _action?: string; 
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -131,7 +129,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // event_source_token - computed: false, optional: true, required: false
-  private _eventSourceToken?: string;
+  private _eventSourceToken?: string; 
   public get eventSourceToken() {
     return this.getStringAttribute('event_source_token');
   }
@@ -147,7 +145,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // function_name - computed: false, optional: false, required: true
-  private _functionName?: string;
+  private _functionName?: string; 
   public get functionName() {
     return this.getStringAttribute('function_name');
   }
@@ -160,7 +158,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // function_url_auth_type - computed: false, optional: true, required: false
-  private _functionUrlAuthType?: string;
+  private _functionUrlAuthType?: string; 
   public get functionUrlAuthType() {
     return this.getStringAttribute('function_url_auth_type');
   }
@@ -176,7 +174,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -192,7 +190,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string;
+  private _principal?: string; 
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -205,7 +203,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // principal_org_id - computed: false, optional: true, required: false
-  private _principalOrgId?: string;
+  private _principalOrgId?: string; 
   public get principalOrgId() {
     return this.getStringAttribute('principal_org_id');
   }
@@ -221,7 +219,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // qualifier - computed: false, optional: true, required: false
-  private _qualifier?: string;
+  private _qualifier?: string; 
   public get qualifier() {
     return this.getStringAttribute('qualifier');
   }
@@ -237,7 +235,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // source_account - computed: false, optional: true, required: false
-  private _sourceAccount?: string;
+  private _sourceAccount?: string; 
   public get sourceAccount() {
     return this.getStringAttribute('source_account');
   }
@@ -253,7 +251,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // source_arn - computed: false, optional: true, required: false
-  private _sourceArn?: string;
+  private _sourceArn?: string; 
   public get sourceArn() {
     return this.getStringAttribute('source_arn');
   }
@@ -269,7 +267,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // statement_id - computed: true, optional: true, required: false
-  private _statementId?: string;
+  private _statementId?: string; 
   public get statementId() {
     return this.getStringAttribute('statement_id');
   }
@@ -285,7 +283,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
   }
 
   // statement_id_prefix - computed: true, optional: true, required: false
-  private _statementIdPrefix?: string;
+  private _statementIdPrefix?: string; 
   public get statementIdPrefix() {
     return this.getStringAttribute('statement_id_prefix');
   }
@@ -309,9 +307,7 @@ export class LambdaPermission extends cdktf.TerraformResource {
       action: cdktf.stringToTerraform(this._action),
       event_source_token: cdktf.stringToTerraform(this._eventSourceToken),
       function_name: cdktf.stringToTerraform(this._functionName),
-      function_url_auth_type: cdktf.stringToTerraform(
-        this._functionUrlAuthType,
-      ),
+      function_url_auth_type: cdktf.stringToTerraform(this._functionUrlAuthType),
       id: cdktf.stringToTerraform(this._id),
       principal: cdktf.stringToTerraform(this._principal),
       principal_org_id: cdktf.stringToTerraform(this._principalOrgId),

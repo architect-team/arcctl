@@ -1,5 +1,5 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.ts';
 import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.ts';
 import { DatabaseUser } from '../.gen/providers/digitalocean/database-user/index.ts';
@@ -10,10 +10,10 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
   outputs: ResourceOutputs['databaseUser'];
   user: DatabaseUser;
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseUser']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser'>) {
+    super(scope, options);
 
-    const [instance_name, database_name] = inputs.databaseSchema.split('/');
+    const [instance_name, database_name] = this.inputs?.databaseSchema.split('/') || ['unknown', 'unknown'];
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
       name: instance_name,
@@ -25,7 +25,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
 
     this.user = new DatabaseUser(this, 'user', {
       clusterId: instance.id,
-      name: inputs.username,
+      name: this.inputs?.username || 'unknown',
     });
 
     const protocol = `\${ ${instance.engine} == "pg" ? "postgresql" : ${instance.engine} }`;

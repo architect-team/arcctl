@@ -1,80 +1,77 @@
 // https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsS3BucketObjectsConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsS3BucketObjectsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#bucket DataAwsS3BucketObjects#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#bucket DataAwsS3BucketObjects#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#delimiter DataAwsS3BucketObjects#delimiter}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#delimiter DataAwsS3BucketObjects#delimiter}
+  */
   readonly delimiter?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#encoding_type DataAwsS3BucketObjects#encoding_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#encoding_type DataAwsS3BucketObjects#encoding_type}
+  */
   readonly encodingType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#fetch_owner DataAwsS3BucketObjects#fetch_owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#fetch_owner DataAwsS3BucketObjects#fetch_owner}
+  */
   readonly fetchOwner?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#id DataAwsS3BucketObjects#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#id DataAwsS3BucketObjects#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#max_keys DataAwsS3BucketObjects#max_keys}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#max_keys DataAwsS3BucketObjects#max_keys}
+  */
   readonly maxKeys?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#prefix DataAwsS3BucketObjects#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#prefix DataAwsS3BucketObjects#prefix}
+  */
   readonly prefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#start_after DataAwsS3BucketObjects#start_after}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects#start_after DataAwsS3BucketObjects#start_after}
+  */
   readonly startAfter?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects aws_s3_bucket_objects}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects aws_s3_bucket_objects}
+*/
 export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_s3_bucket_objects';
+  public static readonly tfResourceType = "aws_s3_bucket_objects";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects aws_s3_bucket_objects} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsS3BucketObjectsConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsS3BucketObjectsConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/s3_bucket_objects aws_s3_bucket_objects} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsS3BucketObjectsConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsS3BucketObjectsConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_bucket_objects',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -82,7 +79,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._bucket = config.bucket;
     this._delimiter = config.delimiter;
@@ -99,7 +96,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -117,7 +114,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // delimiter - computed: false, optional: true, required: false
-  private _delimiter?: string;
+  private _delimiter?: string; 
   public get delimiter() {
     return this.getStringAttribute('delimiter');
   }
@@ -133,7 +130,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // encoding_type - computed: false, optional: true, required: false
-  private _encodingType?: string;
+  private _encodingType?: string; 
   public get encodingType() {
     return this.getStringAttribute('encoding_type');
   }
@@ -149,7 +146,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // fetch_owner - computed: false, optional: true, required: false
-  private _fetchOwner?: boolean | cdktf.IResolvable;
+  private _fetchOwner?: boolean | cdktf.IResolvable; 
   public get fetchOwner() {
     return this.getBooleanAttribute('fetch_owner');
   }
@@ -165,7 +162,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -186,7 +183,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // max_keys - computed: false, optional: true, required: false
-  private _maxKeys?: number;
+  private _maxKeys?: number; 
   public get maxKeys() {
     return this.getNumberAttribute('max_keys');
   }
@@ -207,7 +204,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -223,7 +220,7 @@ export class DataAwsS3BucketObjects extends cdktf.TerraformDataSource {
   }
 
   // start_after - computed: false, optional: true, required: false
-  private _startAfter?: string;
+  private _startAfter?: string; 
   public get startAfter() {
     return this.getStringAttribute('start_after');
   }

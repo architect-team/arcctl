@@ -1,5 +1,5 @@
-import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
-import Mustache from 'mustache';
+import { build, emptyDir } from 'dnt';
+import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
 import { exec } from '../../src/utils/command.ts';
 

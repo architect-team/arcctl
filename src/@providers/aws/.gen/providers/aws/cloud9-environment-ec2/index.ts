@@ -1,92 +1,89 @@
 // https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Cloud9EnvironmentEc2Config
-  extends cdktf.TerraformMetaArguments {
+export interface Cloud9EnvironmentEc2Config extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#automatic_stop_time_minutes Cloud9EnvironmentEc2#automatic_stop_time_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#automatic_stop_time_minutes Cloud9EnvironmentEc2#automatic_stop_time_minutes}
+  */
   readonly automaticStopTimeMinutes?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#connection_type Cloud9EnvironmentEc2#connection_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#connection_type Cloud9EnvironmentEc2#connection_type}
+  */
   readonly connectionType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#description Cloud9EnvironmentEc2#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#description Cloud9EnvironmentEc2#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#id Cloud9EnvironmentEc2#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#id Cloud9EnvironmentEc2#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#image_id Cloud9EnvironmentEc2#image_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#image_id Cloud9EnvironmentEc2#image_id}
+  */
   readonly imageId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#instance_type Cloud9EnvironmentEc2#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#instance_type Cloud9EnvironmentEc2#instance_type}
+  */
   readonly instanceType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#name Cloud9EnvironmentEc2#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#name Cloud9EnvironmentEc2#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#owner_arn Cloud9EnvironmentEc2#owner_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#owner_arn Cloud9EnvironmentEc2#owner_arn}
+  */
   readonly ownerArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#subnet_id Cloud9EnvironmentEc2#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#subnet_id Cloud9EnvironmentEc2#subnet_id}
+  */
   readonly subnetId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#tags Cloud9EnvironmentEc2#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#tags Cloud9EnvironmentEc2#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#tags_all Cloud9EnvironmentEc2#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2#tags_all Cloud9EnvironmentEc2#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2 aws_cloud9_environment_ec2}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2 aws_cloud9_environment_ec2}
+*/
 export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_cloud9_environment_ec2';
+  public static readonly tfResourceType = "aws_cloud9_environment_ec2";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2 aws_cloud9_environment_ec2} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Cloud9EnvironmentEc2Config
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Cloud9EnvironmentEc2Config,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloud9_environment_ec2 aws_cloud9_environment_ec2} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Cloud9EnvironmentEc2Config
+  */
+  public constructor(scope: Construct, id: string, config: Cloud9EnvironmentEc2Config) {
     super(scope, id, {
       terraformResourceType: 'aws_cloud9_environment_ec2',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -94,7 +91,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._automaticStopTimeMinutes = config.automaticStopTimeMinutes;
     this._connectionType = config.connectionType;
@@ -119,7 +116,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // automatic_stop_time_minutes - computed: false, optional: true, required: false
-  private _automaticStopTimeMinutes?: number;
+  private _automaticStopTimeMinutes?: number; 
   public get automaticStopTimeMinutes() {
     return this.getNumberAttribute('automatic_stop_time_minutes');
   }
@@ -135,7 +132,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // connection_type - computed: false, optional: true, required: false
-  private _connectionType?: string;
+  private _connectionType?: string; 
   public get connectionType() {
     return this.getStringAttribute('connection_type');
   }
@@ -151,7 +148,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -167,7 +164,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -183,7 +180,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // image_id - computed: false, optional: true, required: false
-  private _imageId?: string;
+  private _imageId?: string; 
   public get imageId() {
     return this.getStringAttribute('image_id');
   }
@@ -199,7 +196,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -212,7 +209,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -225,7 +222,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // owner_arn - computed: true, optional: true, required: false
-  private _ownerArn?: string;
+  private _ownerArn?: string; 
   public get ownerArn() {
     return this.getStringAttribute('owner_arn');
   }
@@ -241,7 +238,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -257,7 +254,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -273,7 +270,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -299,9 +296,7 @@ export class Cloud9EnvironmentEc2 extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      automatic_stop_time_minutes: cdktf.numberToTerraform(
-        this._automaticStopTimeMinutes,
-      ),
+      automatic_stop_time_minutes: cdktf.numberToTerraform(this._automaticStopTimeMinutes),
       connection_type: cdktf.stringToTerraform(this._connectionType),
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),

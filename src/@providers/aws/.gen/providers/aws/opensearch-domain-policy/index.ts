@@ -1,63 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface OpensearchDomainPolicyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface OpensearchDomainPolicyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#access_policies OpensearchDomainPolicy#access_policies}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#access_policies OpensearchDomainPolicy#access_policies}
+  */
   readonly accessPolicies: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#domain_name OpensearchDomainPolicy#domain_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#domain_name OpensearchDomainPolicy#domain_name}
+  */
   readonly domainName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#id OpensearchDomainPolicy#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#id OpensearchDomainPolicy#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#timeouts OpensearchDomainPolicy#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#timeouts OpensearchDomainPolicy#timeouts}
+  */
   readonly timeouts?: OpensearchDomainPolicyTimeouts;
 }
 export interface OpensearchDomainPolicyTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#delete OpensearchDomainPolicy#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#delete OpensearchDomainPolicy#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#update OpensearchDomainPolicy#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy#update OpensearchDomainPolicy#update}
+  */
   readonly update?: string;
 }
 
-export function opensearchDomainPolicyTimeoutsToTerraform(
-  struct?:
-    | OpensearchDomainPolicyTimeoutsOutputReference
-    | OpensearchDomainPolicyTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opensearchDomainPolicyTimeoutsToTerraform(struct?: OpensearchDomainPolicyTimeoutsOutputReference | OpensearchDomainPolicyTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class OpensearchDomainPolicyTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -65,20 +56,14 @@ export class OpensearchDomainPolicyTimeoutsOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpensearchDomainPolicyTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): OpensearchDomainPolicyTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -95,18 +80,18 @@ export class OpensearchDomainPolicyTimeoutsOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpensearchDomainPolicyTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: OpensearchDomainPolicyTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -115,7 +100,7 @@ export class OpensearchDomainPolicyTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -131,7 +116,7 @@ export class OpensearchDomainPolicyTimeoutsOutputReference extends cdktf.Complex
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -148,36 +133,33 @@ export class OpensearchDomainPolicyTimeoutsOutputReference extends cdktf.Complex
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy aws_opensearch_domain_policy}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy aws_opensearch_domain_policy}
+*/
 export class OpensearchDomainPolicy extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_opensearch_domain_policy';
+  public static readonly tfResourceType = "aws_opensearch_domain_policy";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy aws_opensearch_domain_policy} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options OpensearchDomainPolicyConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: OpensearchDomainPolicyConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy aws_opensearch_domain_policy} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options OpensearchDomainPolicyConfig
+  */
+  public constructor(scope: Construct, id: string, config: OpensearchDomainPolicyConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_opensearch_domain_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -185,7 +167,7 @@ export class OpensearchDomainPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accessPolicies = config.accessPolicies;
     this._domainName = config.domainName;
@@ -198,7 +180,7 @@ export class OpensearchDomainPolicy extends cdktf.TerraformResource {
   // ==========
 
   // access_policies - computed: false, optional: false, required: true
-  private _accessPolicies?: string;
+  private _accessPolicies?: string; 
   public get accessPolicies() {
     return this.getStringAttribute('access_policies');
   }
@@ -211,7 +193,7 @@ export class OpensearchDomainPolicy extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string;
+  private _domainName?: string; 
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -224,7 +206,7 @@ export class OpensearchDomainPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -240,10 +222,7 @@ export class OpensearchDomainPolicy extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new OpensearchDomainPolicyTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new OpensearchDomainPolicyTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -267,9 +246,7 @@ export class OpensearchDomainPolicy extends cdktf.TerraformResource {
       access_policies: cdktf.stringToTerraform(this._accessPolicies),
       domain_name: cdktf.stringToTerraform(this._domainName),
       id: cdktf.stringToTerraform(this._id),
-      timeouts: opensearchDomainPolicyTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: opensearchDomainPolicyTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

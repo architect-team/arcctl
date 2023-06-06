@@ -1,135 +1,119 @@
 // https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ImagebuilderInfrastructureConfigurationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ImagebuilderInfrastructureConfigurationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#description ImagebuilderInfrastructureConfiguration#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#description ImagebuilderInfrastructureConfiguration#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#id ImagebuilderInfrastructureConfiguration#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#id ImagebuilderInfrastructureConfiguration#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#instance_profile_name ImagebuilderInfrastructureConfiguration#instance_profile_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#instance_profile_name ImagebuilderInfrastructureConfiguration#instance_profile_name}
+  */
   readonly instanceProfileName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#instance_types ImagebuilderInfrastructureConfiguration#instance_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#instance_types ImagebuilderInfrastructureConfiguration#instance_types}
+  */
   readonly instanceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#key_pair ImagebuilderInfrastructureConfiguration#key_pair}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#key_pair ImagebuilderInfrastructureConfiguration#key_pair}
+  */
   readonly keyPair?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#name ImagebuilderInfrastructureConfiguration#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#name ImagebuilderInfrastructureConfiguration#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#resource_tags ImagebuilderInfrastructureConfiguration#resource_tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#resource_tags ImagebuilderInfrastructureConfiguration#resource_tags}
+  */
   readonly resourceTags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#security_group_ids ImagebuilderInfrastructureConfiguration#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#security_group_ids ImagebuilderInfrastructureConfiguration#security_group_ids}
+  */
   readonly securityGroupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#sns_topic_arn ImagebuilderInfrastructureConfiguration#sns_topic_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#sns_topic_arn ImagebuilderInfrastructureConfiguration#sns_topic_arn}
+  */
   readonly snsTopicArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#subnet_id ImagebuilderInfrastructureConfiguration#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#subnet_id ImagebuilderInfrastructureConfiguration#subnet_id}
+  */
   readonly subnetId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#tags ImagebuilderInfrastructureConfiguration#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#tags ImagebuilderInfrastructureConfiguration#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#tags_all ImagebuilderInfrastructureConfiguration#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#tags_all ImagebuilderInfrastructureConfiguration#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#terminate_instance_on_failure ImagebuilderInfrastructureConfiguration#terminate_instance_on_failure}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#terminate_instance_on_failure ImagebuilderInfrastructureConfiguration#terminate_instance_on_failure}
+  */
   readonly terminateInstanceOnFailure?: boolean | cdktf.IResolvable;
   /**
-   * instance_metadata_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#instance_metadata_options ImagebuilderInfrastructureConfiguration#instance_metadata_options}
-   */
+  * instance_metadata_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#instance_metadata_options ImagebuilderInfrastructureConfiguration#instance_metadata_options}
+  */
   readonly instanceMetadataOptions?: ImagebuilderInfrastructureConfigurationInstanceMetadataOptions;
   /**
-   * logging block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#logging ImagebuilderInfrastructureConfiguration#logging}
-   */
+  * logging block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#logging ImagebuilderInfrastructureConfiguration#logging}
+  */
   readonly logging?: ImagebuilderInfrastructureConfigurationLogging;
 }
 export interface ImagebuilderInfrastructureConfigurationInstanceMetadataOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#http_put_response_hop_limit ImagebuilderInfrastructureConfiguration#http_put_response_hop_limit}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#http_put_response_hop_limit ImagebuilderInfrastructureConfiguration#http_put_response_hop_limit}
+  */
   readonly httpPutResponseHopLimit?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#http_tokens ImagebuilderInfrastructureConfiguration#http_tokens}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#http_tokens ImagebuilderInfrastructureConfiguration#http_tokens}
+  */
   readonly httpTokens?: string;
 }
 
-export function imagebuilderInfrastructureConfigurationInstanceMetadataOptionsToTerraform(
-  struct?:
-    | ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutputReference
-    | ImagebuilderInfrastructureConfigurationInstanceMetadataOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function imagebuilderInfrastructureConfigurationInstanceMetadataOptionsToTerraform(struct?: ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutputReference | ImagebuilderInfrastructureConfigurationInstanceMetadataOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    http_put_response_hop_limit: cdktf.numberToTerraform(
-      struct!.httpPutResponseHopLimit,
-    ),
+    http_put_response_hop_limit: cdktf.numberToTerraform(struct!.httpPutResponseHopLimit),
     http_tokens: cdktf.stringToTerraform(struct!.httpTokens),
-  };
+  }
 }
 
 export class ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ImagebuilderInfrastructureConfigurationInstanceMetadataOptions
-    | undefined {
+  public get internalValue(): ImagebuilderInfrastructureConfigurationInstanceMetadataOptions | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._httpPutResponseHopLimit !== undefined) {
       hasAnyValues = true;
-      internalValueResult.httpPutResponseHopLimit =
-        this._httpPutResponseHopLimit;
+      internalValueResult.httpPutResponseHopLimit = this._httpPutResponseHopLimit;
     }
     if (this._httpTokens !== undefined) {
       hasAnyValues = true;
@@ -138,16 +122,13 @@ export class ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutpu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | ImagebuilderInfrastructureConfigurationInstanceMetadataOptions
-      | undefined,
-  ) {
+  public set internalValue(value: ImagebuilderInfrastructureConfigurationInstanceMetadataOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._httpPutResponseHopLimit = undefined;
       this._httpTokens = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._httpPutResponseHopLimit = value.httpPutResponseHopLimit;
       this._httpTokens = value.httpTokens;
@@ -155,7 +136,7 @@ export class ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutpu
   }
 
   // http_put_response_hop_limit - computed: false, optional: true, required: false
-  private _httpPutResponseHopLimit?: number;
+  private _httpPutResponseHopLimit?: number; 
   public get httpPutResponseHopLimit() {
     return this.getNumberAttribute('http_put_response_hop_limit');
   }
@@ -171,7 +152,7 @@ export class ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutpu
   }
 
   // http_tokens - computed: false, optional: true, required: false
-  private _httpTokens?: string;
+  private _httpTokens?: string; 
   public get httpTokens() {
     return this.getStringAttribute('http_tokens');
   }
@@ -188,51 +169,38 @@ export class ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutpu
 }
 export interface ImagebuilderInfrastructureConfigurationLoggingS3Logs {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#s3_bucket_name ImagebuilderInfrastructureConfiguration#s3_bucket_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#s3_bucket_name ImagebuilderInfrastructureConfiguration#s3_bucket_name}
+  */
   readonly s3BucketName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#s3_key_prefix ImagebuilderInfrastructureConfiguration#s3_key_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#s3_key_prefix ImagebuilderInfrastructureConfiguration#s3_key_prefix}
+  */
   readonly s3KeyPrefix?: string;
 }
 
-export function imagebuilderInfrastructureConfigurationLoggingS3LogsToTerraform(
-  struct?:
-    | ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference
-    | ImagebuilderInfrastructureConfigurationLoggingS3Logs,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function imagebuilderInfrastructureConfigurationLoggingS3LogsToTerraform(struct?: ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference | ImagebuilderInfrastructureConfigurationLoggingS3Logs): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     s3_bucket_name: cdktf.stringToTerraform(struct!.s3BucketName),
     s3_key_prefix: cdktf.stringToTerraform(struct!.s3KeyPrefix),
-  };
+  }
 }
 
 export class ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ImagebuilderInfrastructureConfigurationLoggingS3Logs
-    | undefined {
+  public get internalValue(): ImagebuilderInfrastructureConfigurationLoggingS3Logs | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3BucketName !== undefined) {
@@ -246,14 +214,13 @@ export class ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ImagebuilderInfrastructureConfigurationLoggingS3Logs | undefined,
-  ) {
+  public set internalValue(value: ImagebuilderInfrastructureConfigurationLoggingS3Logs | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3BucketName = undefined;
       this._s3KeyPrefix = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3BucketName = value.s3BucketName;
       this._s3KeyPrefix = value.s3KeyPrefix;
@@ -261,7 +228,7 @@ export class ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference
   }
 
   // s3_bucket_name - computed: false, optional: false, required: true
-  private _s3BucketName?: string;
+  private _s3BucketName?: string; 
   public get s3BucketName() {
     return this.getStringAttribute('s3_bucket_name');
   }
@@ -274,7 +241,7 @@ export class ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference
   }
 
   // s3_key_prefix - computed: false, optional: true, required: false
-  private _s3KeyPrefix?: string;
+  private _s3KeyPrefix?: string; 
   public get s3KeyPrefix() {
     return this.getStringAttribute('s3_key_prefix');
   }
@@ -291,50 +258,35 @@ export class ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference
 }
 export interface ImagebuilderInfrastructureConfigurationLogging {
   /**
-   * s3_logs block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#s3_logs ImagebuilderInfrastructureConfiguration#s3_logs}
-   */
+  * s3_logs block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration#s3_logs ImagebuilderInfrastructureConfiguration#s3_logs}
+  */
   readonly s3Logs: ImagebuilderInfrastructureConfigurationLoggingS3Logs;
 }
 
-export function imagebuilderInfrastructureConfigurationLoggingToTerraform(
-  struct?:
-    | ImagebuilderInfrastructureConfigurationLoggingOutputReference
-    | ImagebuilderInfrastructureConfigurationLogging,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function imagebuilderInfrastructureConfigurationLoggingToTerraform(struct?: ImagebuilderInfrastructureConfigurationLoggingOutputReference | ImagebuilderInfrastructureConfigurationLogging): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    s3_logs: imagebuilderInfrastructureConfigurationLoggingS3LogsToTerraform(
-      struct!.s3Logs,
-    ),
-  };
+    s3_logs: imagebuilderInfrastructureConfigurationLoggingS3LogsToTerraform(struct!.s3Logs),
+  }
 }
 
 export class ImagebuilderInfrastructureConfigurationLoggingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ImagebuilderInfrastructureConfigurationLogging
-    | undefined {
+  public get internalValue(): ImagebuilderInfrastructureConfigurationLogging | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3Logs?.internalValue !== undefined) {
@@ -344,30 +296,23 @@ export class ImagebuilderInfrastructureConfigurationLoggingOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ImagebuilderInfrastructureConfigurationLogging | undefined,
-  ) {
+  public set internalValue(value: ImagebuilderInfrastructureConfigurationLogging | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3Logs.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3Logs.internalValue = value.s3Logs;
     }
   }
 
   // s3_logs - computed: false, optional: false, required: true
-  private _s3Logs =
-    new ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference(
-      this,
-      's3_logs',
-    );
+  private _s3Logs = new ImagebuilderInfrastructureConfigurationLoggingS3LogsOutputReference(this, "s3_logs");
   public get s3Logs() {
     return this._s3Logs;
   }
-  public putS3Logs(
-    value: ImagebuilderInfrastructureConfigurationLoggingS3Logs,
-  ) {
+  public putS3Logs(value: ImagebuilderInfrastructureConfigurationLoggingS3Logs) {
     this._s3Logs.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -377,37 +322,33 @@ export class ImagebuilderInfrastructureConfigurationLoggingOutputReference exten
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration}
+*/
 export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_imagebuilder_infrastructure_configuration';
+  public static readonly tfResourceType = "aws_imagebuilder_infrastructure_configuration";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ImagebuilderInfrastructureConfigurationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ImagebuilderInfrastructureConfigurationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_infrastructure_configuration aws_imagebuilder_infrastructure_configuration} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ImagebuilderInfrastructureConfigurationConfig
+  */
+  public constructor(scope: Construct, id: string, config: ImagebuilderInfrastructureConfigurationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_imagebuilder_infrastructure_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -415,7 +356,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._id = config.id;
@@ -430,8 +371,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._terminateInstanceOnFailure = config.terminateInstanceOnFailure;
-    this._instanceMetadataOptions.internalValue =
-      config.instanceMetadataOptions;
+    this._instanceMetadataOptions.internalValue = config.instanceMetadataOptions;
     this._logging.internalValue = config.logging;
   }
 
@@ -455,7 +395,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -471,7 +411,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -487,7 +427,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // instance_profile_name - computed: false, optional: false, required: true
-  private _instanceProfileName?: string;
+  private _instanceProfileName?: string; 
   public get instanceProfileName() {
     return this.getStringAttribute('instance_profile_name');
   }
@@ -500,7 +440,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // instance_types - computed: false, optional: true, required: false
-  private _instanceTypes?: string[];
+  private _instanceTypes?: string[]; 
   public get instanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('instance_types'));
   }
@@ -516,7 +456,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // key_pair - computed: false, optional: true, required: false
-  private _keyPair?: string;
+  private _keyPair?: string; 
   public get keyPair() {
     return this.getStringAttribute('key_pair');
   }
@@ -532,7 +472,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -545,7 +485,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // resource_tags - computed: false, optional: true, required: false
-  private _resourceTags?: { [key: string]: string };
+  private _resourceTags?: { [key: string]: string }; 
   public get resourceTags() {
     return this.getStringMapAttribute('resource_tags');
   }
@@ -561,7 +501,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -577,7 +517,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // sns_topic_arn - computed: false, optional: true, required: false
-  private _snsTopicArn?: string;
+  private _snsTopicArn?: string; 
   public get snsTopicArn() {
     return this.getStringAttribute('sns_topic_arn');
   }
@@ -593,7 +533,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -609,7 +549,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -625,7 +565,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -641,7 +581,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // terminate_instance_on_failure - computed: false, optional: true, required: false
-  private _terminateInstanceOnFailure?: boolean | cdktf.IResolvable;
+  private _terminateInstanceOnFailure?: boolean | cdktf.IResolvable; 
   public get terminateInstanceOnFailure() {
     return this.getBooleanAttribute('terminate_instance_on_failure');
   }
@@ -657,17 +597,11 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // instance_metadata_options - computed: false, optional: true, required: false
-  private _instanceMetadataOptions =
-    new ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutputReference(
-      this,
-      'instance_metadata_options',
-    );
+  private _instanceMetadataOptions = new ImagebuilderInfrastructureConfigurationInstanceMetadataOptionsOutputReference(this, "instance_metadata_options");
   public get instanceMetadataOptions() {
     return this._instanceMetadataOptions;
   }
-  public putInstanceMetadataOptions(
-    value: ImagebuilderInfrastructureConfigurationInstanceMetadataOptions,
-  ) {
+  public putInstanceMetadataOptions(value: ImagebuilderInfrastructureConfigurationInstanceMetadataOptions) {
     this._instanceMetadataOptions.internalValue = value;
   }
   public resetInstanceMetadataOptions() {
@@ -679,11 +613,7 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
   }
 
   // logging - computed: false, optional: true, required: false
-  private _logging =
-    new ImagebuilderInfrastructureConfigurationLoggingOutputReference(
-      this,
-      'logging',
-    );
+  private _logging = new ImagebuilderInfrastructureConfigurationLoggingOutputReference(this, "logging");
   public get logging() {
     return this._logging;
   }
@@ -707,33 +637,18 @@ export class ImagebuilderInfrastructureConfiguration extends cdktf.TerraformReso
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
       instance_profile_name: cdktf.stringToTerraform(this._instanceProfileName),
-      instance_types: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._instanceTypes),
+      instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._instanceTypes),
       key_pair: cdktf.stringToTerraform(this._keyPair),
       name: cdktf.stringToTerraform(this._name),
-      resource_tags: cdktf.hashMapper(cdktf.stringToTerraform)(
-        this._resourceTags,
-      ),
-      security_group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._securityGroupIds),
+      resource_tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._resourceTags),
+      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
       sns_topic_arn: cdktf.stringToTerraform(this._snsTopicArn),
       subnet_id: cdktf.stringToTerraform(this._subnetId),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      terminate_instance_on_failure: cdktf.booleanToTerraform(
-        this._terminateInstanceOnFailure,
-      ),
-      instance_metadata_options:
-        imagebuilderInfrastructureConfigurationInstanceMetadataOptionsToTerraform(
-          this._instanceMetadataOptions.internalValue,
-        ),
-      logging: imagebuilderInfrastructureConfigurationLoggingToTerraform(
-        this._logging.internalValue,
-      ),
+      terminate_instance_on_failure: cdktf.booleanToTerraform(this._terminateInstanceOnFailure),
+      instance_metadata_options: imagebuilderInfrastructureConfigurationInstanceMetadataOptionsToTerraform(this._instanceMetadataOptions.internalValue),
+      logging: imagebuilderInfrastructureConfigurationLoggingToTerraform(this._logging.internalValue),
     };
   }
 }

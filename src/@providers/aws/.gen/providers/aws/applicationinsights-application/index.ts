@@ -1,88 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/applicationinsights_application
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ApplicationinsightsApplicationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ApplicationinsightsApplicationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#auto_config_enabled ApplicationinsightsApplication#auto_config_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#auto_config_enabled ApplicationinsightsApplication#auto_config_enabled}
+  */
   readonly autoConfigEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#auto_create ApplicationinsightsApplication#auto_create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#auto_create ApplicationinsightsApplication#auto_create}
+  */
   readonly autoCreate?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#cwe_monitor_enabled ApplicationinsightsApplication#cwe_monitor_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#cwe_monitor_enabled ApplicationinsightsApplication#cwe_monitor_enabled}
+  */
   readonly cweMonitorEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#grouping_type ApplicationinsightsApplication#grouping_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#grouping_type ApplicationinsightsApplication#grouping_type}
+  */
   readonly groupingType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#id ApplicationinsightsApplication#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#id ApplicationinsightsApplication#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#ops_center_enabled ApplicationinsightsApplication#ops_center_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#ops_center_enabled ApplicationinsightsApplication#ops_center_enabled}
+  */
   readonly opsCenterEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#ops_item_sns_topic_arn ApplicationinsightsApplication#ops_item_sns_topic_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#ops_item_sns_topic_arn ApplicationinsightsApplication#ops_item_sns_topic_arn}
+  */
   readonly opsItemSnsTopicArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#resource_group_name ApplicationinsightsApplication#resource_group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#resource_group_name ApplicationinsightsApplication#resource_group_name}
+  */
   readonly resourceGroupName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#tags ApplicationinsightsApplication#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#tags ApplicationinsightsApplication#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#tags_all ApplicationinsightsApplication#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application#tags_all ApplicationinsightsApplication#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application aws_applicationinsights_application}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application aws_applicationinsights_application}
+*/
 export class ApplicationinsightsApplication extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_applicationinsights_application';
+  public static readonly tfResourceType = "aws_applicationinsights_application";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application aws_applicationinsights_application} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ApplicationinsightsApplicationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ApplicationinsightsApplicationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/applicationinsights_application aws_applicationinsights_application} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ApplicationinsightsApplicationConfig
+  */
+  public constructor(scope: Construct, id: string, config: ApplicationinsightsApplicationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_applicationinsights_application',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -90,7 +87,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._autoConfigEnabled = config.autoConfigEnabled;
     this._autoCreate = config.autoCreate;
@@ -114,7 +111,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // auto_config_enabled - computed: false, optional: true, required: false
-  private _autoConfigEnabled?: boolean | cdktf.IResolvable;
+  private _autoConfigEnabled?: boolean | cdktf.IResolvable; 
   public get autoConfigEnabled() {
     return this.getBooleanAttribute('auto_config_enabled');
   }
@@ -130,7 +127,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // auto_create - computed: false, optional: true, required: false
-  private _autoCreate?: boolean | cdktf.IResolvable;
+  private _autoCreate?: boolean | cdktf.IResolvable; 
   public get autoCreate() {
     return this.getBooleanAttribute('auto_create');
   }
@@ -146,7 +143,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // cwe_monitor_enabled - computed: false, optional: true, required: false
-  private _cweMonitorEnabled?: boolean | cdktf.IResolvable;
+  private _cweMonitorEnabled?: boolean | cdktf.IResolvable; 
   public get cweMonitorEnabled() {
     return this.getBooleanAttribute('cwe_monitor_enabled');
   }
@@ -162,7 +159,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // grouping_type - computed: false, optional: true, required: false
-  private _groupingType?: string;
+  private _groupingType?: string; 
   public get groupingType() {
     return this.getStringAttribute('grouping_type');
   }
@@ -178,7 +175,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -194,7 +191,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // ops_center_enabled - computed: false, optional: true, required: false
-  private _opsCenterEnabled?: boolean | cdktf.IResolvable;
+  private _opsCenterEnabled?: boolean | cdktf.IResolvable; 
   public get opsCenterEnabled() {
     return this.getBooleanAttribute('ops_center_enabled');
   }
@@ -210,7 +207,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // ops_item_sns_topic_arn - computed: false, optional: true, required: false
-  private _opsItemSnsTopicArn?: string;
+  private _opsItemSnsTopicArn?: string; 
   public get opsItemSnsTopicArn() {
     return this.getStringAttribute('ops_item_sns_topic_arn');
   }
@@ -226,7 +223,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // resource_group_name - computed: false, optional: false, required: true
-  private _resourceGroupName?: string;
+  private _resourceGroupName?: string; 
   public get resourceGroupName() {
     return this.getStringAttribute('resource_group_name');
   }
@@ -239,7 +236,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -255,7 +252,7 @@ export class ApplicationinsightsApplication extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }

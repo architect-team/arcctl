@@ -1,108 +1,105 @@
 // https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DevicefarmNetworkProfileConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DevicefarmNetworkProfileConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#description DevicefarmNetworkProfile#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#description DevicefarmNetworkProfile#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_bandwidth_bits DevicefarmNetworkProfile#downlink_bandwidth_bits}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_bandwidth_bits DevicefarmNetworkProfile#downlink_bandwidth_bits}
+  */
   readonly downlinkBandwidthBits?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_delay_ms DevicefarmNetworkProfile#downlink_delay_ms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_delay_ms DevicefarmNetworkProfile#downlink_delay_ms}
+  */
   readonly downlinkDelayMs?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_jitter_ms DevicefarmNetworkProfile#downlink_jitter_ms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_jitter_ms DevicefarmNetworkProfile#downlink_jitter_ms}
+  */
   readonly downlinkJitterMs?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_loss_percent DevicefarmNetworkProfile#downlink_loss_percent}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#downlink_loss_percent DevicefarmNetworkProfile#downlink_loss_percent}
+  */
   readonly downlinkLossPercent?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#id DevicefarmNetworkProfile#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#id DevicefarmNetworkProfile#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#name DevicefarmNetworkProfile#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#name DevicefarmNetworkProfile#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#project_arn DevicefarmNetworkProfile#project_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#project_arn DevicefarmNetworkProfile#project_arn}
+  */
   readonly projectArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#tags DevicefarmNetworkProfile#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#tags DevicefarmNetworkProfile#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#tags_all DevicefarmNetworkProfile#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#tags_all DevicefarmNetworkProfile#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#type DevicefarmNetworkProfile#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#type DevicefarmNetworkProfile#type}
+  */
   readonly type?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_bandwidth_bits DevicefarmNetworkProfile#uplink_bandwidth_bits}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_bandwidth_bits DevicefarmNetworkProfile#uplink_bandwidth_bits}
+  */
   readonly uplinkBandwidthBits?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_delay_ms DevicefarmNetworkProfile#uplink_delay_ms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_delay_ms DevicefarmNetworkProfile#uplink_delay_ms}
+  */
   readonly uplinkDelayMs?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_jitter_ms DevicefarmNetworkProfile#uplink_jitter_ms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_jitter_ms DevicefarmNetworkProfile#uplink_jitter_ms}
+  */
   readonly uplinkJitterMs?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_loss_percent DevicefarmNetworkProfile#uplink_loss_percent}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile#uplink_loss_percent DevicefarmNetworkProfile#uplink_loss_percent}
+  */
   readonly uplinkLossPercent?: number;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile aws_devicefarm_network_profile}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile aws_devicefarm_network_profile}
+*/
 export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_devicefarm_network_profile';
+  public static readonly tfResourceType = "aws_devicefarm_network_profile";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile aws_devicefarm_network_profile} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DevicefarmNetworkProfileConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DevicefarmNetworkProfileConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/devicefarm_network_profile aws_devicefarm_network_profile} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DevicefarmNetworkProfileConfig
+  */
+  public constructor(scope: Construct, id: string, config: DevicefarmNetworkProfileConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_devicefarm_network_profile',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -110,7 +107,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._downlinkBandwidthBits = config.downlinkBandwidthBits;
@@ -139,7 +136,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -155,7 +152,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_bandwidth_bits - computed: false, optional: true, required: false
-  private _downlinkBandwidthBits?: number;
+  private _downlinkBandwidthBits?: number; 
   public get downlinkBandwidthBits() {
     return this.getNumberAttribute('downlink_bandwidth_bits');
   }
@@ -171,7 +168,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_delay_ms - computed: false, optional: true, required: false
-  private _downlinkDelayMs?: number;
+  private _downlinkDelayMs?: number; 
   public get downlinkDelayMs() {
     return this.getNumberAttribute('downlink_delay_ms');
   }
@@ -187,7 +184,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_jitter_ms - computed: false, optional: true, required: false
-  private _downlinkJitterMs?: number;
+  private _downlinkJitterMs?: number; 
   public get downlinkJitterMs() {
     return this.getNumberAttribute('downlink_jitter_ms');
   }
@@ -203,7 +200,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // downlink_loss_percent - computed: false, optional: true, required: false
-  private _downlinkLossPercent?: number;
+  private _downlinkLossPercent?: number; 
   public get downlinkLossPercent() {
     return this.getNumberAttribute('downlink_loss_percent');
   }
@@ -219,7 +216,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -235,7 +232,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -248,7 +245,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // project_arn - computed: false, optional: false, required: true
-  private _projectArn?: string;
+  private _projectArn?: string; 
   public get projectArn() {
     return this.getStringAttribute('project_arn');
   }
@@ -261,7 +258,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -277,7 +274,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -293,7 +290,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -309,7 +306,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_bandwidth_bits - computed: false, optional: true, required: false
-  private _uplinkBandwidthBits?: number;
+  private _uplinkBandwidthBits?: number; 
   public get uplinkBandwidthBits() {
     return this.getNumberAttribute('uplink_bandwidth_bits');
   }
@@ -325,7 +322,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_delay_ms - computed: false, optional: true, required: false
-  private _uplinkDelayMs?: number;
+  private _uplinkDelayMs?: number; 
   public get uplinkDelayMs() {
     return this.getNumberAttribute('uplink_delay_ms');
   }
@@ -341,7 +338,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_jitter_ms - computed: false, optional: true, required: false
-  private _uplinkJitterMs?: number;
+  private _uplinkJitterMs?: number; 
   public get uplinkJitterMs() {
     return this.getNumberAttribute('uplink_jitter_ms');
   }
@@ -357,7 +354,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   }
 
   // uplink_loss_percent - computed: false, optional: true, required: false
-  private _uplinkLossPercent?: number;
+  private _uplinkLossPercent?: number; 
   public get uplinkLossPercent() {
     return this.getNumberAttribute('uplink_loss_percent');
   }
@@ -379,9 +376,7 @@ export class DevicefarmNetworkProfile extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       description: cdktf.stringToTerraform(this._description),
-      downlink_bandwidth_bits: cdktf.numberToTerraform(
-        this._downlinkBandwidthBits,
-      ),
+      downlink_bandwidth_bits: cdktf.numberToTerraform(this._downlinkBandwidthBits),
       downlink_delay_ms: cdktf.numberToTerraform(this._downlinkDelayMs),
       downlink_jitter_ms: cdktf.numberToTerraform(this._downlinkJitterMs),
       downlink_loss_percent: cdktf.numberToTerraform(this._downlinkLossPercent),

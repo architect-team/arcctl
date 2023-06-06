@@ -1,191 +1,178 @@
 // https://www.terraform.io/docs/providers/aws/r/spot_fleet_request
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface SpotFleetRequestConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#allocation_strategy SpotFleetRequest#allocation_strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#allocation_strategy SpotFleetRequest#allocation_strategy}
+  */
   readonly allocationStrategy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#excess_capacity_termination_policy SpotFleetRequest#excess_capacity_termination_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#excess_capacity_termination_policy SpotFleetRequest#excess_capacity_termination_policy}
+  */
   readonly excessCapacityTerminationPolicy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#fleet_type SpotFleetRequest#fleet_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#fleet_type SpotFleetRequest#fleet_type}
+  */
   readonly fleetType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iam_fleet_role SpotFleetRequest#iam_fleet_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iam_fleet_role SpotFleetRequest#iam_fleet_role}
+  */
   readonly iamFleetRole: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#id SpotFleetRequest#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#id SpotFleetRequest#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_interruption_behaviour SpotFleetRequest#instance_interruption_behaviour}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_interruption_behaviour SpotFleetRequest#instance_interruption_behaviour}
+  */
   readonly instanceInterruptionBehaviour?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_pools_to_use_count SpotFleetRequest#instance_pools_to_use_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_pools_to_use_count SpotFleetRequest#instance_pools_to_use_count}
+  */
   readonly instancePoolsToUseCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#load_balancers SpotFleetRequest#load_balancers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#load_balancers SpotFleetRequest#load_balancers}
+  */
   readonly loadBalancers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_allocation_strategy SpotFleetRequest#on_demand_allocation_strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_allocation_strategy SpotFleetRequest#on_demand_allocation_strategy}
+  */
   readonly onDemandAllocationStrategy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_max_total_price SpotFleetRequest#on_demand_max_total_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_max_total_price SpotFleetRequest#on_demand_max_total_price}
+  */
   readonly onDemandMaxTotalPrice?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_target_capacity SpotFleetRequest#on_demand_target_capacity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_target_capacity SpotFleetRequest#on_demand_target_capacity}
+  */
   readonly onDemandTargetCapacity?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#replace_unhealthy_instances SpotFleetRequest#replace_unhealthy_instances}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#replace_unhealthy_instances SpotFleetRequest#replace_unhealthy_instances}
+  */
   readonly replaceUnhealthyInstances?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_price SpotFleetRequest#spot_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_price SpotFleetRequest#spot_price}
+  */
   readonly spotPrice?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#tags SpotFleetRequest#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#tags SpotFleetRequest#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#tags_all SpotFleetRequest#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#tags_all SpotFleetRequest#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#target_capacity SpotFleetRequest#target_capacity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#target_capacity SpotFleetRequest#target_capacity}
+  */
   readonly targetCapacity: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#target_capacity_unit_type SpotFleetRequest#target_capacity_unit_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#target_capacity_unit_type SpotFleetRequest#target_capacity_unit_type}
+  */
   readonly targetCapacityUnitType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#target_group_arns SpotFleetRequest#target_group_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#target_group_arns SpotFleetRequest#target_group_arns}
+  */
   readonly targetGroupArns?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#terminate_instances_on_delete SpotFleetRequest#terminate_instances_on_delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#terminate_instances_on_delete SpotFleetRequest#terminate_instances_on_delete}
+  */
   readonly terminateInstancesOnDelete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#terminate_instances_with_expiration SpotFleetRequest#terminate_instances_with_expiration}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#terminate_instances_with_expiration SpotFleetRequest#terminate_instances_with_expiration}
+  */
   readonly terminateInstancesWithExpiration?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#valid_from SpotFleetRequest#valid_from}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#valid_from SpotFleetRequest#valid_from}
+  */
   readonly validFrom?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#valid_until SpotFleetRequest#valid_until}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#valid_until SpotFleetRequest#valid_until}
+  */
   readonly validUntil?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#wait_for_fulfillment SpotFleetRequest#wait_for_fulfillment}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#wait_for_fulfillment SpotFleetRequest#wait_for_fulfillment}
+  */
   readonly waitForFulfillment?: boolean | cdktf.IResolvable;
   /**
-   * launch_specification block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_specification SpotFleetRequest#launch_specification}
-   */
-  readonly launchSpecification?:
-    | SpotFleetRequestLaunchSpecification[]
-    | cdktf.IResolvable;
+  * launch_specification block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_specification SpotFleetRequest#launch_specification}
+  */
+  readonly launchSpecification?: SpotFleetRequestLaunchSpecification[] | cdktf.IResolvable;
   /**
-   * launch_template_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_template_config SpotFleetRequest#launch_template_config}
-   */
-  readonly launchTemplateConfig?:
-    | SpotFleetRequestLaunchTemplateConfig[]
-    | cdktf.IResolvable;
+  * launch_template_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_template_config SpotFleetRequest#launch_template_config}
+  */
+  readonly launchTemplateConfig?: SpotFleetRequestLaunchTemplateConfig[] | cdktf.IResolvable;
   /**
-   * spot_maintenance_strategies block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_maintenance_strategies SpotFleetRequest#spot_maintenance_strategies}
-   */
+  * spot_maintenance_strategies block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_maintenance_strategies SpotFleetRequest#spot_maintenance_strategies}
+  */
   readonly spotMaintenanceStrategies?: SpotFleetRequestSpotMaintenanceStrategies;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#timeouts SpotFleetRequest#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#timeouts SpotFleetRequest#timeouts}
+  */
   readonly timeouts?: SpotFleetRequestTimeouts;
 }
 export interface SpotFleetRequestLaunchSpecificationEbsBlockDevice {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#delete_on_termination SpotFleetRequest#delete_on_termination}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#delete_on_termination SpotFleetRequest#delete_on_termination}
+  */
   readonly deleteOnTermination?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#device_name SpotFleetRequest#device_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#device_name SpotFleetRequest#device_name}
+  */
   readonly deviceName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#encrypted SpotFleetRequest#encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#encrypted SpotFleetRequest#encrypted}
+  */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iops SpotFleetRequest#iops}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iops SpotFleetRequest#iops}
+  */
   readonly iops?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#kms_key_id SpotFleetRequest#kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#kms_key_id SpotFleetRequest#kms_key_id}
+  */
   readonly kmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#snapshot_id SpotFleetRequest#snapshot_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#snapshot_id SpotFleetRequest#snapshot_id}
+  */
   readonly snapshotId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#throughput SpotFleetRequest#throughput}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#throughput SpotFleetRequest#throughput}
+  */
   readonly throughput?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_size SpotFleetRequest#volume_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_size SpotFleetRequest#volume_size}
+  */
   readonly volumeSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_type SpotFleetRequest#volume_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_type SpotFleetRequest#volume_type}
+  */
   readonly volumeType?: string;
 }
 
-export function spotFleetRequestLaunchSpecificationEbsBlockDeviceToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchSpecificationEbsBlockDevice
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchSpecificationEbsBlockDeviceToTerraform(struct?: SpotFleetRequestLaunchSpecificationEbsBlockDevice | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    delete_on_termination: cdktf.booleanToTerraform(
-      struct!.deleteOnTermination,
-    ),
+    delete_on_termination: cdktf.booleanToTerraform(struct!.deleteOnTermination),
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
     iops: cdktf.numberToTerraform(struct!.iops),
@@ -194,7 +181,7 @@ export function spotFleetRequestLaunchSpecificationEbsBlockDeviceToTerraform(
     throughput: cdktf.numberToTerraform(struct!.throughput),
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
     volume_type: cdktf.stringToTerraform(struct!.volumeType),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -202,29 +189,16 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchSpecificationEbsBlockDevice
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchSpecificationEbsBlockDevice | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -269,12 +243,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchSpecificationEbsBlockDevice
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchSpecificationEbsBlockDevice | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -287,10 +256,12 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
       this._throughput = undefined;
       this._volumeSize = undefined;
       this._volumeType = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deleteOnTermination = value.deleteOnTermination;
@@ -306,7 +277,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable;
+  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -322,7 +293,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string;
+  private _deviceName?: string; 
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -335,7 +306,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable;
+  private _encrypted?: boolean | cdktf.IResolvable; 
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -351,7 +322,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number;
+  private _iops?: number; 
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -367,7 +338,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string;
+  private _kmsKeyId?: string; 
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -383,7 +354,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // snapshot_id - computed: true, optional: true, required: false
-  private _snapshotId?: string;
+  private _snapshotId?: string; 
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -399,7 +370,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number;
+  private _throughput?: number; 
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -415,7 +386,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number;
+  private _volumeSize?: number; 
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -431,7 +402,7 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string;
+  private _volumeType?: string; 
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -448,65 +419,44 @@ export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference ex
 }
 
 export class SpotFleetRequestLaunchSpecificationEbsBlockDeviceList extends cdktf.ComplexList {
-  public internalValue?:
-    | SpotFleetRequestLaunchSpecificationEbsBlockDevice[]
-    | cdktf.IResolvable;
+  public internalValue? : SpotFleetRequestLaunchSpecificationEbsBlockDevice[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference {
-    return new SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference {
+    return new SpotFleetRequestLaunchSpecificationEbsBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SpotFleetRequestLaunchSpecificationEphemeralBlockDevice {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#device_name SpotFleetRequest#device_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#device_name SpotFleetRequest#device_name}
+  */
   readonly deviceName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#virtual_name SpotFleetRequest#virtual_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#virtual_name SpotFleetRequest#virtual_name}
+  */
   readonly virtualName: string;
 }
 
-export function spotFleetRequestLaunchSpecificationEphemeralBlockDeviceToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchSpecificationEphemeralBlockDevice
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchSpecificationEphemeralBlockDeviceToTerraform(struct?: SpotFleetRequestLaunchSpecificationEphemeralBlockDevice | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     virtual_name: cdktf.stringToTerraform(struct!.virtualName),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -514,29 +464,16 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchSpecificationEphemeralBlockDevice
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchSpecificationEphemeralBlockDevice | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -553,21 +490,18 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchSpecificationEphemeralBlockDevice
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchSpecificationEphemeralBlockDevice | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._deviceName = undefined;
       this._virtualName = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deviceName = value.deviceName;
@@ -576,7 +510,7 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string;
+  private _deviceName?: string; 
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -589,7 +523,7 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
   }
 
   // virtual_name - computed: false, optional: false, required: true
-  private _virtualName?: string;
+  private _virtualName?: string; 
   public get virtualName() {
     return this.getStringAttribute('virtual_name');
   }
@@ -603,92 +537,69 @@ export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputRefere
 }
 
 export class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceList extends cdktf.ComplexList {
-  public internalValue?:
-    | SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[]
-    | cdktf.IResolvable;
+  public internalValue? : SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputReference {
-    return new SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputReference {
+    return new SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SpotFleetRequestLaunchSpecificationRootBlockDevice {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#delete_on_termination SpotFleetRequest#delete_on_termination}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#delete_on_termination SpotFleetRequest#delete_on_termination}
+  */
   readonly deleteOnTermination?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#encrypted SpotFleetRequest#encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#encrypted SpotFleetRequest#encrypted}
+  */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iops SpotFleetRequest#iops}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iops SpotFleetRequest#iops}
+  */
   readonly iops?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#kms_key_id SpotFleetRequest#kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#kms_key_id SpotFleetRequest#kms_key_id}
+  */
   readonly kmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#throughput SpotFleetRequest#throughput}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#throughput SpotFleetRequest#throughput}
+  */
   readonly throughput?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_size SpotFleetRequest#volume_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_size SpotFleetRequest#volume_size}
+  */
   readonly volumeSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_type SpotFleetRequest#volume_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#volume_type SpotFleetRequest#volume_type}
+  */
   readonly volumeType?: string;
 }
 
-export function spotFleetRequestLaunchSpecificationRootBlockDeviceToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchSpecificationRootBlockDevice
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchSpecificationRootBlockDeviceToTerraform(struct?: SpotFleetRequestLaunchSpecificationRootBlockDevice | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    delete_on_termination: cdktf.booleanToTerraform(
-      struct!.deleteOnTermination,
-    ),
+    delete_on_termination: cdktf.booleanToTerraform(struct!.deleteOnTermination),
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
     iops: cdktf.numberToTerraform(struct!.iops),
     kms_key_id: cdktf.stringToTerraform(struct!.kmsKeyId),
     throughput: cdktf.numberToTerraform(struct!.throughput),
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
     volume_type: cdktf.stringToTerraform(struct!.volumeType),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -696,29 +607,16 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchSpecificationRootBlockDevice
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchSpecificationRootBlockDevice | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -755,12 +653,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchSpecificationRootBlockDevice
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchSpecificationRootBlockDevice | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -771,10 +664,12 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
       this._throughput = undefined;
       this._volumeSize = undefined;
       this._volumeType = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deleteOnTermination = value.deleteOnTermination;
@@ -788,7 +683,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable;
+  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -804,7 +699,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // encrypted - computed: true, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable;
+  private _encrypted?: boolean | cdktf.IResolvable; 
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -820,7 +715,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number;
+  private _iops?: number; 
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -836,7 +731,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // kms_key_id - computed: true, optional: true, required: false
-  private _kmsKeyId?: string;
+  private _kmsKeyId?: string; 
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -852,7 +747,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number;
+  private _throughput?: number; 
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -868,7 +763,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number;
+  private _volumeSize?: number; 
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -884,7 +779,7 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string;
+  private _volumeType?: string; 
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -901,154 +796,125 @@ export class SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference e
 }
 
 export class SpotFleetRequestLaunchSpecificationRootBlockDeviceList extends cdktf.ComplexList {
-  public internalValue?:
-    | SpotFleetRequestLaunchSpecificationRootBlockDevice[]
-    | cdktf.IResolvable;
+  public internalValue? : SpotFleetRequestLaunchSpecificationRootBlockDevice[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference {
-    return new SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference {
+    return new SpotFleetRequestLaunchSpecificationRootBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SpotFleetRequestLaunchSpecification {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ami SpotFleetRequest#ami}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ami SpotFleetRequest#ami}
+  */
   readonly ami: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#associate_public_ip_address SpotFleetRequest#associate_public_ip_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#associate_public_ip_address SpotFleetRequest#associate_public_ip_address}
+  */
   readonly associatePublicIpAddress?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#availability_zone SpotFleetRequest#availability_zone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#availability_zone SpotFleetRequest#availability_zone}
+  */
   readonly availabilityZone?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ebs_optimized SpotFleetRequest#ebs_optimized}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ebs_optimized SpotFleetRequest#ebs_optimized}
+  */
   readonly ebsOptimized?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iam_instance_profile SpotFleetRequest#iam_instance_profile}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iam_instance_profile SpotFleetRequest#iam_instance_profile}
+  */
   readonly iamInstanceProfile?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iam_instance_profile_arn SpotFleetRequest#iam_instance_profile_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#iam_instance_profile_arn SpotFleetRequest#iam_instance_profile_arn}
+  */
   readonly iamInstanceProfileArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_type SpotFleetRequest#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_type SpotFleetRequest#instance_type}
+  */
   readonly instanceType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#key_name SpotFleetRequest#key_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#key_name SpotFleetRequest#key_name}
+  */
   readonly keyName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#monitoring SpotFleetRequest#monitoring}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#monitoring SpotFleetRequest#monitoring}
+  */
   readonly monitoring?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#placement_group SpotFleetRequest#placement_group}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#placement_group SpotFleetRequest#placement_group}
+  */
   readonly placementGroup?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#placement_tenancy SpotFleetRequest#placement_tenancy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#placement_tenancy SpotFleetRequest#placement_tenancy}
+  */
   readonly placementTenancy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_price SpotFleetRequest#spot_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_price SpotFleetRequest#spot_price}
+  */
   readonly spotPrice?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#subnet_id SpotFleetRequest#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#subnet_id SpotFleetRequest#subnet_id}
+  */
   readonly subnetId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#tags SpotFleetRequest#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#tags SpotFleetRequest#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#user_data SpotFleetRequest#user_data}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#user_data SpotFleetRequest#user_data}
+  */
   readonly userData?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#vpc_security_group_ids SpotFleetRequest#vpc_security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#vpc_security_group_ids SpotFleetRequest#vpc_security_group_ids}
+  */
   readonly vpcSecurityGroupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#weighted_capacity SpotFleetRequest#weighted_capacity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#weighted_capacity SpotFleetRequest#weighted_capacity}
+  */
   readonly weightedCapacity?: string;
   /**
-   * ebs_block_device block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ebs_block_device SpotFleetRequest#ebs_block_device}
-   */
-  readonly ebsBlockDevice?:
-    | SpotFleetRequestLaunchSpecificationEbsBlockDevice[]
-    | cdktf.IResolvable;
+  * ebs_block_device block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ebs_block_device SpotFleetRequest#ebs_block_device}
+  */
+  readonly ebsBlockDevice?: SpotFleetRequestLaunchSpecificationEbsBlockDevice[] | cdktf.IResolvable;
   /**
-   * ephemeral_block_device block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ephemeral_block_device SpotFleetRequest#ephemeral_block_device}
-   */
-  readonly ephemeralBlockDevice?:
-    | SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[]
-    | cdktf.IResolvable;
+  * ephemeral_block_device block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#ephemeral_block_device SpotFleetRequest#ephemeral_block_device}
+  */
+  readonly ephemeralBlockDevice?: SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[] | cdktf.IResolvable;
   /**
-   * root_block_device block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#root_block_device SpotFleetRequest#root_block_device}
-   */
-  readonly rootBlockDevice?:
-    | SpotFleetRequestLaunchSpecificationRootBlockDevice[]
-    | cdktf.IResolvable;
+  * root_block_device block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#root_block_device SpotFleetRequest#root_block_device}
+  */
+  readonly rootBlockDevice?: SpotFleetRequestLaunchSpecificationRootBlockDevice[] | cdktf.IResolvable;
 }
 
-export function spotFleetRequestLaunchSpecificationToTerraform(
-  struct?: SpotFleetRequestLaunchSpecification | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchSpecificationToTerraform(struct?: SpotFleetRequestLaunchSpecification | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     ami: cdktf.stringToTerraform(struct!.ami),
-    associate_public_ip_address: cdktf.booleanToTerraform(
-      struct!.associatePublicIpAddress,
-    ),
+    associate_public_ip_address: cdktf.booleanToTerraform(struct!.associatePublicIpAddress),
     availability_zone: cdktf.stringToTerraform(struct!.availabilityZone),
     ebs_optimized: cdktf.booleanToTerraform(struct!.ebsOptimized),
     iam_instance_profile: cdktf.stringToTerraform(struct!.iamInstanceProfile),
-    iam_instance_profile_arn: cdktf.stringToTerraform(
-      struct!.iamInstanceProfileArn,
-    ),
+    iam_instance_profile_arn: cdktf.stringToTerraform(struct!.iamInstanceProfileArn),
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     key_name: cdktf.stringToTerraform(struct!.keyName),
     monitoring: cdktf.booleanToTerraform(struct!.monitoring),
@@ -1058,24 +924,12 @@ export function spotFleetRequestLaunchSpecificationToTerraform(
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
     tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
     user_data: cdktf.stringToTerraform(struct!.userData),
-    vpc_security_group_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.vpcSecurityGroupIds),
+    vpc_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.vpcSecurityGroupIds),
     weighted_capacity: cdktf.stringToTerraform(struct!.weightedCapacity),
-    ebs_block_device: cdktf.listMapper(
-      spotFleetRequestLaunchSpecificationEbsBlockDeviceToTerraform,
-      true,
-    )(struct!.ebsBlockDevice),
-    ephemeral_block_device: cdktf.listMapper(
-      spotFleetRequestLaunchSpecificationEphemeralBlockDeviceToTerraform,
-      true,
-    )(struct!.ephemeralBlockDevice),
-    root_block_device: cdktf.listMapper(
-      spotFleetRequestLaunchSpecificationRootBlockDeviceToTerraform,
-      true,
-    )(struct!.rootBlockDevice),
-  };
+    ebs_block_device: cdktf.listMapper(spotFleetRequestLaunchSpecificationEbsBlockDeviceToTerraform, true)(struct!.ebsBlockDevice),
+    ephemeral_block_device: cdktf.listMapper(spotFleetRequestLaunchSpecificationEphemeralBlockDeviceToTerraform, true)(struct!.ephemeralBlockDevice),
+    root_block_device: cdktf.listMapper(spotFleetRequestLaunchSpecificationRootBlockDeviceToTerraform, true)(struct!.rootBlockDevice),
+  }
 }
 
 export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.ComplexObject {
@@ -1083,29 +937,16 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchSpecification
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchSpecification | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1117,8 +958,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
     }
     if (this._associatePublicIpAddress !== undefined) {
       hasAnyValues = true;
-      internalValueResult.associatePublicIpAddress =
-        this._associatePublicIpAddress;
+      internalValueResult.associatePublicIpAddress = this._associatePublicIpAddress;
     }
     if (this._availabilityZone !== undefined) {
       hasAnyValues = true;
@@ -1186,20 +1026,16 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
     }
     if (this._ephemeralBlockDevice?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.ephemeralBlockDevice =
-        this._ephemeralBlockDevice?.internalValue;
+      internalValueResult.ephemeralBlockDevice = this._ephemeralBlockDevice?.internalValue;
     }
     if (this._rootBlockDevice?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.rootBlockDevice =
-        this._rootBlockDevice?.internalValue;
+      internalValueResult.rootBlockDevice = this._rootBlockDevice?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SpotFleetRequestLaunchSpecification | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchSpecification | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -1223,10 +1059,12 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
       this._ebsBlockDevice.internalValue = undefined;
       this._ephemeralBlockDevice.internalValue = undefined;
       this._rootBlockDevice.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._ami = value.ami;
@@ -1253,7 +1091,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // ami - computed: false, optional: false, required: true
-  private _ami?: string;
+  private _ami?: string; 
   public get ami() {
     return this.getStringAttribute('ami');
   }
@@ -1266,7 +1104,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // associate_public_ip_address - computed: false, optional: true, required: false
-  private _associatePublicIpAddress?: boolean | cdktf.IResolvable;
+  private _associatePublicIpAddress?: boolean | cdktf.IResolvable; 
   public get associatePublicIpAddress() {
     return this.getBooleanAttribute('associate_public_ip_address');
   }
@@ -1282,7 +1120,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // availability_zone - computed: true, optional: true, required: false
-  private _availabilityZone?: string;
+  private _availabilityZone?: string; 
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -1298,7 +1136,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // ebs_optimized - computed: false, optional: true, required: false
-  private _ebsOptimized?: boolean | cdktf.IResolvable;
+  private _ebsOptimized?: boolean | cdktf.IResolvable; 
   public get ebsOptimized() {
     return this.getBooleanAttribute('ebs_optimized');
   }
@@ -1314,7 +1152,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // iam_instance_profile - computed: false, optional: true, required: false
-  private _iamInstanceProfile?: string;
+  private _iamInstanceProfile?: string; 
   public get iamInstanceProfile() {
     return this.getStringAttribute('iam_instance_profile');
   }
@@ -1330,7 +1168,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // iam_instance_profile_arn - computed: false, optional: true, required: false
-  private _iamInstanceProfileArn?: string;
+  private _iamInstanceProfileArn?: string; 
   public get iamInstanceProfileArn() {
     return this.getStringAttribute('iam_instance_profile_arn');
   }
@@ -1346,7 +1184,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -1359,7 +1197,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // key_name - computed: true, optional: true, required: false
-  private _keyName?: string;
+  private _keyName?: string; 
   public get keyName() {
     return this.getStringAttribute('key_name');
   }
@@ -1375,7 +1213,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // monitoring - computed: false, optional: true, required: false
-  private _monitoring?: boolean | cdktf.IResolvable;
+  private _monitoring?: boolean | cdktf.IResolvable; 
   public get monitoring() {
     return this.getBooleanAttribute('monitoring');
   }
@@ -1391,7 +1229,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // placement_group - computed: true, optional: true, required: false
-  private _placementGroup?: string;
+  private _placementGroup?: string; 
   public get placementGroup() {
     return this.getStringAttribute('placement_group');
   }
@@ -1407,7 +1245,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // placement_tenancy - computed: false, optional: true, required: false
-  private _placementTenancy?: string;
+  private _placementTenancy?: string; 
   public get placementTenancy() {
     return this.getStringAttribute('placement_tenancy');
   }
@@ -1423,7 +1261,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // spot_price - computed: false, optional: true, required: false
-  private _spotPrice?: string;
+  private _spotPrice?: string; 
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -1439,7 +1277,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // subnet_id - computed: true, optional: true, required: false
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -1455,7 +1293,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1471,7 +1309,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // user_data - computed: false, optional: true, required: false
-  private _userData?: string;
+  private _userData?: string; 
   public get userData() {
     return this.getStringAttribute('user_data');
   }
@@ -1487,7 +1325,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // vpc_security_group_ids - computed: true, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[];
+  private _vpcSecurityGroupIds?: string[]; 
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }
@@ -1503,7 +1341,7 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // weighted_capacity - computed: false, optional: true, required: false
-  private _weightedCapacity?: string;
+  private _weightedCapacity?: string; 
   public get weightedCapacity() {
     return this.getStringAttribute('weighted_capacity');
   }
@@ -1519,20 +1357,11 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // ebs_block_device - computed: false, optional: true, required: false
-  private _ebsBlockDevice =
-    new SpotFleetRequestLaunchSpecificationEbsBlockDeviceList(
-      this,
-      'ebs_block_device',
-      true,
-    );
+  private _ebsBlockDevice = new SpotFleetRequestLaunchSpecificationEbsBlockDeviceList(this, "ebs_block_device", true);
   public get ebsBlockDevice() {
     return this._ebsBlockDevice;
   }
-  public putEbsBlockDevice(
-    value:
-      | SpotFleetRequestLaunchSpecificationEbsBlockDevice[]
-      | cdktf.IResolvable,
-  ) {
+  public putEbsBlockDevice(value: SpotFleetRequestLaunchSpecificationEbsBlockDevice[] | cdktf.IResolvable) {
     this._ebsBlockDevice.internalValue = value;
   }
   public resetEbsBlockDevice() {
@@ -1544,20 +1373,11 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // ephemeral_block_device - computed: false, optional: true, required: false
-  private _ephemeralBlockDevice =
-    new SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceList(
-      this,
-      'ephemeral_block_device',
-      true,
-    );
+  private _ephemeralBlockDevice = new SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceList(this, "ephemeral_block_device", true);
   public get ephemeralBlockDevice() {
     return this._ephemeralBlockDevice;
   }
-  public putEphemeralBlockDevice(
-    value:
-      | SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[]
-      | cdktf.IResolvable,
-  ) {
+  public putEphemeralBlockDevice(value: SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[] | cdktf.IResolvable) {
     this._ephemeralBlockDevice.internalValue = value;
   }
   public resetEphemeralBlockDevice() {
@@ -1569,20 +1389,11 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
   }
 
   // root_block_device - computed: false, optional: true, required: false
-  private _rootBlockDevice =
-    new SpotFleetRequestLaunchSpecificationRootBlockDeviceList(
-      this,
-      'root_block_device',
-      true,
-    );
+  private _rootBlockDevice = new SpotFleetRequestLaunchSpecificationRootBlockDeviceList(this, "root_block_device", true);
   public get rootBlockDevice() {
     return this._rootBlockDevice;
   }
-  public putRootBlockDevice(
-    value:
-      | SpotFleetRequestLaunchSpecificationRootBlockDevice[]
-      | cdktf.IResolvable,
-  ) {
+  public putRootBlockDevice(value: SpotFleetRequestLaunchSpecificationRootBlockDevice[] | cdktf.IResolvable) {
     this._rootBlockDevice.internalValue = value;
   }
   public resetRootBlockDevice() {
@@ -1595,92 +1406,66 @@ export class SpotFleetRequestLaunchSpecificationOutputReference extends cdktf.Co
 }
 
 export class SpotFleetRequestLaunchSpecificationList extends cdktf.ComplexList {
-  public internalValue?:
-    | SpotFleetRequestLaunchSpecification[]
-    | cdktf.IResolvable;
+  public internalValue? : SpotFleetRequestLaunchSpecification[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SpotFleetRequestLaunchSpecificationOutputReference {
-    return new SpotFleetRequestLaunchSpecificationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SpotFleetRequestLaunchSpecificationOutputReference {
+    return new SpotFleetRequestLaunchSpecificationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#id SpotFleetRequest#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#id SpotFleetRequest#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#name SpotFleetRequest#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#name SpotFleetRequest#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#version SpotFleetRequest#version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#version SpotFleetRequest#version}
+  */
   readonly version?: string;
 }
 
-export function spotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputReference
-    | SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputReference | SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     name: cdktf.stringToTerraform(struct!.name),
     version: cdktf.stringToTerraform(struct!.version),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -1698,17 +1483,14 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._name = undefined;
       this._version = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._name = value.name;
@@ -1717,7 +1499,7 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1733,7 +1515,7 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1749,7 +1531,7 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string;
+  private _version?: string; 
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -1766,51 +1548,38 @@ export class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutp
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -1824,16 +1593,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -1841,7 +1607,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1857,7 +1623,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1874,51 +1640,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -1932,16 +1685,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -1949,7 +1699,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1965,7 +1715,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1982,51 +1732,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAc
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2040,16 +1777,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBa
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2057,7 +1791,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBa
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2073,7 +1807,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBa
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2090,51 +1824,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBa
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2148,16 +1869,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2165,7 +1883,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2181,7 +1899,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2198,51 +1916,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2256,16 +1961,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2273,7 +1975,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2289,7 +1991,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2306,51 +2008,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMe
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2364,16 +2053,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2381,7 +2067,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2397,7 +2083,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2414,51 +2100,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2472,16 +2145,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2489,7 +2159,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2505,7 +2175,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2522,51 +2192,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNe
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2580,16 +2237,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTo
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2597,7 +2251,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTo
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2613,7 +2267,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTo
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2630,51 +2284,38 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTo
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#max SpotFleetRequest#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#min SpotFleetRequest#min}
+  */
   readonly min?: number;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2688,16 +2329,13 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2705,7 +2343,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2721,7 +2359,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2738,239 +2376,166 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVc
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_manufacturers SpotFleetRequest#accelerator_manufacturers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_manufacturers SpotFleetRequest#accelerator_manufacturers}
+  */
   readonly acceleratorManufacturers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_names SpotFleetRequest#accelerator_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_names SpotFleetRequest#accelerator_names}
+  */
   readonly acceleratorNames?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_types SpotFleetRequest#accelerator_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_types SpotFleetRequest#accelerator_types}
+  */
   readonly acceleratorTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#allowed_instance_types SpotFleetRequest#allowed_instance_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#allowed_instance_types SpotFleetRequest#allowed_instance_types}
+  */
   readonly allowedInstanceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#bare_metal SpotFleetRequest#bare_metal}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#bare_metal SpotFleetRequest#bare_metal}
+  */
   readonly bareMetal?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#burstable_performance SpotFleetRequest#burstable_performance}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#burstable_performance SpotFleetRequest#burstable_performance}
+  */
   readonly burstablePerformance?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#cpu_manufacturers SpotFleetRequest#cpu_manufacturers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#cpu_manufacturers SpotFleetRequest#cpu_manufacturers}
+  */
   readonly cpuManufacturers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#excluded_instance_types SpotFleetRequest#excluded_instance_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#excluded_instance_types SpotFleetRequest#excluded_instance_types}
+  */
   readonly excludedInstanceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_generations SpotFleetRequest#instance_generations}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_generations SpotFleetRequest#instance_generations}
+  */
   readonly instanceGenerations?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#local_storage SpotFleetRequest#local_storage}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#local_storage SpotFleetRequest#local_storage}
+  */
   readonly localStorage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#local_storage_types SpotFleetRequest#local_storage_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#local_storage_types SpotFleetRequest#local_storage_types}
+  */
   readonly localStorageTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_max_price_percentage_over_lowest_price SpotFleetRequest#on_demand_max_price_percentage_over_lowest_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#on_demand_max_price_percentage_over_lowest_price SpotFleetRequest#on_demand_max_price_percentage_over_lowest_price}
+  */
   readonly onDemandMaxPricePercentageOverLowestPrice?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#require_hibernate_support SpotFleetRequest#require_hibernate_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#require_hibernate_support SpotFleetRequest#require_hibernate_support}
+  */
   readonly requireHibernateSupport?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_max_price_percentage_over_lowest_price SpotFleetRequest#spot_max_price_percentage_over_lowest_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_max_price_percentage_over_lowest_price SpotFleetRequest#spot_max_price_percentage_over_lowest_price}
+  */
   readonly spotMaxPricePercentageOverLowestPrice?: number;
   /**
-   * accelerator_count block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_count SpotFleetRequest#accelerator_count}
-   */
+  * accelerator_count block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_count SpotFleetRequest#accelerator_count}
+  */
   readonly acceleratorCount?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount;
   /**
-   * accelerator_total_memory_mib block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_total_memory_mib SpotFleetRequest#accelerator_total_memory_mib}
-   */
+  * accelerator_total_memory_mib block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#accelerator_total_memory_mib SpotFleetRequest#accelerator_total_memory_mib}
+  */
   readonly acceleratorTotalMemoryMib?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib;
   /**
-   * baseline_ebs_bandwidth_mbps block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#baseline_ebs_bandwidth_mbps SpotFleetRequest#baseline_ebs_bandwidth_mbps}
-   */
+  * baseline_ebs_bandwidth_mbps block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#baseline_ebs_bandwidth_mbps SpotFleetRequest#baseline_ebs_bandwidth_mbps}
+  */
   readonly baselineEbsBandwidthMbps?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps;
   /**
-   * memory_gib_per_vcpu block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#memory_gib_per_vcpu SpotFleetRequest#memory_gib_per_vcpu}
-   */
+  * memory_gib_per_vcpu block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#memory_gib_per_vcpu SpotFleetRequest#memory_gib_per_vcpu}
+  */
   readonly memoryGibPerVcpu?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu;
   /**
-   * memory_mib block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#memory_mib SpotFleetRequest#memory_mib}
-   */
+  * memory_mib block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#memory_mib SpotFleetRequest#memory_mib}
+  */
   readonly memoryMib?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib;
   /**
-   * network_bandwidth_gbps block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#network_bandwidth_gbps SpotFleetRequest#network_bandwidth_gbps}
-   */
+  * network_bandwidth_gbps block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#network_bandwidth_gbps SpotFleetRequest#network_bandwidth_gbps}
+  */
   readonly networkBandwidthGbps?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps;
   /**
-   * network_interface_count block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#network_interface_count SpotFleetRequest#network_interface_count}
-   */
+  * network_interface_count block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#network_interface_count SpotFleetRequest#network_interface_count}
+  */
   readonly networkInterfaceCount?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount;
   /**
-   * total_local_storage_gb block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#total_local_storage_gb SpotFleetRequest#total_local_storage_gb}
-   */
+  * total_local_storage_gb block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#total_local_storage_gb SpotFleetRequest#total_local_storage_gb}
+  */
   readonly totalLocalStorageGb?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb;
   /**
-   * vcpu_count block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#vcpu_count SpotFleetRequest#vcpu_count}
-   */
+  * vcpu_count block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#vcpu_count SpotFleetRequest#vcpu_count}
+  */
   readonly vcpuCount?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsToTerraform(
-  struct?:
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOutputReference
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOutputReference | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    accelerator_manufacturers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.acceleratorManufacturers),
-    accelerator_names: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.acceleratorNames),
-    accelerator_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.acceleratorTypes),
-    allowed_instance_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedInstanceTypes),
+    accelerator_manufacturers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorManufacturers),
+    accelerator_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorNames),
+    accelerator_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorTypes),
+    allowed_instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedInstanceTypes),
     bare_metal: cdktf.stringToTerraform(struct!.bareMetal),
-    burstable_performance: cdktf.stringToTerraform(
-      struct!.burstablePerformance,
-    ),
-    cpu_manufacturers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.cpuManufacturers),
-    excluded_instance_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.excludedInstanceTypes),
-    instance_generations: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.instanceGenerations),
+    burstable_performance: cdktf.stringToTerraform(struct!.burstablePerformance),
+    cpu_manufacturers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cpuManufacturers),
+    excluded_instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.excludedInstanceTypes),
+    instance_generations: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.instanceGenerations),
     local_storage: cdktf.stringToTerraform(struct!.localStorage),
-    local_storage_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.localStorageTypes),
-    on_demand_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(
-      struct!.onDemandMaxPricePercentageOverLowestPrice,
-    ),
-    require_hibernate_support: cdktf.booleanToTerraform(
-      struct!.requireHibernateSupport,
-    ),
-    spot_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(
-      struct!.spotMaxPricePercentageOverLowestPrice,
-    ),
-    accelerator_count:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountToTerraform(
-        struct!.acceleratorCount,
-      ),
-    accelerator_total_memory_mib:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(
-        struct!.acceleratorTotalMemoryMib,
-      ),
-    baseline_ebs_bandwidth_mbps:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(
-        struct!.baselineEbsBandwidthMbps,
-      ),
-    memory_gib_per_vcpu:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuToTerraform(
-        struct!.memoryGibPerVcpu,
-      ),
-    memory_mib:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibToTerraform(
-        struct!.memoryMib,
-      ),
-    network_bandwidth_gbps:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsToTerraform(
-        struct!.networkBandwidthGbps,
-      ),
-    network_interface_count:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountToTerraform(
-        struct!.networkInterfaceCount,
-      ),
-    total_local_storage_gb:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbToTerraform(
-        struct!.totalLocalStorageGb,
-      ),
-    vcpu_count:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountToTerraform(
-        struct!.vcpuCount,
-      ),
-  };
+    local_storage_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.localStorageTypes),
+    on_demand_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(struct!.onDemandMaxPricePercentageOverLowestPrice),
+    require_hibernate_support: cdktf.booleanToTerraform(struct!.requireHibernateSupport),
+    spot_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(struct!.spotMaxPricePercentageOverLowestPrice),
+    accelerator_count: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountToTerraform(struct!.acceleratorCount),
+    accelerator_total_memory_mib: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(struct!.acceleratorTotalMemoryMib),
+    baseline_ebs_bandwidth_mbps: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(struct!.baselineEbsBandwidthMbps),
+    memory_gib_per_vcpu: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuToTerraform(struct!.memoryGibPerVcpu),
+    memory_mib: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibToTerraform(struct!.memoryMib),
+    network_bandwidth_gbps: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsToTerraform(struct!.networkBandwidthGbps),
+    network_interface_count: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountToTerraform(struct!.networkInterfaceCount),
+    total_local_storage_gb: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbToTerraform(struct!.totalLocalStorageGb),
+    vcpu_count: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountToTerraform(struct!.vcpuCount),
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._acceleratorManufacturers !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorManufacturers =
-        this._acceleratorManufacturers;
+      internalValueResult.acceleratorManufacturers = this._acceleratorManufacturers;
     }
     if (this._acceleratorNames !== undefined) {
       hasAnyValues = true;
@@ -3014,38 +2579,31 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
     }
     if (this._onDemandMaxPricePercentageOverLowestPrice !== undefined) {
       hasAnyValues = true;
-      internalValueResult.onDemandMaxPricePercentageOverLowestPrice =
-        this._onDemandMaxPricePercentageOverLowestPrice;
+      internalValueResult.onDemandMaxPricePercentageOverLowestPrice = this._onDemandMaxPricePercentageOverLowestPrice;
     }
     if (this._requireHibernateSupport !== undefined) {
       hasAnyValues = true;
-      internalValueResult.requireHibernateSupport =
-        this._requireHibernateSupport;
+      internalValueResult.requireHibernateSupport = this._requireHibernateSupport;
     }
     if (this._spotMaxPricePercentageOverLowestPrice !== undefined) {
       hasAnyValues = true;
-      internalValueResult.spotMaxPricePercentageOverLowestPrice =
-        this._spotMaxPricePercentageOverLowestPrice;
+      internalValueResult.spotMaxPricePercentageOverLowestPrice = this._spotMaxPricePercentageOverLowestPrice;
     }
     if (this._acceleratorCount?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorCount =
-        this._acceleratorCount?.internalValue;
+      internalValueResult.acceleratorCount = this._acceleratorCount?.internalValue;
     }
     if (this._acceleratorTotalMemoryMib?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorTotalMemoryMib =
-        this._acceleratorTotalMemoryMib?.internalValue;
+      internalValueResult.acceleratorTotalMemoryMib = this._acceleratorTotalMemoryMib?.internalValue;
     }
     if (this._baselineEbsBandwidthMbps?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.baselineEbsBandwidthMbps =
-        this._baselineEbsBandwidthMbps?.internalValue;
+      internalValueResult.baselineEbsBandwidthMbps = this._baselineEbsBandwidthMbps?.internalValue;
     }
     if (this._memoryGibPerVcpu?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.memoryGibPerVcpu =
-        this._memoryGibPerVcpu?.internalValue;
+      internalValueResult.memoryGibPerVcpu = this._memoryGibPerVcpu?.internalValue;
     }
     if (this._memoryMib?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3053,18 +2611,15 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
     }
     if (this._networkBandwidthGbps?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkBandwidthGbps =
-        this._networkBandwidthGbps?.internalValue;
+      internalValueResult.networkBandwidthGbps = this._networkBandwidthGbps?.internalValue;
     }
     if (this._networkInterfaceCount?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkInterfaceCount =
-        this._networkInterfaceCount?.internalValue;
+      internalValueResult.networkInterfaceCount = this._networkInterfaceCount?.internalValue;
     }
     if (this._totalLocalStorageGb?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.totalLocalStorageGb =
-        this._totalLocalStorageGb?.internalValue;
+      internalValueResult.totalLocalStorageGb = this._totalLocalStorageGb?.internalValue;
     }
     if (this._vcpuCount?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3073,11 +2628,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._acceleratorManufacturers = undefined;
@@ -3103,7 +2654,8 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
       this._networkInterfaceCount.internalValue = undefined;
       this._totalLocalStorageGb.internalValue = undefined;
       this._vcpuCount.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._acceleratorManufacturers = value.acceleratorManufacturers;
       this._acceleratorNames = value.acceleratorNames;
@@ -3116,16 +2668,12 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
       this._instanceGenerations = value.instanceGenerations;
       this._localStorage = value.localStorage;
       this._localStorageTypes = value.localStorageTypes;
-      this._onDemandMaxPricePercentageOverLowestPrice =
-        value.onDemandMaxPricePercentageOverLowestPrice;
+      this._onDemandMaxPricePercentageOverLowestPrice = value.onDemandMaxPricePercentageOverLowestPrice;
       this._requireHibernateSupport = value.requireHibernateSupport;
-      this._spotMaxPricePercentageOverLowestPrice =
-        value.spotMaxPricePercentageOverLowestPrice;
+      this._spotMaxPricePercentageOverLowestPrice = value.spotMaxPricePercentageOverLowestPrice;
       this._acceleratorCount.internalValue = value.acceleratorCount;
-      this._acceleratorTotalMemoryMib.internalValue =
-        value.acceleratorTotalMemoryMib;
-      this._baselineEbsBandwidthMbps.internalValue =
-        value.baselineEbsBandwidthMbps;
+      this._acceleratorTotalMemoryMib.internalValue = value.acceleratorTotalMemoryMib;
+      this._baselineEbsBandwidthMbps.internalValue = value.baselineEbsBandwidthMbps;
       this._memoryGibPerVcpu.internalValue = value.memoryGibPerVcpu;
       this._memoryMib.internalValue = value.memoryMib;
       this._networkBandwidthGbps.internalValue = value.networkBandwidthGbps;
@@ -3136,7 +2684,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_manufacturers - computed: false, optional: true, required: false
-  private _acceleratorManufacturers?: string[];
+  private _acceleratorManufacturers?: string[]; 
   public get acceleratorManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_manufacturers'));
   }
@@ -3152,7 +2700,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_names - computed: false, optional: true, required: false
-  private _acceleratorNames?: string[];
+  private _acceleratorNames?: string[]; 
   public get acceleratorNames() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_names'));
   }
@@ -3168,7 +2716,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_types - computed: false, optional: true, required: false
-  private _acceleratorTypes?: string[];
+  private _acceleratorTypes?: string[]; 
   public get acceleratorTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_types'));
   }
@@ -3184,7 +2732,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // allowed_instance_types - computed: false, optional: true, required: false
-  private _allowedInstanceTypes?: string[];
+  private _allowedInstanceTypes?: string[]; 
   public get allowedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_instance_types'));
   }
@@ -3200,7 +2748,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // bare_metal - computed: false, optional: true, required: false
-  private _bareMetal?: string;
+  private _bareMetal?: string; 
   public get bareMetal() {
     return this.getStringAttribute('bare_metal');
   }
@@ -3216,7 +2764,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // burstable_performance - computed: false, optional: true, required: false
-  private _burstablePerformance?: string;
+  private _burstablePerformance?: string; 
   public get burstablePerformance() {
     return this.getStringAttribute('burstable_performance');
   }
@@ -3232,7 +2780,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // cpu_manufacturers - computed: false, optional: true, required: false
-  private _cpuManufacturers?: string[];
+  private _cpuManufacturers?: string[]; 
   public get cpuManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('cpu_manufacturers'));
   }
@@ -3248,7 +2796,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // excluded_instance_types - computed: false, optional: true, required: false
-  private _excludedInstanceTypes?: string[];
+  private _excludedInstanceTypes?: string[]; 
   public get excludedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_instance_types'));
   }
@@ -3264,7 +2812,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // instance_generations - computed: false, optional: true, required: false
-  private _instanceGenerations?: string[];
+  private _instanceGenerations?: string[]; 
   public get instanceGenerations() {
     return cdktf.Fn.tolist(this.getListAttribute('instance_generations'));
   }
@@ -3280,7 +2828,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // local_storage - computed: false, optional: true, required: false
-  private _localStorage?: string;
+  private _localStorage?: string; 
   public get localStorage() {
     return this.getStringAttribute('local_storage');
   }
@@ -3296,7 +2844,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // local_storage_types - computed: false, optional: true, required: false
-  private _localStorageTypes?: string[];
+  private _localStorageTypes?: string[]; 
   public get localStorageTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('local_storage_types'));
   }
@@ -3312,11 +2860,9 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // on_demand_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _onDemandMaxPricePercentageOverLowestPrice?: number;
+  private _onDemandMaxPricePercentageOverLowestPrice?: number; 
   public get onDemandMaxPricePercentageOverLowestPrice() {
-    return this.getNumberAttribute(
-      'on_demand_max_price_percentage_over_lowest_price',
-    );
+    return this.getNumberAttribute('on_demand_max_price_percentage_over_lowest_price');
   }
   public set onDemandMaxPricePercentageOverLowestPrice(value: number) {
     this._onDemandMaxPricePercentageOverLowestPrice = value;
@@ -3330,7 +2876,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // require_hibernate_support - computed: false, optional: true, required: false
-  private _requireHibernateSupport?: boolean | cdktf.IResolvable;
+  private _requireHibernateSupport?: boolean | cdktf.IResolvable; 
   public get requireHibernateSupport() {
     return this.getBooleanAttribute('require_hibernate_support');
   }
@@ -3346,11 +2892,9 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // spot_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _spotMaxPricePercentageOverLowestPrice?: number;
+  private _spotMaxPricePercentageOverLowestPrice?: number; 
   public get spotMaxPricePercentageOverLowestPrice() {
-    return this.getNumberAttribute(
-      'spot_max_price_percentage_over_lowest_price',
-    );
+    return this.getNumberAttribute('spot_max_price_percentage_over_lowest_price');
   }
   public set spotMaxPricePercentageOverLowestPrice(value: number) {
     this._spotMaxPricePercentageOverLowestPrice = value;
@@ -3364,17 +2908,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_count - computed: false, optional: true, required: false
-  private _acceleratorCount =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountOutputReference(
-      this,
-      'accelerator_count',
-    );
+  private _acceleratorCount = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCountOutputReference(this, "accelerator_count");
   public get acceleratorCount() {
     return this._acceleratorCount;
   }
-  public putAcceleratorCount(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount,
-  ) {
+  public putAcceleratorCount(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorCount) {
     this._acceleratorCount.internalValue = value;
   }
   public resetAcceleratorCount() {
@@ -3386,17 +2924,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // accelerator_total_memory_mib - computed: false, optional: true, required: false
-  private _acceleratorTotalMemoryMib =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibOutputReference(
-      this,
-      'accelerator_total_memory_mib',
-    );
+  private _acceleratorTotalMemoryMib = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMibOutputReference(this, "accelerator_total_memory_mib");
   public get acceleratorTotalMemoryMib() {
     return this._acceleratorTotalMemoryMib;
   }
-  public putAcceleratorTotalMemoryMib(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib,
-  ) {
+  public putAcceleratorTotalMemoryMib(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsAcceleratorTotalMemoryMib) {
     this._acceleratorTotalMemoryMib.internalValue = value;
   }
   public resetAcceleratorTotalMemoryMib() {
@@ -3408,17 +2940,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // baseline_ebs_bandwidth_mbps - computed: false, optional: true, required: false
-  private _baselineEbsBandwidthMbps =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference(
-      this,
-      'baseline_ebs_bandwidth_mbps',
-    );
+  private _baselineEbsBandwidthMbps = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference(this, "baseline_ebs_bandwidth_mbps");
   public get baselineEbsBandwidthMbps() {
     return this._baselineEbsBandwidthMbps;
   }
-  public putBaselineEbsBandwidthMbps(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps,
-  ) {
+  public putBaselineEbsBandwidthMbps(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsBaselineEbsBandwidthMbps) {
     this._baselineEbsBandwidthMbps.internalValue = value;
   }
   public resetBaselineEbsBandwidthMbps() {
@@ -3430,17 +2956,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // memory_gib_per_vcpu - computed: false, optional: true, required: false
-  private _memoryGibPerVcpu =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuOutputReference(
-      this,
-      'memory_gib_per_vcpu',
-    );
+  private _memoryGibPerVcpu = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpuOutputReference(this, "memory_gib_per_vcpu");
   public get memoryGibPerVcpu() {
     return this._memoryGibPerVcpu;
   }
-  public putMemoryGibPerVcpu(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu,
-  ) {
+  public putMemoryGibPerVcpu(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryGibPerVcpu) {
     this._memoryGibPerVcpu.internalValue = value;
   }
   public resetMemoryGibPerVcpu() {
@@ -3452,17 +2972,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // memory_mib - computed: false, optional: true, required: false
-  private _memoryMib =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibOutputReference(
-      this,
-      'memory_mib',
-    );
+  private _memoryMib = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMibOutputReference(this, "memory_mib");
   public get memoryMib() {
     return this._memoryMib;
   }
-  public putMemoryMib(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib,
-  ) {
+  public putMemoryMib(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsMemoryMib) {
     this._memoryMib.internalValue = value;
   }
   public resetMemoryMib() {
@@ -3474,17 +2988,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // network_bandwidth_gbps - computed: false, optional: true, required: false
-  private _networkBandwidthGbps =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsOutputReference(
-      this,
-      'network_bandwidth_gbps',
-    );
+  private _networkBandwidthGbps = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbpsOutputReference(this, "network_bandwidth_gbps");
   public get networkBandwidthGbps() {
     return this._networkBandwidthGbps;
   }
-  public putNetworkBandwidthGbps(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps,
-  ) {
+  public putNetworkBandwidthGbps(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkBandwidthGbps) {
     this._networkBandwidthGbps.internalValue = value;
   }
   public resetNetworkBandwidthGbps() {
@@ -3496,17 +3004,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // network_interface_count - computed: false, optional: true, required: false
-  private _networkInterfaceCount =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountOutputReference(
-      this,
-      'network_interface_count',
-    );
+  private _networkInterfaceCount = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCountOutputReference(this, "network_interface_count");
   public get networkInterfaceCount() {
     return this._networkInterfaceCount;
   }
-  public putNetworkInterfaceCount(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount,
-  ) {
+  public putNetworkInterfaceCount(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsNetworkInterfaceCount) {
     this._networkInterfaceCount.internalValue = value;
   }
   public resetNetworkInterfaceCount() {
@@ -3518,17 +3020,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // total_local_storage_gb - computed: false, optional: true, required: false
-  private _totalLocalStorageGb =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbOutputReference(
-      this,
-      'total_local_storage_gb',
-    );
+  private _totalLocalStorageGb = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGbOutputReference(this, "total_local_storage_gb");
   public get totalLocalStorageGb() {
     return this._totalLocalStorageGb;
   }
-  public putTotalLocalStorageGb(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb,
-  ) {
+  public putTotalLocalStorageGb(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsTotalLocalStorageGb) {
     this._totalLocalStorageGb.internalValue = value;
   }
   public resetTotalLocalStorageGb() {
@@ -3540,17 +3036,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
   }
 
   // vcpu_count - computed: false, optional: true, required: false
-  private _vcpuCount =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountOutputReference(
-      this,
-      'vcpu_count',
-    );
+  private _vcpuCount = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCountOutputReference(this, "vcpu_count");
   public get vcpuCount() {
     return this._vcpuCount;
   }
-  public putVcpuCount(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount,
-  ) {
+  public putVcpuCount(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsVcpuCount) {
     this._vcpuCount.internalValue = value;
   }
   public resetVcpuCount() {
@@ -3563,47 +3053,41 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOu
 }
 export interface SpotFleetRequestLaunchTemplateConfigOverrides {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#availability_zone SpotFleetRequest#availability_zone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#availability_zone SpotFleetRequest#availability_zone}
+  */
   readonly availabilityZone?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_type SpotFleetRequest#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_type SpotFleetRequest#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#priority SpotFleetRequest#priority}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#priority SpotFleetRequest#priority}
+  */
   readonly priority?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_price SpotFleetRequest#spot_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#spot_price SpotFleetRequest#spot_price}
+  */
   readonly spotPrice?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#subnet_id SpotFleetRequest#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#subnet_id SpotFleetRequest#subnet_id}
+  */
   readonly subnetId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#weighted_capacity SpotFleetRequest#weighted_capacity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#weighted_capacity SpotFleetRequest#weighted_capacity}
+  */
   readonly weightedCapacity?: number;
   /**
-   * instance_requirements block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_requirements SpotFleetRequest#instance_requirements}
-   */
+  * instance_requirements block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#instance_requirements SpotFleetRequest#instance_requirements}
+  */
   readonly instanceRequirements?: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements;
 }
 
-export function spotFleetRequestLaunchTemplateConfigOverridesToTerraform(
-  struct?: SpotFleetRequestLaunchTemplateConfigOverrides | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigOverridesToTerraform(struct?: SpotFleetRequestLaunchTemplateConfigOverrides | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     availability_zone: cdktf.stringToTerraform(struct!.availabilityZone),
@@ -3612,11 +3096,8 @@ export function spotFleetRequestLaunchTemplateConfigOverridesToTerraform(
     spot_price: cdktf.stringToTerraform(struct!.spotPrice),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
     weighted_capacity: cdktf.numberToTerraform(struct!.weightedCapacity),
-    instance_requirements:
-      spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsToTerraform(
-        struct!.instanceRequirements,
-      ),
-  };
+    instance_requirements: spotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsToTerraform(struct!.instanceRequirements),
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extends cdktf.ComplexObject {
@@ -3624,29 +3105,16 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfigOverrides
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfigOverrides | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3678,18 +3146,12 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
     }
     if (this._instanceRequirements?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.instanceRequirements =
-        this._instanceRequirements?.internalValue;
+      internalValueResult.instanceRequirements = this._instanceRequirements?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestLaunchTemplateConfigOverrides
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfigOverrides | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3700,10 +3162,12 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
       this._subnetId = undefined;
       this._weightedCapacity = undefined;
       this._instanceRequirements.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._availabilityZone = value.availabilityZone;
@@ -3717,7 +3181,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string;
+  private _availabilityZone?: string; 
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -3733,7 +3197,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -3749,7 +3213,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // priority - computed: true, optional: true, required: false
-  private _priority?: number;
+  private _priority?: number; 
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -3765,7 +3229,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // spot_price - computed: true, optional: true, required: false
-  private _spotPrice?: string;
+  private _spotPrice?: string; 
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -3781,7 +3245,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // subnet_id - computed: true, optional: true, required: false
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -3797,7 +3261,7 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // weighted_capacity - computed: true, optional: true, required: false
-  private _weightedCapacity?: number;
+  private _weightedCapacity?: number; 
   public get weightedCapacity() {
     return this.getNumberAttribute('weighted_capacity');
   }
@@ -3813,17 +3277,11 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
   }
 
   // instance_requirements - computed: false, optional: true, required: false
-  private _instanceRequirements =
-    new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOutputReference(
-      this,
-      'instance_requirements',
-    );
+  private _instanceRequirements = new SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirementsOutputReference(this, "instance_requirements");
   public get instanceRequirements() {
     return this._instanceRequirements;
   }
-  public putInstanceRequirements(
-    value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements,
-  ) {
+  public putInstanceRequirements(value: SpotFleetRequestLaunchTemplateConfigOverridesInstanceRequirements) {
     this._instanceRequirements.internalValue = value;
   }
   public resetInstanceRequirements() {
@@ -3836,75 +3294,48 @@ export class SpotFleetRequestLaunchTemplateConfigOverridesOutputReference extend
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOverridesList extends cdktf.ComplexList {
-  public internalValue?:
-    | SpotFleetRequestLaunchTemplateConfigOverrides[]
-    | cdktf.IResolvable;
+  public internalValue? : SpotFleetRequestLaunchTemplateConfigOverrides[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SpotFleetRequestLaunchTemplateConfigOverridesOutputReference {
-    return new SpotFleetRequestLaunchTemplateConfigOverridesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SpotFleetRequestLaunchTemplateConfigOverridesOutputReference {
+    return new SpotFleetRequestLaunchTemplateConfigOverridesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SpotFleetRequestLaunchTemplateConfig {
   /**
-   * launch_template_specification block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_template_specification SpotFleetRequest#launch_template_specification}
-   */
+  * launch_template_specification block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#launch_template_specification SpotFleetRequest#launch_template_specification}
+  */
   readonly launchTemplateSpecification: SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification;
   /**
-   * overrides block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#overrides SpotFleetRequest#overrides}
-   */
-  readonly overrides?:
-    | SpotFleetRequestLaunchTemplateConfigOverrides[]
-    | cdktf.IResolvable;
+  * overrides block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#overrides SpotFleetRequest#overrides}
+  */
+  readonly overrides?: SpotFleetRequestLaunchTemplateConfigOverrides[] | cdktf.IResolvable;
 }
 
-export function spotFleetRequestLaunchTemplateConfigToTerraform(
-  struct?: SpotFleetRequestLaunchTemplateConfig | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestLaunchTemplateConfigToTerraform(struct?: SpotFleetRequestLaunchTemplateConfig | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    launch_template_specification:
-      spotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(
-        struct!.launchTemplateSpecification,
-      ),
-    overrides: cdktf.listMapper(
-      spotFleetRequestLaunchTemplateConfigOverridesToTerraform,
-      true,
-    )(struct!.overrides),
-  };
+    launch_template_specification: spotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationToTerraform(struct!.launchTemplateSpecification),
+    overrides: cdktf.listMapper(spotFleetRequestLaunchTemplateConfigOverridesToTerraform, true)(struct!.overrides),
+  }
 }
 
 export class SpotFleetRequestLaunchTemplateConfigOutputReference extends cdktf.ComplexObject {
@@ -3912,29 +3343,16 @@ export class SpotFleetRequestLaunchTemplateConfigOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SpotFleetRequestLaunchTemplateConfig
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestLaunchTemplateConfig | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3942,8 +3360,7 @@ export class SpotFleetRequestLaunchTemplateConfigOutputReference extends cdktf.C
     const internalValueResult: any = {};
     if (this._launchTemplateSpecification?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.launchTemplateSpecification =
-        this._launchTemplateSpecification?.internalValue;
+      internalValueResult.launchTemplateSpecification = this._launchTemplateSpecification?.internalValue;
     }
     if (this._overrides?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3952,38 +3369,31 @@ export class SpotFleetRequestLaunchTemplateConfigOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SpotFleetRequestLaunchTemplateConfig | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestLaunchTemplateConfig | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._launchTemplateSpecification.internalValue = undefined;
       this._overrides.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
-      this._launchTemplateSpecification.internalValue =
-        value.launchTemplateSpecification;
+      this._launchTemplateSpecification.internalValue = value.launchTemplateSpecification;
       this._overrides.internalValue = value.overrides;
     }
   }
 
   // launch_template_specification - computed: false, optional: false, required: true
-  private _launchTemplateSpecification =
-    new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputReference(
-      this,
-      'launch_template_specification',
-    );
+  private _launchTemplateSpecification = new SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutputReference(this, "launch_template_specification");
   public get launchTemplateSpecification() {
     return this._launchTemplateSpecification;
   }
-  public putLaunchTemplateSpecification(
-    value: SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification,
-  ) {
+  public putLaunchTemplateSpecification(value: SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) {
     this._launchTemplateSpecification.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -3992,17 +3402,11 @@ export class SpotFleetRequestLaunchTemplateConfigOutputReference extends cdktf.C
   }
 
   // overrides - computed: false, optional: true, required: false
-  private _overrides = new SpotFleetRequestLaunchTemplateConfigOverridesList(
-    this,
-    'overrides',
-    true,
-  );
+  private _overrides = new SpotFleetRequestLaunchTemplateConfigOverridesList(this, "overrides", true);
   public get overrides() {
     return this._overrides;
   }
-  public putOverrides(
-    value: SpotFleetRequestLaunchTemplateConfigOverrides[] | cdktf.IResolvable,
-  ) {
+  public putOverrides(value: SpotFleetRequestLaunchTemplateConfigOverrides[] | cdktf.IResolvable) {
     this._overrides.internalValue = value;
   }
   public resetOverrides() {
@@ -4015,79 +3419,53 @@ export class SpotFleetRequestLaunchTemplateConfigOutputReference extends cdktf.C
 }
 
 export class SpotFleetRequestLaunchTemplateConfigList extends cdktf.ComplexList {
-  public internalValue?:
-    | SpotFleetRequestLaunchTemplateConfig[]
-    | cdktf.IResolvable;
+  public internalValue? : SpotFleetRequestLaunchTemplateConfig[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SpotFleetRequestLaunchTemplateConfigOutputReference {
-    return new SpotFleetRequestLaunchTemplateConfigOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SpotFleetRequestLaunchTemplateConfigOutputReference {
+    return new SpotFleetRequestLaunchTemplateConfigOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#replacement_strategy SpotFleetRequest#replacement_strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#replacement_strategy SpotFleetRequest#replacement_strategy}
+  */
   readonly replacementStrategy?: string;
 }
 
-export function spotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceToTerraform(
-  struct?:
-    | SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputReference
-    | SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceToTerraform(struct?: SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputReference | SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     replacement_strategy: cdktf.stringToTerraform(struct!.replacementStrategy),
-  };
+  }
 }
 
 export class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance
-    | undefined {
+  public get internalValue(): SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._replacementStrategy !== undefined) {
@@ -4097,22 +3475,19 @@ export class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance
-      | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._replacementStrategy = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._replacementStrategy = value.replacementStrategy;
     }
   }
 
   // replacement_strategy - computed: false, optional: true, required: false
-  private _replacementStrategy?: string;
+  private _replacementStrategy?: string; 
   public get replacementStrategy() {
     return this.getStringAttribute('replacement_strategy');
   }
@@ -4129,85 +3504,61 @@ export class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputRef
 }
 export interface SpotFleetRequestSpotMaintenanceStrategies {
   /**
-   * capacity_rebalance block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#capacity_rebalance SpotFleetRequest#capacity_rebalance}
-   */
+  * capacity_rebalance block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#capacity_rebalance SpotFleetRequest#capacity_rebalance}
+  */
   readonly capacityRebalance?: SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance;
 }
 
-export function spotFleetRequestSpotMaintenanceStrategiesToTerraform(
-  struct?:
-    | SpotFleetRequestSpotMaintenanceStrategiesOutputReference
-    | SpotFleetRequestSpotMaintenanceStrategies,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestSpotMaintenanceStrategiesToTerraform(struct?: SpotFleetRequestSpotMaintenanceStrategiesOutputReference | SpotFleetRequestSpotMaintenanceStrategies): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    capacity_rebalance:
-      spotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceToTerraform(
-        struct!.capacityRebalance,
-      ),
-  };
+    capacity_rebalance: spotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceToTerraform(struct!.capacityRebalance),
+  }
 }
 
 export class SpotFleetRequestSpotMaintenanceStrategiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestSpotMaintenanceStrategies
-    | undefined {
+  public get internalValue(): SpotFleetRequestSpotMaintenanceStrategies | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._capacityRebalance?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityRebalance =
-        this._capacityRebalance?.internalValue;
+      internalValueResult.capacityRebalance = this._capacityRebalance?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SpotFleetRequestSpotMaintenanceStrategies | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestSpotMaintenanceStrategies | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._capacityRebalance.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._capacityRebalance.internalValue = value.capacityRebalance;
     }
   }
 
   // capacity_rebalance - computed: false, optional: true, required: false
-  private _capacityRebalance =
-    new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputReference(
-      this,
-      'capacity_rebalance',
-    );
+  private _capacityRebalance = new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutputReference(this, "capacity_rebalance");
   public get capacityRebalance() {
     return this._capacityRebalance;
   }
-  public putCapacityRebalance(
-    value: SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance,
-  ) {
+  public putCapacityRebalance(value: SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance) {
     this._capacityRebalance.internalValue = value;
   }
   public resetCapacityRebalance() {
@@ -4220,38 +3571,29 @@ export class SpotFleetRequestSpotMaintenanceStrategiesOutputReference extends cd
 }
 export interface SpotFleetRequestTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#create SpotFleetRequest#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#create SpotFleetRequest#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#delete SpotFleetRequest#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#delete SpotFleetRequest#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#update SpotFleetRequest#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request#update SpotFleetRequest#update}
+  */
   readonly update?: string;
 }
 
-export function spotFleetRequestTimeoutsToTerraform(
-  struct?:
-    | SpotFleetRequestTimeoutsOutputReference
-    | SpotFleetRequestTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function spotFleetRequestTimeoutsToTerraform(struct?: SpotFleetRequestTimeoutsOutputReference | SpotFleetRequestTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -4259,20 +3601,14 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SpotFleetRequestTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SpotFleetRequestTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4293,19 +3629,19 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SpotFleetRequestTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: SpotFleetRequestTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -4315,7 +3651,7 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -4331,7 +3667,7 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -4347,7 +3683,7 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -4364,36 +3700,33 @@ export class SpotFleetRequestTimeoutsOutputReference extends cdktf.ComplexObject
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request aws_spot_fleet_request}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request aws_spot_fleet_request}
+*/
 export class SpotFleetRequest extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_spot_fleet_request';
+  public static readonly tfResourceType = "aws_spot_fleet_request";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request aws_spot_fleet_request} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SpotFleetRequestConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SpotFleetRequestConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/spot_fleet_request aws_spot_fleet_request} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SpotFleetRequestConfig
+  */
+  public constructor(scope: Construct, id: string, config: SpotFleetRequestConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_spot_fleet_request',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -4401,11 +3734,10 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._allocationStrategy = config.allocationStrategy;
-    this._excessCapacityTerminationPolicy =
-      config.excessCapacityTerminationPolicy;
+    this._excessCapacityTerminationPolicy = config.excessCapacityTerminationPolicy;
     this._fleetType = config.fleetType;
     this._iamFleetRole = config.iamFleetRole;
     this._id = config.id;
@@ -4423,15 +3755,13 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
     this._targetCapacityUnitType = config.targetCapacityUnitType;
     this._targetGroupArns = config.targetGroupArns;
     this._terminateInstancesOnDelete = config.terminateInstancesOnDelete;
-    this._terminateInstancesWithExpiration =
-      config.terminateInstancesWithExpiration;
+    this._terminateInstancesWithExpiration = config.terminateInstancesWithExpiration;
     this._validFrom = config.validFrom;
     this._validUntil = config.validUntil;
     this._waitForFulfillment = config.waitForFulfillment;
     this._launchSpecification.internalValue = config.launchSpecification;
     this._launchTemplateConfig.internalValue = config.launchTemplateConfig;
-    this._spotMaintenanceStrategies.internalValue =
-      config.spotMaintenanceStrategies;
+    this._spotMaintenanceStrategies.internalValue = config.spotMaintenanceStrategies;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -4440,7 +3770,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   // ==========
 
   // allocation_strategy - computed: false, optional: true, required: false
-  private _allocationStrategy?: string;
+  private _allocationStrategy?: string; 
   public get allocationStrategy() {
     return this.getStringAttribute('allocation_strategy');
   }
@@ -4461,7 +3791,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // excess_capacity_termination_policy - computed: false, optional: true, required: false
-  private _excessCapacityTerminationPolicy?: string;
+  private _excessCapacityTerminationPolicy?: string; 
   public get excessCapacityTerminationPolicy() {
     return this.getStringAttribute('excess_capacity_termination_policy');
   }
@@ -4477,7 +3807,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // fleet_type - computed: false, optional: true, required: false
-  private _fleetType?: string;
+  private _fleetType?: string; 
   public get fleetType() {
     return this.getStringAttribute('fleet_type');
   }
@@ -4493,7 +3823,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // iam_fleet_role - computed: false, optional: false, required: true
-  private _iamFleetRole?: string;
+  private _iamFleetRole?: string; 
   public get iamFleetRole() {
     return this.getStringAttribute('iam_fleet_role');
   }
@@ -4506,7 +3836,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -4522,7 +3852,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // instance_interruption_behaviour - computed: false, optional: true, required: false
-  private _instanceInterruptionBehaviour?: string;
+  private _instanceInterruptionBehaviour?: string; 
   public get instanceInterruptionBehaviour() {
     return this.getStringAttribute('instance_interruption_behaviour');
   }
@@ -4538,7 +3868,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // instance_pools_to_use_count - computed: false, optional: true, required: false
-  private _instancePoolsToUseCount?: number;
+  private _instancePoolsToUseCount?: number; 
   public get instancePoolsToUseCount() {
     return this.getNumberAttribute('instance_pools_to_use_count');
   }
@@ -4554,7 +3884,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // load_balancers - computed: true, optional: true, required: false
-  private _loadBalancers?: string[];
+  private _loadBalancers?: string[]; 
   public get loadBalancers() {
     return cdktf.Fn.tolist(this.getListAttribute('load_balancers'));
   }
@@ -4570,7 +3900,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // on_demand_allocation_strategy - computed: false, optional: true, required: false
-  private _onDemandAllocationStrategy?: string;
+  private _onDemandAllocationStrategy?: string; 
   public get onDemandAllocationStrategy() {
     return this.getStringAttribute('on_demand_allocation_strategy');
   }
@@ -4586,7 +3916,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // on_demand_max_total_price - computed: false, optional: true, required: false
-  private _onDemandMaxTotalPrice?: string;
+  private _onDemandMaxTotalPrice?: string; 
   public get onDemandMaxTotalPrice() {
     return this.getStringAttribute('on_demand_max_total_price');
   }
@@ -4602,7 +3932,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // on_demand_target_capacity - computed: false, optional: true, required: false
-  private _onDemandTargetCapacity?: number;
+  private _onDemandTargetCapacity?: number; 
   public get onDemandTargetCapacity() {
     return this.getNumberAttribute('on_demand_target_capacity');
   }
@@ -4618,7 +3948,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // replace_unhealthy_instances - computed: false, optional: true, required: false
-  private _replaceUnhealthyInstances?: boolean | cdktf.IResolvable;
+  private _replaceUnhealthyInstances?: boolean | cdktf.IResolvable; 
   public get replaceUnhealthyInstances() {
     return this.getBooleanAttribute('replace_unhealthy_instances');
   }
@@ -4634,7 +3964,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // spot_price - computed: false, optional: true, required: false
-  private _spotPrice?: string;
+  private _spotPrice?: string; 
   public get spotPrice() {
     return this.getStringAttribute('spot_price');
   }
@@ -4655,7 +3985,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -4671,7 +4001,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -4687,7 +4017,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // target_capacity - computed: false, optional: false, required: true
-  private _targetCapacity?: number;
+  private _targetCapacity?: number; 
   public get targetCapacity() {
     return this.getNumberAttribute('target_capacity');
   }
@@ -4700,7 +4030,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // target_capacity_unit_type - computed: false, optional: true, required: false
-  private _targetCapacityUnitType?: string;
+  private _targetCapacityUnitType?: string; 
   public get targetCapacityUnitType() {
     return this.getStringAttribute('target_capacity_unit_type');
   }
@@ -4716,7 +4046,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // target_group_arns - computed: true, optional: true, required: false
-  private _targetGroupArns?: string[];
+  private _targetGroupArns?: string[]; 
   public get targetGroupArns() {
     return cdktf.Fn.tolist(this.getListAttribute('target_group_arns'));
   }
@@ -4732,7 +4062,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // terminate_instances_on_delete - computed: false, optional: true, required: false
-  private _terminateInstancesOnDelete?: string;
+  private _terminateInstancesOnDelete?: string; 
   public get terminateInstancesOnDelete() {
     return this.getStringAttribute('terminate_instances_on_delete');
   }
@@ -4748,13 +4078,11 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // terminate_instances_with_expiration - computed: false, optional: true, required: false
-  private _terminateInstancesWithExpiration?: boolean | cdktf.IResolvable;
+  private _terminateInstancesWithExpiration?: boolean | cdktf.IResolvable; 
   public get terminateInstancesWithExpiration() {
     return this.getBooleanAttribute('terminate_instances_with_expiration');
   }
-  public set terminateInstancesWithExpiration(
-    value: boolean | cdktf.IResolvable,
-  ) {
+  public set terminateInstancesWithExpiration(value: boolean | cdktf.IResolvable) {
     this._terminateInstancesWithExpiration = value;
   }
   public resetTerminateInstancesWithExpiration() {
@@ -4766,7 +4094,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // valid_from - computed: false, optional: true, required: false
-  private _validFrom?: string;
+  private _validFrom?: string; 
   public get validFrom() {
     return this.getStringAttribute('valid_from');
   }
@@ -4782,7 +4110,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // valid_until - computed: false, optional: true, required: false
-  private _validUntil?: string;
+  private _validUntil?: string; 
   public get validUntil() {
     return this.getStringAttribute('valid_until');
   }
@@ -4798,7 +4126,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // wait_for_fulfillment - computed: false, optional: true, required: false
-  private _waitForFulfillment?: boolean | cdktf.IResolvable;
+  private _waitForFulfillment?: boolean | cdktf.IResolvable; 
   public get waitForFulfillment() {
     return this.getBooleanAttribute('wait_for_fulfillment');
   }
@@ -4814,17 +4142,11 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // launch_specification - computed: false, optional: true, required: false
-  private _launchSpecification = new SpotFleetRequestLaunchSpecificationList(
-    this,
-    'launch_specification',
-    true,
-  );
+  private _launchSpecification = new SpotFleetRequestLaunchSpecificationList(this, "launch_specification", true);
   public get launchSpecification() {
     return this._launchSpecification;
   }
-  public putLaunchSpecification(
-    value: SpotFleetRequestLaunchSpecification[] | cdktf.IResolvable,
-  ) {
+  public putLaunchSpecification(value: SpotFleetRequestLaunchSpecification[] | cdktf.IResolvable) {
     this._launchSpecification.internalValue = value;
   }
   public resetLaunchSpecification() {
@@ -4836,17 +4158,11 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // launch_template_config - computed: false, optional: true, required: false
-  private _launchTemplateConfig = new SpotFleetRequestLaunchTemplateConfigList(
-    this,
-    'launch_template_config',
-    true,
-  );
+  private _launchTemplateConfig = new SpotFleetRequestLaunchTemplateConfigList(this, "launch_template_config", true);
   public get launchTemplateConfig() {
     return this._launchTemplateConfig;
   }
-  public putLaunchTemplateConfig(
-    value: SpotFleetRequestLaunchTemplateConfig[] | cdktf.IResolvable,
-  ) {
+  public putLaunchTemplateConfig(value: SpotFleetRequestLaunchTemplateConfig[] | cdktf.IResolvable) {
     this._launchTemplateConfig.internalValue = value;
   }
   public resetLaunchTemplateConfig() {
@@ -4858,17 +4174,11 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // spot_maintenance_strategies - computed: false, optional: true, required: false
-  private _spotMaintenanceStrategies =
-    new SpotFleetRequestSpotMaintenanceStrategiesOutputReference(
-      this,
-      'spot_maintenance_strategies',
-    );
+  private _spotMaintenanceStrategies = new SpotFleetRequestSpotMaintenanceStrategiesOutputReference(this, "spot_maintenance_strategies");
   public get spotMaintenanceStrategies() {
     return this._spotMaintenanceStrategies;
   }
-  public putSpotMaintenanceStrategies(
-    value: SpotFleetRequestSpotMaintenanceStrategies,
-  ) {
+  public putSpotMaintenanceStrategies(value: SpotFleetRequestSpotMaintenanceStrategies) {
     this._spotMaintenanceStrategies.internalValue = value;
   }
   public resetSpotMaintenanceStrategies() {
@@ -4880,10 +4190,7 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new SpotFleetRequestTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new SpotFleetRequestTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -4905,69 +4212,32 @@ export class SpotFleetRequest extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       allocation_strategy: cdktf.stringToTerraform(this._allocationStrategy),
-      excess_capacity_termination_policy: cdktf.stringToTerraform(
-        this._excessCapacityTerminationPolicy,
-      ),
+      excess_capacity_termination_policy: cdktf.stringToTerraform(this._excessCapacityTerminationPolicy),
       fleet_type: cdktf.stringToTerraform(this._fleetType),
       iam_fleet_role: cdktf.stringToTerraform(this._iamFleetRole),
       id: cdktf.stringToTerraform(this._id),
-      instance_interruption_behaviour: cdktf.stringToTerraform(
-        this._instanceInterruptionBehaviour,
-      ),
-      instance_pools_to_use_count: cdktf.numberToTerraform(
-        this._instancePoolsToUseCount,
-      ),
-      load_balancers: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._loadBalancers),
-      on_demand_allocation_strategy: cdktf.stringToTerraform(
-        this._onDemandAllocationStrategy,
-      ),
-      on_demand_max_total_price: cdktf.stringToTerraform(
-        this._onDemandMaxTotalPrice,
-      ),
-      on_demand_target_capacity: cdktf.numberToTerraform(
-        this._onDemandTargetCapacity,
-      ),
-      replace_unhealthy_instances: cdktf.booleanToTerraform(
-        this._replaceUnhealthyInstances,
-      ),
+      instance_interruption_behaviour: cdktf.stringToTerraform(this._instanceInterruptionBehaviour),
+      instance_pools_to_use_count: cdktf.numberToTerraform(this._instancePoolsToUseCount),
+      load_balancers: cdktf.listMapper(cdktf.stringToTerraform, false)(this._loadBalancers),
+      on_demand_allocation_strategy: cdktf.stringToTerraform(this._onDemandAllocationStrategy),
+      on_demand_max_total_price: cdktf.stringToTerraform(this._onDemandMaxTotalPrice),
+      on_demand_target_capacity: cdktf.numberToTerraform(this._onDemandTargetCapacity),
+      replace_unhealthy_instances: cdktf.booleanToTerraform(this._replaceUnhealthyInstances),
       spot_price: cdktf.stringToTerraform(this._spotPrice),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       target_capacity: cdktf.numberToTerraform(this._targetCapacity),
-      target_capacity_unit_type: cdktf.stringToTerraform(
-        this._targetCapacityUnitType,
-      ),
-      target_group_arns: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._targetGroupArns),
-      terminate_instances_on_delete: cdktf.stringToTerraform(
-        this._terminateInstancesOnDelete,
-      ),
-      terminate_instances_with_expiration: cdktf.booleanToTerraform(
-        this._terminateInstancesWithExpiration,
-      ),
+      target_capacity_unit_type: cdktf.stringToTerraform(this._targetCapacityUnitType),
+      target_group_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._targetGroupArns),
+      terminate_instances_on_delete: cdktf.stringToTerraform(this._terminateInstancesOnDelete),
+      terminate_instances_with_expiration: cdktf.booleanToTerraform(this._terminateInstancesWithExpiration),
       valid_from: cdktf.stringToTerraform(this._validFrom),
       valid_until: cdktf.stringToTerraform(this._validUntil),
       wait_for_fulfillment: cdktf.booleanToTerraform(this._waitForFulfillment),
-      launch_specification: cdktf.listMapper(
-        spotFleetRequestLaunchSpecificationToTerraform,
-        true,
-      )(this._launchSpecification.internalValue),
-      launch_template_config: cdktf.listMapper(
-        spotFleetRequestLaunchTemplateConfigToTerraform,
-        true,
-      )(this._launchTemplateConfig.internalValue),
-      spot_maintenance_strategies:
-        spotFleetRequestSpotMaintenanceStrategiesToTerraform(
-          this._spotMaintenanceStrategies.internalValue,
-        ),
-      timeouts: spotFleetRequestTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      launch_specification: cdktf.listMapper(spotFleetRequestLaunchSpecificationToTerraform, true)(this._launchSpecification.internalValue),
+      launch_template_config: cdktf.listMapper(spotFleetRequestLaunchTemplateConfigToTerraform, true)(this._launchTemplateConfig.internalValue),
+      spot_maintenance_strategies: spotFleetRequestSpotMaintenanceStrategiesToTerraform(this._spotMaintenanceStrategies.internalValue),
+      timeouts: spotFleetRequestTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

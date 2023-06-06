@@ -41,7 +41,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
         vpc: kubernetes_cluster.vpc_uuid,
         name: kubernetes_cluster.name,
         kubernetesVersion: kubernetes_cluster.version,
-        account: '',
+        configPath: '',
       };
     } catch {
       return undefined;
@@ -70,7 +70,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
         name: cluster.name,
         vpc: cluster.vpc_uuid,
         kubernetesVersion: cluster.version,
-        account: '',
+        configPath: '',
       })),
     };
   }

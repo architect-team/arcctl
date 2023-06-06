@@ -1,83 +1,78 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_extension
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface AppconfigExtensionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#description AppconfigExtension#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#description AppconfigExtension#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#id AppconfigExtension#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#id AppconfigExtension#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#name AppconfigExtension#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#name AppconfigExtension#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#tags AppconfigExtension#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#tags AppconfigExtension#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#tags_all AppconfigExtension#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#tags_all AppconfigExtension#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * action_point block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#action_point AppconfigExtension#action_point}
-   */
+  * action_point block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#action_point AppconfigExtension#action_point}
+  */
   readonly actionPoint: AppconfigExtensionActionPoint[] | cdktf.IResolvable;
   /**
-   * parameter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#parameter AppconfigExtension#parameter}
-   */
+  * parameter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#parameter AppconfigExtension#parameter}
+  */
   readonly parameter?: AppconfigExtensionParameter[] | cdktf.IResolvable;
 }
 export interface AppconfigExtensionActionPointAction {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#description AppconfigExtension#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#description AppconfigExtension#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#name AppconfigExtension#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#name AppconfigExtension#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#role_arn AppconfigExtension#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#role_arn AppconfigExtension#role_arn}
+  */
   readonly roleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#uri AppconfigExtension#uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#uri AppconfigExtension#uri}
+  */
   readonly uri: string;
 }
 
-export function appconfigExtensionActionPointActionToTerraform(
-  struct?: AppconfigExtensionActionPointAction | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appconfigExtensionActionPointActionToTerraform(struct?: AppconfigExtensionActionPointAction | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     description: cdktf.stringToTerraform(struct!.description),
     name: cdktf.stringToTerraform(struct!.name),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
     uri: cdktf.stringToTerraform(struct!.uri),
-  };
+  }
 }
 
 export class AppconfigExtensionActionPointActionOutputReference extends cdktf.ComplexObject {
@@ -85,29 +80,16 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppconfigExtensionActionPointAction
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppconfigExtensionActionPointAction | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -132,9 +114,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppconfigExtensionActionPointAction | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppconfigExtensionActionPointAction | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -142,10 +122,12 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
       this._name = undefined;
       this._roleArn = undefined;
       this._uri = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._description = value.description;
@@ -156,7 +138,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -172,7 +154,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -185,7 +167,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -198,7 +180,7 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
   }
 
   // uri - computed: false, optional: false, required: true
-  private _uri?: string;
+  private _uri?: string; 
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -212,68 +194,46 @@ export class AppconfigExtensionActionPointActionOutputReference extends cdktf.Co
 }
 
 export class AppconfigExtensionActionPointActionList extends cdktf.ComplexList {
-  public internalValue?:
-    | AppconfigExtensionActionPointAction[]
-    | cdktf.IResolvable;
+  public internalValue? : AppconfigExtensionActionPointAction[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): AppconfigExtensionActionPointActionOutputReference {
-    return new AppconfigExtensionActionPointActionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): AppconfigExtensionActionPointActionOutputReference {
+    return new AppconfigExtensionActionPointActionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppconfigExtensionActionPoint {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#point AppconfigExtension#point}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#point AppconfigExtension#point}
+  */
   readonly point: string;
   /**
-   * action block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#action AppconfigExtension#action}
-   */
+  * action block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#action AppconfigExtension#action}
+  */
   readonly action: AppconfigExtensionActionPointAction[] | cdktf.IResolvable;
 }
 
-export function appconfigExtensionActionPointToTerraform(
-  struct?: AppconfigExtensionActionPoint | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appconfigExtensionActionPointToTerraform(struct?: AppconfigExtensionActionPoint | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     point: cdktf.stringToTerraform(struct!.point),
-    action: cdktf.listMapper(
-      appconfigExtensionActionPointActionToTerraform,
-      true,
-    )(struct!.action),
-  };
+    action: cdktf.listMapper(appconfigExtensionActionPointActionToTerraform, true)(struct!.action),
+  }
 }
 
 export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexObject {
@@ -281,29 +241,16 @@ export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexO
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppconfigExtensionActionPoint
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppconfigExtensionActionPoint | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -320,18 +267,18 @@ export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexO
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppconfigExtensionActionPoint | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppconfigExtensionActionPoint | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._point = undefined;
       this._action.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._point = value.point;
@@ -340,7 +287,7 @@ export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexO
   }
 
   // point - computed: false, optional: false, required: true
-  private _point?: string;
+  private _point?: string; 
   public get point() {
     return this.getStringAttribute('point');
   }
@@ -353,17 +300,11 @@ export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexO
   }
 
   // action - computed: false, optional: false, required: true
-  private _action = new AppconfigExtensionActionPointActionList(
-    this,
-    'action',
-    true,
-  );
+  private _action = new AppconfigExtensionActionPointActionList(this, "action", true);
   public get action() {
     return this._action;
   }
-  public putAction(
-    value: AppconfigExtensionActionPointAction[] | cdktf.IResolvable,
-  ) {
+  public putAction(value: AppconfigExtensionActionPointAction[] | cdktf.IResolvable) {
     this._action.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -373,64 +314,49 @@ export class AppconfigExtensionActionPointOutputReference extends cdktf.ComplexO
 }
 
 export class AppconfigExtensionActionPointList extends cdktf.ComplexList {
-  public internalValue?: AppconfigExtensionActionPoint[] | cdktf.IResolvable;
+  public internalValue? : AppconfigExtensionActionPoint[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppconfigExtensionActionPointOutputReference {
-    return new AppconfigExtensionActionPointOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppconfigExtensionActionPointOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AppconfigExtensionParameter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#description AppconfigExtension#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#description AppconfigExtension#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#name AppconfigExtension#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#name AppconfigExtension#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#required AppconfigExtension#required}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension#required AppconfigExtension#required}
+  */
   readonly required?: boolean | cdktf.IResolvable;
 }
 
-export function appconfigExtensionParameterToTerraform(
-  struct?: AppconfigExtensionParameter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appconfigExtensionParameterToTerraform(struct?: AppconfigExtensionParameter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     description: cdktf.stringToTerraform(struct!.description),
     name: cdktf.stringToTerraform(struct!.name),
     required: cdktf.booleanToTerraform(struct!.required),
-  };
+  }
 }
 
 export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObject {
@@ -438,29 +364,16 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AppconfigExtensionParameter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AppconfigExtensionParameter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -481,19 +394,19 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppconfigExtensionParameter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AppconfigExtensionParameter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._description = undefined;
       this._name = undefined;
       this._required = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._description = value.description;
@@ -503,7 +416,7 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -519,7 +432,7 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -532,7 +445,7 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
   }
 
   // required - computed: false, optional: true, required: false
-  private _required?: boolean | cdktf.IResolvable;
+  private _required?: boolean | cdktf.IResolvable; 
   public get required() {
     return this.getBooleanAttribute('required');
   }
@@ -549,65 +462,53 @@ export class AppconfigExtensionParameterOutputReference extends cdktf.ComplexObj
 }
 
 export class AppconfigExtensionParameterList extends cdktf.ComplexList {
-  public internalValue?: AppconfigExtensionParameter[] | cdktf.IResolvable;
+  public internalValue? : AppconfigExtensionParameter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AppconfigExtensionParameterOutputReference {
-    return new AppconfigExtensionParameterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AppconfigExtensionParameterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension aws_appconfig_extension}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension aws_appconfig_extension}
+*/
 export class AppconfigExtension extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_appconfig_extension';
+  public static readonly tfResourceType = "aws_appconfig_extension";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension aws_appconfig_extension} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppconfigExtensionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AppconfigExtensionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appconfig_extension aws_appconfig_extension} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppconfigExtensionConfig
+  */
+  public constructor(scope: Construct, id: string, config: AppconfigExtensionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appconfig_extension',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -615,7 +516,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._id = config.id;
@@ -636,7 +537,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -652,7 +553,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -668,7 +569,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -681,7 +582,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -697,7 +598,7 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -718,17 +619,11 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // action_point - computed: false, optional: false, required: true
-  private _actionPoint = new AppconfigExtensionActionPointList(
-    this,
-    'action_point',
-    true,
-  );
+  private _actionPoint = new AppconfigExtensionActionPointList(this, "action_point", true);
   public get actionPoint() {
     return this._actionPoint;
   }
-  public putActionPoint(
-    value: AppconfigExtensionActionPoint[] | cdktf.IResolvable,
-  ) {
+  public putActionPoint(value: AppconfigExtensionActionPoint[] | cdktf.IResolvable) {
     this._actionPoint.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -737,17 +632,11 @@ export class AppconfigExtension extends cdktf.TerraformResource {
   }
 
   // parameter - computed: false, optional: true, required: false
-  private _parameter = new AppconfigExtensionParameterList(
-    this,
-    'parameter',
-    true,
-  );
+  private _parameter = new AppconfigExtensionParameterList(this, "parameter", true);
   public get parameter() {
     return this._parameter;
   }
-  public putParameter(
-    value: AppconfigExtensionParameter[] | cdktf.IResolvable,
-  ) {
+  public putParameter(value: AppconfigExtensionParameter[] | cdktf.IResolvable) {
     this._parameter.internalValue = value;
   }
   public resetParameter() {
@@ -769,14 +658,8 @@ export class AppconfigExtension extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      action_point: cdktf.listMapper(
-        appconfigExtensionActionPointToTerraform,
-        true,
-      )(this._actionPoint.internalValue),
-      parameter: cdktf.listMapper(
-        appconfigExtensionParameterToTerraform,
-        true,
-      )(this._parameter.internalValue),
+      action_point: cdktf.listMapper(appconfigExtensionActionPointToTerraform, true)(this._actionPoint.internalValue),
+      parameter: cdktf.listMapper(appconfigExtensionParameterToTerraform, true)(this._parameter.internalValue),
     };
   }
 }

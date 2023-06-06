@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Ec2ManagedPrefixListEntryAConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Ec2ManagedPrefixListEntryAConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#cidr Ec2ManagedPrefixListEntryA#cidr}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#cidr Ec2ManagedPrefixListEntryA#cidr}
+  */
   readonly cidr: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#description Ec2ManagedPrefixListEntryA#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#description Ec2ManagedPrefixListEntryA#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#id Ec2ManagedPrefixListEntryA#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#id Ec2ManagedPrefixListEntryA#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#prefix_list_id Ec2ManagedPrefixListEntryA#prefix_list_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry#prefix_list_id Ec2ManagedPrefixListEntryA#prefix_list_id}
+  */
   readonly prefixListId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry aws_ec2_managed_prefix_list_entry}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry aws_ec2_managed_prefix_list_entry}
+*/
 export class Ec2ManagedPrefixListEntryA extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ec2_managed_prefix_list_entry';
+  public static readonly tfResourceType = "aws_ec2_managed_prefix_list_entry";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry aws_ec2_managed_prefix_list_entry} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Ec2ManagedPrefixListEntryAConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Ec2ManagedPrefixListEntryAConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_managed_prefix_list_entry aws_ec2_managed_prefix_list_entry} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Ec2ManagedPrefixListEntryAConfig
+  */
+  public constructor(scope: Construct, id: string, config: Ec2ManagedPrefixListEntryAConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_managed_prefix_list_entry',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class Ec2ManagedPrefixListEntryA extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cidr = config.cidr;
     this._description = config.description;
@@ -79,7 +76,7 @@ export class Ec2ManagedPrefixListEntryA extends cdktf.TerraformResource {
   // ==========
 
   // cidr - computed: false, optional: false, required: true
-  private _cidr?: string;
+  private _cidr?: string; 
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -92,7 +89,7 @@ export class Ec2ManagedPrefixListEntryA extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -108,7 +105,7 @@ export class Ec2ManagedPrefixListEntryA extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -124,7 +121,7 @@ export class Ec2ManagedPrefixListEntryA extends cdktf.TerraformResource {
   }
 
   // prefix_list_id - computed: false, optional: false, required: true
-  private _prefixListId?: string;
+  private _prefixListId?: string; 
   public get prefixListId() {
     return this.getStringAttribute('prefix_list_id');
   }

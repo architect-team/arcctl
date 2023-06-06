@@ -36,8 +36,6 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
       targetGraph.insertEdges(...targetEnvGraph.edges);
     }
 
-    targetGraph.validate();
-
     const originalPipeline = currentDatacenterRecord
       ? await command_helper.getPipelineForDatacenter(currentDatacenterRecord)
       : new Pipeline();
@@ -51,6 +49,8 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
       await command_helper.saveDatacenter(name, newDatacenter, newPipeline);
       console.log('Datacenter updated successfully');
     }
+
+    newPipeline.validate();
 
     let interval: number;
     if (!options.verbose) {

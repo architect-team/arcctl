@@ -5,10 +5,64 @@
     "DatacenterSchema": {
       "additionalProperties": false,
       "properties": {
+        "accounts": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "credentials": {
+                "description": "Credentials used to access the cloud provider",
+                "type": "object"
+              },
+              "name": {
+                "description": "Name of the new account",
+                "type": "string"
+              },
+              "provider": {
+                "description": "Cloud provider the account connects to",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "provider",
+              "credentials"
+            ],
+            "type": "object"
+          },
+          "description": "Cloud accounts to register and remove with the lifecycle of the datacenter",
+          "type": "object"
+        },
         "environment": {
           "additionalProperties": false,
           "description": "A template for how environments inside the datacenter should behave",
           "properties": {
+            "accounts": {
+              "additionalProperties": {
+                "additionalProperties": false,
+                "properties": {
+                  "credentials": {
+                    "description": "Credentials used to access the cloud provider",
+                    "type": "object"
+                  },
+                  "name": {
+                    "description": "Name of the new account",
+                    "type": "string"
+                  },
+                  "provider": {
+                    "description": "Cloud provider the account connects to",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "provider",
+                  "credentials"
+                ],
+                "type": "object"
+              },
+              "description": "Cloud accounts to register and remove with the lifecycle of the environment",
+              "type": "object"
+            },
             "hooks": {
               "description": "Configure rules for how application resources should behave in the environment",
               "items": {
@@ -69,6 +123,13 @@
                         "type": "number"
                       }
                     ]
+                  },
+                  "credentials": {
+                    "additionalProperties": {
+                      "additionalProperties": false,
+                      "type": "object"
+                    },
+                    "type": "object"
                   },
                   "data": {
                     "type": "string"
@@ -309,6 +370,9 @@
                   "protocol": {
                     "type": "string"
                   },
+                  "provider": {
+                    "type": "string"
+                  },
                   "recordType": {
                     "type": "string"
                   },
@@ -327,6 +391,48 @@
                   "resources": {
                     "additionalProperties": {
                       "allOf": [
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "arcctlAccount",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "credentials": {
+                                "description": "Credentials used to access the cloud provider",
+                                "type": "object"
+                              },
+                              "name": {
+                                "description": "Name of the new account",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Cloud provider the account connects to",
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "arcctlAccount",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "credentials",
+                              "name",
+                              "provider",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
                         {
                           "if": {
                             "properties": {
@@ -2240,6 +2346,7 @@
                       "properties": {
                         "type": {
                           "enum": [
+                            "arcctlAccount",
                             "cronjob",
                             "database",
                             "databaseSchema",
@@ -2306,6 +2413,7 @@
                   },
                   "type": {
                     "enum": [
+                      "arcctlAccount",
                       "cronjob",
                       "database",
                       "databaseSchema",
@@ -2413,6 +2521,13 @@
                             "type": "number"
                           }
                         ]
+                      },
+                      "credentials": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "type": "object"
+                        },
+                        "type": "object"
                       },
                       "data": {
                         "type": "string"
@@ -2638,6 +2753,9 @@
                       "protocol": {
                         "type": "string"
                       },
+                      "provider": {
+                        "type": "string"
+                      },
                       "recordType": {
                         "type": "string"
                       },
@@ -2683,6 +2801,7 @@
                       },
                       "type": {
                         "enum": [
+                          "arcctlAccount",
                           "cronjob",
                           "database",
                           "databaseSchema",
@@ -2762,6 +2881,48 @@
             "resources": {
               "additionalProperties": {
                 "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "arcctlAccount",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "credentials": {
+                          "description": "Credentials used to access the cloud provider",
+                          "type": "object"
+                        },
+                        "name": {
+                          "description": "Name of the new account",
+                          "type": "string"
+                        },
+                        "provider": {
+                          "description": "Cloud provider the account connects to",
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "arcctlAccount",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "credentials",
+                        "name",
+                        "provider",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
                   {
                     "if": {
                       "properties": {
@@ -4675,6 +4836,7 @@
                 "properties": {
                   "type": {
                     "enum": [
+                      "arcctlAccount",
                       "cronjob",
                       "database",
                       "databaseSchema",
@@ -4734,6 +4896,48 @@
         "resources": {
           "additionalProperties": {
             "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "arcctlAccount",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "credentials": {
+                      "description": "Credentials used to access the cloud provider",
+                      "type": "object"
+                    },
+                    "name": {
+                      "description": "Name of the new account",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "description": "Cloud provider the account connects to",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "arcctlAccount",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "credentials",
+                    "name",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
               {
                 "if": {
                   "properties": {
@@ -6647,6 +6851,7 @@
             "properties": {
               "type": {
                 "enum": [
+                  "arcctlAccount",
                   "cronjob",
                   "database",
                   "databaseSchema",

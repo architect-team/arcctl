@@ -1,95 +1,86 @@
 // https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DxHostedPublicVirtualInterfaceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DxHostedPublicVirtualInterfaceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#address_family DxHostedPublicVirtualInterface#address_family}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#address_family DxHostedPublicVirtualInterface#address_family}
+  */
   readonly addressFamily: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#amazon_address DxHostedPublicVirtualInterface#amazon_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#amazon_address DxHostedPublicVirtualInterface#amazon_address}
+  */
   readonly amazonAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#bgp_asn DxHostedPublicVirtualInterface#bgp_asn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#bgp_asn DxHostedPublicVirtualInterface#bgp_asn}
+  */
   readonly bgpAsn: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#bgp_auth_key DxHostedPublicVirtualInterface#bgp_auth_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#bgp_auth_key DxHostedPublicVirtualInterface#bgp_auth_key}
+  */
   readonly bgpAuthKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#connection_id DxHostedPublicVirtualInterface#connection_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#connection_id DxHostedPublicVirtualInterface#connection_id}
+  */
   readonly connectionId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#customer_address DxHostedPublicVirtualInterface#customer_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#customer_address DxHostedPublicVirtualInterface#customer_address}
+  */
   readonly customerAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#id DxHostedPublicVirtualInterface#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#id DxHostedPublicVirtualInterface#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#name DxHostedPublicVirtualInterface#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#name DxHostedPublicVirtualInterface#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#owner_account_id DxHostedPublicVirtualInterface#owner_account_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#owner_account_id DxHostedPublicVirtualInterface#owner_account_id}
+  */
   readonly ownerAccountId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#route_filter_prefixes DxHostedPublicVirtualInterface#route_filter_prefixes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#route_filter_prefixes DxHostedPublicVirtualInterface#route_filter_prefixes}
+  */
   readonly routeFilterPrefixes: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#vlan DxHostedPublicVirtualInterface#vlan}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#vlan DxHostedPublicVirtualInterface#vlan}
+  */
   readonly vlan: number;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#timeouts DxHostedPublicVirtualInterface#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#timeouts DxHostedPublicVirtualInterface#timeouts}
+  */
   readonly timeouts?: DxHostedPublicVirtualInterfaceTimeouts;
 }
 export interface DxHostedPublicVirtualInterfaceTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#create DxHostedPublicVirtualInterface#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#create DxHostedPublicVirtualInterface#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#delete DxHostedPublicVirtualInterface#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface#delete DxHostedPublicVirtualInterface#delete}
+  */
   readonly delete?: string;
 }
 
-export function dxHostedPublicVirtualInterfaceTimeoutsToTerraform(
-  struct?:
-    | DxHostedPublicVirtualInterfaceTimeoutsOutputReference
-    | DxHostedPublicVirtualInterfaceTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dxHostedPublicVirtualInterfaceTimeoutsToTerraform(struct?: DxHostedPublicVirtualInterfaceTimeoutsOutputReference | DxHostedPublicVirtualInterfaceTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class DxHostedPublicVirtualInterfaceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -97,20 +88,14 @@ export class DxHostedPublicVirtualInterfaceTimeoutsOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DxHostedPublicVirtualInterfaceTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DxHostedPublicVirtualInterfaceTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -127,21 +112,18 @@ export class DxHostedPublicVirtualInterfaceTimeoutsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DxHostedPublicVirtualInterfaceTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: DxHostedPublicVirtualInterfaceTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -150,7 +132,7 @@ export class DxHostedPublicVirtualInterfaceTimeoutsOutputReference extends cdktf
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -166,7 +148,7 @@ export class DxHostedPublicVirtualInterfaceTimeoutsOutputReference extends cdktf
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -183,37 +165,33 @@ export class DxHostedPublicVirtualInterfaceTimeoutsOutputReference extends cdktf
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface aws_dx_hosted_public_virtual_interface}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface aws_dx_hosted_public_virtual_interface}
+*/
 export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_dx_hosted_public_virtual_interface';
+  public static readonly tfResourceType = "aws_dx_hosted_public_virtual_interface";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface aws_dx_hosted_public_virtual_interface} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DxHostedPublicVirtualInterfaceConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DxHostedPublicVirtualInterfaceConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dx_hosted_public_virtual_interface aws_dx_hosted_public_virtual_interface} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DxHostedPublicVirtualInterfaceConfig
+  */
+  public constructor(scope: Construct, id: string, config: DxHostedPublicVirtualInterfaceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_dx_hosted_public_virtual_interface',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -221,7 +199,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._addressFamily = config.addressFamily;
     this._amazonAddress = config.amazonAddress;
@@ -242,7 +220,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   // ==========
 
   // address_family - computed: false, optional: false, required: true
-  private _addressFamily?: string;
+  private _addressFamily?: string; 
   public get addressFamily() {
     return this.getStringAttribute('address_family');
   }
@@ -255,7 +233,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // amazon_address - computed: true, optional: true, required: false
-  private _amazonAddress?: string;
+  private _amazonAddress?: string; 
   public get amazonAddress() {
     return this.getStringAttribute('amazon_address');
   }
@@ -286,7 +264,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // bgp_asn - computed: false, optional: false, required: true
-  private _bgpAsn?: number;
+  private _bgpAsn?: number; 
   public get bgpAsn() {
     return this.getNumberAttribute('bgp_asn');
   }
@@ -299,7 +277,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // bgp_auth_key - computed: true, optional: true, required: false
-  private _bgpAuthKey?: string;
+  private _bgpAuthKey?: string; 
   public get bgpAuthKey() {
     return this.getStringAttribute('bgp_auth_key');
   }
@@ -315,7 +293,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // connection_id - computed: false, optional: false, required: true
-  private _connectionId?: string;
+  private _connectionId?: string; 
   public get connectionId() {
     return this.getStringAttribute('connection_id');
   }
@@ -328,7 +306,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // customer_address - computed: true, optional: true, required: false
-  private _customerAddress?: string;
+  private _customerAddress?: string; 
   public get customerAddress() {
     return this.getStringAttribute('customer_address');
   }
@@ -344,7 +322,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -360,7 +338,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -373,7 +351,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // owner_account_id - computed: false, optional: false, required: true
-  private _ownerAccountId?: string;
+  private _ownerAccountId?: string; 
   public get ownerAccountId() {
     return this.getStringAttribute('owner_account_id');
   }
@@ -386,7 +364,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // route_filter_prefixes - computed: false, optional: false, required: true
-  private _routeFilterPrefixes?: string[];
+  private _routeFilterPrefixes?: string[]; 
   public get routeFilterPrefixes() {
     return cdktf.Fn.tolist(this.getListAttribute('route_filter_prefixes'));
   }
@@ -399,7 +377,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // vlan - computed: false, optional: false, required: true
-  private _vlan?: number;
+  private _vlan?: number; 
   public get vlan() {
     return this.getNumberAttribute('vlan');
   }
@@ -412,10 +390,7 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DxHostedPublicVirtualInterfaceTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new DxHostedPublicVirtualInterfaceTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -445,14 +420,9 @@ export class DxHostedPublicVirtualInterface extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       owner_account_id: cdktf.stringToTerraform(this._ownerAccountId),
-      route_filter_prefixes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._routeFilterPrefixes),
+      route_filter_prefixes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._routeFilterPrefixes),
       vlan: cdktf.numberToTerraform(this._vlan),
-      timeouts: dxHostedPublicVirtualInterfaceTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: dxHostedPublicVirtualInterfaceTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

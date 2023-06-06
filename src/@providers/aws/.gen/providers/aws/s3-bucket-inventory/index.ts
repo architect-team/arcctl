@@ -1,99 +1,87 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface S3BucketInventoryConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket S3BucketInventory#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket S3BucketInventory#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#enabled S3BucketInventory#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#enabled S3BucketInventory#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#id S3BucketInventory#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#id S3BucketInventory#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#included_object_versions S3BucketInventory#included_object_versions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#included_object_versions S3BucketInventory#included_object_versions}
+  */
   readonly includedObjectVersions: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#name S3BucketInventory#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#name S3BucketInventory#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#optional_fields S3BucketInventory#optional_fields}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#optional_fields S3BucketInventory#optional_fields}
+  */
   readonly optionalFields?: string[];
   /**
-   * destination block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#destination S3BucketInventory#destination}
-   */
+  * destination block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#destination S3BucketInventory#destination}
+  */
   readonly destination: S3BucketInventoryDestination;
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#filter S3BucketInventory#filter}
-   */
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#filter S3BucketInventory#filter}
+  */
   readonly filter?: S3BucketInventoryFilter;
   /**
-   * schedule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#schedule S3BucketInventory#schedule}
-   */
+  * schedule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#schedule S3BucketInventory#schedule}
+  */
   readonly schedule: S3BucketInventorySchedule;
 }
 export interface S3BucketInventoryDestinationBucketEncryptionSseKms {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#key_id S3BucketInventory#key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#key_id S3BucketInventory#key_id}
+  */
   readonly keyId: string;
 }
 
-export function s3BucketInventoryDestinationBucketEncryptionSseKmsToTerraform(
-  struct?:
-    | S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference
-    | S3BucketInventoryDestinationBucketEncryptionSseKms,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryDestinationBucketEncryptionSseKmsToTerraform(struct?: S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference | S3BucketInventoryDestinationBucketEncryptionSseKms): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key_id: cdktf.stringToTerraform(struct!.keyId),
-  };
+  }
 }
 
 export class S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketInventoryDestinationBucketEncryptionSseKms
-    | undefined {
+  public get internalValue(): S3BucketInventoryDestinationBucketEncryptionSseKms | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._keyId !== undefined) {
@@ -103,20 +91,19 @@ export class S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketInventoryDestinationBucketEncryptionSseKms | undefined,
-  ) {
+  public set internalValue(value: S3BucketInventoryDestinationBucketEncryptionSseKms | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._keyId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._keyId = value.keyId;
     }
   }
 
   // key_id - computed: false, optional: false, required: true
-  private _keyId?: string;
+  private _keyId?: string; 
   public get keyId() {
     return this.getStringAttribute('key_id');
   }
@@ -128,111 +115,82 @@ export class S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference e
     return this._keyId;
   }
 }
-export interface S3BucketInventoryDestinationBucketEncryptionSseS3 {}
+export interface S3BucketInventoryDestinationBucketEncryptionSseS3 {
+}
 
-export function s3BucketInventoryDestinationBucketEncryptionSseS3ToTerraform(
-  struct?:
-    | S3BucketInventoryDestinationBucketEncryptionSseS3OutputReference
-    | S3BucketInventoryDestinationBucketEncryptionSseS3,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryDestinationBucketEncryptionSseS3ToTerraform(struct?: S3BucketInventoryDestinationBucketEncryptionSseS3OutputReference | S3BucketInventoryDestinationBucketEncryptionSseS3): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class S3BucketInventoryDestinationBucketEncryptionSseS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketInventoryDestinationBucketEncryptionSseS3
-    | undefined {
+  public get internalValue(): S3BucketInventoryDestinationBucketEncryptionSseS3 | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketInventoryDestinationBucketEncryptionSseS3 | undefined,
-  ) {
+  public set internalValue(value: S3BucketInventoryDestinationBucketEncryptionSseS3 | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 }
 export interface S3BucketInventoryDestinationBucketEncryption {
   /**
-   * sse_kms block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#sse_kms S3BucketInventory#sse_kms}
-   */
+  * sse_kms block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#sse_kms S3BucketInventory#sse_kms}
+  */
   readonly sseKms?: S3BucketInventoryDestinationBucketEncryptionSseKms;
   /**
-   * sse_s3 block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#sse_s3 S3BucketInventory#sse_s3}
-   */
+  * sse_s3 block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#sse_s3 S3BucketInventory#sse_s3}
+  */
   readonly sseS3?: S3BucketInventoryDestinationBucketEncryptionSseS3;
 }
 
-export function s3BucketInventoryDestinationBucketEncryptionToTerraform(
-  struct?:
-    | S3BucketInventoryDestinationBucketEncryptionOutputReference
-    | S3BucketInventoryDestinationBucketEncryption,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryDestinationBucketEncryptionToTerraform(struct?: S3BucketInventoryDestinationBucketEncryptionOutputReference | S3BucketInventoryDestinationBucketEncryption): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    sse_kms: s3BucketInventoryDestinationBucketEncryptionSseKmsToTerraform(
-      struct!.sseKms,
-    ),
-    sse_s3: s3BucketInventoryDestinationBucketEncryptionSseS3ToTerraform(
-      struct!.sseS3,
-    ),
-  };
+    sse_kms: s3BucketInventoryDestinationBucketEncryptionSseKmsToTerraform(struct!.sseKms),
+    sse_s3: s3BucketInventoryDestinationBucketEncryptionSseS3ToTerraform(struct!.sseS3),
+  }
 }
 
 export class S3BucketInventoryDestinationBucketEncryptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketInventoryDestinationBucketEncryption
-    | undefined {
+  public get internalValue(): S3BucketInventoryDestinationBucketEncryption | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._sseKms?.internalValue !== undefined) {
@@ -246,14 +204,13 @@ export class S3BucketInventoryDestinationBucketEncryptionOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketInventoryDestinationBucketEncryption | undefined,
-  ) {
+  public set internalValue(value: S3BucketInventoryDestinationBucketEncryption | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._sseKms.internalValue = undefined;
       this._sseS3.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._sseKms.internalValue = value.sseKms;
       this._sseS3.internalValue = value.sseS3;
@@ -261,11 +218,7 @@ export class S3BucketInventoryDestinationBucketEncryptionOutputReference extends
   }
 
   // sse_kms - computed: false, optional: true, required: false
-  private _sseKms =
-    new S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference(
-      this,
-      'sse_kms',
-    );
+  private _sseKms = new S3BucketInventoryDestinationBucketEncryptionSseKmsOutputReference(this, "sse_kms");
   public get sseKms() {
     return this._sseKms;
   }
@@ -281,11 +234,7 @@ export class S3BucketInventoryDestinationBucketEncryptionOutputReference extends
   }
 
   // sse_s3 - computed: false, optional: true, required: false
-  private _sseS3 =
-    new S3BucketInventoryDestinationBucketEncryptionSseS3OutputReference(
-      this,
-      'sse_s3',
-    );
+  private _sseS3 = new S3BucketInventoryDestinationBucketEncryptionSseS3OutputReference(this, "sse_s3");
   public get sseS3() {
     return this._sseS3;
   }
@@ -302,64 +251,51 @@ export class S3BucketInventoryDestinationBucketEncryptionOutputReference extends
 }
 export interface S3BucketInventoryDestinationBucket {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#account_id S3BucketInventory#account_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#account_id S3BucketInventory#account_id}
+  */
   readonly accountId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket_arn S3BucketInventory#bucket_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket_arn S3BucketInventory#bucket_arn}
+  */
   readonly bucketArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#format S3BucketInventory#format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#format S3BucketInventory#format}
+  */
   readonly format: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#prefix S3BucketInventory#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#prefix S3BucketInventory#prefix}
+  */
   readonly prefix?: string;
   /**
-   * encryption block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#encryption S3BucketInventory#encryption}
-   */
+  * encryption block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#encryption S3BucketInventory#encryption}
+  */
   readonly encryption?: S3BucketInventoryDestinationBucketEncryption;
 }
 
-export function s3BucketInventoryDestinationBucketToTerraform(
-  struct?:
-    | S3BucketInventoryDestinationBucketOutputReference
-    | S3BucketInventoryDestinationBucket,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryDestinationBucketToTerraform(struct?: S3BucketInventoryDestinationBucketOutputReference | S3BucketInventoryDestinationBucket): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     account_id: cdktf.stringToTerraform(struct!.accountId),
     bucket_arn: cdktf.stringToTerraform(struct!.bucketArn),
     format: cdktf.stringToTerraform(struct!.format),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-    encryption: s3BucketInventoryDestinationBucketEncryptionToTerraform(
-      struct!.encryption,
-    ),
-  };
+    encryption: s3BucketInventoryDestinationBucketEncryptionToTerraform(struct!.encryption),
+  }
 }
 
 export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -389,9 +325,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketInventoryDestinationBucket | undefined,
-  ) {
+  public set internalValue(value: S3BucketInventoryDestinationBucket | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._accountId = undefined;
@@ -399,7 +333,8 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
       this._format = undefined;
       this._prefix = undefined;
       this._encryption.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._accountId = value.accountId;
       this._bucketArn = value.bucketArn;
@@ -410,7 +345,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // account_id - computed: false, optional: true, required: false
-  private _accountId?: string;
+  private _accountId?: string; 
   public get accountId() {
     return this.getStringAttribute('account_id');
   }
@@ -426,7 +361,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // bucket_arn - computed: false, optional: false, required: true
-  private _bucketArn?: string;
+  private _bucketArn?: string; 
   public get bucketArn() {
     return this.getStringAttribute('bucket_arn');
   }
@@ -439,7 +374,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string;
+  private _format?: string; 
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -452,7 +387,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -468,11 +403,7 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
   }
 
   // encryption - computed: false, optional: true, required: false
-  private _encryption =
-    new S3BucketInventoryDestinationBucketEncryptionOutputReference(
-      this,
-      'encryption',
-    );
+  private _encryption = new S3BucketInventoryDestinationBucketEncryptionOutputReference(this, "encryption");
   public get encryption() {
     return this._encryption;
   }
@@ -489,42 +420,31 @@ export class S3BucketInventoryDestinationBucketOutputReference extends cdktf.Com
 }
 export interface S3BucketInventoryDestination {
   /**
-   * bucket block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket S3BucketInventory#bucket}
-   */
+  * bucket block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#bucket S3BucketInventory#bucket}
+  */
   readonly bucket: S3BucketInventoryDestinationBucket;
 }
 
-export function s3BucketInventoryDestinationToTerraform(
-  struct?:
-    | S3BucketInventoryDestinationOutputReference
-    | S3BucketInventoryDestination,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryDestinationToTerraform(struct?: S3BucketInventoryDestinationOutputReference | S3BucketInventoryDestination): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket: s3BucketInventoryDestinationBucketToTerraform(struct!.bucket),
-  };
+  }
 }
 
 export class S3BucketInventoryDestinationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -542,17 +462,15 @@ export class S3BucketInventoryDestinationOutputReference extends cdktf.ComplexOb
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket.internalValue = value.bucket;
     }
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket = new S3BucketInventoryDestinationBucketOutputReference(
-    this,
-    'bucket',
-  );
+  private _bucket = new S3BucketInventoryDestinationBucketOutputReference(this, "bucket");
   public get bucket() {
     return this._bucket;
   }
@@ -566,38 +484,29 @@ export class S3BucketInventoryDestinationOutputReference extends cdktf.ComplexOb
 }
 export interface S3BucketInventoryFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#prefix S3BucketInventory#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#prefix S3BucketInventory#prefix}
+  */
   readonly prefix?: string;
 }
 
-export function s3BucketInventoryFilterToTerraform(
-  struct?: S3BucketInventoryFilterOutputReference | S3BucketInventoryFilter,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryFilterToTerraform(struct?: S3BucketInventoryFilterOutputReference | S3BucketInventoryFilter): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     prefix: cdktf.stringToTerraform(struct!.prefix),
-  };
+  }
 }
 
 export class S3BucketInventoryFilterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -615,14 +524,15 @@ export class S3BucketInventoryFilterOutputReference extends cdktf.ComplexObject 
     if (value === undefined) {
       this.isEmptyObject = false;
       this._prefix = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._prefix = value.prefix;
     }
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -639,38 +549,29 @@ export class S3BucketInventoryFilterOutputReference extends cdktf.ComplexObject 
 }
 export interface S3BucketInventorySchedule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#frequency S3BucketInventory#frequency}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory#frequency S3BucketInventory#frequency}
+  */
   readonly frequency: string;
 }
 
-export function s3BucketInventoryScheduleToTerraform(
-  struct?: S3BucketInventoryScheduleOutputReference | S3BucketInventorySchedule,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketInventoryScheduleToTerraform(struct?: S3BucketInventoryScheduleOutputReference | S3BucketInventorySchedule): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     frequency: cdktf.stringToTerraform(struct!.frequency),
-  };
+  }
 }
 
 export class S3BucketInventoryScheduleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -688,14 +589,15 @@ export class S3BucketInventoryScheduleOutputReference extends cdktf.ComplexObjec
     if (value === undefined) {
       this.isEmptyObject = false;
       this._frequency = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._frequency = value.frequency;
     }
   }
 
   // frequency - computed: false, optional: false, required: true
-  private _frequency?: string;
+  private _frequency?: string; 
   public get frequency() {
     return this.getStringAttribute('frequency');
   }
@@ -709,36 +611,33 @@ export class S3BucketInventoryScheduleOutputReference extends cdktf.ComplexObjec
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory aws_s3_bucket_inventory}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory aws_s3_bucket_inventory}
+*/
 export class S3BucketInventory extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_s3_bucket_inventory';
+  public static readonly tfResourceType = "aws_s3_bucket_inventory";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory aws_s3_bucket_inventory} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options S3BucketInventoryConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: S3BucketInventoryConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_inventory aws_s3_bucket_inventory} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options S3BucketInventoryConfig
+  */
+  public constructor(scope: Construct, id: string, config: S3BucketInventoryConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_bucket_inventory',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -746,7 +645,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._bucket = config.bucket;
     this._enabled = config.enabled;
@@ -764,7 +663,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   // ==========
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -777,7 +676,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -793,7 +692,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -809,7 +708,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // included_object_versions - computed: false, optional: false, required: true
-  private _includedObjectVersions?: string;
+  private _includedObjectVersions?: string; 
   public get includedObjectVersions() {
     return this.getStringAttribute('included_object_versions');
   }
@@ -822,7 +721,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -835,7 +734,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // optional_fields - computed: false, optional: true, required: false
-  private _optionalFields?: string[];
+  private _optionalFields?: string[]; 
   public get optionalFields() {
     return cdktf.Fn.tolist(this.getListAttribute('optional_fields'));
   }
@@ -851,10 +750,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // destination - computed: false, optional: false, required: true
-  private _destination = new S3BucketInventoryDestinationOutputReference(
-    this,
-    'destination',
-  );
+  private _destination = new S3BucketInventoryDestinationOutputReference(this, "destination");
   public get destination() {
     return this._destination;
   }
@@ -867,7 +763,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new S3BucketInventoryFilterOutputReference(this, 'filter');
+  private _filter = new S3BucketInventoryFilterOutputReference(this, "filter");
   public get filter() {
     return this._filter;
   }
@@ -883,10 +779,7 @@ export class S3BucketInventory extends cdktf.TerraformResource {
   }
 
   // schedule - computed: false, optional: false, required: true
-  private _schedule = new S3BucketInventoryScheduleOutputReference(
-    this,
-    'schedule',
-  );
+  private _schedule = new S3BucketInventoryScheduleOutputReference(this, "schedule");
   public get schedule() {
     return this._schedule;
   }
@@ -907,21 +800,12 @@ export class S3BucketInventory extends cdktf.TerraformResource {
       bucket: cdktf.stringToTerraform(this._bucket),
       enabled: cdktf.booleanToTerraform(this._enabled),
       id: cdktf.stringToTerraform(this._id),
-      included_object_versions: cdktf.stringToTerraform(
-        this._includedObjectVersions,
-      ),
+      included_object_versions: cdktf.stringToTerraform(this._includedObjectVersions),
       name: cdktf.stringToTerraform(this._name),
-      optional_fields: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._optionalFields),
-      destination: s3BucketInventoryDestinationToTerraform(
-        this._destination.internalValue,
-      ),
+      optional_fields: cdktf.listMapper(cdktf.stringToTerraform, false)(this._optionalFields),
+      destination: s3BucketInventoryDestinationToTerraform(this._destination.internalValue),
       filter: s3BucketInventoryFilterToTerraform(this._filter.internalValue),
-      schedule: s3BucketInventoryScheduleToTerraform(
-        this._schedule.internalValue,
-      ),
+      schedule: s3BucketInventoryScheduleToTerraform(this._schedule.internalValue),
     };
   }
 }

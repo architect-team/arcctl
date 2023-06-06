@@ -1,18 +1,30 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Database } from '../.gen/providers/postgresql/database/index.ts';
+import { Role } from '../.gen/providers/postgresql/role/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 
 export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema', PostgresCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
   db: Database;
+  role: Role;
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseSchema']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema'>) {
+    super(scope, options);
 
     this.db = new Database(this, 'postgres-database', {
-      name: inputs.name,
+      name: this.inputs?.name || 'unknown',
+    });
+
+    const password = crypto.randomUUID();
+    this.role = new Role(this, 'user', {
+      name: this.inputs?.name || 'unknown',
+      password,
+      superuser: false,
+      createDatabase: false,
+      encrypted: 'true',
+      login: true,
     });
 
     const protocol = 'postgresql';
@@ -20,11 +32,12 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     this.outputs = {
       id: this.db.name,
       name: this.db.name,
-      host: inputs.host || '',
-      port: inputs.port || 5432,
+      host: this.inputs?.host || 'unknown',
+      port: this.inputs?.port || 5432,
+      username: this.role.name,
+      password: this.role.password,
       protocol,
-      url: `${protocol}://${inputs.host}:${inputs.port}/${this.db.name}`,
-      account: inputs.account || '',
+      url: `${protocol}://${this.role.name}:${this.role.password}@${this.inputs?.host}:${this.inputs?.port}/${this.db.name}`,
     };
   }
 

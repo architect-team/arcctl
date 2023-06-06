@@ -1,89 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface PinpointApnsVoipSandboxChannelConfig
-  extends cdktf.TerraformMetaArguments {
+export interface PinpointApnsVoipSandboxChannelConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#application_id PinpointApnsVoipSandboxChannel#application_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#application_id PinpointApnsVoipSandboxChannel#application_id}
+  */
   readonly applicationId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#bundle_id PinpointApnsVoipSandboxChannel#bundle_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#bundle_id PinpointApnsVoipSandboxChannel#bundle_id}
+  */
   readonly bundleId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#certificate PinpointApnsVoipSandboxChannel#certificate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#certificate PinpointApnsVoipSandboxChannel#certificate}
+  */
   readonly certificate?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#default_authentication_method PinpointApnsVoipSandboxChannel#default_authentication_method}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#default_authentication_method PinpointApnsVoipSandboxChannel#default_authentication_method}
+  */
   readonly defaultAuthenticationMethod?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#enabled PinpointApnsVoipSandboxChannel#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#enabled PinpointApnsVoipSandboxChannel#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#id PinpointApnsVoipSandboxChannel#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#id PinpointApnsVoipSandboxChannel#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#private_key PinpointApnsVoipSandboxChannel#private_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#private_key PinpointApnsVoipSandboxChannel#private_key}
+  */
   readonly privateKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#team_id PinpointApnsVoipSandboxChannel#team_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#team_id PinpointApnsVoipSandboxChannel#team_id}
+  */
   readonly teamId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#token_key PinpointApnsVoipSandboxChannel#token_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#token_key PinpointApnsVoipSandboxChannel#token_key}
+  */
   readonly tokenKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#token_key_id PinpointApnsVoipSandboxChannel#token_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel#token_key_id PinpointApnsVoipSandboxChannel#token_key_id}
+  */
   readonly tokenKeyId?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel aws_pinpoint_apns_voip_sandbox_channel}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel aws_pinpoint_apns_voip_sandbox_channel}
+*/
 export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_pinpoint_apns_voip_sandbox_channel';
+  public static readonly tfResourceType = "aws_pinpoint_apns_voip_sandbox_channel";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel aws_pinpoint_apns_voip_sandbox_channel} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options PinpointApnsVoipSandboxChannelConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: PinpointApnsVoipSandboxChannelConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/pinpoint_apns_voip_sandbox_channel aws_pinpoint_apns_voip_sandbox_channel} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options PinpointApnsVoipSandboxChannelConfig
+  */
+  public constructor(scope: Construct, id: string, config: PinpointApnsVoipSandboxChannelConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_pinpoint_apns_voip_sandbox_channel',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -91,7 +87,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._applicationId = config.applicationId;
     this._bundleId = config.bundleId;
@@ -110,7 +106,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string;
+  private _applicationId?: string; 
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -123,7 +119,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // bundle_id - computed: false, optional: true, required: false
-  private _bundleId?: string;
+  private _bundleId?: string; 
   public get bundleId() {
     return this.getStringAttribute('bundle_id');
   }
@@ -139,7 +135,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // certificate - computed: false, optional: true, required: false
-  private _certificate?: string;
+  private _certificate?: string; 
   public get certificate() {
     return this.getStringAttribute('certificate');
   }
@@ -155,7 +151,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // default_authentication_method - computed: false, optional: true, required: false
-  private _defaultAuthenticationMethod?: string;
+  private _defaultAuthenticationMethod?: string; 
   public get defaultAuthenticationMethod() {
     return this.getStringAttribute('default_authentication_method');
   }
@@ -171,7 +167,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -187,7 +183,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -203,7 +199,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // private_key - computed: false, optional: true, required: false
-  private _privateKey?: string;
+  private _privateKey?: string; 
   public get privateKey() {
     return this.getStringAttribute('private_key');
   }
@@ -219,7 +215,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // team_id - computed: false, optional: true, required: false
-  private _teamId?: string;
+  private _teamId?: string; 
   public get teamId() {
     return this.getStringAttribute('team_id');
   }
@@ -235,7 +231,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // token_key - computed: false, optional: true, required: false
-  private _tokenKey?: string;
+  private _tokenKey?: string; 
   public get tokenKey() {
     return this.getStringAttribute('token_key');
   }
@@ -251,7 +247,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
   }
 
   // token_key_id - computed: false, optional: true, required: false
-  private _tokenKeyId?: string;
+  private _tokenKeyId?: string; 
   public get tokenKeyId() {
     return this.getStringAttribute('token_key_id');
   }
@@ -275,9 +271,7 @@ export class PinpointApnsVoipSandboxChannel extends cdktf.TerraformResource {
       application_id: cdktf.stringToTerraform(this._applicationId),
       bundle_id: cdktf.stringToTerraform(this._bundleId),
       certificate: cdktf.stringToTerraform(this._certificate),
-      default_authentication_method: cdktf.stringToTerraform(
-        this._defaultAuthenticationMethod,
-      ),
+      default_authentication_method: cdktf.stringToTerraform(this._defaultAuthenticationMethod),
       enabled: cdktf.booleanToTerraform(this._enabled),
       id: cdktf.stringToTerraform(this._id),
       private_key: cdktf.stringToTerraform(this._privateKey),

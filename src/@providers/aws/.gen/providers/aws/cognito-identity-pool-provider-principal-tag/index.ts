@@ -1,69 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CognitoIdentityPoolProviderPrincipalTagConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CognitoIdentityPoolProviderPrincipalTagConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#id CognitoIdentityPoolProviderPrincipalTag#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#id CognitoIdentityPoolProviderPrincipalTag#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#identity_pool_id CognitoIdentityPoolProviderPrincipalTag#identity_pool_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#identity_pool_id CognitoIdentityPoolProviderPrincipalTag#identity_pool_id}
+  */
   readonly identityPoolId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#identity_provider_name CognitoIdentityPoolProviderPrincipalTag#identity_provider_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#identity_provider_name CognitoIdentityPoolProviderPrincipalTag#identity_provider_name}
+  */
   readonly identityProviderName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#principal_tags CognitoIdentityPoolProviderPrincipalTag#principal_tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#principal_tags CognitoIdentityPoolProviderPrincipalTag#principal_tags}
+  */
   readonly principalTags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#use_defaults CognitoIdentityPoolProviderPrincipalTag#use_defaults}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag#use_defaults CognitoIdentityPoolProviderPrincipalTag#use_defaults}
+  */
   readonly useDefaults?: boolean | cdktf.IResolvable;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag aws_cognito_identity_pool_provider_principal_tag}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag aws_cognito_identity_pool_provider_principal_tag}
+*/
 export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_cognito_identity_pool_provider_principal_tag';
+  public static readonly tfResourceType = "aws_cognito_identity_pool_provider_principal_tag";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag aws_cognito_identity_pool_provider_principal_tag} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CognitoIdentityPoolProviderPrincipalTagConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CognitoIdentityPoolProviderPrincipalTagConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_identity_pool_provider_principal_tag aws_cognito_identity_pool_provider_principal_tag} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CognitoIdentityPoolProviderPrincipalTagConfig
+  */
+  public constructor(scope: Construct, id: string, config: CognitoIdentityPoolProviderPrincipalTagConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cognito_identity_pool_provider_principal_tag',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -71,7 +67,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._identityPoolId = config.identityPoolId;
@@ -85,7 +81,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -101,7 +97,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // identity_pool_id - computed: false, optional: false, required: true
-  private _identityPoolId?: string;
+  private _identityPoolId?: string; 
   public get identityPoolId() {
     return this.getStringAttribute('identity_pool_id');
   }
@@ -114,7 +110,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // identity_provider_name - computed: false, optional: false, required: true
-  private _identityProviderName?: string;
+  private _identityProviderName?: string; 
   public get identityProviderName() {
     return this.getStringAttribute('identity_provider_name');
   }
@@ -127,7 +123,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // principal_tags - computed: false, optional: true, required: false
-  private _principalTags?: { [key: string]: string };
+  private _principalTags?: { [key: string]: string }; 
   public get principalTags() {
     return this.getStringMapAttribute('principal_tags');
   }
@@ -143,7 +139,7 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
   }
 
   // use_defaults - computed: false, optional: true, required: false
-  private _useDefaults?: boolean | cdktf.IResolvable;
+  private _useDefaults?: boolean | cdktf.IResolvable; 
   public get useDefaults() {
     return this.getBooleanAttribute('use_defaults');
   }
@@ -166,12 +162,8 @@ export class CognitoIdentityPoolProviderPrincipalTag extends cdktf.TerraformReso
     return {
       id: cdktf.stringToTerraform(this._id),
       identity_pool_id: cdktf.stringToTerraform(this._identityPoolId),
-      identity_provider_name: cdktf.stringToTerraform(
-        this._identityProviderName,
-      ),
-      principal_tags: cdktf.hashMapper(cdktf.stringToTerraform)(
-        this._principalTags,
-      ),
+      identity_provider_name: cdktf.stringToTerraform(this._identityProviderName),
+      principal_tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._principalTags),
       use_defaults: cdktf.booleanToTerraform(this._useDefaults),
     };
   }

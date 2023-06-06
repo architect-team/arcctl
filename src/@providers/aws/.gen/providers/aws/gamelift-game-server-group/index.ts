@@ -1,124 +1,109 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface GameliftGameServerGroupConfig
-  extends cdktf.TerraformMetaArguments {
+export interface GameliftGameServerGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#balancing_strategy GameliftGameServerGroup#balancing_strategy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#balancing_strategy GameliftGameServerGroup#balancing_strategy}
+  */
   readonly balancingStrategy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#game_server_group_name GameliftGameServerGroup#game_server_group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#game_server_group_name GameliftGameServerGroup#game_server_group_name}
+  */
   readonly gameServerGroupName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#game_server_protection_policy GameliftGameServerGroup#game_server_protection_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#game_server_protection_policy GameliftGameServerGroup#game_server_protection_policy}
+  */
   readonly gameServerProtectionPolicy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#id GameliftGameServerGroup#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#id GameliftGameServerGroup#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#max_size GameliftGameServerGroup#max_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#max_size GameliftGameServerGroup#max_size}
+  */
   readonly maxSize: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#min_size GameliftGameServerGroup#min_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#min_size GameliftGameServerGroup#min_size}
+  */
   readonly minSize: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#role_arn GameliftGameServerGroup#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#role_arn GameliftGameServerGroup#role_arn}
+  */
   readonly roleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#tags GameliftGameServerGroup#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#tags GameliftGameServerGroup#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#tags_all GameliftGameServerGroup#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#tags_all GameliftGameServerGroup#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#vpc_subnets GameliftGameServerGroup#vpc_subnets}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#vpc_subnets GameliftGameServerGroup#vpc_subnets}
+  */
   readonly vpcSubnets?: string[];
   /**
-   * auto_scaling_policy block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#auto_scaling_policy GameliftGameServerGroup#auto_scaling_policy}
-   */
+  * auto_scaling_policy block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#auto_scaling_policy GameliftGameServerGroup#auto_scaling_policy}
+  */
   readonly autoScalingPolicy?: GameliftGameServerGroupAutoScalingPolicy;
   /**
-   * instance_definition block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#instance_definition GameliftGameServerGroup#instance_definition}
-   */
-  readonly instanceDefinition:
-    | GameliftGameServerGroupInstanceDefinition[]
-    | cdktf.IResolvable;
+  * instance_definition block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#instance_definition GameliftGameServerGroup#instance_definition}
+  */
+  readonly instanceDefinition: GameliftGameServerGroupInstanceDefinition[] | cdktf.IResolvable;
   /**
-   * launch_template block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#launch_template GameliftGameServerGroup#launch_template}
-   */
+  * launch_template block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#launch_template GameliftGameServerGroup#launch_template}
+  */
   readonly launchTemplate: GameliftGameServerGroupLaunchTemplate;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#timeouts GameliftGameServerGroup#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#timeouts GameliftGameServerGroup#timeouts}
+  */
   readonly timeouts?: GameliftGameServerGroupTimeouts;
 }
 export interface GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#target_value GameliftGameServerGroup#target_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#target_value GameliftGameServerGroup#target_value}
+  */
   readonly targetValue: number;
 }
 
-export function gameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationToTerraform(
-  struct?:
-    | GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputReference
-    | GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationToTerraform(struct?: GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputReference | GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     target_value: cdktf.numberToTerraform(struct!.targetValue),
-  };
+  }
 }
 
 export class GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration
-    | undefined {
+  public get internalValue(): GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._targetValue !== undefined) {
@@ -128,22 +113,19 @@ export class GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration
-      | undefined,
-  ) {
+  public set internalValue(value: GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._targetValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._targetValue = value.targetValue;
     }
   }
 
   // target_value - computed: false, optional: false, required: true
-  private _targetValue?: number;
+  private _targetValue?: number; 
   public get targetValue() {
     return this.getNumberAttribute('target_value');
   }
@@ -157,90 +139,68 @@ export class GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration
 }
 export interface GameliftGameServerGroupAutoScalingPolicy {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#estimated_instance_warmup GameliftGameServerGroup#estimated_instance_warmup}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#estimated_instance_warmup GameliftGameServerGroup#estimated_instance_warmup}
+  */
   readonly estimatedInstanceWarmup?: number;
   /**
-   * target_tracking_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#target_tracking_configuration GameliftGameServerGroup#target_tracking_configuration}
-   */
+  * target_tracking_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#target_tracking_configuration GameliftGameServerGroup#target_tracking_configuration}
+  */
   readonly targetTrackingConfiguration: GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration;
 }
 
-export function gameliftGameServerGroupAutoScalingPolicyToTerraform(
-  struct?:
-    | GameliftGameServerGroupAutoScalingPolicyOutputReference
-    | GameliftGameServerGroupAutoScalingPolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftGameServerGroupAutoScalingPolicyToTerraform(struct?: GameliftGameServerGroupAutoScalingPolicyOutputReference | GameliftGameServerGroupAutoScalingPolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    estimated_instance_warmup: cdktf.numberToTerraform(
-      struct!.estimatedInstanceWarmup,
-    ),
-    target_tracking_configuration:
-      gameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationToTerraform(
-        struct!.targetTrackingConfiguration,
-      ),
-  };
+    estimated_instance_warmup: cdktf.numberToTerraform(struct!.estimatedInstanceWarmup),
+    target_tracking_configuration: gameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationToTerraform(struct!.targetTrackingConfiguration),
+  }
 }
 
 export class GameliftGameServerGroupAutoScalingPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftGameServerGroupAutoScalingPolicy
-    | undefined {
+  public get internalValue(): GameliftGameServerGroupAutoScalingPolicy | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._estimatedInstanceWarmup !== undefined) {
       hasAnyValues = true;
-      internalValueResult.estimatedInstanceWarmup =
-        this._estimatedInstanceWarmup;
+      internalValueResult.estimatedInstanceWarmup = this._estimatedInstanceWarmup;
     }
     if (this._targetTrackingConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.targetTrackingConfiguration =
-        this._targetTrackingConfiguration?.internalValue;
+      internalValueResult.targetTrackingConfiguration = this._targetTrackingConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftGameServerGroupAutoScalingPolicy | undefined,
-  ) {
+  public set internalValue(value: GameliftGameServerGroupAutoScalingPolicy | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._estimatedInstanceWarmup = undefined;
       this._targetTrackingConfiguration.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._estimatedInstanceWarmup = value.estimatedInstanceWarmup;
-      this._targetTrackingConfiguration.internalValue =
-        value.targetTrackingConfiguration;
+      this._targetTrackingConfiguration.internalValue = value.targetTrackingConfiguration;
     }
   }
 
   // estimated_instance_warmup - computed: true, optional: true, required: false
-  private _estimatedInstanceWarmup?: number;
+  private _estimatedInstanceWarmup?: number; 
   public get estimatedInstanceWarmup() {
     return this.getNumberAttribute('estimated_instance_warmup');
   }
@@ -256,17 +216,11 @@ export class GameliftGameServerGroupAutoScalingPolicyOutputReference extends cdk
   }
 
   // target_tracking_configuration - computed: false, optional: false, required: true
-  private _targetTrackingConfiguration =
-    new GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputReference(
-      this,
-      'target_tracking_configuration',
-    );
+  private _targetTrackingConfiguration = new GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputReference(this, "target_tracking_configuration");
   public get targetTrackingConfiguration() {
     return this._targetTrackingConfiguration;
   }
-  public putTargetTrackingConfiguration(
-    value: GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration,
-  ) {
+  public putTargetTrackingConfiguration(value: GameliftGameServerGroupAutoScalingPolicyTargetTrackingConfiguration) {
     this._targetTrackingConfiguration.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -276,30 +230,24 @@ export class GameliftGameServerGroupAutoScalingPolicyOutputReference extends cdk
 }
 export interface GameliftGameServerGroupInstanceDefinition {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#instance_type GameliftGameServerGroup#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#instance_type GameliftGameServerGroup#instance_type}
+  */
   readonly instanceType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#weighted_capacity GameliftGameServerGroup#weighted_capacity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#weighted_capacity GameliftGameServerGroup#weighted_capacity}
+  */
   readonly weightedCapacity?: string;
 }
 
-export function gameliftGameServerGroupInstanceDefinitionToTerraform(
-  struct?: GameliftGameServerGroupInstanceDefinition | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftGameServerGroupInstanceDefinitionToTerraform(struct?: GameliftGameServerGroupInstanceDefinition | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     weighted_capacity: cdktf.stringToTerraform(struct!.weightedCapacity),
-  };
+  }
 }
 
 export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cdktf.ComplexObject {
@@ -307,29 +255,16 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | GameliftGameServerGroupInstanceDefinition
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GameliftGameServerGroupInstanceDefinition | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -346,21 +281,18 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GameliftGameServerGroupInstanceDefinition
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: GameliftGameServerGroupInstanceDefinition | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._instanceType = undefined;
       this._weightedCapacity = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._instanceType = value.instanceType;
@@ -369,7 +301,7 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
   }
 
   // instance_type - computed: false, optional: false, required: true
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -382,7 +314,7 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
   }
 
   // weighted_capacity - computed: false, optional: true, required: false
-  private _weightedCapacity?: string;
+  private _weightedCapacity?: string; 
   public get weightedCapacity() {
     return this.getStringAttribute('weighted_capacity');
   }
@@ -399,92 +331,66 @@ export class GameliftGameServerGroupInstanceDefinitionOutputReference extends cd
 }
 
 export class GameliftGameServerGroupInstanceDefinitionList extends cdktf.ComplexList {
-  public internalValue?:
-    | GameliftGameServerGroupInstanceDefinition[]
-    | cdktf.IResolvable;
+  public internalValue? : GameliftGameServerGroupInstanceDefinition[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): GameliftGameServerGroupInstanceDefinitionOutputReference {
-    return new GameliftGameServerGroupInstanceDefinitionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): GameliftGameServerGroupInstanceDefinitionOutputReference {
+    return new GameliftGameServerGroupInstanceDefinitionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface GameliftGameServerGroupLaunchTemplate {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#id GameliftGameServerGroup#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#id GameliftGameServerGroup#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#name GameliftGameServerGroup#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#name GameliftGameServerGroup#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#version GameliftGameServerGroup#version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#version GameliftGameServerGroup#version}
+  */
   readonly version?: string;
 }
 
-export function gameliftGameServerGroupLaunchTemplateToTerraform(
-  struct?:
-    | GameliftGameServerGroupLaunchTemplateOutputReference
-    | GameliftGameServerGroupLaunchTemplate,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftGameServerGroupLaunchTemplateToTerraform(struct?: GameliftGameServerGroupLaunchTemplateOutputReference | GameliftGameServerGroupLaunchTemplate): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     name: cdktf.stringToTerraform(struct!.name),
     version: cdktf.stringToTerraform(struct!.version),
-  };
+  }
 }
 
 export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftGameServerGroupLaunchTemplate
-    | undefined {
+  public get internalValue(): GameliftGameServerGroupLaunchTemplate | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -502,15 +408,14 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftGameServerGroupLaunchTemplate | undefined,
-  ) {
+  public set internalValue(value: GameliftGameServerGroupLaunchTemplate | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._name = undefined;
       this._version = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._name = value.name;
@@ -519,7 +424,7 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -535,7 +440,7 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -551,7 +456,7 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
   }
 
   // version - computed: false, optional: true, required: false
-  private _version?: string;
+  private _version?: string; 
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -568,33 +473,24 @@ export class GameliftGameServerGroupLaunchTemplateOutputReference extends cdktf.
 }
 export interface GameliftGameServerGroupTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#create GameliftGameServerGroup#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#create GameliftGameServerGroup#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#delete GameliftGameServerGroup#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group#delete GameliftGameServerGroup#delete}
+  */
   readonly delete?: string;
 }
 
-export function gameliftGameServerGroupTimeoutsToTerraform(
-  struct?:
-    | GameliftGameServerGroupTimeoutsOutputReference
-    | GameliftGameServerGroupTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftGameServerGroupTimeoutsToTerraform(struct?: GameliftGameServerGroupTimeoutsOutputReference | GameliftGameServerGroupTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -602,20 +498,14 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftGameServerGroupTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GameliftGameServerGroupTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -632,18 +522,18 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftGameServerGroupTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: GameliftGameServerGroupTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -652,7 +542,7 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -668,7 +558,7 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -685,36 +575,33 @@ export class GameliftGameServerGroupTimeoutsOutputReference extends cdktf.Comple
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group aws_gamelift_game_server_group}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group aws_gamelift_game_server_group}
+*/
 export class GameliftGameServerGroup extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_gamelift_game_server_group';
+  public static readonly tfResourceType = "aws_gamelift_game_server_group";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group aws_gamelift_game_server_group} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GameliftGameServerGroupConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GameliftGameServerGroupConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/gamelift_game_server_group aws_gamelift_game_server_group} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GameliftGameServerGroupConfig
+  */
+  public constructor(scope: Construct, id: string, config: GameliftGameServerGroupConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_gamelift_game_server_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -722,7 +609,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._balancingStrategy = config.balancingStrategy;
     this._gameServerGroupName = config.gameServerGroupName;
@@ -755,7 +642,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // balancing_strategy - computed: true, optional: true, required: false
-  private _balancingStrategy?: string;
+  private _balancingStrategy?: string; 
   public get balancingStrategy() {
     return this.getStringAttribute('balancing_strategy');
   }
@@ -771,7 +658,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // game_server_group_name - computed: false, optional: false, required: true
-  private _gameServerGroupName?: string;
+  private _gameServerGroupName?: string; 
   public get gameServerGroupName() {
     return this.getStringAttribute('game_server_group_name');
   }
@@ -784,7 +671,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // game_server_protection_policy - computed: true, optional: true, required: false
-  private _gameServerProtectionPolicy?: string;
+  private _gameServerProtectionPolicy?: string; 
   public get gameServerProtectionPolicy() {
     return this.getStringAttribute('game_server_protection_policy');
   }
@@ -800,7 +687,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -816,7 +703,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // max_size - computed: false, optional: false, required: true
-  private _maxSize?: number;
+  private _maxSize?: number; 
   public get maxSize() {
     return this.getNumberAttribute('max_size');
   }
@@ -829,7 +716,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // min_size - computed: false, optional: false, required: true
-  private _minSize?: number;
+  private _minSize?: number; 
   public get minSize() {
     return this.getNumberAttribute('min_size');
   }
@@ -842,7 +729,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -855,7 +742,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -871,7 +758,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -887,7 +774,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // vpc_subnets - computed: false, optional: true, required: false
-  private _vpcSubnets?: string[];
+  private _vpcSubnets?: string[]; 
   public get vpcSubnets() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_subnets'));
   }
@@ -903,11 +790,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // auto_scaling_policy - computed: false, optional: true, required: false
-  private _autoScalingPolicy =
-    new GameliftGameServerGroupAutoScalingPolicyOutputReference(
-      this,
-      'auto_scaling_policy',
-    );
+  private _autoScalingPolicy = new GameliftGameServerGroupAutoScalingPolicyOutputReference(this, "auto_scaling_policy");
   public get autoScalingPolicy() {
     return this._autoScalingPolicy;
   }
@@ -923,18 +806,11 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // instance_definition - computed: false, optional: false, required: true
-  private _instanceDefinition =
-    new GameliftGameServerGroupInstanceDefinitionList(
-      this,
-      'instance_definition',
-      true,
-    );
+  private _instanceDefinition = new GameliftGameServerGroupInstanceDefinitionList(this, "instance_definition", true);
   public get instanceDefinition() {
     return this._instanceDefinition;
   }
-  public putInstanceDefinition(
-    value: GameliftGameServerGroupInstanceDefinition[] | cdktf.IResolvable,
-  ) {
+  public putInstanceDefinition(value: GameliftGameServerGroupInstanceDefinition[] | cdktf.IResolvable) {
     this._instanceDefinition.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -943,11 +819,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // launch_template - computed: false, optional: false, required: true
-  private _launchTemplate =
-    new GameliftGameServerGroupLaunchTemplateOutputReference(
-      this,
-      'launch_template',
-    );
+  private _launchTemplate = new GameliftGameServerGroupLaunchTemplateOutputReference(this, "launch_template");
   public get launchTemplate() {
     return this._launchTemplate;
   }
@@ -960,10 +832,7 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GameliftGameServerGroupTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new GameliftGameServerGroupTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -985,35 +854,19 @@ export class GameliftGameServerGroup extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       balancing_strategy: cdktf.stringToTerraform(this._balancingStrategy),
-      game_server_group_name: cdktf.stringToTerraform(
-        this._gameServerGroupName,
-      ),
-      game_server_protection_policy: cdktf.stringToTerraform(
-        this._gameServerProtectionPolicy,
-      ),
+      game_server_group_name: cdktf.stringToTerraform(this._gameServerGroupName),
+      game_server_protection_policy: cdktf.stringToTerraform(this._gameServerProtectionPolicy),
       id: cdktf.stringToTerraform(this._id),
       max_size: cdktf.numberToTerraform(this._maxSize),
       min_size: cdktf.numberToTerraform(this._minSize),
       role_arn: cdktf.stringToTerraform(this._roleArn),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      vpc_subnets: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._vpcSubnets),
-      auto_scaling_policy: gameliftGameServerGroupAutoScalingPolicyToTerraform(
-        this._autoScalingPolicy.internalValue,
-      ),
-      instance_definition: cdktf.listMapper(
-        gameliftGameServerGroupInstanceDefinitionToTerraform,
-        true,
-      )(this._instanceDefinition.internalValue),
-      launch_template: gameliftGameServerGroupLaunchTemplateToTerraform(
-        this._launchTemplate.internalValue,
-      ),
-      timeouts: gameliftGameServerGroupTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      vpc_subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(this._vpcSubnets),
+      auto_scaling_policy: gameliftGameServerGroupAutoScalingPolicyToTerraform(this._autoScalingPolicy.internalValue),
+      instance_definition: cdktf.listMapper(gameliftGameServerGroupInstanceDefinitionToTerraform, true)(this._instanceDefinition.internalValue),
+      launch_template: gameliftGameServerGroupLaunchTemplateToTerraform(this._launchTemplate.internalValue),
+      timeouts: gameliftGameServerGroupTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

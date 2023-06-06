@@ -1,109 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface FsxOntapStorageVirtualMachineConfig
-  extends cdktf.TerraformMetaArguments {
+export interface FsxOntapStorageVirtualMachineConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#file_system_id FsxOntapStorageVirtualMachine#file_system_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#file_system_id FsxOntapStorageVirtualMachine#file_system_id}
+  */
   readonly fileSystemId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#id FsxOntapStorageVirtualMachine#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#id FsxOntapStorageVirtualMachine#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#name FsxOntapStorageVirtualMachine#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#name FsxOntapStorageVirtualMachine#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#root_volume_security_style FsxOntapStorageVirtualMachine#root_volume_security_style}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#root_volume_security_style FsxOntapStorageVirtualMachine#root_volume_security_style}
+  */
   readonly rootVolumeSecurityStyle?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#svm_admin_password FsxOntapStorageVirtualMachine#svm_admin_password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#svm_admin_password FsxOntapStorageVirtualMachine#svm_admin_password}
+  */
   readonly svmAdminPassword?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#tags FsxOntapStorageVirtualMachine#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#tags FsxOntapStorageVirtualMachine#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#tags_all FsxOntapStorageVirtualMachine#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#tags_all FsxOntapStorageVirtualMachine#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * active_directory_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#active_directory_configuration FsxOntapStorageVirtualMachine#active_directory_configuration}
-   */
+  * active_directory_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#active_directory_configuration FsxOntapStorageVirtualMachine#active_directory_configuration}
+  */
   readonly activeDirectoryConfiguration?: FsxOntapStorageVirtualMachineActiveDirectoryConfiguration;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#timeouts FsxOntapStorageVirtualMachine#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#timeouts FsxOntapStorageVirtualMachine#timeouts}
+  */
   readonly timeouts?: FsxOntapStorageVirtualMachineTimeouts;
 }
-export interface FsxOntapStorageVirtualMachineEndpointsIscsi {}
+export interface FsxOntapStorageVirtualMachineEndpointsIscsi {
+}
 
-export function fsxOntapStorageVirtualMachineEndpointsIscsiToTerraform(
-  struct?: FsxOntapStorageVirtualMachineEndpointsIscsi,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineEndpointsIscsiToTerraform(struct?: FsxOntapStorageVirtualMachineEndpointsIscsi): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsIscsiOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineEndpointsIscsi
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineEndpointsIscsi | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: FsxOntapStorageVirtualMachineEndpointsIscsi | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineEndpointsIscsi | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -120,86 +103,59 @@ export class FsxOntapStorageVirtualMachineEndpointsIscsiOutputReference extends 
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsIscsiList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): FsxOntapStorageVirtualMachineEndpointsIscsiOutputReference {
-    return new FsxOntapStorageVirtualMachineEndpointsIscsiOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): FsxOntapStorageVirtualMachineEndpointsIscsiOutputReference {
+    return new FsxOntapStorageVirtualMachineEndpointsIscsiOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface FsxOntapStorageVirtualMachineEndpointsManagement {}
+export interface FsxOntapStorageVirtualMachineEndpointsManagement {
+}
 
-export function fsxOntapStorageVirtualMachineEndpointsManagementToTerraform(
-  struct?: FsxOntapStorageVirtualMachineEndpointsManagement,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineEndpointsManagementToTerraform(struct?: FsxOntapStorageVirtualMachineEndpointsManagement): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsManagementOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineEndpointsManagement
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineEndpointsManagement | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: FsxOntapStorageVirtualMachineEndpointsManagement | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineEndpointsManagement | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -216,86 +172,59 @@ export class FsxOntapStorageVirtualMachineEndpointsManagementOutputReference ext
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsManagementList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): FsxOntapStorageVirtualMachineEndpointsManagementOutputReference {
-    return new FsxOntapStorageVirtualMachineEndpointsManagementOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): FsxOntapStorageVirtualMachineEndpointsManagementOutputReference {
+    return new FsxOntapStorageVirtualMachineEndpointsManagementOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface FsxOntapStorageVirtualMachineEndpointsNfs {}
+export interface FsxOntapStorageVirtualMachineEndpointsNfs {
+}
 
-export function fsxOntapStorageVirtualMachineEndpointsNfsToTerraform(
-  struct?: FsxOntapStorageVirtualMachineEndpointsNfs,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineEndpointsNfsToTerraform(struct?: FsxOntapStorageVirtualMachineEndpointsNfs): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsNfsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineEndpointsNfs
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineEndpointsNfs | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: FsxOntapStorageVirtualMachineEndpointsNfs | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineEndpointsNfs | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -312,86 +241,59 @@ export class FsxOntapStorageVirtualMachineEndpointsNfsOutputReference extends cd
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsNfsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): FsxOntapStorageVirtualMachineEndpointsNfsOutputReference {
-    return new FsxOntapStorageVirtualMachineEndpointsNfsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): FsxOntapStorageVirtualMachineEndpointsNfsOutputReference {
+    return new FsxOntapStorageVirtualMachineEndpointsNfsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface FsxOntapStorageVirtualMachineEndpointsSmb {}
+export interface FsxOntapStorageVirtualMachineEndpointsSmb {
+}
 
-export function fsxOntapStorageVirtualMachineEndpointsSmbToTerraform(
-  struct?: FsxOntapStorageVirtualMachineEndpointsSmb,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineEndpointsSmbToTerraform(struct?: FsxOntapStorageVirtualMachineEndpointsSmb): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsSmbOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineEndpointsSmb
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineEndpointsSmb | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: FsxOntapStorageVirtualMachineEndpointsSmb | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineEndpointsSmb | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -408,231 +310,160 @@ export class FsxOntapStorageVirtualMachineEndpointsSmbOutputReference extends cd
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsSmbList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): FsxOntapStorageVirtualMachineEndpointsSmbOutputReference {
-    return new FsxOntapStorageVirtualMachineEndpointsSmbOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): FsxOntapStorageVirtualMachineEndpointsSmbOutputReference {
+    return new FsxOntapStorageVirtualMachineEndpointsSmbOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface FsxOntapStorageVirtualMachineEndpoints {}
+export interface FsxOntapStorageVirtualMachineEndpoints {
+}
 
-export function fsxOntapStorageVirtualMachineEndpointsToTerraform(
-  struct?: FsxOntapStorageVirtualMachineEndpoints,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineEndpointsToTerraform(struct?: FsxOntapStorageVirtualMachineEndpoints): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineEndpoints
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineEndpoints | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: FsxOntapStorageVirtualMachineEndpoints | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineEndpoints | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // iscsi - computed: true, optional: false, required: false
-  private _iscsi = new FsxOntapStorageVirtualMachineEndpointsIscsiList(
-    this,
-    'iscsi',
-    false,
-  );
+  private _iscsi = new FsxOntapStorageVirtualMachineEndpointsIscsiList(this, "iscsi", false);
   public get iscsi() {
     return this._iscsi;
   }
 
   // management - computed: true, optional: false, required: false
-  private _management =
-    new FsxOntapStorageVirtualMachineEndpointsManagementList(
-      this,
-      'management',
-      false,
-    );
+  private _management = new FsxOntapStorageVirtualMachineEndpointsManagementList(this, "management", false);
   public get management() {
     return this._management;
   }
 
   // nfs - computed: true, optional: false, required: false
-  private _nfs = new FsxOntapStorageVirtualMachineEndpointsNfsList(
-    this,
-    'nfs',
-    false,
-  );
+  private _nfs = new FsxOntapStorageVirtualMachineEndpointsNfsList(this, "nfs", false);
   public get nfs() {
     return this._nfs;
   }
 
   // smb - computed: true, optional: false, required: false
-  private _smb = new FsxOntapStorageVirtualMachineEndpointsSmbList(
-    this,
-    'smb',
-    false,
-  );
+  private _smb = new FsxOntapStorageVirtualMachineEndpointsSmbList(this, "smb", false);
   public get smb() {
     return this._smb;
   }
 }
 
 export class FsxOntapStorageVirtualMachineEndpointsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): FsxOntapStorageVirtualMachineEndpointsOutputReference {
-    return new FsxOntapStorageVirtualMachineEndpointsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): FsxOntapStorageVirtualMachineEndpointsOutputReference {
+    return new FsxOntapStorageVirtualMachineEndpointsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#dns_ips FsxOntapStorageVirtualMachine#dns_ips}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#dns_ips FsxOntapStorageVirtualMachine#dns_ips}
+  */
   readonly dnsIps: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#domain_name FsxOntapStorageVirtualMachine#domain_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#domain_name FsxOntapStorageVirtualMachine#domain_name}
+  */
   readonly domainName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#file_system_administrators_group FsxOntapStorageVirtualMachine#file_system_administrators_group}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#file_system_administrators_group FsxOntapStorageVirtualMachine#file_system_administrators_group}
+  */
   readonly fileSystemAdministratorsGroup?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#organizational_unit_distinguished_name FsxOntapStorageVirtualMachine#organizational_unit_distinguished_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#organizational_unit_distinguished_name FsxOntapStorageVirtualMachine#organizational_unit_distinguished_name}
+  */
   readonly organizationalUnitDistinguishedName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#password FsxOntapStorageVirtualMachine#password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#password FsxOntapStorageVirtualMachine#password}
+  */
   readonly password: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#username FsxOntapStorageVirtualMachine#username}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#username FsxOntapStorageVirtualMachine#username}
+  */
   readonly username: string;
 }
 
-export function fsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationToTerraform(
-  struct?:
-    | FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputReference
-    | FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationToTerraform(struct?: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputReference | FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     dns_ips: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.dnsIps),
     domain_name: cdktf.stringToTerraform(struct!.domainName),
-    file_system_administrators_group: cdktf.stringToTerraform(
-      struct!.fileSystemAdministratorsGroup,
-    ),
-    organizational_unit_distinguished_name: cdktf.stringToTerraform(
-      struct!.organizationalUnitDistinguishedName,
-    ),
+    file_system_administrators_group: cdktf.stringToTerraform(struct!.fileSystemAdministratorsGroup),
+    organizational_unit_distinguished_name: cdktf.stringToTerraform(struct!.organizationalUnitDistinguishedName),
     password: cdktf.stringToTerraform(struct!.password),
     username: cdktf.stringToTerraform(struct!.username),
-  };
+  }
 }
 
 export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dnsIps !== undefined) {
@@ -645,13 +476,11 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
     }
     if (this._fileSystemAdministratorsGroup !== undefined) {
       hasAnyValues = true;
-      internalValueResult.fileSystemAdministratorsGroup =
-        this._fileSystemAdministratorsGroup;
+      internalValueResult.fileSystemAdministratorsGroup = this._fileSystemAdministratorsGroup;
     }
     if (this._organizationalUnitDistinguishedName !== undefined) {
       hasAnyValues = true;
-      internalValueResult.organizationalUnitDistinguishedName =
-        this._organizationalUnitDistinguishedName;
+      internalValueResult.organizationalUnitDistinguishedName = this._organizationalUnitDistinguishedName;
     }
     if (this._password !== undefined) {
       hasAnyValues = true;
@@ -664,11 +493,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration
-      | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dnsIps = undefined;
@@ -677,20 +502,20 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
       this._organizationalUnitDistinguishedName = undefined;
       this._password = undefined;
       this._username = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dnsIps = value.dnsIps;
       this._domainName = value.domainName;
       this._fileSystemAdministratorsGroup = value.fileSystemAdministratorsGroup;
-      this._organizationalUnitDistinguishedName =
-        value.organizationalUnitDistinguishedName;
+      this._organizationalUnitDistinguishedName = value.organizationalUnitDistinguishedName;
       this._password = value.password;
       this._username = value.username;
     }
   }
 
   // dns_ips - computed: false, optional: false, required: true
-  private _dnsIps?: string[];
+  private _dnsIps?: string[]; 
   public get dnsIps() {
     return cdktf.Fn.tolist(this.getListAttribute('dns_ips'));
   }
@@ -703,7 +528,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string;
+  private _domainName?: string; 
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -716,7 +541,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // file_system_administrators_group - computed: false, optional: true, required: false
-  private _fileSystemAdministratorsGroup?: string;
+  private _fileSystemAdministratorsGroup?: string; 
   public get fileSystemAdministratorsGroup() {
     return this.getStringAttribute('file_system_administrators_group');
   }
@@ -732,7 +557,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // organizational_unit_distinguished_name - computed: false, optional: true, required: false
-  private _organizationalUnitDistinguishedName?: string;
+  private _organizationalUnitDistinguishedName?: string; 
   public get organizationalUnitDistinguishedName() {
     return this.getStringAttribute('organizational_unit_distinguished_name');
   }
@@ -748,7 +573,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string;
+  private _password?: string; 
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -761,7 +586,7 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string;
+  private _username?: string; 
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -775,91 +600,68 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManage
 }
 export interface FsxOntapStorageVirtualMachineActiveDirectoryConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#netbios_name FsxOntapStorageVirtualMachine#netbios_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#netbios_name FsxOntapStorageVirtualMachine#netbios_name}
+  */
   readonly netbiosName?: string;
   /**
-   * self_managed_active_directory_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#self_managed_active_directory_configuration FsxOntapStorageVirtualMachine#self_managed_active_directory_configuration}
-   */
+  * self_managed_active_directory_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#self_managed_active_directory_configuration FsxOntapStorageVirtualMachine#self_managed_active_directory_configuration}
+  */
   readonly selfManagedActiveDirectoryConfiguration?: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration;
 }
 
-export function fsxOntapStorageVirtualMachineActiveDirectoryConfigurationToTerraform(
-  struct?:
-    | FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputReference
-    | FsxOntapStorageVirtualMachineActiveDirectoryConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineActiveDirectoryConfigurationToTerraform(struct?: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputReference | FsxOntapStorageVirtualMachineActiveDirectoryConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     netbios_name: cdktf.stringToTerraform(struct!.netbiosName),
-    self_managed_active_directory_configuration:
-      fsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationToTerraform(
-        struct!.selfManagedActiveDirectoryConfiguration,
-      ),
-  };
+    self_managed_active_directory_configuration: fsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationToTerraform(struct!.selfManagedActiveDirectoryConfiguration),
+  }
 }
 
 export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineActiveDirectoryConfiguration
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineActiveDirectoryConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._netbiosName !== undefined) {
       hasAnyValues = true;
       internalValueResult.netbiosName = this._netbiosName;
     }
-    if (
-      this._selfManagedActiveDirectoryConfiguration?.internalValue !== undefined
-    ) {
+    if (this._selfManagedActiveDirectoryConfiguration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.selfManagedActiveDirectoryConfiguration =
-        this._selfManagedActiveDirectoryConfiguration?.internalValue;
+      internalValueResult.selfManagedActiveDirectoryConfiguration = this._selfManagedActiveDirectoryConfiguration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | FsxOntapStorageVirtualMachineActiveDirectoryConfiguration
-      | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineActiveDirectoryConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._netbiosName = undefined;
       this._selfManagedActiveDirectoryConfiguration.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._netbiosName = value.netbiosName;
-      this._selfManagedActiveDirectoryConfiguration.internalValue =
-        value.selfManagedActiveDirectoryConfiguration;
+      this._selfManagedActiveDirectoryConfiguration.internalValue = value.selfManagedActiveDirectoryConfiguration;
     }
   }
 
   // netbios_name - computed: false, optional: true, required: false
-  private _netbiosName?: string;
+  private _netbiosName?: string; 
   public get netbiosName() {
     return this.getStringAttribute('netbios_name');
   }
@@ -875,17 +677,11 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputRefe
   }
 
   // self_managed_active_directory_configuration - computed: false, optional: true, required: false
-  private _selfManagedActiveDirectoryConfiguration =
-    new FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputReference(
-      this,
-      'self_managed_active_directory_configuration',
-    );
+  private _selfManagedActiveDirectoryConfiguration = new FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputReference(this, "self_managed_active_directory_configuration");
   public get selfManagedActiveDirectoryConfiguration() {
     return this._selfManagedActiveDirectoryConfiguration;
   }
-  public putSelfManagedActiveDirectoryConfiguration(
-    value: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration,
-  ) {
+  public putSelfManagedActiveDirectoryConfiguration(value: FsxOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) {
     this._selfManagedActiveDirectoryConfiguration.internalValue = value;
   }
   public resetSelfManagedActiveDirectoryConfiguration() {
@@ -898,38 +694,29 @@ export class FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputRefe
 }
 export interface FsxOntapStorageVirtualMachineTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#create FsxOntapStorageVirtualMachine#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#create FsxOntapStorageVirtualMachine#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#delete FsxOntapStorageVirtualMachine#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#delete FsxOntapStorageVirtualMachine#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#update FsxOntapStorageVirtualMachine#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine#update FsxOntapStorageVirtualMachine#update}
+  */
   readonly update?: string;
 }
 
-export function fsxOntapStorageVirtualMachineTimeoutsToTerraform(
-  struct?:
-    | FsxOntapStorageVirtualMachineTimeoutsOutputReference
-    | FsxOntapStorageVirtualMachineTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function fsxOntapStorageVirtualMachineTimeoutsToTerraform(struct?: FsxOntapStorageVirtualMachineTimeoutsOutputReference | FsxOntapStorageVirtualMachineTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -937,20 +724,14 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | FsxOntapStorageVirtualMachineTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): FsxOntapStorageVirtualMachineTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -971,22 +752,19 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | FsxOntapStorageVirtualMachineTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: FsxOntapStorageVirtualMachineTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -996,7 +774,7 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1012,7 +790,7 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1028,7 +806,7 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1045,37 +823,33 @@ export class FsxOntapStorageVirtualMachineTimeoutsOutputReference extends cdktf.
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine aws_fsx_ontap_storage_virtual_machine}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine aws_fsx_ontap_storage_virtual_machine}
+*/
 export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_fsx_ontap_storage_virtual_machine';
+  public static readonly tfResourceType = "aws_fsx_ontap_storage_virtual_machine";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine aws_fsx_ontap_storage_virtual_machine} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options FsxOntapStorageVirtualMachineConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: FsxOntapStorageVirtualMachineConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/fsx_ontap_storage_virtual_machine aws_fsx_ontap_storage_virtual_machine} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options FsxOntapStorageVirtualMachineConfig
+  */
+  public constructor(scope: Construct, id: string, config: FsxOntapStorageVirtualMachineConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_fsx_ontap_storage_virtual_machine',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1083,7 +857,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._fileSystemId = config.fileSystemId;
     this._id = config.id;
@@ -1092,8 +866,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
     this._svmAdminPassword = config.svmAdminPassword;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._activeDirectoryConfiguration.internalValue =
-      config.activeDirectoryConfiguration;
+    this._activeDirectoryConfiguration.internalValue = config.activeDirectoryConfiguration;
     this._timeouts.internalValue = config.timeouts;
   }
 
@@ -1107,17 +880,13 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // endpoints - computed: true, optional: false, required: false
-  private _endpoints = new FsxOntapStorageVirtualMachineEndpointsList(
-    this,
-    'endpoints',
-    false,
-  );
+  private _endpoints = new FsxOntapStorageVirtualMachineEndpointsList(this, "endpoints", false);
   public get endpoints() {
     return this._endpoints;
   }
 
   // file_system_id - computed: false, optional: false, required: true
-  private _fileSystemId?: string;
+  private _fileSystemId?: string; 
   public get fileSystemId() {
     return this.getStringAttribute('file_system_id');
   }
@@ -1130,7 +899,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1146,7 +915,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1159,7 +928,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // root_volume_security_style - computed: false, optional: true, required: false
-  private _rootVolumeSecurityStyle?: string;
+  private _rootVolumeSecurityStyle?: string; 
   public get rootVolumeSecurityStyle() {
     return this.getStringAttribute('root_volume_security_style');
   }
@@ -1180,7 +949,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // svm_admin_password - computed: false, optional: true, required: false
-  private _svmAdminPassword?: string;
+  private _svmAdminPassword?: string; 
   public get svmAdminPassword() {
     return this.getStringAttribute('svm_admin_password');
   }
@@ -1196,7 +965,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1212,7 +981,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1233,17 +1002,11 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // active_directory_configuration - computed: false, optional: true, required: false
-  private _activeDirectoryConfiguration =
-    new FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputReference(
-      this,
-      'active_directory_configuration',
-    );
+  private _activeDirectoryConfiguration = new FsxOntapStorageVirtualMachineActiveDirectoryConfigurationOutputReference(this, "active_directory_configuration");
   public get activeDirectoryConfiguration() {
     return this._activeDirectoryConfiguration;
   }
-  public putActiveDirectoryConfiguration(
-    value: FsxOntapStorageVirtualMachineActiveDirectoryConfiguration,
-  ) {
+  public putActiveDirectoryConfiguration(value: FsxOntapStorageVirtualMachineActiveDirectoryConfiguration) {
     this._activeDirectoryConfiguration.internalValue = value;
   }
   public resetActiveDirectoryConfiguration() {
@@ -1255,10 +1018,7 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new FsxOntapStorageVirtualMachineTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new FsxOntapStorageVirtualMachineTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1282,19 +1042,12 @@ export class FsxOntapStorageVirtualMachine extends cdktf.TerraformResource {
       file_system_id: cdktf.stringToTerraform(this._fileSystemId),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      root_volume_security_style: cdktf.stringToTerraform(
-        this._rootVolumeSecurityStyle,
-      ),
+      root_volume_security_style: cdktf.stringToTerraform(this._rootVolumeSecurityStyle),
       svm_admin_password: cdktf.stringToTerraform(this._svmAdminPassword),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      active_directory_configuration:
-        fsxOntapStorageVirtualMachineActiveDirectoryConfigurationToTerraform(
-          this._activeDirectoryConfiguration.internalValue,
-        ),
-      timeouts: fsxOntapStorageVirtualMachineTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      active_directory_configuration: fsxOntapStorageVirtualMachineActiveDirectoryConfigurationToTerraform(this._activeDirectoryConfiguration.internalValue),
+      timeouts: fsxOntapStorageVirtualMachineTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

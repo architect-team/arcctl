@@ -17,6 +17,37 @@
             "account": {
               "type": "string"
             },
+            "credentials": {
+              "description": "Credentials used to access the cloud provider",
+              "type": "object"
+            },
+            "name": {
+              "description": "Name of the new account",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Cloud provider the account connects to",
+              "type": "string"
+            },
+            "type": {
+              "const": "arcctlAccount",
+              "type": "string"
+            }
+          },
+          "required": [
+            "credentials",
+            "name",
+            "provider",
+            "type"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "account": {
+              "type": "string"
+            },
             "command": {
               "anyOf": [
                 {

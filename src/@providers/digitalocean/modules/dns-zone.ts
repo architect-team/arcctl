@@ -1,5 +1,5 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Domain } from '../.gen/providers/digitalocean/domain/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
@@ -8,18 +8,18 @@ export class DigitaloceanDnsZoneModule extends ResourceModule<'dnsZone', Digital
   dns_zone: Domain;
   outputs: ResourceOutputs['dnsZone'];
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['dnsZone']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone'>) {
+    super(scope, options);
 
-    if (Object.keys(inputs).length === 0) {
+    if (!this.inputs) {
       // deleting
       this.dns_zone = new Domain(this, 'dns-zone', {
-        name: id,
+        name: 'unknown',
       });
     } else {
       // creating
       this.dns_zone = new Domain(this, 'dns-zone', {
-        name: inputs.name,
+        name: this.inputs.name,
       });
     }
 

@@ -1,80 +1,71 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CloudcontrolapiResourceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CloudcontrolapiResourceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#desired_state CloudcontrolapiResource#desired_state}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#desired_state CloudcontrolapiResource#desired_state}
+  */
   readonly desiredState: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#id CloudcontrolapiResource#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#id CloudcontrolapiResource#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#role_arn CloudcontrolapiResource#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#role_arn CloudcontrolapiResource#role_arn}
+  */
   readonly roleArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#schema CloudcontrolapiResource#schema}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#schema CloudcontrolapiResource#schema}
+  */
   readonly schema?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#type_name CloudcontrolapiResource#type_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#type_name CloudcontrolapiResource#type_name}
+  */
   readonly typeName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#type_version_id CloudcontrolapiResource#type_version_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#type_version_id CloudcontrolapiResource#type_version_id}
+  */
   readonly typeVersionId?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#timeouts CloudcontrolapiResource#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#timeouts CloudcontrolapiResource#timeouts}
+  */
   readonly timeouts?: CloudcontrolapiResourceTimeouts;
 }
 export interface CloudcontrolapiResourceTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#create CloudcontrolapiResource#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#create CloudcontrolapiResource#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#delete CloudcontrolapiResource#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#delete CloudcontrolapiResource#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#update CloudcontrolapiResource#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource#update CloudcontrolapiResource#update}
+  */
   readonly update?: string;
 }
 
-export function cloudcontrolapiResourceTimeoutsToTerraform(
-  struct?:
-    | CloudcontrolapiResourceTimeoutsOutputReference
-    | CloudcontrolapiResourceTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudcontrolapiResourceTimeoutsToTerraform(struct?: CloudcontrolapiResourceTimeoutsOutputReference | CloudcontrolapiResourceTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -82,20 +73,14 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudcontrolapiResourceTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudcontrolapiResourceTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -116,19 +101,19 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudcontrolapiResourceTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CloudcontrolapiResourceTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -138,7 +123,7 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -154,7 +139,7 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -170,7 +155,7 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -187,36 +172,33 @@ export class CloudcontrolapiResourceTimeoutsOutputReference extends cdktf.Comple
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource aws_cloudcontrolapi_resource}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource aws_cloudcontrolapi_resource}
+*/
 export class CloudcontrolapiResource extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_cloudcontrolapi_resource';
+  public static readonly tfResourceType = "aws_cloudcontrolapi_resource";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource aws_cloudcontrolapi_resource} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CloudcontrolapiResourceConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CloudcontrolapiResourceConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudcontrolapi_resource aws_cloudcontrolapi_resource} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CloudcontrolapiResourceConfig
+  */
+  public constructor(scope: Construct, id: string, config: CloudcontrolapiResourceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudcontrolapi_resource',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -224,7 +206,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._desiredState = config.desiredState;
     this._id = config.id;
@@ -240,7 +222,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   // ==========
 
   // desired_state - computed: false, optional: false, required: true
-  private _desiredState?: string;
+  private _desiredState?: string; 
   public get desiredState() {
     return this.getStringAttribute('desired_state');
   }
@@ -253,7 +235,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -274,7 +256,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -290,7 +272,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // schema - computed: true, optional: true, required: false
-  private _schema?: string;
+  private _schema?: string; 
   public get schema() {
     return this.getStringAttribute('schema');
   }
@@ -306,7 +288,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // type_name - computed: false, optional: false, required: true
-  private _typeName?: string;
+  private _typeName?: string; 
   public get typeName() {
     return this.getStringAttribute('type_name');
   }
@@ -319,7 +301,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // type_version_id - computed: false, optional: true, required: false
-  private _typeVersionId?: string;
+  private _typeVersionId?: string; 
   public get typeVersionId() {
     return this.getStringAttribute('type_version_id');
   }
@@ -335,10 +317,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new CloudcontrolapiResourceTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new CloudcontrolapiResourceTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -365,9 +344,7 @@ export class CloudcontrolapiResource extends cdktf.TerraformResource {
       schema: cdktf.stringToTerraform(this._schema),
       type_name: cdktf.stringToTerraform(this._typeName),
       type_version_id: cdktf.stringToTerraform(this._typeVersionId),
-      timeouts: cloudcontrolapiResourceTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: cloudcontrolapiResourceTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

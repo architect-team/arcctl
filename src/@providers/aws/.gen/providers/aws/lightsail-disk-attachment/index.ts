@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface LightsailDiskAttachmentConfig
-  extends cdktf.TerraformMetaArguments {
+export interface LightsailDiskAttachmentConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#disk_name LightsailDiskAttachment#disk_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#disk_name LightsailDiskAttachment#disk_name}
+  */
   readonly diskName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#disk_path LightsailDiskAttachment#disk_path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#disk_path LightsailDiskAttachment#disk_path}
+  */
   readonly diskPath: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#id LightsailDiskAttachment#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#id LightsailDiskAttachment#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#instance_name LightsailDiskAttachment#instance_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment#instance_name LightsailDiskAttachment#instance_name}
+  */
   readonly instanceName: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment aws_lightsail_disk_attachment}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment aws_lightsail_disk_attachment}
+*/
 export class LightsailDiskAttachment extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_lightsail_disk_attachment';
+  public static readonly tfResourceType = "aws_lightsail_disk_attachment";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment aws_lightsail_disk_attachment} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options LightsailDiskAttachmentConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: LightsailDiskAttachmentConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/lightsail_disk_attachment aws_lightsail_disk_attachment} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options LightsailDiskAttachmentConfig
+  */
+  public constructor(scope: Construct, id: string, config: LightsailDiskAttachmentConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_lightsail_disk_attachment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._diskName = config.diskName;
     this._diskPath = config.diskPath;
@@ -79,7 +76,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   // ==========
 
   // disk_name - computed: false, optional: false, required: true
-  private _diskName?: string;
+  private _diskName?: string; 
   public get diskName() {
     return this.getStringAttribute('disk_name');
   }
@@ -92,7 +89,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   }
 
   // disk_path - computed: false, optional: false, required: true
-  private _diskPath?: string;
+  private _diskPath?: string; 
   public get diskPath() {
     return this.getStringAttribute('disk_path');
   }
@@ -105,7 +102,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -121,7 +118,7 @@ export class LightsailDiskAttachment extends cdktf.TerraformResource {
   }
 
   // instance_name - computed: false, optional: false, required: true
-  private _instanceName?: string;
+  private _instanceName?: string; 
   public get instanceName() {
     return this.getStringAttribute('instance_name');
   }

@@ -1,63 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CloudsearchDomainServiceAccessPolicyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CloudsearchDomainServiceAccessPolicyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#access_policy CloudsearchDomainServiceAccessPolicy#access_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#access_policy CloudsearchDomainServiceAccessPolicy#access_policy}
+  */
   readonly accessPolicy: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#domain_name CloudsearchDomainServiceAccessPolicy#domain_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#domain_name CloudsearchDomainServiceAccessPolicy#domain_name}
+  */
   readonly domainName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#id CloudsearchDomainServiceAccessPolicy#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#id CloudsearchDomainServiceAccessPolicy#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#timeouts CloudsearchDomainServiceAccessPolicy#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#timeouts CloudsearchDomainServiceAccessPolicy#timeouts}
+  */
   readonly timeouts?: CloudsearchDomainServiceAccessPolicyTimeouts;
 }
 export interface CloudsearchDomainServiceAccessPolicyTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#delete CloudsearchDomainServiceAccessPolicy#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#delete CloudsearchDomainServiceAccessPolicy#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#update CloudsearchDomainServiceAccessPolicy#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy#update CloudsearchDomainServiceAccessPolicy#update}
+  */
   readonly update?: string;
 }
 
-export function cloudsearchDomainServiceAccessPolicyTimeoutsToTerraform(
-  struct?:
-    | CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference
-    | CloudsearchDomainServiceAccessPolicyTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudsearchDomainServiceAccessPolicyTimeoutsToTerraform(struct?: CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference | CloudsearchDomainServiceAccessPolicyTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -65,20 +56,14 @@ export class CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudsearchDomainServiceAccessPolicyTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudsearchDomainServiceAccessPolicyTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -95,21 +80,18 @@ export class CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudsearchDomainServiceAccessPolicyTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudsearchDomainServiceAccessPolicyTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -118,7 +100,7 @@ export class CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference extends
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -134,7 +116,7 @@ export class CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference extends
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -151,37 +133,33 @@ export class CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference extends
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy aws_cloudsearch_domain_service_access_policy}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy aws_cloudsearch_domain_service_access_policy}
+*/
 export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_cloudsearch_domain_service_access_policy';
+  public static readonly tfResourceType = "aws_cloudsearch_domain_service_access_policy";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy aws_cloudsearch_domain_service_access_policy} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CloudsearchDomainServiceAccessPolicyConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CloudsearchDomainServiceAccessPolicyConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudsearch_domain_service_access_policy aws_cloudsearch_domain_service_access_policy} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CloudsearchDomainServiceAccessPolicyConfig
+  */
+  public constructor(scope: Construct, id: string, config: CloudsearchDomainServiceAccessPolicyConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudsearch_domain_service_access_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -189,7 +167,7 @@ export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResourc
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accessPolicy = config.accessPolicy;
     this._domainName = config.domainName;
@@ -202,7 +180,7 @@ export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResourc
   // ==========
 
   // access_policy - computed: false, optional: false, required: true
-  private _accessPolicy?: string;
+  private _accessPolicy?: string; 
   public get accessPolicy() {
     return this.getStringAttribute('access_policy');
   }
@@ -215,7 +193,7 @@ export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResourc
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string;
+  private _domainName?: string; 
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -228,7 +206,7 @@ export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResourc
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -244,11 +222,7 @@ export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResourc
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new CloudsearchDomainServiceAccessPolicyTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -272,9 +246,7 @@ export class CloudsearchDomainServiceAccessPolicy extends cdktf.TerraformResourc
       access_policy: cdktf.stringToTerraform(this._accessPolicy),
       domain_name: cdktf.stringToTerraform(this._domainName),
       id: cdktf.stringToTerraform(this._id),
-      timeouts: cloudsearchDomainServiceAccessPolicyTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: cloudsearchDomainServiceAccessPolicyTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

@@ -17,6 +17,10 @@ export class CldCtlProviderStore implements ProviderStore {
     return path.join(this.config_dir, this.provider_filename);
   }
 
+  get storageDir() {
+    return this.config_dir;
+  }
+
   saveFile(name: string, content: string): string {
     const file_path = path.join(this.config_dir, name);
     Deno.mkdirSync(path.dirname(file_path), { recursive: true });
@@ -40,13 +44,7 @@ export class CldCtlProviderStore implements ProviderStore {
       const providers: Provider[] = [];
       for (const raw of rawProviders) {
         const type = raw.type as keyof typeof SupportedProviders;
-        providers.push(
-          new SupportedProviders[type](
-            raw.name,
-            raw.credentials,
-            (name: string, content: string) => this.saveFile(name, content),
-          ),
-        );
+        providers.push(new SupportedProviders[type](raw.name, raw.credentials));
       }
 
       this._providers = providers;
@@ -83,9 +81,6 @@ export class CldCtlProviderStore implements ProviderStore {
     Deno.mkdirSync(path.dirname(this.providers_config_file), {
       recursive: true,
     });
-    Deno.writeTextFileSync(
-      this.providers_config_file,
-      JSON.stringify(providers, null, 2),
-    );
+    Deno.writeTextFileSync(this.providers_config_file, JSON.stringify(providers, null, 2));
   }
 }

@@ -1,116 +1,103 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface VpcEndpointConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#auto_accept VpcEndpoint#auto_accept}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#auto_accept VpcEndpoint#auto_accept}
+  */
   readonly autoAccept?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#id VpcEndpoint#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#id VpcEndpoint#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#ip_address_type VpcEndpoint#ip_address_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#ip_address_type VpcEndpoint#ip_address_type}
+  */
   readonly ipAddressType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#policy VpcEndpoint#policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#policy VpcEndpoint#policy}
+  */
   readonly policy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#private_dns_enabled VpcEndpoint#private_dns_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#private_dns_enabled VpcEndpoint#private_dns_enabled}
+  */
   readonly privateDnsEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#route_table_ids VpcEndpoint#route_table_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#route_table_ids VpcEndpoint#route_table_ids}
+  */
   readonly routeTableIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#security_group_ids VpcEndpoint#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#security_group_ids VpcEndpoint#security_group_ids}
+  */
   readonly securityGroupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#service_name VpcEndpoint#service_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#service_name VpcEndpoint#service_name}
+  */
   readonly serviceName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#subnet_ids VpcEndpoint#subnet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#subnet_ids VpcEndpoint#subnet_ids}
+  */
   readonly subnetIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#tags VpcEndpoint#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#tags VpcEndpoint#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#tags_all VpcEndpoint#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#tags_all VpcEndpoint#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#vpc_endpoint_type VpcEndpoint#vpc_endpoint_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#vpc_endpoint_type VpcEndpoint#vpc_endpoint_type}
+  */
   readonly vpcEndpointType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#vpc_id VpcEndpoint#vpc_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#vpc_id VpcEndpoint#vpc_id}
+  */
   readonly vpcId: string;
   /**
-   * dns_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#dns_options VpcEndpoint#dns_options}
-   */
+  * dns_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#dns_options VpcEndpoint#dns_options}
+  */
   readonly dnsOptions?: VpcEndpointDnsOptions;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#timeouts VpcEndpoint#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#timeouts VpcEndpoint#timeouts}
+  */
   readonly timeouts?: VpcEndpointTimeouts;
 }
-export interface VpcEndpointDnsEntry {}
+export interface VpcEndpointDnsEntry {
+}
 
-export function vpcEndpointDnsEntryToTerraform(
-  struct?: VpcEndpointDnsEntry,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function vpcEndpointDnsEntryToTerraform(struct?: VpcEndpointDnsEntry): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class VpcEndpointDnsEntryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): VpcEndpointDnsEntry | undefined {
@@ -122,7 +109,8 @@ export class VpcEndpointDnsEntryOutputReference extends cdktf.ComplexObject {
   public set internalValue(value: VpcEndpointDnsEntry | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -139,65 +127,48 @@ export class VpcEndpointDnsEntryOutputReference extends cdktf.ComplexObject {
 }
 
 export class VpcEndpointDnsEntryList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): VpcEndpointDnsEntryOutputReference {
-    return new VpcEndpointDnsEntryOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new VpcEndpointDnsEntryOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface VpcEndpointDnsOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#dns_record_ip_type VpcEndpoint#dns_record_ip_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#dns_record_ip_type VpcEndpoint#dns_record_ip_type}
+  */
   readonly dnsRecordIpType?: string;
 }
 
-export function vpcEndpointDnsOptionsToTerraform(
-  struct?: VpcEndpointDnsOptionsOutputReference | VpcEndpointDnsOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function vpcEndpointDnsOptionsToTerraform(struct?: VpcEndpointDnsOptionsOutputReference | VpcEndpointDnsOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     dns_record_ip_type: cdktf.stringToTerraform(struct!.dnsRecordIpType),
-  };
+  }
 }
 
 export class VpcEndpointDnsOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -215,14 +186,15 @@ export class VpcEndpointDnsOptionsOutputReference extends cdktf.ComplexObject {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dnsRecordIpType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dnsRecordIpType = value.dnsRecordIpType;
     }
   }
 
   // dns_record_ip_type - computed: false, optional: true, required: false
-  private _dnsRecordIpType?: string;
+  private _dnsRecordIpType?: string; 
   public get dnsRecordIpType() {
     return this.getStringAttribute('dns_record_ip_type');
   }
@@ -239,38 +211,29 @@ export class VpcEndpointDnsOptionsOutputReference extends cdktf.ComplexObject {
 }
 export interface VpcEndpointTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#create VpcEndpoint#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#create VpcEndpoint#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#delete VpcEndpoint#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#delete VpcEndpoint#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#update VpcEndpoint#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint#update VpcEndpoint#update}
+  */
   readonly update?: string;
 }
 
-export function vpcEndpointTimeoutsToTerraform(
-  struct?:
-    | VpcEndpointTimeoutsOutputReference
-    | VpcEndpointTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function vpcEndpointTimeoutsToTerraform(struct?: VpcEndpointTimeoutsOutputReference | VpcEndpointTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -278,20 +241,14 @@ export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | VpcEndpointTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): VpcEndpointTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -312,19 +269,19 @@ export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: VpcEndpointTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: VpcEndpointTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -334,7 +291,7 @@ export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -350,7 +307,7 @@ export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -366,7 +323,7 @@ export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -383,32 +340,33 @@ export class VpcEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint aws_vpc_endpoint}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint aws_vpc_endpoint}
+*/
 export class VpcEndpoint extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_vpc_endpoint';
+  public static readonly tfResourceType = "aws_vpc_endpoint";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint aws_vpc_endpoint} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options VpcEndpointConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint aws_vpc_endpoint} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options VpcEndpointConfig
+  */
   public constructor(scope: Construct, id: string, config: VpcEndpointConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_endpoint',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -416,7 +374,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._autoAccept = config.autoAccept;
     this._id = config.id;
@@ -445,7 +403,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // auto_accept - computed: false, optional: true, required: false
-  private _autoAccept?: boolean | cdktf.IResolvable;
+  private _autoAccept?: boolean | cdktf.IResolvable; 
   public get autoAccept() {
     return this.getBooleanAttribute('auto_accept');
   }
@@ -466,13 +424,13 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // dns_entry - computed: true, optional: false, required: false
-  private _dnsEntry = new VpcEndpointDnsEntryList(this, 'dns_entry', false);
+  private _dnsEntry = new VpcEndpointDnsEntryList(this, "dns_entry", false);
   public get dnsEntry() {
     return this._dnsEntry;
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -488,7 +446,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // ip_address_type - computed: true, optional: true, required: false
-  private _ipAddressType?: string;
+  private _ipAddressType?: string; 
   public get ipAddressType() {
     return this.getStringAttribute('ip_address_type');
   }
@@ -514,7 +472,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string;
+  private _policy?: string; 
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -535,7 +493,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // private_dns_enabled - computed: false, optional: true, required: false
-  private _privateDnsEnabled?: boolean | cdktf.IResolvable;
+  private _privateDnsEnabled?: boolean | cdktf.IResolvable; 
   public get privateDnsEnabled() {
     return this.getBooleanAttribute('private_dns_enabled');
   }
@@ -556,7 +514,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // route_table_ids - computed: true, optional: true, required: false
-  private _routeTableIds?: string[];
+  private _routeTableIds?: string[]; 
   public get routeTableIds() {
     return cdktf.Fn.tolist(this.getListAttribute('route_table_ids'));
   }
@@ -572,7 +530,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: true, optional: true, required: false
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -588,7 +546,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string;
+  private _serviceName?: string; 
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -606,7 +564,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: true, optional: true, required: false
-  private _subnetIds?: string[];
+  private _subnetIds?: string[]; 
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -622,7 +580,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -638,7 +596,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -654,7 +612,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_type - computed: false, optional: true, required: false
-  private _vpcEndpointType?: string;
+  private _vpcEndpointType?: string; 
   public get vpcEndpointType() {
     return this.getStringAttribute('vpc_endpoint_type');
   }
@@ -670,7 +628,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string;
+  private _vpcId?: string; 
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -683,10 +641,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // dns_options - computed: false, optional: true, required: false
-  private _dnsOptions = new VpcEndpointDnsOptionsOutputReference(
-    this,
-    'dns_options',
-  );
+  private _dnsOptions = new VpcEndpointDnsOptionsOutputReference(this, "dns_options");
   public get dnsOptions() {
     return this._dnsOptions;
   }
@@ -702,7 +657,7 @@ export class VpcEndpoint extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new VpcEndpointTimeoutsOutputReference(this, 'timeouts');
+  private _timeouts = new VpcEndpointTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -728,26 +683,15 @@ export class VpcEndpoint extends cdktf.TerraformResource {
       ip_address_type: cdktf.stringToTerraform(this._ipAddressType),
       policy: cdktf.stringToTerraform(this._policy),
       private_dns_enabled: cdktf.booleanToTerraform(this._privateDnsEnabled),
-      route_table_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._routeTableIds),
-      security_group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._securityGroupIds),
+      route_table_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._routeTableIds),
+      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
       service_name: cdktf.stringToTerraform(this._serviceName),
-      subnet_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._subnetIds),
+      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       vpc_endpoint_type: cdktf.stringToTerraform(this._vpcEndpointType),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
-      dns_options: vpcEndpointDnsOptionsToTerraform(
-        this._dnsOptions.internalValue,
-      ),
+      dns_options: vpcEndpointDnsOptionsToTerraform(this._dnsOptions.internalValue),
       timeouts: vpcEndpointTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

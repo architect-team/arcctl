@@ -2,8 +2,6 @@ import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
 import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
-import { Terraform } from '../../terraform/terraform.ts';
-import CloudCtlConfig from '../../utils/config.ts';
 import cliSpinners from 'cli-spinners';
 import winston, { Logger } from 'winston';
 import { EnumType } from 'cliffy/command/mod.ts';

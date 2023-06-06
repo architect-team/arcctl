@@ -40,10 +40,10 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
 
           return resolve({
             id: `${region}/${data?.cluster?.name}`,
-            vpc: data.cluster?.resourcesVpcConfig?.vpcId || '',
-            name: data.cluster?.name || '',
-            kubernetesVersion: data.cluster?.version || '',
-            account: '',
+            vpc: data.cluster?.resourcesVpcConfig?.vpcId || 'unknown',
+            name: data.cluster?.name || 'unknown',
+            kubernetesVersion: data.cluster?.version || 'unknown',
+            configPath: '',
           });
         },
       );
@@ -82,10 +82,10 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
             total: clusterResults.length,
             rows: clusterResults.map((clusterData) => ({
               id: `${region?.id}/${clusterData?.cluster?.name}`,
-              vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
-              name: clusterData.cluster?.name || '',
-              kubernetesVersion: clusterData.cluster?.version || '',
-              account: '',
+              vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || 'unknown',
+              name: clusterData.cluster?.name || 'unknown',
+              kubernetesVersion: clusterData.cluster?.version || 'unknown',
+              configPath: '',
             })),
           });
         }),

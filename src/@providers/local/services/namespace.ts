@@ -43,33 +43,37 @@ export class LocalNamespaceService extends CrudResourceService<'namespace', Loca
 
   create(inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
     return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          message: 'Creating namespace',
-          startTime,
-        },
-      });
+      try {
+        const startTime = Date.now();
+        subscriber.next({
+          status: {
+            state: 'applying',
+            message: 'Creating namespace',
+            startTime,
+          },
+        });
 
-      const namespace = path.join(this.credentials.directory, inputs.name);
-      Deno.mkdirSync(namespace);
+        const namespace = path.join(this.credentials.directory, inputs.name);
+        Deno.mkdirSync(namespace);
 
-      subscriber.next({
-        status: {
-          state: 'complete',
-          message: '',
-          startTime,
-          endTime: Date.now(),
-        },
-        outputs: {
-          id: inputs.name,
-        },
-        state: {
-          id: inputs.name,
-        },
-      });
-      subscriber.complete();
+        subscriber.next({
+          status: {
+            state: 'complete',
+            message: '',
+            startTime,
+            endTime: Date.now(),
+          },
+          outputs: {
+            id: inputs.name,
+          },
+          state: {
+            id: inputs.name,
+          },
+        });
+        subscriber.complete();
+      } catch (err) {
+        subscriber.error(err);
+      }
     });
   }
 

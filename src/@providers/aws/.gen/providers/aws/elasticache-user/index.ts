@@ -1,101 +1,88 @@
 // https://www.terraform.io/docs/providers/aws/r/elasticache_user
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ElasticacheUserConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#access_string ElasticacheUser#access_string}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#access_string ElasticacheUser#access_string}
+  */
   readonly accessString: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#engine ElasticacheUser#engine}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#engine ElasticacheUser#engine}
+  */
   readonly engine: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#id ElasticacheUser#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#id ElasticacheUser#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#no_password_required ElasticacheUser#no_password_required}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#no_password_required ElasticacheUser#no_password_required}
+  */
   readonly noPasswordRequired?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#passwords ElasticacheUser#passwords}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#passwords ElasticacheUser#passwords}
+  */
   readonly passwords?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#tags ElasticacheUser#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#tags ElasticacheUser#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#tags_all ElasticacheUser#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#tags_all ElasticacheUser#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#user_id ElasticacheUser#user_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#user_id ElasticacheUser#user_id}
+  */
   readonly userId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#user_name ElasticacheUser#user_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#user_name ElasticacheUser#user_name}
+  */
   readonly userName: string;
   /**
-   * authentication_mode block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#authentication_mode ElasticacheUser#authentication_mode}
-   */
+  * authentication_mode block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#authentication_mode ElasticacheUser#authentication_mode}
+  */
   readonly authenticationMode?: ElasticacheUserAuthenticationMode;
 }
 export interface ElasticacheUserAuthenticationMode {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#passwords ElasticacheUser#passwords}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#passwords ElasticacheUser#passwords}
+  */
   readonly passwords?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#type ElasticacheUser#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user#type ElasticacheUser#type}
+  */
   readonly type: string;
 }
 
-export function elasticacheUserAuthenticationModeToTerraform(
-  struct?:
-    | ElasticacheUserAuthenticationModeOutputReference
-    | ElasticacheUserAuthenticationMode,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function elasticacheUserAuthenticationModeToTerraform(struct?: ElasticacheUserAuthenticationModeOutputReference | ElasticacheUserAuthenticationMode): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    passwords: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.passwords),
+    passwords: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.passwords),
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -113,14 +100,13 @@ export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ElasticacheUserAuthenticationMode | undefined,
-  ) {
+  public set internalValue(value: ElasticacheUserAuthenticationMode | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._passwords = undefined;
       this._type = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._passwords = value.passwords;
       this._type = value.type;
@@ -133,7 +119,7 @@ export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.Comp
   }
 
   // passwords - computed: false, optional: true, required: false
-  private _passwords?: string[];
+  private _passwords?: string[]; 
   public get passwords() {
     return cdktf.Fn.tolist(this.getListAttribute('passwords'));
   }
@@ -149,7 +135,7 @@ export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.Comp
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -163,36 +149,33 @@ export class ElasticacheUserAuthenticationModeOutputReference extends cdktf.Comp
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user aws_elasticache_user}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user aws_elasticache_user}
+*/
 export class ElasticacheUser extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_elasticache_user';
+  public static readonly tfResourceType = "aws_elasticache_user";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user aws_elasticache_user} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ElasticacheUserConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ElasticacheUserConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/elasticache_user aws_elasticache_user} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ElasticacheUserConfig
+  */
+  public constructor(scope: Construct, id: string, config: ElasticacheUserConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_elasticache_user',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -200,7 +183,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accessString = config.accessString;
     this._engine = config.engine;
@@ -219,7 +202,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   // ==========
 
   // access_string - computed: false, optional: false, required: true
-  private _accessString?: string;
+  private _accessString?: string; 
   public get accessString() {
     return this.getStringAttribute('access_string');
   }
@@ -237,7 +220,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // engine - computed: false, optional: false, required: true
-  private _engine?: string;
+  private _engine?: string; 
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -250,7 +233,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -266,7 +249,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // no_password_required - computed: false, optional: true, required: false
-  private _noPasswordRequired?: boolean | cdktf.IResolvable;
+  private _noPasswordRequired?: boolean | cdktf.IResolvable; 
   public get noPasswordRequired() {
     return this.getBooleanAttribute('no_password_required');
   }
@@ -282,7 +265,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // passwords - computed: false, optional: true, required: false
-  private _passwords?: string[];
+  private _passwords?: string[]; 
   public get passwords() {
     return cdktf.Fn.tolist(this.getListAttribute('passwords'));
   }
@@ -298,7 +281,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -314,7 +297,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -330,7 +313,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // user_id - computed: false, optional: false, required: true
-  private _userId?: string;
+  private _userId?: string; 
   public get userId() {
     return this.getStringAttribute('user_id');
   }
@@ -343,7 +326,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string;
+  private _userName?: string; 
   public get userName() {
     return this.getStringAttribute('user_name');
   }
@@ -356,11 +339,7 @@ export class ElasticacheUser extends cdktf.TerraformResource {
   }
 
   // authentication_mode - computed: false, optional: true, required: false
-  private _authenticationMode =
-    new ElasticacheUserAuthenticationModeOutputReference(
-      this,
-      'authentication_mode',
-    );
+  private _authenticationMode = new ElasticacheUserAuthenticationModeOutputReference(this, "authentication_mode");
   public get authenticationMode() {
     return this._authenticationMode;
   }
@@ -385,17 +364,12 @@ export class ElasticacheUser extends cdktf.TerraformResource {
       engine: cdktf.stringToTerraform(this._engine),
       id: cdktf.stringToTerraform(this._id),
       no_password_required: cdktf.booleanToTerraform(this._noPasswordRequired),
-      passwords: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._passwords),
+      passwords: cdktf.listMapper(cdktf.stringToTerraform, false)(this._passwords),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       user_id: cdktf.stringToTerraform(this._userId),
       user_name: cdktf.stringToTerraform(this._userName),
-      authentication_mode: elasticacheUserAuthenticationModeToTerraform(
-        this._authenticationMode.internalValue,
-      ),
+      authentication_mode: elasticacheUserAuthenticationModeToTerraform(this._authenticationMode.internalValue),
     };
   }
 }

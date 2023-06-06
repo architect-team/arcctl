@@ -14,7 +14,7 @@ const package_json = JSON.parse(
 await build({
   typeCheck: false,
   test: false,
-  entryPoints: [path.join(build_dir, '..', 'src', 'index.ts'), path.join(build_dir, '..', 'src', 'commands', 'index.ts')],
+  entryPoints: [path.join(build_dir, '..', 'src', 'index.ts'), { name: 'commands', path: path.join('src', 'commands', 'index.ts') }],
   outDir: build_dir,
   compilerOptions: {
     lib: ['ES2022'],
@@ -28,7 +28,7 @@ await build({
   },
   package: {
     name: '@architect-io/arcctl',
-    version: '0.0.11-rc', // TODO: replace with Deno.args[0]
+    version: '0.0.12-rc', // TODO: replace with Deno.args[0]
     description:
       'arcctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure',
     license: 'Apache-2.0',

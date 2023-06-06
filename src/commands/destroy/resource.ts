@@ -30,7 +30,7 @@ async function destroy_resource_action(
   const command_helper = new CommandHelper(options);
 
   if (resource_type) {
-    const is_creatable_type = await command_helper.isCreatableResourceType(resource_type);
+    const is_creatable_type = command_helper.isCreatableResourceType(resource_type);
     if (!is_creatable_type) {
       console.error(`Deletion of ${resource_type} resources is not supported`);
       Deno.exit(1);

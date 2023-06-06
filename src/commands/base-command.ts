@@ -426,7 +426,7 @@ export class CommandHelper {
   /**
    * Look through all providers and determine if a resource type is creatable
    */
-  public async isCreatableResourceType(resourceType: ResourceType): Promise<boolean> {
+  public isCreatableResourceType(resourceType: ResourceType): boolean {
     for (const [provider_name, provider_constructor] of Object.entries(SupportedProviders)) {
       const any_value: any = {};
       const provider = new provider_constructor(provider_name, any_value, any_value) as Provider<any>;

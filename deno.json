@@ -4,10 +4,15 @@
     "include": [
       "src/"
     ],
-    "exclude": []
+    "exclude": [
+      "src/**/.gen/**/*.ts"
+    ],
+    "rules": {
+      "exclude": ["no-explicit-any", "no-unused-vars"]
+    }
   },
   "fmt": {
-    "useTabs": true,
+    "useTabs": false,
     "lineWidth": 120,
     "indentWidth": 2,
     "singleQuote": true,
@@ -15,7 +20,9 @@
     "include": [
       "src/"
     ],
-    "exclude": []
+    "exclude": [
+      "src/**/.gen/**/*.ts"
+    ]
   },
   "tasks": {
     "compile": "deno compile -A main.ts --output bin/arcctl",
@@ -28,7 +35,9 @@
     "test": "deno test -A",
     "esm:add": "deno run -A https://esm.sh/v124 add",
     "esm:update": "deno run -A https://esm.sh/v124 update",
-    "esm:remove": "deno run -A https://esm.sh/v124 remove"
+    "esm:remove": "deno run -A https://esm.sh/v124 remove",
+    "cache": "deno cache --lock=deno.lock --lock-write main.ts bin/scripts/*.ts src/**/*.test.ts",
+    "cache:reload": "deno cache --reload --lock=deno.lock main.ts bin/scripts/*.ts src/**/*.test.ts"
   },
   "test": {
     "include": [

@@ -14,7 +14,7 @@ const package_json = JSON.parse(
 await build({
   typeCheck: false,
   test: false,
-  entryPoints: [path.join(build_dir, '..', 'src', 'index.ts'), { name: 'commands', path: path.join('src', 'commands', 'index.ts') }],
+  entryPoints: [path.join(build_dir, '..', 'src', 'index.ts'), { name: './commands', path: path.join('src', 'commands', 'index.ts') }],
   outDir: build_dir,
   compilerOptions: {
     lib: ['ES2022'],

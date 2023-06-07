@@ -121,7 +121,6 @@ export default class TerraformPlugin implements ArchitectPlugin {
     ],
   };
 
-  // deno-lint-ignore require-await
   async setup(pluginDirectory: string, binary: PluginBinary): Promise<void> {
     this.binary = binary;
     this.pluginDirectory = pluginDirectory;

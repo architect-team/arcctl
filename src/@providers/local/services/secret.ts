@@ -11,7 +11,6 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     super();
   }
 
-  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['secret'] | undefined> {
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {
@@ -25,7 +24,6 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     };
   }
 
-  // deno-lint-ignore require-await
   async list(
     filterOptions?: Partial<ResourceOutputs['secret']> | undefined,
     pagingOptions?: Partial<PagingOptions> | undefined,
@@ -49,7 +47,6 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     };
   }
 
-  // deno-lint-ignore require-await
   async create(inputs: ResourceInputs['secret']): Promise<ResourceOutputs['secret']> {
     let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
@@ -70,7 +67,6 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
     throw new Error('Method not implemented.');
   }
 
-  // deno-lint-ignore require-await
   async delete(id: string): Promise<void> {
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {

@@ -12,7 +12,6 @@ export class DigitaloceanDatabaseVersionService extends BaseService<'databaseVer
     this.client = createApiClient({ token: credentials.token });
   }
 
-  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['databaseVersion'] | undefined> {
     return undefined;
   }

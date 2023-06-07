@@ -41,7 +41,6 @@ export class DockerNamespaceService extends CrudResourceService<'namespace'> {
     };
   }
 
-  // deno-lint-ignore require-await
   async update(inputs: ResourceInputs['namespace']): Promise<DeepPartial<ResourceOutputs['namespace']>> {
     throw new Error('Not yet implemented');
   }

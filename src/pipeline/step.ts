@@ -365,7 +365,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     });
   }
 
-  // deno-lint-ignore require-await
   public async getOutputs(options: ApplyStepOptions): Promise<ResourceOutputs[T] | undefined> {
     if (!this.state || this.action === 'delete') {
       return undefined;

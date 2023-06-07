@@ -12,7 +12,6 @@ export class DigitaloceanDatabaseTypeService extends BaseService<'databaseType'>
     this.client = createApiClient({ token: credentials.token });
   }
 
-  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['databaseType'] | undefined> {
     return undefined;
   }

@@ -76,7 +76,6 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<'kuberne
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
     this.id = resourceId;
     return {

@@ -33,7 +33,6 @@ export class DigitaloceanDnsZoneModule extends ResourceModule<
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(
     credentials: DigitaloceanCredentials,
     resourceId: string,

@@ -28,7 +28,6 @@ export class DockerNamespaceModule extends ResourceModule<
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(
     credentials: DockerCredentials,
     resourceId: string,

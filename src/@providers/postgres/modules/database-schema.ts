@@ -28,7 +28,6 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.db)]: resourceId,

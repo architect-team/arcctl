@@ -18,7 +18,6 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     service: new DockerServiceService(),
   };
 
-  // deno-lint-ignore require-await
   public async testCredentials(): Promise<boolean> {
     return true;
   }

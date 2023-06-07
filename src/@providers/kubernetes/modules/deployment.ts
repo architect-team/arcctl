@@ -105,7 +105,6 @@ export class KubernetesDeploymentModule extends ResourceModule<
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(
     credentials: KubernetesCredentials,
     resourceId: string,

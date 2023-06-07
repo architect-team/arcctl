@@ -120,7 +120,6 @@ export class TerraformPlugin implements ArchitectPlugin {
   private binaryDir?: string;
   private binary?: PluginBinary;
 
-  // deno-lint-ignore require-await
   async setup(binaryDir: string, binary: PluginBinary): Promise<void> {
     this.binaryDir = binaryDir;
     this.binary = binary;

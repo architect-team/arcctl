@@ -36,7 +36,6 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.role)]: resourceId,

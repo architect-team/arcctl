@@ -25,7 +25,6 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
     return {
       [this.getResourceRef(this.vpc)]: resourceId,

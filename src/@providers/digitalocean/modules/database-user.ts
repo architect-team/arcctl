@@ -49,7 +49,6 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(
     credentials: DigitaloceanCredentials,
     resourceId: string,

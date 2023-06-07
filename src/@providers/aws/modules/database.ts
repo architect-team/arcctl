@@ -110,7 +110,6 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
     };
   }
 
-  // deno-lint-ignore require-await
   async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
     const moduleId = ['module', this.database.friendlyUniqueId].join('.');
 

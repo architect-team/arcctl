@@ -12,7 +12,6 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     super();
   }
 
-  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['database'] | undefined> {
     return undefined;
   }

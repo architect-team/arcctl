@@ -12,7 +12,6 @@ export class DigitaloceanDatabaseSizeService extends BaseService<'databaseSize'>
     this.client = createApiClient({ token: credentials.token });
   }
 
-  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
     return undefined;
   }

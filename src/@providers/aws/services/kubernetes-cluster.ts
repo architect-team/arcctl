@@ -12,7 +12,6 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
     super();
   }
 
-  // deno-lint-ignore require-await
   async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     const match = id.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {

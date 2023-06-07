@@ -14,7 +14,6 @@ export class DockerServiceService extends CrudResourceService<'service'> {
     throw new Error('Method not implemented.');
   }
 
-  // deno-lint-ignore require-await
   async create(inputs: ResourceInputs['service']): Promise<ResourceOutputs['service']> {
     const protocol = inputs.protocol || 'http';
     const host = inputs.selector || '';

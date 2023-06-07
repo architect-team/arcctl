@@ -1,7 +1,7 @@
-import { ResourceModule } from '../@providers/module.ts';
-import { ResourceInputs, ResourceType } from '../@resources/index.ts';
 import { TerraformOutput, TerraformStack } from 'cdktf';
 import { Construct } from 'constructs';
+import { ResourceModule } from '../@providers/module.ts';
+import { ResourceInputs, ResourceType } from '../@resources/index.ts';
 
 export class CldCtlTerraformStack extends TerraformStack {
   addModule<T extends ResourceType>(

@@ -1,7 +1,97 @@
-import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
-import { Component } from '../component.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
+import { Component } from '../component.ts';
+
+export const testSecretGeneration = (
+  contents: string,
+  constructor: new (data: object) => Component,
+  options: { secret_name: string; data: string },
+): void => {
+  const component = new constructor(yaml.load(contents) as object);
+  const graph = component.getGraph({
+    component: {
+      name: 'test',
+      source: 'fake/source',
+    },
+    environment: 'test',
+  });
+
+  const secret_node = new CloudNode({
+    name: options.secret_name,
+    component: 'test',
+    environment: 'test',
+    inputs: {
+      type: 'secret',
+      name: CloudNode.genResourceId({
+        name: options.secret_name,
+        component: 'test',
+        environment: 'test',
+      }),
+      data: '',
+    },
+  });
+
+  assertArrayIncludes(graph.nodes, [secret_node]);
+};
+
+export const testSecretIntegration = (
+  contents: string,
+  constructor: new (data: object) => Component,
+  options: { secret_name: string; deployment_name: string },
+): void => {
+  const component = new constructor(yaml.load(contents) as object);
+  const graph = component.getGraph({
+    component: {
+      name: 'component',
+      source: 'fake/source',
+    },
+    environment: 'environment',
+  });
+
+  const secret_node = new CloudNode({
+    name: options.secret_name,
+    component: 'component',
+    environment: 'environment',
+    inputs: {
+      type: 'secret',
+      name: CloudNode.genResourceId({
+        name: options.secret_name,
+        component: 'component',
+        environment: 'environment',
+      }),
+      data: '',
+    },
+  });
+
+  const deployment_node = new CloudNode({
+    name: options.deployment_name,
+    component: 'component',
+    environment: 'environment',
+    inputs: {
+      type: 'deployment',
+      name: CloudNode.genResourceId({
+        name: options.deployment_name,
+        component: 'component',
+        environment: 'environment',
+      }),
+      replicas: 1,
+      image: 'nginx:1.14.2',
+      volume_mounts: [],
+      environment: {
+        DB_DSN: `\${{ ${secret_node.id}.data }}`,
+      },
+    },
+  });
+  assertArrayIncludes(graph.nodes, [secret_node, deployment_node]);
+  assertArrayIncludes(graph.edges, [
+    new CloudEdge({
+      from: deployment_node.id,
+      to: secret_node.id,
+      required: true,
+    }),
+  ]);
+};
 
 export const testDatabaseGeneration = (
   contents: string,

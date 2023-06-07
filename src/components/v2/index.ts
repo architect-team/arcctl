@@ -185,7 +185,11 @@ export default class ComponentV2 extends Component {
         environment: context.environment,
         inputs: {
           type: 'secret',
-          name: secret_key,
+          name: CloudNode.genResourceId({
+            name: secret_key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
           data: secret_config.default || '',
         },
       });

@@ -8,8 +8,8 @@ const parseSecretRefs = <T extends CloudNode>(
 ): T => {
   node.inputs = JSON.parse(
     JSON.stringify(node.inputs).replace(
-      /\${{\s?(?:parameters|secrets|inputs)\.([\w-]+)\s?}}/g,
-      (_, input_name) => {
+      /\${{\s?secrets\.([\w-]+)\s?}}/g,
+      (_, input_name, key) => {
         const input_node_id = CloudNode.genId({
           type: 'secret',
           name: input_name,

@@ -65,7 +65,7 @@ export class Pipeline {
       const outputs = await step?.getOutputs(options);
       if (!step || !outputs) {
         throw new Error(`Missing outputs for ${step_id}`);
-      } else if (!(outputs as any)[key]) {
+      } else if ((outputs as any)[key] === undefined) {
         throw new Error(`Invalid key, ${key}, for ${step.type}`);
       }
 

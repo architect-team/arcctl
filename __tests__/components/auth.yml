@@ -3,6 +3,7 @@ version: v2
 secrets:
   API_KEY:
     description: Some api key
+    required: true
 
 databases:
   kratos:

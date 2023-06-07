@@ -5,5 +5,3 @@ components:
     source: architect/frontend:latest
   architect/auth:
     source: architect/auth:latest
-    secrets:
-      API_KEY: some_key

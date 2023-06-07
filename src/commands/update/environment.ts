@@ -91,6 +91,7 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
       });
       command_helper.renderPipeline(pipeline, { clear: !options.verbose });
       clearInterval(interval);
+      console.log('Environment updated successfully');
     })
     .catch(async (err) => {
       await command_helper.saveDatacenter(targetDatacenter.name, targetDatacenter.config, pipeline);

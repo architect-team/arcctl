@@ -1,6 +1,35 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { GraphContext } from '../component.ts';
 
+const parseSecretRefs = <T extends CloudNode>(
+  graph: CloudGraph,
+  context: GraphContext,
+  node: T,
+): T => {
+  node.inputs = JSON.parse(
+    JSON.stringify(node.inputs).replace(
+      /\${{\s?(?:parameters|secrets|inputs)\.([\w-]+)\s?}}/g,
+      (_, input_name) => {
+        const input_node_id = CloudNode.genId({
+          type: 'secret',
+          name: input_name,
+          component: context.component.name,
+          environment: context.environment,
+        });
+        graph.insertEdges(
+          new CloudEdge({
+            from: node.id,
+            to: input_node_id,
+            required: true,
+          }),
+        );
+        return `\${{ ${input_node_id}.data }}`;
+      },
+    ),
+  );
+  return node;
+};
+
 const parseDatabaseRefs = <T extends CloudNode>(
   graph: CloudGraph,
   context: GraphContext,
@@ -256,6 +285,7 @@ export const parseExpressionRefs = <T extends CloudNode>(
   context: GraphContext,
   node: T,
 ): T => {
+  node = parseSecretRefs(graph, context, node);
   node = parseDatabaseRefs(graph, context, node);
   node = parseBuildRefs(graph, context, node);
   node = parseServiceRefs(graph, context, node);

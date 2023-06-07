@@ -11,6 +11,15 @@ export default class ComponentV2 extends Component {
   dependencies?: Record<string, string>;
 
   /**
+   * A set of secrets that this component requires
+   */
+  secrets?: Record<string, {
+    description?: string;
+    default?: string;
+    required?: boolean;
+  }>;
+
+  /**
    * A set of databases that this component requires
    */
   databases?: Record<
@@ -162,6 +171,26 @@ export default class ComponentV2 extends Component {
       );
     }
 
+    return graph;
+  }
+
+  private addSecretsToGraph(
+    graph: CloudGraph,
+    context: GraphContext,
+  ): CloudGraph {
+    for (const [secret_key, secret_config] of Object.entries(this.secrets || {})) {
+      const secret_node = new CloudNode({
+        name: secret_key,
+        component: context.component.name,
+        environment: context.environment,
+        inputs: {
+          type: 'secret',
+          name: secret_key,
+          data: secret_config.default || '',
+        },
+      });
+      graph.insertNodes(secret_node);
+    }
     return graph;
   }
 
@@ -374,6 +403,7 @@ export default class ComponentV2 extends Component {
 
   public getGraph(context: GraphContext): CloudGraph {
     let graph = new CloudGraph();
+    graph = this.addSecretsToGraph(graph, context);
     graph = this.addBuildsToGraph(graph, context);
     graph = this.addDatabasesToGraph(graph, context);
     graph = this.addDeploymentsToGraph(graph, context);

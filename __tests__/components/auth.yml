@@ -1,5 +1,9 @@
 version: v2
 
+secrets:
+  API_KEY:
+    description: Some api key
+
 databases:
   kratos:
     type: postgres:13
@@ -11,16 +15,6 @@ databases:
           - sh
           - -c
           - kratos -c ./kratos/.kratos.yml migrate sql -e --yes
-        environment:
-          DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
-    seed:
-      up:
-        image: oryd/kratos:v0.13.0
-        entrypoint: [""]
-        command:
-          - sh
-          - -c
-          - kratos migrate sql -e --yes
         environment:
           DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
 
@@ -41,12 +35,13 @@ deployments:
         kratos -c ./kratos/.kratos.yml migrate sql -e --yes
         kratos serve -c ./kratos/.kratos.yml --watch-courier
     environment:
+      API_KEY: ${{ secrets.API_KEY }}
       CONFIG: |
         version: v0.13.0
         dsn: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
         serve:
           public:
-            base_url: ${{ ingresses.api.url }}
+            base_url: ${{ ingresses.public.url }}
             cors:
               enabled: true
           admin:
@@ -183,7 +178,7 @@ deployments:
     environment:
       PORT: '4455'
       KRATOS_PUBLIC_URL: ${{ services.public.url }}
-      KRATOS_BROWSER_URL: ${{ ingresses.api.url }}
+      KRATOS_BROWSER_URL: ${{ ingresses.public.url }}
       LOG_LEVEL: debug
       LOG_FORMAT: text
 
@@ -205,7 +200,7 @@ services:
     port: 4455
 
 ingresses:
-  api:
+  public:
     service: public
   frontend:
     service: frontend

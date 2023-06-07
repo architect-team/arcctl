@@ -189,6 +189,9 @@ export default class EnvironmentV1 extends Environment {
     }
 
     const component_config = this.components[node.component];
+    if (!component_config) {
+      return node;
+    }
     const secret_config = component_config.secrets?.[node.name];
 
     node.inputs.data = secret_config || node.inputs.data;

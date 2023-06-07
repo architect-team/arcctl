@@ -1,11 +1,11 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import cliSpinners from 'cli-spinners';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
-import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
-import winston, { Logger } from 'winston';
-import { Confirm, Select, SelectSettings } from 'cliffy/prompt/mod.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
@@ -14,10 +14,10 @@ type DestroyResourceOptons = {
 const DestroyEnvironmentCommand = BaseCommand()
   .description('Destroy all the resources in the specified environment')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })
-  .arguments('[name:string]')
+  .arguments('<name:string>')
   .action(destroy_environment_action);
 
-async function destroy_environment_action(options: DestroyResourceOptons, name?: string) {
+async function destroy_environment_action(options: DestroyResourceOptons, name: string) {
   const command_helper = new CommandHelper(options);
 
   const environmentRecord = await promptForEnvironment(command_helper, name);
@@ -94,7 +94,7 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
 
   let selected = environmentRecords.find((r) => r.name === name);
 
-  const environment = selected ||
+  const environment = selected?.name ||
     (await Select.prompt({
       message: 'Select an environment to destroy',
       options: environmentRecords.map((r) => r.name),

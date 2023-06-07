@@ -1,21 +1,21 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { CloudGraph } from '../../cloud-graph/index.ts';
-import { Environment, parseEnvironment } from '../../environments/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { Environment, parseEnvironment } from '../../environments/index.ts';
+import { Pipeline } from '../../pipeline/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type UpdateEnvironmentOptions = {
   datacenter?: string;
-  verbose: boolean;
+  verbose?: boolean;
 } & GlobalOptions;
 
 const UpdateEnvironmentCommand = BaseCommand()
   .alias('update env')
   .description('Apply changes to an environment')
   .option('-d, --datacenter <datacenter:string>', 'New datacenter for the environment')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose', 'Turn on verbose logs')
   .arguments('<name:string> [config_path:string]')
   .action(update_environment_action);
 

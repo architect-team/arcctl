@@ -35,6 +35,9 @@ environment:
 
   hooks:
     - when:
+        type: secret
+      account: local
+    - when:
         type: databaseSchema
         databaseType: postgres
       resources:

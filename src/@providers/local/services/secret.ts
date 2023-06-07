@@ -1,10 +1,10 @@
+import { existsSync } from 'std/fs/exists.ts';
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
-import * as path from 'std/path/mod.ts';
-import { existsSync } from 'std/fs/exists.ts';
 
 export class LocalSecretService extends CrudResourceService<'secret'> {
   constructor(private credentials: LocalCredentials) {
@@ -64,7 +64,19 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
   }
 
   update(inputs: ResourceInputs['secret']): Promise<DeepPartial<ResourceOutputs['secret']>> {
-    throw new Error('Method not implemented.');
+    let id = inputs.name.replaceAll('/', '--');
+    if (inputs.namespace) {
+      id = `${inputs.namespace}/${id}`;
+    }
+
+    const file = path.join(this.credentials.directory, id);
+    Deno.mkdirSync(path.dirname(file), { recursive: true });
+    Deno.writeTextFileSync(file, inputs.data);
+
+    return Promise.resolve({
+      id,
+      data: inputs.data,
+    });
   }
 
   async delete(id: string): Promise<void> {

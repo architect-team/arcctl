@@ -1,13 +1,13 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsVpcModule } from '../modules/vpc.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
-import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
-import { Construct } from 'constructs';
 
 export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredentials> {
   readonly terraform_version = '1.4.5';
@@ -75,6 +75,7 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
     const vpcPromises = [];
     for (const region of regions.rows.filter((r) => (filterBy.region ? r.id === filterBy.region : true))) {
       vpcPromises.push(
+        // deno-lint-ignore no-async-promise-executor
         new Promise<void>(async (resolve) => {
           const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
             .describeVpcs(

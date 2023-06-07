@@ -2,7 +2,6 @@ import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
-import { DockerServiceService } from './services/service.ts';
 
 export default class DockerProvider extends Provider<DockerCredentials> {
   readonly type = 'docker';
@@ -10,9 +9,8 @@ export default class DockerProvider extends Provider<DockerCredentials> {
   static readonly CredentialsSchema = DockerCredentialsSchema;
 
   readonly resources = {
-    namespace: new DockerNamespaceService(this.credentials),
-    deployment: new DockerDeploymentService(this.credentials),
-    service: new DockerServiceService(this.credentials),
+    namespace: new DockerNamespaceService(this.name, this.credentials, this.providerStore),
+    deployment: new DockerDeploymentService(this.name, this.credentials, this.providerStore),
   };
 
   public testCredentials(): Promise<boolean> {

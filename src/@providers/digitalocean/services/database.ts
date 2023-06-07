@@ -1,13 +1,14 @@
-import { ResourceOutputs } from '../../../@resources/index.ts';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { TerraformResourceService } from '../../terraform.service.ts';
-import { DigitaloceanCredentials } from '../credentials.ts';
-import { DigitaloceanDatabaseModule } from '../modules/database.ts';
-import { ResourcePresets } from '../../base.service.ts';
+import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
 import { IDatabaseCluster } from 'dots-wrapper/dist/database/index.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ResourcePresets } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
 import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
-import { Construct } from 'constructs';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDatabaseModule } from '../modules/database.ts';
 
 export class DigitaloceanDatabaseService extends TerraformResourceService<'database', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
@@ -15,8 +16,8 @@ export class DigitaloceanDatabaseService extends TerraformResourceService<'datab
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDatabaseModule;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
   }
 

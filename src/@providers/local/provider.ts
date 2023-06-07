@@ -1,8 +1,8 @@
-import { Provider, ProviderResources } from '../provider.ts';
+import { exists } from 'std/fs/exists.ts';
+import { Provider } from '../provider.ts';
 import { LocalCredentials, LocalCredentialsSchema } from './credentials.ts';
 import { LocalNamespaceService } from './services/namespace.ts';
 import { LocalSecretService } from './services/secret.ts';
-import { exists } from 'std/fs/exists.ts';
 
 export default class LocalProvider extends Provider<LocalCredentials> {
   readonly type = 'local';
@@ -10,8 +10,8 @@ export default class LocalProvider extends Provider<LocalCredentials> {
   static readonly CredentialsSchema = LocalCredentialsSchema;
 
   resources = {
-    secret: new LocalSecretService(this.credentials),
-    namespace: new LocalNamespaceService(this.credentials),
+    secret: new LocalSecretService(this.name, this.credentials, this.providerStore),
+    namespace: new LocalNamespaceService(this.name, this.credentials, this.providerStore),
   };
 
   public testCredentials(): Promise<boolean> {

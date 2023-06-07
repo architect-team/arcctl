@@ -1,12 +1,13 @@
+import { Construct } from 'constructs';
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators, ResourcePresets } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
-import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
   'kubernetesCluster',
@@ -17,8 +18,8 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanKubernetesClusterModule;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
   }
 

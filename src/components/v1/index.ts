@@ -238,15 +238,15 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'service',
-            name: CloudNode.genResourceId({
+            hostname: CloudNode.genResourceId({
               name: `${service_name}-${interface_name}`,
               component: context.component.name,
               environment: context.environment,
             }),
-            protocol: typeof interface_config === 'object' && interface_config.protocol
+            target_deployment: deployment_node.resource_id,
+            target_protocol: typeof interface_config === 'object' && interface_config.protocol
               ? interface_config.protocol
               : 'http',
-            selector: deployment_node.resource_id,
             target_port: Number(
               typeof interface_config === 'object' ? interface_config.port : interface_config,
             ),
@@ -463,16 +463,16 @@ export default class ComponentV1 extends Component {
         environment: context.environment,
         inputs: {
           type: 'service',
-          name: CloudNode.genResourceId({
+          hostname: CloudNode.genResourceId({
             name: interface_key,
             component: context.component.name,
             environment: context.environment,
           }),
-          protocol: typeof target_interface === 'object' && target_interface.protocol
+          target_protocol: typeof target_interface === 'object' && target_interface.protocol
             ? target_interface.protocol
             : 'http',
           target_port: typeof target_interface === 'object' ? target_interface.port : (target_interface as any),
-          selector: deployment_resource_id,
+          target_deployment: deployment_resource_id,
         },
       });
 

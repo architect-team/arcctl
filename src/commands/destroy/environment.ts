@@ -1,11 +1,11 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import cliSpinners from 'cli-spinners';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { EnvironmentRecord } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
-import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
-import winston, { Logger } from 'winston';
-import { Confirm, Select, SelectSettings } from 'cliffy/prompt/mod.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type DestroyResourceOptons = {
   verbose: boolean;
@@ -93,14 +93,14 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
   }
 
   let selected = environmentRecords.find((r) => r.name === name);
-
-  const environment = selected ||
-    (await Select.prompt({
+  if (!selected) {
+    const selectedName = await Select.prompt({
       message: 'Select an environment to destroy',
       options: environmentRecords.map((r) => r.name),
-    }));
+    });
+    selected = environmentRecords.find((r) => r.name === selectedName);
+  }
 
-  selected = environmentRecords.find((r) => r.name === environment);
   if (!selected) {
     console.log(`Invalid environment name: ${selected}`);
     Deno.exit(1);

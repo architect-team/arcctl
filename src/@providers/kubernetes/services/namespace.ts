@@ -1,11 +1,12 @@
-import { ResourceOutputs } from '../../../@resources/index.ts';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { TerraformResourceService } from '../../terraform.service.ts';
-import { KubernetesCredentials } from '../credentials.ts';
-import { KubernetesNamespaceModule } from '../modules/namespace.ts';
-import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import k8s from '@kubernetes/client-node';
 import { Construct } from 'constructs';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ProviderStore } from '../../store.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
+import { KubernetesNamespaceModule } from '../modules/namespace.ts';
 
 export class KubernetesNamespaceService extends TerraformResourceService<'namespace', KubernetesCredentials> {
   private client: k8s.CoreV1Api;
@@ -13,8 +14,8 @@ export class KubernetesNamespaceService extends TerraformResourceService<'namesp
   readonly terraform_version = '1.4.5';
   readonly construct = KubernetesNamespaceModule;
 
-  constructor(credentials: KubernetesCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: KubernetesCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     const kubeConfig = new k8s.KubeConfig();
 
     if (credentials.configPath) {

@@ -1,4 +1,5 @@
 import { App } from 'cdktf';
+import { Construct } from 'constructs';
 import { Buffer } from 'https://deno.land/std@0.190.0/io/buffer.ts';
 import { Observable, Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
@@ -35,7 +36,7 @@ export abstract class TerraformResourceService<
 
   abstract readonly terraform_version: TerraformVersion;
 
-  abstract configureTerraformProviders(scope: CldCtlTerraformStack): void;
+  abstract configureTerraformProviders(scope: Construct): void;
 
   private async getTerraformPlugin(): Promise<Terraform> {
     if (this._terraform) {

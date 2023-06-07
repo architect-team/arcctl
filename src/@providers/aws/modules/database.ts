@@ -1,3 +1,5 @@
+import { Fn, TerraformOutput } from 'cdktf';
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { ProviderStore } from '../../store.ts';
@@ -8,8 +10,6 @@ import { DbSubnetGroup } from '../.gen/providers/aws/db-subnet-group/index.ts';
 import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { SecurityGroup } from '../.gen/providers/aws/security-group/index.ts';
 import { AwsCredentials } from '../credentials.ts';
-import { Fn, TerraformOutput } from 'cdktf';
-import { Construct } from 'constructs';
 
 export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials> {
   outputs: ResourceOutputs['database'];
@@ -138,7 +138,7 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
           username,
           password,
           database: 'postgres',
-        }),
+        }, providerStore),
       );
     },
   };

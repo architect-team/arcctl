@@ -9,7 +9,7 @@
     "ajv/dist/2019.js": "https://esm.sh/v124/ajv@8.11.0/dist/2019.js",
     "aws-sdk": "https://esm.sh/v124/aws-sdk@2.1229.0",
     "cdktf": "https://esm.sh/v124/cdktf@0.15.5",
-    "constructs": "https://esm.sh/v124/constructs@10.1.255",
+    "constructs": "https://esm.sh/v124/constructs@10.2.27",
     "js-yaml": "https://esm.sh/v124/js-yaml@4.1.0",
     "listr": "https://esm.sh/v124/listr@0.14.3",
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",

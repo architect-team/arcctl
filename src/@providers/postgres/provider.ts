@@ -10,8 +10,8 @@ export default class PostgresProvider extends Provider<PostgresCredentials> {
   static readonly CredentialsSchema = PostgresCredentialsSchema;
 
   readonly resources: ProviderResources<PostgresCredentials> = {
-    databaseSchema: new PostgresDatabaseSchemaService(this.credentials),
-    databaseUser: new PostgresDatabaseUserService(this.credentials),
+    databaseSchema: new PostgresDatabaseSchemaService(this.name, this.credentials, this.providerStore),
+    databaseUser: new PostgresDatabaseUserService(this.name, this.credentials, this.providerStore),
   };
 
   public async testCredentials(): Promise<boolean> {

@@ -164,7 +164,7 @@ export class CommandHelper {
   /**
    * Render the executable graph and the status of each resource
    */
-  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean }): void {
+  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean; message?: string }): void {
     const headers = ['Name', 'Type'];
     const showEnvironment = pipeline.steps.some((s) => s.environment);
     const showComponent = pipeline.steps.some((s) => s.component);
@@ -219,7 +219,7 @@ export class CommandHelper {
       const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
       this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
 
-      console.log(spinner + ' Applying changes');
+      console.log(spinner + ' ' + (options.message || 'Applying changes'));
       console.log('\n' + table.toString());
     } else {
       console.log(table.toString());
@@ -732,6 +732,7 @@ export class CommandHelper {
     const account = new SupportedProviders[providerType](
       res.name!,
       credentials as any,
+      this.providerStore,
     );
 
     const validCredentials = await account.testCredentials();

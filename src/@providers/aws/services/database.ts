@@ -1,13 +1,13 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDatabaseModule } from '../modules/database.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
-import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
-import { Construct } from 'constructs';
 
 export class AwsDatabaseService extends TerraformResourceService<'database', AwsCredentials> {
   readonly terraform_version = '1.4.5';
@@ -28,12 +28,13 @@ export class AwsDatabaseService extends TerraformResourceService<'database', Aws
     _filterOptions?: Partial<ResourceOutputs['database']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['database']>> {
-    const regions = await new AwsRegionService(this.credentials).list();
+    const regions = await new AwsRegionService(this.accountName, this.credentials, this.providerStore).list();
 
     const databasePromises = [];
     const databases: ResourceOutputs['database'][] = [];
     for (const region of regions.rows) {
       databasePromises.push(
+        // deno-lint-ignore no-async-promise-executor
         new Promise<void>(async (resolve) => {
           const rds = AwsUtils.getRDS(this.credentials, region.id);
           const rds_databases = await rds.describeDBInstances({}).promise();

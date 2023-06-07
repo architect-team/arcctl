@@ -23,17 +23,17 @@ export default class AwsProvider extends Provider<AwsCredentials> {
   static readonly CredentialsSchema = AwsCredentialsSchema;
 
   readonly resources = {
-    region: new AwsRegionService(this.credentials),
-    vpc: new AwsVpcService(this.credentials),
-    kubernetesVersion: new AwsKubernetesVersionService(this.credentials),
-    nodeSize: new AwsNodeSizeService(this.credentials),
-    kubernetesCluster: new AwsKubernetesClusterService(this.credentials),
-    databaseType: new AwsDatabaseTypeService(this.credentials),
-    databaseVersion: new AwsDatabaseVersionService(this.credentials),
-    databaseSize: new AwsDatabaseSizeService(this.credentials),
-    database: new AwsDatabaseService(this.credentials),
-    dnsZone: new AwsDnsZoneService(this.credentials),
-    dnsRecord: new AwsDnsRecordService(this.credentials),
+    region: new AwsRegionService(this.name, this.credentials, this.providerStore),
+    vpc: new AwsVpcService(this.name, this.credentials, this.providerStore),
+    kubernetesVersion: new AwsKubernetesVersionService(this.name, this.credentials, this.providerStore),
+    nodeSize: new AwsNodeSizeService(this.name, this.credentials, this.providerStore),
+    kubernetesCluster: new AwsKubernetesClusterService(this.name, this.credentials, this.providerStore),
+    databaseType: new AwsDatabaseTypeService(this.name, this.credentials, this.providerStore),
+    databaseVersion: new AwsDatabaseVersionService(this.name, this.credentials, this.providerStore),
+    databaseSize: new AwsDatabaseSizeService(this.name, this.credentials, this.providerStore),
+    database: new AwsDatabaseService(this.name, this.credentials, this.providerStore),
+    dnsZone: new AwsDnsZoneService(this.name, this.credentials, this.providerStore),
+    dnsRecord: new AwsDnsRecordService(this.name, this.credentials, this.providerStore),
   };
 
   public async testCredentials(): Promise<boolean> {

@@ -1,14 +1,15 @@
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourceService } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanNodeSizeService extends ResourceService<'nodeSize', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
   }
 

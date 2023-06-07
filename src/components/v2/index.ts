@@ -240,13 +240,13 @@ export default class ComponentV2 extends Component {
         environment: context.environment,
         inputs: {
           type: 'service',
-          name: CloudNode.genResourceId({
+          hostname: CloudNode.genResourceId({
             name: service_key,
             component: context.component.name,
             environment: context.environment,
           }),
-          protocol: service_config.protocol || 'http',
-          selector: CloudNode.genResourceId({
+          target_protocol: service_config.protocol || 'http',
+          target_deployment: CloudNode.genResourceId({
             name: service_config.deployment,
             component: context.component.name,
             environment: context.environment,

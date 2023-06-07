@@ -2,6 +2,7 @@ import { Construct } from 'constructs';
 import { pg } from 'deps';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
 import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
@@ -13,8 +14,8 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
   readonly terraform_version = '1.4.5';
   readonly construct = PostgresDatabaseUserModule;
 
-  constructor(credentials: PostgresCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: PostgresCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
 
     this.client = new pg.Client({
       host: credentials.host,

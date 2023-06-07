@@ -1,12 +1,13 @@
+import { Construct } from 'constructs';
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { InputValidators } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsZoneModule } from '../modules/dns-zone.ts';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
-import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZone', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
@@ -14,8 +15,8 @@ export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZon
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDnsZoneModule;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
   }
 

@@ -68,5 +68,7 @@ environment:
           content: ${{ this.outputs.loadBalancerHostname }}
       loadBalancer: nginx
       namespace: ${{ environment.resources.namespace.id }}
+      listener:
+        hostZone: davidthor.me
     - account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}

@@ -5,11 +5,6 @@ import { ComponentMetadata, Environment } from '../environment.ts';
 
 export default class EnvironmentV1 extends Environment {
   /**
-   * The DNS zone to use for ingresses in the environment
-   */
-  dns_zone?: string;
-
-  /**
    * Configuration settings for the components that may be deployed inside this environment
    */
   components?: {
@@ -175,7 +170,6 @@ export default class EnvironmentV1 extends Environment {
       ...node.inputs.listener,
       path: ingress_config?.path || node.inputs.listener?.path,
       subdomain: ingress_config?.subdomain || node.inputs.listener?.subdomain,
-      hostZone: this.dns_zone,
     };
 
     node.inputs.internal = ingress_config?.internal || node.inputs.internal;

@@ -1,11 +1,12 @@
+import { Construct } from 'constructs';
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDatabaseSchemaModule } from '../modules/database-schema.ts';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
-import { createApiClient } from 'dots-wrapper';
-import { Construct } from 'constructs';
 
 export class DigitaloceanDatabaseSchemaService extends TerraformResourceService<
   'databaseSchema',
@@ -16,8 +17,8 @@ export class DigitaloceanDatabaseSchemaService extends TerraformResourceService<
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDatabaseSchemaModule;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
   }
 

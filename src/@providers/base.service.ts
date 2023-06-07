@@ -1,10 +1,9 @@
-import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
-import { Terraform } from '../terraform/terraform.ts';
-import { PagingOptions, PagingResponse } from '../utils/paging.ts';
-import { ProviderStore } from './store.ts';
 import { Observable } from 'rxjs';
 import { Logger } from 'winston';
+import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../utils/paging.ts';
 import { ProviderCredentials } from './credentials.ts';
+import { ProviderStore } from './store.ts';
 
 export type InputValidators<T extends ResourceType> = {
   [P in keyof ResourceInputs[T]]?: (value: ResourceInputs[T][P]) => string | true;
@@ -35,7 +34,7 @@ export type ApplyOutputs<T extends ResourceType> = {
 };
 
 export abstract class ResourceService<T extends ResourceType, C extends ProviderCredentials> {
-  public constructor(protected credentials: C) {}
+  public constructor(protected accountName: string, protected credentials: C, protected providerStore: ProviderStore) {}
 
   /**
    * Retrieve the details of an existing resource

@@ -1,13 +1,13 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
-import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
-import { Construct } from 'constructs';
 
 export class AwsKubernetesClusterService extends TerraformResourceService<'kubernetesCluster', AwsCredentials> {
   readonly terraform_version = '1.4.5';
@@ -54,11 +54,12 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
     _filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>> {
-    const regions = await new AwsRegionService(this.credentials).list();
+    const regions = await new AwsRegionService(this.accountName, this.credentials, this.providerStore).list();
 
     const eksPromises: Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>[] = [];
     for (const region of regions.rows) {
       eksPromises.push(
+        // deno-lint-ignore no-async-promise-executor
         new Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>(async (resolve) => {
           const eksClustersData = await AwsUtils.getEKS(this.credentials, region.id).listClusters().promise();
           const clusters = eksClustersData.clusters || [];

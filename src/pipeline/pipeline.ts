@@ -1,7 +1,7 @@
+import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
 import { PipelineStep } from './step.ts';
 import { ApplyOptions } from './types.ts';
-import { SupportedProviders } from '../@providers/supported-providers.ts';
 
 export type PlanOptions = {
   before: Pipeline;
@@ -309,6 +309,7 @@ export class Pipeline {
             new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
               step.inputs.name,
               step.inputs.credentials as any,
+              options.providerStore,
             ),
           );
         }

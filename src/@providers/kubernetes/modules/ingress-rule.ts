@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { IngressV1 } from '../.gen/providers/kubernetes/ingress-v1/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', KubernetesCredentials> {
   ingress: IngressV1;
@@ -24,7 +24,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     this.ingress = new IngressV1(this, 'ingress', {
       waitForLoadBalancer: true,
       metadata: {
-        name: options.id.replace(/\//g, '--'),
+        name: options.id.replaceAll('/', '--').toLowerCase(),
         namespace: this.inputs?.namespace,
       },
       spec: {

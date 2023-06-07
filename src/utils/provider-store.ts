@@ -1,7 +1,7 @@
+import * as path from 'std/path/mod.ts';
 import { Provider } from '../@providers/provider.ts';
 import { ProviderStore } from '../@providers/store.ts';
 import { SupportedProviders } from '../@providers/supported-providers.ts';
-import * as path from 'std/path/mod.ts';
 
 export class CldCtlProviderStore implements ProviderStore {
   private _providers?: Provider[];
@@ -44,7 +44,7 @@ export class CldCtlProviderStore implements ProviderStore {
       const providers: Provider[] = [];
       for (const raw of rawProviders) {
         const type = raw.type as keyof typeof SupportedProviders;
-        providers.push(new SupportedProviders[type](raw.name, raw.credentials));
+        providers.push(new SupportedProviders[type](raw.name, raw.credentials, this));
       }
 
       this._providers = providers;

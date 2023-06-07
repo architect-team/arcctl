@@ -1,6 +1,7 @@
 import { ResourceType } from '../@resources/index.ts';
 import { ResourceService } from './base.service.ts';
 import { ProviderCredentials, ProviderCredentialsSchema } from './credentials.ts';
+import { ProviderStore } from './store.ts';
 import { CldctlTestResource } from './tests.ts';
 
 export type ProviderResources<C extends ProviderCredentials> = {
@@ -35,7 +36,7 @@ export abstract class Provider<
 
   tests: CldctlTestResource<ProviderCredentials> = [];
 
-  constructor(readonly name: string, readonly credentials: C) {}
+  constructor(readonly name: string, readonly credentials: C, readonly providerStore: ProviderStore) {}
 
   public abstract testCredentials(): Promise<boolean>;
 

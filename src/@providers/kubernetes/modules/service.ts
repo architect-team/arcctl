@@ -13,42 +13,44 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
 
     this.service = new Service(this, 'service', {
       metadata: {
-        name: this.inputs?.name.replaceAll('/', '--'),
+        name: this.inputs?.hostname.replaceAll('/', '--'),
         namespace: this.inputs?.namespace,
         labels: {
-          'architect.io/name': this.inputs?.name.replaceAll('/', '--') || 'unknown',
+          'architect.io/name': this.inputs?.hostname.replaceAll('/', '--') || 'unknown',
           ...this.inputs?.labels,
         },
       },
-      spec: this.inputs && 'external_name' in this.inputs
+      spec: this.inputs && 'external_hostname' in this.inputs
         ? {
           type: 'ExternalName',
-          externalName: this.inputs.external_name,
+          externalName: this.inputs.external_hostname,
         }
         : {
           type: 'ClusterIP',
-          selector: this.inputs?.selector
+          selector: this.inputs?.target_deployment
             ? {
-              'architect.io/name': this.inputs.selector.replaceAll('/', '--'),
+              'architect.io/name': this.inputs.target_deployment.replaceAll('/', '--'),
             }
             : undefined,
           port: [
             {
               port: 80,
-              nodePort: this.inputs?.listener_port,
+              nodePort: this.inputs?.port,
               targetPort: String(this.inputs?.target_port || 80),
             },
           ],
         },
     });
 
-    const protocol = this.inputs && 'external_name' in this.inputs ? 'http' : this.inputs?.protocol || 'http';
+    const protocol = this.inputs && 'external_hostname' in this.inputs
+      ? 'http'
+      : this.inputs?.target_protocol || 'http';
     this.outputs = {
-      id: this.inputs?.name || 'unknown',
+      id: this.inputs?.hostname || 'unknown',
       protocol,
-      host: this.inputs?.name.replaceAll('/', '--') || 'unknown',
+      host: this.inputs?.hostname.replaceAll('/', '--') || 'unknown',
       port: 80,
-      url: `${protocol}://${this.inputs?.name.replaceAll('/', '--') || 'unknown'}`,
+      url: `${protocol}://${this.inputs?.hostname.replaceAll('/', '--') || 'unknown'}`,
     };
   }
 

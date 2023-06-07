@@ -1,12 +1,13 @@
-import { ResourceOutputs } from '../../../@resources/index.ts';
-import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { TerraformResourceService } from '../../terraform.service.ts';
-import { DigitaloceanCredentials } from '../credentials.ts';
-import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
-import { InputValidators } from '../../base.service.ts';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { Construct } from 'constructs';
 import { createApiClient } from 'dots-wrapper';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { InputValidators } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
+import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
+import { DigitaloceanCredentials } from '../credentials.ts';
+import { DigitaloceanDnsRecordModule } from '../modules/dns-record.ts';
 
 export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsRecord', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
@@ -14,8 +15,8 @@ export class DigitaloceanDnsRecordService extends TerraformResourceService<'dnsR
   readonly terraform_version = '1.4.5';
   readonly construct = DigitaloceanDnsRecordModule;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super(credentials);
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
   }
 

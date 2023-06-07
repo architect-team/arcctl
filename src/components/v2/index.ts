@@ -1,5 +1,6 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
+import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { ProbeSchema } from './probe.ts';
@@ -363,7 +364,7 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  constructor(data: object) {
+  constructor(data: ComponentSchema) {
     super();
     Object.assign(this, data);
   }

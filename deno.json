@@ -9,7 +9,7 @@
       "src/**/*.schema.json"
     ],
     "rules": {
-      "exclude": ["no-explicit-any", "no-unused-vars", "ban-types"]
+      "exclude": ["no-explicit-any", "no-unused-vars"]
     }
   },
   "fmt": {

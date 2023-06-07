@@ -15,29 +15,29 @@ export interface RouteTableIds {
 }
 
 export class EksNodeGroupIds {
-  id: string = '';
-  launchTemplate: string = '';
-  poolName: string = '';
+  id = '';
+  launchTemplate = '';
+  poolName = '';
 }
 
 export class EksSecurityGroupRules {
-  clusterEgressNode443: string = '';
-  clusterIngressNode443: string = '';
-  nodeIngressCluster443: string = '';
-  nodeIngressClusterKubelet: string = '';
-  nodeIngressSelfCoreDnsTcp: string = '';
-  nodeIngressSelfCoreDnsUdp: string = '';
+  clusterEgressNode443 = '';
+  clusterIngressNode443 = '';
+  nodeIngressCluster443 = '';
+  nodeIngressClusterKubelet = '';
+  nodeIngressSelfCoreDnsTcp = '';
+  nodeIngressSelfCoreDnsUdp = '';
 }
 
 export class EksIds {
   nodeGroups: EksNodeGroupIds[] = [];
-  eks: string = '';
-  vpcId: string = '';
-  cloudWatchLogs: string = '';
-  workerIam: string = '';
-  workerSg: string = '';
-  clusterSg: string = '';
-  nodeSg: string = '';
+  eks = '';
+  vpcId = '';
+  cloudWatchLogs = '';
+  workerIam = '';
+  workerSg = '';
+  clusterSg = '';
+  nodeSg = '';
   nodePoolSg: { [key: string]: string } = {};
   securityGroupRules: EksSecurityGroupRules = new EksSecurityGroupRules();
 }

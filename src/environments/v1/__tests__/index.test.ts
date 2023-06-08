@@ -1,10 +1,10 @@
-import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
-import { ComponentStore } from '../../../component-store/index.ts';
-import { parseEnvironment } from '../../parser.ts';
+import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { describe, it } from 'std/testing/bdd.ts';
-import * as mockFile from 'https://deno.land/x/mock_file@v1.1.2/mod.ts';
+import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
+import { ComponentStore } from '../../../component-store/index.ts';
+import { parseEnvironment } from '../../parser.ts';
 
 describe('Environment schema: v1', () => {
   it('should ignore configuration without a source', async () => {
@@ -22,6 +22,54 @@ describe('Environment schema: v1', () => {
     const graph = await environment.getGraph('account/environment', store);
 
     assertEquals(graph.nodes, []);
+    assertEquals(graph.edges, []);
+  });
+
+  it('should extrapolate local values', async () => {
+    const environment = await parseEnvironment(
+      yaml.load(`
+        local:
+          source: account/component:latest
+        components:
+          account/component:
+            source: \${{local.source}}
+      `) as Record<string, unknown>,
+    );
+
+    const component = `
+      version: v2
+      deployments:
+        main:
+          image: nginx:latest
+    `;
+
+    mockFile.prepareVirtualFile('/component/architect.yml', new TextEncoder().encode(component));
+
+    const tmp_dir = Deno.makeTempDirSync();
+    const store = new ComponentStore(tmp_dir, 'registry.architect.io');
+    const component_id = await store.add('/component/architect.yml');
+    store.tag(component_id, 'account/component:latest');
+
+    const graph = await environment.getGraph('account/environment', store);
+
+    assertEquals(graph.nodes, [
+      new CloudNode({
+        name: 'main',
+        component: 'account/component',
+        environment: 'account/environment',
+        inputs: {
+          type: 'deployment',
+          name: CloudNode.genResourceId({
+            name: 'main',
+            component: 'account/component',
+            environment: 'account/environment',
+          }),
+          image: 'nginx:latest',
+          volume_mounts: [],
+          replicas: 1,
+        },
+      }),
+    ]);
     assertEquals(graph.edges, []);
   });
 

@@ -146,6 +146,13 @@
           "description": "The DNS zone to use for ingresses in the environment",
           "type": "string"
         },
+        "local": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Local variables that can be used to parameterize the environment",
+          "type": "object"
+        },
         "version": {
           "const": "v1",
           "type": "string"

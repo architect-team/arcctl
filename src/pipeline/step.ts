@@ -1,12 +1,12 @@
+import { App } from 'cdktf';
+import { Observable, Subscriber } from 'rxjs';
+import { deepMerge } from 'std/collections/deep_merge.ts';
+import * as path from 'std/path/mod.ts';
 import { CrudResourceService, Provider, TerraformResourceService } from '../@providers/index.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { CldCtlTerraformStack } from '../utils/stack.ts';
 import { ApplyStepOptions, StepAction, StepColor, StepStatus } from './types.ts';
-import { App } from 'cdktf';
-import { deepMerge } from 'std/collections/deep_merge.ts';
-import * as path from 'std/path/mod.ts';
-import { Observable, Subscriber } from 'rxjs';
 
 export type PipelineStepOptions<T extends ResourceType> = {
   name: string;
@@ -289,6 +289,7 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     if (this.action === 'delete') {
       if (!this.resource?.id) {
+        console.log(this);
         throw new Error(`Missing resource ID for ${this.id} which is scheduled for deletion`);
       }
 

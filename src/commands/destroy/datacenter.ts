@@ -1,11 +1,11 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import cliSpinners from 'cli-spinners';
+import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
-import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
-import winston, { Logger } from 'winston';
-import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type DestroyDatacenterOptions = {
   verbose: boolean;
@@ -16,10 +16,10 @@ const DestroyDatacenterCommand = BaseCommand()
   .description('Destroy a datacenter and all the environments managed by it')
   .option('-v, --verbose', 'Turn on verbose logs', { default: false })
   .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
-  .arguments('[name:string]')
+  .arguments('<name:string>')
   .action(destroy_datacenter_action);
 
-async function destroy_datacenter_action(options: DestroyDatacenterOptions, name?: string) {
+async function destroy_datacenter_action(options: DestroyDatacenterOptions, name: string) {
   const command_helper = new CommandHelper(options);
 
   const datacenterRecord = await promptForDatacenter(command_helper, name);
@@ -98,7 +98,7 @@ async function promptForDatacenter(command_helper: CommandHelper, name?: string)
 
   let selected = datacenterRecords.find((d) => d.name === name);
 
-  const datacenter = selected ||
+  const datacenter = selected?.name ||
     (await Select.prompt({
       message: 'Select a datacenter to destroy',
       options: datacenterRecords.map((r) => r.name),

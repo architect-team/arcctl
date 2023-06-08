@@ -1,3 +1,4 @@
+import { Construct } from 'constructs';
 import { AwsDnsZoneTest } from '../aws/tests/dns-zone.ts';
 import { ProviderCredentials } from '../credentials.ts';
 import { Provider, ProviderResources } from '../provider.ts';
@@ -17,7 +18,6 @@ import { AwsRegionService } from './services/region.ts';
 import { AwsVpcService } from './services/vpc.ts';
 import { AwsDnsRecordTest } from './tests/dns-record.ts';
 import AwsUtils from './utils.ts';
-import { Construct } from 'constructs';
 
 export default class AwsProvider extends Provider<AwsCredentials> {
   readonly type = 'aws';
@@ -43,6 +43,7 @@ export default class AwsProvider extends Provider<AwsCredentials> {
     try {
       await AwsUtils.getEC2(this.credentials).describeInstanceTypes().promise();
       return true;
+      // deno-lint-ignore no-empty
     } catch (_) {}
     return false;
   }

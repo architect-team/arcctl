@@ -1,9 +1,9 @@
+import { Construct } from 'constructs';
+import { exists } from 'std/fs/exists.ts';
 import { Provider, ProviderResources } from '../provider.ts';
 import { LocalCredentials, LocalCredentialsSchema } from './credentials.ts';
 import { LocalNamespaceService } from './services/namespace.ts';
 import { LocalSecretService } from './services/secret.ts';
-import { Construct } from 'constructs';
-import { existsSync } from 'std/fs/exists.ts';
 
 export default class LocalProvider extends Provider<LocalCredentials> {
   readonly type = 'local';
@@ -16,10 +16,9 @@ export default class LocalProvider extends Provider<LocalCredentials> {
     namespace: new LocalNamespaceService(this.credentials),
   };
 
-  public async testCredentials(): Promise<boolean> {
-    return existsSync(this.credentials.directory);
+  public testCredentials(): Promise<boolean> {
+    return exists(this.credentials.directory);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   configureTerraformProviders(scope: Construct): void {}
 }

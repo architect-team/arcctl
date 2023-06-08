@@ -1,9 +1,9 @@
-import { PluginArchitecture, PluginBinary, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 import AdmZip from 'adm-zip';
 import tar from 'tar';
+import { PluginArchitecture, PluginBinary, PluginBundleType, PluginPlatform } from './plugin-types.ts';
 
 export default class PluginUtils {
-  static async downloadFile(
+  static downloadFile(
     url: string,
     location: string,
     sha256: string,

@@ -1,3 +1,5 @@
+import { TerraformOutput } from 'cdktf';
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import KubernetesUtils from '../../kubernetes.ts';
 import { ResourceModule } from '../../module.ts';
@@ -6,8 +8,6 @@ import { SupportedProviders } from '../../supported-providers.ts';
 import { KubernetesCluster } from '../.gen/providers/digitalocean/kubernetes-cluster/index.ts';
 import { KubernetesNodePool } from '../.gen/providers/digitalocean/kubernetes-node-pool/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { TerraformOutput } from 'cdktf';
-import { Construct } from 'constructs';
 
 export class DigitaloceanKubernetesClusterModule extends ResourceModule<'kubernetesCluster', DigitaloceanCredentials> {
   private cluster: KubernetesCluster;

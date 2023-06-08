@@ -1,11 +1,12 @@
-import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
-import { Component } from '../component.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
+import { Component } from '../component.ts';
+import { ComponentSchema } from '../schema.ts';
 
 export const testDatabaseGeneration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: {
     database_name: string;
     database_type: string;
@@ -43,10 +44,10 @@ export const testDatabaseGeneration = (
 
 export const testDatabaseIntegration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: { database_name: string; deployment_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -111,10 +112,10 @@ export const testDatabaseIntegration = (
 
 export const testDeploymentGeneration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: { deployment_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'test',
@@ -145,10 +146,10 @@ export const testDeploymentGeneration = (
 
 export const testServiceGeneration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: { deployment_name: string; service_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -195,13 +196,13 @@ export const testServiceGeneration = (
 
 export const testServiceIntegration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: {
     service_name: string;
     deployment_name: string;
   },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'component',

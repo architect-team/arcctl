@@ -9,7 +9,7 @@
       "src/**/*.schema.json"
     ],
     "rules": {
-      "exclude": ["no-explicit-any", "no-unused-vars"]
+      "exclude": ["no-explicit-any", "no-unused-vars", "require-await"]
     }
   },
   "fmt": {
@@ -27,7 +27,7 @@
     ]
   },
   "tasks": {
-    "compile": "deno compile -A main.ts --output bin/arcctl",
+    "compile": "deno compile -A main.ts --no-check --output bin/arcctl",
     "generate:npm": "deno run -A ./bin/scripts/npm-package.ts",
     "generate:component-schema": "deno run -A ./bin/scripts/component-generator.ts",
     "generate:datacenter-schema": "deno run -A ./bin/scripts/datacenter-generator.ts",

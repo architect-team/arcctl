@@ -1,8 +1,8 @@
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { BaseService } from '../../service.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDatabaseVersionService extends BaseService<'databaseVersion'> {
   private client: ReturnType<typeof createApiClient>;

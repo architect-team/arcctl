@@ -5,6 +5,7 @@ import { Command } from 'cliffy/command/mod.ts';
 import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
 import process from 'node:process';
 import readline from 'node:readline';
+import { Subscription } from 'rxjs';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
@@ -59,82 +60,74 @@ export class CommandHelper {
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
-    return new Promise(async (resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'create',
+  public async saveDatacenter(
+    datacenterName: string,
+    datacenter: Datacenter,
+    pipeline: Pipeline,
+  ): Promise<Subscription> {
+    const secretStep = new PipelineStep({
+      action: 'create',
+      type: 'secret',
+      name: `${datacenterName}-datacenter-pipeline`,
+      inputs: {
         type: 'secret',
-        name: `${datacenterName}-datacenter-pipeline`,
-        inputs: {
-          type: 'secret',
-          name: `datacenter-pipeline`,
-          namespace: datacenterName,
-          account: datacenter.getSecretsConfig().account,
-          data: JSON.stringify(pipeline),
-        },
-      });
+        name: `datacenter-pipeline`,
+        namespace: datacenterName,
+        account: datacenter.getSecretsConfig().account,
+        data: JSON.stringify(pipeline),
+      },
+    });
 
-      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
+    const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
 
-      secretStep
-        .apply({
+    return secretStep
+      .apply({
+        providerStore: this.providerStore,
+        terraform: terraform,
+      })
+      .subscribe(async () => {
+        const outputs = await secretStep.getOutputs({
           providerStore: this.providerStore,
           terraform: terraform,
-        })
-        .subscribe({
-          complete: async () => {
-            const outputs = await secretStep.getOutputs({
-              providerStore: this.providerStore,
-              terraform: terraform,
-            });
-
-            if (!outputs) {
-              console.error('Something went wrong storing the pipeline');
-              Deno.exit(1);
-            }
-
-            await this.datacenterStore.save({
-              name: datacenterName,
-              config: datacenter,
-              lastPipeline: {
-                account: datacenter.getSecretsConfig().account,
-                secret: outputs.id,
-              },
-            });
-            resolve();
-          },
-          error: reject,
         });
-    });
+
+        if (!outputs) {
+          console.error('Something went wrong storing the pipeline');
+          Deno.exit(1);
+        }
+
+        await this.datacenterStore.save({
+          name: datacenterName,
+          config: datacenter,
+          lastPipeline: {
+            account: datacenter.getSecretsConfig().account,
+            secret: outputs.id,
+          },
+        });
+      });
   }
 
-  public removeDatacenter(record: DatacenterRecord): Promise<void> {
-    return new Promise(async (resolve, reject) => {
-      const secretStep = new PipelineStep({
-        action: 'delete',
-        type: 'secret',
-        name: `${record.name}-datacenter-pipeline`,
-        resource: {
-          account: record.config.getSecretsConfig().account,
-          id: `${record.name}/datacenter-pipeline`,
-        },
-      });
-
-      const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-
-      secretStep
-        .apply({
-          providerStore: this.providerStore,
-          terraform: terraform,
-        })
-        .subscribe({
-          complete: async () => {
-            await this.datacenterStore.remove(record.name);
-            resolve();
-          },
-          error: reject,
-        });
+  public async removeDatacenter(record: DatacenterRecord): Promise<Subscription> {
+    const secretStep = new PipelineStep({
+      action: 'delete',
+      type: 'secret',
+      name: `${record.name}-datacenter-pipeline`,
+      resource: {
+        account: record.config.getSecretsConfig().account,
+        id: `${record.name}/datacenter-pipeline`,
+      },
     });
+
+    const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
+
+    return secretStep
+      .apply({
+        providerStore: this.providerStore,
+        terraform: terraform,
+      })
+      .subscribe(async () => {
+        await this.datacenterStore.remove(record.name);
+      });
   }
 
   public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {

@@ -1,4 +1,4 @@
-import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
+import { build, emptyDir } from 'dnt';
 import Listr from 'listr';
 import Mustache from 'mustache';
 import * as path from 'std/path/mod.ts';

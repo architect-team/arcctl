@@ -50,7 +50,7 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
   async create(inputs: ResourceInputs['secret']): Promise<ResourceOutputs['secret']> {
     let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
-      id = `${inputs.namespace}/${id}`;
+      id = `${inputs.namespace}--${id}`;
     }
 
     const file = path.join(this.credentials.directory, id);
@@ -66,7 +66,7 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
   update(inputs: ResourceInputs['secret']): Promise<DeepPartial<ResourceOutputs['secret']>> {
     let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
-      id = `${inputs.namespace}/${id}`;
+      id = `${inputs.namespace}--${id}`;
     }
 
     const file = path.join(this.credentials.directory, id);

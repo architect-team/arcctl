@@ -45,6 +45,7 @@ async function update_environment_action(options: UpdateEnvironmentOptions, name
   }
 
   targetGraph = await targetDatacenter.config.enrichGraph(targetGraph, name);
+  targetGraph.validate();
 
   let startingPipeline = new Pipeline();
   if (environmentRecord?.datacenter) {

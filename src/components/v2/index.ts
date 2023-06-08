@@ -191,6 +191,7 @@ export default class ComponentV2 extends Component {
             environment: context.environment,
           }),
           data: secret_config.default || '',
+          required: secret_config.required || false,
         },
       });
       graph.insertNodes(secret_node);

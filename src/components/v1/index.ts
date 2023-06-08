@@ -193,7 +193,11 @@ export default class ComponentV1 extends Component {
                 environment: context.environment,
                 inputs: {
                   type: 'volume',
-                  mountPath: volume_config.mount_path,
+                  name: CloudNode.genResourceId({
+                    name: `${service_name}-${volume_name}`,
+                    component: context.component.name,
+                    environment: context.environment,
+                  }),
                   ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
@@ -238,7 +242,7 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'service',
-            hostname: CloudNode.genResourceId({
+            name: CloudNode.genResourceId({
               name: `${service_name}-${interface_name}`,
               component: context.component.name,
               environment: context.environment,
@@ -271,13 +275,16 @@ export default class ComponentV1 extends Component {
             environment: context.environment,
             inputs: {
               type: 'ingressRule',
-              loadBalancer: '',
+              name: CloudNode.genResourceId({
+                name: `${service_name}-${interface_name}`,
+                component: context.component.name,
+                environment: context.environment,
+              }),
+              registry: '',
               port: 80,
-              listener: {
-                subdomain: interface_config.ingress.subdomain || '',
-                path: interface_config.ingress.path || '/',
-                protocol: `\${{ ${service_node.id}.protocol }}`,
-              },
+              subdomain: interface_config.ingress.subdomain || '',
+              path: interface_config.ingress.path || '/',
+              protocol: `\${{ ${service_node.id}.protocol }}`,
               service: `\${{ ${service_node.id}.id }}`,
               internal: interface_config.ingress.internal || false,
             },
@@ -382,7 +389,11 @@ export default class ComponentV1 extends Component {
                 environment: context.environment,
                 inputs: {
                   type: 'volume',
-                  mountPath: volume_config.mount_path,
+                  name: CloudNode.genResourceId({
+                    name: `${task_name}-${volume_name}`,
+                    component: context.component.name,
+                    environment: context.environment,
+                  }),
                   ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
@@ -463,7 +474,7 @@ export default class ComponentV1 extends Component {
         environment: context.environment,
         inputs: {
           type: 'service',
-          hostname: CloudNode.genResourceId({
+          name: CloudNode.genResourceId({
             name: interface_key,
             component: context.component.name,
             environment: context.environment,
@@ -494,14 +505,17 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'ingressRule',
-            loadBalancer: '',
+            name: CloudNode.genResourceId({
+              name: interface_key,
+              component: context.component.name,
+              environment: context.environment,
+            }),
+            registry: '',
             service: `\${{ ${interface_node.id}.id }}`,
             port: 80,
-            listener: {
-              subdomain: interface_config.ingress.subdomain || '',
-              path: interface_config.ingress.path || '/',
-              protocol: `\${{ ${interface_node.id}.protocol }}`,
-            },
+            subdomain: interface_config.ingress.subdomain || '',
+            path: interface_config.ingress.path || '/',
+            protocol: `\${{ ${interface_node.id}.protocol }}`,
             internal: interface_config.ingress.internal || false,
           },
         });

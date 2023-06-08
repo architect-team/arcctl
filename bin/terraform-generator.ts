@@ -1,10 +1,10 @@
+import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import {
   PluginArchitecture,
   PluginBundleType,
   PluginPlatform,
-} from '../../src/plugins/plugin-types.ts';
-import TerraformPlugin from '../../src/plugins/terraform-plugin.ts';
-import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
+} from '../src/plugins/plugin-types.ts';
+import TerraformPlugin from '../src/plugins/terraform-plugin.ts';
 
 const tmpDirectory = Deno.makeTempDirSync({ prefix: crypto.randomUUID() });
 

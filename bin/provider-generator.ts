@@ -2,7 +2,7 @@ import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const providers_dir = path.join(__dirname, '../../src/@providers/');
+const providers_dir = path.join(__dirname, '../src/@providers/');
 
 const all_providers = [];
 for await (const dirEntry of Deno.readDir(providers_dir)) {

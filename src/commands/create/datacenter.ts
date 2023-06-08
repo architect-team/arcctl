@@ -1,10 +1,10 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { CloudGraph } from '../../cloud-graph/index.ts';
-import { parseDatacenter } from '../../datacenters/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { parseDatacenter } from '../../datacenters/index.ts';
+import { Pipeline } from '../../pipeline/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type CreateDatacenterOptions = {
   verbose?: boolean;
@@ -12,7 +12,7 @@ type CreateDatacenterOptions = {
 
 const CreateDatacenterCommand = BaseCommand()
   .description('Create a new datacenter')
-  .option('-v, --verbose', 'Verbose output')
+  .option('-v, --verbose [verbose:boolean]', 'Verbose output', { default: false })
   .arguments('<name:string> <config_path:string>')
   .action(create_datacenter_action);
 

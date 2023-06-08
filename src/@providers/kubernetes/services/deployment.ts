@@ -1,12 +1,12 @@
+import k8s from '@kubernetes/client-node';
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesDeploymentModule } from '../modules/deployment.ts';
 import { KubernetesNamespaceService } from './namespace.ts';
-import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
-import k8s from '@kubernetes/client-node';
-import { Construct } from 'constructs';
 
 export class KubernetesDeploymentService extends TerraformResourceService<'deployment', KubernetesCredentials> {
   private _client?: k8s.AppsV1Api;
@@ -59,7 +59,7 @@ export class KubernetesDeploymentService extends TerraformResourceService<'deplo
     _filterOptions?: Partial<ResourceOutputs['deployment']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
-    const namespaceService = new KubernetesNamespaceService(this.credentials);
+    const namespaceService = new KubernetesNamespaceService(this.accountName, this.credentials, this.providerStore);
     const namespaces = await namespaceService.list();
 
     const rows: Array<ResourceOutputs['deployment']> = [];

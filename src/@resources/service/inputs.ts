@@ -1,41 +1,42 @@
 export type ServiceInputs = {
   /**
-   * Hostname the service should listen on
+   * Hostname to listen on
    */
-  hostname: string;
+  name: string;
 
   /**
-   * Namespace to put the resource in
+   * Resource namespace
    */
   namespace?: string;
 
   /**
-   * Additional labels to attach to the resource
+   * Resource labels
    */
   labels?: Record<string, string>;
 
   /**
-   * Name/selector of the replicas
+   * Target deployment name
    */
   target_deployment: string;
 
   /**
-   * Port to forward traffic to
+   * Target port
    */
   target_port: number;
 
   /**
-   * Protocol the service responds to
+   * Protocol
+   * @default http
    */
-  target_protocol: string;
+  target_protocol?: string;
 
   /**
-   * A port the service should listen on. Providers will generate one by default.
+   * Port to listen on
    */
   port?: number;
 
   /**
-   * External hostname to point to instead of an internal deployment
+   * External address to point to
    */
   external_hostname?: string;
 };

@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { DeepPartial } from '../utils/types.ts';
 import { ApplyOptions, ApplyOutputs, WritableResourceService } from './base.service.ts';
@@ -15,26 +15,19 @@ export abstract class CrudResourceService<
   abstract delete(id: string): Observable<ApplyOutputs<T>>;
 
   apply(inputs: ResourceInputs[T], options: ApplyOptions<ResourceOutputs[T]>): Observable<ApplyOutputs<T>> {
-    return new Observable((subscriber) => {
-      subscriber.next({
-        status: {
-          state: 'starting',
-          startTime: Date.now(),
-        },
-      });
-
-      if (options.state) {
-        // Updating
-        this.update(options.state.id, inputs).subscribe(subscriber);
-      } else {
-        // Creating
-        this.create(inputs).subscribe(subscriber);
-      }
-    });
+    return options.state?.id
+      ? this.update(options.state.id, inputs).pipe(map((next) => ({
+        ...next,
+        state: next.outputs,
+      })))
+      : this.create(inputs).pipe(map((next) => ({
+        ...next,
+        state: next.outputs,
+      })));
   }
 
   destroy(options: ApplyOptions<ResourceOutputs[T]>): Observable<ApplyOutputs<T>> {
-    if (!options.state) {
+    if (!options.state?.id) {
       throw new Error(`No resource ID specified`);
     }
 

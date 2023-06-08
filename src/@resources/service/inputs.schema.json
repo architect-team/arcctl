@@ -6,46 +6,46 @@
       "additionalProperties": false,
       "properties": {
         "external_hostname": {
-          "description": "External hostname to point to instead of an internal deployment",
-          "type": "string"
-        },
-        "hostname": {
-          "description": "Hostname the service should listen on",
+          "description": "External address to point to",
           "type": "string"
         },
         "labels": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Additional labels to attach to the resource",
+          "description": "Resource labels",
           "type": "object"
         },
+        "name": {
+          "description": "Hostname to listen on",
+          "type": "string"
+        },
         "namespace": {
-          "description": "Namespace to put the resource in",
+          "description": "Resource namespace",
           "type": "string"
         },
         "port": {
-          "description": "A port the service should listen on. Providers will generate one by default.",
+          "description": "Port to listen on",
           "type": "number"
         },
         "target_deployment": {
-          "description": "Name/selector of the replicas",
+          "description": "Target deployment name",
           "type": "string"
         },
         "target_port": {
-          "description": "Port to forward traffic to",
+          "description": "Target port",
           "type": "number"
         },
         "target_protocol": {
-          "description": "Protocol the service responds to",
+          "default": "http",
+          "description": "Protocol",
           "type": "string"
         }
       },
       "required": [
-        "hostname",
+        "name",
         "target_deployment",
-        "target_port",
-        "target_protocol"
+        "target_port"
       ],
       "type": "object"
     }

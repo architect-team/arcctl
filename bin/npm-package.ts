@@ -1,16 +1,16 @@
-import * as path from 'std/path/mod.ts';
-import { walk } from 'std/fs/walk.ts';
 import { build, emptyDir } from 'dnt';
+import { walk } from 'std/fs/walk.ts';
+import * as path from 'std/path/mod.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const build_dir = path.join(__dirname, '..', '..', 'build');
+const build_dir = path.join(__dirname, '../build');
 
 await emptyDir(build_dir);
 
 await build({
   typeCheck: false,
   test: false,
-  entryPoints: [path.join(build_dir, '..', 'src', 'commands', 'index.ts')],
+  entryPoints: [path.join(build_dir, '../src/commands/index.ts')],
   outDir: build_dir,
   compilerOptions: {
     lib: ['ES2022'],

@@ -1,8 +1,8 @@
 export type VolumeInputs = {
   /**
-   * Path inside the container runtime to mount the volume to
+   * Name to give to the volume resource
    */
-  mountPath: string;
+  name: string;
 
   /**
    * Path on the host machine to mount the volume to

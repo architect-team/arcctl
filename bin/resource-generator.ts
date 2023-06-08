@@ -2,10 +2,10 @@ import { build, emptyDir } from 'dnt';
 import Listr from 'npm:listr';
 import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
-import { exec } from '../../src/utils/command.ts';
+import { exec } from '../src/utils/command.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const resources_dir = path.join(__dirname, '../../src', '@resources');
+const resources_dir = path.join(__dirname, '../src', '@resources');
 const build_dir = path.join(__dirname, 'build');
 
 const all_types: { name: string; slug: string }[] = [];
@@ -71,7 +71,7 @@ const listrTasks = new Listr([
           '--type',
           'InputSchema',
           '--tsconfig',
-          path.join(__dirname, '..', '..', 'tsconfig.json'),
+          path.join(__dirname, '../tsconfig.json'),
           '--no-type-check',
         ],
       });
@@ -99,7 +99,7 @@ for (const type of all_types) {
           '--type',
           '*',
           '--tsconfig',
-          path.join(__dirname, '..', '..', 'tsconfig.json'),
+          path.join(__dirname, '../tsconfig.json'),
           '--no-type-check',
         ],
       });

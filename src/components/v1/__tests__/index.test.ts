@@ -1,3 +1,6 @@
+import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDeploymentGeneration,
@@ -5,9 +8,6 @@ import {
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
 import ComponentV1 from '../index.ts';
-import yaml from 'js-yaml';
-import { assertArrayIncludes } from 'std/testing/asserts.ts';
-import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component Schema: v1', () => {
   it('should generate deployments', () =>
@@ -102,8 +102,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -158,8 +158,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -174,12 +174,10 @@ describe('Component Schema: v1', () => {
       environment: 'test',
       inputs: {
         type: 'ingressRule',
-        loadBalancer: '',
-        listener: {
-          subdomain: 'app',
-          path: '/',
-          protocol: `\${{ ${interface_node.id}.protocol }}`,
-        },
+        registry: '',
+        subdomain: 'app',
+        path: '/',
+        protocol: `\${{ ${interface_node.id}.protocol }}`,
         service: `\${{ ${interface_node.id}.id }}`,
         port: 80,
         internal: false,
@@ -231,8 +229,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -247,12 +245,10 @@ describe('Component Schema: v1', () => {
       environment: 'test',
       inputs: {
         type: 'ingressRule',
-        loadBalancer: '',
-        listener: {
-          subdomain: 'app',
-          path: '/',
-          protocol: `\${{ ${service_node.id}.protocol }}`,
-        },
+        registry: '',
+        subdomain: 'app',
+        path: '/',
+        protocol: `\${{ ${service_node.id}.protocol }}`,
         service: `\${{ ${service_node.id}.id }}`,
         port: 80,
         internal: false,

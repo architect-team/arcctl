@@ -1,10 +1,10 @@
 import { build, emptyDir } from 'dnt';
 import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
-import { exec } from '../../src/utils/command.ts';
+import { exec } from '../src/utils/command.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const environments_dir = path.join(__dirname, '../../src/environments');
+const environments_dir = path.join(__dirname, '../src/environments');
 const build_dir = path.join(__dirname, 'build');
 
 await emptyDir(build_dir);
@@ -53,13 +53,13 @@ const { stdout: type_schema_string } = await exec('deno', {
     '--allow-read',
     'npm:ts-json-schema-generator',
     '--path',
-    path.join(build_dir, 'src', 'environments', 'schema.ts'),
+    path.join(build_dir, 'src/environments/schema.ts'),
     '--expose',
     'none',
     '--type',
     'EnvironmentSchema',
     '--tsconfig',
-    path.join(__dirname, '..', '..', 'tsconfig.json'),
+    path.join(__dirname, '../tsconfig.json'),
     '--no-type-check',
   ],
 });

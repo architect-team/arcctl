@@ -1,13 +1,13 @@
+import cliSpinners from 'cli-spinners';
+import { colors } from 'cliffy/ansi/colors.ts';
+import { EnumType } from 'cliffy/command/mod.ts';
+import { Confirm } from 'cliffy/prompt/mod.ts';
+import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
 import { ResourceType, ResourceTypeList } from '../../@resources/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
-import cliSpinners from 'cli-spinners';
-import winston, { Logger } from 'winston';
-import { EnumType } from 'cliffy/command/mod.ts';
-import { colors } from 'cliffy/ansi/colors.ts';
-import * as path from 'std/path/mod.ts';
-import { Confirm } from 'cliffy/prompt/mod.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -21,20 +21,12 @@ const CreateResourceCommand = BaseCommand()
   .description('Create a new cloud resource')
   .type('resourceType', resourceType)
   .option('-a, --account <account:string>', 'The cloud provider credentials to use to apply this resource')
-  .option('-v, --verbose', 'Show verbose logs of the command')
+  .option('-v, --verbose [verbose:boolean]', 'Show verbose logs of the command', { default: false })
   .arguments('[type:resourceType]')
   .action(create_resource_action);
 
 async function create_resource_action(options: CreateResourceOptions, resource_type?: ResourceType) {
   const command_helper = new CommandHelper(options);
-
-  if (resource_type) {
-    const is_creatable_type = command_helper.isCreatableResourceType(resource_type);
-    if (!is_creatable_type) {
-      console.error(`Creation of ${resource_type} resources is not supported`);
-      Deno.exit(1);
-    }
-  }
 
   const account = await command_helper.promptForAccount({
     account: options.account,
@@ -86,7 +78,7 @@ async function create_resource_action(options: CreateResourceOptions, resource_t
       cwd: path.resolve('./.terraform'),
     })
     .then(() => {
-      command_helper.renderPipeline(pipeline, { clear: true });
+      command_helper.renderPipeline(pipeline, { clear: !logger });
       clearInterval(interval);
       const step = pipeline.steps.find((s) => s.type === rootNode.type && s.name === rootNode.name);
       console.log('');

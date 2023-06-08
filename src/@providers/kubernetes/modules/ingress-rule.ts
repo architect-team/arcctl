@@ -12,12 +12,12 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     super(scope, options);
 
     const hostParts = [];
-    if (this.inputs?.listener?.subdomain) {
-      hostParts.push(this.inputs.listener.subdomain);
+    if (this.inputs?.subdomain) {
+      hostParts.push(this.inputs.subdomain);
     }
 
-    if (this.inputs?.listener?.hostZone) {
-      hostParts.push(this.inputs.listener.hostZone);
+    if (this.inputs?.dnsZone) {
+      hostParts.push(this.inputs.dnsZone);
     }
 
     const host = hostParts.join('.');
@@ -28,14 +28,14 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
         namespace: this.inputs?.namespace,
       },
       spec: {
-        ingressClassName: this.inputs?.loadBalancer,
+        ingressClassName: this.inputs?.registry,
         rule: [
           {
             host,
             http: {
               path: [
                 {
-                  path: this.inputs?.listener?.path || '/',
+                  path: this.inputs?.path || '/',
                   backend: {
                     service: {
                       name: this.inputs?.service.replace(/\//g, '--') || 'unknown',
@@ -56,7 +56,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     if (this.inputs?.port && this.inputs.port !== 80) {
       url += ':' + this.inputs.port;
     }
-    url += this.inputs?.listener?.path || '/';
+    url += this.inputs?.path || '/';
 
     const ip_address = this.ingress.status.get(0).loadBalancer.get(0).ingress.get(0).ip;
 
@@ -66,7 +66,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
       id: `${this.ingress.metadata.namespace}/${this.ingress.metadata.name}`,
       host,
       port: this.inputs?.port || 80,
-      path: this.inputs?.listener?.path || '/',
+      path: this.inputs?.path || '/',
       url,
       loadBalancerHostname: `\${${ip_address} != "" ? ${ip_address} : ${hostname}}`,
     };

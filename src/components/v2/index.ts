@@ -240,7 +240,7 @@ export default class ComponentV2 extends Component {
         environment: context.environment,
         inputs: {
           type: 'service',
-          hostname: CloudNode.genResourceId({
+          name: CloudNode.genResourceId({
             name: service_key,
             component: context.component.name,
             environment: context.environment,
@@ -297,13 +297,16 @@ export default class ComponentV2 extends Component {
         environment: context.environment,
         inputs: {
           type: 'ingressRule',
-          loadBalancer: '',
+          name: CloudNode.genResourceId({
+            name: ingress_key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
+          registry: '',
           port: `\${{ ${service_node.id}.port }}`,
           service: `\${{ ${service_node.id}.id }}`,
-          listener: {
-            path: '/',
-            protocol: `\${{ ${service_node.id}.protocol }}`,
-          },
+          path: '/',
+          protocol: `\${{ ${service_node.id}.protocol }}`,
           internal: ingress_config.internal || false,
         },
       });

@@ -29,7 +29,23 @@ export class CldCtlProviderStore implements ProviderStore {
   }
 
   getProvider(name: string): Provider | undefined {
-    return this.getProviders().find((provider) => provider.name === name);
+    if (this._providers) {
+      return this._providers.find((item) => item.name === name);
+    }
+
+    try {
+      const fileContents = Deno.readTextFileSync(this.providers_config_file);
+      const raw = JSON.parse(fileContents) as any[];
+      const rawProvider = raw.find((item) => item.name === name);
+      if (rawProvider) {
+        const type = rawProvider.type as keyof typeof SupportedProviders;
+        return new SupportedProviders[type](rawProvider.name, rawProvider.credentials, this);
+      }
+    } catch {
+      // Intentionally left blank
+    }
+
+    return undefined;
   }
 
   getProviders(): Provider[] {
@@ -37,21 +53,20 @@ export class CldCtlProviderStore implements ProviderStore {
       return this._providers;
     }
 
+    const providers: Provider[] = [];
     try {
       const fileContents = Deno.readTextFileSync(this.providers_config_file);
       const rawProviders = JSON.parse(fileContents);
 
-      const providers: Provider[] = [];
       for (const raw of rawProviders) {
         const type = raw.type as keyof typeof SupportedProviders;
         providers.push(new SupportedProviders[type](raw.name, raw.credentials, this));
       }
-
-      this._providers = providers;
     } catch {
-      this._providers = [];
+      // Intentionally left empty
     }
 
+    this._providers = providers;
     return this._providers;
   }
 

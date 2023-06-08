@@ -62,13 +62,12 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: do-personal
-          dnsZone: ${{ this.inputs.listener.hostZone }}
-          subdomain: ${{ this.inputs.listener.subdomain }}
+          dnsZone: ${{ this.inputs.dnsZone }}
+          subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}
-      loadBalancer: nginx
+      registry: nginx
       namespace: ${{ environment.resources.namespace.id }}
-      listener:
-        hostZone: davidthor.me
+      dnsZone: davidthor.me
     - account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}

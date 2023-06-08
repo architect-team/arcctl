@@ -1,10 +1,10 @@
 import { build, emptyDir } from 'dnt';
 import Mustache from 'npm:mustache';
 import * as path from 'std/path/mod.ts';
-import { exec } from '../../src/utils/command.ts';
+import { exec } from '../src/utils/command.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const datacenters_dir = path.join(__dirname, '../../src/datacenters');
+const datacenters_dir = path.join(__dirname, '../src/datacenters');
 const build_dir = path.join(__dirname, 'build');
 
 await emptyDir(build_dir);
@@ -59,7 +59,7 @@ const { stdout: type_schema_string } = await exec('deno', {
     '--type',
     'DatacenterSchema',
     '--tsconfig',
-    path.join(__dirname, '..', '..', 'tsconfig.json'),
+    path.join(__dirname, '../tsconfig.json'),
     '--no-type-check',
   ],
 });

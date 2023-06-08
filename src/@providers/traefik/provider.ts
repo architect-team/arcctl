@@ -1,5 +1,7 @@
 import { Provider } from '../provider.ts';
 import { TraefikCredentials, TraefikCredentialsSchema } from './credentials.ts';
+import { TraefikIngressRuleService } from './services/ingress-rule.ts';
+import { TraefikNamespaceService } from './services/namespace.ts';
 import { TraefikServiceService } from './services/service.ts';
 
 export default class TraefikProvider extends Provider<TraefikCredentials> {
@@ -9,6 +11,8 @@ export default class TraefikProvider extends Provider<TraefikCredentials> {
 
   resources = {
     service: new TraefikServiceService(this.name, this.credentials, this.providerStore),
+    ingressRule: new TraefikIngressRuleService(this.name, this.credentials, this.providerStore),
+    namespace: new TraefikNamespaceService(this.name, this.credentials, this.providerStore),
   };
 
   public testCredentials(): Promise<boolean> {

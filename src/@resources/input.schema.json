@@ -486,6 +486,26 @@
               "description": "Environment variables to pass to the container",
               "type": "object"
             },
+            "exposed_ports": {
+              "description": "Port that the deployment should expose on all nodes",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "port": {
+                    "type": "number"
+                  },
+                  "target_port": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "port",
+                  "target_port"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
             "image": {
               "description": "Image the container runs from",
               "type": "string"
@@ -519,6 +539,7 @@
               "type": "object"
             },
             "replicas": {
+              "default": 1,
               "description": "Number of replicas of the deployment to run",
               "type": "number"
             },
@@ -665,7 +686,6 @@
           "required": [
             "image",
             "name",
-            "replicas",
             "type",
             "volume_mounts"
           ],
@@ -834,42 +854,26 @@
             "account": {
               "type": "string"
             },
+            "dnsZone": {
+              "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+              "type": "string"
+            },
             "internal": {
               "default": false,
               "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
               "type": "boolean"
             },
-            "listener": {
-              "additionalProperties": false,
-              "properties": {
-                "hostZone": {
-                  "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                  "type": "string"
-                },
-                "path": {
-                  "default": "/",
-                  "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                  "type": "string"
-                },
-                "protocol": {
-                  "default": "http",
-                  "description": "Protocol that the ingress rule listens for traffic on",
-                  "type": "string"
-                },
-                "subdomain": {
-                  "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "loadBalancer": {
-              "description": "ID of the load balancer to use for this ingress rule",
+            "name": {
+              "description": "Name to give to the ingress rule resource",
               "type": "string"
             },
             "namespace": {
-              "default": "default",
               "description": "Namespace to put the ingress rule in",
+              "type": "string"
+            },
+            "path": {
+              "default": "/",
+              "description": "The path the ingress rule listens on",
               "type": "string"
             },
             "port": {
@@ -879,8 +883,21 @@
                 "number"
               ]
             },
+            "protocol": {
+              "default": "http",
+              "description": "The protocol the ingress rule listens for traffic on",
+              "type": "string"
+            },
+            "registry": {
+              "description": "Unique ID of the service registry this rule will be stored in",
+              "type": "string"
+            },
             "service": {
               "description": "Service the ingress forwards traffic to",
+              "type": "string"
+            },
+            "subdomain": {
+              "description": "The subdomain the ingress rule listens on",
               "type": "string"
             },
             "type": {
@@ -889,8 +906,9 @@
             }
           },
           "required": [
-            "loadBalancer",
+            "name",
             "port",
+            "registry",
             "service",
             "type"
           ],
@@ -999,6 +1017,10 @@
             },
             "name": {
               "description": "Name for the new load balancer",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "A namespace to put the load balancer in",
               "type": "string"
             },
             "type": {
@@ -1134,38 +1156,39 @@
               "type": "string"
             },
             "external_hostname": {
-              "description": "External hostname to point to instead of an internal deployment",
-              "type": "string"
-            },
-            "hostname": {
-              "description": "Hostname the service should listen on",
+              "description": "External address to point to",
               "type": "string"
             },
             "labels": {
               "additionalProperties": {
                 "type": "string"
               },
-              "description": "Additional labels to attach to the resource",
+              "description": "Resource labels",
               "type": "object"
             },
+            "name": {
+              "description": "Hostname to listen on",
+              "type": "string"
+            },
             "namespace": {
-              "description": "Namespace to put the resource in",
+              "description": "Resource namespace",
               "type": "string"
             },
             "port": {
-              "description": "A port the service should listen on. Providers will generate one by default.",
+              "description": "Port to listen on",
               "type": "number"
             },
             "target_deployment": {
-              "description": "Name/selector of the replicas",
+              "description": "Target deployment name",
               "type": "string"
             },
             "target_port": {
-              "description": "Port to forward traffic to",
+              "description": "Target port",
               "type": "number"
             },
             "target_protocol": {
-              "description": "Protocol the service responds to",
+              "default": "http",
+              "description": "Protocol",
               "type": "string"
             },
             "type": {
@@ -1174,10 +1197,9 @@
             }
           },
           "required": [
-            "hostname",
+            "name",
             "target_deployment",
             "target_port",
-            "target_protocol",
             "type"
           ],
           "type": "object"
@@ -1356,8 +1378,8 @@
               "description": "Path on the host machine to mount the volume to",
               "type": "string"
             },
-            "mountPath": {
-              "description": "Path inside the container runtime to mount the volume to",
+            "name": {
+              "description": "Name to give to the volume resource",
               "type": "string"
             },
             "type": {
@@ -1366,7 +1388,7 @@
             }
           },
           "required": [
-            "mountPath",
+            "name",
             "type"
           ],
           "type": "object"

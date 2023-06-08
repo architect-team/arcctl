@@ -221,7 +221,11 @@ export class Pipeline {
 
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
-      if (previousStep.action === 'delete' && previousStep.status.state === 'complete') {
+      if (
+        (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
+        (previousStep.action === 'create' && previousStep.status.state === 'pending') ||
+        (previousStep.action === 'delete' && !previousStep.outputs)
+      ) {
         continue;
       }
 

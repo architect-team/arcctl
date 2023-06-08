@@ -1,198 +1,81 @@
 import yaml from 'js-yaml';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
-import { ApplyOutputs, WritableResourceService } from '../../base.service.ts';
+import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { TraefikCredentials } from '../credentials.ts';
+import { TraefikFormattedService } from '../types.ts';
+import { TraefikTaskService } from '../utils.ts';
 
 const FILE_SUFFIX = '-service.yml';
-
-type TraefikServiceEntry = {
-  http: {
-    routers: {
-      [key: string]: {
-        rule: string;
-        service: string;
-      };
-    };
-    services: {
-      [key: string]: {
-        loadBalancer: {
-          servers: Array<{
-            url: string;
-          }>;
-        };
-      };
-    };
-  };
-};
+const MOUNT_PATH = '/etc/traefik/';
 
 export class TraefikServiceService extends CrudResourceService<'service', TraefikCredentials> {
-  private taskService: WritableResourceService<'task', any>;
+  private taskService: TraefikTaskService;
 
   public constructor(name: string, credentials: TraefikCredentials, providerStore: ProviderStore) {
     super(name, credentials, providerStore);
-
-    const account = providerStore.getProvider(credentials.account);
-    if (!account) {
-      throw new Error(`Invalid account name: ${credentials.account}`);
-    } else if (!account.resources.task || !('apply' in account.resources.task)) {
-      throw new Error(`The ${account.name} account cannot run tasks`);
-    }
-
-    this.taskService = account.resources.task as WritableResourceService<'task', any>;
-  }
-
-  private listConfigFiles(
-    filterOptions?: Partial<ResourceOutputs['service']>,
-    pagingOptions?: Partial<PagingOptions>,
-  ): Promise<string[]> {
-    return new Promise((resolve, reject) => {
-      let stdout: string | undefined;
-      this.taskService.apply({
-        type: 'task',
-        account: this.credentials.account,
-        image: 'alpine:latest',
-        command: ['find', '/etc/traefik/*' + FILE_SUFFIX, '-maxdepth', '1', '-type', 'f'],
-        volume_mounts: [{
-          mount_path: '/etc/traefik',
-          volume: this.credentials.volume,
-        }],
-      }, {
-        providerStore: this.providerStore,
-        cwd: path.resolve('.terraform'),
-        id: 'list-traefik-services',
-      }).subscribe({
-        next: (res) => {
-          stdout = res.outputs?.stdout;
-        },
-        complete: () => {
-          resolve(stdout ? stdout.split('\n') : []);
-        },
-        error: reject,
-      });
+    this.taskService = new TraefikTaskService({
+      account: credentials.account,
+      providerStore,
+      volume: credentials.volume,
+      mountPath: MOUNT_PATH,
     });
-  }
-
-  private getFileContents(id: string): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
-      let stdout = '';
-      this.taskService.apply({
-        type: 'task',
-        account: this.credentials.account,
-        image: 'alpine:latest',
-        command: ['cat', path.join('/etc/traefik', id + FILE_SUFFIX)],
-        volume_mounts: [{
-          mount_path: '/etc/traefik',
-          volume: this.credentials.volume,
-        }],
-      }, {
-        providerStore: this.providerStore,
-        cwd: path.resolve('.terraform'),
-        id: 'get-traefik-config-contents',
-      }).subscribe({
-        next: (res) => {
-          stdout = res.outputs?.stdout || '';
-        },
-        complete: () => {
-          resolve(stdout || '');
-        },
-        error: reject,
-      });
-    });
-  }
-
-  private writeTraefikConfig(id: string, entry: TraefikServiceEntry) {
-    return this.taskService.apply({
-      type: 'task',
-      account: this.credentials.account,
-      image: 'alpine:latest',
-      command: [
-        'echo',
-        yaml.dump(entry),
-        '>',
-        path.join('/etc/traefik', id + FILE_SUFFIX),
-      ],
-      volume_mounts: [{
-        mount_path: '/etc/traefik',
-        volume: this.credentials.volume,
-      }],
-    }, {
-      cwd: path.resolve('.terraform'),
-      id: 'create-traefik-service',
-      providerStore: this.providerStore,
-    }).pipe(map((val) => ({
-      status: val.status,
-      state: val.state,
-      outputs: {
-        id,
-        host: '',
-        port: 80,
-        protocol: 'http',
-        url: '',
-      },
-    })));
-  }
-
-  private deleteTraefikConfig(id: string) {
-    return this.taskService.apply({
-      type: 'task',
-      account: this.credentials.account,
-      image: 'alpine:latest',
-      command: [
-        'rm',
-        path.join('/etc/traefik', id + FILE_SUFFIX),
-      ],
-      volume_mounts: [{
-        mount_path: '/etc/traefik',
-        volume: this.credentials.volume,
-      }],
-    }, {
-      cwd: path.resolve('.terraform'),
-      id: 'create-traefik-service',
-      providerStore: this.providerStore,
-    }).pipe(map((val) => ({
-      status: val.status,
-    })));
   }
 
   async get(id: string): Promise<ResourceOutputs['service'] | undefined> {
-    const contents = await this.getFileContents(id);
+    const contents = await this.taskService.getContents(id);
     if (!contents) {
       return undefined;
     }
 
-    const entry = yaml.load(contents) as TraefikServiceEntry;
+    const entry = yaml.load(contents) as TraefikFormattedService;
+
+    let host = '';
+    if (entry.http.routers[id]) {
+      const hostMatches = entry.http.routers[id].rule.match(/Host\("?(.*)"?\)/);
+      if (hostMatches && hostMatches.length > 1) {
+        host = hostMatches[1];
+      }
+    }
+
     return {
       id,
-      host: '',
+      host,
       port: 80,
       protocol: 'http',
-      url: '',
+      url: `http://${host}`,
     };
   }
 
-  /**
-   * Search for resources matching the specified options
-   */
   async list(
     filterOptions?: Partial<ResourceOutputs['service']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['service']>> {
-    const configFiles = await this.listConfigFiles(filterOptions, pagingOptions);
+    const configFiles = await this.taskService.listConfigFiles(MOUNT_PATH, FILE_SUFFIX);
     const configs = await Promise.all<ResourceOutputs['service']>(configFiles.map(async (filename) => {
-      const contents = await this.getFileContents(filename);
-      const config = yaml.load(contents) as TraefikServiceEntry;
+      const id = filename.replace(new RegExp('^' + MOUNT_PATH + '(.*)' + FILE_SUFFIX + '$'), '$1');
+      const contents = await this.taskService.getContents(id);
+      const config = yaml.load(contents) as TraefikFormattedService;
+
+      let host = '';
+      if (config.http.routers[id]) {
+        const hostMatches = config.http.routers[id].rule.match(/Host\("?(.*)"?\)/);
+        if (hostMatches && hostMatches.length > 1) {
+          host = hostMatches[1];
+        }
+      }
+
       return {
-        id: filename,
-        host: '',
+        id,
+        host,
         port: 80,
-        protocol: '',
-        url: '',
+        protocol: 'http',
+        url: `http://${host}`,
       };
     }));
 
@@ -203,43 +86,90 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
   }
 
   create(inputs: ResourceInputs['service']): Observable<ApplyOutputs<'service'>> {
-    return this.writeTraefikConfig(inputs.name, {
-      http: {
-        routers: {
-          [inputs.name]: {
-            rule: `Host(\`${inputs.name}\`)`,
-            service: inputs.name,
-          },
+    return new Observable((subscriber) => {
+      const startTime = Date.now();
+      subscriber.next({
+        status: {
+          state: 'applying',
+          startTime,
         },
-        services: {
-          [inputs.name]: {
-            loadBalancer: {
-              servers: [{
-                url: `127.0.0.1:${inputs.target_port}`,
-              }],
+      });
+
+      const normalizedId = inputs.name.replaceAll('/', '--');
+
+      let url = `${inputs.target_deployment}:${inputs.target_port}`;
+      if (inputs.external_hostname) {
+        url = inputs.external_hostname;
+      }
+
+      const entry: TraefikFormattedService = {
+        http: {
+          routers: {
+            [normalizedId]: {
+              rule: `Host("${normalizedId}")`,
+              service: normalizedId,
+            },
+          },
+          services: {
+            [normalizedId]: {
+              loadBalancer: {
+                servers: [{
+                  url,
+                }],
+              },
             },
           },
         },
-      },
+      };
+
+      this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(entry)).then(() => {
+        subscriber.next({
+          status: {
+            state: 'complete',
+            startTime,
+            endTime: Date.now(),
+          },
+          outputs: {
+            id: normalizedId,
+            host: normalizedId,
+            port: 80,
+            protocol: 'http',
+            url: `http://${normalizedId}`,
+          },
+        });
+
+        subscriber.complete();
+      }).catch((err) => {
+        subscriber.error(err);
+      });
     });
   }
 
   update(id: string, inputs: DeepPartial<ResourceInputs['service']>): Observable<ApplyOutputs<'service'>> {
     return new Observable<ApplyOutputs<'service'>>((subscriber) => {
-      this.getFileContents(`${id}.yml`).then((contents) => {
-        const existingConfig = yaml.load(contents) as TraefikServiceEntry;
+      const startTime = Date.now();
+      subscriber.next({
+        status: {
+          state: 'applying',
+          startTime,
+        },
+      });
+
+      this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX)).then(async (contents) => {
+        const existingConfig = yaml.load(contents) as TraefikFormattedService;
         const previousName = Object.keys(existingConfig.http.routers)[0];
         const previousServers = existingConfig.http.services[previousName].loadBalancer.servers;
-        const newEntry: TraefikServiceEntry = {
+        const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
+        const newEntry: TraefikFormattedService = {
           http: {
             routers: {
-              [inputs.name || previousName]: {
-                rule: `Host(\`${inputs.name || previousName}\`)`,
-                service: inputs.name || previousName,
+              [normalizedId]: {
+                rule: `Host("${normalizedId}")`,
+                service: normalizedId,
               },
             },
             services: {
-              [inputs.name || previousName]: {
+              [normalizedId]: {
                 loadBalancer: {
                   servers: inputs.target_port
                     ? [{
@@ -252,19 +182,76 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
           },
         };
 
-        if (inputs.name !== previousName) {
-          this.deleteTraefikConfig(previousName).subscribe({
-            complete: () => {
-              return this.writeTraefikConfig(inputs.name || previousName, newEntry).subscribe(subscriber);
+        try {
+          if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
+            subscriber.next({
+              status: {
+                state: 'applying',
+                message: 'Removing old service',
+                startTime,
+              },
+            });
+            await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
+
+            subscriber.next({
+              status: {
+                state: 'applying',
+                message: 'Registering new service',
+                startTime,
+              },
+            });
+          }
+
+          await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
+
+          subscriber.next({
+            status: {
+              state: 'complete',
+              message: '',
+              startTime,
+              endTime: Date.now(),
             },
-            error: subscriber.error,
+            outputs: {
+              id: normalizedId,
+              host: normalizedId,
+              port: 80,
+              protocol: 'http',
+              url: `http://${normalizedId}`,
+            },
           });
+
+          subscriber.complete();
+        } catch (err) {
+          subscriber.error(err);
         }
       }).catch(subscriber.error);
     });
   }
 
   delete(id: string): Observable<ApplyOutputs<'service'>> {
-    return this.deleteTraefikConfig(id);
+    return new Observable((subscriber) => {
+      const startTime = Date.now();
+
+      subscriber.next({
+        status: {
+          state: 'destroying',
+          startTime,
+        },
+      });
+
+      this.taskService.deleteFile(path.join(MOUNT_PATH, id.replaceAll('/', '--') + FILE_SUFFIX)).then(() => {
+        subscriber.next({
+          status: {
+            state: 'complete',
+            startTime,
+            endTime: Date.now(),
+          },
+        });
+
+        subscriber.complete();
+      }).catch((err) => {
+        subscriber.error(err);
+      });
+    });
   }
 }

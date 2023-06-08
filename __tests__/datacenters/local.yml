@@ -1,17 +1,81 @@
 secrets:
   account: local
 
+resources:
+  service-registry:
+    type: volume
+    account: docker
+    name: traefik-volume
+
+  network:
+    type: namespace
+    account: docker
+    name: local
+    
+  gateway:
+    type: deployment
+    name: my-gateway
+    namespace: ${{ resources.network.id }}
+    account: docker
+    exposed_ports:
+      - port: 80
+        target_port: 80
+      - port: 8080
+        target_port: 8080
+    image: traefik:v2.10
+    command:
+      - --providers.file.directory=/etc/traefik
+      - --providers.file.watch=true
+      - --api.insecure=true
+      - --api.dashboard=true
+    volume_mounts:
+      - mount_path: /etc/traefik
+        readonly: true
+        volume: ${{ resources.service-registry.id }}
+
+accounts:
+  gateway:
+    name: local-gateway
+    provider: traefik
+    credentials:
+      type: volume
+      volume: ${{ resources.service-registry.id }}
+      account: docker
+
 environment:
   resources:
-    gateway:
-      type: loadBalancer
-      name: my-env-gateway
-      loadBalancerType: traefik
+    pg:
+      type: deployment
+      account: docker
+      name: ${{ environment.name }}-pg
+      image: postgres:13
+      environment:
+        POSTGRES_USER: architect
+        POSTGRES_PASSWORD: architect
+        POSTGRES_DB: architect
+      volume_mounts: []
+  
+  accounts:
+    pg:
+      name: ${{ environment.name }}-postgres-db
+      provider: postgres
+      credentials:
+        host: ${{ environment.resources.pg.id }}
+        port: '5432'
+        username: architect
+        password: architect
+        database: architect
 
   hooks:
     - when:
+        type: service
+      account: ${{ accounts.gateway.id }}
+    - when:
         type: ingressRule
-      loadBalancer: ${{ resources.gateway.id }}
-      account: ${{ resources.gateway.account }}
-      provider: ${{ resources.gateway.provider }}
-    - provider: docker
+      account: ${{ accounts.gateway.id }}
+      registry: ${{ resources.service-registry.id }}
+      dnsZone: localhost
+    - when:
+        type: databaseSchema
+      account: ${{ environment.accounts.pg.id }}
+    - account: docker

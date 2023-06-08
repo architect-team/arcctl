@@ -80,6 +80,26 @@
           "description": "Environment variables to pass to the container",
           "type": "object"
         },
+        "exposed_ports": {
+          "description": "Port that the deployment should expose on all nodes",
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "port": {
+                "type": "number"
+              },
+              "target_port": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "port",
+              "target_port"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
         "image": {
           "description": "Image the container runs from",
           "type": "string"
@@ -113,6 +133,7 @@
           "type": "object"
         },
         "replicas": {
+          "default": 1,
           "description": "Number of replicas of the deployment to run",
           "type": "number"
         },
@@ -255,7 +276,6 @@
       "required": [
         "image",
         "name",
-        "replicas",
         "volume_mounts"
       ],
       "type": "object"

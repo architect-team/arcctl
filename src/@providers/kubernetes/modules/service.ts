@@ -13,10 +13,10 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
 
     this.service = new Service(this, 'service', {
       metadata: {
-        name: this.inputs?.hostname.replaceAll('/', '--'),
+        name: this.inputs?.name.replaceAll('/', '--'),
         namespace: this.inputs?.namespace,
         labels: {
-          'architect.io/name': this.inputs?.hostname.replaceAll('/', '--') || 'unknown',
+          'architect.io/name': this.inputs?.name.replaceAll('/', '--') || 'unknown',
           ...this.inputs?.labels,
         },
       },
@@ -46,11 +46,11 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
       ? 'http'
       : this.inputs?.target_protocol || 'http';
     this.outputs = {
-      id: this.inputs?.hostname || 'unknown',
+      id: this.inputs?.name || 'unknown',
       protocol,
-      host: this.inputs?.hostname.replaceAll('/', '--') || 'unknown',
+      host: this.inputs?.name.replaceAll('/', '--') || 'unknown',
       port: 80,
-      url: `${protocol}://${this.inputs?.hostname.replaceAll('/', '--') || 'unknown'}`,
+      url: `${protocol}://${this.inputs?.name.replaceAll('/', '--') || 'unknown'}`,
     };
   }
 

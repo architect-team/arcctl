@@ -1,12 +1,12 @@
+import k8s from '@kubernetes/client-node';
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesServiceModule } from '../modules/service.ts';
 import { KubernetesNamespaceService } from './namespace.ts';
-import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
-import k8s from '@kubernetes/client-node';
-import { Construct } from 'constructs';
 
 export class KubernetesServiceService extends TerraformResourceService<'service', KubernetesCredentials> {
   private _client?: k8s.CoreV1Api;
@@ -75,7 +75,7 @@ export class KubernetesServiceService extends TerraformResourceService<'service'
     _filterOptions?: Partial<ResourceOutputs['service']>,
     _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['service']>> {
-    const namespaceService = new KubernetesNamespaceService(this.credentials);
+    const namespaceService = new KubernetesNamespaceService(this.accountName, this.credentials, this.providerStore);
     const namespaces = await namespaceService.list();
 
     const rows: Array<ResourceOutputs['service']> = [];

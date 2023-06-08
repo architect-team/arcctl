@@ -2,33 +2,37 @@ import { Observable } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { DeepPartial } from '../../../utils/types.ts';
 import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
 
-type DockerNetwork = {
-  CreatedAt: string;
+type DockerVolume = {
+  Availability: string;
   Driver: string;
-  ID: string;
+  Group: string;
+  Labels: string;
+  Links: string;
+  Mountpoint: string;
   Name: string;
   Scope: string;
-  Internal: string;
-  IPv6: string;
+  Size: string;
+  Status: string;
 };
 
-export class DockerNamespaceService extends CrudResourceService<'namespace', DockerCredentials> {
-  async get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
+export class DockerVolumeService extends CrudResourceService<'volume', DockerCredentials> {
+  async get(id: string): Promise<ResourceOutputs['volume'] | undefined> {
     const results = await this.list();
     return results.rows.find((r) => r.id === id);
   }
 
   async list(
-    _filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
-    _pagingOptions?: Partial<PagingOptions> | undefined,
-  ): Promise<PagingResponse<ResourceOutputs['namespace']>> {
-    const { stdout } = await exec('docker', { args: ['network', 'ls', '--format', 'json'] });
+    filterOptions?: Partial<ResourceOutputs['volume']>,
+    pagingOptions?: Partial<PagingOptions>,
+  ): Promise<PagingResponse<ResourceOutputs['volume']>> {
+    const { stdout } = await exec('docker', { args: ['volume', 'ls', '--format', 'json'] });
     const rows = stdout.includes('\n') ? stdout.split('\n').filter((row) => Boolean(row)) : [stdout];
-    const rawOutput: DockerNetwork[] = JSON.parse(`[${rows.join(',')}]`);
+    const rawOutput: DockerVolume[] = JSON.parse(`[${rows.join(',')}]`);
     return {
       total: rawOutput.length,
       rows: rawOutput.map((r) => ({
@@ -37,18 +41,18 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     };
   }
 
-  create(inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
+  create(inputs: ResourceInputs['volume']): Observable<ApplyOutputs<'volume'>> {
     return new Observable((subscriber) => {
       const startTime = Date.now();
       subscriber.next({
         status: {
           state: 'applying',
-          message: 'Creating namespace',
+          message: 'Creating volume',
           startTime,
         },
       });
 
-      exec('docker', { args: ['network', 'create', inputs.name] })
+      exec('docker', { args: ['volume', 'create', inputs.name] })
         .then(() => {
           subscriber.next({
             status: {
@@ -71,12 +75,12 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     });
   }
 
-  update(id: string, _inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
+  update(id: string, inputs: DeepPartial<ResourceInputs['volume']>): Observable<ApplyOutputs<'volume'>> {
     return new Observable((subscriber) => {
       subscriber.next({
         status: {
           state: 'complete',
-          message: 'No updatable. No action taken.',
+          message: 'Volumes cannot be updated. No action was taken.',
           startTime: Date.now(),
           endTime: Date.now(),
         },
@@ -92,7 +96,7 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     });
   }
 
-  delete(id: string): Observable<ApplyOutputs<'namespace'>> {
+  delete(id: string): Observable<ApplyOutputs<'volume'>> {
     return new Observable((subscriber) => {
       const startTime = Date.now();
       subscriber.next({
@@ -103,7 +107,7 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
         },
       });
 
-      exec('docker', { args: ['network', 'rm', id] })
+      exec('docker', { args: ['volume', 'rm', id] })
         .then(() => {
           subscriber.next({
             status: {

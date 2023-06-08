@@ -1,5 +1,5 @@
-import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { ArcctlAccountInputs } from '../../@resources/arcctlAccount/inputs.ts';
+import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';
 import { Datacenter, DatacenterSecretsConfig } from '../datacenter.ts';
@@ -299,7 +299,7 @@ export default class DatacenterV1 extends Datacenter {
       // Create nodes for environment accounts
       for (const value of Object.values(this.environment?.accounts || {})) {
         const node = new CloudNode({
-          name: value.name,
+          name: this.replaceEnvironmentNameRefs(environmentName, value.name),
           environment: environmentName,
           inputs: {
             type: 'arcctlAccount',
@@ -310,6 +310,7 @@ export default class DatacenterV1 extends Datacenter {
 
         node.inputs = this.replaceDatacenterResourceRefs(graph, node.id, node.inputs);
         node.inputs = this.replaceEnvironmentResourceRefs(graph, environmentName, node.id, node.inputs);
+        node.inputs = this.replaceEnvironmentNameRefs(environmentName, node.inputs);
 
         graph.insertNodes(node);
       }
@@ -449,7 +450,7 @@ export default class DatacenterV1 extends Datacenter {
 
           // Create inline accounts defined by the hook
           for (const account_config of Object.values(hook.accounts || {})) {
-            const newResourceName = account_config.name;
+            const newResourceName = this.replaceEnvironmentNameRefs(environmentName, account_config.name);
 
             const hook_node_id = CloudNode.genId({
               type: 'arcctlAccount',

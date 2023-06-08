@@ -292,7 +292,7 @@ export class CommandHelper {
 
     const result = await Input.prompt({
       message: `${property.schema.description || property.name}${
-        property.schema.properties.required ? '' : ' (optional)'
+        property.schema.properties?.required ? '' : ' (optional)'
       }`,
       validate: (value?: string) => {
         const number = Number.parseFloat(value || '');
@@ -300,7 +300,7 @@ export class CommandHelper {
           return 'Must be a number';
         }
 
-        if (property.schema.properties.required && !value) {
+        if (property.schema.properties?.required && !value) {
           return `${property.name} is required`;
         } else if (property.schema.minimum && value && number < property.schema.minimum) {
           return `${property.name} must be greater than ${property.schema.minimum}`;
@@ -389,24 +389,29 @@ export class CommandHelper {
     const { rows: options } = await service.list(data as any);
     options.sort((a, b) => a.id.localeCompare(b.id));
 
-    const answer = await Select.prompt({
-      message: property.schema.description || property.name,
-      options: [
-        ...options.map((row) => ({
-          name: row.id,
-          value: row.id,
-        })),
-        ...('construct' in service || 'create' in service
-          ? [
-            Select.separator(),
-            {
-              value: 'create-new',
-              name: `Create a new ${property.name}`,
-            },
-          ]
-          : []),
-      ],
-    });
+    let answer: string | undefined;
+    if (options.length === 1) {
+      answer = options[0].id;
+    } else if (options.length > 1) {
+      answer = await Select.prompt({
+        message: property.schema.description || property.name,
+        options: [
+          ...options.map((row) => ({
+            name: row.id,
+            value: row.id,
+          })),
+          ...('apply' in service
+            ? [
+              Select.separator(),
+              {
+                value: 'create-new',
+                name: `Create a new ${property.name}`,
+              },
+            ]
+            : []),
+        ],
+      });
+    }
 
     if (answer === 'create-new') {
       console.log(`Inputs for ${property.name}`);
@@ -418,22 +423,6 @@ export class CommandHelper {
     } else {
       return answer;
     }
-  }
-
-  /**
-   * Look through all providers and determine if a resource type is creatable
-   */
-  public isCreatableResourceType(resourceType: ResourceType): boolean {
-    for (const [provider_name, provider_constructor] of Object.entries(SupportedProviders)) {
-      const any_value: any = {};
-      const provider = new provider_constructor(provider_name, any_value) as Provider<any>;
-
-      const service = provider.resources[resourceType];
-      if (service && ('construct' in service || 'create' in service)) {
-        return true;
-      }
-    }
-    return false;
   }
 
   /**

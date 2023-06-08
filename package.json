@@ -68,6 +68,6 @@
     "version": "oclif readme && git add README.md",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:service": "ts-node --project ./tsconfig.json ./tests/integration/test-runner.ts",
-    "generate:resources": "ts-node --project ./tsconfig.json ./bin/scripts/resource-generator.ts"
+    "generate:resources": "ts-node --project ./tsconfig.json ./bin/resource-generator.ts"
   }
 }

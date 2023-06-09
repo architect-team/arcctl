@@ -2891,6 +2891,25 @@
                   }
                 },
                 "type": "object"
+              },
+              "volumes": {
+                "additionalProperties": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "host_path": {
+                      "type": "string"
+                    },
+                    "mount_path": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "host_path",
+                    "mount_path"
+                  ],
+                  "type": "object"
+                },
+                "type": "object"
               }
             },
             "required": [

@@ -1,5 +1,9 @@
 version: v2
 
+builds:
+  test:
+    context: /home/muesch/Architect/code/architect-cli/test/integration/hello-world
+
 databases:
   kratos:
     type: postgres:13
@@ -13,20 +17,14 @@ databases:
           - kratos -c ./kratos/.kratos.yml migrate sql -e --yes
         environment:
           DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
-    seed:
-      up:
-        image: oryd/kratos:v0.13.0
-        entrypoint: [""]
-        command:
-          - sh
-          - -c
-          - kratos migrate sql -e --yes
-        environment:
-          DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
 
 deployments:
   mailslurper:
     image: oryd/mailslurper:latest-smtps
+    volumes:
+      source:
+        mount_path: /volume_test
+        host_path: /home/muesch/Architect/code/arcctl/bin
 
   kratos:
     image: oryd/kratos:v0.13.0

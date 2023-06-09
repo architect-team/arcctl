@@ -70,6 +70,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
       username: this.credentials.username,
       password: this.credentials.password,
       superuser: false,
+      sslMode: 'disable',
     });
   }
 }

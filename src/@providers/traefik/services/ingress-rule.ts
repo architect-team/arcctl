@@ -122,20 +122,6 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
         rules.push(`Path(\`${inputs.path}\`)`);
       }
 
-      console.log(
-        path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX),
-        yaml.dump({
-          http: {
-            routers: {
-              [normalizedId]: {
-                rule: rules.join(' '),
-                service: inputs.service,
-              },
-            },
-          },
-        }),
-      );
-
       this.taskService.writeFile(
         path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX),
         yaml.dump({
@@ -149,10 +135,6 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
           },
         }),
       ).then(({ stderr }) => {
-        if (stderr) {
-          return subscriber.error(new Error(stderr));
-        }
-
         subscriber.next({
           status: {
             state: 'complete',
@@ -254,6 +236,8 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
               loadBalancerHostname: '127.0.0.1',
             },
           });
+
+          subscriber.complete();
         } catch (err) {
           subscriber.error(err);
         }

@@ -223,9 +223,6 @@
                   "hostPath": {
                     "type": "string"
                   },
-                  "hostname": {
-                    "type": "string"
-                  },
                   "image": {
                     "type": "string"
                   },
@@ -298,6 +295,9 @@
                   "path": {
                     "type": "string"
                   },
+                  "platform": {
+                    "type": "string"
+                  },
                   "port": {
                     "anyOf": [
                       {
@@ -322,7 +322,7 @@
                         ]
                       },
                       {
-                        "description": "A port the service should listen on. Providers will generate one by default.",
+                        "description": "Port to listen on",
                         "type": "number"
                       }
                     ]
@@ -1030,6 +1030,10 @@
                                 "description": "Namespace the deployment should be in",
                                 "type": "string"
                               },
+                              "platform": {
+                                "description": "Target platform the deployment will run on",
+                                "type": "string"
+                              },
                               "probes": {
                                 "additionalProperties": false,
                                 "properties": {
@@ -1677,6 +1681,10 @@
                                 "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                                 "type": "boolean"
                               },
+                              "name": {
+                                "description": "Name to give to the ingress rule resource",
+                                "type": "string"
+                              },
                               "namespace": {
                                 "description": "Namespace to put the ingress rule in",
                                 "type": "string"
@@ -1717,6 +1725,7 @@
                             },
                             "required": [
                               "account",
+                              "name",
                               "port",
                               "registry",
                               "service",
@@ -2075,38 +2084,39 @@
                                 "type": "string"
                               },
                               "external_hostname": {
-                                "description": "External hostname to point to instead of an internal deployment",
-                                "type": "string"
-                              },
-                              "hostname": {
-                                "description": "Hostname the service should listen on",
+                                "description": "External address to point to",
                                 "type": "string"
                               },
                               "labels": {
                                 "additionalProperties": {
                                   "type": "string"
                                 },
-                                "description": "Additional labels to attach to the resource",
+                                "description": "Resource labels",
                                 "type": "object"
                               },
+                              "name": {
+                                "description": "Hostname to listen on",
+                                "type": "string"
+                              },
                               "namespace": {
-                                "description": "Namespace to put the resource in",
+                                "description": "Resource namespace",
                                 "type": "string"
                               },
                               "port": {
-                                "description": "A port the service should listen on. Providers will generate one by default.",
+                                "description": "Port to listen on",
                                 "type": "number"
                               },
                               "target_deployment": {
-                                "description": "Name/selector of the replicas",
+                                "description": "Target deployment name",
                                 "type": "string"
                               },
                               "target_port": {
-                                "description": "Port to forward traffic to",
+                                "description": "Target port",
                                 "type": "number"
                               },
                               "target_protocol": {
-                                "description": "Protocol the service responds to",
+                                "default": "http",
+                                "description": "Protocol",
                                 "type": "string"
                               },
                               "type": {
@@ -2116,10 +2126,9 @@
                             },
                             "required": [
                               "account",
-                              "hostname",
+                              "name",
                               "target_deployment",
                               "target_port",
-                              "target_protocol",
                               "type"
                             ],
                             "type": "object"
@@ -2633,9 +2642,6 @@
                       "hostPath": {
                         "type": "string"
                       },
-                      "hostname": {
-                        "type": "string"
-                      },
                       "image": {
                         "type": "string"
                       },
@@ -2693,6 +2699,9 @@
                       "path": {
                         "type": "string"
                       },
+                      "platform": {
+                        "type": "string"
+                      },
                       "port": {
                         "anyOf": [
                           {
@@ -2717,7 +2726,7 @@
                             ]
                           },
                           {
-                            "description": "A port the service should listen on. Providers will generate one by default.",
+                            "description": "Port to listen on",
                             "type": "number"
                           }
                         ]
@@ -3535,6 +3544,10 @@
                           "description": "Namespace the deployment should be in",
                           "type": "string"
                         },
+                        "platform": {
+                          "description": "Target platform the deployment will run on",
+                          "type": "string"
+                        },
                         "probes": {
                           "additionalProperties": false,
                           "properties": {
@@ -4182,6 +4195,10 @@
                           "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                           "type": "boolean"
                         },
+                        "name": {
+                          "description": "Name to give to the ingress rule resource",
+                          "type": "string"
+                        },
                         "namespace": {
                           "description": "Namespace to put the ingress rule in",
                           "type": "string"
@@ -4222,6 +4239,7 @@
                       },
                       "required": [
                         "account",
+                        "name",
                         "port",
                         "registry",
                         "service",
@@ -4580,38 +4598,39 @@
                           "type": "string"
                         },
                         "external_hostname": {
-                          "description": "External hostname to point to instead of an internal deployment",
-                          "type": "string"
-                        },
-                        "hostname": {
-                          "description": "Hostname the service should listen on",
+                          "description": "External address to point to",
                           "type": "string"
                         },
                         "labels": {
                           "additionalProperties": {
                             "type": "string"
                           },
-                          "description": "Additional labels to attach to the resource",
+                          "description": "Resource labels",
                           "type": "object"
                         },
+                        "name": {
+                          "description": "Hostname to listen on",
+                          "type": "string"
+                        },
                         "namespace": {
-                          "description": "Namespace to put the resource in",
+                          "description": "Resource namespace",
                           "type": "string"
                         },
                         "port": {
-                          "description": "A port the service should listen on. Providers will generate one by default.",
+                          "description": "Port to listen on",
                           "type": "number"
                         },
                         "target_deployment": {
-                          "description": "Name/selector of the replicas",
+                          "description": "Target deployment name",
                           "type": "string"
                         },
                         "target_port": {
-                          "description": "Port to forward traffic to",
+                          "description": "Target port",
                           "type": "number"
                         },
                         "target_protocol": {
-                          "description": "Protocol the service responds to",
+                          "default": "http",
+                          "description": "Protocol",
                           "type": "string"
                         },
                         "type": {
@@ -4621,10 +4640,9 @@
                       },
                       "required": [
                         "account",
-                        "hostname",
+                        "name",
                         "target_deployment",
                         "target_port",
-                        "target_protocol",
                         "type"
                       ],
                       "type": "object"
@@ -5561,6 +5579,10 @@
                       "description": "Namespace the deployment should be in",
                       "type": "string"
                     },
+                    "platform": {
+                      "description": "Target platform the deployment will run on",
+                      "type": "string"
+                    },
                     "probes": {
                       "additionalProperties": false,
                       "properties": {
@@ -6208,6 +6230,10 @@
                       "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                       "type": "boolean"
                     },
+                    "name": {
+                      "description": "Name to give to the ingress rule resource",
+                      "type": "string"
+                    },
                     "namespace": {
                       "description": "Namespace to put the ingress rule in",
                       "type": "string"
@@ -6248,6 +6274,7 @@
                   },
                   "required": [
                     "account",
+                    "name",
                     "port",
                     "registry",
                     "service",
@@ -6606,38 +6633,39 @@
                       "type": "string"
                     },
                     "external_hostname": {
-                      "description": "External hostname to point to instead of an internal deployment",
-                      "type": "string"
-                    },
-                    "hostname": {
-                      "description": "Hostname the service should listen on",
+                      "description": "External address to point to",
                       "type": "string"
                     },
                     "labels": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Additional labels to attach to the resource",
+                      "description": "Resource labels",
                       "type": "object"
                     },
+                    "name": {
+                      "description": "Hostname to listen on",
+                      "type": "string"
+                    },
                     "namespace": {
-                      "description": "Namespace to put the resource in",
+                      "description": "Resource namespace",
                       "type": "string"
                     },
                     "port": {
-                      "description": "A port the service should listen on. Providers will generate one by default.",
+                      "description": "Port to listen on",
                       "type": "number"
                     },
                     "target_deployment": {
-                      "description": "Name/selector of the replicas",
+                      "description": "Target deployment name",
                       "type": "string"
                     },
                     "target_port": {
-                      "description": "Port to forward traffic to",
+                      "description": "Target port",
                       "type": "number"
                     },
                     "target_protocol": {
-                      "description": "Protocol the service responds to",
+                      "default": "http",
+                      "description": "Protocol",
                       "type": "string"
                     },
                     "type": {
@@ -6647,10 +6675,9 @@
                   },
                   "required": [
                     "account",
-                    "hostname",
+                    "name",
                     "target_deployment",
                     "target_port",
-                    "target_protocol",
                     "type"
                   ],
                   "type": "object"

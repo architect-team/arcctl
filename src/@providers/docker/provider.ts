@@ -1,6 +1,7 @@
 import { exec } from '../../utils/command.ts';
 import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
+import { DockerDatabaseService } from './services/database.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
 import { DockerLoadBalancerTypeService } from './services/load-balancer-type.ts';
 import { DockerLoadBalancerService } from './services/load-balancer.ts';
@@ -36,6 +37,7 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     volume: new DockerVolumeService(this.name, this.credentials, this.providerStore),
     loadBalancer: new DockerLoadBalancerService(this.name, this.credentials, this.providerStore),
     loadBalancerType: new DockerLoadBalancerTypeService(this.name, this.credentials, this.providerStore),
+    database: new DockerDatabaseService(this.name, this.credentials, this.providerStore),
   };
 
   public async testCredentials(): Promise<boolean> {

@@ -225,7 +225,7 @@ export default class DatacenterV1 extends Datacenter {
 
           const target_node_id = CloudNode.genId({
             type: 'arcctlAccount',
-            name: account.name,
+            name: this.replaceEnvironmentNameRefs(environmentName, account.name),
             environment: environmentName,
           });
 
@@ -368,7 +368,7 @@ export default class DatacenterV1 extends Datacenter {
 
                   const target_node_id = CloudNode.genId({
                     type: 'arcctlAccount',
-                    name: account.name,
+                    name: this.replaceEnvironmentNameRefs(environmentName, account.name),
                     environment: environmentName,
                     component: node.component,
                   });

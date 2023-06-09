@@ -68,6 +68,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
       username: this.credentials.username,
       password: this.credentials.password,
       superuser: false,
+      sslMode: 'disable',
     });
   }
 }

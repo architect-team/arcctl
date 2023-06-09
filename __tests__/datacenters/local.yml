@@ -45,25 +45,24 @@ accounts:
 environment:
   resources:
     pg:
-      type: deployment
+      type: database
       account: docker
       name: ${{ environment.name }}-pg
-      image: postgres:13
-      environment:
-        POSTGRES_USER: architect
-        POSTGRES_PASSWORD: architect
-        POSTGRES_DB: architect
-      volume_mounts: []
+      databaseType: postgres
+      databaseVersion: '13'
+      databaseSize: n/a
+      vpc: n/a
+      region: n/a
   
   accounts:
     pg:
       name: ${{ environment.name }}-postgres-db
       provider: postgres
       credentials:
-        host: ${{ environment.resources.pg.id }}
-        port: '5432'
-        username: architect
-        password: architect
+        host: ${{ environment.resources.pg.host }}
+        port: ${{ environment.resources.pg.port }}
+        username: ${{ environment.resources.pg.username }}
+        password: ${{ environment.resources.pg.password }}
         database: architect
 
   hooks:
@@ -78,4 +77,8 @@ environment:
     - when:
         type: databaseSchema
       account: ${{ environment.accounts.pg.id }}
+    - when:
+        type: deployment
+        image: oryd/kratos-selfservice-ui-node:v0.13.0
+      platform: linux/amd64
     - account: docker

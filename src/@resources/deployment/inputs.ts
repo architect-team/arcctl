@@ -154,6 +154,11 @@ export type DeploymentInputs = {
   }[];
 
   /**
+   * Target platform the deployment will run on
+   */
+  platform?: string;
+
+  /**
    * Autoscaling rules for the deployment
    */
   autoscaling?: {

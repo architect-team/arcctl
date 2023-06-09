@@ -53,6 +53,12 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
     return CloudNode.genResourceId(this) + '-' + this.color;
   }
 
+  public equals(step: PipelineStep): boolean {
+    return this.name === step.name && this.type === step.type &&
+      this.color === step.color && this.component === step.component && this.environment === step.environment &&
+      JSON.stringify(this.inputs) === JSON.stringify(step.inputs);
+  }
+
   public apply(options: ApplyOptions): Observable<PipelineStep<T>> {
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 

@@ -13,13 +13,14 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
   constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema'>) {
     super(scope, options);
 
+    const normalizedName = this.inputs?.name.replaceAll('/', '--');
     this.db = new Database(this, 'postgres-database', {
-      name: this.inputs?.name || 'unknown',
+      name: normalizedName || 'unknown',
     });
 
     const password = crypto.randomUUID();
     this.role = new Role(this, 'user', {
-      name: this.inputs?.name || 'unknown',
+      name: normalizedName || 'unknown',
       password,
       superuser: false,
       createDatabase: false,
@@ -28,17 +29,18 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     });
 
     const protocol = 'postgresql';
-
+    const host = this.inputs?.host || 'localhost';
+    const port = this.inputs?.port || 5432;
     this.outputs = {
       id: this.db.name,
       name: this.db.name,
-      host: this.inputs?.host || 'unknown',
-      port: this.inputs?.port || 5432,
+      host,
+      port,
       username: this.role.name,
       password: this.role.password,
+      account: this.inputs?.account || 'unknown',
       protocol,
-      url:
-        `${protocol}://${this.role.name}:${this.role.password}@${this.inputs?.host}:${this.inputs?.port}/${this.db.name}`,
+      url: `${protocol}://${this.role.name}:${this.role.password}@${host}:${port}/${this.db.name}`,
     };
   }
 

@@ -279,7 +279,6 @@ export abstract class TerraformResourceService<
     if (!parsedOutputs) {
       subscriber.error(new Error('Failed to retrieve terraform outputs'));
     } else if (!(moduleOutput.friendlyUniqueId in parsedOutputs)) {
-      console.log(parsedOutputs);
       subscriber.error(new Error(`Terraform outputs don't contain required key: ${moduleOutput.friendlyUniqueId}`));
       return;
     }

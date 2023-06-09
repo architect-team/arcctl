@@ -76,7 +76,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     const res = await this.inspect(id);
     return res
       ? {
-        id: res.Name.replaceAll('/', '--'),
+        id: res.Id,
         labels: res.Config.Labels,
       }
       : undefined;
@@ -119,7 +119,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       });
 
       const containerName = inputs.name.replaceAll('/', '--');
-      const args = ['run', '--detach', '--name', containerName];
+      const args = ['run', '--detach', '--quiet', '--name', containerName];
       if (inputs.namespace) {
         args.push('--network', inputs.namespace);
       }
@@ -128,6 +128,10 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
         for (const [key, value] of Object.entries(inputs.environment)) {
           args.push('--env', `${key}=${String(value)}`);
         }
+      }
+
+      if (inputs.platform) {
+        args.push('--platform', inputs.platform);
       }
 
       if (inputs.volume_mounts) {
@@ -155,7 +159,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push(inputs.image);
 
       if (inputs.command) {
-        args.push(typeof inputs.command === 'string' ? `${inputs.command}` : `${inputs.command.join(' ')}`);
+        args.push(...(typeof inputs.command === 'string' ? [inputs.command] : inputs.command));
       }
 
       exec('docker', { args }).then(({ code, stdout, stderr }) => {
@@ -226,6 +230,10 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
           existingEnv[key] = value;
         }
 
+        if (inputs.platform) {
+          args.push('--platform', inputs.platform);
+        }
+
         for (const [key, value] of Object.entries(inputs.environment || existingEnv)) {
           args.push('--env', `${key}=${String(value)}`);
         }
@@ -261,9 +269,9 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
 
         args.push(inputs.image || inspection.Image);
 
-        const command = inputs.command || inspection.Config.Cmd;
+        const command = (inputs.command || inspection.Config.Cmd) as string | string[];
         if (command) {
-          args.push(typeof command === 'string' ? `${command}` : `${command.join(' ')}`);
+          args.push(...(typeof command === 'string' ? [command] : command));
         }
 
         exec('docker', { args }).then(({ code, stdout, stderr }) => {

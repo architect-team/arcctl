@@ -25,6 +25,11 @@ export type DatabaseSchemaOutputs = {
   url: string;
 
   /**
+   * Account to be used by tasks that want to interact with this schema
+   */
+  account: string;
+
+  /**
    * Username used to authenticate with the schema
    */
   username: string;

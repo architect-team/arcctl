@@ -529,6 +529,10 @@
               "description": "Namespace the deployment should be in",
               "type": "string"
             },
+            "platform": {
+              "description": "Target platform the deployment will run on",
+              "type": "string"
+            },
             "probes": {
               "additionalProperties": false,
               "properties": {

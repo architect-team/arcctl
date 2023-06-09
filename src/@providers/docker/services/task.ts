@@ -70,7 +70,6 @@ export class DockerTaskService extends CrudResourceService<'task', DockerCredent
 
       exec('docker', { args }).then(({ code, stdout, stderr }) => {
         if (code !== 0) {
-          console.log(args, code, stdout);
           subscriber.error(new Error(stderr));
         } else {
           subscriber.next({

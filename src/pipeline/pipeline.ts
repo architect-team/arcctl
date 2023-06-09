@@ -13,6 +13,44 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
+const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipeline => {
+  let done = false;
+
+  do {
+    done = true;
+    for (let step of nextPipeline.steps.filter((step) => step.action !== 'no-op' && step.action !== 'delete')) {
+      const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
+
+      if (!previousStep) {
+        continue;
+      }
+
+      const allDependencies = nextPipeline.getDependencies(step.id);
+      const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
+
+      if (allDependencies.length !== completeDependencies.length) {
+        continue;
+      }
+
+      step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
+
+      if (
+        step.equals(previousStep) &&
+        previousStep.status.state === 'complete'
+      ) {
+        step.action = 'no-op';
+        step.status.state = 'complete';
+        step.state = previousStep.state;
+        step.outputs = previousStep.outputs;
+        nextPipeline.insertSteps(step);
+        done = false;
+      }
+    }
+  } while (!done);
+
+  return nextPipeline;
+};
+
 export class Pipeline {
   steps: PipelineStep[];
   edges: CloudEdge[];
@@ -55,7 +93,7 @@ export class Pipeline {
   /**
    * Replace step references with actual output values
    */
-  private replaceRefsWithOutputValues<T>(input: T): T {
+  public replaceRefsWithOutputValues<T>(input: T): T {
     return JSON.parse(
       JSON.stringify(input).replace(/\${{\s?([^.]+).(\S+)\s?}}/g, (_, step_id, key) => {
         const step = this.steps.find((s) => s.id === step_id);
@@ -255,7 +293,8 @@ export class Pipeline {
       }
     }
 
-    return pipeline;
+    // Check for nodes that can be no-op'd
+    return setNoopSteps(options.before, pipeline);
   }
 
   /**

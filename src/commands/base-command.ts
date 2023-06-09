@@ -149,8 +149,7 @@ export class CommandHelper {
 
     const secret = await service.get(record.lastPipeline.secret);
     if (!secret) {
-      console.error(`Invalid secret housing datacenter pipeline: ${record.lastPipeline.secret}`);
-      Deno.exit(1);
+      return new Pipeline();
     }
 
     const rawPipeline = JSON.parse(secret.data);

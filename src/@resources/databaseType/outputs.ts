@@ -1,3 +1,3 @@
-export type DatabaseTypeOutputs = {};
+export type DatabaseTypeOutputs = Record<string, unknown>;
 
 export default DatabaseTypeOutputs;

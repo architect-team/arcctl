@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule } from '../../module.ts';
 import { IngressV1 } from '../.gen/providers/kubernetes/ingress-v1/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class KubernetesIngressRuleModule extends ResourceModule<
   'ingressRule',

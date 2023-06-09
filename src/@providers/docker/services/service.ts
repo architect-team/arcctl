@@ -28,7 +28,7 @@ export class DockerServiceService extends CrudResourceService<'service'> {
     };
   }
 
-  async update(inputs: ResourceInputs['service']): Promise<DeepPartial<ResourceOutputs['service']>> {
+  update(inputs: ResourceInputs['service']): Promise<DeepPartial<ResourceOutputs['service']>> {
     const protocol = inputs.protocol || 'http';
     const host = inputs.selector || '';
     const url = `${protocol}://${host}:${inputs.target_port}`;
@@ -42,6 +42,5 @@ export class DockerServiceService extends CrudResourceService<'service'> {
     };
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   async delete(id: string): Promise<void> {}
 }

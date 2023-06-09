@@ -11,6 +11,7 @@ import {
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
+import { ComponentSchema } from '../../schema.ts';
 import ComponentV2 from '../index.ts';
 
 describe('Component Schema: v2', () => {
@@ -75,7 +76,7 @@ describe('Component Schema: v2', () => {
         builds:
           test:
             context: ./
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({

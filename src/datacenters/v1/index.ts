@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/consistent-function-scoping */
 import { InputSchema, ResourceInputs, ResourceType } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
 import { DeepPartial } from '../../utils/types.ts';

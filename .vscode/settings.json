@@ -10,4 +10,5 @@
     "source.organizeImports": true
   },
   "prettier.enable": false,
+  "deno.documentPreloadLimit": 0,
 }

@@ -1,11 +1,11 @@
-import { Component } from '../components/component.ts';
-import { parseComponent } from '../components/parser.ts';
-import { ComponentStoreDB } from './db.ts';
 import { ImageManifest, ImageRepository } from '@architect-io/arc-oci';
 import * as crypto from 'https://deno.land/std@0.177.0/node/crypto.ts';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import tar from 'tar';
+import { Component } from '../components/component.ts';
+import { parseComponent } from '../components/parser.ts';
+import { ComponentStoreDB } from './db.ts';
 
 const CACHE_DB_FILENAME = 'component.db.json';
 

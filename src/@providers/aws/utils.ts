@@ -1,6 +1,6 @@
+import AWS, { EC2 } from 'aws-sdk';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { AwsCredentials } from './credentials.ts';
-import AWS, { EC2 } from 'aws-sdk';
 
 export interface AwsIds {
   private: string[];
@@ -15,29 +15,29 @@ export interface RouteTableIds {
 }
 
 export class EksNodeGroupIds {
-  id: string = '';
-  launchTemplate: string = '';
-  poolName: string = '';
+  id = '';
+  launchTemplate = '';
+  poolName = '';
 }
 
 export class EksSecurityGroupRules {
-  clusterEgressNode443: string = '';
-  clusterIngressNode443: string = '';
-  nodeIngressCluster443: string = '';
-  nodeIngressClusterKubelet: string = '';
-  nodeIngressSelfCoreDnsTcp: string = '';
-  nodeIngressSelfCoreDnsUdp: string = '';
+  clusterEgressNode443 = '';
+  clusterIngressNode443 = '';
+  nodeIngressCluster443 = '';
+  nodeIngressClusterKubelet = '';
+  nodeIngressSelfCoreDnsTcp = '';
+  nodeIngressSelfCoreDnsUdp = '';
 }
 
 export class EksIds {
   nodeGroups: EksNodeGroupIds[] = [];
-  eks: string = '';
-  vpcId: string = '';
-  cloudWatchLogs: string = '';
-  workerIam: string = '';
-  workerSg: string = '';
-  clusterSg: string = '';
-  nodeSg: string = '';
+  eks = '';
+  vpcId = '';
+  cloudWatchLogs = '';
+  workerIam = '';
+  workerSg = '';
+  clusterSg = '';
+  nodeSg = '';
   nodePoolSg: { [key: string]: string } = {};
   securityGroupRules: EksSecurityGroupRules = new EksSecurityGroupRules();
 }
@@ -288,7 +288,7 @@ export default class AwsUtils {
       region: region,
       type: 'kubernetesCluster',
     };
-    await new Promise(async (resolve) => {
+    await (async () => {
       const nodeGroupsData = await eks
         .listNodegroups({
           clusterName: id,
@@ -323,10 +323,9 @@ export default class AwsUtils {
       }
 
       await Promise.all(nodeGroupPromises);
-      resolve({});
-    });
+    })();
 
-    await new Promise(async (resolve) => {
+    await (async () => {
       const clusterData = await eks
         .describeCluster({
           name: id,
@@ -334,8 +333,7 @@ export default class AwsUtils {
         .promise();
       results.region = region;
       results.vpc = `${region}/${clusterData.cluster?.resourcesVpcConfig?.vpcId}`;
-      resolve({});
-    });
+    })();
 
     return results as ResourceInputs['kubernetesCluster'];
   }
@@ -392,139 +390,124 @@ export default class AwsUtils {
 
     results.eks = id;
 
-    promises.push(
-      new Promise(async (resolve) => {
-        const clusterData = await eks
-          .describeCluster({
-            name: id,
-          })
-          .promise();
-        results.vpcId = clusterData.cluster?.resourcesVpcConfig?.vpcId || '';
-        resolve();
-      }),
-    );
+    promises.push((async () => {
+      const clusterData = await eks
+        .describeCluster({
+          name: id,
+        })
+        .promise();
+      results.vpcId = clusterData.cluster?.resourcesVpcConfig?.vpcId || '';
+    })());
 
-    promises.push(
-      new Promise(async (resolve) => {
-        const nodeGroupsData = await eks
-          .listNodegroups({
+    promises.push((async () => {
+      const nodeGroupsData = await eks
+        .listNodegroups({
+          clusterName: id,
+        })
+        .promise();
+      for (const nodeGroupId of nodeGroupsData.nodegroups || []) {
+        const nodeGroupData = await eks
+          .describeNodegroup({
             clusterName: id,
+            nodegroupName: nodeGroupId,
           })
           .promise();
-        for (const nodeGroupId of nodeGroupsData.nodegroups || []) {
-          const nodeGroupData = await eks
-            .describeNodegroup({
-              clusterName: id,
-              nodegroupName: nodeGroupId,
-            })
-            .promise();
-          const launchTemplateData = await ec2
-            .describeLaunchTemplates({
-              Filters: [
-                {
-                  Name: 'tag:eks:nodegroup-name',
-                  Values: [nodeGroupId],
-                },
-              ],
-            })
-            .promise();
-          results.nodeGroups.push({
-            id: `${nodeGroupData.nodegroup?.clusterName}:${nodeGroupData.nodegroup?.nodegroupName}`,
-            launchTemplate: (launchTemplateData?.LaunchTemplates || [])[0]?.LaunchTemplateId || '',
-            poolName: (nodeGroupData.nodegroup?.tags || {}).Name || '',
-          });
-        }
-        resolve();
-      }),
-    );
-
-    promises.push(
-      new Promise(async (resolve) => {
-        const logGroupsData = await cwl.describeLogGroups().promise();
-        const logGroups = logGroupsData.logGroups || [];
-        for (const logGroup of logGroups) {
-          const tagsData = await cwl
-            .listTagsLogGroup({
-              logGroupName: logGroup.logGroupName || '',
-            })
-            .promise();
-          const tags = Object.entries(tagsData.tags || {});
-          const isInCluster = tags.find((tag) => {
-            return tag[0] === 'architectResourceId' && tag[1] === id;
-          });
-          if (isInCluster) {
-            results.cloudWatchLogs = logGroup.logGroupName || '';
-          }
-        }
-        resolve();
-      }),
-    );
-
-    promises.push(
-      new Promise(async (resolve) => {
-        const rolesData = await iam.listRoles().promise();
-        const roles = rolesData.Roles;
-        for (const role of roles) {
-          const tagsData = await iam.listRoleTags({ RoleName: role.RoleName }).promise();
-          const isInCluster = (tagsData.Tags || []).find((tag) => {
-            return tag.Key === 'architectResourceId' && tag.Value === id;
-          });
-          if (!isInCluster) {
-            continue;
-          }
-          if (role.Description === 'EKS managed node group IAM role') {
-            results.workerIam = role.RoleName;
-            continue;
-          }
-        }
-        resolve();
-      }),
-    );
-
-    promises.push(
-      new Promise(async (resolve) => {
-        const securityGroupsData = await ec2
-          .describeSecurityGroups({
+        const launchTemplateData = await ec2
+          .describeLaunchTemplates({
             Filters: [
               {
-                Name: 'tag:architectResourceId',
-                Values: [id],
+                Name: 'tag:eks:nodegroup-name',
+                Values: [nodeGroupId],
               },
             ],
           })
           .promise();
-        const getIdForDescription = (description: string): string => {
-          return (
-            securityGroupsData.SecurityGroups?.find((group) => {
-              return group.Description === description;
-            })?.GroupId || ''
-          );
-        };
-        results.clusterSg = getIdForDescription('EKS cluster security group');
-        results.nodeSg = getIdForDescription('EKS node shared security group');
+        results.nodeGroups.push({
+          id: `${nodeGroupData.nodegroup?.clusterName}:${nodeGroupData.nodegroup?.nodegroupName}`,
+          launchTemplate: (launchTemplateData?.LaunchTemplates || [])[0]?.LaunchTemplateId || '',
+          poolName: (nodeGroupData.nodegroup?.tags || {}).Name || '',
+        });
+      }
+    })());
 
-        const rules = await ec2
-          .describeSecurityGroupRules({
-            Filters: [{ Name: 'group-id', Values: [results.clusterSg, results.nodeSg] }],
+    promises.push((async () => {
+      const logGroupsData = await cwl.describeLogGroups().promise();
+      const logGroups = logGroupsData.logGroups || [];
+      for (const logGroup of logGroups) {
+        const tagsData = await cwl
+          .listTagsLogGroup({
+            logGroupName: logGroup.logGroupName || '',
           })
           .promise();
-        results.securityGroupRules = this.getSecurityGroupRules(
-          results.clusterSg,
-          results.nodeSg,
-          rules.SecurityGroupRules || [],
-        );
-
-        results.nodePoolSg = {};
-        const nodePoolSgs = securityGroupsData.SecurityGroups?.filter((group) => {
-          return group.Description === 'EKS managed node group security group';
+        const tags = Object.entries(tagsData.tags || {});
+        const isInCluster = tags.find((tag) => {
+          return tag[0] === 'architectResourceId' && tag[1] === id;
         });
-        for (const nodePoolSg of nodePoolSgs || []) {
-          const key = nodePoolSg.GroupName?.split('-eks-node-group-')[0] || '';
-          results.nodePoolSg[key] = nodePoolSg.GroupId || '';
+        if (isInCluster) {
+          results.cloudWatchLogs = logGroup.logGroupName || '';
         }
-        resolve();
-      }),
-    );
+      }
+    })());
+
+    promises.push((async () => {
+      const rolesData = await iam.listRoles().promise();
+      const roles = rolesData.Roles;
+      for (const role of roles) {
+        const tagsData = await iam.listRoleTags({ RoleName: role.RoleName }).promise();
+        const isInCluster = (tagsData.Tags || []).find((tag) => {
+          return tag.Key === 'architectResourceId' && tag.Value === id;
+        });
+        if (!isInCluster) {
+          continue;
+        }
+        if (role.Description === 'EKS managed node group IAM role') {
+          results.workerIam = role.RoleName;
+          continue;
+        }
+      }
+    })());
+
+    promises.push((async () => {
+      const securityGroupsData = await ec2
+        .describeSecurityGroups({
+          Filters: [
+            {
+              Name: 'tag:architectResourceId',
+              Values: [id],
+            },
+          ],
+        })
+        .promise();
+      const getIdForDescription = (description: string): string => {
+        return (
+          securityGroupsData.SecurityGroups?.find((group) => {
+            return group.Description === description;
+          })?.GroupId || ''
+        );
+      };
+      results.clusterSg = getIdForDescription('EKS cluster security group');
+      results.nodeSg = getIdForDescription('EKS node shared security group');
+
+      const rules = await ec2
+        .describeSecurityGroupRules({
+          Filters: [{ Name: 'group-id', Values: [results.clusterSg, results.nodeSg] }],
+        })
+        .promise();
+      results.securityGroupRules = this.getSecurityGroupRules(
+        results.clusterSg,
+        results.nodeSg,
+        rules.SecurityGroupRules || [],
+      );
+
+      results.nodePoolSg = {};
+      const nodePoolSgs = securityGroupsData.SecurityGroups?.filter((group) => {
+        return group.Description === 'EKS managed node group security group';
+      });
+      for (const nodePoolSg of nodePoolSgs || []) {
+        const key = nodePoolSg.GroupName?.split('-eks-node-group-')[0] || '';
+        results.nodePoolSg[key] = nodePoolSg.GroupId || '';
+      }
+    })());
 
     await Promise.all(promises);
     return results;

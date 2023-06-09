@@ -1,3 +1,3 @@
-export type DatabaseSizeInputs = {};
+export type DatabaseSizeInputs = Record<string, unknown>;
 
 export default DatabaseSizeInputs;

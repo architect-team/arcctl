@@ -10,6 +10,11 @@ export default class EnvironmentV1 extends Environment {
   dns_zone?: string;
 
   /**
+   * Local variables that can be used to parameterize the environment
+   */
+  locals?: Record<string, string>;
+
+  /**
    * Configuration settings for the components that may be deployed inside this environment
    */
   components?: {
@@ -189,6 +194,9 @@ export default class EnvironmentV1 extends Environment {
     }
 
     const component_config = this.components[node.component];
+    if (!component_config) {
+      return node;
+    }
     const secret_config = component_config.secrets?.[node.name];
 
     node.inputs.data = secret_config || node.inputs.data;
@@ -196,8 +204,25 @@ export default class EnvironmentV1 extends Environment {
     return node;
   }
 
+  private enrichLocal() {
+    Object.assign(
+      this,
+      JSON.parse(
+        JSON.stringify(this).replace(
+          /\${{\s?locals\.([\w-]+)\s?}}/g,
+          (_, local_name) => {
+            return this.locals?.[local_name] || '';
+          },
+        ),
+      ),
+    );
+  }
+
   public async getGraph(environment_name: string, componentStore: ComponentStore, debug = false): Promise<CloudGraph> {
     const graph = new CloudGraph();
+
+    // Replace all local values
+    this.enrichLocal();
 
     // Populate explicit components
     const found_components: Record<string, Component> = {};

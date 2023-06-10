@@ -50,7 +50,7 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
   async create(inputs: ResourceInputs['secret']): Promise<ResourceOutputs['secret']> {
     let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
-      id = `${inputs.namespace}/${id}`;
+      id = `${inputs.namespace}--${id}`;
     }
 
     const file = path.join(this.credentials.directory, id);
@@ -64,10 +64,23 @@ export class LocalSecretService extends CrudResourceService<'secret'> {
   }
 
   update(inputs: ResourceInputs['secret']): Promise<DeepPartial<ResourceOutputs['secret']>> {
-    throw new Error('Method not implemented.');
+    let id = inputs.name.replaceAll('/', '--');
+    if (inputs.namespace) {
+      id = `${inputs.namespace}--${id}`;
+    }
+
+    const file = path.join(this.credentials.directory, id);
+    Deno.mkdirSync(path.dirname(file), { recursive: true });
+    Deno.writeTextFileSync(file, inputs.data);
+
+    return Promise.resolve({
+      id,
+      data: inputs.data,
+    });
   }
 
   async delete(id: string): Promise<void> {
+    id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {
       throw new Error(`The ${id} secret does not exist`);

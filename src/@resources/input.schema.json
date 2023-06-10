@@ -348,9 +348,6 @@
           },
           "required": [
             "databaseSchema",
-            "host",
-            "port",
-            "protocol",
             "type",
             "username"
           ],
@@ -1086,6 +1083,10 @@
             "namespace": {
               "description": "Namespace the secret should be place in",
               "type": "string"
+            },
+            "required": {
+              "description": "Whether or not the secret is required",
+              "type": "boolean"
             },
             "type": {
               "const": "secret",

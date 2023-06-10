@@ -65,7 +65,7 @@ export class Pipeline {
       const outputs = await step?.getOutputs(options);
       if (!step || !outputs) {
         throw new Error(`Missing outputs for ${step_id}`);
-      } else if (!(outputs as any)[key]) {
+      } else if ((outputs as any)[key] === undefined) {
         throw new Error(`Invalid key, ${key}, for ${step.type}`);
       }
 
@@ -209,6 +209,10 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          resource: {
+            id: newNode.resource_id,
+            account: newNode.account || '',
+          },
         });
         pipeline.insertSteps(newStep);
         replacements[oldId] = newStep.id;
@@ -221,6 +225,10 @@ export class Pipeline {
           action: 'update',
           status: {
             state: 'pending',
+          },
+          resource: {
+            id: newNode.resource_id,
+            account: newNode.account || '',
           },
         });
         pipeline.insertSteps(newExecutable);

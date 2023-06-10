@@ -1,3 +1,9 @@
-dns_zone: davidthor.me
+dns_zone: muesch.me
 
-components: {}
+components:
+  architect/frontend:
+    source: architect/frontend:latest
+  architect/auth:
+    source: architect/auth:latest
+    secrets:
+      API_KEY: some_value

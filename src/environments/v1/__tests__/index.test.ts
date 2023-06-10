@@ -28,11 +28,11 @@ describe('Environment schema: v1', () => {
   it('should extrapolate local values', async () => {
     const environment = await parseEnvironment(
       yaml.load(`
-        local:
+        locals:
           source: account/component:latest
         components:
           account/component:
-            source: \${{local.source}}
+            source: \${{locals.source}}
       `) as Record<string, unknown>,
     );
 

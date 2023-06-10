@@ -289,7 +289,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
     if (this.action === 'delete') {
       if (!this.resource?.id) {
-        console.log(this);
         throw new Error(`Missing resource ID for ${this.id} which is scheduled for deletion`);
       }
 

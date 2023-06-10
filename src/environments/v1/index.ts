@@ -12,7 +12,7 @@ export default class EnvironmentV1 extends Environment {
   /**
    * Local variables that can be used to parameterize the environment
    */
-  local?: Record<string, string>;
+  locals?: Record<string, string>;
 
   /**
    * Configuration settings for the components that may be deployed inside this environment
@@ -209,9 +209,9 @@ export default class EnvironmentV1 extends Environment {
       this,
       JSON.parse(
         JSON.stringify(this).replace(
-          /\${{\s?local\.([\w-]+)\s?}}/g,
+          /\${{\s?locals\.([\w-]+)\s?}}/g,
           (_, local_name) => {
-            return this.local?.[local_name] || '';
+            return this.locals?.[local_name] || '';
           },
         ),
       ),

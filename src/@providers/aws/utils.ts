@@ -1,4 +1,3 @@
-// deno-lint-ignore-file no-async-promise-executor
 import AWS, { EC2 } from 'aws-sdk';
 import { ResourceInputs } from '../../@resources/index.ts';
 import { AwsCredentials } from './credentials.ts';

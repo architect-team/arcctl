@@ -47,6 +47,7 @@ type DockerInspectionResults = {
     Labels: Record<string, string>;
     Env: string[];
     ExposedPorts: {
+      // deno-lint-ignore ban-types
       [key: string]: {};
     };
     Entrypoint: string[];

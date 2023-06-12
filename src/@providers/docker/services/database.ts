@@ -95,7 +95,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
     return {
       id: inputs.name,
-      host: '127.0.0.1',
+      host: 'host.docker.internal',
       port: 5432,
       username: 'architect',
       password: 'architect',
@@ -172,7 +172,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
     return {
       id: normalizedName,
-      host: '127.0.0.1',
+      host: 'host.docker.internal',
       port: 5432,
       username: 'architect',
       password: 'architect',
@@ -183,7 +183,8 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
   async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
     const res = await this.get(id);
     if (!res) {
-      throw new Error(`No database with ID: ${id}`);
+      subscriber.next('Database not found. Skipping.');
+      return Promise.resolve();
     }
 
     switch (res.protocol) {

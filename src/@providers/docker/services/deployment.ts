@@ -252,7 +252,13 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     };
   }
 
-  async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+  async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
+    const match = await this.get(id);
+    if (!match) {
+      subscriber.next('No matching deployment. Skipping.');
+      return Promise.resolve();
+    }
+
     const { code, stderr } = await exec('docker', { args: ['stop', id] });
     if (code !== 0) {
       throw new Error(stderr || 'Failed to stop deployment');

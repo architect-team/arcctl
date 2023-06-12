@@ -27,7 +27,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
   }
 
   async get(id: string): Promise<ResourceOutputs['service'] | undefined> {
-    const contents = await this.taskService.getContents(id);
+    const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
     if (!contents) {
       return undefined;
     }
@@ -58,7 +58,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     const configFiles = await this.taskService.listConfigFiles(MOUNT_PATH, FILE_SUFFIX);
     const configs = await Promise.all<ResourceOutputs['service']>(configFiles.map(async (filename) => {
       const id = filename.replace(new RegExp('^' + MOUNT_PATH + '(.*)' + FILE_SUFFIX + '$'), '$1');
-      const contents = await this.taskService.getContents(id);
+      const contents = await this.taskService.getContents(filename);
       const config = yaml.load(contents) as TraefikFormattedService;
 
       let host = '';

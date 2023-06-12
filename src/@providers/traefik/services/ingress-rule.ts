@@ -63,7 +63,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const configFiles = await this.taskService.listConfigFiles(MOUNT_PATH, FILE_SUFFIX);
     const configs = await Promise.all<ResourceOutputs['ingressRule']>(configFiles.map(async (filename) => {
       const id = filename.replace(new RegExp('^' + MOUNT_PATH + '(.*)' + FILE_SUFFIX + '$'), '$1');
-      const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
+      const contents = await this.taskService.getContents(filename);
       const config = yaml.load(contents) as TraefikFormattedIngressRule;
 
       let host = '';
@@ -79,10 +79,10 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       }
 
       return {
-        id: filename,
+        id,
         host,
         port: 80,
-        url: `http://${host}:80${path}`,
+        url: `http://${host}:80${ingressPath}`,
         path: ingressPath,
         loadBalancerHostname: '127.0.0.1',
       };
@@ -110,9 +110,11 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     const host = hostParts.join('.');
-    const rules = [`Host(\`${host}\`)`];
+    // deno-fmt-ignore
+    const rules = ['Host(`' + host + '`)'];
     if (inputs.path) {
-      rules.push(`Path(\`${inputs.path}\`)`);
+      // deno-fmt-ignore
+      rules.push('Path(`' + inputs.path + '`)');
     }
 
     await this.taskService.writeFile(
@@ -161,16 +163,18 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     const host = hostParts.join('.');
-    const rules = [`Host(\`${host}\`)`];
+    // deno-fmt-ignore
+    const rules = ['Host(`' + host + '`)'];
     if (inputs.path) {
-      rules.push(`Path(\`${inputs.path}\`)`);
+      // deno-fmt-ignore
+      rules.push('Path(`' + inputs.path + '`)');
     }
 
     const newEntry: TraefikFormattedIngressRule = {
       http: {
         routers: {
           [normalizedId]: {
-            rule: `Host(\`${host}\`)`,
+            rule: rules.join(' '),
             service: inputs.service || previousService,
           },
         },

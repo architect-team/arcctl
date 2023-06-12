@@ -375,9 +375,7 @@ export class CommandHelper {
   ): Promise<string | undefined> {
     const service = provider.resources[property.name];
     if (!service) {
-      throw new Error(`The ${provider.type} provider doesn't support ${property.name}s`);
-    } else if (!service.list) {
-      throw new Error(`The ${provider.type} provider cannot query ${property.name}s`);
+      return this.promptForStringInputs(property, undefined, data);
     }
 
     const { rows: options } = await service.list(data as any);

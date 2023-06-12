@@ -315,7 +315,9 @@ export class Pipeline {
 
       if (step.inputs) {
         try {
-          step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+          if (step.action !== 'delete') {
+            step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+          }
         } catch (err: any) {
           step.status.state = 'error';
           step.status.message = err.message;

@@ -55,6 +55,8 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
         host: this.credentials.host,
         port: this.credentials.port,
         name: r.datname,
+        username: this.credentials.username,
+        password: '',
         protocol: 'postgresql',
         url: `postgresql://${this.credentials.host}:${this.credentials.port}/${r.datname}`,
       })),
@@ -63,7 +65,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
 
   configureTerraformProviders(scope: Construct): void {
     new PostgresqlProvider(scope, 'postgres', {
-      host: this.credentials.host,
+      host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
       port: this.credentials.port,
       username: this.credentials.username,
       password: this.credentials.password,

@@ -65,7 +65,7 @@ export class PostgresDatabaseUserService extends TerraformResourceService<'datab
 
   configureTerraformProviders(scope: Construct): void {
     new PostgresqlProvider(scope, 'postgres', {
-      host: this.credentials.host,
+      host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
       port: this.credentials.port,
       username: this.credentials.username,
       password: this.credentials.password,

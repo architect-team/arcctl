@@ -1,10 +1,10 @@
 import { build, emptyDir } from 'https://deno.land/x/dnt@0.36.0/mod.ts';
 import Mustache from 'mustache';
 import * as path from 'std/path/mod.ts';
-import { exec } from '../../src/utils/command.ts';
+import { exec } from '../src/utils/command.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-const resources_dir = path.join(__dirname, '../../src', '@resources');
+const resources_dir = path.join(__dirname, '../src', '@resources');
 const build_dir = path.join(__dirname, 'build');
 
 const all_types: { name: string; slug: string }[] = [];
@@ -63,11 +63,11 @@ await (async () => {
       '--allow-read',
       'npm:ts-json-schema-generator',
       '--path',
-      path.join(build_dir, 'src', 'types.ts'),
+      path.join(build_dir, 'src/types.ts'),
       '--type',
       'InputSchema',
       '--tsconfig',
-      path.join(__dirname, '..', '..', 'tsconfig.json'),
+      path.join(__dirname, '../tsconfig.json'),
       '--no-type-check',
     ],
   });
@@ -92,7 +92,7 @@ for (const type of all_types) {
       '--type',
       '*',
       '--tsconfig',
-      path.join(__dirname, '..', '..', 'tsconfig.json'),
+      path.join(__dirname, '../tsconfig.json'),
       '--no-type-check',
     ],
   });

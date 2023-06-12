@@ -1,16 +1,17 @@
-import { TerraformOutput, TerraformStack } from "cdktf";
+import { TerraformOutput, TerraformStack } from 'cdktf';
 import {
+  ProviderCredentials,
   ResourceModule,
   ResourceModuleConstructor,
   ResourceModuleOptions,
-} from "../@providers/index.ts";
-import { ResourceType } from "../@resources/index.ts";
+} from '../@providers/index.ts';
+import { ResourceType } from '../@resources/index.ts';
 
 export class CldCtlTerraformStack extends TerraformStack {
-  addModule<T extends ResourceType>(
-    ModuleConstructor: ResourceModuleConstructor<T, any>,
-    options: ResourceModuleOptions<T>,
-  ): { module: ResourceModule<T, any>; output: TerraformOutput } {
+  addModule<T extends ResourceType, C extends ProviderCredentials>(
+    ModuleConstructor: ResourceModuleConstructor<T, C>,
+    options: ResourceModuleOptions<T, C>,
+  ): { module: ResourceModule<T, C>; output: TerraformOutput } {
     const module = new ModuleConstructor(this, options);
     const output = new TerraformOutput(this, `${options.id}-output`, {
       value: module.outputs,
@@ -20,9 +21,7 @@ export class CldCtlTerraformStack extends TerraformStack {
   }
 
   findModules(): ResourceModule<any, any>[] {
-    return this.node.findAll().filter((child) =>
-      child instanceof ResourceModule
-    ) as unknown as ResourceModule<
+    return this.node.findAll().filter((child) => child instanceof ResourceModule) as unknown as ResourceModule<
       any,
       any
     >[];

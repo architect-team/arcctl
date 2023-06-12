@@ -1,8 +1,8 @@
-import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ApplyOutputs } from '../../base.service.ts';
+import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
 
@@ -41,71 +41,36 @@ export class LocalNamespaceService extends CrudResourceService<'namespace', Loca
     });
   }
 
-  create(inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
-    return new Observable((subscriber) => {
-      try {
-        const startTime = Date.now();
-        subscriber.next({
-          status: {
-            state: 'applying',
-            message: 'Creating namespace',
-            startTime,
-          },
-        });
-
-        const namespace = path.join(this.credentials.directory, inputs.name);
-        Deno.mkdirSync(namespace);
-
-        subscriber.next({
-          status: {
-            state: 'complete',
-            message: '',
-            startTime,
-            endTime: Date.now(),
-          },
-          outputs: {
-            id: inputs.name,
-          },
-          state: {
-            id: inputs.name,
-          },
-        });
-        subscriber.complete();
-      } catch (err) {
-        subscriber.error(err);
-      }
+  create(_subscriber: Subscriber<string>, inputs: ResourceInputs['namespace']): Promise<ResourceOutputs['namespace']> {
+    const namespace = path.join(this.credentials.directory, inputs.name);
+    Deno.mkdirSync(namespace);
+    return Promise.resolve({
+      id: inputs.name,
     });
   }
 
-  update(_id: string, _inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
-    return new Observable((subscriber) => {
-      subscriber.error(new Error('Method not implemented'));
+  update(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['namespace']>,
+  ): Promise<ResourceOutputs['namespace']> {
+    if (inputs.name && inputs.name !== id) {
+      Deno.renameSync(path.join(this.credentials.directory, id), path.join(this.credentials.directory, inputs.name));
+      return Promise.resolve({
+        id: inputs.name,
+      });
+    }
+
+    subscriber.next('No changes detected');
+
+    return Promise.resolve({
+      id,
     });
   }
 
-  delete(id: string): Observable<ApplyOutputs<'namespace'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'destroying',
-          message: 'Removing namespace',
-          startTime,
-        },
-      });
-
-      const namespace = path.join(this.credentials.directory, id);
-      Deno.removeSync(namespace, { recursive: true });
-
-      subscriber.next({
-        status: {
-          state: 'complete',
-          message: '',
-          startTime,
-          endTime: Date.now(),
-        },
-      });
-      subscriber.complete();
-    });
+  delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+    const namespace = path.join(this.credentials.directory, id);
+    Deno.removeSync(namespace, { recursive: true });
+    return Promise.resolve();
   }
 }

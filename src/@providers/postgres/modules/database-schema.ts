@@ -10,7 +10,7 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
   db: Database;
   role: Role;
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema', PostgresCredentials>) {
     super(scope, options);
 
     const normalizedName = this.inputs?.name.replaceAll('/', '--');
@@ -44,7 +44,7 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     };
   }
 
-  genImports(_credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.db)]: resourceId,
     });

@@ -10,7 +10,7 @@ export class DigitaloceanDatabaseSchemaModule extends ResourceModule<'databaseSc
   outputs: ResourceOutputs['databaseSchema'];
   db: DatabaseDb;
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema', DigitaloceanCredentials>) {
     super(scope, options);
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
@@ -44,7 +44,7 @@ export class DigitaloceanDatabaseSchemaModule extends ResourceModule<'databaseSc
     };
   }
 
-  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.db)]: resourceId,
     });

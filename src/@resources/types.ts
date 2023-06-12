@@ -308,5 +308,9 @@ export type ResourceOutputs = {
   } & vpcOutputs;
 };
 
+/**
+ * @discriminator type
+ */
 export type InputSchema = ResourceInputs[ResourceType];
+
 export type OutputSchema = ResourceOutputs[ResourceType];

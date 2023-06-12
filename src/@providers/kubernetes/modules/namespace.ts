@@ -8,7 +8,7 @@ export class KubernetesNamespaceModule extends ResourceModule<'namespace', Kuber
   private namespace: Namespace;
   outputs: ResourceOutputs['namespace'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'namespace'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'namespace', KubernetesCredentials>) {
     super(scope, options);
 
     this.namespace = new Namespace(scope, 'namespace', {
@@ -22,7 +22,7 @@ export class KubernetesNamespaceModule extends ResourceModule<'namespace', Kuber
     };
   }
 
-  genImports(_credentials: KubernetesCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.namespace)]: resourceId,
     });

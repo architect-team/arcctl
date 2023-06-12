@@ -8,7 +8,7 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
   private deployment: Deployment;
   outputs: ResourceOutputs['deployment'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'deployment'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'deployment', KubernetesCredentials>) {
     super(scope, options);
 
     const normalizedName = this.inputs?.name.replace(/\//g, '--') || 'unknown';
@@ -96,7 +96,7 @@ export class KubernetesDeploymentModule extends ResourceModule<'deployment', Kub
     };
   }
 
-  genImports(_credentials: KubernetesCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.deployment)]: resourceId,
     });

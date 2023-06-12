@@ -1,15 +1,15 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Route53Zone } from '../.gen/providers/aws/route53-zone/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsDnsZoneService } from '../services/dns-zone.ts';
-import { Construct } from 'constructs';
 
 export class AwsDnsZoneModule extends ResourceModule<'dnsZone', AwsCredentials> {
   dns_zone: Route53Zone;
   outputs: ResourceOutputs['dnsZone'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone', AwsCredentials>) {
     super(scope, options);
 
     this.dns_zone = new Route53Zone(this, 'zone', {
@@ -27,7 +27,7 @@ export class AwsDnsZoneModule extends ResourceModule<'dnsZone', AwsCredentials> 
     let dns_zone_match: ResourceOutputs['dnsZone'] | undefined;
     if (resourceId.includes('.')) {
       // import is required to be in the format specified here - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone#import
-      const dns_zone_service = new AwsDnsZoneService(credentials);
+      const dns_zone_service = new AwsDnsZoneService(this.accountName, credentials, this.providerStore);
       const dns_zones = await dns_zone_service.list();
       dns_zone_match = dns_zones.rows.find((z) => z.name === `${resourceId}.`);
     }

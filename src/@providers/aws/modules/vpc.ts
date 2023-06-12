@@ -1,3 +1,4 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Vpc } from '../.gen/modules/vpc.ts';
@@ -5,13 +6,12 @@ import { DataAwsAvailabilityZones } from '../.gen/providers/aws/data-aws-availab
 import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
-import { Construct } from 'constructs';
 
 export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
   vpc: Vpc;
   outputs: ResourceOutputs['vpc'];
 
-  constructor(private scope: Construct, options: ResourceModuleOptions<'vpc'>) {
+  constructor(private scope: Construct, options: ResourceModuleOptions<'vpc', AwsCredentials>) {
     super(scope, options);
 
     if (this.inputs?.region) {
@@ -67,7 +67,7 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
     };
   }
 
-  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  async genImports(resourceId: string): Promise<Record<string, string>> {
     const match = resourceId.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
       throw new Error('ID must be of the format, <region>/<uuid>');
@@ -80,11 +80,11 @@ export class AwsVpcModule extends ResourceModule<'vpc', AwsCredentials> {
 
     const moduleId = ['module', this.vpc.friendlyUniqueId].join('.');
 
-    const name = await AwsUtils.getNameForVpc(credentials, region, vpcId);
-    const routeIds = await AwsUtils.getRouteIdsForVpc(credentials, region, vpcId);
-    const subnetIds = await AwsUtils.getSubnetIdsForVpc(credentials, region, vpcId);
-    const natGateways = await AwsUtils.getNatGateways(credentials, region, vpcId);
-    const eipId = await AwsUtils.getElasticIPs(credentials, region, name);
+    const name = await AwsUtils.getNameForVpc(this.credentials, region, vpcId);
+    const routeIds = await AwsUtils.getRouteIdsForVpc(this.credentials, region, vpcId);
+    const subnetIds = await AwsUtils.getSubnetIdsForVpc(this.credentials, region, vpcId);
+    const natGateways = await AwsUtils.getNatGateways(this.credentials, region, vpcId);
+    const eipId = await AwsUtils.getElasticIPs(this.credentials, region, name);
 
     return {
       [`${moduleId}.aws_vpc.this[0]`]: vpcId,

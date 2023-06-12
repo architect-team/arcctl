@@ -1,9 +1,9 @@
-import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import { existsSync } from 'std/fs/exists.ts';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ApplyOutputs } from '../../base.service.ts';
+import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
 
@@ -44,81 +44,68 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
     });
   }
 
-  create(inputs: ResourceInputs['secret']): Observable<ApplyOutputs<'secret'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          message: 'Creating secret',
-          startTime,
-        },
-      });
+  create(_subscriber: Subscriber<string>, inputs: ResourceInputs['secret']): Promise<ResourceOutputs['secret']> {
+    let id = inputs.name.replaceAll('/', '--');
+    if (inputs.namespace) {
+      id = `${inputs.namespace}/${id}`;
+    }
 
-      let id = inputs.name.replaceAll('/', '--');
-      if (inputs.namespace) {
-        id = `${inputs.namespace}/${id}`;
-      }
+    const file = path.join(this.credentials.directory, id);
+    Deno.mkdirSync(path.dirname(file), { recursive: true });
+    Deno.writeTextFileSync(file, inputs.data);
 
-      const file = path.join(this.credentials.directory, id);
-      Deno.mkdirSync(path.dirname(file), { recursive: true });
-      Deno.writeTextFileSync(file, inputs.data);
-
-      subscriber.next({
-        status: {
-          state: 'complete',
-          startTime,
-          endTime: Date.now(),
-        },
-        outputs: {
-          id,
-          data: inputs.data,
-        },
-        state: {
-          id,
-          data: inputs.data,
-        },
-      });
-
-      subscriber.complete();
+    return Promise.resolve({
+      id,
+      data: inputs.data,
     });
   }
 
-  update(_id: string, _inputs: ResourceInputs['secret']): Observable<ApplyOutputs<'secret'>> {
-    throw new Error('Method not implemented.');
+  update(
+    _subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['secret']>,
+  ): Promise<ResourceOutputs['secret']> {
+    let originalNamespace = '';
+    let originalName = '';
+    if (/\//.test(id)) {
+      [originalNamespace, originalName] = id.split('/');
+    } else {
+      originalName = id;
+    }
+
+    const newNamespace = inputs.namespace || originalNamespace;
+    const newName = inputs.name || originalName;
+    const newId = newNamespace ? `${newNamespace}/${newName}` : newName;
+
+    const originalFile = path.join(this.credentials.directory, id);
+    const newFile = path.join(this.credentials.directory, newId);
+    Deno.mkdirSync(path.dirname(newFile), { recursive: true });
+    if (inputs.data) {
+      Deno.writeTextFileSync(newFile, inputs.data);
+      Deno.removeSync(originalFile);
+
+      return Promise.resolve({
+        id: newId,
+        data: inputs.data,
+      });
+    } else {
+      Deno.renameSync(originalFile, newFile);
+
+      const oldData = Deno.readTextFileSync(newFile);
+      return Promise.resolve({
+        id: newId,
+        data: oldData,
+      });
+    }
   }
 
-  delete(id: string): Observable<ApplyOutputs<'secret'>> {
-    return new Observable((subscriber) => {
-      try {
-        const startTime = Date.now();
-        subscriber.next({
-          status: {
-            state: 'destroying',
-            message: 'Destroying secret',
-            startTime,
-          },
-        });
+  delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+    const file = path.join(this.credentials.directory, id);
+    if (!existsSync(file)) {
+      throw new Error(`The ${id} secret does not exist`);
+    }
 
-        const file = path.join(this.credentials.directory, id);
-        if (!existsSync(file)) {
-          throw new Error(`The ${id} secret does not exist`);
-        }
-
-        Deno.removeSync(file);
-
-        subscriber.next({
-          status: {
-            state: 'complete',
-            message: '',
-            startTime,
-            endTime: Date.now(),
-          },
-        });
-        subscriber.complete();
-      } catch (err) {
-        subscriber.error(err);
-      }
-    });
+    Deno.removeSync(file);
+    return Promise.resolve();
   }
 }

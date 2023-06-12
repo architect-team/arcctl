@@ -1,10 +1,9 @@
 import yaml from 'js-yaml';
-import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
-import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { TraefikCredentials } from '../credentials.ts';
@@ -95,180 +94,108 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     };
   }
 
-  create(inputs: ResourceInputs['ingressRule']): Observable<ApplyOutputs<'ingressRule'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          startTime,
-        },
-      });
+  async create(
+    subscriber: Subscriber<string>,
+    inputs: ResourceInputs['ingressRule'],
+  ): Promise<ResourceOutputs['ingressRule']> {
+    const normalizedId = inputs.name.replaceAll('/', '--');
 
-      const normalizedId = inputs.name.replaceAll('/', '--');
+    const hostParts = [];
+    if (inputs.subdomain) {
+      hostParts.push(inputs.subdomain);
+    }
 
-      const hostParts = [];
-      if (inputs.subdomain) {
-        hostParts.push(inputs.subdomain);
-      }
+    if (inputs.dnsZone) {
+      hostParts.push(inputs.dnsZone);
+    }
 
-      if (inputs.dnsZone) {
-        hostParts.push(inputs.dnsZone);
-      }
+    const host = hostParts.join('.');
+    const rules = [`Host(\`${host}\`)`];
+    if (inputs.path) {
+      rules.push(`Path(\`${inputs.path}\`)`);
+    }
 
-      const host = hostParts.join('.');
-      const rules = [`Host(\`${host}\`)`];
-      if (inputs.path) {
-        rules.push(`Path(\`${inputs.path}\`)`);
-      }
-
-      this.taskService.writeFile(
-        path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX),
-        yaml.dump({
-          http: {
-            routers: {
-              [normalizedId]: {
-                rule: rules.join(' '),
-                service: inputs.service,
-              },
+    await this.taskService.writeFile(
+      path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX),
+      yaml.dump({
+        http: {
+          routers: {
+            [normalizedId]: {
+              rule: rules.join(' '),
+              service: inputs.service,
             },
           },
-        }),
-      ).then(({ stderr }) => {
-        subscriber.next({
-          status: {
-            state: 'complete',
-            startTime,
-            endTime: Date.now(),
-          },
-          outputs: {
-            id: normalizedId,
-            host,
-            port: 80,
-            path: inputs.path || '/',
-            url: `http://${host}${inputs.path || '/'}`,
-            loadBalancerHostname: '127.0.0.1',
-          },
-        });
+        },
+      }),
+    );
 
-        subscriber.complete();
-      }).catch(subscriber.error);
-    });
+    return {
+      id: normalizedId,
+      host,
+      port: 80,
+      path: inputs.path || '/',
+      url: `http://${host}${inputs.path || '/'}`,
+      loadBalancerHostname: '127.0.0.1',
+    };
   }
 
-  update(id: string, inputs: DeepPartial<ResourceInputs['ingressRule']>): Observable<ApplyOutputs<'ingressRule'>> {
-    return new Observable<ApplyOutputs<'ingressRule'>>((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          startTime,
-        },
-      });
+  async update(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['ingressRule']>,
+  ): Promise<ResourceOutputs['ingressRule']> {
+    const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
 
-      this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX)).then(async (contents) => {
-        const existingConfig = yaml.load(contents) as TraefikFormattedIngressRule;
-        const previousName = Object.keys(existingConfig.http.routers)[0];
-        const previousService = existingConfig.http.routers[previousName].service;
-        const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
+    const existingConfig = yaml.load(contents) as TraefikFormattedIngressRule;
+    const previousName = Object.keys(existingConfig.http.routers)[0];
+    const previousService = existingConfig.http.routers[previousName].service;
+    const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
 
-        const hostParts = [];
-        if (inputs.subdomain) {
-          hostParts.push(inputs.subdomain);
-        }
+    const hostParts = [];
+    if (inputs.subdomain) {
+      hostParts.push(inputs.subdomain);
+    }
 
-        if (inputs.dnsZone) {
-          hostParts.push(inputs.dnsZone);
-        }
+    if (inputs.dnsZone) {
+      hostParts.push(inputs.dnsZone);
+    }
 
-        const host = hostParts.join('.');
-        const rules = [`Host(\`${host}\`)`];
-        if (inputs.path) {
-          rules.push(`Path(\`${inputs.path}\`)`);
-        }
+    const host = hostParts.join('.');
+    const rules = [`Host(\`${host}\`)`];
+    if (inputs.path) {
+      rules.push(`Path(\`${inputs.path}\`)`);
+    }
 
-        const newEntry: TraefikFormattedIngressRule = {
-          http: {
-            routers: {
-              [normalizedId]: {
-                rule: `Host(\`${host}\`)`,
-                service: inputs.service || previousService,
-              },
-            },
+    const newEntry: TraefikFormattedIngressRule = {
+      http: {
+        routers: {
+          [normalizedId]: {
+            rule: `Host(\`${host}\`)`,
+            service: inputs.service || previousService,
           },
-        };
+        },
+      },
+    };
 
-        try {
-          if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
-            subscriber.next({
-              status: {
-                state: 'applying',
-                message: 'Removing old ingressRule',
-                startTime,
-              },
-            });
-            await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
+    if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
+      subscriber.next('Removing old ingressRule');
+      await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
+      subscriber.next('Registering new ingressRule');
+    }
 
-            subscriber.next({
-              status: {
-                state: 'applying',
-                message: 'Registering new ingressRule',
-                startTime,
-              },
-            });
-          }
+    await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
 
-          await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
-
-          subscriber.next({
-            status: {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            },
-            outputs: {
-              id: normalizedId,
-              host,
-              port: 80,
-              path: inputs.path || '/',
-              url: `http://${host}${inputs.path || '/'}`,
-              loadBalancerHostname: '127.0.0.1',
-            },
-          });
-
-          subscriber.complete();
-        } catch (err) {
-          subscriber.error(err);
-        }
-      }).catch(subscriber.error);
-    });
+    return {
+      id: normalizedId,
+      host,
+      port: 80,
+      path: inputs.path || '/',
+      url: `http://${host}${inputs.path || '/'}`,
+      loadBalancerHostname: '127.0.0.1',
+    };
   }
 
-  delete(id: string): Observable<ApplyOutputs<'ingressRule'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-
-      subscriber.next({
-        status: {
-          state: 'destroying',
-          startTime,
-        },
-      });
-
-      this.taskService.deleteFile(path.join(MOUNT_PATH, id.replaceAll('/', '--') + FILE_SUFFIX)).then(() => {
-        subscriber.next({
-          status: {
-            state: 'complete',
-            startTime,
-            endTime: Date.now(),
-          },
-        });
-
-        subscriber.complete();
-      }).catch((err) => {
-        subscriber.error(err);
-      });
-    });
+  async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+    await this.taskService.deleteFile(path.join(MOUNT_PATH, id.replaceAll('/', '--') + FILE_SUFFIX));
   }
 }

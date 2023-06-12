@@ -1,3 +1,4 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Eks } from '../.gen/modules/eks.ts';
@@ -8,7 +9,6 @@ import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { Sleep } from '../.gen/providers/time/sleep/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
-import { Construct } from 'constructs';
 
 export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluster', AwsCredentials> {
   private eks: Eks;
@@ -17,7 +17,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
   private dataAwsEksClusterAuth: DataAwsEksClusterAuth;
   outputs: ResourceOutputs['kubernetesCluster'];
 
-  constructor(private scope: Construct, options: ResourceModuleOptions<'kubernetesCluster'>) {
+  constructor(private scope: Construct, options: ResourceModuleOptions<'kubernetesCluster', AwsCredentials>) {
     super(scope, options);
 
     if (this.inputs) {
@@ -157,7 +157,7 @@ users:
     };
   }
 
-  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  async genImports(resourceId: string): Promise<Record<string, string>> {
     const match = resourceId.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
       throw new Error('ID must be of the format, <region>/<uuid>');
@@ -168,7 +168,7 @@ users:
     this.dataAwsEksClusterAuth.name = clusterId;
     const moduleId = ['module', this.eks.friendlyUniqueId].join('.');
 
-    const ids = await AwsUtils.getEksIds(credentials, region, clusterId);
+    const ids = await AwsUtils.getEksIds(this.credentials, region, clusterId);
 
     const aws_provider = this.scope.node.children[0] as AwsProvider;
     aws_provider.region = region;

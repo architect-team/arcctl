@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
 
@@ -37,86 +36,31 @@ export class DockerNamespaceService extends CrudResourceService<'namespace', Doc
     };
   }
 
-  create(inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          message: 'Creating namespace',
-          startTime,
-        },
-      });
-
-      exec('docker', { args: ['network', 'create', inputs.name] })
-        .then(() => {
-          subscriber.next({
-            status: {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            },
-            outputs: {
-              id: inputs.name,
-            },
-            state: {
-              id: inputs.name,
-            },
-          });
-
-          subscriber.complete();
-        })
-        .catch(subscriber.error);
-    });
+  async create(
+    _subscriber: Subscriber<string>,
+    inputs: ResourceInputs['namespace'],
+  ): Promise<ResourceOutputs['namespace']> {
+    await exec('docker', { args: ['network', 'create', inputs.name] });
+    return {
+      id: inputs.name,
+    };
   }
 
-  update(id: string, _inputs: ResourceInputs['namespace']): Observable<ApplyOutputs<'namespace'>> {
-    return new Observable((subscriber) => {
-      subscriber.next({
-        status: {
-          state: 'complete',
-          message: 'No updatable. No action taken.',
-          startTime: Date.now(),
-          endTime: Date.now(),
-        },
-        outputs: {
-          id,
-        },
-        state: {
-          id,
-        },
-      });
+  async update(
+    subscriber: Subscriber<string>,
+    id: string,
+    _inputs: ResourceInputs['namespace'],
+  ): Promise<ResourceOutputs['namespace']> {
+    subscriber.next('Not updatable. No action taken.');
+    const res = await this.get(id);
+    if (!res) {
+      throw new Error(`No namespace with ID: ${id}`);
+    }
 
-      subscriber.complete();
-    });
+    return res;
   }
 
-  delete(id: string): Observable<ApplyOutputs<'namespace'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'destroying',
-          message: 'Destroying namespace',
-          startTime,
-        },
-      });
-
-      exec('docker', { args: ['network', 'rm', id] })
-        .then(() => {
-          subscriber.next({
-            status: {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            },
-          });
-
-          subscriber.complete();
-        })
-        .catch(subscriber.error);
-    });
+  async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+    await exec('docker', { args: ['network', 'rm', id] });
   }
 }

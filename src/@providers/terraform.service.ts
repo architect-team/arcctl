@@ -197,6 +197,9 @@ export abstract class TerraformResourceService<
     const { module, output: moduleOutput } = stack.addModule(this.construct, {
       id: options.id,
       inputs,
+      accountName: this.accountName,
+      credentials: this.credentials,
+      providerStore: this.providerStore,
       FileConstruct: createProviderFileConstructor(fileStorageDir),
     });
 
@@ -214,7 +217,7 @@ export abstract class TerraformResourceService<
       Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state)));
     } else if (options.state) {
       // State must be imported from an ID
-      const imports = await module.genImports(this.credentials, options.state.id);
+      const imports = await module.genImports(options.state.id);
 
       // We have to run this before we can run `terraform import`
       await this.tfInit(options.cwd, stack, options.logger);
@@ -313,6 +316,9 @@ export abstract class TerraformResourceService<
       const { module } = stack.addModule(this.construct, {
         id: options.id,
         FileConstruct: createProviderFileConstructor(fileStorageDir),
+        accountName: this.accountName,
+        credentials: this.credentials,
+        providerStore: this.providerStore,
       });
 
       const startTime = Date.now();
@@ -328,7 +334,7 @@ export abstract class TerraformResourceService<
         Deno.writeFileSync(stateFile, new TextEncoder().encode(JSON.stringify(options.state)));
       } else if (options.state) {
         // State must be imported from an ID
-        const imports = await module.genImports(this.credentials, options.state.id);
+        const imports = await module.genImports(options.state.id);
 
         // We have to run this before we can run `terraform import`
         await this.tfInit(options.cwd, stack, options.logger);

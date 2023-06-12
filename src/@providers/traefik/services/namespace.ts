@@ -8,9 +8,6 @@ export class TraefikNamespaceService extends ResourceService<'namespace', Traefi
     return Promise.resolve(undefined);
   }
 
-  /**
-   * Search for resources matching the specified options
-   */
   list(
     filterOptions?: Partial<ResourceOutputs['namespace']>,
     pagingOptions?: Partial<PagingOptions>,

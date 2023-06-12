@@ -8,7 +8,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
   ingress: IngressV1;
   outputs: ResourceOutputs['ingressRule'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'ingressRule'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'ingressRule', KubernetesCredentials>) {
     super(scope, options);
 
     const hostParts = [];
@@ -72,7 +72,7 @@ export class KubernetesIngressRuleModule extends ResourceModule<'ingressRule', K
     };
   }
 
-  genImports(_credentials: KubernetesCredentials, _resourceId: string): Promise<Record<string, string>> {
+  genImports(_resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.ingress)]: 'Ingress Rule',
     });

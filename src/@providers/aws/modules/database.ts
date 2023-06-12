@@ -17,7 +17,7 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
   private username: TerraformOutput;
   private password: TerraformOutput;
 
-  constructor(private scope: Construct, options: ResourceModuleOptions<'database'>) {
+  constructor(private scope: Construct, options: ResourceModuleOptions<'database', AwsCredentials>) {
     super(scope, options);
 
     const name = this.inputs?.name.replaceAll('/', '-').toLowerCase() || 'unknown';
@@ -102,7 +102,7 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
     };
   }
 
-  genImports(_credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     const moduleId = ['module', this.database.friendlyUniqueId].join('.');
 
     const [region, id] = resourceId.split('/');

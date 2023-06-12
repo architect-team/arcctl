@@ -1,10 +1,9 @@
 import yaml from 'js-yaml';
-import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
-import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { TraefikCredentials } from '../credentials.ts';
@@ -85,173 +84,94 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
     };
   }
 
-  create(inputs: ResourceInputs['service']): Observable<ApplyOutputs<'service'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          startTime,
-        },
-      });
+  async create(subscriber: Subscriber<string>, inputs: ResourceInputs['service']): Promise<ResourceOutputs['service']> {
+    const normalizedId = inputs.name.replaceAll('/', '--');
 
-      const normalizedId = inputs.name.replaceAll('/', '--');
+    let url = `${inputs.target_deployment}:${inputs.target_port}`;
+    if (inputs.external_hostname) {
+      url = inputs.external_hostname;
+    }
 
-      let url = `${inputs.target_deployment}:${inputs.target_port}`;
-      if (inputs.external_hostname) {
-        url = inputs.external_hostname;
-      }
-
-      const entry: TraefikFormattedService = {
-        http: {
-          routers: {
-            [normalizedId]: {
-              rule: `Host("${normalizedId}")`,
-              service: normalizedId,
-            },
+    const entry: TraefikFormattedService = {
+      http: {
+        routers: {
+          [normalizedId]: {
+            rule: `Host("${normalizedId}")`,
+            service: normalizedId,
           },
-          services: {
-            [normalizedId]: {
-              loadBalancer: {
-                servers: [{
-                  url,
-                }],
-              },
+        },
+        services: {
+          [normalizedId]: {
+            loadBalancer: {
+              servers: [{
+                url,
+              }],
             },
           },
         },
-      };
+      },
+    };
 
-      this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(entry)).then(() => {
-        subscriber.next({
-          status: {
-            state: 'complete',
-            startTime,
-            endTime: Date.now(),
-          },
-          outputs: {
-            id: normalizedId,
-            host: normalizedId,
-            port: 80,
-            protocol: 'http',
-            url: `http://${normalizedId}`,
-          },
-        });
-
-        subscriber.complete();
-      }).catch((err) => {
-        subscriber.error(err);
-      });
-    });
+    await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(entry));
+    return {
+      id: normalizedId,
+      host: normalizedId,
+      port: 80,
+      protocol: 'http',
+      url: `http://${normalizedId}`,
+    };
   }
 
-  update(id: string, inputs: DeepPartial<ResourceInputs['service']>): Observable<ApplyOutputs<'service'>> {
-    return new Observable<ApplyOutputs<'service'>>((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          startTime,
+  async update(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['service']>,
+  ): Promise<ResourceOutputs['service']> {
+    const contents = await this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX));
+    const existingConfig = yaml.load(contents) as TraefikFormattedService;
+    const previousName = Object.keys(existingConfig.http.routers)[0];
+    const previousServers = existingConfig.http.services[previousName].loadBalancer.servers;
+    const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
+    const newEntry: TraefikFormattedService = {
+      http: {
+        routers: {
+          [normalizedId]: {
+            rule: `Host("${normalizedId}")`,
+            service: normalizedId,
+          },
         },
-      });
-
-      this.taskService.getContents(path.join(MOUNT_PATH, id + FILE_SUFFIX)).then(async (contents) => {
-        const existingConfig = yaml.load(contents) as TraefikFormattedService;
-        const previousName = Object.keys(existingConfig.http.routers)[0];
-        const previousServers = existingConfig.http.services[previousName].loadBalancer.servers;
-        const normalizedId = inputs.name?.replaceAll('/', '--') || previousName;
-        const newEntry: TraefikFormattedService = {
-          http: {
-            routers: {
-              [normalizedId]: {
-                rule: `Host("${normalizedId}")`,
-                service: normalizedId,
-              },
-            },
-            services: {
-              [normalizedId]: {
-                loadBalancer: {
-                  servers: inputs.target_port
-                    ? [{
-                      url: `127.0.0.1:${inputs.target_port}`,
-                    }]
-                    : previousServers,
-                },
-              },
+        services: {
+          [normalizedId]: {
+            loadBalancer: {
+              servers: inputs.target_port
+                ? [{
+                  url: `127.0.0.1:${inputs.target_port}`,
+                }]
+                : previousServers,
             },
           },
-        };
+        },
+      },
+    };
 
-        try {
-          if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
-            subscriber.next({
-              status: {
-                state: 'applying',
-                message: 'Removing old service',
-                startTime,
-              },
-            });
-            await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
+    if (inputs.name && inputs.name.replaceAll('/', '--') !== previousName) {
+      subscriber.next('Removing old service');
+      await this.taskService.deleteFile(path.join(MOUNT_PATH, previousName + FILE_SUFFIX));
+      subscriber.next('Registering new service');
+    }
 
-            subscriber.next({
-              status: {
-                state: 'applying',
-                message: 'Registering new service',
-                startTime,
-              },
-            });
-          }
+    await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
 
-          await this.taskService.writeFile(path.join(MOUNT_PATH, normalizedId + FILE_SUFFIX), yaml.dump(newEntry));
-
-          subscriber.next({
-            status: {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            },
-            outputs: {
-              id: normalizedId,
-              host: normalizedId,
-              port: 80,
-              protocol: 'http',
-              url: `http://${normalizedId}`,
-            },
-          });
-
-          subscriber.complete();
-        } catch (err) {
-          subscriber.error(err);
-        }
-      }).catch(subscriber.error);
-    });
+    return {
+      id: normalizedId,
+      host: normalizedId,
+      port: 80,
+      protocol: 'http',
+      url: `http://${normalizedId}`,
+    };
   }
 
-  delete(id: string): Observable<ApplyOutputs<'service'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-
-      subscriber.next({
-        status: {
-          state: 'destroying',
-          startTime,
-        },
-      });
-
-      this.taskService.deleteFile(path.join(MOUNT_PATH, id.replaceAll('/', '--') + FILE_SUFFIX)).then(() => {
-        subscriber.next({
-          status: {
-            state: 'complete',
-            startTime,
-            endTime: Date.now(),
-          },
-        });
-
-        subscriber.complete();
-      }).catch((err) => {
-        subscriber.error(err);
-      });
-    });
+  async delete(subscriber: Subscriber<string>, id: string): Promise<void> {
+    await this.taskService.deleteFile(path.join(MOUNT_PATH, id.replaceAll('/', '--') + FILE_SUFFIX));
   }
 }

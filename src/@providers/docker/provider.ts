@@ -3,8 +3,6 @@ import { Provider } from '../provider.ts';
 import { DockerCredentials, DockerCredentialsSchema } from './credentials.ts';
 import { DockerDatabaseService } from './services/database.ts';
 import { DockerDeploymentService } from './services/deployment.ts';
-import { DockerLoadBalancerTypeService } from './services/load-balancer-type.ts';
-import { DockerLoadBalancerService } from './services/load-balancer.ts';
 import { DockerNamespaceService } from './services/namespace.ts';
 import { DockerTaskService } from './services/task.ts';
 import { DockerVolumeService } from './services/volume.ts';
@@ -35,8 +33,6 @@ export default class DockerProvider extends Provider<DockerCredentials> {
     deployment: new DockerDeploymentService(this.name, this.credentials, this.providerStore),
     task: new DockerTaskService(this.name, this.credentials, this.providerStore),
     volume: new DockerVolumeService(this.name, this.credentials, this.providerStore),
-    loadBalancer: new DockerLoadBalancerService(this.name, this.credentials, this.providerStore),
-    loadBalancerType: new DockerLoadBalancerTypeService(this.name, this.credentials, this.providerStore),
     database: new DockerDatabaseService(this.name, this.credentials, this.providerStore),
   };
 

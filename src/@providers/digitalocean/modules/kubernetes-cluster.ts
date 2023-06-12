@@ -9,7 +9,7 @@ export class DigitaloceanKubernetesClusterModule extends ResourceModule<'kuberne
   private cluster: KubernetesCluster;
   outputs: ResourceOutputs['kubernetesCluster'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'kubernetesCluster'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'kubernetesCluster', DigitaloceanCredentials>) {
     super(scope, options);
 
     const nodePools = [
@@ -74,7 +74,7 @@ users:
     };
   }
 
-  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.cluster)]: resourceId,
     });

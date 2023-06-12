@@ -1,9 +1,8 @@
-import { Observable } from 'rxjs';
+import { Subscriber } from 'rxjs';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
-import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { DockerCredentials } from '../credentials.ts';
 
@@ -41,86 +40,23 @@ export class DockerVolumeService extends CrudResourceService<'volume', DockerCre
     };
   }
 
-  create(inputs: ResourceInputs['volume']): Observable<ApplyOutputs<'volume'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'applying',
-          message: 'Creating volume',
-          startTime,
-        },
-      });
-
-      exec('docker', { args: ['volume', 'create', inputs.name] })
-        .then(() => {
-          subscriber.next({
-            status: {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            },
-            outputs: {
-              id: inputs.name,
-            },
-            state: {
-              id: inputs.name,
-            },
-          });
-
-          subscriber.complete();
-        })
-        .catch(subscriber.error);
-    });
+  async create(subscriber: Subscriber<string>, inputs: ResourceInputs['volume']): Promise<ResourceOutputs['volume']> {
+    await exec('docker', { args: ['volume', 'create', inputs.name] });
+    return {
+      id: inputs.name,
+    };
   }
 
-  update(id: string, inputs: DeepPartial<ResourceInputs['volume']>): Observable<ApplyOutputs<'volume'>> {
-    return new Observable((subscriber) => {
-      subscriber.next({
-        status: {
-          state: 'complete',
-          message: 'Volumes cannot be updated. No action was taken.',
-          startTime: Date.now(),
-          endTime: Date.now(),
-        },
-        outputs: {
-          id,
-        },
-        state: {
-          id,
-        },
-      });
-
-      subscriber.complete();
-    });
+  update(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['volume']>,
+  ): Promise<ResourceOutputs['volume']> {
+    subscriber.next('Volumes cannot be updated. No action was taken.');
+    return Promise.resolve({ id });
   }
 
-  delete(id: string): Observable<ApplyOutputs<'volume'>> {
-    return new Observable((subscriber) => {
-      const startTime = Date.now();
-      subscriber.next({
-        status: {
-          state: 'destroying',
-          message: 'Destroying namespace',
-          startTime,
-        },
-      });
-
-      exec('docker', { args: ['volume', 'rm', id] })
-        .then(() => {
-          subscriber.next({
-            status: {
-              state: 'complete',
-              message: '',
-              startTime,
-              endTime: Date.now(),
-            },
-          });
-
-          subscriber.complete();
-        })
-        .catch(subscriber.error);
-    });
+  async delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+    await exec('docker', { args: ['volume', 'rm', id] });
   }
 }

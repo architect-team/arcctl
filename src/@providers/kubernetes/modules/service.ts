@@ -8,7 +8,7 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
   private service: Service;
   outputs: ResourceOutputs['service'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'service'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'service', KubernetesCredentials>) {
     super(scope, options);
 
     this.service = new Service(this, 'service', {
@@ -54,7 +54,7 @@ export class KubernetesServiceModule extends ResourceModule<'service', Kubernete
     };
   }
 
-  genImports(_credentials: KubernetesCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.service)]: resourceId,
     });

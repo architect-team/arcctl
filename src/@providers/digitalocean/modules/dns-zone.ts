@@ -8,7 +8,7 @@ export class DigitaloceanDnsZoneModule extends ResourceModule<'dnsZone', Digital
   dns_zone: Domain;
   outputs: ResourceOutputs['dnsZone'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'dnsZone', DigitaloceanCredentials>) {
     super(scope, options);
 
     if (!this.inputs) {
@@ -30,7 +30,7 @@ export class DigitaloceanDnsZoneModule extends ResourceModule<'dnsZone', Digital
     };
   }
 
-  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.dns_zone)]: resourceId,
     });

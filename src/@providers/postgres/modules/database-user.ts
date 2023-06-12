@@ -8,7 +8,7 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
   outputs: ResourceOutputs['databaseUser'];
   role: Role;
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser', PostgresCredentials>) {
     super(scope, options);
 
     const password = crypto.randomUUID();
@@ -37,7 +37,7 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
     };
   }
 
-  genImports(_credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.role)]: resourceId,
     });

@@ -62,7 +62,7 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: do-personal
-          dnsZone: muesch.me
+          dnsZone: davidthor.me
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}

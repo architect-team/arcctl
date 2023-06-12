@@ -8,7 +8,7 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
   vpc: Vpc;
   outputs: ResourceOutputs['vpc'];
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'vpc'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'vpc', DigitaloceanCredentials>) {
     super(scope, options);
 
     this.vpc = new Vpc(this, 'vpc', {
@@ -25,7 +25,7 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
     };
   }
 
-  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.vpc)]: resourceId,
     });

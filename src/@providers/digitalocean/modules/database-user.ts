@@ -10,7 +10,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
   outputs: ResourceOutputs['databaseUser'];
   user: DatabaseUser;
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser', DigitaloceanCredentials>) {
     super(scope, options);
 
     const [instance_name, database_name] = this.inputs?.databaseSchema.split('/') || ['unknown', 'unknown'];
@@ -42,7 +42,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser
     };
   }
 
-  genImports(_credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.user)]: resourceId,
     });

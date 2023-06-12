@@ -18,7 +18,7 @@ const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipel
 
   do {
     done = true;
-    for (let step of nextPipeline.steps.filter((step) => step.action !== 'no-op' && step.action !== 'delete')) {
+    for (let step of nextPipeline.steps.filter((step) => step.action === 'update')) {
       const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
 
       if (!previousStep) {

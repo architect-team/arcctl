@@ -9,7 +9,7 @@ export class KubernetesHelmChartModule extends ResourceModule<'helmChart', Kuber
   outputs: ResourceOutputs['helmChart'];
   release: Release;
 
-  constructor(scope: Construct, options: ResourceModuleOptions<'helmChart'>) {
+  constructor(scope: Construct, options: ResourceModuleOptions<'helmChart', KubernetesCredentials>) {
     super(scope, options);
 
     this.release = new Release(this, 'chart', {
@@ -26,7 +26,7 @@ export class KubernetesHelmChartModule extends ResourceModule<'helmChart', Kuber
     };
   }
 
-  genImports(_credentials: KubernetesCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     return Promise.resolve({
       [this.getResourceRef(this.release)]: resourceId,
     });

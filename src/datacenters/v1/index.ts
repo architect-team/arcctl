@@ -382,8 +382,13 @@ export default class DatacenterV1 extends Datacenter {
 
                   return `\${{ ${target_node_id}.${resource_key} }}`;
                 })
-                .replace(/\${{\s?this\.(\S+)\s?}}/g, (_, node_key: string) =>
-                  this.getNestedValue(node, node_key.split('.'))),
+                .replace(
+                  /\${{\s?this\.(\S+)\s?}}/g,
+                  (_, node_key: string) => {
+                    console.log(contents);
+                    return this.getNestedValue(node, node_key.split('.'));
+                  },
+                ),
             );
 
           // Create inline resources defined by the hook

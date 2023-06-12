@@ -1,10 +1,10 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.ts';
 import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.ts';
 import { DatabaseUser } from '../.gen/providers/digitalocean/database-user/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser', DigitaloceanCredentials> {
   outputs: ResourceOutputs['databaseUser'];

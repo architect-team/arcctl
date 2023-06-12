@@ -54,7 +54,7 @@ environment:
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
           region: nyc1
-      account: ${{ this.resources.db.account }}
+      account: do-personal
       database: ${{ this.resources.db.id }}
     - when:
         type: ingressRule
@@ -62,12 +62,12 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: do-personal
-          dnsZone: ${{ this.inputs.dnsZone }}
+          dnsZone: muesch.me
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}
       registry: nginx
       namespace: ${{ environment.resources.namespace.id }}
-      dnsZone: davidthor.me
+      dnsZone: muesch.me
     - account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}

@@ -77,7 +77,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
 
       const account = options.providerStore.getProvider(this.inputs?.account || '');
       if (!account) {
-        console.log(this);
         subscriber.error(new Error(`Invalid account: ${this.inputs?.account}`));
         return;
       }
@@ -124,6 +123,11 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
           this.status = res.status;
           this.state = res.state;
           this.outputs = res.outputs;
+
+          // Progogate the account if one was not specified
+          if (this.outputs && !this.outputs.account) {
+            this.outputs.account = this.inputs?.account;
+          }
           subscriber.next(this);
         },
         complete: () => {

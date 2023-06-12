@@ -3,8 +3,7 @@ import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { Command } from 'cliffy/command/mod.ts';
 import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
-import process from 'node:process';
-import readline from 'node:readline';
+import logUpdate from 'log-update';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
@@ -212,14 +211,11 @@ export class CommandHelper {
     );
 
     if (options?.clear) {
-      readline.cursorTo(process.stdout, 0, 0);
-      readline.clearScreenDown(process.stdout);
-
       const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
       this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
 
-      console.log(spinner + ' ' + (options.message || 'Applying changes'));
-      console.log('\n' + table.toString());
+      const message = spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString();
+      logUpdate(message);
     } else {
       console.log(table.toString());
     }

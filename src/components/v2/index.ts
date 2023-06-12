@@ -303,6 +303,7 @@ export default class ComponentV2 extends Component {
             environment: context.environment,
           }),
           registry: '',
+          subdomain: ingress_key,
           port: `\${{ ${service_node.id}.port }}`,
           service: `\${{ ${service_node.id}.id }}`,
           path: '/',

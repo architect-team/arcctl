@@ -19,6 +19,7 @@ const GraphCommand = BaseCommand()
 
 async function graph_action(options: GraphOptions): Promise<void> {
   const command_helper = new CommandHelper(options);
+  const environment_name = 'test_environment';
 
   if (!options.datacenter && !options.environment && !options.component) {
     throw new Error('Must specify at least one of: --datacenter, --environment, --component');
@@ -46,11 +47,11 @@ async function graph_action(options: GraphOptions): Promise<void> {
         image: imageRepository,
       });
     }
-    graph = await environment.getGraph('env', command_helper.componentStore);
+    graph = await environment.getGraph(environment_name, command_helper.componentStore);
   }
 
   if (datacenter) {
-    graph = await datacenter.enrichGraph(graph, environment ? 'env' : undefined);
+    graph = await datacenter.enrichGraph(graph, environment ? environment_name : undefined);
   }
 
   const umlLines = [`@startuml`];
@@ -63,6 +64,10 @@ async function graph_action(options: GraphOptions): Promise<void> {
       }
       displayValue = value?.toString().includes('\n') ? `CANNOT DISPLAY` : value;
       umlLines.push(`  ${key}: ${displayValue}`);
+    }
+    umlLines.push(`  {method} account ${node.account}`);
+    if (node.environment) {
+      umlLines.push(`  {method} environment ${node.environment}`);
     }
     umlLines.push(`}`);
   }

@@ -111,10 +111,10 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     const host = hostParts.join('.');
     // deno-fmt-ignore
-    const rules = ['Host(`' + host + '`)'];
+    const rules = ['Host(\\\`' + host + '\\\`)'];
     if (inputs.path) {
       // deno-fmt-ignore
-      rules.push('Path(`' + inputs.path + '`)');
+      rules.push('Path(\\\`' + inputs.path + '\\\`)');
     }
 
     await this.taskService.writeFile(

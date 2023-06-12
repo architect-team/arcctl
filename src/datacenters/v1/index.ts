@@ -385,7 +385,6 @@ export default class DatacenterV1 extends Datacenter {
                 .replace(
                   /\${{\s?this\.(\S+)\s?}}/g,
                   (_, node_key: string) => {
-                    console.log(contents);
                     return this.getNestedValue(node, node_key.split('.'));
                   },
                 ),

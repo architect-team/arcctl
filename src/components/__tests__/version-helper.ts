@@ -169,8 +169,8 @@ export const testServiceGeneration = (
         component: 'component',
         environment: 'environment',
       }),
-      protocol: 'http',
-      selector: CloudNode.genResourceId({
+      target_protocol: 'http',
+      target_deployment: CloudNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',

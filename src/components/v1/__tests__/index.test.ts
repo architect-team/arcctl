@@ -182,6 +182,11 @@ describe('Component Schema: v1', () => {
         service: `\${{ ${interface_node.id}.id }}`,
         port: 80,
         internal: false,
+        name: CloudNode.genResourceId({
+          name: 'api',
+          component: 'test',
+          environment: 'test',
+        }),
       },
     });
 
@@ -253,6 +258,11 @@ describe('Component Schema: v1', () => {
         service: `\${{ ${service_node.id}.id }}`,
         port: 80,
         internal: false,
+        name: CloudNode.genResourceId({
+          name: 'api-main',
+          component: 'test',
+          environment: 'test',
+        }),
       },
     });
 

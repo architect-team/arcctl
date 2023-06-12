@@ -79,6 +79,12 @@ export class CloudGraph {
       if (!node.account) {
         throw new Error(`Missing account for node: ${node.id}`);
       }
+      if (node.type === 'secret') {
+        const secret_node = node as CloudNode<'secret'>;
+        if (secret_node.inputs.required && !secret_node.inputs.data) {
+          throw new Error(`Missing required value for secret: ${node.id}`);
+        }
+      }
     }
 
     for (const edge of this.edges) {

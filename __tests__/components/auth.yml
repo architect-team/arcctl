@@ -1,9 +1,5 @@
 version: v2
 
-builds:
-  test:
-    context: /home/muesch/Architect/code/architect-cli/test/integration/hello-world
-
 databases:
   kratos:
     type: postgres:13
@@ -43,7 +39,7 @@ deployments:
         dsn: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
         serve:
           public:
-            base_url: ${{ ingresses.api.url }}
+            base_url: ${{ ingresses.public.url }}
             cors:
               enabled: true
           admin:
@@ -180,7 +176,7 @@ deployments:
     environment:
       PORT: '4455'
       KRATOS_PUBLIC_URL: ${{ services.public.url }}
-      KRATOS_BROWSER_URL: ${{ ingresses.api.url }}
+      KRATOS_BROWSER_URL: ${{ ingresses.public.url }}
       LOG_LEVEL: debug
       LOG_FORMAT: text
 
@@ -202,7 +198,7 @@ services:
     port: 4455
 
 ingresses:
-  api:
+  public:
     service: public
   frontend:
     service: frontend

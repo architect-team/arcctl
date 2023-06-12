@@ -47,7 +47,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   create(_subscriber: Subscriber<string>, inputs: ResourceInputs['secret']): Promise<ResourceOutputs['secret']> {
     let id = inputs.name.replaceAll('/', '--');
     if (inputs.namespace) {
-      id = `${inputs.namespace}/${id}`;
+      id = `${inputs.namespace}--${id}`;
     }
 
     const file = path.join(this.credentials.directory, id);

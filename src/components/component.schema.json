@@ -2933,6 +2933,25 @@
           "description": "Claims for external (e.g. client) access to a service",
           "type": "object"
         },
+        "secrets": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "description": "A set of secrets that this component requires",
+          "type": "object"
+        },
         "services": {
           "additionalProperties": {
             "additionalProperties": false,

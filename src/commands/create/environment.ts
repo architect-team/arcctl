@@ -41,6 +41,7 @@ async function create_environment_action(options: CreateEnvironmentOptions, name
     }
 
     const targetGraph = await datacenterRecord.config.enrichGraph(environmentGraph, name);
+    targetGraph.validate();
 
     const pipeline = Pipeline.plan({
       before: lastPipeline,

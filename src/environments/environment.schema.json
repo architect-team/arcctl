@@ -142,6 +142,13 @@
           "description": "Configuration settings for the components that may be deployed inside this environment",
           "type": "object"
         },
+        "locals": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Local variables that can be used to parameterize the environment",
+          "type": "object"
+        },
         "version": {
           "const": "v1",
           "type": "string"

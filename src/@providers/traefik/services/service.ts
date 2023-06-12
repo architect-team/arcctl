@@ -87,7 +87,8 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
   async create(subscriber: Subscriber<string>, inputs: ResourceInputs['service']): Promise<ResourceOutputs['service']> {
     const normalizedId = inputs.name.replaceAll('/', '--');
 
-    let url = `${inputs.target_deployment}:${inputs.target_port}`;
+    const normalizedTargetDeployment = inputs.target_deployment.replaceAll('/', '--');
+    let url = `${inputs.target_protocol || 'http'}://${normalizedTargetDeployment}:${inputs.target_port}`;
     if (inputs.external_hostname) {
       url = inputs.external_hostname;
     }
@@ -143,9 +144,9 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
         services: {
           [normalizedId]: {
             loadBalancer: {
-              servers: inputs.target_port
+              servers: inputs.target_port && inputs.target_deployment
                 ? [{
-                  url: `127.0.0.1:${inputs.target_port}`,
+                  url: `http://${inputs.target_deployment.replaceAll('/', '--')}:${inputs.target_port}`,
                 }]
                 : previousServers,
             },

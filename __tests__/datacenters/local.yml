@@ -28,6 +28,7 @@ resources:
       - --providers.file.watch=true
       - --api.insecure=true
       - --api.dashboard=true
+      - --accesslog=true
     volume_mounts:
       - mount_path: /etc/traefik
         readonly: true
@@ -82,3 +83,4 @@ environment:
         image: oryd/kratos-selfservice-ui-node:v0.13.0
       platform: linux/amd64
     - account: docker
+      namespace: ${{ resources.network.id }}

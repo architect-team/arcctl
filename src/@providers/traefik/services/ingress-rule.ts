@@ -41,7 +41,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     }
 
     let ingressPath = '/';
-    const pathMatches = config.http.routers[id].rule.match(/Path\(`(.*)`\)/);
+    const pathMatches = config.http.routers[id].rule.match(/PathPrefix\(`(.*)`\)/);
     if (pathMatches && pathMatches.length > 1) {
       ingressPath = pathMatches[1];
     }
@@ -73,7 +73,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       }
 
       let ingressPath = '/';
-      const pathMatches = config.http.routers[id].rule.match(/Path\(`([^\s]+)`\)/);
+      const pathMatches = config.http.routers[id].rule.match(/PathPrefix\(`([^\s]+)`\)/);
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
@@ -114,7 +114,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const rules = ['Host(\\\`' + host + '\\\`)'];
     if (inputs.path) {
       // deno-fmt-ignore
-      rules.push('Path(\\\`' + inputs.path + '\\\`)');
+      rules.push('PathPrefix(\\\`' + inputs.path + '\\\`)');
     }
 
     await this.taskService.writeFile(
@@ -167,7 +167,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const rules = ['Host(`' + host + '`)'];
     if (inputs.path) {
       // deno-fmt-ignore
-      rules.push('Path(`' + inputs.path + '`)');
+      rules.push('PathPrefix(`' + inputs.path + '`)');
     }
 
     const newEntry: TraefikFormattedIngressRule = {

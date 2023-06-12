@@ -1,10 +1,10 @@
+import { Observable } from 'rxjs';
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
-import * as path from 'std/path/mod.ts';
-import { Observable } from 'rxjs';
 
 export class LocalNamespaceService extends CrudResourceService<'namespace', LocalCredentials> {
   get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {

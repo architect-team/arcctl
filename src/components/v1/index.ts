@@ -1,6 +1,7 @@
 import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
+import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import { ComponentSchema } from '../schema.ts';
 import { DatabaseSchemaV1 } from './database-schema-v1.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { InterfaceSchemaV1 } from './interface-schema-v1.ts';
@@ -78,12 +79,11 @@ export default class ComponentV1 extends Component {
    */
   databases?: Record<string, DatabaseSchemaV1>;
 
-  constructor(data: object) {
+  constructor(data: ComponentSchema) {
     super();
     Object.assign(this, data);
   }
 
-  // eslint-disable-next-line complexity
   private addServicesToGraph(
     graph: CloudGraph,
     context: GraphContext,
@@ -585,7 +585,7 @@ export default class ComponentV1 extends Component {
     return Object.keys(this.dependencies || {});
   }
 
-  public async build(buildFn: DockerBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
     for (const [svcName, svcConfig] of Object.entries(this.services || {})) {
       if ('build' in svcConfig) {
         const digest = await buildFn({

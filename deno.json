@@ -9,7 +9,11 @@
       "src/**/*.schema.json"
     ],
     "rules": {
-      "exclude": ["no-explicit-any", "no-unused-vars"]
+      "exclude": [
+        "no-explicit-any",
+        "no-unused-vars",
+        "require-await"
+      ]
     }
   },
   "fmt": {

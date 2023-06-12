@@ -1,3 +1,3 @@
-export type HelmChartOutputs = {};
+export type HelmChartOutputs = Record<string, unknown>;
 
 export default HelmChartOutputs;

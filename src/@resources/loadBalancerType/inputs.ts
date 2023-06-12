@@ -1,3 +1,3 @@
-export type LoadBalancerTypeInputs = {};
+export type LoadBalancerTypeInputs = Record<string, unknown>;
 
 export default LoadBalancerTypeInputs;

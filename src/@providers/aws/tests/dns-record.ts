@@ -1,7 +1,7 @@
+import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../../../@resources/types.ts';
 import { CldctlTest, CldctlTestContext } from '../../tests.ts';
 import { AwsCredentials } from '../credentials.ts';
-import { assertArrayIncludes, assertEquals } from 'std/testing/asserts.ts';
 
 export class AwsDnsRecordTest implements CldctlTest<AwsCredentials> {
   name = 'Basic DNS Record Test';
@@ -32,7 +32,6 @@ export class AwsDnsRecordTest implements CldctlTest<AwsCredentials> {
     },
   ];
 
-  // deno-lint-ignore require-await
   validateCreate = async (context: CldctlTestContext<Partial<AwsCredentials>>) => {
     const dns_record = context.stacks[0];
     const dns_zone = context.stacks[0].children![0];

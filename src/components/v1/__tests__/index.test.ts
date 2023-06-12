@@ -7,6 +7,7 @@ import {
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
+import { ComponentSchema } from '../../schema.ts';
 import ComponentV1 from '../index.ts';
 
 describe('Component Schema: v1', () => {
@@ -136,7 +137,7 @@ describe('Component Schema: v1', () => {
             url: \${{ services.api.interfaces.main.url }}
             ingress:
               subdomain: app
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({
@@ -207,7 +208,7 @@ describe('Component Schema: v1', () => {
                 port: 80
                 ingress:
                   subdomain: app
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({

@@ -11,9 +11,9 @@
     "cdktf": "https://esm.sh/v124/cdktf@0.15.5",
     "constructs": "https://esm.sh/v124/constructs@10.2.27",
     "js-yaml": "https://esm.sh/v124/js-yaml@4.1.0",
-    "listr": "https://esm.sh/v124/listr@0.14.3",
     "log-update": "https://esm.sh/v124/*log-update@5.0.1",
     "@kubernetes/client-node": "npm:@kubernetes/client-node@0.18.1",
+    "listr": "npm:listr@0.14.3",
     "rxjs": "npm:rxjs@7.5.6"
   },
   "scopes": {

@@ -1,5 +1,6 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
+import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { ProbeSchema } from './probe.ts';
@@ -59,6 +60,11 @@ export default class ComponentV2 extends Component {
         cpu?: number | string;
         memory?: string;
       };
+      volumes?: Record<string, {
+        host_path: string;
+        mount_path: string;
+        digest?: string;
+      }>;
     }
   >;
 
@@ -324,7 +330,7 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  constructor(data: object) {
+  constructor(data: ComponentSchema) {
     super();
     Object.assign(this, data);
   }
@@ -343,7 +349,7 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  public async build(buildFn: DockerBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       const digest = await buildFn({
         context: buildConfig.context,
@@ -353,6 +359,16 @@ export default class ComponentV2 extends Component {
       });
 
       this.builds![buildName].image = digest;
+    }
+
+    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
+      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+        volumeConfig.digest = await volumeBuildFn({
+          host_path: volumeConfig.host_path,
+          volume_name: volumeName,
+          deployment_name: deploymentName,
+        });
+      }
     }
 
     return this;

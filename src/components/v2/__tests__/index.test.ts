@@ -1,3 +1,6 @@
+import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 import { CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDatabaseGeneration,
@@ -6,10 +9,8 @@ import {
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
+import { ComponentSchema } from '../../schema.ts';
 import ComponentV2 from '../index.ts';
-import yaml from 'js-yaml';
-import { assertArrayIncludes } from 'std/testing/asserts.ts';
-import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component Schema: v2', () => {
   it('should generate deployments', () =>
@@ -73,7 +74,7 @@ describe('Component Schema: v2', () => {
         builds:
           test:
             context: ./
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({

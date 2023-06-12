@@ -1,3 +1,4 @@
+import { Construct } from 'constructs';
 import { AwsDnsZoneTest } from '../aws/tests/dns-zone.ts';
 import { ProviderCredentials } from '../credentials.ts';
 import { Provider } from '../provider.ts';
@@ -40,6 +41,7 @@ export default class AwsProvider extends Provider<AwsCredentials> {
     try {
       await AwsUtils.getEC2(this.credentials).describeInstanceTypes().promise();
       return true;
+      // deno-lint-ignore no-empty
     } catch (_) {}
     return false;
   }

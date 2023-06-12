@@ -1,3 +1,4 @@
+import { Construct } from 'constructs';
 import { exists } from 'std/fs/exists.ts';
 import { Provider } from '../provider.ts';
 import { LocalCredentials, LocalCredentialsSchema } from './credentials.ts';
@@ -17,4 +18,8 @@ export default class LocalProvider extends Provider<LocalCredentials> {
   public testCredentials(): Promise<boolean> {
     return exists(this.credentials.directory);
   }
+  // HEAD
+  //
+  configureTerraformProviders(scope: Construct): void {}
+  //main
 }

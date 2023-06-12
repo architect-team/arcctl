@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Domain } from '../.gen/providers/digitalocean/domain/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class DigitaloceanDnsZoneModule extends ResourceModule<'dnsZone', DigitaloceanCredentials> {
   dns_zone: Domain;

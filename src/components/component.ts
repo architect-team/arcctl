@@ -9,6 +9,12 @@ export type GraphContext = {
   };
 };
 
+export type VolumeBuildFn = (options: {
+  deployment_name: string;
+  volume_name: string;
+  host_path: string;
+}) => Promise<string>;
+
 export type DockerBuildFn = (options: {
   context: string;
   dockerfile?: string;
@@ -28,7 +34,7 @@ export abstract class Component {
 
   public abstract getGraph(context: GraphContext): CloudGraph;
 
-  public abstract build(buildFn: DockerBuildFn): Promise<Component>;
+  public abstract build(buildFn: DockerBuildFn, volumeFn: VolumeBuildFn): Promise<Component>;
 
   public abstract tag(tagFn: DockerTagFn): Promise<Component>;
 

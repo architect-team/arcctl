@@ -1,8 +1,8 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Vpc } from '../.gen/providers/digitalocean/vpc/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCredentials> {
   vpc: Vpc;

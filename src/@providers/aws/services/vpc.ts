@@ -74,31 +74,27 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
 
     const vpcPromises = [];
     for (const region of regions.rows.filter((r) => (filterBy.region ? r.id === filterBy.region : true))) {
-      vpcPromises.push(
-        // deno-lint-ignore no-async-promise-executor
-        new Promise<void>(async (resolve) => {
-          const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
-            .describeVpcs(
-              filterBy.name
-                ? {
-                  Filters: [
-                    {
-                      Name: 'tag:Name',
-                      Values: [filterBy.name],
-                    },
-                    ...defaultFilters,
-                  ],
-                }
-                : {
-                  Filters: defaultFilters,
-                },
-            )
-            .promise();
-          res.total += vpcData?.Vpcs?.length || 0;
-          res.rows.push(...(vpcData?.Vpcs || []).map((vpc) => this.normalizeVpc(region.id, vpc)));
-          resolve();
-        }),
-      );
+      vpcPromises.push((async () => {
+        const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
+          .describeVpcs(
+            filterBy.name
+              ? {
+                Filters: [
+                  {
+                    Name: 'tag:Name',
+                    Values: [filterBy.name],
+                  },
+                  ...defaultFilters,
+                ],
+              }
+              : {
+                Filters: defaultFilters,
+              },
+          )
+          .promise();
+        res.total += vpcData?.Vpcs?.length || 0;
+        res.rows.push(...(vpcData?.Vpcs || []).map((vpc) => this.normalizeVpc(region.id, vpc)));
+      })());
     }
 
     await Promise.all(vpcPromises);

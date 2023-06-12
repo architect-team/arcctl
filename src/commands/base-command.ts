@@ -128,7 +128,6 @@ export class CommandHelper {
             await this.datacenterStore.remove(record.name);
             resolve();
           },
-          error: reject,
         });
     });
   }

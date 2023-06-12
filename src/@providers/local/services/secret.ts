@@ -1,11 +1,11 @@
+import { Observable } from 'rxjs';
+import { existsSync } from 'std/fs/exists.ts';
+import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ApplyOutputs } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
-import * as path from 'std/path/mod.ts';
-import { existsSync } from 'std/fs/exists.ts';
-import { Observable } from 'rxjs';
-import { ApplyOutputs } from '../../base.service.ts';
 
 export class LocalSecretService extends CrudResourceService<'secret', LocalCredentials> {
   get(id: string): Promise<ResourceOutputs['secret'] | undefined> {

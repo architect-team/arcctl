@@ -1,6 +1,10 @@
-import { ResourceModule, ResourceModuleConstructor, ResourceModuleOptions } from '../@providers/index.ts';
-import { ResourceType } from '../@resources/index.ts';
-import { TerraformOutput, TerraformStack } from 'cdktf';
+import { TerraformOutput, TerraformStack } from "cdktf";
+import {
+  ResourceModule,
+  ResourceModuleConstructor,
+  ResourceModuleOptions,
+} from "../@providers/index.ts";
+import { ResourceType } from "../@resources/index.ts";
 
 export class CldCtlTerraformStack extends TerraformStack {
   addModule<T extends ResourceType>(
@@ -16,7 +20,9 @@ export class CldCtlTerraformStack extends TerraformStack {
   }
 
   findModules(): ResourceModule<any, any>[] {
-    return this.node.findAll().filter((child) => child instanceof ResourceModule) as unknown as ResourceModule<
+    return this.node.findAll().filter((child) =>
+      child instanceof ResourceModule
+    ) as unknown as ResourceModule<
       any,
       any
     >[];

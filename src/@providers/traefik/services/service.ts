@@ -36,7 +36,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
 
     let host = '';
     if (entry.http.routers[id]) {
-      const hostMatches = entry.http.routers[id].rule.match(/Host\("?(.*)"?\)/);
+      const hostMatches = entry.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
       if (hostMatches && hostMatches.length > 1) {
         host = hostMatches[1];
       }
@@ -63,7 +63,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
 
       let host = '';
       if (config.http.routers[id]) {
-        const hostMatches = config.http.routers[id].rule.match(/Host\("?(.*)"?\)/);
+        const hostMatches = config.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
         if (hostMatches && hostMatches.length > 1) {
           host = hostMatches[1];
         }
@@ -96,7 +96,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       http: {
         routers: {
           [normalizedId]: {
-            rule: `Host("${normalizedId}")`,
+            rule: 'Host(\\\`' + normalizedId + '\\\`)',
             service: normalizedId,
           },
         },
@@ -136,7 +136,7 @@ export class TraefikServiceService extends CrudResourceService<'service', Traefi
       http: {
         routers: {
           [normalizedId]: {
-            rule: `Host("${normalizedId}")`,
+            rule: 'Host(\\\`' + normalizedId + '\\\`)',
             service: normalizedId,
           },
         },

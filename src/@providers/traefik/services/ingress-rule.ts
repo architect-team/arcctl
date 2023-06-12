@@ -35,13 +35,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const config = yaml.load(contents) as TraefikFormattedIngressRule;
 
     let host = '';
-    const hostMatches = config.http.routers[id].rule.match(/Host\(\`(.*)\`\)/);
+    const hostMatches = config.http.routers[id].rule.match(/Host\(`(.*)`\)/);
     if (hostMatches && hostMatches.length > 1) {
       host = hostMatches[1];
     }
 
     let ingressPath = '/';
-    const pathMatches = config.http.routers[id].rule.match(/Path\(\`(.*)\`\)/);
+    const pathMatches = config.http.routers[id].rule.match(/Path\(`(.*)`\)/);
     if (pathMatches && pathMatches.length > 1) {
       ingressPath = pathMatches[1];
     }
@@ -67,13 +67,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       const config = yaml.load(contents) as TraefikFormattedIngressRule;
 
       let host = '';
-      const hostMatches = config.http.routers[id].rule.match(/Host\(\`(.*)\`\)/);
+      const hostMatches = config.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
       if (hostMatches && hostMatches.length > 1) {
         host = hostMatches[1];
       }
 
       let ingressPath = '/';
-      const pathMatches = config.http.routers[id].rule.match(/Path\(\`(.*)\`\)/);
+      const pathMatches = config.http.routers[id].rule.match(/Path\(`([^\s]+)`\)/);
       if (pathMatches && pathMatches.length > 1) {
         ingressPath = pathMatches[1];
       }
@@ -123,7 +123,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
         http: {
           routers: {
             [normalizedId]: {
-              rule: rules.join(' '),
+              rule: rules.join(' && '),
               service: inputs.service,
             },
           },
@@ -174,7 +174,7 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
       http: {
         routers: {
           [normalizedId]: {
-            rule: rules.join(' '),
+            rule: rules.join(' && '),
             service: inputs.service || previousService,
           },
         },

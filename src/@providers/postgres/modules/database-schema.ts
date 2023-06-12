@@ -29,8 +29,8 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
     });
 
     const protocol = 'postgresql';
-    const host = this.inputs?.host || 'localhost';
-    const port = this.inputs?.port || 5432;
+    const host = this.credentials.host;
+    const port = this.credentials.port;
     this.outputs = {
       id: this.db.name,
       name: this.db.name,
@@ -38,7 +38,7 @@ export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema
       port,
       username: this.role.name,
       password: this.role.password,
-      account: this.inputs?.account || 'unknown',
+      account: this.accountName,
       protocol,
       url: `${protocol}://${this.role.name}:${this.role.password}@${host}:${port}/${this.db.name}`,
     };

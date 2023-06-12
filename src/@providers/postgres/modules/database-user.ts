@@ -28,11 +28,11 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
       id: `${this.role.name}`,
       username: this.role.name,
       password: this.role.password,
-      host: this.inputs?.host || 'unknown',
-      port: Number(this.inputs?.port || 5432),
+      host: this.credentials.host,
+      port: this.credentials.port,
       protocol,
       url:
-        `${protocol}://${this.role.name}:${this.role.password}@${this.inputs?.host}:${this.inputs?.port}/${this.inputs?.databaseSchema}`,
+        `${protocol}://${this.role.name}:${this.role.password}@${this.credentials.host}:${this.credentials.port}/${this.inputs?.databaseSchema}`,
       database: this.inputs?.databaseSchema || 'unknown',
     };
   }

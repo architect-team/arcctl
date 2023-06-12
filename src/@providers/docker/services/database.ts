@@ -95,7 +95,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
     return {
       id: inputs.name,
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 5432,
       username: 'architect',
       password: 'architect',
@@ -172,7 +172,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
 
     return {
       id: normalizedName,
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 5432,
       username: 'architect',
       password: 'architect',

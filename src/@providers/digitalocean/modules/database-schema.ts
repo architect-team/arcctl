@@ -41,6 +41,7 @@ export class DigitaloceanDatabaseSchemaModule extends ResourceModule<'databaseSc
       username: instance.user,
       password: instance.password,
       certificate: ca.certificate,
+      account: this.accountName,
     };
   }
 

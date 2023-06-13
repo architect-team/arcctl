@@ -100,6 +100,7 @@ export class LocalSecretService extends CrudResourceService<'secret', LocalCrede
   }
 
   delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
+    id = id.replaceAll('/', '--');
     const file = path.join(this.credentials.directory, id);
     if (!existsSync(file)) {
       throw new Error(`The ${id} secret does not exist`);

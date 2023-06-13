@@ -1,112 +1,104 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_task
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DatasyncTaskConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#cloudwatch_log_group_arn DatasyncTask#cloudwatch_log_group_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#cloudwatch_log_group_arn DatasyncTask#cloudwatch_log_group_arn}
+  */
   readonly cloudwatchLogGroupArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#destination_location_arn DatasyncTask#destination_location_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#destination_location_arn DatasyncTask#destination_location_arn}
+  */
   readonly destinationLocationArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#id DatasyncTask#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#id DatasyncTask#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#name DatasyncTask#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#name DatasyncTask#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#source_location_arn DatasyncTask#source_location_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#source_location_arn DatasyncTask#source_location_arn}
+  */
   readonly sourceLocationArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#tags DatasyncTask#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#tags DatasyncTask#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#tags_all DatasyncTask#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#tags_all DatasyncTask#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * excludes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#excludes DatasyncTask#excludes}
-   */
+  * excludes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#excludes DatasyncTask#excludes}
+  */
   readonly excludes?: DatasyncTaskExcludes;
   /**
-   * includes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#includes DatasyncTask#includes}
-   */
+  * includes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#includes DatasyncTask#includes}
+  */
   readonly includes?: DatasyncTaskIncludes;
   /**
-   * options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#options DatasyncTask#options}
-   */
+  * options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#options DatasyncTask#options}
+  */
   readonly options?: DatasyncTaskOptions;
   /**
-   * schedule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#schedule DatasyncTask#schedule}
-   */
+  * schedule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#schedule DatasyncTask#schedule}
+  */
   readonly schedule?: DatasyncTaskSchedule;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#timeouts DatasyncTask#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#timeouts DatasyncTask#timeouts}
+  */
   readonly timeouts?: DatasyncTaskTimeouts;
 }
 export interface DatasyncTaskExcludes {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#filter_type DatasyncTask#filter_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#filter_type DatasyncTask#filter_type}
+  */
   readonly filterType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#value DatasyncTask#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#value DatasyncTask#value}
+  */
   readonly value?: string;
 }
 
-export function datasyncTaskExcludesToTerraform(
-  struct?: DatasyncTaskExcludesOutputReference | DatasyncTaskExcludes,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function datasyncTaskExcludesToTerraform(struct?: DatasyncTaskExcludesOutputReference | DatasyncTaskExcludes): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     filter_type: cdktf.stringToTerraform(struct!.filterType),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class DatasyncTaskExcludesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -129,7 +121,8 @@ export class DatasyncTaskExcludesOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._filterType = undefined;
       this._value = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._filterType = value.filterType;
       this._value = value.value;
@@ -137,7 +130,7 @@ export class DatasyncTaskExcludesOutputReference extends cdktf.ComplexObject {
   }
 
   // filter_type - computed: false, optional: true, required: false
-  private _filterType?: string;
+  private _filterType?: string; 
   public get filterType() {
     return this.getStringAttribute('filter_type');
   }
@@ -153,7 +146,7 @@ export class DatasyncTaskExcludesOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -170,43 +163,34 @@ export class DatasyncTaskExcludesOutputReference extends cdktf.ComplexObject {
 }
 export interface DatasyncTaskIncludes {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#filter_type DatasyncTask#filter_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#filter_type DatasyncTask#filter_type}
+  */
   readonly filterType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#value DatasyncTask#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#value DatasyncTask#value}
+  */
   readonly value?: string;
 }
 
-export function datasyncTaskIncludesToTerraform(
-  struct?: DatasyncTaskIncludesOutputReference | DatasyncTaskIncludes,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function datasyncTaskIncludesToTerraform(struct?: DatasyncTaskIncludesOutputReference | DatasyncTaskIncludes): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     filter_type: cdktf.stringToTerraform(struct!.filterType),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class DatasyncTaskIncludesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -229,7 +213,8 @@ export class DatasyncTaskIncludesOutputReference extends cdktf.ComplexObject {
       this.isEmptyObject = false;
       this._filterType = undefined;
       this._value = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._filterType = value.filterType;
       this._value = value.value;
@@ -237,7 +222,7 @@ export class DatasyncTaskIncludesOutputReference extends cdktf.ComplexObject {
   }
 
   // filter_type - computed: false, optional: true, required: false
-  private _filterType?: string;
+  private _filterType?: string; 
   public get filterType() {
     return this.getStringAttribute('filter_type');
   }
@@ -253,7 +238,7 @@ export class DatasyncTaskIncludesOutputReference extends cdktf.ComplexObject {
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -270,73 +255,67 @@ export class DatasyncTaskIncludesOutputReference extends cdktf.ComplexObject {
 }
 export interface DatasyncTaskOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#atime DatasyncTask#atime}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#atime DatasyncTask#atime}
+  */
   readonly atime?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#bytes_per_second DatasyncTask#bytes_per_second}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#bytes_per_second DatasyncTask#bytes_per_second}
+  */
   readonly bytesPerSecond?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#gid DatasyncTask#gid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#gid DatasyncTask#gid}
+  */
   readonly gid?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#log_level DatasyncTask#log_level}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#log_level DatasyncTask#log_level}
+  */
   readonly logLevel?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#mtime DatasyncTask#mtime}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#mtime DatasyncTask#mtime}
+  */
   readonly mtime?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#overwrite_mode DatasyncTask#overwrite_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#overwrite_mode DatasyncTask#overwrite_mode}
+  */
   readonly overwriteMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#posix_permissions DatasyncTask#posix_permissions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#posix_permissions DatasyncTask#posix_permissions}
+  */
   readonly posixPermissions?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#preserve_deleted_files DatasyncTask#preserve_deleted_files}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#preserve_deleted_files DatasyncTask#preserve_deleted_files}
+  */
   readonly preserveDeletedFiles?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#preserve_devices DatasyncTask#preserve_devices}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#preserve_devices DatasyncTask#preserve_devices}
+  */
   readonly preserveDevices?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#security_descriptor_copy_flags DatasyncTask#security_descriptor_copy_flags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#security_descriptor_copy_flags DatasyncTask#security_descriptor_copy_flags}
+  */
   readonly securityDescriptorCopyFlags?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#task_queueing DatasyncTask#task_queueing}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#task_queueing DatasyncTask#task_queueing}
+  */
   readonly taskQueueing?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#transfer_mode DatasyncTask#transfer_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#transfer_mode DatasyncTask#transfer_mode}
+  */
   readonly transferMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#uid DatasyncTask#uid}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#uid DatasyncTask#uid}
+  */
   readonly uid?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#verify_mode DatasyncTask#verify_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#verify_mode DatasyncTask#verify_mode}
+  */
   readonly verifyMode?: string;
 }
 
-export function datasyncTaskOptionsToTerraform(
-  struct?: DatasyncTaskOptionsOutputReference | DatasyncTaskOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function datasyncTaskOptionsToTerraform(struct?: DatasyncTaskOptionsOutputReference | DatasyncTaskOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     atime: cdktf.stringToTerraform(struct!.atime),
@@ -346,31 +325,24 @@ export function datasyncTaskOptionsToTerraform(
     mtime: cdktf.stringToTerraform(struct!.mtime),
     overwrite_mode: cdktf.stringToTerraform(struct!.overwriteMode),
     posix_permissions: cdktf.stringToTerraform(struct!.posixPermissions),
-    preserve_deleted_files: cdktf.stringToTerraform(
-      struct!.preserveDeletedFiles,
-    ),
+    preserve_deleted_files: cdktf.stringToTerraform(struct!.preserveDeletedFiles),
     preserve_devices: cdktf.stringToTerraform(struct!.preserveDevices),
-    security_descriptor_copy_flags: cdktf.stringToTerraform(
-      struct!.securityDescriptorCopyFlags,
-    ),
+    security_descriptor_copy_flags: cdktf.stringToTerraform(struct!.securityDescriptorCopyFlags),
     task_queueing: cdktf.stringToTerraform(struct!.taskQueueing),
     transfer_mode: cdktf.stringToTerraform(struct!.transferMode),
     uid: cdktf.stringToTerraform(struct!.uid),
     verify_mode: cdktf.stringToTerraform(struct!.verifyMode),
-  };
+  }
 }
 
 export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -415,8 +387,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
     }
     if (this._securityDescriptorCopyFlags !== undefined) {
       hasAnyValues = true;
-      internalValueResult.securityDescriptorCopyFlags =
-        this._securityDescriptorCopyFlags;
+      internalValueResult.securityDescriptorCopyFlags = this._securityDescriptorCopyFlags;
     }
     if (this._taskQueueing !== undefined) {
       hasAnyValues = true;
@@ -454,7 +425,8 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
       this._transferMode = undefined;
       this._uid = undefined;
       this._verifyMode = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._atime = value.atime;
       this._bytesPerSecond = value.bytesPerSecond;
@@ -474,7 +446,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // atime - computed: false, optional: true, required: false
-  private _atime?: string;
+  private _atime?: string; 
   public get atime() {
     return this.getStringAttribute('atime');
   }
@@ -490,7 +462,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // bytes_per_second - computed: false, optional: true, required: false
-  private _bytesPerSecond?: number;
+  private _bytesPerSecond?: number; 
   public get bytesPerSecond() {
     return this.getNumberAttribute('bytes_per_second');
   }
@@ -506,7 +478,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // gid - computed: false, optional: true, required: false
-  private _gid?: string;
+  private _gid?: string; 
   public get gid() {
     return this.getStringAttribute('gid');
   }
@@ -522,7 +494,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // log_level - computed: false, optional: true, required: false
-  private _logLevel?: string;
+  private _logLevel?: string; 
   public get logLevel() {
     return this.getStringAttribute('log_level');
   }
@@ -538,7 +510,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // mtime - computed: false, optional: true, required: false
-  private _mtime?: string;
+  private _mtime?: string; 
   public get mtime() {
     return this.getStringAttribute('mtime');
   }
@@ -554,7 +526,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // overwrite_mode - computed: false, optional: true, required: false
-  private _overwriteMode?: string;
+  private _overwriteMode?: string; 
   public get overwriteMode() {
     return this.getStringAttribute('overwrite_mode');
   }
@@ -570,7 +542,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // posix_permissions - computed: false, optional: true, required: false
-  private _posixPermissions?: string;
+  private _posixPermissions?: string; 
   public get posixPermissions() {
     return this.getStringAttribute('posix_permissions');
   }
@@ -586,7 +558,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // preserve_deleted_files - computed: false, optional: true, required: false
-  private _preserveDeletedFiles?: string;
+  private _preserveDeletedFiles?: string; 
   public get preserveDeletedFiles() {
     return this.getStringAttribute('preserve_deleted_files');
   }
@@ -602,7 +574,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // preserve_devices - computed: false, optional: true, required: false
-  private _preserveDevices?: string;
+  private _preserveDevices?: string; 
   public get preserveDevices() {
     return this.getStringAttribute('preserve_devices');
   }
@@ -618,7 +590,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // security_descriptor_copy_flags - computed: true, optional: true, required: false
-  private _securityDescriptorCopyFlags?: string;
+  private _securityDescriptorCopyFlags?: string; 
   public get securityDescriptorCopyFlags() {
     return this.getStringAttribute('security_descriptor_copy_flags');
   }
@@ -634,7 +606,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // task_queueing - computed: false, optional: true, required: false
-  private _taskQueueing?: string;
+  private _taskQueueing?: string; 
   public get taskQueueing() {
     return this.getStringAttribute('task_queueing');
   }
@@ -650,7 +622,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // transfer_mode - computed: false, optional: true, required: false
-  private _transferMode?: string;
+  private _transferMode?: string; 
   public get transferMode() {
     return this.getStringAttribute('transfer_mode');
   }
@@ -666,7 +638,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // uid - computed: false, optional: true, required: false
-  private _uid?: string;
+  private _uid?: string; 
   public get uid() {
     return this.getStringAttribute('uid');
   }
@@ -682,7 +654,7 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
   }
 
   // verify_mode - computed: false, optional: true, required: false
-  private _verifyMode?: string;
+  private _verifyMode?: string; 
   public get verifyMode() {
     return this.getStringAttribute('verify_mode');
   }
@@ -699,38 +671,29 @@ export class DatasyncTaskOptionsOutputReference extends cdktf.ComplexObject {
 }
 export interface DatasyncTaskSchedule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#schedule_expression DatasyncTask#schedule_expression}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#schedule_expression DatasyncTask#schedule_expression}
+  */
   readonly scheduleExpression: string;
 }
 
-export function datasyncTaskScheduleToTerraform(
-  struct?: DatasyncTaskScheduleOutputReference | DatasyncTaskSchedule,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function datasyncTaskScheduleToTerraform(struct?: DatasyncTaskScheduleOutputReference | DatasyncTaskSchedule): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     schedule_expression: cdktf.stringToTerraform(struct!.scheduleExpression),
-  };
+  }
 }
 
 export class DatasyncTaskScheduleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -748,14 +711,15 @@ export class DatasyncTaskScheduleOutputReference extends cdktf.ComplexObject {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._scheduleExpression = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._scheduleExpression = value.scheduleExpression;
     }
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string;
+  private _scheduleExpression?: string; 
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -769,28 +733,19 @@ export class DatasyncTaskScheduleOutputReference extends cdktf.ComplexObject {
 }
 export interface DatasyncTaskTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#create DatasyncTask#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_task#create DatasyncTask#create}
+  */
   readonly create?: string;
 }
 
-export function datasyncTaskTimeoutsToTerraform(
-  struct?:
-    | DatasyncTaskTimeoutsOutputReference
-    | DatasyncTaskTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function datasyncTaskTimeoutsToTerraform(struct?: DatasyncTaskTimeoutsOutputReference | DatasyncTaskTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
-  };
+  }
 }
 
 export class DatasyncTaskTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -798,20 +753,14 @@ export class DatasyncTaskTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DatasyncTaskTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DatasyncTaskTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -824,17 +773,17 @@ export class DatasyncTaskTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DatasyncTaskTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DatasyncTaskTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -842,7 +791,7 @@ export class DatasyncTaskTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -859,32 +808,33 @@ export class DatasyncTaskTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_task aws_datasync_task}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_task aws_datasync_task}
+*/
 export class DatasyncTask extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_datasync_task';
+  public static readonly tfResourceType = "aws_datasync_task";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_task aws_datasync_task} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DatasyncTaskConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_task aws_datasync_task} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DatasyncTaskConfig
+  */
   public constructor(scope: Construct, id: string, config: DatasyncTaskConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_datasync_task',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -892,7 +842,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cloudwatchLogGroupArn = config.cloudwatchLogGroupArn;
     this._destinationLocationArn = config.destinationLocationArn;
@@ -918,7 +868,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // cloudwatch_log_group_arn - computed: false, optional: true, required: false
-  private _cloudwatchLogGroupArn?: string;
+  private _cloudwatchLogGroupArn?: string; 
   public get cloudwatchLogGroupArn() {
     return this.getStringAttribute('cloudwatch_log_group_arn');
   }
@@ -934,7 +884,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // destination_location_arn - computed: false, optional: false, required: true
-  private _destinationLocationArn?: string;
+  private _destinationLocationArn?: string; 
   public get destinationLocationArn() {
     return this.getStringAttribute('destination_location_arn');
   }
@@ -947,7 +897,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -963,7 +913,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -979,7 +929,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // source_location_arn - computed: false, optional: false, required: true
-  private _sourceLocationArn?: string;
+  private _sourceLocationArn?: string; 
   public get sourceLocationArn() {
     return this.getStringAttribute('source_location_arn');
   }
@@ -992,7 +942,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1008,7 +958,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1024,7 +974,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // excludes - computed: false, optional: true, required: false
-  private _excludes = new DatasyncTaskExcludesOutputReference(this, 'excludes');
+  private _excludes = new DatasyncTaskExcludesOutputReference(this, "excludes");
   public get excludes() {
     return this._excludes;
   }
@@ -1040,7 +990,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // includes - computed: false, optional: true, required: false
-  private _includes = new DatasyncTaskIncludesOutputReference(this, 'includes');
+  private _includes = new DatasyncTaskIncludesOutputReference(this, "includes");
   public get includes() {
     return this._includes;
   }
@@ -1056,7 +1006,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // options - computed: false, optional: true, required: false
-  private _options = new DatasyncTaskOptionsOutputReference(this, 'options');
+  private _options = new DatasyncTaskOptionsOutputReference(this, "options");
   public get options() {
     return this._options;
   }
@@ -1072,7 +1022,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // schedule - computed: false, optional: true, required: false
-  private _schedule = new DatasyncTaskScheduleOutputReference(this, 'schedule');
+  private _schedule = new DatasyncTaskScheduleOutputReference(this, "schedule");
   public get schedule() {
     return this._schedule;
   }
@@ -1088,7 +1038,7 @@ export class DatasyncTask extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new DatasyncTaskTimeoutsOutputReference(this, 'timeouts');
+  private _timeouts = new DatasyncTaskTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1109,12 +1059,8 @@ export class DatasyncTask extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      cloudwatch_log_group_arn: cdktf.stringToTerraform(
-        this._cloudwatchLogGroupArn,
-      ),
-      destination_location_arn: cdktf.stringToTerraform(
-        this._destinationLocationArn,
-      ),
+      cloudwatch_log_group_arn: cdktf.stringToTerraform(this._cloudwatchLogGroupArn),
+      destination_location_arn: cdktf.stringToTerraform(this._destinationLocationArn),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       source_location_arn: cdktf.stringToTerraform(this._sourceLocationArn),

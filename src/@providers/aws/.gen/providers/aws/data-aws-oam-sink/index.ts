@@ -1,59 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/d/oam_sink
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DataAwsOamSinkConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/oam_sink#id DataAwsOamSink#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/oam_sink#id DataAwsOamSink#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/oam_sink#sink_identifier DataAwsOamSink#sink_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/oam_sink#sink_identifier DataAwsOamSink#sink_identifier}
+  */
   readonly sinkIdentifier: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/oam_sink#tags DataAwsOamSink#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/oam_sink#tags DataAwsOamSink#tags}
+  */
   readonly tags?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/oam_sink aws_oam_sink}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/oam_sink aws_oam_sink}
+*/
 export class DataAwsOamSink extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_oam_sink';
+  public static readonly tfResourceType = "aws_oam_sink";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/oam_sink aws_oam_sink} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsOamSinkConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsOamSinkConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/oam_sink aws_oam_sink} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsOamSinkConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsOamSinkConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_oam_sink',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -61,7 +59,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._sinkIdentifier = config.sinkIdentifier;
@@ -78,7 +76,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -104,7 +102,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
   }
 
   // sink_identifier - computed: false, optional: false, required: true
-  private _sinkIdentifier?: string;
+  private _sinkIdentifier?: string; 
   public get sinkIdentifier() {
     return this.getStringAttribute('sink_identifier');
   }
@@ -117,7 +115,7 @@ export class DataAwsOamSink extends cdktf.TerraformDataSource {
   }
 
   // tags - computed: true, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }

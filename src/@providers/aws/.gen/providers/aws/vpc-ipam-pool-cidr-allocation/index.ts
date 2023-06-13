@@ -1,72 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface VpcIpamPoolCidrAllocationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface VpcIpamPoolCidrAllocationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#cidr VpcIpamPoolCidrAllocation#cidr}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#cidr VpcIpamPoolCidrAllocation#cidr}
+  */
   readonly cidr?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#description VpcIpamPoolCidrAllocation#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#description VpcIpamPoolCidrAllocation#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#disallowed_cidrs VpcIpamPoolCidrAllocation#disallowed_cidrs}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#disallowed_cidrs VpcIpamPoolCidrAllocation#disallowed_cidrs}
+  */
   readonly disallowedCidrs?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#id VpcIpamPoolCidrAllocation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#id VpcIpamPoolCidrAllocation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#ipam_pool_id VpcIpamPoolCidrAllocation#ipam_pool_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#ipam_pool_id VpcIpamPoolCidrAllocation#ipam_pool_id}
+  */
   readonly ipamPoolId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#netmask_length VpcIpamPoolCidrAllocation#netmask_length}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation#netmask_length VpcIpamPoolCidrAllocation#netmask_length}
+  */
   readonly netmaskLength?: number;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation aws_vpc_ipam_pool_cidr_allocation}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation aws_vpc_ipam_pool_cidr_allocation}
+*/
 export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_vpc_ipam_pool_cidr_allocation';
+  public static readonly tfResourceType = "aws_vpc_ipam_pool_cidr_allocation";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation aws_vpc_ipam_pool_cidr_allocation} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options VpcIpamPoolCidrAllocationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: VpcIpamPoolCidrAllocationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_ipam_pool_cidr_allocation aws_vpc_ipam_pool_cidr_allocation} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options VpcIpamPoolCidrAllocationConfig
+  */
+  public constructor(scope: Construct, id: string, config: VpcIpamPoolCidrAllocationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_ipam_pool_cidr_allocation',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -74,7 +71,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cidr = config.cidr;
     this._description = config.description;
@@ -89,7 +86,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
   // ==========
 
   // cidr - computed: true, optional: true, required: false
-  private _cidr?: string;
+  private _cidr?: string; 
   public get cidr() {
     return this.getStringAttribute('cidr');
   }
@@ -105,7 +102,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -121,7 +118,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
   }
 
   // disallowed_cidrs - computed: false, optional: true, required: false
-  private _disallowedCidrs?: string[];
+  private _disallowedCidrs?: string[]; 
   public get disallowedCidrs() {
     return cdktf.Fn.tolist(this.getListAttribute('disallowed_cidrs'));
   }
@@ -137,7 +134,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -158,7 +155,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
   }
 
   // ipam_pool_id - computed: false, optional: false, required: true
-  private _ipamPoolId?: string;
+  private _ipamPoolId?: string; 
   public get ipamPoolId() {
     return this.getStringAttribute('ipam_pool_id');
   }
@@ -171,7 +168,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
   }
 
   // netmask_length - computed: false, optional: true, required: false
-  private _netmaskLength?: number;
+  private _netmaskLength?: number; 
   public get netmaskLength() {
     return this.getNumberAttribute('netmask_length');
   }
@@ -209,10 +206,7 @@ export class VpcIpamPoolCidrAllocation extends cdktf.TerraformResource {
     return {
       cidr: cdktf.stringToTerraform(this._cidr),
       description: cdktf.stringToTerraform(this._description),
-      disallowed_cidrs: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._disallowedCidrs),
+      disallowed_cidrs: cdktf.listMapper(cdktf.stringToTerraform, false)(this._disallowedCidrs),
       id: cdktf.stringToTerraform(this._id),
       ipam_pool_id: cdktf.stringToTerraform(this._ipamPoolId),
       netmask_length: cdktf.numberToTerraform(this._netmaskLength),

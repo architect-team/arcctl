@@ -9,13 +9,13 @@
           "description": "Path on the host machine to mount the volume to",
           "type": "string"
         },
-        "mountPath": {
-          "description": "Path inside the container runtime to mount the volume to",
+        "name": {
+          "description": "Name to give to the volume resource",
           "type": "string"
         }
       },
       "required": [
-        "mountPath"
+        "name"
       ],
       "type": "object"
     }

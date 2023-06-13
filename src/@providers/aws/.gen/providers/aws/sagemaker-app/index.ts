@@ -1,104 +1,94 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_app
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface SagemakerAppConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#app_name SagemakerApp#app_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#app_name SagemakerApp#app_name}
+  */
   readonly appName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#app_type SagemakerApp#app_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#app_type SagemakerApp#app_type}
+  */
   readonly appType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#domain_id SagemakerApp#domain_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#domain_id SagemakerApp#domain_id}
+  */
   readonly domainId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#id SagemakerApp#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#id SagemakerApp#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#space_name SagemakerApp#space_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#space_name SagemakerApp#space_name}
+  */
   readonly spaceName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#tags SagemakerApp#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#tags SagemakerApp#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#tags_all SagemakerApp#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#tags_all SagemakerApp#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#user_profile_name SagemakerApp#user_profile_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#user_profile_name SagemakerApp#user_profile_name}
+  */
   readonly userProfileName?: string;
   /**
-   * resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#resource_spec SagemakerApp#resource_spec}
-   */
+  * resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#resource_spec SagemakerApp#resource_spec}
+  */
   readonly resourceSpec?: SagemakerAppResourceSpec;
 }
 export interface SagemakerAppResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#instance_type SagemakerApp#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#instance_type SagemakerApp#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#lifecycle_config_arn SagemakerApp#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#lifecycle_config_arn SagemakerApp#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#sagemaker_image_arn SagemakerApp#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#sagemaker_image_arn SagemakerApp#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#sagemaker_image_version_arn SagemakerApp#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app#sagemaker_image_version_arn SagemakerApp#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerAppResourceSpecToTerraform(
-  struct?: SagemakerAppResourceSpecOutputReference | SagemakerAppResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerAppResourceSpecToTerraform(struct?: SagemakerAppResourceSpecOutputReference | SagemakerAppResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -119,8 +109,7 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
@@ -132,7 +121,8 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -142,7 +132,7 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -158,7 +148,7 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -174,7 +164,7 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
   }
 
   // sagemaker_image_arn - computed: true, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -190,7 +180,7 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -207,32 +197,33 @@ export class SagemakerAppResourceSpecOutputReference extends cdktf.ComplexObject
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app aws_sagemaker_app}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app aws_sagemaker_app}
+*/
 export class SagemakerApp extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_sagemaker_app';
+  public static readonly tfResourceType = "aws_sagemaker_app";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app aws_sagemaker_app} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SagemakerAppConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_app aws_sagemaker_app} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SagemakerAppConfig
+  */
   public constructor(scope: Construct, id: string, config: SagemakerAppConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_sagemaker_app',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -240,7 +231,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._appName = config.appName;
     this._appType = config.appType;
@@ -258,7 +249,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   // ==========
 
   // app_name - computed: false, optional: false, required: true
-  private _appName?: string;
+  private _appName?: string; 
   public get appName() {
     return this.getStringAttribute('app_name');
   }
@@ -271,7 +262,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // app_type - computed: false, optional: false, required: true
-  private _appType?: string;
+  private _appType?: string; 
   public get appType() {
     return this.getStringAttribute('app_type');
   }
@@ -289,7 +280,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // domain_id - computed: false, optional: false, required: true
-  private _domainId?: string;
+  private _domainId?: string; 
   public get domainId() {
     return this.getStringAttribute('domain_id');
   }
@@ -302,7 +293,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -318,7 +309,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // space_name - computed: false, optional: true, required: false
-  private _spaceName?: string;
+  private _spaceName?: string; 
   public get spaceName() {
     return this.getStringAttribute('space_name');
   }
@@ -334,7 +325,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -350,7 +341,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -366,7 +357,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // user_profile_name - computed: false, optional: true, required: false
-  private _userProfileName?: string;
+  private _userProfileName?: string; 
   public get userProfileName() {
     return this.getStringAttribute('user_profile_name');
   }
@@ -382,10 +373,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
   }
 
   // resource_spec - computed: false, optional: true, required: false
-  private _resourceSpec = new SagemakerAppResourceSpecOutputReference(
-    this,
-    'resource_spec',
-  );
+  private _resourceSpec = new SagemakerAppResourceSpecOutputReference(this, "resource_spec");
   public get resourceSpec() {
     return this._resourceSpec;
   }
@@ -414,9 +402,7 @@ export class SagemakerApp extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       user_profile_name: cdktf.stringToTerraform(this._userProfileName),
-      resource_spec: sagemakerAppResourceSpecToTerraform(
-        this._resourceSpec.internalValue,
-      ),
+      resource_spec: sagemakerAppResourceSpecToTerraform(this._resourceSpec.internalValue),
     };
   }
 }

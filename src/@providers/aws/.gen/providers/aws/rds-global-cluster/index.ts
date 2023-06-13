@@ -1,94 +1,81 @@
 // https://www.terraform.io/docs/providers/aws/r/rds_global_cluster
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface RdsGlobalClusterConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#database_name RdsGlobalCluster#database_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#database_name RdsGlobalCluster#database_name}
+  */
   readonly databaseName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#deletion_protection RdsGlobalCluster#deletion_protection}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#deletion_protection RdsGlobalCluster#deletion_protection}
+  */
   readonly deletionProtection?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#engine RdsGlobalCluster#engine}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#engine RdsGlobalCluster#engine}
+  */
   readonly engine?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#engine_version RdsGlobalCluster#engine_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#engine_version RdsGlobalCluster#engine_version}
+  */
   readonly engineVersion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#force_destroy RdsGlobalCluster#force_destroy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#force_destroy RdsGlobalCluster#force_destroy}
+  */
   readonly forceDestroy?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#global_cluster_identifier RdsGlobalCluster#global_cluster_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#global_cluster_identifier RdsGlobalCluster#global_cluster_identifier}
+  */
   readonly globalClusterIdentifier: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#id RdsGlobalCluster#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#id RdsGlobalCluster#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#source_db_cluster_identifier RdsGlobalCluster#source_db_cluster_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#source_db_cluster_identifier RdsGlobalCluster#source_db_cluster_identifier}
+  */
   readonly sourceDbClusterIdentifier?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#storage_encrypted RdsGlobalCluster#storage_encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#storage_encrypted RdsGlobalCluster#storage_encrypted}
+  */
   readonly storageEncrypted?: boolean | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#timeouts RdsGlobalCluster#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#timeouts RdsGlobalCluster#timeouts}
+  */
   readonly timeouts?: RdsGlobalClusterTimeouts;
 }
-export interface RdsGlobalClusterGlobalClusterMembers {}
+export interface RdsGlobalClusterGlobalClusterMembers {
+}
 
-export function rdsGlobalClusterGlobalClusterMembersToTerraform(
-  struct?: RdsGlobalClusterGlobalClusterMembers,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function rdsGlobalClusterGlobalClusterMembersToTerraform(struct?: RdsGlobalClusterGlobalClusterMembers): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class RdsGlobalClusterGlobalClusterMembersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): RdsGlobalClusterGlobalClusterMembers | undefined {
@@ -97,12 +84,11 @@ export class RdsGlobalClusterGlobalClusterMembersOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: RdsGlobalClusterGlobalClusterMembers | undefined,
-  ) {
+  public set internalValue(value: RdsGlobalClusterGlobalClusterMembers | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -119,67 +105,48 @@ export class RdsGlobalClusterGlobalClusterMembersOutputReference extends cdktf.C
 }
 
 export class RdsGlobalClusterGlobalClusterMembersList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): RdsGlobalClusterGlobalClusterMembersOutputReference {
-    return new RdsGlobalClusterGlobalClusterMembersOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): RdsGlobalClusterGlobalClusterMembersOutputReference {
+    return new RdsGlobalClusterGlobalClusterMembersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface RdsGlobalClusterTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#create RdsGlobalCluster#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#create RdsGlobalCluster#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#delete RdsGlobalCluster#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#delete RdsGlobalCluster#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#update RdsGlobalCluster#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster#update RdsGlobalCluster#update}
+  */
   readonly update?: string;
 }
 
-export function rdsGlobalClusterTimeoutsToTerraform(
-  struct?:
-    | RdsGlobalClusterTimeoutsOutputReference
-    | RdsGlobalClusterTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function rdsGlobalClusterTimeoutsToTerraform(struct?: RdsGlobalClusterTimeoutsOutputReference | RdsGlobalClusterTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -187,20 +154,14 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | RdsGlobalClusterTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): RdsGlobalClusterTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -221,19 +182,19 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: RdsGlobalClusterTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: RdsGlobalClusterTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -243,7 +204,7 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -259,7 +220,7 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -275,7 +236,7 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -292,36 +253,33 @@ export class RdsGlobalClusterTimeoutsOutputReference extends cdktf.ComplexObject
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster aws_rds_global_cluster}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster aws_rds_global_cluster}
+*/
 export class RdsGlobalCluster extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_rds_global_cluster';
+  public static readonly tfResourceType = "aws_rds_global_cluster";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster aws_rds_global_cluster} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options RdsGlobalClusterConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: RdsGlobalClusterConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rds_global_cluster aws_rds_global_cluster} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options RdsGlobalClusterConfig
+  */
+  public constructor(scope: Construct, id: string, config: RdsGlobalClusterConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_rds_global_cluster',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -329,7 +287,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._databaseName = config.databaseName;
     this._deletionProtection = config.deletionProtection;
@@ -353,7 +311,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: true, required: false
-  private _databaseName?: string;
+  private _databaseName?: string; 
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -369,7 +327,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // deletion_protection - computed: false, optional: true, required: false
-  private _deletionProtection?: boolean | cdktf.IResolvable;
+  private _deletionProtection?: boolean | cdktf.IResolvable; 
   public get deletionProtection() {
     return this.getBooleanAttribute('deletion_protection');
   }
@@ -385,7 +343,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // engine - computed: true, optional: true, required: false
-  private _engine?: string;
+  private _engine?: string; 
   public get engine() {
     return this.getStringAttribute('engine');
   }
@@ -401,7 +359,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // engine_version - computed: true, optional: true, required: false
-  private _engineVersion?: string;
+  private _engineVersion?: string; 
   public get engineVersion() {
     return this.getStringAttribute('engine_version');
   }
@@ -422,7 +380,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // force_destroy - computed: false, optional: true, required: false
-  private _forceDestroy?: boolean | cdktf.IResolvable;
+  private _forceDestroy?: boolean | cdktf.IResolvable; 
   public get forceDestroy() {
     return this.getBooleanAttribute('force_destroy');
   }
@@ -438,7 +396,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // global_cluster_identifier - computed: false, optional: false, required: true
-  private _globalClusterIdentifier?: string;
+  private _globalClusterIdentifier?: string; 
   public get globalClusterIdentifier() {
     return this.getStringAttribute('global_cluster_identifier');
   }
@@ -451,11 +409,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // global_cluster_members - computed: true, optional: false, required: false
-  private _globalClusterMembers = new RdsGlobalClusterGlobalClusterMembersList(
-    this,
-    'global_cluster_members',
-    true,
-  );
+  private _globalClusterMembers = new RdsGlobalClusterGlobalClusterMembersList(this, "global_cluster_members", true);
   public get globalClusterMembers() {
     return this._globalClusterMembers;
   }
@@ -466,7 +420,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -482,7 +436,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // source_db_cluster_identifier - computed: true, optional: true, required: false
-  private _sourceDbClusterIdentifier?: string;
+  private _sourceDbClusterIdentifier?: string; 
   public get sourceDbClusterIdentifier() {
     return this.getStringAttribute('source_db_cluster_identifier');
   }
@@ -498,7 +452,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // storage_encrypted - computed: true, optional: true, required: false
-  private _storageEncrypted?: boolean | cdktf.IResolvable;
+  private _storageEncrypted?: boolean | cdktf.IResolvable; 
   public get storageEncrypted() {
     return this.getBooleanAttribute('storage_encrypted');
   }
@@ -514,10 +468,7 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new RdsGlobalClusterTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new RdsGlobalClusterTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -543,17 +494,11 @@ export class RdsGlobalCluster extends cdktf.TerraformResource {
       engine: cdktf.stringToTerraform(this._engine),
       engine_version: cdktf.stringToTerraform(this._engineVersion),
       force_destroy: cdktf.booleanToTerraform(this._forceDestroy),
-      global_cluster_identifier: cdktf.stringToTerraform(
-        this._globalClusterIdentifier,
-      ),
+      global_cluster_identifier: cdktf.stringToTerraform(this._globalClusterIdentifier),
       id: cdktf.stringToTerraform(this._id),
-      source_db_cluster_identifier: cdktf.stringToTerraform(
-        this._sourceDbClusterIdentifier,
-      ),
+      source_db_cluster_identifier: cdktf.stringToTerraform(this._sourceDbClusterIdentifier),
       storage_encrypted: cdktf.booleanToTerraform(this._storageEncrypted),
-      timeouts: rdsGlobalClusterTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: rdsGlobalClusterTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

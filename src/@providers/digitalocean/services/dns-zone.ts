@@ -1,17 +1,29 @@
+import { Construct } from 'constructs';
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { InputValidators } from '../../service.ts';
+import { InputValidators } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanDnsZoneModule } from '../modules/dns-zone.ts';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZone', DigitaloceanCredentials> {
   private client: ReturnType<typeof createApiClient>;
 
-  constructor(private readonly credentials: DigitaloceanCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = DigitaloceanDnsZoneModule;
+
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
+  }
+
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
+    return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
+      token: this.credentials.token,
+    });
   }
 
   async get(id: string): Promise<ResourceOutputs['dnsZone'] | undefined> {
@@ -33,8 +45,8 @@ export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZon
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['dnsZone']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['dnsZone']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['dnsZone']>> {
     const {
       data: { domains },
@@ -63,6 +75,4 @@ export class DigitaloceanDnsZoneService extends TerraformResourceService<'dnsZon
       },
     };
   }
-
-  readonly construct = DigitaloceanDnsZoneModule;
 }

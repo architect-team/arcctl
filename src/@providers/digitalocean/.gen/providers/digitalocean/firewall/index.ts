@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall
+// https://www.terraform.io/docs/providers/digitalocean/r/firewall
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,34 +8,34 @@ import * as cdktf from 'cdktf';
 
 export interface FirewallConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#droplet_ids Firewall#droplet_ids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#droplet_ids Firewall#droplet_ids}
   */
   readonly dropletIds?: number[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#id Firewall#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#id Firewall#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#name Firewall#name}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#name Firewall#name}
   */
   readonly name: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#tags Firewall#tags}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#tags Firewall#tags}
   */
   readonly tags?: string[];
   /**
   * inbound_rule block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#inbound_rule Firewall#inbound_rule}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#inbound_rule Firewall#inbound_rule}
   */
   readonly inboundRule?: FirewallInboundRule[] | cdktf.IResolvable;
   /**
   * outbound_rule block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#outbound_rule Firewall#outbound_rule}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#outbound_rule Firewall#outbound_rule}
   */
   readonly outboundRule?: FirewallOutboundRule[] | cdktf.IResolvable;
 }
@@ -115,31 +115,31 @@ export class FirewallPendingChangesList extends cdktf.ComplexList {
 }
 export interface FirewallInboundRule {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#port_range Firewall#port_range}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#port_range Firewall#port_range}
   */
   readonly portRange?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#protocol Firewall#protocol}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#protocol Firewall#protocol}
   */
   readonly protocol: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#source_addresses Firewall#source_addresses}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#source_addresses Firewall#source_addresses}
   */
   readonly sourceAddresses?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#source_droplet_ids Firewall#source_droplet_ids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#source_droplet_ids Firewall#source_droplet_ids}
   */
   readonly sourceDropletIds?: number[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#source_kubernetes_ids Firewall#source_kubernetes_ids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#source_kubernetes_ids Firewall#source_kubernetes_ids}
   */
   readonly sourceKubernetesIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#source_load_balancer_uids Firewall#source_load_balancer_uids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#source_load_balancer_uids Firewall#source_load_balancer_uids}
   */
   readonly sourceLoadBalancerUids?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#source_tags Firewall#source_tags}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#source_tags Firewall#source_tags}
   */
   readonly sourceTags?: string[];
 }
@@ -371,31 +371,31 @@ export class FirewallInboundRuleList extends cdktf.ComplexList {
 }
 export interface FirewallOutboundRule {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#destination_addresses Firewall#destination_addresses}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#destination_addresses Firewall#destination_addresses}
   */
   readonly destinationAddresses?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#destination_droplet_ids Firewall#destination_droplet_ids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#destination_droplet_ids Firewall#destination_droplet_ids}
   */
   readonly destinationDropletIds?: number[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#destination_kubernetes_ids Firewall#destination_kubernetes_ids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#destination_kubernetes_ids Firewall#destination_kubernetes_ids}
   */
   readonly destinationKubernetesIds?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#destination_load_balancer_uids Firewall#destination_load_balancer_uids}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#destination_load_balancer_uids Firewall#destination_load_balancer_uids}
   */
   readonly destinationLoadBalancerUids?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#destination_tags Firewall#destination_tags}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#destination_tags Firewall#destination_tags}
   */
   readonly destinationTags?: string[];
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#port_range Firewall#port_range}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#port_range Firewall#port_range}
   */
   readonly portRange?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall#protocol Firewall#protocol}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall#protocol Firewall#protocol}
   */
   readonly protocol: string;
 }
@@ -627,7 +627,7 @@ export class FirewallOutboundRuleList extends cdktf.ComplexList {
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall digitalocean_firewall}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall digitalocean_firewall}
 */
 export class Firewall extends cdktf.TerraformResource {
 
@@ -641,7 +641,7 @@ export class Firewall extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/firewall digitalocean_firewall} Resource
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/firewall digitalocean_firewall} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

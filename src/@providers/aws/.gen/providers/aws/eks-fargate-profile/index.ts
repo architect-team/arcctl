@@ -1,81 +1,76 @@
 // https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface EksFargateProfileConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#cluster_name EksFargateProfile#cluster_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#cluster_name EksFargateProfile#cluster_name}
+  */
   readonly clusterName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#fargate_profile_name EksFargateProfile#fargate_profile_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#fargate_profile_name EksFargateProfile#fargate_profile_name}
+  */
   readonly fargateProfileName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#id EksFargateProfile#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#id EksFargateProfile#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#pod_execution_role_arn EksFargateProfile#pod_execution_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#pod_execution_role_arn EksFargateProfile#pod_execution_role_arn}
+  */
   readonly podExecutionRoleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#subnet_ids EksFargateProfile#subnet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#subnet_ids EksFargateProfile#subnet_ids}
+  */
   readonly subnetIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#tags EksFargateProfile#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#tags EksFargateProfile#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#tags_all EksFargateProfile#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#tags_all EksFargateProfile#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * selector block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#selector EksFargateProfile#selector}
-   */
+  * selector block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#selector EksFargateProfile#selector}
+  */
   readonly selector: EksFargateProfileSelector[] | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#timeouts EksFargateProfile#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#timeouts EksFargateProfile#timeouts}
+  */
   readonly timeouts?: EksFargateProfileTimeouts;
 }
 export interface EksFargateProfileSelector {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#labels EksFargateProfile#labels}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#labels EksFargateProfile#labels}
+  */
   readonly labels?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#namespace EksFargateProfile#namespace}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#namespace EksFargateProfile#namespace}
+  */
   readonly namespace: string;
 }
 
-export function eksFargateProfileSelectorToTerraform(
-  struct?: EksFargateProfileSelector | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function eksFargateProfileSelectorToTerraform(struct?: EksFargateProfileSelector | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     labels: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.labels),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  };
+  }
 }
 
 export class EksFargateProfileSelectorOutputReference extends cdktf.ComplexObject {
@@ -83,29 +78,16 @@ export class EksFargateProfileSelectorOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | EksFargateProfileSelector
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): EksFargateProfileSelector | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -122,18 +104,18 @@ export class EksFargateProfileSelectorOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EksFargateProfileSelector | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: EksFargateProfileSelector | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._labels = undefined;
       this._namespace = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._labels = value.labels;
@@ -142,7 +124,7 @@ export class EksFargateProfileSelectorOutputReference extends cdktf.ComplexObjec
   }
 
   // labels - computed: false, optional: true, required: false
-  private _labels?: { [key: string]: string };
+  private _labels?: { [key: string]: string }; 
   public get labels() {
     return this.getStringMapAttribute('labels');
   }
@@ -158,7 +140,7 @@ export class EksFargateProfileSelectorOutputReference extends cdktf.ComplexObjec
   }
 
   // namespace - computed: false, optional: false, required: true
-  private _namespace?: string;
+  private _namespace?: string; 
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -172,62 +154,44 @@ export class EksFargateProfileSelectorOutputReference extends cdktf.ComplexObjec
 }
 
 export class EksFargateProfileSelectorList extends cdktf.ComplexList {
-  public internalValue?: EksFargateProfileSelector[] | cdktf.IResolvable;
+  public internalValue? : EksFargateProfileSelector[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): EksFargateProfileSelectorOutputReference {
-    return new EksFargateProfileSelectorOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new EksFargateProfileSelectorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface EksFargateProfileTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#create EksFargateProfile#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#create EksFargateProfile#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#delete EksFargateProfile#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile#delete EksFargateProfile#delete}
+  */
   readonly delete?: string;
 }
 
-export function eksFargateProfileTimeoutsToTerraform(
-  struct?:
-    | EksFargateProfileTimeoutsOutputReference
-    | EksFargateProfileTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function eksFargateProfileTimeoutsToTerraform(struct?: EksFargateProfileTimeoutsOutputReference | EksFargateProfileTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class EksFargateProfileTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -235,20 +199,14 @@ export class EksFargateProfileTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EksFargateProfileTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): EksFargateProfileTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -265,18 +223,18 @@ export class EksFargateProfileTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EksFargateProfileTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: EksFargateProfileTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -285,7 +243,7 @@ export class EksFargateProfileTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -301,7 +259,7 @@ export class EksFargateProfileTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -318,36 +276,33 @@ export class EksFargateProfileTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile aws_eks_fargate_profile}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile aws_eks_fargate_profile}
+*/
 export class EksFargateProfile extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_eks_fargate_profile';
+  public static readonly tfResourceType = "aws_eks_fargate_profile";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile aws_eks_fargate_profile} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options EksFargateProfileConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: EksFargateProfileConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/eks_fargate_profile aws_eks_fargate_profile} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options EksFargateProfileConfig
+  */
+  public constructor(scope: Construct, id: string, config: EksFargateProfileConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_eks_fargate_profile',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -355,7 +310,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._clusterName = config.clusterName;
     this._fargateProfileName = config.fargateProfileName;
@@ -378,7 +333,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string;
+  private _clusterName?: string; 
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -391,7 +346,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // fargate_profile_name - computed: false, optional: false, required: true
-  private _fargateProfileName?: string;
+  private _fargateProfileName?: string; 
   public get fargateProfileName() {
     return this.getStringAttribute('fargate_profile_name');
   }
@@ -404,7 +359,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -420,7 +375,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // pod_execution_role_arn - computed: false, optional: false, required: true
-  private _podExecutionRoleArn?: string;
+  private _podExecutionRoleArn?: string; 
   public get podExecutionRoleArn() {
     return this.getStringAttribute('pod_execution_role_arn');
   }
@@ -438,7 +393,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // subnet_ids - computed: false, optional: true, required: false
-  private _subnetIds?: string[];
+  private _subnetIds?: string[]; 
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -454,7 +409,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -470,7 +425,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -486,7 +441,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // selector - computed: false, optional: false, required: true
-  private _selector = new EksFargateProfileSelectorList(this, 'selector', true);
+  private _selector = new EksFargateProfileSelectorList(this, "selector", true);
   public get selector() {
     return this._selector;
   }
@@ -499,10 +454,7 @@ export class EksFargateProfile extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EksFargateProfileTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new EksFargateProfileTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -526,22 +478,12 @@ export class EksFargateProfile extends cdktf.TerraformResource {
       cluster_name: cdktf.stringToTerraform(this._clusterName),
       fargate_profile_name: cdktf.stringToTerraform(this._fargateProfileName),
       id: cdktf.stringToTerraform(this._id),
-      pod_execution_role_arn: cdktf.stringToTerraform(
-        this._podExecutionRoleArn,
-      ),
-      subnet_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._subnetIds),
+      pod_execution_role_arn: cdktf.stringToTerraform(this._podExecutionRoleArn),
+      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      selector: cdktf.listMapper(
-        eksFargateProfileSelectorToTerraform,
-        true,
-      )(this._selector.internalValue),
-      timeouts: eksFargateProfileTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      selector: cdktf.listMapper(eksFargateProfileSelectorToTerraform, true)(this._selector.internalValue),
+      timeouts: eksFargateProfileTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

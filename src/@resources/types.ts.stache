@@ -17,8 +17,8 @@ export const ResourceTypeList: ResourceType[] = [
 export type ResourceInputs = {
 {{#types}}
   '{{name}}': {
-    type: '{{name}}',
-    account?: string,
+    type: '{{name}}';
+    account?: string;
   } & {{slug}}Inputs;
 {{/types}}
 };
@@ -31,5 +31,9 @@ export type ResourceOutputs = {
 {{/types}}
 };
 
+/**
+ * @discriminator type
+ */
 export type InputSchema = ResourceInputs[ResourceType];
+
 export type OutputSchema = ResourceOutputs[ResourceType];

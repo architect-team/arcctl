@@ -1,56 +1,53 @@
 // https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsOutpostsOutpostInstanceTypesConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsOutpostsOutpostInstanceTypesConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types#arn DataAwsOutpostsOutpostInstanceTypes#arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types#arn DataAwsOutpostsOutpostInstanceTypes#arn}
+  */
   readonly arn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types#id DataAwsOutpostsOutpostInstanceTypes#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types#id DataAwsOutpostsOutpostInstanceTypes#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types aws_outposts_outpost_instance_types}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types aws_outposts_outpost_instance_types}
+*/
 export class DataAwsOutpostsOutpostInstanceTypes extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_outposts_outpost_instance_types';
+  public static readonly tfResourceType = "aws_outposts_outpost_instance_types";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types aws_outposts_outpost_instance_types} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsOutpostsOutpostInstanceTypesConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsOutpostsOutpostInstanceTypesConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/outposts_outpost_instance_types aws_outposts_outpost_instance_types} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsOutpostsOutpostInstanceTypesConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsOutpostsOutpostInstanceTypesConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_outposts_outpost_instance_types',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -58,7 +55,7 @@ export class DataAwsOutpostsOutpostInstanceTypes extends cdktf.TerraformDataSour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._arn = config.arn;
     this._id = config.id;
@@ -69,7 +66,7 @@ export class DataAwsOutpostsOutpostInstanceTypes extends cdktf.TerraformDataSour
   // ==========
 
   // arn - computed: false, optional: false, required: true
-  private _arn?: string;
+  private _arn?: string; 
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -82,7 +79,7 @@ export class DataAwsOutpostsOutpostInstanceTypes extends cdktf.TerraformDataSour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }

@@ -1,78 +1,72 @@
 // https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Route53ResolverEndpointConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Route53ResolverEndpointConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#direction Route53ResolverEndpoint#direction}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#direction Route53ResolverEndpoint#direction}
+  */
   readonly direction: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#id Route53ResolverEndpoint#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#id Route53ResolverEndpoint#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#name Route53ResolverEndpoint#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#name Route53ResolverEndpoint#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#security_group_ids Route53ResolverEndpoint#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#security_group_ids Route53ResolverEndpoint#security_group_ids}
+  */
   readonly securityGroupIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#tags Route53ResolverEndpoint#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#tags Route53ResolverEndpoint#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#tags_all Route53ResolverEndpoint#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#tags_all Route53ResolverEndpoint#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * ip_address block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#ip_address Route53ResolverEndpoint#ip_address}
-   */
+  * ip_address block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#ip_address Route53ResolverEndpoint#ip_address}
+  */
   readonly ipAddress: Route53ResolverEndpointIpAddress[] | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#timeouts Route53ResolverEndpoint#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#timeouts Route53ResolverEndpoint#timeouts}
+  */
   readonly timeouts?: Route53ResolverEndpointTimeouts;
 }
 export interface Route53ResolverEndpointIpAddress {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#ip Route53ResolverEndpoint#ip}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#ip Route53ResolverEndpoint#ip}
+  */
   readonly ip?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#subnet_id Route53ResolverEndpoint#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#subnet_id Route53ResolverEndpoint#subnet_id}
+  */
   readonly subnetId: string;
 }
 
-export function route53ResolverEndpointIpAddressToTerraform(
-  struct?: Route53ResolverEndpointIpAddress | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function route53ResolverEndpointIpAddressToTerraform(struct?: Route53ResolverEndpointIpAddress | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     ip: cdktf.stringToTerraform(struct!.ip),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
-  };
+  }
 }
 
 export class Route53ResolverEndpointIpAddressOutputReference extends cdktf.ComplexObject {
@@ -80,29 +74,16 @@ export class Route53ResolverEndpointIpAddressOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | Route53ResolverEndpointIpAddress
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): Route53ResolverEndpointIpAddress | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -119,18 +100,18 @@ export class Route53ResolverEndpointIpAddressOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: Route53ResolverEndpointIpAddress | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: Route53ResolverEndpointIpAddress | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._ip = undefined;
       this._subnetId = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._ip = value.ip;
@@ -139,7 +120,7 @@ export class Route53ResolverEndpointIpAddressOutputReference extends cdktf.Compl
   }
 
   // ip - computed: true, optional: true, required: false
-  private _ip?: string;
+  private _ip?: string; 
   public get ip() {
     return this.getStringAttribute('ip');
   }
@@ -160,7 +141,7 @@ export class Route53ResolverEndpointIpAddressOutputReference extends cdktf.Compl
   }
 
   // subnet_id - computed: false, optional: false, required: true
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -174,67 +155,49 @@ export class Route53ResolverEndpointIpAddressOutputReference extends cdktf.Compl
 }
 
 export class Route53ResolverEndpointIpAddressList extends cdktf.ComplexList {
-  public internalValue?: Route53ResolverEndpointIpAddress[] | cdktf.IResolvable;
+  public internalValue? : Route53ResolverEndpointIpAddress[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): Route53ResolverEndpointIpAddressOutputReference {
-    return new Route53ResolverEndpointIpAddressOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new Route53ResolverEndpointIpAddressOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface Route53ResolverEndpointTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#create Route53ResolverEndpoint#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#create Route53ResolverEndpoint#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#delete Route53ResolverEndpoint#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#delete Route53ResolverEndpoint#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#update Route53ResolverEndpoint#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint#update Route53ResolverEndpoint#update}
+  */
   readonly update?: string;
 }
 
-export function route53ResolverEndpointTimeoutsToTerraform(
-  struct?:
-    | Route53ResolverEndpointTimeoutsOutputReference
-    | Route53ResolverEndpointTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function route53ResolverEndpointTimeoutsToTerraform(struct?: Route53ResolverEndpointTimeoutsOutputReference | Route53ResolverEndpointTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -242,20 +205,14 @@ export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | Route53ResolverEndpointTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): Route53ResolverEndpointTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -276,19 +233,19 @@ export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: Route53ResolverEndpointTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: Route53ResolverEndpointTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -298,7 +255,7 @@ export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -314,7 +271,7 @@ export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -330,7 +287,7 @@ export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -347,36 +304,33 @@ export class Route53ResolverEndpointTimeoutsOutputReference extends cdktf.Comple
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint aws_route53_resolver_endpoint}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint aws_route53_resolver_endpoint}
+*/
 export class Route53ResolverEndpoint extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_route53_resolver_endpoint';
+  public static readonly tfResourceType = "aws_route53_resolver_endpoint";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint aws_route53_resolver_endpoint} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Route53ResolverEndpointConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Route53ResolverEndpointConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/route53_resolver_endpoint aws_route53_resolver_endpoint} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Route53ResolverEndpointConfig
+  */
+  public constructor(scope: Construct, id: string, config: Route53ResolverEndpointConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_route53_resolver_endpoint',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -384,7 +338,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._direction = config.direction;
     this._id = config.id;
@@ -406,7 +360,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // direction - computed: false, optional: false, required: true
-  private _direction?: string;
+  private _direction?: string; 
   public get direction() {
     return this.getStringAttribute('direction');
   }
@@ -424,7 +378,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -440,7 +394,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -456,7 +410,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -469,7 +423,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -485,7 +439,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -501,17 +455,11 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // ip_address - computed: false, optional: false, required: true
-  private _ipAddress = new Route53ResolverEndpointIpAddressList(
-    this,
-    'ip_address',
-    true,
-  );
+  private _ipAddress = new Route53ResolverEndpointIpAddressList(this, "ip_address", true);
   public get ipAddress() {
     return this._ipAddress;
   }
-  public putIpAddress(
-    value: Route53ResolverEndpointIpAddress[] | cdktf.IResolvable,
-  ) {
+  public putIpAddress(value: Route53ResolverEndpointIpAddress[] | cdktf.IResolvable) {
     this._ipAddress.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -520,10 +468,7 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Route53ResolverEndpointTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new Route53ResolverEndpointTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -547,19 +492,11 @@ export class Route53ResolverEndpoint extends cdktf.TerraformResource {
       direction: cdktf.stringToTerraform(this._direction),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      security_group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._securityGroupIds),
+      security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      ip_address: cdktf.listMapper(
-        route53ResolverEndpointIpAddressToTerraform,
-        true,
-      )(this._ipAddress.internalValue),
-      timeouts: route53ResolverEndpointTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      ip_address: cdktf.listMapper(route53ResolverEndpointIpAddressToTerraform, true)(this._ipAddress.internalValue),
+      timeouts: route53ResolverEndpointTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

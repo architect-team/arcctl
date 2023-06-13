@@ -1,5 +1,5 @@
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
+import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
 import { ComponentSchema } from '../schema.ts';
 import { DebuggableBuildSchemaV2 } from './build.ts';
 import { parseExpressionRefs } from './expressions.ts';
@@ -29,24 +29,16 @@ export default class ComponentV2 extends Component {
       type: string;
       description?: string;
       migrate?: {
-        up?: {
-          image: string;
-          entrypoint?: string | string[];
-          command?: string | string[];
-          environment?: Record<
-            string,
-            string | number | boolean | null | undefined
-          >;
-        };
-        down?: {
-          image: string;
-          entrypoint?: string | string[];
-          command?: string | string[];
-          environment?: Record<
-            string,
-            string | number | boolean | null | undefined
-          >;
-        };
+        image: string;
+        entrypoint?: string | string[];
+        command?: string | string[];
+        environment?: Record<string, string | number | boolean | null | undefined>;
+      };
+      seed?: {
+        image: string;
+        entrypoint?: string | string[];
+        command?: string | string[];
+        environment?: Record<string, string | number | boolean | null | undefined>;
       };
     }
   >;
@@ -77,6 +69,11 @@ export default class ComponentV2 extends Component {
         cpu?: number | string;
         memory?: string;
       };
+      volumes?: Record<string, {
+        host_path: string;
+        mount_path: string;
+        digest?: string;
+      }>;
     }
   >;
 
@@ -120,10 +117,7 @@ export default class ComponentV2 extends Component {
     }
   >;
 
-  private addBuildsToGraph(
-    graph: CloudGraph,
-    context: GraphContext,
-  ): CloudGraph {
+  private addBuildsToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
     for (const [build_key, build_config] of Object.entries(this.builds || {})) {
       const build_node = new CloudNode({
         name: build_key,
@@ -162,14 +156,7 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(
-        parseExpressionRefs(
-          graph,
-          this.dependencies || {},
-          context,
-          build_node,
-        ),
-      );
+      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, build_node));
     }
 
     return graph;
@@ -210,9 +197,7 @@ export default class ComponentV2 extends Component {
       )
     ) {
       if (!database_config.type.includes(':')) {
-        throw new Error(
-          `Invalid database type. Must be of the format, <engine>:<version>`,
-        );
+        throw new Error(`Invalid database type. Must be of the format, <engine>:<version>`);
       }
 
       const [engine, version] = database_config.type.split(':');
@@ -274,14 +259,7 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(
-        parseExpressionRefs(
-          graph,
-          this.dependencies || {},
-          context,
-          deployment_node,
-        ),
-      );
+      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, deployment_node));
     }
 
     return graph;
@@ -307,8 +285,8 @@ export default class ComponentV2 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          protocol: service_config.protocol || 'http',
-          selector: CloudNode.genResourceId({
+          target_protocol: service_config.protocol || 'http',
+          target_deployment: CloudNode.genResourceId({
             name: service_config.deployment,
             component: context.component.name,
             environment: context.environment,
@@ -317,14 +295,7 @@ export default class ComponentV2 extends Component {
         },
       });
 
-      graph.insertNodes(
-        parseExpressionRefs(
-          graph,
-          this.dependencies || {},
-          context,
-          service_node,
-        ),
-      );
+      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, service_node));
       graph.insertEdges(
         new CloudEdge({
           from: service_node.id,
@@ -355,9 +326,7 @@ export default class ComponentV2 extends Component {
         (n) => n.name === ingress_config.service && n.type === 'service',
       ) as CloudNode<'service'> | undefined;
       if (!service_node) {
-        throw new Error(
-          `The service, ${ingress_config.service}, does not exist`,
-        );
+        throw new Error(`The service, ${ingress_config.service}, does not exist`);
       }
 
       graph.insertNodes(service_node);
@@ -368,24 +337,21 @@ export default class ComponentV2 extends Component {
         environment: context.environment,
         inputs: {
           type: 'ingressRule',
-          loadBalancer: '',
+          name: CloudNode.genResourceId({
+            name: ingress_key,
+            component: context.component.name,
+            environment: context.environment,
+          }),
+          registry: '',
+          subdomain: ingress_key,
           port: `\${{ ${service_node.id}.port }}`,
           service: `\${{ ${service_node.id}.id }}`,
-          listener: {
-            path: '/',
-            protocol: `\${{ ${service_node.id}.protocol }}`,
-          },
+          path: '/',
+          protocol: `\${{ ${service_node.id}.protocol }}`,
           internal: ingress_config.internal || false,
         },
       });
-      graph.insertNodes(
-        parseExpressionRefs(
-          graph,
-          this.dependencies || {},
-          context,
-          ingress_node,
-        ),
-      );
+      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, ingress_node));
       graph.insertEdges(
         new CloudEdge({
           from: ingress_node.id,
@@ -418,7 +384,7 @@ export default class ComponentV2 extends Component {
     return graph;
   }
 
-  public async build(buildFn: DockerBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       const digest = await buildFn({
         context: buildConfig.context,
@@ -430,16 +396,23 @@ export default class ComponentV2 extends Component {
       this.builds![buildName].image = digest;
     }
 
+    for (const [deploymentName, deploymentConfig] of Object.entries(this.deployments || {})) {
+      for (const [volumeName, volumeConfig] of Object.entries(deploymentConfig.volumes || {})) {
+        volumeConfig.digest = await volumeBuildFn({
+          host_path: volumeConfig.host_path,
+          volume_name: volumeName,
+          deployment_name: deploymentName,
+        });
+      }
+    }
+
     return this;
   }
 
   public async tag(tagFn: DockerTagFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       if (buildConfig.image) {
-        this.builds![buildName].image = await tagFn(
-          buildConfig.image,
-          buildName,
-        );
+        this.builds![buildName].image = await tagFn(buildConfig.image, buildName);
       }
     }
 

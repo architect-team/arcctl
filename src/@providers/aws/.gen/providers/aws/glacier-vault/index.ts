@@ -1,80 +1,72 @@
 // https://www.terraform.io/docs/providers/aws/r/glacier_vault
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface GlacierVaultConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#access_policy GlacierVault#access_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#access_policy GlacierVault#access_policy}
+  */
   readonly accessPolicy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#id GlacierVault#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#id GlacierVault#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#name GlacierVault#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#name GlacierVault#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#tags GlacierVault#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#tags GlacierVault#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#tags_all GlacierVault#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#tags_all GlacierVault#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * notification block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#notification GlacierVault#notification}
-   */
+  * notification block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#notification GlacierVault#notification}
+  */
   readonly notification?: GlacierVaultNotification;
 }
 export interface GlacierVaultNotification {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#events GlacierVault#events}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#events GlacierVault#events}
+  */
   readonly events: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#sns_topic GlacierVault#sns_topic}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault#sns_topic GlacierVault#sns_topic}
+  */
   readonly snsTopic: string;
 }
 
-export function glacierVaultNotificationToTerraform(
-  struct?: GlacierVaultNotificationOutputReference | GlacierVaultNotification,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function glacierVaultNotificationToTerraform(struct?: GlacierVaultNotificationOutputReference | GlacierVaultNotification): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     events: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.events),
     sns_topic: cdktf.stringToTerraform(struct!.snsTopic),
-  };
+  }
 }
 
 export class GlacierVaultNotificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -97,7 +89,8 @@ export class GlacierVaultNotificationOutputReference extends cdktf.ComplexObject
       this.isEmptyObject = false;
       this._events = undefined;
       this._snsTopic = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._events = value.events;
       this._snsTopic = value.snsTopic;
@@ -105,7 +98,7 @@ export class GlacierVaultNotificationOutputReference extends cdktf.ComplexObject
   }
 
   // events - computed: false, optional: false, required: true
-  private _events?: string[];
+  private _events?: string[]; 
   public get events() {
     return cdktf.Fn.tolist(this.getListAttribute('events'));
   }
@@ -118,7 +111,7 @@ export class GlacierVaultNotificationOutputReference extends cdktf.ComplexObject
   }
 
   // sns_topic - computed: false, optional: false, required: true
-  private _snsTopic?: string;
+  private _snsTopic?: string; 
   public get snsTopic() {
     return this.getStringAttribute('sns_topic');
   }
@@ -132,32 +125,33 @@ export class GlacierVaultNotificationOutputReference extends cdktf.ComplexObject
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault aws_glacier_vault}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault aws_glacier_vault}
+*/
 export class GlacierVault extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_glacier_vault';
+  public static readonly tfResourceType = "aws_glacier_vault";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault aws_glacier_vault} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GlacierVaultConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glacier_vault aws_glacier_vault} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GlacierVaultConfig
+  */
   public constructor(scope: Construct, id: string, config: GlacierVaultConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_glacier_vault',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -165,7 +159,7 @@ export class GlacierVault extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accessPolicy = config.accessPolicy;
     this._id = config.id;
@@ -180,7 +174,7 @@ export class GlacierVault extends cdktf.TerraformResource {
   // ==========
 
   // access_policy - computed: false, optional: true, required: false
-  private _accessPolicy?: string;
+  private _accessPolicy?: string; 
   public get accessPolicy() {
     return this.getStringAttribute('access_policy');
   }
@@ -201,7 +195,7 @@ export class GlacierVault extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -222,7 +216,7 @@ export class GlacierVault extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -235,7 +229,7 @@ export class GlacierVault extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -251,7 +245,7 @@ export class GlacierVault extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -267,10 +261,7 @@ export class GlacierVault extends cdktf.TerraformResource {
   }
 
   // notification - computed: false, optional: true, required: false
-  private _notification = new GlacierVaultNotificationOutputReference(
-    this,
-    'notification',
-  );
+  private _notification = new GlacierVaultNotificationOutputReference(this, "notification");
   public get notification() {
     return this._notification;
   }
@@ -296,9 +287,7 @@ export class GlacierVault extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      notification: glacierVaultNotificationToTerraform(
-        this._notification.internalValue,
-      ),
+      notification: glacierVaultNotificationToTerraform(this._notification.internalValue),
     };
   }
 }

@@ -1,98 +1,89 @@
 // https://www.terraform.io/docs/providers/aws/r/workspaces_workspace
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface WorkspacesWorkspaceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface WorkspacesWorkspaceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#bundle_id WorkspacesWorkspace#bundle_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#bundle_id WorkspacesWorkspace#bundle_id}
+  */
   readonly bundleId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#directory_id WorkspacesWorkspace#directory_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#directory_id WorkspacesWorkspace#directory_id}
+  */
   readonly directoryId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#id WorkspacesWorkspace#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#id WorkspacesWorkspace#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#root_volume_encryption_enabled WorkspacesWorkspace#root_volume_encryption_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#root_volume_encryption_enabled WorkspacesWorkspace#root_volume_encryption_enabled}
+  */
   readonly rootVolumeEncryptionEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#tags WorkspacesWorkspace#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#tags WorkspacesWorkspace#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#tags_all WorkspacesWorkspace#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#tags_all WorkspacesWorkspace#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#user_name WorkspacesWorkspace#user_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#user_name WorkspacesWorkspace#user_name}
+  */
   readonly userName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#user_volume_encryption_enabled WorkspacesWorkspace#user_volume_encryption_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#user_volume_encryption_enabled WorkspacesWorkspace#user_volume_encryption_enabled}
+  */
   readonly userVolumeEncryptionEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#volume_encryption_key WorkspacesWorkspace#volume_encryption_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#volume_encryption_key WorkspacesWorkspace#volume_encryption_key}
+  */
   readonly volumeEncryptionKey?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#timeouts WorkspacesWorkspace#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#timeouts WorkspacesWorkspace#timeouts}
+  */
   readonly timeouts?: WorkspacesWorkspaceTimeouts;
   /**
-   * workspace_properties block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#workspace_properties WorkspacesWorkspace#workspace_properties}
-   */
+  * workspace_properties block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#workspace_properties WorkspacesWorkspace#workspace_properties}
+  */
   readonly workspaceProperties?: WorkspacesWorkspaceWorkspaceProperties;
 }
 export interface WorkspacesWorkspaceTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#create WorkspacesWorkspace#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#create WorkspacesWorkspace#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#delete WorkspacesWorkspace#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#delete WorkspacesWorkspace#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#update WorkspacesWorkspace#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#update WorkspacesWorkspace#update}
+  */
   readonly update?: string;
 }
 
-export function workspacesWorkspaceTimeoutsToTerraform(
-  struct?:
-    | WorkspacesWorkspaceTimeoutsOutputReference
-    | WorkspacesWorkspaceTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function workspacesWorkspaceTimeoutsToTerraform(struct?: WorkspacesWorkspaceTimeoutsOutputReference | WorkspacesWorkspaceTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -100,20 +91,14 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | WorkspacesWorkspaceTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): WorkspacesWorkspaceTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -134,19 +119,19 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: WorkspacesWorkspaceTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: WorkspacesWorkspaceTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -156,7 +141,7 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -172,7 +157,7 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -188,7 +173,7 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -205,68 +190,53 @@ export class WorkspacesWorkspaceTimeoutsOutputReference extends cdktf.ComplexObj
 }
 export interface WorkspacesWorkspaceWorkspaceProperties {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#compute_type_name WorkspacesWorkspace#compute_type_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#compute_type_name WorkspacesWorkspace#compute_type_name}
+  */
   readonly computeTypeName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#root_volume_size_gib WorkspacesWorkspace#root_volume_size_gib}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#root_volume_size_gib WorkspacesWorkspace#root_volume_size_gib}
+  */
   readonly rootVolumeSizeGib?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#running_mode WorkspacesWorkspace#running_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#running_mode WorkspacesWorkspace#running_mode}
+  */
   readonly runningMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#running_mode_auto_stop_timeout_in_minutes WorkspacesWorkspace#running_mode_auto_stop_timeout_in_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#running_mode_auto_stop_timeout_in_minutes WorkspacesWorkspace#running_mode_auto_stop_timeout_in_minutes}
+  */
   readonly runningModeAutoStopTimeoutInMinutes?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#user_volume_size_gib WorkspacesWorkspace#user_volume_size_gib}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace#user_volume_size_gib WorkspacesWorkspace#user_volume_size_gib}
+  */
   readonly userVolumeSizeGib?: number;
 }
 
-export function workspacesWorkspaceWorkspacePropertiesToTerraform(
-  struct?:
-    | WorkspacesWorkspaceWorkspacePropertiesOutputReference
-    | WorkspacesWorkspaceWorkspaceProperties,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function workspacesWorkspaceWorkspacePropertiesToTerraform(struct?: WorkspacesWorkspaceWorkspacePropertiesOutputReference | WorkspacesWorkspaceWorkspaceProperties): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     compute_type_name: cdktf.stringToTerraform(struct!.computeTypeName),
     root_volume_size_gib: cdktf.numberToTerraform(struct!.rootVolumeSizeGib),
     running_mode: cdktf.stringToTerraform(struct!.runningMode),
-    running_mode_auto_stop_timeout_in_minutes: cdktf.numberToTerraform(
-      struct!.runningModeAutoStopTimeoutInMinutes,
-    ),
+    running_mode_auto_stop_timeout_in_minutes: cdktf.numberToTerraform(struct!.runningModeAutoStopTimeoutInMinutes),
     user_volume_size_gib: cdktf.numberToTerraform(struct!.userVolumeSizeGib),
-  };
+  }
 }
 
 export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | WorkspacesWorkspaceWorkspaceProperties
-    | undefined {
+  public get internalValue(): WorkspacesWorkspaceWorkspaceProperties | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._computeTypeName !== undefined) {
@@ -283,8 +253,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
     }
     if (this._runningModeAutoStopTimeoutInMinutes !== undefined) {
       hasAnyValues = true;
-      internalValueResult.runningModeAutoStopTimeoutInMinutes =
-        this._runningModeAutoStopTimeoutInMinutes;
+      internalValueResult.runningModeAutoStopTimeoutInMinutes = this._runningModeAutoStopTimeoutInMinutes;
     }
     if (this._userVolumeSizeGib !== undefined) {
       hasAnyValues = true;
@@ -293,9 +262,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: WorkspacesWorkspaceWorkspaceProperties | undefined,
-  ) {
+  public set internalValue(value: WorkspacesWorkspaceWorkspaceProperties | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._computeTypeName = undefined;
@@ -303,19 +270,19 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
       this._runningMode = undefined;
       this._runningModeAutoStopTimeoutInMinutes = undefined;
       this._userVolumeSizeGib = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._computeTypeName = value.computeTypeName;
       this._rootVolumeSizeGib = value.rootVolumeSizeGib;
       this._runningMode = value.runningMode;
-      this._runningModeAutoStopTimeoutInMinutes =
-        value.runningModeAutoStopTimeoutInMinutes;
+      this._runningModeAutoStopTimeoutInMinutes = value.runningModeAutoStopTimeoutInMinutes;
       this._userVolumeSizeGib = value.userVolumeSizeGib;
     }
   }
 
   // compute_type_name - computed: false, optional: true, required: false
-  private _computeTypeName?: string;
+  private _computeTypeName?: string; 
   public get computeTypeName() {
     return this.getStringAttribute('compute_type_name');
   }
@@ -331,7 +298,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // root_volume_size_gib - computed: false, optional: true, required: false
-  private _rootVolumeSizeGib?: number;
+  private _rootVolumeSizeGib?: number; 
   public get rootVolumeSizeGib() {
     return this.getNumberAttribute('root_volume_size_gib');
   }
@@ -347,7 +314,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // running_mode - computed: false, optional: true, required: false
-  private _runningMode?: string;
+  private _runningMode?: string; 
   public get runningMode() {
     return this.getStringAttribute('running_mode');
   }
@@ -363,7 +330,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // running_mode_auto_stop_timeout_in_minutes - computed: true, optional: true, required: false
-  private _runningModeAutoStopTimeoutInMinutes?: number;
+  private _runningModeAutoStopTimeoutInMinutes?: number; 
   public get runningModeAutoStopTimeoutInMinutes() {
     return this.getNumberAttribute('running_mode_auto_stop_timeout_in_minutes');
   }
@@ -379,7 +346,7 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
   }
 
   // user_volume_size_gib - computed: false, optional: true, required: false
-  private _userVolumeSizeGib?: number;
+  private _userVolumeSizeGib?: number; 
   public get userVolumeSizeGib() {
     return this.getNumberAttribute('user_volume_size_gib');
   }
@@ -396,36 +363,33 @@ export class WorkspacesWorkspaceWorkspacePropertiesOutputReference extends cdktf
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace aws_workspaces_workspace}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace aws_workspaces_workspace}
+*/
 export class WorkspacesWorkspace extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_workspaces_workspace';
+  public static readonly tfResourceType = "aws_workspaces_workspace";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace aws_workspaces_workspace} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options WorkspacesWorkspaceConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: WorkspacesWorkspaceConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/workspaces_workspace aws_workspaces_workspace} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options WorkspacesWorkspaceConfig
+  */
+  public constructor(scope: Construct, id: string, config: WorkspacesWorkspaceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_workspaces_workspace',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -433,7 +397,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._bundleId = config.bundleId;
     this._directoryId = config.directoryId;
@@ -453,7 +417,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   // ==========
 
   // bundle_id - computed: false, optional: false, required: true
-  private _bundleId?: string;
+  private _bundleId?: string; 
   public get bundleId() {
     return this.getStringAttribute('bundle_id');
   }
@@ -471,7 +435,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // directory_id - computed: false, optional: false, required: true
-  private _directoryId?: string;
+  private _directoryId?: string; 
   public get directoryId() {
     return this.getStringAttribute('directory_id');
   }
@@ -484,7 +448,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -505,7 +469,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // root_volume_encryption_enabled - computed: false, optional: true, required: false
-  private _rootVolumeEncryptionEnabled?: boolean | cdktf.IResolvable;
+  private _rootVolumeEncryptionEnabled?: boolean | cdktf.IResolvable; 
   public get rootVolumeEncryptionEnabled() {
     return this.getBooleanAttribute('root_volume_encryption_enabled');
   }
@@ -526,7 +490,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -542,7 +506,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -558,7 +522,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string;
+  private _userName?: string; 
   public get userName() {
     return this.getStringAttribute('user_name');
   }
@@ -571,7 +535,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // user_volume_encryption_enabled - computed: false, optional: true, required: false
-  private _userVolumeEncryptionEnabled?: boolean | cdktf.IResolvable;
+  private _userVolumeEncryptionEnabled?: boolean | cdktf.IResolvable; 
   public get userVolumeEncryptionEnabled() {
     return this.getBooleanAttribute('user_volume_encryption_enabled');
   }
@@ -587,7 +551,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // volume_encryption_key - computed: false, optional: true, required: false
-  private _volumeEncryptionKey?: string;
+  private _volumeEncryptionKey?: string; 
   public get volumeEncryptionKey() {
     return this.getStringAttribute('volume_encryption_key');
   }
@@ -603,10 +567,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new WorkspacesWorkspaceTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new WorkspacesWorkspaceTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -622,11 +583,7 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
   }
 
   // workspace_properties - computed: false, optional: true, required: false
-  private _workspaceProperties =
-    new WorkspacesWorkspaceWorkspacePropertiesOutputReference(
-      this,
-      'workspace_properties',
-    );
+  private _workspaceProperties = new WorkspacesWorkspaceWorkspacePropertiesOutputReference(this, "workspace_properties");
   public get workspaceProperties() {
     return this._workspaceProperties;
   }
@@ -650,22 +607,14 @@ export class WorkspacesWorkspace extends cdktf.TerraformResource {
       bundle_id: cdktf.stringToTerraform(this._bundleId),
       directory_id: cdktf.stringToTerraform(this._directoryId),
       id: cdktf.stringToTerraform(this._id),
-      root_volume_encryption_enabled: cdktf.booleanToTerraform(
-        this._rootVolumeEncryptionEnabled,
-      ),
+      root_volume_encryption_enabled: cdktf.booleanToTerraform(this._rootVolumeEncryptionEnabled),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       user_name: cdktf.stringToTerraform(this._userName),
-      user_volume_encryption_enabled: cdktf.booleanToTerraform(
-        this._userVolumeEncryptionEnabled,
-      ),
+      user_volume_encryption_enabled: cdktf.booleanToTerraform(this._userVolumeEncryptionEnabled),
       volume_encryption_key: cdktf.stringToTerraform(this._volumeEncryptionKey),
-      timeouts: workspacesWorkspaceTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
-      workspace_properties: workspacesWorkspaceWorkspacePropertiesToTerraform(
-        this._workspaceProperties.internalValue,
-      ),
+      timeouts: workspacesWorkspaceTimeoutsToTerraform(this._timeouts.internalValue),
+      workspace_properties: workspacesWorkspaceWorkspacePropertiesToTerraform(this._workspaceProperties.internalValue),
     };
   }
 }

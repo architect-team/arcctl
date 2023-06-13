@@ -3,9 +3,7 @@ import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { Command } from 'cliffy/command/mod.ts';
 import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from 'cliffy/prompt/mod.ts';
-import process from 'node:process';
-import readline from 'node:readline';
-import { Subscription } from 'rxjs';
+import logUpdate from 'log-update';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
@@ -15,7 +13,6 @@ import { ComponentStore } from '../component-store/index.ts';
 import { Datacenter, DatacenterRecord, DatacenterStore } from '../datacenters/index.ts';
 import { EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
-import { Terraform } from '../terraform/terraform.ts';
 import CloudCtlConfig from '../utils/config.ts';
 import { CldCtlProviderStore } from '../utils/provider-store.ts';
 import { createTable } from '../utils/table.ts';
@@ -60,74 +57,79 @@ export class CommandHelper {
    * Store the pipeline in the datacenters secret manager and then log
    * it to the datacenter store
    */
-  public async saveDatacenter(
-    datacenterName: string,
-    datacenter: Datacenter,
-    pipeline: Pipeline,
-  ): Promise<Subscription> {
-    const secretStep = new PipelineStep({
-      action: 'create',
-      type: 'secret',
-      name: `${datacenterName}-datacenter-pipeline`,
-      inputs: {
+  public saveDatacenter(datacenterName: string, datacenter: Datacenter, pipeline: Pipeline): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'create',
         type: 'secret',
-        name: `datacenter-pipeline`,
-        namespace: datacenterName,
-        account: datacenter.getSecretsConfig().account,
-        data: JSON.stringify(pipeline),
-      },
-    });
+        name: `${datacenterName}-datacenter-pipeline`,
+        inputs: {
+          type: 'secret',
+          name: 'datacenter-pipeline',
+          namespace: datacenterName,
+          account: datacenter.getSecretsConfig().account,
+          data: JSON.stringify(pipeline),
+        },
+      });
 
-    const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-
-    return secretStep
-      .apply({
-        providerStore: this.providerStore,
-        terraform: terraform,
-      })
-      .subscribe(async () => {
-        const outputs = await secretStep.getOutputs({
+      secretStep
+        .apply({
           providerStore: this.providerStore,
-          terraform: terraform,
-        });
+        })
+        .subscribe({
+          complete: async () => {
+            if (!secretStep.outputs) {
+              console.error('Something went wrong storing the pipeline');
+              Deno.exit(1);
+            }
 
-        if (!outputs) {
-          console.error('Something went wrong storing the pipeline');
-          Deno.exit(1);
-        }
-
-        await this.datacenterStore.save({
-          name: datacenterName,
-          config: datacenter,
-          lastPipeline: {
-            account: datacenter.getSecretsConfig().account,
-            secret: outputs.id,
+            await this.datacenterStore.save({
+              name: datacenterName,
+              config: datacenter,
+              lastPipeline: {
+                account: datacenter.getSecretsConfig().account,
+                secret: secretStep.outputs.id,
+              },
+            });
+            resolve();
+          },
+          error: (err) => {
+            reject(err);
           },
         });
-      });
+    });
   }
 
-  public async removeDatacenter(record: DatacenterRecord): Promise<Subscription> {
-    const secretStep = new PipelineStep({
-      action: 'delete',
-      type: 'secret',
-      name: `${record.name}-datacenter-pipeline`,
-      resource: {
-        account: record.config.getSecretsConfig().account,
-        id: `${record.name}/datacenter-pipeline`,
-      },
-    });
-
-    const terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-
-    return secretStep
-      .apply({
-        providerStore: this.providerStore,
-        terraform: terraform,
-      })
-      .subscribe(async () => {
-        await this.datacenterStore.remove(record.name);
+  public removeDatacenter(record: DatacenterRecord): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const secretStep = new PipelineStep({
+        action: 'delete',
+        type: 'secret',
+        name: `${record.name}-datacenter-pipeline`,
+        inputs: {
+          type: 'secret',
+          name: 'datacenter-pipeline',
+          namespace: record.name,
+          data: '',
+          account: record.config.getSecretsConfig().account,
+        },
+        outputs: {
+          id: `${record.name}/datacenter-pipeline`,
+          data: '',
+        },
       });
+
+      secretStep
+        .apply({
+          providerStore: this.providerStore,
+        })
+        .subscribe({
+          complete: async () => {
+            await this.datacenterStore.remove(record.name);
+            resolve();
+          },
+        });
+    });
   }
 
   public async getPipelineForDatacenter(record: DatacenterRecord): Promise<Pipeline> {
@@ -145,8 +147,7 @@ export class CommandHelper {
 
     const secret = await service.get(record.lastPipeline.secret);
     if (!secret) {
-      console.error(`Invalid secret housing datacenter pipeline: ${record.lastPipeline.secret}`);
-      Deno.exit(1);
+      return new Pipeline();
     }
 
     const rawPipeline = JSON.parse(secret.data);
@@ -160,7 +161,7 @@ export class CommandHelper {
   /**
    * Render the executable graph and the status of each resource
    */
-  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean }): void {
+  public renderPipeline(pipeline: Pipeline, options?: { clear?: boolean; message?: string }): void {
     const headers = ['Name', 'Type'];
     const showEnvironment = pipeline.steps.some((s) => s.environment);
     const showComponent = pipeline.steps.some((s) => s.component);
@@ -209,14 +210,11 @@ export class CommandHelper {
     );
 
     if (options?.clear) {
-      readline.cursorTo(process.stdout, 0, 0);
-      readline.clearScreenDown(process.stdout);
-
       const spinner = cliSpinners.dots.frames[this.spinner_frame_index];
       this.spinner_frame_index = ++this.spinner_frame_index % cliSpinners.dots.frames.length;
 
-      console.log(spinner + ' Applying changes');
-      console.log('\n' + table.toString());
+      const message = spinner + ' ' + (options.message || 'Applying changes') + '\n' + table.toString();
+      logUpdate(message);
     } else {
       console.log(table.toString());
     }
@@ -288,7 +286,7 @@ export class CommandHelper {
 
     const result = await Input.prompt({
       message: `${property.schema.description || property.name}${
-        property.schema.properties.required ? '' : ' (optional)'
+        property.schema.properties?.required ? '' : ' (optional)'
       }`,
       validate: (value?: string) => {
         const number = Number.parseFloat(value || '');
@@ -296,7 +294,7 @@ export class CommandHelper {
           return 'Must be a number';
         }
 
-        if (property.schema.properties.required && !value) {
+        if (property.schema.properties?.required && !value) {
           return `${property.name} is required`;
         } else if (property.schema.minimum && value && number < property.schema.minimum) {
           return `${property.name} must be greater than ${property.schema.minimum}`;
@@ -377,32 +375,35 @@ export class CommandHelper {
   ): Promise<string | undefined> {
     const service = provider.resources[property.name];
     if (!service) {
-      throw new Error(`The ${provider.type} provider doesn't support ${property.name}s`);
-    } else if (!service.list) {
-      throw new Error(`The ${provider.type} provider cannot query ${property.name}s`);
+      return this.promptForStringInputs(property, undefined, data);
     }
 
     const { rows: options } = await service.list(data as any);
     options.sort((a, b) => a.id.localeCompare(b.id));
 
-    const answer = await Select.prompt({
-      message: property.schema.description || property.name,
-      options: [
-        ...options.map((row) => ({
-          name: row.id,
-          value: row.id,
-        })),
-        ...('construct' in service || 'create' in service
-          ? [
-            Select.separator(),
-            {
-              value: 'create-new',
-              name: `Create a new ${property.name}`,
-            },
-          ]
-          : []),
-      ],
-    });
+    let answer: string | undefined;
+    if (options.length === 1) {
+      answer = options[0].id;
+    } else if (options.length > 1) {
+      answer = await Select.prompt({
+        message: property.schema.description || property.name,
+        options: [
+          ...options.map((row) => ({
+            name: row.id,
+            value: row.id,
+          })),
+          ...('apply' in service
+            ? [
+              Select.separator(),
+              {
+                value: 'create-new',
+                name: `Create a new ${property.name}`,
+              },
+            ]
+            : []),
+        ],
+      });
+    }
 
     if (answer === 'create-new') {
       console.log(`Inputs for ${property.name}`);
@@ -414,22 +415,6 @@ export class CommandHelper {
     } else {
       return answer;
     }
-  }
-
-  /**
-   * Look through all providers and determine if a resource type is creatable
-   */
-  public isCreatableResourceType(resourceType: ResourceType): boolean {
-    for (const [provider_name, provider_constructor] of Object.entries(SupportedProviders)) {
-      const any_value: any = {};
-      const provider = new provider_constructor(provider_name, any_value, any_value) as Provider<any>;
-
-      const service = provider.resources[resourceType];
-      if (service && ('construct' in service || 'create' in service)) {
-        return true;
-      }
-    }
-    return false;
   }
 
   /**
@@ -728,7 +713,7 @@ export class CommandHelper {
     const account = new SupportedProviders[providerType](
       res.name!,
       credentials as any,
-      this.providerStore.saveFile.bind(this.providerStore),
+      this.providerStore,
     );
 
     const validCredentials = await account.testCredentials();

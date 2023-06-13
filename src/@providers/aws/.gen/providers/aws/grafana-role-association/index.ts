@@ -1,71 +1,62 @@
 // https://www.terraform.io/docs/providers/aws/r/grafana_role_association
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface GrafanaRoleAssociationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface GrafanaRoleAssociationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#group_ids GrafanaRoleAssociation#group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#group_ids GrafanaRoleAssociation#group_ids}
+  */
   readonly groupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#id GrafanaRoleAssociation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#id GrafanaRoleAssociation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#role GrafanaRoleAssociation#role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#role GrafanaRoleAssociation#role}
+  */
   readonly role: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#user_ids GrafanaRoleAssociation#user_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#user_ids GrafanaRoleAssociation#user_ids}
+  */
   readonly userIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#workspace_id GrafanaRoleAssociation#workspace_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#workspace_id GrafanaRoleAssociation#workspace_id}
+  */
   readonly workspaceId: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#timeouts GrafanaRoleAssociation#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#timeouts GrafanaRoleAssociation#timeouts}
+  */
   readonly timeouts?: GrafanaRoleAssociationTimeouts;
 }
 export interface GrafanaRoleAssociationTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#create GrafanaRoleAssociation#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#create GrafanaRoleAssociation#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#delete GrafanaRoleAssociation#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association#delete GrafanaRoleAssociation#delete}
+  */
   readonly delete?: string;
 }
 
-export function grafanaRoleAssociationTimeoutsToTerraform(
-  struct?:
-    | GrafanaRoleAssociationTimeoutsOutputReference
-    | GrafanaRoleAssociationTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function grafanaRoleAssociationTimeoutsToTerraform(struct?: GrafanaRoleAssociationTimeoutsOutputReference | GrafanaRoleAssociationTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -73,20 +64,14 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GrafanaRoleAssociationTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GrafanaRoleAssociationTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -103,18 +88,18 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GrafanaRoleAssociationTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: GrafanaRoleAssociationTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -123,7 +108,7 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -139,7 +124,7 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -156,36 +141,33 @@ export class GrafanaRoleAssociationTimeoutsOutputReference extends cdktf.Complex
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association aws_grafana_role_association}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association aws_grafana_role_association}
+*/
 export class GrafanaRoleAssociation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_grafana_role_association';
+  public static readonly tfResourceType = "aws_grafana_role_association";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association aws_grafana_role_association} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GrafanaRoleAssociationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GrafanaRoleAssociationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/grafana_role_association aws_grafana_role_association} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GrafanaRoleAssociationConfig
+  */
+  public constructor(scope: Construct, id: string, config: GrafanaRoleAssociationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_grafana_role_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -193,7 +175,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._groupIds = config.groupIds;
     this._id = config.id;
@@ -208,7 +190,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   // ==========
 
   // group_ids - computed: false, optional: true, required: false
-  private _groupIds?: string[];
+  private _groupIds?: string[]; 
   public get groupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('group_ids'));
   }
@@ -224,7 +206,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -240,7 +222,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // role - computed: false, optional: false, required: true
-  private _role?: string;
+  private _role?: string; 
   public get role() {
     return this.getStringAttribute('role');
   }
@@ -253,7 +235,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // user_ids - computed: false, optional: true, required: false
-  private _userIds?: string[];
+  private _userIds?: string[]; 
   public get userIds() {
     return cdktf.Fn.tolist(this.getListAttribute('user_ids'));
   }
@@ -269,7 +251,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // workspace_id - computed: false, optional: false, required: true
-  private _workspaceId?: string;
+  private _workspaceId?: string; 
   public get workspaceId() {
     return this.getStringAttribute('workspace_id');
   }
@@ -282,10 +264,7 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GrafanaRoleAssociationTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new GrafanaRoleAssociationTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -306,17 +285,12 @@ export class GrafanaRoleAssociation extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._groupIds),
+      group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._groupIds),
       id: cdktf.stringToTerraform(this._id),
       role: cdktf.stringToTerraform(this._role),
       user_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._userIds),
       workspace_id: cdktf.stringToTerraform(this._workspaceId),
-      timeouts: grafanaRoleAssociationTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: grafanaRoleAssociationTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

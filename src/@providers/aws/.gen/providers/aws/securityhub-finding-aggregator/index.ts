@@ -1,60 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface SecurityhubFindingAggregatorConfig
-  extends cdktf.TerraformMetaArguments {
+export interface SecurityhubFindingAggregatorConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator#id SecurityhubFindingAggregator#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator#id SecurityhubFindingAggregator#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator#linking_mode SecurityhubFindingAggregator#linking_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator#linking_mode SecurityhubFindingAggregator#linking_mode}
+  */
   readonly linkingMode: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator#specified_regions SecurityhubFindingAggregator#specified_regions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator#specified_regions SecurityhubFindingAggregator#specified_regions}
+  */
   readonly specifiedRegions?: string[];
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator aws_securityhub_finding_aggregator}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator aws_securityhub_finding_aggregator}
+*/
 export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_securityhub_finding_aggregator';
+  public static readonly tfResourceType = "aws_securityhub_finding_aggregator";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator aws_securityhub_finding_aggregator} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SecurityhubFindingAggregatorConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SecurityhubFindingAggregatorConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/securityhub_finding_aggregator aws_securityhub_finding_aggregator} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SecurityhubFindingAggregatorConfig
+  */
+  public constructor(scope: Construct, id: string, config: SecurityhubFindingAggregatorConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_securityhub_finding_aggregator',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -62,7 +59,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._linkingMode = config.linkingMode;
@@ -74,7 +71,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -90,7 +87,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
   }
 
   // linking_mode - computed: false, optional: false, required: true
-  private _linkingMode?: string;
+  private _linkingMode?: string; 
   public get linkingMode() {
     return this.getStringAttribute('linking_mode');
   }
@@ -103,7 +100,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
   }
 
   // specified_regions - computed: false, optional: true, required: false
-  private _specifiedRegions?: string[];
+  private _specifiedRegions?: string[]; 
   public get specifiedRegions() {
     return cdktf.Fn.tolist(this.getListAttribute('specified_regions'));
   }
@@ -126,10 +123,7 @@ export class SecurityhubFindingAggregator extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       linking_mode: cdktf.stringToTerraform(this._linkingMode),
-      specified_regions: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._specifiedRegions),
+      specified_regions: cdktf.listMapper(cdktf.stringToTerraform, false)(this._specifiedRegions),
     };
   }
 }

@@ -1,15 +1,21 @@
+import { Construct } from 'constructs';
+import { pg } from 'deps';
 import { ResourceOutputs } from '../../../@resources/types.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { PostgresqlProvider } from '../.gen/providers/postgresql/provider/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
 import { PostgresDatabaseSchemaModule } from '../modules/database-schema.ts';
-import { pg } from 'deps';
 
 export class PostgresDatabaseSchemaService extends TerraformResourceService<'databaseSchema', PostgresCredentials> {
-  client: pg.Client;
+  private client: pg.Client;
 
-  constructor(private credentials: PostgresCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = PostgresDatabaseSchemaModule;
+
+  constructor(accountName: string, credentials: PostgresCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
 
     this.client = new pg.Client({
       host: credentials.host,
@@ -31,7 +37,7 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
 
   async list(
     filterOptions?: Partial<ResourceOutputs['databaseSchema']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseSchema']>> {
     await this.client.connect();
     let query = 'SELECT datname FROM pg_database WHERE datistemplate = false';
@@ -43,17 +49,28 @@ export class PostgresDatabaseSchemaService extends TerraformResourceService<'dat
 
     return {
       total: res.rowCount,
-      rows: res.rows.map((r) => ({
+      rows: res.rows.map((r: { datname: string }) => ({
         id: r.datname,
         account: '',
         host: this.credentials.host,
         port: this.credentials.port,
         name: r.datname,
+        username: this.credentials.username,
+        password: '',
         protocol: 'postgresql',
         url: `postgresql://${this.credentials.host}:${this.credentials.port}/${r.datname}`,
       })),
     };
   }
 
-  construct = PostgresDatabaseSchemaModule;
+  configureTerraformProviders(scope: Construct): void {
+    new PostgresqlProvider(scope, 'postgres', {
+      host: this.credentials.host === 'host.docker.internal' ? 'localhost' : this.credentials.host,
+      port: this.credentials.port,
+      username: this.credentials.username,
+      password: this.credentials.password,
+      superuser: false,
+      sslMode: 'disable',
+    });
+  }
 }

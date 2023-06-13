@@ -1,83 +1,71 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_detector
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface GuarddutyDetectorConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
+  */
   readonly enable?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#finding_publishing_frequency GuarddutyDetector#finding_publishing_frequency}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#finding_publishing_frequency GuarddutyDetector#finding_publishing_frequency}
+  */
   readonly findingPublishingFrequency?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#id GuarddutyDetector#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#id GuarddutyDetector#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#tags GuarddutyDetector#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#tags GuarddutyDetector#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#tags_all GuarddutyDetector#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#tags_all GuarddutyDetector#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * datasources block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#datasources GuarddutyDetector#datasources}
-   */
+  * datasources block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#datasources GuarddutyDetector#datasources}
+  */
   readonly datasources?: GuarddutyDetectorDatasources;
 }
 export interface GuarddutyDetectorDatasourcesKubernetesAuditLogs {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
+  */
   readonly enable: boolean | cdktf.IResolvable;
 }
 
-export function guarddutyDetectorDatasourcesKubernetesAuditLogsToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference
-    | GuarddutyDetectorDatasourcesKubernetesAuditLogs,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesKubernetesAuditLogsToTerraform(struct?: GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference | GuarddutyDetectorDatasourcesKubernetesAuditLogs): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-  };
+  }
 }
 
 export class GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GuarddutyDetectorDatasourcesKubernetesAuditLogs
-    | undefined {
+  public get internalValue(): GuarddutyDetectorDatasourcesKubernetesAuditLogs | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -87,20 +75,19 @@ export class GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GuarddutyDetectorDatasourcesKubernetesAuditLogs | undefined,
-  ) {
+  public set internalValue(value: GuarddutyDetectorDatasourcesKubernetesAuditLogs | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
     }
   }
 
   // enable - computed: false, optional: false, required: true
-  private _enable?: boolean | cdktf.IResolvable;
+  private _enable?: boolean | cdktf.IResolvable; 
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -114,50 +101,35 @@ export class GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference exte
 }
 export interface GuarddutyDetectorDatasourcesKubernetes {
   /**
-   * audit_logs block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#audit_logs GuarddutyDetector#audit_logs}
-   */
+  * audit_logs block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#audit_logs GuarddutyDetector#audit_logs}
+  */
   readonly auditLogs: GuarddutyDetectorDatasourcesKubernetesAuditLogs;
 }
 
-export function guarddutyDetectorDatasourcesKubernetesToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesKubernetesOutputReference
-    | GuarddutyDetectorDatasourcesKubernetes,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesKubernetesToTerraform(struct?: GuarddutyDetectorDatasourcesKubernetesOutputReference | GuarddutyDetectorDatasourcesKubernetes): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    audit_logs: guarddutyDetectorDatasourcesKubernetesAuditLogsToTerraform(
-      struct!.auditLogs,
-    ),
-  };
+    audit_logs: guarddutyDetectorDatasourcesKubernetesAuditLogsToTerraform(struct!.auditLogs),
+  }
 }
 
 export class GuarddutyDetectorDatasourcesKubernetesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GuarddutyDetectorDatasourcesKubernetes
-    | undefined {
+  public get internalValue(): GuarddutyDetectorDatasourcesKubernetes | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._auditLogs?.internalValue !== undefined) {
@@ -167,24 +139,19 @@ export class GuarddutyDetectorDatasourcesKubernetesOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GuarddutyDetectorDatasourcesKubernetes | undefined,
-  ) {
+  public set internalValue(value: GuarddutyDetectorDatasourcesKubernetes | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._auditLogs.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._auditLogs.internalValue = value.auditLogs;
     }
   }
 
   // audit_logs - computed: false, optional: false, required: true
-  private _auditLogs =
-    new GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference(
-      this,
-      'audit_logs',
-    );
+  private _auditLogs = new GuarddutyDetectorDatasourcesKubernetesAuditLogsOutputReference(this, "audit_logs");
   public get auditLogs() {
     return this._auditLogs;
   }
@@ -198,46 +165,33 @@ export class GuarddutyDetectorDatasourcesKubernetesOutputReference extends cdktf
 }
 export interface GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
+  */
   readonly enable: boolean | cdktf.IResolvable;
 }
 
-export function guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference
-    | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(struct?: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-  };
+  }
 }
 
 export class GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes
-    | undefined {
+  public get internalValue(): GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -247,22 +201,19 @@ export class GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFin
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes
-      | undefined,
-  ) {
+  public set internalValue(value: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
     }
   }
 
   // enable - computed: false, optional: false, required: true
-  private _enable?: boolean | cdktf.IResolvable;
+  private _enable?: boolean | cdktf.IResolvable; 
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -276,51 +227,35 @@ export class GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFin
 }
 export interface GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
   /**
-   * ebs_volumes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#ebs_volumes GuarddutyDetector#ebs_volumes}
-   */
+  * ebs_volumes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#ebs_volumes GuarddutyDetector#ebs_volumes}
+  */
   readonly ebsVolumes: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes;
 }
 
-export function guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference
-    | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(struct?: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    ebs_volumes:
-      guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(
-        struct!.ebsVolumes,
-      ),
-  };
+    ebs_volumes: guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesToTerraform(struct!.ebsVolumes),
+  }
 }
 
 export class GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings
-    | undefined {
+  public get internalValue(): GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._ebsVolumes?.internalValue !== undefined) {
@@ -330,32 +265,23 @@ export class GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFin
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings
-      | undefined,
-  ) {
+  public set internalValue(value: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._ebsVolumes.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._ebsVolumes.internalValue = value.ebsVolumes;
     }
   }
 
   // ebs_volumes - computed: false, optional: false, required: true
-  private _ebsVolumes =
-    new GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference(
-      this,
-      'ebs_volumes',
-    );
+  private _ebsVolumes = new GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputReference(this, "ebs_volumes");
   public get ebsVolumes() {
     return this._ebsVolumes;
   }
-  public putEbsVolumes(
-    value: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes,
-  ) {
+  public putEbsVolumes(value: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) {
     this._ebsVolumes.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -365,86 +291,61 @@ export class GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFin
 }
 export interface GuarddutyDetectorDatasourcesMalwareProtection {
   /**
-   * scan_ec2_instance_with_findings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#scan_ec2_instance_with_findings GuarddutyDetector#scan_ec2_instance_with_findings}
-   */
+  * scan_ec2_instance_with_findings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#scan_ec2_instance_with_findings GuarddutyDetector#scan_ec2_instance_with_findings}
+  */
   readonly scanEc2InstanceWithFindings: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings;
 }
 
-export function guarddutyDetectorDatasourcesMalwareProtectionToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesMalwareProtectionOutputReference
-    | GuarddutyDetectorDatasourcesMalwareProtection,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesMalwareProtectionToTerraform(struct?: GuarddutyDetectorDatasourcesMalwareProtectionOutputReference | GuarddutyDetectorDatasourcesMalwareProtection): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    scan_ec2_instance_with_findings:
-      guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(
-        struct!.scanEc2InstanceWithFindings,
-      ),
-  };
+    scan_ec2_instance_with_findings: guarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsToTerraform(struct!.scanEc2InstanceWithFindings),
+  }
 }
 
 export class GuarddutyDetectorDatasourcesMalwareProtectionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GuarddutyDetectorDatasourcesMalwareProtection
-    | undefined {
+  public get internalValue(): GuarddutyDetectorDatasourcesMalwareProtection | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._scanEc2InstanceWithFindings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.scanEc2InstanceWithFindings =
-        this._scanEc2InstanceWithFindings?.internalValue;
+      internalValueResult.scanEc2InstanceWithFindings = this._scanEc2InstanceWithFindings?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GuarddutyDetectorDatasourcesMalwareProtection | undefined,
-  ) {
+  public set internalValue(value: GuarddutyDetectorDatasourcesMalwareProtection | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._scanEc2InstanceWithFindings.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._scanEc2InstanceWithFindings.internalValue =
-        value.scanEc2InstanceWithFindings;
+      this._scanEc2InstanceWithFindings.internalValue = value.scanEc2InstanceWithFindings;
     }
   }
 
   // scan_ec2_instance_with_findings - computed: false, optional: false, required: true
-  private _scanEc2InstanceWithFindings =
-    new GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference(
-      this,
-      'scan_ec2_instance_with_findings',
-    );
+  private _scanEc2InstanceWithFindings = new GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputReference(this, "scan_ec2_instance_with_findings");
   public get scanEc2InstanceWithFindings() {
     return this._scanEc2InstanceWithFindings;
   }
-  public putScanEc2InstanceWithFindings(
-    value: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings,
-  ) {
+  public putScanEc2InstanceWithFindings(value: GuarddutyDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) {
     this._scanEc2InstanceWithFindings.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -454,40 +355,29 @@ export class GuarddutyDetectorDatasourcesMalwareProtectionOutputReference extend
 }
 export interface GuarddutyDetectorDatasourcesS3Logs {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#enable GuarddutyDetector#enable}
+  */
   readonly enable: boolean | cdktf.IResolvable;
 }
 
-export function guarddutyDetectorDatasourcesS3LogsToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesS3LogsOutputReference
-    | GuarddutyDetectorDatasourcesS3Logs,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesS3LogsToTerraform(struct?: GuarddutyDetectorDatasourcesS3LogsOutputReference | GuarddutyDetectorDatasourcesS3Logs): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-  };
+  }
 }
 
 export class GuarddutyDetectorDatasourcesS3LogsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -501,20 +391,19 @@ export class GuarddutyDetectorDatasourcesS3LogsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GuarddutyDetectorDatasourcesS3Logs | undefined,
-  ) {
+  public set internalValue(value: GuarddutyDetectorDatasourcesS3Logs | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
     }
   }
 
   // enable - computed: false, optional: false, required: true
-  private _enable?: boolean | cdktf.IResolvable;
+  private _enable?: boolean | cdktf.IResolvable; 
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -528,61 +417,45 @@ export class GuarddutyDetectorDatasourcesS3LogsOutputReference extends cdktf.Com
 }
 export interface GuarddutyDetectorDatasources {
   /**
-   * kubernetes block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#kubernetes GuarddutyDetector#kubernetes}
-   */
+  * kubernetes block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#kubernetes GuarddutyDetector#kubernetes}
+  */
   readonly kubernetes?: GuarddutyDetectorDatasourcesKubernetes;
   /**
-   * malware_protection block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#malware_protection GuarddutyDetector#malware_protection}
-   */
+  * malware_protection block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#malware_protection GuarddutyDetector#malware_protection}
+  */
   readonly malwareProtection?: GuarddutyDetectorDatasourcesMalwareProtection;
   /**
-   * s3_logs block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#s3_logs GuarddutyDetector#s3_logs}
-   */
+  * s3_logs block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector#s3_logs GuarddutyDetector#s3_logs}
+  */
   readonly s3Logs?: GuarddutyDetectorDatasourcesS3Logs;
 }
 
-export function guarddutyDetectorDatasourcesToTerraform(
-  struct?:
-    | GuarddutyDetectorDatasourcesOutputReference
-    | GuarddutyDetectorDatasources,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function guarddutyDetectorDatasourcesToTerraform(struct?: GuarddutyDetectorDatasourcesOutputReference | GuarddutyDetectorDatasources): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    kubernetes: guarddutyDetectorDatasourcesKubernetesToTerraform(
-      struct!.kubernetes,
-    ),
-    malware_protection:
-      guarddutyDetectorDatasourcesMalwareProtectionToTerraform(
-        struct!.malwareProtection,
-      ),
+    kubernetes: guarddutyDetectorDatasourcesKubernetesToTerraform(struct!.kubernetes),
+    malware_protection: guarddutyDetectorDatasourcesMalwareProtectionToTerraform(struct!.malwareProtection),
     s3_logs: guarddutyDetectorDatasourcesS3LogsToTerraform(struct!.s3Logs),
-  };
+  }
 }
 
 export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -595,8 +468,7 @@ export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexOb
     }
     if (this._malwareProtection?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.malwareProtection =
-        this._malwareProtection?.internalValue;
+      internalValueResult.malwareProtection = this._malwareProtection?.internalValue;
     }
     if (this._s3Logs?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -611,7 +483,8 @@ export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexOb
       this._kubernetes.internalValue = undefined;
       this._malwareProtection.internalValue = undefined;
       this._s3Logs.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._kubernetes.internalValue = value.kubernetes;
       this._malwareProtection.internalValue = value.malwareProtection;
@@ -620,11 +493,7 @@ export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexOb
   }
 
   // kubernetes - computed: false, optional: true, required: false
-  private _kubernetes =
-    new GuarddutyDetectorDatasourcesKubernetesOutputReference(
-      this,
-      'kubernetes',
-    );
+  private _kubernetes = new GuarddutyDetectorDatasourcesKubernetesOutputReference(this, "kubernetes");
   public get kubernetes() {
     return this._kubernetes;
   }
@@ -640,17 +509,11 @@ export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexOb
   }
 
   // malware_protection - computed: false, optional: true, required: false
-  private _malwareProtection =
-    new GuarddutyDetectorDatasourcesMalwareProtectionOutputReference(
-      this,
-      'malware_protection',
-    );
+  private _malwareProtection = new GuarddutyDetectorDatasourcesMalwareProtectionOutputReference(this, "malware_protection");
   public get malwareProtection() {
     return this._malwareProtection;
   }
-  public putMalwareProtection(
-    value: GuarddutyDetectorDatasourcesMalwareProtection,
-  ) {
+  public putMalwareProtection(value: GuarddutyDetectorDatasourcesMalwareProtection) {
     this._malwareProtection.internalValue = value;
   }
   public resetMalwareProtection() {
@@ -662,10 +525,7 @@ export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexOb
   }
 
   // s3_logs - computed: false, optional: true, required: false
-  private _s3Logs = new GuarddutyDetectorDatasourcesS3LogsOutputReference(
-    this,
-    's3_logs',
-  );
+  private _s3Logs = new GuarddutyDetectorDatasourcesS3LogsOutputReference(this, "s3_logs");
   public get s3Logs() {
     return this._s3Logs;
   }
@@ -682,36 +542,33 @@ export class GuarddutyDetectorDatasourcesOutputReference extends cdktf.ComplexOb
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector aws_guardduty_detector}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector aws_guardduty_detector}
+*/
 export class GuarddutyDetector extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_guardduty_detector';
+  public static readonly tfResourceType = "aws_guardduty_detector";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector aws_guardduty_detector} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GuarddutyDetectorConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GuarddutyDetectorConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_detector aws_guardduty_detector} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GuarddutyDetectorConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: GuarddutyDetectorConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_guardduty_detector',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -719,7 +576,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._enable = config.enable;
     this._findingPublishingFrequency = config.findingPublishingFrequency;
@@ -744,7 +601,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   }
 
   // enable - computed: false, optional: true, required: false
-  private _enable?: boolean | cdktf.IResolvable;
+  private _enable?: boolean | cdktf.IResolvable; 
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -760,7 +617,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   }
 
   // finding_publishing_frequency - computed: true, optional: true, required: false
-  private _findingPublishingFrequency?: string;
+  private _findingPublishingFrequency?: string; 
   public get findingPublishingFrequency() {
     return this.getStringAttribute('finding_publishing_frequency');
   }
@@ -776,7 +633,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -792,7 +649,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -808,7 +665,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -824,10 +681,7 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   }
 
   // datasources - computed: false, optional: true, required: false
-  private _datasources = new GuarddutyDetectorDatasourcesOutputReference(
-    this,
-    'datasources',
-  );
+  private _datasources = new GuarddutyDetectorDatasourcesOutputReference(this, "datasources");
   public get datasources() {
     return this._datasources;
   }
@@ -849,15 +703,11 @@ export class GuarddutyDetector extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       enable: cdktf.booleanToTerraform(this._enable),
-      finding_publishing_frequency: cdktf.stringToTerraform(
-        this._findingPublishingFrequency,
-      ),
+      finding_publishing_frequency: cdktf.stringToTerraform(this._findingPublishingFrequency),
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      datasources: guarddutyDetectorDatasourcesToTerraform(
-        this._datasources.internalValue,
-      ),
+      datasources: guarddutyDetectorDatasourcesToTerraform(this._datasources.internalValue),
     };
   }
 }

@@ -1,123 +1,108 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ApiGatewayRestApiConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#api_key_source ApiGatewayRestApi#api_key_source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#api_key_source ApiGatewayRestApi#api_key_source}
+  */
   readonly apiKeySource?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#binary_media_types ApiGatewayRestApi#binary_media_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#binary_media_types ApiGatewayRestApi#binary_media_types}
+  */
   readonly binaryMediaTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#body ApiGatewayRestApi#body}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#body ApiGatewayRestApi#body}
+  */
   readonly body?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#description ApiGatewayRestApi#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#description ApiGatewayRestApi#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#disable_execute_api_endpoint ApiGatewayRestApi#disable_execute_api_endpoint}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#disable_execute_api_endpoint ApiGatewayRestApi#disable_execute_api_endpoint}
+  */
   readonly disableExecuteApiEndpoint?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#id ApiGatewayRestApi#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#id ApiGatewayRestApi#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#minimum_compression_size ApiGatewayRestApi#minimum_compression_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#minimum_compression_size ApiGatewayRestApi#minimum_compression_size}
+  */
   readonly minimumCompressionSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#name ApiGatewayRestApi#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#name ApiGatewayRestApi#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#parameters ApiGatewayRestApi#parameters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#parameters ApiGatewayRestApi#parameters}
+  */
   readonly parameters?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#policy ApiGatewayRestApi#policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#policy ApiGatewayRestApi#policy}
+  */
   readonly policy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#put_rest_api_mode ApiGatewayRestApi#put_rest_api_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#put_rest_api_mode ApiGatewayRestApi#put_rest_api_mode}
+  */
   readonly putRestApiMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#tags ApiGatewayRestApi#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#tags ApiGatewayRestApi#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#tags_all ApiGatewayRestApi#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#tags_all ApiGatewayRestApi#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * endpoint_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#endpoint_configuration ApiGatewayRestApi#endpoint_configuration}
-   */
+  * endpoint_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#endpoint_configuration ApiGatewayRestApi#endpoint_configuration}
+  */
   readonly endpointConfiguration?: ApiGatewayRestApiEndpointConfiguration;
 }
 export interface ApiGatewayRestApiEndpointConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#types ApiGatewayRestApi#types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#types ApiGatewayRestApi#types}
+  */
   readonly types: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#vpc_endpoint_ids ApiGatewayRestApi#vpc_endpoint_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api#vpc_endpoint_ids ApiGatewayRestApi#vpc_endpoint_ids}
+  */
   readonly vpcEndpointIds?: string[];
 }
 
-export function apiGatewayRestApiEndpointConfigurationToTerraform(
-  struct?:
-    | ApiGatewayRestApiEndpointConfigurationOutputReference
-    | ApiGatewayRestApiEndpointConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function apiGatewayRestApiEndpointConfigurationToTerraform(struct?: ApiGatewayRestApiEndpointConfigurationOutputReference | ApiGatewayRestApiEndpointConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.types),
-    vpc_endpoint_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.vpcEndpointIds),
-  };
+    vpc_endpoint_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.vpcEndpointIds),
+  }
 }
 
 export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ApiGatewayRestApiEndpointConfiguration
-    | undefined {
+  public get internalValue(): ApiGatewayRestApiEndpointConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._types !== undefined) {
@@ -131,14 +116,13 @@ export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ApiGatewayRestApiEndpointConfiguration | undefined,
-  ) {
+  public set internalValue(value: ApiGatewayRestApiEndpointConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._types = undefined;
       this._vpcEndpointIds = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._types = value.types;
       this._vpcEndpointIds = value.vpcEndpointIds;
@@ -146,7 +130,7 @@ export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf
   }
 
   // types - computed: false, optional: false, required: true
-  private _types?: string[];
+  private _types?: string[]; 
   public get types() {
     return this.getListAttribute('types');
   }
@@ -159,7 +143,7 @@ export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf
   }
 
   // vpc_endpoint_ids - computed: true, optional: true, required: false
-  private _vpcEndpointIds?: string[];
+  private _vpcEndpointIds?: string[]; 
   public get vpcEndpointIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_endpoint_ids'));
   }
@@ -176,36 +160,33 @@ export class ApiGatewayRestApiEndpointConfigurationOutputReference extends cdktf
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api aws_api_gateway_rest_api}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api aws_api_gateway_rest_api}
+*/
 export class ApiGatewayRestApi extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_api_gateway_rest_api';
+  public static readonly tfResourceType = "aws_api_gateway_rest_api";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api aws_api_gateway_rest_api} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ApiGatewayRestApiConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ApiGatewayRestApiConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_rest_api aws_api_gateway_rest_api} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ApiGatewayRestApiConfig
+  */
+  public constructor(scope: Construct, id: string, config: ApiGatewayRestApiConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_rest_api',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -213,7 +194,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._apiKeySource = config.apiKeySource;
     this._binaryMediaTypes = config.binaryMediaTypes;
@@ -236,7 +217,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   // ==========
 
   // api_key_source - computed: true, optional: true, required: false
-  private _apiKeySource?: string;
+  private _apiKeySource?: string; 
   public get apiKeySource() {
     return this.getStringAttribute('api_key_source');
   }
@@ -257,7 +238,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // binary_media_types - computed: true, optional: true, required: false
-  private _binaryMediaTypes?: string[];
+  private _binaryMediaTypes?: string[]; 
   public get binaryMediaTypes() {
     return this.getListAttribute('binary_media_types');
   }
@@ -273,7 +254,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // body - computed: false, optional: true, required: false
-  private _body?: string;
+  private _body?: string; 
   public get body() {
     return this.getStringAttribute('body');
   }
@@ -294,7 +275,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // description - computed: true, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -310,7 +291,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // disable_execute_api_endpoint - computed: true, optional: true, required: false
-  private _disableExecuteApiEndpoint?: boolean | cdktf.IResolvable;
+  private _disableExecuteApiEndpoint?: boolean | cdktf.IResolvable; 
   public get disableExecuteApiEndpoint() {
     return this.getBooleanAttribute('disable_execute_api_endpoint');
   }
@@ -331,7 +312,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -347,7 +328,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // minimum_compression_size - computed: false, optional: true, required: false
-  private _minimumCompressionSize?: number;
+  private _minimumCompressionSize?: number; 
   public get minimumCompressionSize() {
     return this.getNumberAttribute('minimum_compression_size');
   }
@@ -363,7 +344,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -376,7 +357,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string };
+  private _parameters?: { [key: string]: string }; 
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -392,7 +373,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // policy - computed: true, optional: true, required: false
-  private _policy?: string;
+  private _policy?: string; 
   public get policy() {
     return this.getStringAttribute('policy');
   }
@@ -408,7 +389,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // put_rest_api_mode - computed: false, optional: true, required: false
-  private _putRestApiMode?: string;
+  private _putRestApiMode?: string; 
   public get putRestApiMode() {
     return this.getStringAttribute('put_rest_api_mode');
   }
@@ -429,7 +410,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -445,7 +426,7 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -461,17 +442,11 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   }
 
   // endpoint_configuration - computed: false, optional: true, required: false
-  private _endpointConfiguration =
-    new ApiGatewayRestApiEndpointConfigurationOutputReference(
-      this,
-      'endpoint_configuration',
-    );
+  private _endpointConfiguration = new ApiGatewayRestApiEndpointConfigurationOutputReference(this, "endpoint_configuration");
   public get endpointConfiguration() {
     return this._endpointConfiguration;
   }
-  public putEndpointConfiguration(
-    value: ApiGatewayRestApiEndpointConfiguration,
-  ) {
+  public putEndpointConfiguration(value: ApiGatewayRestApiEndpointConfiguration) {
     this._endpointConfiguration.internalValue = value;
   }
   public resetEndpointConfiguration() {
@@ -489,28 +464,19 @@ export class ApiGatewayRestApi extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       api_key_source: cdktf.stringToTerraform(this._apiKeySource),
-      binary_media_types: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._binaryMediaTypes),
+      binary_media_types: cdktf.listMapper(cdktf.stringToTerraform, false)(this._binaryMediaTypes),
       body: cdktf.stringToTerraform(this._body),
       description: cdktf.stringToTerraform(this._description),
-      disable_execute_api_endpoint: cdktf.booleanToTerraform(
-        this._disableExecuteApiEndpoint,
-      ),
+      disable_execute_api_endpoint: cdktf.booleanToTerraform(this._disableExecuteApiEndpoint),
       id: cdktf.stringToTerraform(this._id),
-      minimum_compression_size: cdktf.numberToTerraform(
-        this._minimumCompressionSize,
-      ),
+      minimum_compression_size: cdktf.numberToTerraform(this._minimumCompressionSize),
       name: cdktf.stringToTerraform(this._name),
       parameters: cdktf.hashMapper(cdktf.stringToTerraform)(this._parameters),
       policy: cdktf.stringToTerraform(this._policy),
       put_rest_api_mode: cdktf.stringToTerraform(this._putRestApiMode),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      endpoint_configuration: apiGatewayRestApiEndpointConfigurationToTerraform(
-        this._endpointConfiguration.internalValue,
-      ),
+      endpoint_configuration: apiGatewayRestApiEndpointConfigurationToTerraform(this._endpointConfiguration.internalValue),
     };
   }
 }

@@ -1,3 +1,4 @@
+import { Subscriber } from 'rxjs';
 import * as path from 'std/path/mod.ts';
 import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
@@ -5,27 +6,23 @@ import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { LocalCredentials } from '../credentials.ts';
 
-export class LocalNamespaceService extends CrudResourceService<'namespace'> {
-  constructor(private credentials: LocalCredentials) {
-    super();
-  }
-
-  async get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
+export class LocalNamespaceService extends CrudResourceService<'namespace', LocalCredentials> {
+  get(id: string): Promise<ResourceOutputs['namespace'] | undefined> {
     const file = path.join(this.credentials.directory, id);
     const stat = Deno.lstatSync(file);
 
     if (!stat.isDirectory) {
-      return undefined;
+      return Promise.resolve(undefined);
     }
 
-    return {
+    return Promise.resolve({
       id: id,
-    };
+    });
   }
 
-  async list(
-    filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
-    pagingOptions?: Partial<PagingOptions> | undefined,
+  list(
+    _filterOptions?: Partial<ResourceOutputs['namespace']> | undefined,
+    _pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['namespace']>> {
     const fileNames = Deno.readDirSync(this.credentials.directory);
 
@@ -38,26 +35,42 @@ export class LocalNamespaceService extends CrudResourceService<'namespace'> {
       }
     }
 
-    return {
+    return Promise.resolve({
       total: namespaces.length,
       rows: namespaces,
-    };
+    });
   }
 
-  async create(inputs: ResourceInputs['namespace']): Promise<ResourceOutputs['namespace']> {
+  create(_subscriber: Subscriber<string>, inputs: ResourceInputs['namespace']): Promise<ResourceOutputs['namespace']> {
     const namespace = path.join(this.credentials.directory, inputs.name);
     Deno.mkdirSync(namespace);
-    return {
+    return Promise.resolve({
       id: inputs.name,
-    };
+    });
   }
 
-  update(inputs: ResourceInputs['namespace']): Promise<DeepPartial<ResourceOutputs['namespace']>> {
-    throw new Error('Method not implemented.');
+  update(
+    subscriber: Subscriber<string>,
+    id: string,
+    inputs: DeepPartial<ResourceInputs['namespace']>,
+  ): Promise<ResourceOutputs['namespace']> {
+    if (inputs.name && inputs.name !== id) {
+      Deno.renameSync(path.join(this.credentials.directory, id), path.join(this.credentials.directory, inputs.name));
+      return Promise.resolve({
+        id: inputs.name,
+      });
+    }
+
+    subscriber.next('No changes detected');
+
+    return Promise.resolve({
+      id,
+    });
   }
 
-  async delete(id: string): Promise<void> {
+  delete(_subscriber: Subscriber<string>, id: string): Promise<void> {
     const namespace = path.join(this.credentials.directory, id);
     Deno.removeSync(namespace, { recursive: true });
+    return Promise.resolve();
   }
 }

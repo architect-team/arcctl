@@ -5,9 +5,9 @@ export type LoadBalancerOutputs = {
   address: string;
 
   /**
-   * The name of the new or existing provider that is used to configure this load balancer
+   * The type of load balancer this is
    */
-  provider: string;
+  loadBalancerType: string;
 };
 
 export default LoadBalancerOutputs;

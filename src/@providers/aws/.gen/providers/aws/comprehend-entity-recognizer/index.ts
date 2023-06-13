@@ -1,121 +1,108 @@
 // https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ComprehendEntityRecognizerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ComprehendEntityRecognizerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#data_access_role_arn ComprehendEntityRecognizer#data_access_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#data_access_role_arn ComprehendEntityRecognizer#data_access_role_arn}
+  */
   readonly dataAccessRoleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#id ComprehendEntityRecognizer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#id ComprehendEntityRecognizer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#language_code ComprehendEntityRecognizer#language_code}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#language_code ComprehendEntityRecognizer#language_code}
+  */
   readonly languageCode: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#model_kms_key_id ComprehendEntityRecognizer#model_kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#model_kms_key_id ComprehendEntityRecognizer#model_kms_key_id}
+  */
   readonly modelKmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#name ComprehendEntityRecognizer#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#name ComprehendEntityRecognizer#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#tags ComprehendEntityRecognizer#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#tags ComprehendEntityRecognizer#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#tags_all ComprehendEntityRecognizer#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#tags_all ComprehendEntityRecognizer#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#version_name ComprehendEntityRecognizer#version_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#version_name ComprehendEntityRecognizer#version_name}
+  */
   readonly versionName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#version_name_prefix ComprehendEntityRecognizer#version_name_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#version_name_prefix ComprehendEntityRecognizer#version_name_prefix}
+  */
   readonly versionNamePrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#volume_kms_key_id ComprehendEntityRecognizer#volume_kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#volume_kms_key_id ComprehendEntityRecognizer#volume_kms_key_id}
+  */
   readonly volumeKmsKeyId?: string;
   /**
-   * input_data_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#input_data_config ComprehendEntityRecognizer#input_data_config}
-   */
+  * input_data_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#input_data_config ComprehendEntityRecognizer#input_data_config}
+  */
   readonly inputDataConfig: ComprehendEntityRecognizerInputDataConfig;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#timeouts ComprehendEntityRecognizer#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#timeouts ComprehendEntityRecognizer#timeouts}
+  */
   readonly timeouts?: ComprehendEntityRecognizerTimeouts;
   /**
-   * vpc_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#vpc_config ComprehendEntityRecognizer#vpc_config}
-   */
+  * vpc_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#vpc_config ComprehendEntityRecognizer#vpc_config}
+  */
   readonly vpcConfig?: ComprehendEntityRecognizerVpcConfig;
 }
 export interface ComprehendEntityRecognizerInputDataConfigAnnotations {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
+  */
   readonly s3Uri: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#test_s3_uri ComprehendEntityRecognizer#test_s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#test_s3_uri ComprehendEntityRecognizer#test_s3_uri}
+  */
   readonly testS3Uri?: string;
 }
 
-export function comprehendEntityRecognizerInputDataConfigAnnotationsToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
-    | ComprehendEntityRecognizerInputDataConfigAnnotations,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerInputDataConfigAnnotationsToTerraform(struct?: ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference | ComprehendEntityRecognizerInputDataConfigAnnotations): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
     test_s3_uri: cdktf.stringToTerraform(struct!.testS3Uri),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerInputDataConfigAnnotations
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerInputDataConfigAnnotations | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3Uri !== undefined) {
@@ -129,14 +116,13 @@ export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ComprehendEntityRecognizerInputDataConfigAnnotations | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerInputDataConfigAnnotations | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3Uri = undefined;
       this._testS3Uri = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3Uri = value.s3Uri;
       this._testS3Uri = value.testS3Uri;
@@ -144,7 +130,7 @@ export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string;
+  private _s3Uri?: string; 
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -157,7 +143,7 @@ export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
   }
 
   // test_s3_uri - computed: false, optional: true, required: false
-  private _testS3Uri?: string;
+  private _testS3Uri?: string; 
   public get testS3Uri() {
     return this.getStringAttribute('test_s3_uri');
   }
@@ -174,59 +160,44 @@ export class ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference
 }
 export interface ComprehendEntityRecognizerInputDataConfigAugmentedManifests {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#annotation_data_s3_uri ComprehendEntityRecognizer#annotation_data_s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#annotation_data_s3_uri ComprehendEntityRecognizer#annotation_data_s3_uri}
+  */
   readonly annotationDataS3Uri?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#attribute_names ComprehendEntityRecognizer#attribute_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#attribute_names ComprehendEntityRecognizer#attribute_names}
+  */
   readonly attributeNames: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#document_type ComprehendEntityRecognizer#document_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#document_type ComprehendEntityRecognizer#document_type}
+  */
   readonly documentType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
+  */
   readonly s3Uri: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#source_documents_s3_uri ComprehendEntityRecognizer#source_documents_s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#source_documents_s3_uri ComprehendEntityRecognizer#source_documents_s3_uri}
+  */
   readonly sourceDocumentsS3Uri?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#split ComprehendEntityRecognizer#split}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#split ComprehendEntityRecognizer#split}
+  */
   readonly split?: string;
 }
 
-export function comprehendEntityRecognizerInputDataConfigAugmentedManifestsToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerInputDataConfigAugmentedManifests
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerInputDataConfigAugmentedManifestsToTerraform(struct?: ComprehendEntityRecognizerInputDataConfigAugmentedManifests | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    annotation_data_s3_uri: cdktf.stringToTerraform(
-      struct!.annotationDataS3Uri,
-    ),
-    attribute_names: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.attributeNames),
+    annotation_data_s3_uri: cdktf.stringToTerraform(struct!.annotationDataS3Uri),
+    attribute_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.attributeNames),
     document_type: cdktf.stringToTerraform(struct!.documentType),
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
-    source_documents_s3_uri: cdktf.stringToTerraform(
-      struct!.sourceDocumentsS3Uri,
-    ),
+    source_documents_s3_uri: cdktf.stringToTerraform(struct!.sourceDocumentsS3Uri),
     split: cdktf.stringToTerraform(struct!.split),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputReference extends cdktf.ComplexObject {
@@ -234,29 +205,16 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerInputDataConfigAugmentedManifests
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerInputDataConfigAugmentedManifests | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -289,12 +247,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | ComprehendEntityRecognizerInputDataConfigAugmentedManifests
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerInputDataConfigAugmentedManifests | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -304,10 +257,12 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
       this._s3Uri = undefined;
       this._sourceDocumentsS3Uri = undefined;
       this._split = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._annotationDataS3Uri = value.annotationDataS3Uri;
@@ -320,7 +275,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // annotation_data_s3_uri - computed: false, optional: true, required: false
-  private _annotationDataS3Uri?: string;
+  private _annotationDataS3Uri?: string; 
   public get annotationDataS3Uri() {
     return this.getStringAttribute('annotation_data_s3_uri');
   }
@@ -336,7 +291,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // attribute_names - computed: false, optional: false, required: true
-  private _attributeNames?: string[];
+  private _attributeNames?: string[]; 
   public get attributeNames() {
     return this.getListAttribute('attribute_names');
   }
@@ -349,7 +304,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // document_type - computed: false, optional: true, required: false
-  private _documentType?: string;
+  private _documentType?: string; 
   public get documentType() {
     return this.getStringAttribute('document_type');
   }
@@ -365,7 +320,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string;
+  private _s3Uri?: string; 
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -378,7 +333,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // source_documents_s3_uri - computed: false, optional: true, required: false
-  private _sourceDocumentsS3Uri?: string;
+  private _sourceDocumentsS3Uri?: string; 
   public get sourceDocumentsS3Uri() {
     return this.getStringAttribute('source_documents_s3_uri');
   }
@@ -394,7 +349,7 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
   }
 
   // split - computed: false, optional: true, required: false
-  private _split?: string;
+  private _split?: string; 
   public get split() {
     return this.getStringAttribute('split');
   }
@@ -411,89 +366,63 @@ export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputRe
 }
 
 export class ComprehendEntityRecognizerInputDataConfigAugmentedManifestsList extends cdktf.ComplexList {
-  public internalValue?:
-    | ComprehendEntityRecognizerInputDataConfigAugmentedManifests[]
-    | cdktf.IResolvable;
+  public internalValue? : ComprehendEntityRecognizerInputDataConfigAugmentedManifests[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputReference {
-    return new ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputReference {
+    return new ComprehendEntityRecognizerInputDataConfigAugmentedManifestsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface ComprehendEntityRecognizerInputDataConfigDocuments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#input_format ComprehendEntityRecognizer#input_format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#input_format ComprehendEntityRecognizer#input_format}
+  */
   readonly inputFormat?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
+  */
   readonly s3Uri: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#test_s3_uri ComprehendEntityRecognizer#test_s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#test_s3_uri ComprehendEntityRecognizer#test_s3_uri}
+  */
   readonly testS3Uri?: string;
 }
 
-export function comprehendEntityRecognizerInputDataConfigDocumentsToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference
-    | ComprehendEntityRecognizerInputDataConfigDocuments,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerInputDataConfigDocumentsToTerraform(struct?: ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference | ComprehendEntityRecognizerInputDataConfigDocuments): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     input_format: cdktf.stringToTerraform(struct!.inputFormat),
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
     test_s3_uri: cdktf.stringToTerraform(struct!.testS3Uri),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerInputDataConfigDocuments
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerInputDataConfigDocuments | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._inputFormat !== undefined) {
@@ -511,15 +440,14 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ComprehendEntityRecognizerInputDataConfigDocuments | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerInputDataConfigDocuments | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._inputFormat = undefined;
       this._s3Uri = undefined;
       this._testS3Uri = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._inputFormat = value.inputFormat;
       this._s3Uri = value.s3Uri;
@@ -528,7 +456,7 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
   }
 
   // input_format - computed: false, optional: true, required: false
-  private _inputFormat?: string;
+  private _inputFormat?: string; 
   public get inputFormat() {
     return this.getStringAttribute('input_format');
   }
@@ -544,7 +472,7 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string;
+  private _s3Uri?: string; 
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -557,7 +485,7 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
   }
 
   // test_s3_uri - computed: false, optional: true, required: false
-  private _testS3Uri?: string;
+  private _testS3Uri?: string; 
   public get testS3Uri() {
     return this.getStringAttribute('test_s3_uri');
   }
@@ -574,46 +502,33 @@ export class ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference e
 }
 export interface ComprehendEntityRecognizerInputDataConfigEntityList {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#s3_uri ComprehendEntityRecognizer#s3_uri}
+  */
   readonly s3Uri: string;
 }
 
-export function comprehendEntityRecognizerInputDataConfigEntityListToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerInputDataConfigEntityListOutputReference
-    | ComprehendEntityRecognizerInputDataConfigEntityList,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerInputDataConfigEntityListToTerraform(struct?: ComprehendEntityRecognizerInputDataConfigEntityListOutputReference | ComprehendEntityRecognizerInputDataConfigEntityList): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     s3_uri: cdktf.stringToTerraform(struct!.s3Uri),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerInputDataConfigEntityListOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerInputDataConfigEntityList
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerInputDataConfigEntityList | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3Uri !== undefined) {
@@ -623,20 +538,19 @@ export class ComprehendEntityRecognizerInputDataConfigEntityListOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ComprehendEntityRecognizerInputDataConfigEntityList | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerInputDataConfigEntityList | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3Uri = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3Uri = value.s3Uri;
     }
   }
 
   // s3_uri - computed: false, optional: false, required: true
-  private _s3Uri?: string;
+  private _s3Uri?: string; 
   public get s3Uri() {
     return this.getStringAttribute('s3_uri');
   }
@@ -650,27 +564,19 @@ export class ComprehendEntityRecognizerInputDataConfigEntityListOutputReference 
 }
 export interface ComprehendEntityRecognizerInputDataConfigEntityTypes {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#type ComprehendEntityRecognizer#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#type ComprehendEntityRecognizer#type}
+  */
   readonly type: string;
 }
 
-export function comprehendEntityRecognizerInputDataConfigEntityTypesToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerInputDataConfigEntityTypes
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerInputDataConfigEntityTypesToTerraform(struct?: ComprehendEntityRecognizerInputDataConfigEntityTypes | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference extends cdktf.ComplexObject {
@@ -678,29 +584,16 @@ export class ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerInputDataConfigEntityTypes
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerInputDataConfigEntityTypes | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -713,20 +606,17 @@ export class ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | ComprehendEntityRecognizerInputDataConfigEntityTypes
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerInputDataConfigEntityTypes | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._type = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -734,7 +624,7 @@ export class ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -748,131 +638,88 @@ export class ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference
 }
 
 export class ComprehendEntityRecognizerInputDataConfigEntityTypesList extends cdktf.ComplexList {
-  public internalValue?:
-    | ComprehendEntityRecognizerInputDataConfigEntityTypes[]
-    | cdktf.IResolvable;
+  public internalValue? : ComprehendEntityRecognizerInputDataConfigEntityTypes[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference {
-    return new ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference {
+    return new ComprehendEntityRecognizerInputDataConfigEntityTypesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface ComprehendEntityRecognizerInputDataConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#data_format ComprehendEntityRecognizer#data_format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#data_format ComprehendEntityRecognizer#data_format}
+  */
   readonly dataFormat?: string;
   /**
-   * annotations block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#annotations ComprehendEntityRecognizer#annotations}
-   */
+  * annotations block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#annotations ComprehendEntityRecognizer#annotations}
+  */
   readonly annotations?: ComprehendEntityRecognizerInputDataConfigAnnotations;
   /**
-   * augmented_manifests block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#augmented_manifests ComprehendEntityRecognizer#augmented_manifests}
-   */
-  readonly augmentedManifests?:
-    | ComprehendEntityRecognizerInputDataConfigAugmentedManifests[]
-    | cdktf.IResolvable;
+  * augmented_manifests block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#augmented_manifests ComprehendEntityRecognizer#augmented_manifests}
+  */
+  readonly augmentedManifests?: ComprehendEntityRecognizerInputDataConfigAugmentedManifests[] | cdktf.IResolvable;
   /**
-   * documents block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#documents ComprehendEntityRecognizer#documents}
-   */
+  * documents block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#documents ComprehendEntityRecognizer#documents}
+  */
   readonly documents?: ComprehendEntityRecognizerInputDataConfigDocuments;
   /**
-   * entity_list block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#entity_list ComprehendEntityRecognizer#entity_list}
-   */
+  * entity_list block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#entity_list ComprehendEntityRecognizer#entity_list}
+  */
   readonly entityList?: ComprehendEntityRecognizerInputDataConfigEntityList;
   /**
-   * entity_types block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#entity_types ComprehendEntityRecognizer#entity_types}
-   */
-  readonly entityTypes:
-    | ComprehendEntityRecognizerInputDataConfigEntityTypes[]
-    | cdktf.IResolvable;
+  * entity_types block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#entity_types ComprehendEntityRecognizer#entity_types}
+  */
+  readonly entityTypes: ComprehendEntityRecognizerInputDataConfigEntityTypes[] | cdktf.IResolvable;
 }
 
-export function comprehendEntityRecognizerInputDataConfigToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerInputDataConfigOutputReference
-    | ComprehendEntityRecognizerInputDataConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerInputDataConfigToTerraform(struct?: ComprehendEntityRecognizerInputDataConfigOutputReference | ComprehendEntityRecognizerInputDataConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     data_format: cdktf.stringToTerraform(struct!.dataFormat),
-    annotations:
-      comprehendEntityRecognizerInputDataConfigAnnotationsToTerraform(
-        struct!.annotations,
-      ),
-    augmented_manifests: cdktf.listMapper(
-      comprehendEntityRecognizerInputDataConfigAugmentedManifestsToTerraform,
-      true,
-    )(struct!.augmentedManifests),
-    documents: comprehendEntityRecognizerInputDataConfigDocumentsToTerraform(
-      struct!.documents,
-    ),
-    entity_list: comprehendEntityRecognizerInputDataConfigEntityListToTerraform(
-      struct!.entityList,
-    ),
-    entity_types: cdktf.listMapper(
-      comprehendEntityRecognizerInputDataConfigEntityTypesToTerraform,
-      true,
-    )(struct!.entityTypes),
-  };
+    annotations: comprehendEntityRecognizerInputDataConfigAnnotationsToTerraform(struct!.annotations),
+    augmented_manifests: cdktf.listMapper(comprehendEntityRecognizerInputDataConfigAugmentedManifestsToTerraform, true)(struct!.augmentedManifests),
+    documents: comprehendEntityRecognizerInputDataConfigDocumentsToTerraform(struct!.documents),
+    entity_list: comprehendEntityRecognizerInputDataConfigEntityListToTerraform(struct!.entityList),
+    entity_types: cdktf.listMapper(comprehendEntityRecognizerInputDataConfigEntityTypesToTerraform, true)(struct!.entityTypes),
+  }
 }
 
 export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerInputDataConfig
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerInputDataConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dataFormat !== undefined) {
@@ -885,8 +732,7 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
     }
     if (this._augmentedManifests?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.augmentedManifests =
-        this._augmentedManifests?.internalValue;
+      internalValueResult.augmentedManifests = this._augmentedManifests?.internalValue;
     }
     if (this._documents?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -903,9 +749,7 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ComprehendEntityRecognizerInputDataConfig | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerInputDataConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dataFormat = undefined;
@@ -914,7 +758,8 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
       this._documents.internalValue = undefined;
       this._entityList.internalValue = undefined;
       this._entityTypes.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dataFormat = value.dataFormat;
       this._annotations.internalValue = value.annotations;
@@ -926,7 +771,7 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // data_format - computed: false, optional: true, required: false
-  private _dataFormat?: string;
+  private _dataFormat?: string; 
   public get dataFormat() {
     return this.getStringAttribute('data_format');
   }
@@ -942,17 +787,11 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // annotations - computed: false, optional: true, required: false
-  private _annotations =
-    new ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference(
-      this,
-      'annotations',
-    );
+  private _annotations = new ComprehendEntityRecognizerInputDataConfigAnnotationsOutputReference(this, "annotations");
   public get annotations() {
     return this._annotations;
   }
-  public putAnnotations(
-    value: ComprehendEntityRecognizerInputDataConfigAnnotations,
-  ) {
+  public putAnnotations(value: ComprehendEntityRecognizerInputDataConfigAnnotations) {
     this._annotations.internalValue = value;
   }
   public resetAnnotations() {
@@ -964,20 +803,11 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // augmented_manifests - computed: false, optional: true, required: false
-  private _augmentedManifests =
-    new ComprehendEntityRecognizerInputDataConfigAugmentedManifestsList(
-      this,
-      'augmented_manifests',
-      true,
-    );
+  private _augmentedManifests = new ComprehendEntityRecognizerInputDataConfigAugmentedManifestsList(this, "augmented_manifests", true);
   public get augmentedManifests() {
     return this._augmentedManifests;
   }
-  public putAugmentedManifests(
-    value:
-      | ComprehendEntityRecognizerInputDataConfigAugmentedManifests[]
-      | cdktf.IResolvable,
-  ) {
+  public putAugmentedManifests(value: ComprehendEntityRecognizerInputDataConfigAugmentedManifests[] | cdktf.IResolvable) {
     this._augmentedManifests.internalValue = value;
   }
   public resetAugmentedManifests() {
@@ -989,17 +819,11 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // documents - computed: false, optional: true, required: false
-  private _documents =
-    new ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference(
-      this,
-      'documents',
-    );
+  private _documents = new ComprehendEntityRecognizerInputDataConfigDocumentsOutputReference(this, "documents");
   public get documents() {
     return this._documents;
   }
-  public putDocuments(
-    value: ComprehendEntityRecognizerInputDataConfigDocuments,
-  ) {
+  public putDocuments(value: ComprehendEntityRecognizerInputDataConfigDocuments) {
     this._documents.internalValue = value;
   }
   public resetDocuments() {
@@ -1011,17 +835,11 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // entity_list - computed: false, optional: true, required: false
-  private _entityList =
-    new ComprehendEntityRecognizerInputDataConfigEntityListOutputReference(
-      this,
-      'entity_list',
-    );
+  private _entityList = new ComprehendEntityRecognizerInputDataConfigEntityListOutputReference(this, "entity_list");
   public get entityList() {
     return this._entityList;
   }
-  public putEntityList(
-    value: ComprehendEntityRecognizerInputDataConfigEntityList,
-  ) {
+  public putEntityList(value: ComprehendEntityRecognizerInputDataConfigEntityList) {
     this._entityList.internalValue = value;
   }
   public resetEntityList() {
@@ -1033,20 +851,11 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
   }
 
   // entity_types - computed: false, optional: false, required: true
-  private _entityTypes =
-    new ComprehendEntityRecognizerInputDataConfigEntityTypesList(
-      this,
-      'entity_types',
-      true,
-    );
+  private _entityTypes = new ComprehendEntityRecognizerInputDataConfigEntityTypesList(this, "entity_types", true);
   public get entityTypes() {
     return this._entityTypes;
   }
-  public putEntityTypes(
-    value:
-      | ComprehendEntityRecognizerInputDataConfigEntityTypes[]
-      | cdktf.IResolvable,
-  ) {
+  public putEntityTypes(value: ComprehendEntityRecognizerInputDataConfigEntityTypes[] | cdktf.IResolvable) {
     this._entityTypes.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1056,38 +865,29 @@ export class ComprehendEntityRecognizerInputDataConfigOutputReference extends cd
 }
 export interface ComprehendEntityRecognizerTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#create ComprehendEntityRecognizer#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#create ComprehendEntityRecognizer#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#delete ComprehendEntityRecognizer#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#delete ComprehendEntityRecognizer#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#update ComprehendEntityRecognizer#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#update ComprehendEntityRecognizer#update}
+  */
   readonly update?: string;
 }
 
-export function comprehendEntityRecognizerTimeoutsToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerTimeoutsOutputReference
-    | ComprehendEntityRecognizerTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerTimeoutsToTerraform(struct?: ComprehendEntityRecognizerTimeoutsOutputReference | ComprehendEntityRecognizerTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -1095,20 +895,14 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ComprehendEntityRecognizerTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ComprehendEntityRecognizerTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1129,19 +923,19 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ComprehendEntityRecognizerTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -1151,7 +945,7 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1167,7 +961,7 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1183,7 +977,7 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1200,48 +994,34 @@ export class ComprehendEntityRecognizerTimeoutsOutputReference extends cdktf.Com
 }
 export interface ComprehendEntityRecognizerVpcConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#security_group_ids ComprehendEntityRecognizer#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#security_group_ids ComprehendEntityRecognizer#security_group_ids}
+  */
   readonly securityGroupIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#subnets ComprehendEntityRecognizer#subnets}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer#subnets ComprehendEntityRecognizer#subnets}
+  */
   readonly subnets: string[];
 }
 
-export function comprehendEntityRecognizerVpcConfigToTerraform(
-  struct?:
-    | ComprehendEntityRecognizerVpcConfigOutputReference
-    | ComprehendEntityRecognizerVpcConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function comprehendEntityRecognizerVpcConfigToTerraform(struct?: ComprehendEntityRecognizerVpcConfigOutputReference | ComprehendEntityRecognizerVpcConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    security_group_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroupIds),
+    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
     subnets: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnets),
-  };
+  }
 }
 
 export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1259,14 +1039,13 @@ export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ComprehendEntityRecognizerVpcConfig | undefined,
-  ) {
+  public set internalValue(value: ComprehendEntityRecognizerVpcConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnets = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnets = value.subnets;
@@ -1274,7 +1053,7 @@ export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.Co
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -1287,7 +1066,7 @@ export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.Co
   }
 
   // subnets - computed: false, optional: false, required: true
-  private _subnets?: string[];
+  private _subnets?: string[]; 
   public get subnets() {
     return cdktf.Fn.tolist(this.getListAttribute('subnets'));
   }
@@ -1301,36 +1080,33 @@ export class ComprehendEntityRecognizerVpcConfigOutputReference extends cdktf.Co
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer aws_comprehend_entity_recognizer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer aws_comprehend_entity_recognizer}
+*/
 export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_comprehend_entity_recognizer';
+  public static readonly tfResourceType = "aws_comprehend_entity_recognizer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer aws_comprehend_entity_recognizer} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ComprehendEntityRecognizerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ComprehendEntityRecognizerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/comprehend_entity_recognizer aws_comprehend_entity_recognizer} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ComprehendEntityRecognizerConfig
+  */
+  public constructor(scope: Construct, id: string, config: ComprehendEntityRecognizerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_comprehend_entity_recognizer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1338,7 +1114,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._dataAccessRoleArn = config.dataAccessRoleArn;
     this._id = config.id;
@@ -1365,7 +1141,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // data_access_role_arn - computed: false, optional: false, required: true
-  private _dataAccessRoleArn?: string;
+  private _dataAccessRoleArn?: string; 
   public get dataAccessRoleArn() {
     return this.getStringAttribute('data_access_role_arn');
   }
@@ -1378,7 +1154,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1394,7 +1170,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // language_code - computed: false, optional: false, required: true
-  private _languageCode?: string;
+  private _languageCode?: string; 
   public get languageCode() {
     return this.getStringAttribute('language_code');
   }
@@ -1407,7 +1183,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // model_kms_key_id - computed: false, optional: true, required: false
-  private _modelKmsKeyId?: string;
+  private _modelKmsKeyId?: string; 
   public get modelKmsKeyId() {
     return this.getStringAttribute('model_kms_key_id');
   }
@@ -1423,7 +1199,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1436,7 +1212,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1452,7 +1228,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1468,7 +1244,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // version_name - computed: true, optional: true, required: false
-  private _versionName?: string;
+  private _versionName?: string; 
   public get versionName() {
     return this.getStringAttribute('version_name');
   }
@@ -1484,7 +1260,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // version_name_prefix - computed: true, optional: true, required: false
-  private _versionNamePrefix?: string;
+  private _versionNamePrefix?: string; 
   public get versionNamePrefix() {
     return this.getStringAttribute('version_name_prefix');
   }
@@ -1500,7 +1276,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // volume_kms_key_id - computed: false, optional: true, required: false
-  private _volumeKmsKeyId?: string;
+  private _volumeKmsKeyId?: string; 
   public get volumeKmsKeyId() {
     return this.getStringAttribute('volume_kms_key_id');
   }
@@ -1516,11 +1292,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // input_data_config - computed: false, optional: false, required: true
-  private _inputDataConfig =
-    new ComprehendEntityRecognizerInputDataConfigOutputReference(
-      this,
-      'input_data_config',
-    );
+  private _inputDataConfig = new ComprehendEntityRecognizerInputDataConfigOutputReference(this, "input_data_config");
   public get inputDataConfig() {
     return this._inputDataConfig;
   }
@@ -1533,10 +1305,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ComprehendEntityRecognizerTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new ComprehendEntityRecognizerTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1552,10 +1321,7 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
   }
 
   // vpc_config - computed: false, optional: true, required: false
-  private _vpcConfig = new ComprehendEntityRecognizerVpcConfigOutputReference(
-    this,
-    'vpc_config',
-  );
+  private _vpcConfig = new ComprehendEntityRecognizerVpcConfigOutputReference(this, "vpc_config");
   public get vpcConfig() {
     return this._vpcConfig;
   }
@@ -1586,15 +1352,9 @@ export class ComprehendEntityRecognizer extends cdktf.TerraformResource {
       version_name: cdktf.stringToTerraform(this._versionName),
       version_name_prefix: cdktf.stringToTerraform(this._versionNamePrefix),
       volume_kms_key_id: cdktf.stringToTerraform(this._volumeKmsKeyId),
-      input_data_config: comprehendEntityRecognizerInputDataConfigToTerraform(
-        this._inputDataConfig.internalValue,
-      ),
-      timeouts: comprehendEntityRecognizerTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
-      vpc_config: comprehendEntityRecognizerVpcConfigToTerraform(
-        this._vpcConfig.internalValue,
-      ),
+      input_data_config: comprehendEntityRecognizerInputDataConfigToTerraform(this._inputDataConfig.internalValue),
+      timeouts: comprehendEntityRecognizerTimeoutsToTerraform(this._timeouts.internalValue),
+      vpc_config: comprehendEntityRecognizerVpcConfigToTerraform(this._vpcConfig.internalValue),
     };
   }
 }

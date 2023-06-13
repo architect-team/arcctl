@@ -1,102 +1,95 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_domain
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface SagemakerDomainConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_network_access_type SagemakerDomain#app_network_access_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_network_access_type SagemakerDomain#app_network_access_type}
+  */
   readonly appNetworkAccessType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_security_group_management SagemakerDomain#app_security_group_management}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_security_group_management SagemakerDomain#app_security_group_management}
+  */
   readonly appSecurityGroupManagement?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#auth_mode SagemakerDomain#auth_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#auth_mode SagemakerDomain#auth_mode}
+  */
   readonly authMode: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#domain_name SagemakerDomain#domain_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#domain_name SagemakerDomain#domain_name}
+  */
   readonly domainName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#id SagemakerDomain#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#id SagemakerDomain#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#kms_key_id SagemakerDomain#kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#kms_key_id SagemakerDomain#kms_key_id}
+  */
   readonly kmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#subnet_ids SagemakerDomain#subnet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#subnet_ids SagemakerDomain#subnet_ids}
+  */
   readonly subnetIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#tags SagemakerDomain#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#tags SagemakerDomain#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#tags_all SagemakerDomain#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#tags_all SagemakerDomain#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#vpc_id SagemakerDomain#vpc_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#vpc_id SagemakerDomain#vpc_id}
+  */
   readonly vpcId: string;
   /**
-   * default_space_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_space_settings SagemakerDomain#default_space_settings}
-   */
+  * default_space_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_space_settings SagemakerDomain#default_space_settings}
+  */
   readonly defaultSpaceSettings?: SagemakerDomainDefaultSpaceSettings;
   /**
-   * default_user_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_user_settings SagemakerDomain#default_user_settings}
-   */
+  * default_user_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_user_settings SagemakerDomain#default_user_settings}
+  */
   readonly defaultUserSettings: SagemakerDomainDefaultUserSettings;
   /**
-   * domain_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#domain_settings SagemakerDomain#domain_settings}
-   */
+  * domain_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#domain_settings SagemakerDomain#domain_settings}
+  */
   readonly domainSettings?: SagemakerDomainDomainSettings;
   /**
-   * retention_policy block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#retention_policy SagemakerDomain#retention_policy}
-   */
+  * retention_policy block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#retention_policy SagemakerDomain#retention_policy}
+  */
   readonly retentionPolicy?: SagemakerDomainRetentionPolicy;
 }
 export interface SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#repository_url SagemakerDomain#repository_url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#repository_url SagemakerDomain#repository_url}
+  */
   readonly repositoryUrl: string;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     repository_url: cdktf.stringToTerraform(struct!.repositoryUrl),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutputReference extends cdktf.ComplexObject {
@@ -104,29 +97,16 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepo
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -139,20 +119,17 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepo
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._repositoryUrl = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._repositoryUrl = value.repositoryUrl;
@@ -160,7 +137,7 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepo
   }
 
   // repository_url - computed: false, optional: false, required: true
-  private _repositoryUrl?: string;
+  private _repositoryUrl?: string; 
   public get repositoryUrl() {
     return this.getStringAttribute('repository_url');
   }
@@ -174,96 +151,68 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepo
 }
 
 export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryList extends cdktf.ComplexList {
-  public internalValue?:
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[]
-    | cdktf.IResolvable;
+  public internalValue? : SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutputReference {
-    return new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutputReference {
+    return new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._instanceType !== undefined) {
@@ -280,24 +229,20 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultR
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._instanceType = undefined;
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -307,7 +252,7 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultR
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -323,7 +268,7 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultR
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -339,7 +284,7 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultR
   }
 
   // sagemaker_image_arn - computed: false, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -355,7 +300,7 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultR
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -372,71 +317,47 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultR
 }
 export interface SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
+  */
   readonly lifecycleConfigArns?: string[];
   /**
-   * code_repository block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#code_repository SagemakerDomain#code_repository}
-   */
-  readonly codeRepository?:
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[]
-    | cdktf.IResolvable;
+  * code_repository block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#code_repository SagemakerDomain#code_repository}
+  */
+  readonly codeRepository?: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[] | cdktf.IResolvable;
   /**
-   * default_resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
-   */
+  * default_resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
+  */
   readonly defaultResourceSpec?: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputReference
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputReference | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    lifecycle_config_arns: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.lifecycleConfigArns),
-    code_repository: cdktf.listMapper(
-      sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryToTerraform,
-      true,
-    )(struct!.codeRepository),
-    default_resource_spec:
-      sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(
-        struct!.defaultResourceSpec,
-      ),
-  };
+    lifecycle_config_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.lifecycleConfigArns),
+    code_repository: cdktf.listMapper(sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryToTerraform, true)(struct!.codeRepository),
+    default_resource_spec: sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(struct!.defaultResourceSpec),
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lifecycleConfigArns !== undefined) {
@@ -449,23 +370,19 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputRe
     }
     if (this._defaultResourceSpec?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultResourceSpec =
-        this._defaultResourceSpec?.internalValue;
+      internalValueResult.defaultResourceSpec = this._defaultResourceSpec?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lifecycleConfigArns = undefined;
       this._codeRepository.internalValue = undefined;
       this._defaultResourceSpec.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lifecycleConfigArns = value.lifecycleConfigArns;
       this._codeRepository.internalValue = value.codeRepository;
@@ -474,7 +391,7 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputRe
   }
 
   // lifecycle_config_arns - computed: false, optional: true, required: false
-  private _lifecycleConfigArns?: string[];
+  private _lifecycleConfigArns?: string[]; 
   public get lifecycleConfigArns() {
     return cdktf.Fn.tolist(this.getListAttribute('lifecycle_config_arns'));
   }
@@ -490,20 +407,11 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputRe
   }
 
   // code_repository - computed: false, optional: true, required: false
-  private _codeRepository =
-    new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryList(
-      this,
-      'code_repository',
-      true,
-    );
+  private _codeRepository = new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryList(this, "code_repository", true);
   public get codeRepository() {
     return this._codeRepository;
   }
-  public putCodeRepository(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[]
-      | cdktf.IResolvable,
-  ) {
+  public putCodeRepository(value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[] | cdktf.IResolvable) {
     this._codeRepository.internalValue = value;
   }
   public resetCodeRepository() {
@@ -515,17 +423,11 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputRe
   }
 
   // default_resource_spec - computed: false, optional: true, required: false
-  private _defaultResourceSpec =
-    new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference(
-      this,
-      'default_resource_spec',
-    );
+  private _defaultResourceSpec = new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference(this, "default_resource_spec");
   public get defaultResourceSpec() {
     return this._defaultResourceSpec;
   }
-  public putDefaultResourceSpec(
-    value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec,
-  ) {
+  public putDefaultResourceSpec(value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) {
     this._defaultResourceSpec.internalValue = value;
   }
   public resetDefaultResourceSpec() {
@@ -538,37 +440,29 @@ export class SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputRe
 }
 export interface SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_image_config_name SagemakerDomain#app_image_config_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_image_config_name SagemakerDomain#app_image_config_name}
+  */
   readonly appImageConfigName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_name SagemakerDomain#image_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_name SagemakerDomain#image_name}
+  */
   readonly imageName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_version_number SagemakerDomain#image_version_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_version_number SagemakerDomain#image_version_number}
+  */
   readonly imageVersionNumber?: number;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     app_image_config_name: cdktf.stringToTerraform(struct!.appImageConfigName),
     image_name: cdktf.stringToTerraform(struct!.imageName),
     image_version_number: cdktf.numberToTerraform(struct!.imageVersionNumber),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutputReference extends cdktf.ComplexObject {
@@ -576,29 +470,16 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomIm
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -619,22 +500,19 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomIm
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._appImageConfigName = undefined;
       this._imageName = undefined;
       this._imageVersionNumber = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._appImageConfigName = value.appImageConfigName;
@@ -644,7 +522,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomIm
   }
 
   // app_image_config_name - computed: false, optional: false, required: true
-  private _appImageConfigName?: string;
+  private _appImageConfigName?: string; 
   public get appImageConfigName() {
     return this.getStringAttribute('app_image_config_name');
   }
@@ -657,7 +535,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomIm
   }
 
   // image_name - computed: false, optional: false, required: true
-  private _imageName?: string;
+  private _imageName?: string; 
   public get imageName() {
     return this.getStringAttribute('image_name');
   }
@@ -670,7 +548,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomIm
   }
 
   // image_version_number - computed: false, optional: true, required: false
-  private _imageVersionNumber?: number;
+  private _imageVersionNumber?: number; 
   public get imageVersionNumber() {
     return this.getNumberAttribute('image_version_number');
   }
@@ -687,96 +565,68 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomIm
 }
 
 export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageList extends cdktf.ComplexList {
-  public internalValue?:
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[]
-    | cdktf.IResolvable;
+  public internalValue? : SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutputReference {
-    return new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutputReference {
+    return new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._instanceType !== undefined) {
@@ -793,24 +643,20 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultR
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._instanceType = undefined;
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -820,7 +666,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultR
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -836,7 +682,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultR
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -852,7 +698,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultR
   }
 
   // sagemaker_image_arn - computed: false, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -868,7 +714,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultR
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -885,71 +731,47 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultR
 }
 export interface SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
+  */
   readonly lifecycleConfigArns?: string[];
   /**
-   * custom_image block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#custom_image SagemakerDomain#custom_image}
-   */
-  readonly customImage?:
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[]
-    | cdktf.IResolvable;
+  * custom_image block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#custom_image SagemakerDomain#custom_image}
+  */
+  readonly customImage?: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[] | cdktf.IResolvable;
   /**
-   * default_resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
-   */
+  * default_resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
+  */
   readonly defaultResourceSpec?: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputReference
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputReference | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    lifecycle_config_arns: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.lifecycleConfigArns),
-    custom_image: cdktf.listMapper(
-      sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageToTerraform,
-      true,
-    )(struct!.customImage),
-    default_resource_spec:
-      sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(
-        struct!.defaultResourceSpec,
-      ),
-  };
+    lifecycle_config_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.lifecycleConfigArns),
+    custom_image: cdktf.listMapper(sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageToTerraform, true)(struct!.customImage),
+    default_resource_spec: sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(struct!.defaultResourceSpec),
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lifecycleConfigArns !== undefined) {
@@ -962,23 +784,19 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputRe
     }
     if (this._defaultResourceSpec?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultResourceSpec =
-        this._defaultResourceSpec?.internalValue;
+      internalValueResult.defaultResourceSpec = this._defaultResourceSpec?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lifecycleConfigArns = undefined;
       this._customImage.internalValue = undefined;
       this._defaultResourceSpec.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lifecycleConfigArns = value.lifecycleConfigArns;
       this._customImage.internalValue = value.customImage;
@@ -987,7 +805,7 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputRe
   }
 
   // lifecycle_config_arns - computed: false, optional: true, required: false
-  private _lifecycleConfigArns?: string[];
+  private _lifecycleConfigArns?: string[]; 
   public get lifecycleConfigArns() {
     return cdktf.Fn.tolist(this.getListAttribute('lifecycle_config_arns'));
   }
@@ -1003,20 +821,11 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputRe
   }
 
   // custom_image - computed: false, optional: true, required: false
-  private _customImage =
-    new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageList(
-      this,
-      'custom_image',
-      false,
-    );
+  private _customImage = new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageList(this, "custom_image", false);
   public get customImage() {
     return this._customImage;
   }
-  public putCustomImage(
-    value:
-      | SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[]
-      | cdktf.IResolvable,
-  ) {
+  public putCustomImage(value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[] | cdktf.IResolvable) {
     this._customImage.internalValue = value;
   }
   public resetCustomImage() {
@@ -1028,17 +837,11 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputRe
   }
 
   // default_resource_spec - computed: false, optional: true, required: false
-  private _defaultResourceSpec =
-    new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference(
-      this,
-      'default_resource_spec',
-    );
+  private _defaultResourceSpec = new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference(this, "default_resource_spec");
   public get defaultResourceSpec() {
     return this._defaultResourceSpec;
   }
-  public putDefaultResourceSpec(
-    value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec,
-  ) {
+  public putDefaultResourceSpec(value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) {
     this._defaultResourceSpec.internalValue = value;
   }
   public resetDefaultResourceSpec() {
@@ -1051,68 +854,48 @@ export class SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputRe
 }
 export interface SagemakerDomainDefaultSpaceSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#execution_role SagemakerDomain#execution_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#execution_role SagemakerDomain#execution_role}
+  */
   readonly executionRole: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#security_groups SagemakerDomain#security_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#security_groups SagemakerDomain#security_groups}
+  */
   readonly securityGroups?: string[];
   /**
-   * jupyter_server_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#jupyter_server_app_settings SagemakerDomain#jupyter_server_app_settings}
-   */
+  * jupyter_server_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#jupyter_server_app_settings SagemakerDomain#jupyter_server_app_settings}
+  */
   readonly jupyterServerAppSettings?: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings;
   /**
-   * kernel_gateway_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#kernel_gateway_app_settings SagemakerDomain#kernel_gateway_app_settings}
-   */
+  * kernel_gateway_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#kernel_gateway_app_settings SagemakerDomain#kernel_gateway_app_settings}
+  */
   readonly kernelGatewayAppSettings?: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings;
 }
 
-export function sagemakerDomainDefaultSpaceSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultSpaceSettingsOutputReference
-    | SagemakerDomainDefaultSpaceSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultSpaceSettingsToTerraform(struct?: SagemakerDomainDefaultSpaceSettingsOutputReference | SagemakerDomainDefaultSpaceSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     execution_role: cdktf.stringToTerraform(struct!.executionRole),
-    security_groups: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroups),
-    jupyter_server_app_settings:
-      sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsToTerraform(
-        struct!.jupyterServerAppSettings,
-      ),
-    kernel_gateway_app_settings:
-      sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsToTerraform(
-        struct!.kernelGatewayAppSettings,
-      ),
-  };
+    security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroups),
+    jupyter_server_app_settings: sagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsToTerraform(struct!.jupyterServerAppSettings),
+    kernel_gateway_app_settings: sagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsToTerraform(struct!.kernelGatewayAppSettings),
+  }
 }
 
 export class SagemakerDomainDefaultSpaceSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1129,39 +912,34 @@ export class SagemakerDomainDefaultSpaceSettingsOutputReference extends cdktf.Co
     }
     if (this._jupyterServerAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.jupyterServerAppSettings =
-        this._jupyterServerAppSettings?.internalValue;
+      internalValueResult.jupyterServerAppSettings = this._jupyterServerAppSettings?.internalValue;
     }
     if (this._kernelGatewayAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.kernelGatewayAppSettings =
-        this._kernelGatewayAppSettings?.internalValue;
+      internalValueResult.kernelGatewayAppSettings = this._kernelGatewayAppSettings?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerDomainDefaultSpaceSettings | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultSpaceSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._executionRole = undefined;
       this._securityGroups = undefined;
       this._jupyterServerAppSettings.internalValue = undefined;
       this._kernelGatewayAppSettings.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._executionRole = value.executionRole;
       this._securityGroups = value.securityGroups;
-      this._jupyterServerAppSettings.internalValue =
-        value.jupyterServerAppSettings;
-      this._kernelGatewayAppSettings.internalValue =
-        value.kernelGatewayAppSettings;
+      this._jupyterServerAppSettings.internalValue = value.jupyterServerAppSettings;
+      this._kernelGatewayAppSettings.internalValue = value.kernelGatewayAppSettings;
     }
   }
 
   // execution_role - computed: false, optional: false, required: true
-  private _executionRole?: string;
+  private _executionRole?: string; 
   public get executionRole() {
     return this.getStringAttribute('execution_role');
   }
@@ -1174,7 +952,7 @@ export class SagemakerDomainDefaultSpaceSettingsOutputReference extends cdktf.Co
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[];
+  private _securityGroups?: string[]; 
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -1190,17 +968,11 @@ export class SagemakerDomainDefaultSpaceSettingsOutputReference extends cdktf.Co
   }
 
   // jupyter_server_app_settings - computed: false, optional: true, required: false
-  private _jupyterServerAppSettings =
-    new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputReference(
-      this,
-      'jupyter_server_app_settings',
-    );
+  private _jupyterServerAppSettings = new SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettingsOutputReference(this, "jupyter_server_app_settings");
   public get jupyterServerAppSettings() {
     return this._jupyterServerAppSettings;
   }
-  public putJupyterServerAppSettings(
-    value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings,
-  ) {
+  public putJupyterServerAppSettings(value: SagemakerDomainDefaultSpaceSettingsJupyterServerAppSettings) {
     this._jupyterServerAppSettings.internalValue = value;
   }
   public resetJupyterServerAppSettings() {
@@ -1212,17 +984,11 @@ export class SagemakerDomainDefaultSpaceSettingsOutputReference extends cdktf.Co
   }
 
   // kernel_gateway_app_settings - computed: false, optional: true, required: false
-  private _kernelGatewayAppSettings =
-    new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputReference(
-      this,
-      'kernel_gateway_app_settings',
-    );
+  private _kernelGatewayAppSettings = new SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettingsOutputReference(this, "kernel_gateway_app_settings");
   public get kernelGatewayAppSettings() {
     return this._kernelGatewayAppSettings;
   }
-  public putKernelGatewayAppSettings(
-    value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings,
-  ) {
+  public putKernelGatewayAppSettings(value: SagemakerDomainDefaultSpaceSettingsKernelGatewayAppSettings) {
     this._kernelGatewayAppSettings.internalValue = value;
   }
   public resetKernelGatewayAppSettings() {
@@ -1235,53 +1001,38 @@ export class SagemakerDomainDefaultSpaceSettingsOutputReference extends cdktf.Co
 }
 export interface SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#amazon_forecast_role_arn SagemakerDomain#amazon_forecast_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#amazon_forecast_role_arn SagemakerDomain#amazon_forecast_role_arn}
+  */
   readonly amazonForecastRoleArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#status SagemakerDomain#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#status SagemakerDomain#status}
+  */
   readonly status?: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputReference | SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    amazon_forecast_role_arn: cdktf.stringToTerraform(
-      struct!.amazonForecastRoleArn,
-    ),
+    amazon_forecast_role_arn: cdktf.stringToTerraform(struct!.amazonForecastRoleArn),
     status: cdktf.stringToTerraform(struct!.status),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._amazonForecastRoleArn !== undefined) {
@@ -1295,16 +1046,13 @@ export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForeca
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._amazonForecastRoleArn = undefined;
       this._status = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._amazonForecastRoleArn = value.amazonForecastRoleArn;
       this._status = value.status;
@@ -1312,7 +1060,7 @@ export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForeca
   }
 
   // amazon_forecast_role_arn - computed: false, optional: true, required: false
-  private _amazonForecastRoleArn?: string;
+  private _amazonForecastRoleArn?: string; 
   public get amazonForecastRoleArn() {
     return this.getStringAttribute('amazon_forecast_role_arn');
   }
@@ -1328,7 +1076,7 @@ export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForeca
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -1345,86 +1093,61 @@ export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForeca
 }
 export interface SagemakerDomainDefaultUserSettingsCanvasAppSettings {
   /**
-   * time_series_forecasting_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#time_series_forecasting_settings SagemakerDomain#time_series_forecasting_settings}
-   */
+  * time_series_forecasting_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#time_series_forecasting_settings SagemakerDomain#time_series_forecasting_settings}
+  */
   readonly timeSeriesForecastingSettings?: SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings;
 }
 
-export function sagemakerDomainDefaultUserSettingsCanvasAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsCanvasAppSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsCanvasAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsCanvasAppSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsCanvasAppSettingsOutputReference | SagemakerDomainDefaultUserSettingsCanvasAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    time_series_forecasting_settings:
-      sagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsToTerraform(
-        struct!.timeSeriesForecastingSettings,
-      ),
-  };
+    time_series_forecasting_settings: sagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsToTerraform(struct!.timeSeriesForecastingSettings),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsCanvasAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsCanvasAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._timeSeriesForecastingSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.timeSeriesForecastingSettings =
-        this._timeSeriesForecastingSettings?.internalValue;
+      internalValueResult.timeSeriesForecastingSettings = this._timeSeriesForecastingSettings?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerDomainDefaultUserSettingsCanvasAppSettings | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsCanvasAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._timeSeriesForecastingSettings.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._timeSeriesForecastingSettings.internalValue =
-        value.timeSeriesForecastingSettings;
+      this._timeSeriesForecastingSettings.internalValue = value.timeSeriesForecastingSettings;
     }
   }
 
   // time_series_forecasting_settings - computed: false, optional: true, required: false
-  private _timeSeriesForecastingSettings =
-    new SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputReference(
-      this,
-      'time_series_forecasting_settings',
-    );
+  private _timeSeriesForecastingSettings = new SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutputReference(this, "time_series_forecasting_settings");
   public get timeSeriesForecastingSettings() {
     return this._timeSeriesForecastingSettings;
   }
-  public putTimeSeriesForecastingSettings(
-    value: SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings,
-  ) {
+  public putTimeSeriesForecastingSettings(value: SagemakerDomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings) {
     this._timeSeriesForecastingSettings.internalValue = value;
   }
   public resetTimeSeriesForecastingSettings() {
@@ -1437,27 +1160,19 @@ export class SagemakerDomainDefaultUserSettingsCanvasAppSettingsOutputReference 
 }
 export interface SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#repository_url SagemakerDomain#repository_url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#repository_url SagemakerDomain#repository_url}
+  */
   readonly repositoryUrl: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryToTerraform(struct?: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     repository_url: cdktf.stringToTerraform(struct!.repositoryUrl),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutputReference extends cdktf.ComplexObject {
@@ -1465,29 +1180,16 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepos
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1500,20 +1202,17 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepos
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._repositoryUrl = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._repositoryUrl = value.repositoryUrl;
@@ -1521,7 +1220,7 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepos
   }
 
   // repository_url - computed: false, optional: false, required: true
-  private _repositoryUrl?: string;
+  private _repositoryUrl?: string; 
   public get repositoryUrl() {
     return this.getStringAttribute('repository_url');
   }
@@ -1535,96 +1234,68 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepos
 }
 
 export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryList extends cdktf.ComplexList {
-  public internalValue?:
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[]
-    | cdktf.IResolvable;
+  public internalValue? : SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutputReference {
-    return new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutputReference {
+    return new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(struct?: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._instanceType !== undefined) {
@@ -1641,24 +1312,20 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultRe
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._instanceType = undefined;
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -1668,7 +1335,7 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultRe
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -1684,7 +1351,7 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultRe
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -1700,7 +1367,7 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultRe
   }
 
   // sagemaker_image_arn - computed: false, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -1716,7 +1383,7 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultRe
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -1733,71 +1400,47 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultRe
 }
 export interface SagemakerDomainDefaultUserSettingsJupyterServerAppSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
+  */
   readonly lifecycleConfigArns?: string[];
   /**
-   * code_repository block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#code_repository SagemakerDomain#code_repository}
-   */
-  readonly codeRepository?:
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[]
-    | cdktf.IResolvable;
+  * code_repository block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#code_repository SagemakerDomain#code_repository}
+  */
+  readonly codeRepository?: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[] | cdktf.IResolvable;
   /**
-   * default_resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
-   */
+  * default_resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
+  */
   readonly defaultResourceSpec?: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
 }
 
-export function sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputReference | SagemakerDomainDefaultUserSettingsJupyterServerAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    lifecycle_config_arns: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.lifecycleConfigArns),
-    code_repository: cdktf.listMapper(
-      sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryToTerraform,
-      true,
-    )(struct!.codeRepository),
-    default_resource_spec:
-      sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(
-        struct!.defaultResourceSpec,
-      ),
-  };
+    lifecycle_config_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.lifecycleConfigArns),
+    code_repository: cdktf.listMapper(sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryToTerraform, true)(struct!.codeRepository),
+    default_resource_spec: sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecToTerraform(struct!.defaultResourceSpec),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsJupyterServerAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsJupyterServerAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lifecycleConfigArns !== undefined) {
@@ -1810,23 +1453,19 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputRef
     }
     if (this._defaultResourceSpec?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultResourceSpec =
-        this._defaultResourceSpec?.internalValue;
+      internalValueResult.defaultResourceSpec = this._defaultResourceSpec?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsJupyterServerAppSettings
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lifecycleConfigArns = undefined;
       this._codeRepository.internalValue = undefined;
       this._defaultResourceSpec.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lifecycleConfigArns = value.lifecycleConfigArns;
       this._codeRepository.internalValue = value.codeRepository;
@@ -1835,7 +1474,7 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputRef
   }
 
   // lifecycle_config_arns - computed: false, optional: true, required: false
-  private _lifecycleConfigArns?: string[];
+  private _lifecycleConfigArns?: string[]; 
   public get lifecycleConfigArns() {
     return cdktf.Fn.tolist(this.getListAttribute('lifecycle_config_arns'));
   }
@@ -1851,20 +1490,11 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputRef
   }
 
   // code_repository - computed: false, optional: true, required: false
-  private _codeRepository =
-    new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryList(
-      this,
-      'code_repository',
-      true,
-    );
+  private _codeRepository = new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryList(this, "code_repository", true);
   public get codeRepository() {
     return this._codeRepository;
   }
-  public putCodeRepository(
-    value:
-      | SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[]
-      | cdktf.IResolvable,
-  ) {
+  public putCodeRepository(value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[] | cdktf.IResolvable) {
     this._codeRepository.internalValue = value;
   }
   public resetCodeRepository() {
@@ -1876,17 +1506,11 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputRef
   }
 
   // default_resource_spec - computed: false, optional: true, required: false
-  private _defaultResourceSpec =
-    new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference(
-      this,
-      'default_resource_spec',
-    );
+  private _defaultResourceSpec = new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutputReference(this, "default_resource_spec");
   public get defaultResourceSpec() {
     return this._defaultResourceSpec;
   }
-  public putDefaultResourceSpec(
-    value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec,
-  ) {
+  public putDefaultResourceSpec(value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) {
     this._defaultResourceSpec.internalValue = value;
   }
   public resetDefaultResourceSpec() {
@@ -1899,37 +1523,29 @@ export class SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputRef
 }
 export interface SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_image_config_name SagemakerDomain#app_image_config_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_image_config_name SagemakerDomain#app_image_config_name}
+  */
   readonly appImageConfigName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_name SagemakerDomain#image_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_name SagemakerDomain#image_name}
+  */
   readonly imageName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_version_number SagemakerDomain#image_version_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_version_number SagemakerDomain#image_version_number}
+  */
   readonly imageVersionNumber?: number;
 }
 
-export function sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageToTerraform(struct?: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     app_image_config_name: cdktf.stringToTerraform(struct!.appImageConfigName),
     image_name: cdktf.stringToTerraform(struct!.imageName),
     image_version_number: cdktf.numberToTerraform(struct!.imageVersionNumber),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputReference extends cdktf.ComplexObject {
@@ -1937,29 +1553,16 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomIma
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1980,22 +1583,19 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomIma
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._appImageConfigName = undefined;
       this._imageName = undefined;
       this._imageVersionNumber = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._appImageConfigName = value.appImageConfigName;
@@ -2005,7 +1605,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomIma
   }
 
   // app_image_config_name - computed: false, optional: false, required: true
-  private _appImageConfigName?: string;
+  private _appImageConfigName?: string; 
   public get appImageConfigName() {
     return this.getStringAttribute('app_image_config_name');
   }
@@ -2018,7 +1618,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomIma
   }
 
   // image_name - computed: false, optional: false, required: true
-  private _imageName?: string;
+  private _imageName?: string; 
   public get imageName() {
     return this.getStringAttribute('image_name');
   }
@@ -2031,7 +1631,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomIma
   }
 
   // image_version_number - computed: false, optional: true, required: false
-  private _imageVersionNumber?: number;
+  private _imageVersionNumber?: number; 
   public get imageVersionNumber() {
     return this.getNumberAttribute('image_version_number');
   }
@@ -2048,96 +1648,68 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomIma
 }
 
 export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageList extends cdktf.ComplexList {
-  public internalValue?:
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[]
-    | cdktf.IResolvable;
+  public internalValue? : SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputReference {
-    return new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputReference {
+    return new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(struct?: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._instanceType !== undefined) {
@@ -2154,24 +1726,20 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultRe
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._instanceType = undefined;
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -2181,7 +1749,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultRe
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -2197,7 +1765,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultRe
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -2213,7 +1781,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultRe
   }
 
   // sagemaker_image_arn - computed: false, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -2229,7 +1797,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultRe
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -2246,71 +1814,47 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultRe
 }
 export interface SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arns SagemakerDomain#lifecycle_config_arns}
+  */
   readonly lifecycleConfigArns?: string[];
   /**
-   * custom_image block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#custom_image SagemakerDomain#custom_image}
-   */
-  readonly customImage?:
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[]
-    | cdktf.IResolvable;
+  * custom_image block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#custom_image SagemakerDomain#custom_image}
+  */
+  readonly customImage?: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[] | cdktf.IResolvable;
   /**
-   * default_resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
-   */
+  * default_resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
+  */
   readonly defaultResourceSpec?: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
 }
 
-export function sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputReference | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    lifecycle_config_arns: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.lifecycleConfigArns),
-    custom_image: cdktf.listMapper(
-      sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageToTerraform,
-      true,
-    )(struct!.customImage),
-    default_resource_spec:
-      sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(
-        struct!.defaultResourceSpec,
-      ),
-  };
+    lifecycle_config_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.lifecycleConfigArns),
+    custom_image: cdktf.listMapper(sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageToTerraform, true)(struct!.customImage),
+    default_resource_spec: sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecToTerraform(struct!.defaultResourceSpec),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._lifecycleConfigArns !== undefined) {
@@ -2323,23 +1867,19 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputRef
     }
     if (this._defaultResourceSpec?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultResourceSpec =
-        this._defaultResourceSpec?.internalValue;
+      internalValueResult.defaultResourceSpec = this._defaultResourceSpec?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lifecycleConfigArns = undefined;
       this._customImage.internalValue = undefined;
       this._defaultResourceSpec.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lifecycleConfigArns = value.lifecycleConfigArns;
       this._customImage.internalValue = value.customImage;
@@ -2348,7 +1888,7 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputRef
   }
 
   // lifecycle_config_arns - computed: false, optional: true, required: false
-  private _lifecycleConfigArns?: string[];
+  private _lifecycleConfigArns?: string[]; 
   public get lifecycleConfigArns() {
     return cdktf.Fn.tolist(this.getListAttribute('lifecycle_config_arns'));
   }
@@ -2364,20 +1904,11 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputRef
   }
 
   // custom_image - computed: false, optional: true, required: false
-  private _customImage =
-    new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageList(
-      this,
-      'custom_image',
-      false,
-    );
+  private _customImage = new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageList(this, "custom_image", false);
   public get customImage() {
     return this._customImage;
   }
-  public putCustomImage(
-    value:
-      | SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[]
-      | cdktf.IResolvable,
-  ) {
+  public putCustomImage(value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[] | cdktf.IResolvable) {
     this._customImage.internalValue = value;
   }
   public resetCustomImage() {
@@ -2389,17 +1920,11 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputRef
   }
 
   // default_resource_spec - computed: false, optional: true, required: false
-  private _defaultResourceSpec =
-    new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference(
-      this,
-      'default_resource_spec',
-    );
+  private _defaultResourceSpec = new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutputReference(this, "default_resource_spec");
   public get defaultResourceSpec() {
     return this._defaultResourceSpec;
   }
-  public putDefaultResourceSpec(
-    value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec,
-  ) {
+  public putDefaultResourceSpec(value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) {
     this._defaultResourceSpec.internalValue = value;
   }
   public resetDefaultResourceSpec() {
@@ -2412,37 +1937,29 @@ export class SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputRef
 }
 export interface SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_image_config_name SagemakerDomain#app_image_config_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#app_image_config_name SagemakerDomain#app_image_config_name}
+  */
   readonly appImageConfigName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_name SagemakerDomain#image_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_name SagemakerDomain#image_name}
+  */
   readonly imageName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_version_number SagemakerDomain#image_version_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#image_version_number SagemakerDomain#image_version_number}
+  */
   readonly imageVersionNumber?: number;
 }
 
-export function sagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageToTerraform(struct?: SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     app_image_config_name: cdktf.stringToTerraform(struct!.appImageConfigName),
     image_name: cdktf.stringToTerraform(struct!.imageName),
     image_version_number: cdktf.numberToTerraform(struct!.imageVersionNumber),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputReference extends cdktf.ComplexObject {
@@ -2450,29 +1967,16 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOut
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2493,22 +1997,19 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._appImageConfigName = undefined;
       this._imageName = undefined;
       this._imageVersionNumber = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._appImageConfigName = value.appImageConfigName;
@@ -2518,7 +2019,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOut
   }
 
   // app_image_config_name - computed: false, optional: false, required: true
-  private _appImageConfigName?: string;
+  private _appImageConfigName?: string; 
   public get appImageConfigName() {
     return this.getStringAttribute('app_image_config_name');
   }
@@ -2531,7 +2032,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOut
   }
 
   // image_name - computed: false, optional: false, required: true
-  private _imageName?: string;
+  private _imageName?: string; 
   public get imageName() {
     return this.getStringAttribute('image_name');
   }
@@ -2544,7 +2045,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOut
   }
 
   // image_version_number - computed: false, optional: true, required: false
-  private _imageVersionNumber?: number;
+  private _imageVersionNumber?: number; 
   public get imageVersionNumber() {
     return this.getNumberAttribute('image_version_number');
   }
@@ -2561,96 +2062,68 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOut
 }
 
 export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageList extends cdktf.ComplexList {
-  public internalValue?:
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage[]
-    | cdktf.IResolvable;
+  public internalValue? : SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputReference {
-    return new SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputReference {
+    return new SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputReference
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecToTerraform(struct?: SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputReference | SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._instanceType !== undefined) {
@@ -2667,24 +2140,20 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourc
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._instanceType = undefined;
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -2694,7 +2163,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourc
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -2710,7 +2179,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourc
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -2726,7 +2195,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourc
   }
 
   // sagemaker_image_arn - computed: false, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -2742,7 +2211,7 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourc
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -2759,63 +2228,42 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourc
 }
 export interface SagemakerDomainDefaultUserSettingsRSessionAppSettings {
   /**
-   * custom_image block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#custom_image SagemakerDomain#custom_image}
-   */
-  readonly customImage?:
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage[]
-    | cdktf.IResolvable;
+  * custom_image block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#custom_image SagemakerDomain#custom_image}
+  */
+  readonly customImage?: SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage[] | cdktf.IResolvable;
   /**
-   * default_resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
-   */
+  * default_resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
+  */
   readonly defaultResourceSpec?: SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec;
 }
 
-export function sagemakerDomainDefaultUserSettingsRSessionAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsRSessionAppSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReference | SagemakerDomainDefaultUserSettingsRSessionAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    custom_image: cdktf.listMapper(
-      sagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageToTerraform,
-      true,
-    )(struct!.customImage),
-    default_resource_spec:
-      sagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecToTerraform(
-        struct!.defaultResourceSpec,
-      ),
-  };
+    custom_image: cdktf.listMapper(sagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageToTerraform, true)(struct!.customImage),
+    default_resource_spec: sagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecToTerraform(struct!.defaultResourceSpec),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsRSessionAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsRSessionAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._customImage?.internalValue !== undefined) {
@@ -2824,20 +2272,18 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReferenc
     }
     if (this._defaultResourceSpec?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultResourceSpec =
-        this._defaultResourceSpec?.internalValue;
+      internalValueResult.defaultResourceSpec = this._defaultResourceSpec?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerDomainDefaultUserSettingsRSessionAppSettings | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsRSessionAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._customImage.internalValue = undefined;
       this._defaultResourceSpec.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._customImage.internalValue = value.customImage;
       this._defaultResourceSpec.internalValue = value.defaultResourceSpec;
@@ -2845,20 +2291,11 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReferenc
   }
 
   // custom_image - computed: false, optional: true, required: false
-  private _customImage =
-    new SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageList(
-      this,
-      'custom_image',
-      false,
-    );
+  private _customImage = new SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImageList(this, "custom_image", false);
   public get customImage() {
     return this._customImage;
   }
-  public putCustomImage(
-    value:
-      | SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage[]
-      | cdktf.IResolvable,
-  ) {
+  public putCustomImage(value: SagemakerDomainDefaultUserSettingsRSessionAppSettingsCustomImage[] | cdktf.IResolvable) {
     this._customImage.internalValue = value;
   }
   public resetCustomImage() {
@@ -2870,17 +2307,11 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReferenc
   }
 
   // default_resource_spec - computed: false, optional: true, required: false
-  private _defaultResourceSpec =
-    new SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputReference(
-      this,
-      'default_resource_spec',
-    );
+  private _defaultResourceSpec = new SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutputReference(this, "default_resource_spec");
   public get defaultResourceSpec() {
     return this._defaultResourceSpec;
   }
-  public putDefaultResourceSpec(
-    value: SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec,
-  ) {
+  public putDefaultResourceSpec(value: SagemakerDomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) {
     this._defaultResourceSpec.internalValue = value;
   }
   public resetDefaultResourceSpec() {
@@ -2893,58 +2324,43 @@ export class SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReferenc
 }
 export interface SagemakerDomainDefaultUserSettingsSharingSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#notebook_output_option SagemakerDomain#notebook_output_option}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#notebook_output_option SagemakerDomain#notebook_output_option}
+  */
   readonly notebookOutputOption?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#s3_kms_key_id SagemakerDomain#s3_kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#s3_kms_key_id SagemakerDomain#s3_kms_key_id}
+  */
   readonly s3KmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#s3_output_path SagemakerDomain#s3_output_path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#s3_output_path SagemakerDomain#s3_output_path}
+  */
   readonly s3OutputPath?: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsSharingSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsSharingSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsSharingSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference | SagemakerDomainDefaultUserSettingsSharingSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    notebook_output_option: cdktf.stringToTerraform(
-      struct!.notebookOutputOption,
-    ),
+    notebook_output_option: cdktf.stringToTerraform(struct!.notebookOutputOption),
     s3_kms_key_id: cdktf.stringToTerraform(struct!.s3KmsKeyId),
     s3_output_path: cdktf.stringToTerraform(struct!.s3OutputPath),
-  };
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsSharingSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsSharingSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._notebookOutputOption !== undefined) {
@@ -2962,15 +2378,14 @@ export class SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerDomainDefaultUserSettingsSharingSettings | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsSharingSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._notebookOutputOption = undefined;
       this._s3KmsKeyId = undefined;
       this._s3OutputPath = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._notebookOutputOption = value.notebookOutputOption;
       this._s3KmsKeyId = value.s3KmsKeyId;
@@ -2979,7 +2394,7 @@ export class SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference ex
   }
 
   // notebook_output_option - computed: false, optional: true, required: false
-  private _notebookOutputOption?: string;
+  private _notebookOutputOption?: string; 
   public get notebookOutputOption() {
     return this.getStringAttribute('notebook_output_option');
   }
@@ -2995,7 +2410,7 @@ export class SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference ex
   }
 
   // s3_kms_key_id - computed: false, optional: true, required: false
-  private _s3KmsKeyId?: string;
+  private _s3KmsKeyId?: string; 
   public get s3KmsKeyId() {
     return this.getStringAttribute('s3_kms_key_id');
   }
@@ -3011,7 +2426,7 @@ export class SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference ex
   }
 
   // s3_output_path - computed: false, optional: true, required: false
-  private _s3OutputPath?: string;
+  private _s3OutputPath?: string; 
   public get s3OutputPath() {
     return this.getStringAttribute('s3_output_path');
   }
@@ -3028,63 +2443,48 @@ export class SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference ex
 }
 export interface SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#instance_type SagemakerDomain#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#lifecycle_config_arn SagemakerDomain#lifecycle_config_arn}
+  */
   readonly lifecycleConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_arn SagemakerDomain#sagemaker_image_arn}
+  */
   readonly sagemakerImageArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sagemaker_image_version_arn SagemakerDomain#sagemaker_image_version_arn}
+  */
   readonly sagemakerImageVersionArn?: string;
 }
 
-export function sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputReference
-    | SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecToTerraform(struct?: SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputReference | SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     instance_type: cdktf.stringToTerraform(struct!.instanceType),
     lifecycle_config_arn: cdktf.stringToTerraform(struct!.lifecycleConfigArn),
     sagemaker_image_arn: cdktf.stringToTerraform(struct!.sagemakerImageArn),
-    sagemaker_image_version_arn: cdktf.stringToTerraform(
-      struct!.sagemakerImageVersionArn,
-    ),
-  };
+    sagemaker_image_version_arn: cdktf.stringToTerraform(struct!.sagemakerImageVersionArn),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._instanceType !== undefined) {
@@ -3101,24 +2501,20 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultReso
     }
     if (this._sagemakerImageVersionArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sagemakerImageVersionArn =
-        this._sagemakerImageVersionArn;
+      internalValueResult.sagemakerImageVersionArn = this._sagemakerImageVersionArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec
-      | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._instanceType = undefined;
       this._lifecycleConfigArn = undefined;
       this._sagemakerImageArn = undefined;
       this._sagemakerImageVersionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._instanceType = value.instanceType;
       this._lifecycleConfigArn = value.lifecycleConfigArn;
@@ -3128,7 +2524,7 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultReso
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -3144,7 +2540,7 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultReso
   }
 
   // lifecycle_config_arn - computed: false, optional: true, required: false
-  private _lifecycleConfigArn?: string;
+  private _lifecycleConfigArn?: string; 
   public get lifecycleConfigArn() {
     return this.getStringAttribute('lifecycle_config_arn');
   }
@@ -3160,7 +2556,7 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultReso
   }
 
   // sagemaker_image_arn - computed: false, optional: true, required: false
-  private _sagemakerImageArn?: string;
+  private _sagemakerImageArn?: string; 
   public get sagemakerImageArn() {
     return this.getStringAttribute('sagemaker_image_arn');
   }
@@ -3176,7 +2572,7 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultReso
   }
 
   // sagemaker_image_version_arn - computed: false, optional: true, required: false
-  private _sagemakerImageVersionArn?: string;
+  private _sagemakerImageVersionArn?: string; 
   public get sagemakerImageVersionArn() {
     return this.getStringAttribute('sagemaker_image_version_arn');
   }
@@ -3193,85 +2589,61 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultReso
 }
 export interface SagemakerDomainDefaultUserSettingsTensorBoardAppSettings {
   /**
-   * default_resource_spec block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
-   */
+  * default_resource_spec block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#default_resource_spec SagemakerDomain#default_resource_spec}
+  */
   readonly defaultResourceSpec?: SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
 }
 
-export function sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsOutputReference
-    | SagemakerDomainDefaultUserSettingsTensorBoardAppSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsOutputReference | SagemakerDomainDefaultUserSettingsTensorBoardAppSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    default_resource_spec:
-      sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecToTerraform(
-        struct!.defaultResourceSpec,
-      ),
-  };
+    default_resource_spec: sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecToTerraform(struct!.defaultResourceSpec),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | SagemakerDomainDefaultUserSettingsTensorBoardAppSettings
-    | undefined {
+  public get internalValue(): SagemakerDomainDefaultUserSettingsTensorBoardAppSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._defaultResourceSpec?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.defaultResourceSpec =
-        this._defaultResourceSpec?.internalValue;
+      internalValueResult.defaultResourceSpec = this._defaultResourceSpec?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettings | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._defaultResourceSpec.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._defaultResourceSpec.internalValue = value.defaultResourceSpec;
     }
   }
 
   // default_resource_spec - computed: false, optional: true, required: false
-  private _defaultResourceSpec =
-    new SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputReference(
-      this,
-      'default_resource_spec',
-    );
+  private _defaultResourceSpec = new SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutputReference(this, "default_resource_spec");
   public get defaultResourceSpec() {
     return this._defaultResourceSpec;
   }
-  public putDefaultResourceSpec(
-    value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec,
-  ) {
+  public putDefaultResourceSpec(value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) {
     this._defaultResourceSpec.internalValue = value;
   }
   public resetDefaultResourceSpec() {
@@ -3284,108 +2656,76 @@ export class SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsOutputRefer
 }
 export interface SagemakerDomainDefaultUserSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#execution_role SagemakerDomain#execution_role}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#execution_role SagemakerDomain#execution_role}
+  */
   readonly executionRole: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#security_groups SagemakerDomain#security_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#security_groups SagemakerDomain#security_groups}
+  */
   readonly securityGroups?: string[];
   /**
-   * canvas_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#canvas_app_settings SagemakerDomain#canvas_app_settings}
-   */
+  * canvas_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#canvas_app_settings SagemakerDomain#canvas_app_settings}
+  */
   readonly canvasAppSettings?: SagemakerDomainDefaultUserSettingsCanvasAppSettings;
   /**
-   * jupyter_server_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#jupyter_server_app_settings SagemakerDomain#jupyter_server_app_settings}
-   */
+  * jupyter_server_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#jupyter_server_app_settings SagemakerDomain#jupyter_server_app_settings}
+  */
   readonly jupyterServerAppSettings?: SagemakerDomainDefaultUserSettingsJupyterServerAppSettings;
   /**
-   * kernel_gateway_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#kernel_gateway_app_settings SagemakerDomain#kernel_gateway_app_settings}
-   */
+  * kernel_gateway_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#kernel_gateway_app_settings SagemakerDomain#kernel_gateway_app_settings}
+  */
   readonly kernelGatewayAppSettings?: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings;
   /**
-   * r_session_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#r_session_app_settings SagemakerDomain#r_session_app_settings}
-   */
+  * r_session_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#r_session_app_settings SagemakerDomain#r_session_app_settings}
+  */
   readonly rSessionAppSettings?: SagemakerDomainDefaultUserSettingsRSessionAppSettings;
   /**
-   * sharing_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sharing_settings SagemakerDomain#sharing_settings}
-   */
+  * sharing_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#sharing_settings SagemakerDomain#sharing_settings}
+  */
   readonly sharingSettings?: SagemakerDomainDefaultUserSettingsSharingSettings;
   /**
-   * tensor_board_app_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#tensor_board_app_settings SagemakerDomain#tensor_board_app_settings}
-   */
+  * tensor_board_app_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#tensor_board_app_settings SagemakerDomain#tensor_board_app_settings}
+  */
   readonly tensorBoardAppSettings?: SagemakerDomainDefaultUserSettingsTensorBoardAppSettings;
 }
 
-export function sagemakerDomainDefaultUserSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDefaultUserSettingsOutputReference
-    | SagemakerDomainDefaultUserSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDefaultUserSettingsToTerraform(struct?: SagemakerDomainDefaultUserSettingsOutputReference | SagemakerDomainDefaultUserSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     execution_role: cdktf.stringToTerraform(struct!.executionRole),
-    security_groups: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroups),
-    canvas_app_settings:
-      sagemakerDomainDefaultUserSettingsCanvasAppSettingsToTerraform(
-        struct!.canvasAppSettings,
-      ),
-    jupyter_server_app_settings:
-      sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsToTerraform(
-        struct!.jupyterServerAppSettings,
-      ),
-    kernel_gateway_app_settings:
-      sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsToTerraform(
-        struct!.kernelGatewayAppSettings,
-      ),
-    r_session_app_settings:
-      sagemakerDomainDefaultUserSettingsRSessionAppSettingsToTerraform(
-        struct!.rSessionAppSettings,
-      ),
-    sharing_settings:
-      sagemakerDomainDefaultUserSettingsSharingSettingsToTerraform(
-        struct!.sharingSettings,
-      ),
-    tensor_board_app_settings:
-      sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsToTerraform(
-        struct!.tensorBoardAppSettings,
-      ),
-  };
+    security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroups),
+    canvas_app_settings: sagemakerDomainDefaultUserSettingsCanvasAppSettingsToTerraform(struct!.canvasAppSettings),
+    jupyter_server_app_settings: sagemakerDomainDefaultUserSettingsJupyterServerAppSettingsToTerraform(struct!.jupyterServerAppSettings),
+    kernel_gateway_app_settings: sagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsToTerraform(struct!.kernelGatewayAppSettings),
+    r_session_app_settings: sagemakerDomainDefaultUserSettingsRSessionAppSettingsToTerraform(struct!.rSessionAppSettings),
+    sharing_settings: sagemakerDomainDefaultUserSettingsSharingSettingsToTerraform(struct!.sharingSettings),
+    tensor_board_app_settings: sagemakerDomainDefaultUserSettingsTensorBoardAppSettingsToTerraform(struct!.tensorBoardAppSettings),
+  }
 }
 
 export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3402,40 +2742,32 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
     }
     if (this._canvasAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.canvasAppSettings =
-        this._canvasAppSettings?.internalValue;
+      internalValueResult.canvasAppSettings = this._canvasAppSettings?.internalValue;
     }
     if (this._jupyterServerAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.jupyterServerAppSettings =
-        this._jupyterServerAppSettings?.internalValue;
+      internalValueResult.jupyterServerAppSettings = this._jupyterServerAppSettings?.internalValue;
     }
     if (this._kernelGatewayAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.kernelGatewayAppSettings =
-        this._kernelGatewayAppSettings?.internalValue;
+      internalValueResult.kernelGatewayAppSettings = this._kernelGatewayAppSettings?.internalValue;
     }
     if (this._rSessionAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.rSessionAppSettings =
-        this._rSessionAppSettings?.internalValue;
+      internalValueResult.rSessionAppSettings = this._rSessionAppSettings?.internalValue;
     }
     if (this._sharingSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.sharingSettings =
-        this._sharingSettings?.internalValue;
+      internalValueResult.sharingSettings = this._sharingSettings?.internalValue;
     }
     if (this._tensorBoardAppSettings?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.tensorBoardAppSettings =
-        this._tensorBoardAppSettings?.internalValue;
+      internalValueResult.tensorBoardAppSettings = this._tensorBoardAppSettings?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerDomainDefaultUserSettings | undefined,
-  ) {
+  public set internalValue(value: SagemakerDomainDefaultUserSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._executionRole = undefined;
@@ -3446,15 +2778,14 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
       this._rSessionAppSettings.internalValue = undefined;
       this._sharingSettings.internalValue = undefined;
       this._tensorBoardAppSettings.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._executionRole = value.executionRole;
       this._securityGroups = value.securityGroups;
       this._canvasAppSettings.internalValue = value.canvasAppSettings;
-      this._jupyterServerAppSettings.internalValue =
-        value.jupyterServerAppSettings;
-      this._kernelGatewayAppSettings.internalValue =
-        value.kernelGatewayAppSettings;
+      this._jupyterServerAppSettings.internalValue = value.jupyterServerAppSettings;
+      this._kernelGatewayAppSettings.internalValue = value.kernelGatewayAppSettings;
       this._rSessionAppSettings.internalValue = value.rSessionAppSettings;
       this._sharingSettings.internalValue = value.sharingSettings;
       this._tensorBoardAppSettings.internalValue = value.tensorBoardAppSettings;
@@ -3462,7 +2793,7 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // execution_role - computed: false, optional: false, required: true
-  private _executionRole?: string;
+  private _executionRole?: string; 
   public get executionRole() {
     return this.getStringAttribute('execution_role');
   }
@@ -3475,7 +2806,7 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[];
+  private _securityGroups?: string[]; 
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -3491,17 +2822,11 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // canvas_app_settings - computed: false, optional: true, required: false
-  private _canvasAppSettings =
-    new SagemakerDomainDefaultUserSettingsCanvasAppSettingsOutputReference(
-      this,
-      'canvas_app_settings',
-    );
+  private _canvasAppSettings = new SagemakerDomainDefaultUserSettingsCanvasAppSettingsOutputReference(this, "canvas_app_settings");
   public get canvasAppSettings() {
     return this._canvasAppSettings;
   }
-  public putCanvasAppSettings(
-    value: SagemakerDomainDefaultUserSettingsCanvasAppSettings,
-  ) {
+  public putCanvasAppSettings(value: SagemakerDomainDefaultUserSettingsCanvasAppSettings) {
     this._canvasAppSettings.internalValue = value;
   }
   public resetCanvasAppSettings() {
@@ -3513,17 +2838,11 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // jupyter_server_app_settings - computed: false, optional: true, required: false
-  private _jupyterServerAppSettings =
-    new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputReference(
-      this,
-      'jupyter_server_app_settings',
-    );
+  private _jupyterServerAppSettings = new SagemakerDomainDefaultUserSettingsJupyterServerAppSettingsOutputReference(this, "jupyter_server_app_settings");
   public get jupyterServerAppSettings() {
     return this._jupyterServerAppSettings;
   }
-  public putJupyterServerAppSettings(
-    value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettings,
-  ) {
+  public putJupyterServerAppSettings(value: SagemakerDomainDefaultUserSettingsJupyterServerAppSettings) {
     this._jupyterServerAppSettings.internalValue = value;
   }
   public resetJupyterServerAppSettings() {
@@ -3535,17 +2854,11 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // kernel_gateway_app_settings - computed: false, optional: true, required: false
-  private _kernelGatewayAppSettings =
-    new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputReference(
-      this,
-      'kernel_gateway_app_settings',
-    );
+  private _kernelGatewayAppSettings = new SagemakerDomainDefaultUserSettingsKernelGatewayAppSettingsOutputReference(this, "kernel_gateway_app_settings");
   public get kernelGatewayAppSettings() {
     return this._kernelGatewayAppSettings;
   }
-  public putKernelGatewayAppSettings(
-    value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings,
-  ) {
+  public putKernelGatewayAppSettings(value: SagemakerDomainDefaultUserSettingsKernelGatewayAppSettings) {
     this._kernelGatewayAppSettings.internalValue = value;
   }
   public resetKernelGatewayAppSettings() {
@@ -3557,17 +2870,11 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // r_session_app_settings - computed: false, optional: true, required: false
-  private _rSessionAppSettings =
-    new SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReference(
-      this,
-      'r_session_app_settings',
-    );
+  private _rSessionAppSettings = new SagemakerDomainDefaultUserSettingsRSessionAppSettingsOutputReference(this, "r_session_app_settings");
   public get rSessionAppSettings() {
     return this._rSessionAppSettings;
   }
-  public putRSessionAppSettings(
-    value: SagemakerDomainDefaultUserSettingsRSessionAppSettings,
-  ) {
+  public putRSessionAppSettings(value: SagemakerDomainDefaultUserSettingsRSessionAppSettings) {
     this._rSessionAppSettings.internalValue = value;
   }
   public resetRSessionAppSettings() {
@@ -3579,17 +2886,11 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // sharing_settings - computed: false, optional: true, required: false
-  private _sharingSettings =
-    new SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference(
-      this,
-      'sharing_settings',
-    );
+  private _sharingSettings = new SagemakerDomainDefaultUserSettingsSharingSettingsOutputReference(this, "sharing_settings");
   public get sharingSettings() {
     return this._sharingSettings;
   }
-  public putSharingSettings(
-    value: SagemakerDomainDefaultUserSettingsSharingSettings,
-  ) {
+  public putSharingSettings(value: SagemakerDomainDefaultUserSettingsSharingSettings) {
     this._sharingSettings.internalValue = value;
   }
   public resetSharingSettings() {
@@ -3601,17 +2902,11 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
   }
 
   // tensor_board_app_settings - computed: false, optional: true, required: false
-  private _tensorBoardAppSettings =
-    new SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsOutputReference(
-      this,
-      'tensor_board_app_settings',
-    );
+  private _tensorBoardAppSettings = new SagemakerDomainDefaultUserSettingsTensorBoardAppSettingsOutputReference(this, "tensor_board_app_settings");
   public get tensorBoardAppSettings() {
     return this._tensorBoardAppSettings;
   }
-  public putTensorBoardAppSettings(
-    value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettings,
-  ) {
+  public putTensorBoardAppSettings(value: SagemakerDomainDefaultUserSettingsTensorBoardAppSettings) {
     this._tensorBoardAppSettings.internalValue = value;
   }
   public resetTensorBoardAppSettings() {
@@ -3624,50 +2919,34 @@ export class SagemakerDomainDefaultUserSettingsOutputReference extends cdktf.Com
 }
 export interface SagemakerDomainDomainSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#execution_role_identity_config SagemakerDomain#execution_role_identity_config}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#execution_role_identity_config SagemakerDomain#execution_role_identity_config}
+  */
   readonly executionRoleIdentityConfig?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#security_group_ids SagemakerDomain#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#security_group_ids SagemakerDomain#security_group_ids}
+  */
   readonly securityGroupIds?: string[];
 }
 
-export function sagemakerDomainDomainSettingsToTerraform(
-  struct?:
-    | SagemakerDomainDomainSettingsOutputReference
-    | SagemakerDomainDomainSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainDomainSettingsToTerraform(struct?: SagemakerDomainDomainSettingsOutputReference | SagemakerDomainDomainSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    execution_role_identity_config: cdktf.stringToTerraform(
-      struct!.executionRoleIdentityConfig,
-    ),
-    security_group_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroupIds),
-  };
+    execution_role_identity_config: cdktf.stringToTerraform(struct!.executionRoleIdentityConfig),
+    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
+  }
 }
 
 export class SagemakerDomainDomainSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3676,8 +2955,7 @@ export class SagemakerDomainDomainSettingsOutputReference extends cdktf.ComplexO
     const internalValueResult: any = {};
     if (this._executionRoleIdentityConfig !== undefined) {
       hasAnyValues = true;
-      internalValueResult.executionRoleIdentityConfig =
-        this._executionRoleIdentityConfig;
+      internalValueResult.executionRoleIdentityConfig = this._executionRoleIdentityConfig;
     }
     if (this._securityGroupIds !== undefined) {
       hasAnyValues = true;
@@ -3691,7 +2969,8 @@ export class SagemakerDomainDomainSettingsOutputReference extends cdktf.ComplexO
       this.isEmptyObject = false;
       this._executionRoleIdentityConfig = undefined;
       this._securityGroupIds = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._executionRoleIdentityConfig = value.executionRoleIdentityConfig;
       this._securityGroupIds = value.securityGroupIds;
@@ -3699,7 +2978,7 @@ export class SagemakerDomainDomainSettingsOutputReference extends cdktf.ComplexO
   }
 
   // execution_role_identity_config - computed: false, optional: true, required: false
-  private _executionRoleIdentityConfig?: string;
+  private _executionRoleIdentityConfig?: string; 
   public get executionRoleIdentityConfig() {
     return this.getStringAttribute('execution_role_identity_config');
   }
@@ -3715,7 +2994,7 @@ export class SagemakerDomainDomainSettingsOutputReference extends cdktf.ComplexO
   }
 
   // security_group_ids - computed: false, optional: true, required: false
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -3732,40 +3011,29 @@ export class SagemakerDomainDomainSettingsOutputReference extends cdktf.ComplexO
 }
 export interface SagemakerDomainRetentionPolicy {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#home_efs_file_system SagemakerDomain#home_efs_file_system}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain#home_efs_file_system SagemakerDomain#home_efs_file_system}
+  */
   readonly homeEfsFileSystem?: string;
 }
 
-export function sagemakerDomainRetentionPolicyToTerraform(
-  struct?:
-    | SagemakerDomainRetentionPolicyOutputReference
-    | SagemakerDomainRetentionPolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerDomainRetentionPolicyToTerraform(struct?: SagemakerDomainRetentionPolicyOutputReference | SagemakerDomainRetentionPolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     home_efs_file_system: cdktf.stringToTerraform(struct!.homeEfsFileSystem),
-  };
+  }
 }
 
 export class SagemakerDomainRetentionPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3783,14 +3051,15 @@ export class SagemakerDomainRetentionPolicyOutputReference extends cdktf.Complex
     if (value === undefined) {
       this.isEmptyObject = false;
       this._homeEfsFileSystem = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._homeEfsFileSystem = value.homeEfsFileSystem;
     }
   }
 
   // home_efs_file_system - computed: false, optional: true, required: false
-  private _homeEfsFileSystem?: string;
+  private _homeEfsFileSystem?: string; 
   public get homeEfsFileSystem() {
     return this.getStringAttribute('home_efs_file_system');
   }
@@ -3807,36 +3076,33 @@ export class SagemakerDomainRetentionPolicyOutputReference extends cdktf.Complex
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain aws_sagemaker_domain}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain aws_sagemaker_domain}
+*/
 export class SagemakerDomain extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_sagemaker_domain';
+  public static readonly tfResourceType = "aws_sagemaker_domain";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain aws_sagemaker_domain} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SagemakerDomainConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SagemakerDomainConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_domain aws_sagemaker_domain} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SagemakerDomainConfig
+  */
+  public constructor(scope: Construct, id: string, config: SagemakerDomainConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_sagemaker_domain',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -3844,7 +3110,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._appNetworkAccessType = config.appNetworkAccessType;
     this._appSecurityGroupManagement = config.appSecurityGroupManagement;
@@ -3867,7 +3133,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   // ==========
 
   // app_network_access_type - computed: false, optional: true, required: false
-  private _appNetworkAccessType?: string;
+  private _appNetworkAccessType?: string; 
   public get appNetworkAccessType() {
     return this.getStringAttribute('app_network_access_type');
   }
@@ -3883,7 +3149,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // app_security_group_management - computed: false, optional: true, required: false
-  private _appSecurityGroupManagement?: string;
+  private _appSecurityGroupManagement?: string; 
   public get appSecurityGroupManagement() {
     return this.getStringAttribute('app_security_group_management');
   }
@@ -3904,7 +3170,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // auth_mode - computed: false, optional: false, required: true
-  private _authMode?: string;
+  private _authMode?: string; 
   public get authMode() {
     return this.getStringAttribute('auth_mode');
   }
@@ -3917,7 +3183,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string;
+  private _domainName?: string; 
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -3935,7 +3201,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3951,7 +3217,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string;
+  private _kmsKeyId?: string; 
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -3973,13 +3239,11 @@ export class SagemakerDomain extends cdktf.TerraformResource {
 
   // single_sign_on_managed_application_instance_id - computed: true, optional: false, required: false
   public get singleSignOnManagedApplicationInstanceId() {
-    return this.getStringAttribute(
-      'single_sign_on_managed_application_instance_id',
-    );
+    return this.getStringAttribute('single_sign_on_managed_application_instance_id');
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[];
+  private _subnetIds?: string[]; 
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -3992,7 +3256,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -4008,7 +3272,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -4029,7 +3293,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string;
+  private _vpcId?: string; 
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -4042,11 +3306,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // default_space_settings - computed: false, optional: true, required: false
-  private _defaultSpaceSettings =
-    new SagemakerDomainDefaultSpaceSettingsOutputReference(
-      this,
-      'default_space_settings',
-    );
+  private _defaultSpaceSettings = new SagemakerDomainDefaultSpaceSettingsOutputReference(this, "default_space_settings");
   public get defaultSpaceSettings() {
     return this._defaultSpaceSettings;
   }
@@ -4062,11 +3322,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // default_user_settings - computed: false, optional: false, required: true
-  private _defaultUserSettings =
-    new SagemakerDomainDefaultUserSettingsOutputReference(
-      this,
-      'default_user_settings',
-    );
+  private _defaultUserSettings = new SagemakerDomainDefaultUserSettingsOutputReference(this, "default_user_settings");
   public get defaultUserSettings() {
     return this._defaultUserSettings;
   }
@@ -4079,10 +3335,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // domain_settings - computed: false, optional: true, required: false
-  private _domainSettings = new SagemakerDomainDomainSettingsOutputReference(
-    this,
-    'domain_settings',
-  );
+  private _domainSettings = new SagemakerDomainDomainSettingsOutputReference(this, "domain_settings");
   public get domainSettings() {
     return this._domainSettings;
   }
@@ -4098,10 +3351,7 @@ export class SagemakerDomain extends cdktf.TerraformResource {
   }
 
   // retention_policy - computed: false, optional: true, required: false
-  private _retentionPolicy = new SagemakerDomainRetentionPolicyOutputReference(
-    this,
-    'retention_policy',
-  );
+  private _retentionPolicy = new SagemakerDomainRetentionPolicyOutputReference(this, "retention_policy");
   public get retentionPolicy() {
     return this._retentionPolicy;
   }
@@ -4122,35 +3372,20 @@ export class SagemakerDomain extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      app_network_access_type: cdktf.stringToTerraform(
-        this._appNetworkAccessType,
-      ),
-      app_security_group_management: cdktf.stringToTerraform(
-        this._appSecurityGroupManagement,
-      ),
+      app_network_access_type: cdktf.stringToTerraform(this._appNetworkAccessType),
+      app_security_group_management: cdktf.stringToTerraform(this._appSecurityGroupManagement),
       auth_mode: cdktf.stringToTerraform(this._authMode),
       domain_name: cdktf.stringToTerraform(this._domainName),
       id: cdktf.stringToTerraform(this._id),
       kms_key_id: cdktf.stringToTerraform(this._kmsKeyId),
-      subnet_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._subnetIds),
+      subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._subnetIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
-      default_space_settings: sagemakerDomainDefaultSpaceSettingsToTerraform(
-        this._defaultSpaceSettings.internalValue,
-      ),
-      default_user_settings: sagemakerDomainDefaultUserSettingsToTerraform(
-        this._defaultUserSettings.internalValue,
-      ),
-      domain_settings: sagemakerDomainDomainSettingsToTerraform(
-        this._domainSettings.internalValue,
-      ),
-      retention_policy: sagemakerDomainRetentionPolicyToTerraform(
-        this._retentionPolicy.internalValue,
-      ),
+      default_space_settings: sagemakerDomainDefaultSpaceSettingsToTerraform(this._defaultSpaceSettings.internalValue),
+      default_user_settings: sagemakerDomainDefaultUserSettingsToTerraform(this._defaultUserSettings.internalValue),
+      domain_settings: sagemakerDomainDomainSettingsToTerraform(this._domainSettings.internalValue),
+      retention_policy: sagemakerDomainRetentionPolicyToTerraform(this._retentionPolicy.internalValue),
     };
   }
 }

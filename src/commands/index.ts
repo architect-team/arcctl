@@ -1,15 +1,16 @@
-import BuildCommand from './build.ts';
-import DeployCommand from './deploy.ts';
-import PruneAccountsCommand from './prune.ts';
-import TagCommand from './tag.ts';
 import AddCommands from './add/index.ts';
+import { BaseCommand } from './base-command.ts';
+import BuildCommand from './build.ts';
 import CreateCommands from './create/index.ts';
+import DeployCommand from './deploy.ts';
 import DestroyCommands from './destroy/index.ts';
 import GetCommands from './get/index.ts';
+import GraphCommand from './graph.ts';
 import ListCommands from './list/index.ts';
+import PruneAccountsCommand from './prune.ts';
 import RemoveCommands from './remove/index.ts';
+import TagCommand from './tag.ts';
 import UpdateCommands from './update/index.ts';
-import { BaseCommand } from './base-command.ts';
 
 export default async function arcctl() {
   const command = BaseCommand()
@@ -20,6 +21,7 @@ export default async function arcctl() {
     .command('add', AddCommands)
     .command('create', CreateCommands)
     .command('destroy', DestroyCommands)
+    .command('graph', GraphCommand)
     .command('get', GetCommands)
     .command('list', ListCommands.alias('ls'))
     .command('remove', RemoveCommands.alias('rm'))

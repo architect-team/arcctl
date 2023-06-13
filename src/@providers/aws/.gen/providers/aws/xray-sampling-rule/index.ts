@@ -1,107 +1,105 @@
 // https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface XraySamplingRuleConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#attributes XraySamplingRule#attributes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#attributes XraySamplingRule#attributes}
+  */
   readonly attributes?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#fixed_rate XraySamplingRule#fixed_rate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#fixed_rate XraySamplingRule#fixed_rate}
+  */
   readonly fixedRate: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#host XraySamplingRule#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#host XraySamplingRule#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#http_method XraySamplingRule#http_method}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#http_method XraySamplingRule#http_method}
+  */
   readonly httpMethod: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#id XraySamplingRule#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#id XraySamplingRule#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#priority XraySamplingRule#priority}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#priority XraySamplingRule#priority}
+  */
   readonly priority: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#reservoir_size XraySamplingRule#reservoir_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#reservoir_size XraySamplingRule#reservoir_size}
+  */
   readonly reservoirSize: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#resource_arn XraySamplingRule#resource_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#resource_arn XraySamplingRule#resource_arn}
+  */
   readonly resourceArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#rule_name XraySamplingRule#rule_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#rule_name XraySamplingRule#rule_name}
+  */
   readonly ruleName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#service_name XraySamplingRule#service_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#service_name XraySamplingRule#service_name}
+  */
   readonly serviceName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#service_type XraySamplingRule#service_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#service_type XraySamplingRule#service_type}
+  */
   readonly serviceType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#tags XraySamplingRule#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#tags XraySamplingRule#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#tags_all XraySamplingRule#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#tags_all XraySamplingRule#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#url_path XraySamplingRule#url_path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#url_path XraySamplingRule#url_path}
+  */
   readonly urlPath: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#version XraySamplingRule#version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule#version XraySamplingRule#version}
+  */
   readonly version: number;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule aws_xray_sampling_rule}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule aws_xray_sampling_rule}
+*/
 export class XraySamplingRule extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_xray_sampling_rule';
+  public static readonly tfResourceType = "aws_xray_sampling_rule";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule aws_xray_sampling_rule} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options XraySamplingRuleConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: XraySamplingRuleConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/xray_sampling_rule aws_xray_sampling_rule} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options XraySamplingRuleConfig
+  */
+  public constructor(scope: Construct, id: string, config: XraySamplingRuleConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_xray_sampling_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -109,7 +107,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._attributes = config.attributes;
     this._fixedRate = config.fixedRate;
@@ -138,7 +136,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // attributes - computed: false, optional: true, required: false
-  private _attributes?: { [key: string]: string };
+  private _attributes?: { [key: string]: string }; 
   public get attributes() {
     return this.getStringMapAttribute('attributes');
   }
@@ -154,7 +152,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // fixed_rate - computed: false, optional: false, required: true
-  private _fixedRate?: number;
+  private _fixedRate?: number; 
   public get fixedRate() {
     return this.getNumberAttribute('fixed_rate');
   }
@@ -167,7 +165,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -180,7 +178,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // http_method - computed: false, optional: false, required: true
-  private _httpMethod?: string;
+  private _httpMethod?: string; 
   public get httpMethod() {
     return this.getStringAttribute('http_method');
   }
@@ -193,7 +191,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -209,7 +207,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // priority - computed: false, optional: false, required: true
-  private _priority?: number;
+  private _priority?: number; 
   public get priority() {
     return this.getNumberAttribute('priority');
   }
@@ -222,7 +220,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // reservoir_size - computed: false, optional: false, required: true
-  private _reservoirSize?: number;
+  private _reservoirSize?: number; 
   public get reservoirSize() {
     return this.getNumberAttribute('reservoir_size');
   }
@@ -235,7 +233,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // resource_arn - computed: false, optional: false, required: true
-  private _resourceArn?: string;
+  private _resourceArn?: string; 
   public get resourceArn() {
     return this.getStringAttribute('resource_arn');
   }
@@ -248,7 +246,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // rule_name - computed: false, optional: true, required: false
-  private _ruleName?: string;
+  private _ruleName?: string; 
   public get ruleName() {
     return this.getStringAttribute('rule_name');
   }
@@ -264,7 +262,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string;
+  private _serviceName?: string; 
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -277,7 +275,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // service_type - computed: false, optional: false, required: true
-  private _serviceType?: string;
+  private _serviceType?: string; 
   public get serviceType() {
     return this.getStringAttribute('service_type');
   }
@@ -290,7 +288,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -306,7 +304,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -322,7 +320,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // url_path - computed: false, optional: false, required: true
-  private _urlPath?: string;
+  private _urlPath?: string; 
   public get urlPath() {
     return this.getStringAttribute('url_path');
   }
@@ -335,7 +333,7 @@ export class XraySamplingRule extends cdktf.TerraformResource {
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: number;
+  private _version?: number; 
   public get version() {
     return this.getNumberAttribute('version');
   }

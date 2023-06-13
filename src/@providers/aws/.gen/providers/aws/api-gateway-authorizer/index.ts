@@ -1,88 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ApiGatewayAuthorizerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ApiGatewayAuthorizerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#authorizer_credentials ApiGatewayAuthorizer#authorizer_credentials}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#authorizer_credentials ApiGatewayAuthorizer#authorizer_credentials}
+  */
   readonly authorizerCredentials?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#authorizer_result_ttl_in_seconds ApiGatewayAuthorizer#authorizer_result_ttl_in_seconds}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#authorizer_result_ttl_in_seconds ApiGatewayAuthorizer#authorizer_result_ttl_in_seconds}
+  */
   readonly authorizerResultTtlInSeconds?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#authorizer_uri ApiGatewayAuthorizer#authorizer_uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#authorizer_uri ApiGatewayAuthorizer#authorizer_uri}
+  */
   readonly authorizerUri?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#id ApiGatewayAuthorizer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#id ApiGatewayAuthorizer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#identity_source ApiGatewayAuthorizer#identity_source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#identity_source ApiGatewayAuthorizer#identity_source}
+  */
   readonly identitySource?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#identity_validation_expression ApiGatewayAuthorizer#identity_validation_expression}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#identity_validation_expression ApiGatewayAuthorizer#identity_validation_expression}
+  */
   readonly identityValidationExpression?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#name ApiGatewayAuthorizer#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#name ApiGatewayAuthorizer#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#provider_arns ApiGatewayAuthorizer#provider_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#provider_arns ApiGatewayAuthorizer#provider_arns}
+  */
   readonly providerArns?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#rest_api_id ApiGatewayAuthorizer#rest_api_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#rest_api_id ApiGatewayAuthorizer#rest_api_id}
+  */
   readonly restApiId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#type ApiGatewayAuthorizer#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer#type ApiGatewayAuthorizer#type}
+  */
   readonly type?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer aws_api_gateway_authorizer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer aws_api_gateway_authorizer}
+*/
 export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_api_gateway_authorizer';
+  public static readonly tfResourceType = "aws_api_gateway_authorizer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer aws_api_gateway_authorizer} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ApiGatewayAuthorizerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ApiGatewayAuthorizerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer aws_api_gateway_authorizer} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ApiGatewayAuthorizerConfig
+  */
+  public constructor(scope: Construct, id: string, config: ApiGatewayAuthorizerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_authorizer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -90,7 +87,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._authorizerCredentials = config.authorizerCredentials;
     this._authorizerResultTtlInSeconds = config.authorizerResultTtlInSeconds;
@@ -114,7 +111,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_credentials - computed: false, optional: true, required: false
-  private _authorizerCredentials?: string;
+  private _authorizerCredentials?: string; 
   public get authorizerCredentials() {
     return this.getStringAttribute('authorizer_credentials');
   }
@@ -130,7 +127,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_result_ttl_in_seconds - computed: false, optional: true, required: false
-  private _authorizerResultTtlInSeconds?: number;
+  private _authorizerResultTtlInSeconds?: number; 
   public get authorizerResultTtlInSeconds() {
     return this.getNumberAttribute('authorizer_result_ttl_in_seconds');
   }
@@ -146,7 +143,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // authorizer_uri - computed: false, optional: true, required: false
-  private _authorizerUri?: string;
+  private _authorizerUri?: string; 
   public get authorizerUri() {
     return this.getStringAttribute('authorizer_uri');
   }
@@ -162,7 +159,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -178,7 +175,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // identity_source - computed: false, optional: true, required: false
-  private _identitySource?: string;
+  private _identitySource?: string; 
   public get identitySource() {
     return this.getStringAttribute('identity_source');
   }
@@ -194,7 +191,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // identity_validation_expression - computed: false, optional: true, required: false
-  private _identityValidationExpression?: string;
+  private _identityValidationExpression?: string; 
   public get identityValidationExpression() {
     return this.getStringAttribute('identity_validation_expression');
   }
@@ -210,7 +207,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -223,7 +220,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // provider_arns - computed: false, optional: true, required: false
-  private _providerArns?: string[];
+  private _providerArns?: string[]; 
   public get providerArns() {
     return cdktf.Fn.tolist(this.getListAttribute('provider_arns'));
   }
@@ -239,7 +236,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string;
+  private _restApiId?: string; 
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -252,7 +249,7 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -273,23 +270,14 @@ export class ApiGatewayAuthorizer extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      authorizer_credentials: cdktf.stringToTerraform(
-        this._authorizerCredentials,
-      ),
-      authorizer_result_ttl_in_seconds: cdktf.numberToTerraform(
-        this._authorizerResultTtlInSeconds,
-      ),
+      authorizer_credentials: cdktf.stringToTerraform(this._authorizerCredentials),
+      authorizer_result_ttl_in_seconds: cdktf.numberToTerraform(this._authorizerResultTtlInSeconds),
       authorizer_uri: cdktf.stringToTerraform(this._authorizerUri),
       id: cdktf.stringToTerraform(this._id),
       identity_source: cdktf.stringToTerraform(this._identitySource),
-      identity_validation_expression: cdktf.stringToTerraform(
-        this._identityValidationExpression,
-      ),
+      identity_validation_expression: cdktf.stringToTerraform(this._identityValidationExpression),
       name: cdktf.stringToTerraform(this._name),
-      provider_arns: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._providerArns),
+      provider_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._providerArns),
       rest_api_id: cdktf.stringToTerraform(this._restApiId),
       type: cdktf.stringToTerraform(this._type),
     };

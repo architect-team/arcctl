@@ -1,80 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_configuration_set
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface SesConfigurationSetConfig
-  extends cdktf.TerraformMetaArguments {
+export interface SesConfigurationSetConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#id SesConfigurationSet#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#id SesConfigurationSet#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#name SesConfigurationSet#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#name SesConfigurationSet#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#reputation_metrics_enabled SesConfigurationSet#reputation_metrics_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#reputation_metrics_enabled SesConfigurationSet#reputation_metrics_enabled}
+  */
   readonly reputationMetricsEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#sending_enabled SesConfigurationSet#sending_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#sending_enabled SesConfigurationSet#sending_enabled}
+  */
   readonly sendingEnabled?: boolean | cdktf.IResolvable;
   /**
-   * delivery_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#delivery_options SesConfigurationSet#delivery_options}
-   */
+  * delivery_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#delivery_options SesConfigurationSet#delivery_options}
+  */
   readonly deliveryOptions?: SesConfigurationSetDeliveryOptions;
   /**
-   * tracking_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#tracking_options SesConfigurationSet#tracking_options}
-   */
+  * tracking_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#tracking_options SesConfigurationSet#tracking_options}
+  */
   readonly trackingOptions?: SesConfigurationSetTrackingOptions;
 }
 export interface SesConfigurationSetDeliveryOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#tls_policy SesConfigurationSet#tls_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#tls_policy SesConfigurationSet#tls_policy}
+  */
   readonly tlsPolicy?: string;
 }
 
-export function sesConfigurationSetDeliveryOptionsToTerraform(
-  struct?:
-    | SesConfigurationSetDeliveryOptionsOutputReference
-    | SesConfigurationSetDeliveryOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sesConfigurationSetDeliveryOptionsToTerraform(struct?: SesConfigurationSetDeliveryOptionsOutputReference | SesConfigurationSetDeliveryOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     tls_policy: cdktf.stringToTerraform(struct!.tlsPolicy),
-  };
+  }
 }
 
 export class SesConfigurationSetDeliveryOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -88,20 +77,19 @@ export class SesConfigurationSetDeliveryOptionsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SesConfigurationSetDeliveryOptions | undefined,
-  ) {
+  public set internalValue(value: SesConfigurationSetDeliveryOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._tlsPolicy = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._tlsPolicy = value.tlsPolicy;
     }
   }
 
   // tls_policy - computed: false, optional: true, required: false
-  private _tlsPolicy?: string;
+  private _tlsPolicy?: string; 
   public get tlsPolicy() {
     return this.getStringAttribute('tls_policy');
   }
@@ -118,42 +106,29 @@ export class SesConfigurationSetDeliveryOptionsOutputReference extends cdktf.Com
 }
 export interface SesConfigurationSetTrackingOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#custom_redirect_domain SesConfigurationSet#custom_redirect_domain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set#custom_redirect_domain SesConfigurationSet#custom_redirect_domain}
+  */
   readonly customRedirectDomain?: string;
 }
 
-export function sesConfigurationSetTrackingOptionsToTerraform(
-  struct?:
-    | SesConfigurationSetTrackingOptionsOutputReference
-    | SesConfigurationSetTrackingOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sesConfigurationSetTrackingOptionsToTerraform(struct?: SesConfigurationSetTrackingOptionsOutputReference | SesConfigurationSetTrackingOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    custom_redirect_domain: cdktf.stringToTerraform(
-      struct!.customRedirectDomain,
-    ),
-  };
+    custom_redirect_domain: cdktf.stringToTerraform(struct!.customRedirectDomain),
+  }
 }
 
 export class SesConfigurationSetTrackingOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -167,20 +142,19 @@ export class SesConfigurationSetTrackingOptionsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SesConfigurationSetTrackingOptions | undefined,
-  ) {
+  public set internalValue(value: SesConfigurationSetTrackingOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._customRedirectDomain = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._customRedirectDomain = value.customRedirectDomain;
     }
   }
 
   // custom_redirect_domain - computed: false, optional: true, required: false
-  private _customRedirectDomain?: string;
+  private _customRedirectDomain?: string; 
   public get customRedirectDomain() {
     return this.getStringAttribute('custom_redirect_domain');
   }
@@ -197,36 +171,33 @@ export class SesConfigurationSetTrackingOptionsOutputReference extends cdktf.Com
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set aws_ses_configuration_set}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set aws_ses_configuration_set}
+*/
 export class SesConfigurationSet extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ses_configuration_set';
+  public static readonly tfResourceType = "aws_ses_configuration_set";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set aws_ses_configuration_set} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SesConfigurationSetConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SesConfigurationSetConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ses_configuration_set aws_ses_configuration_set} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SesConfigurationSetConfig
+  */
+  public constructor(scope: Construct, id: string, config: SesConfigurationSetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ses_configuration_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -234,7 +205,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -254,7 +225,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -275,7 +246,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -288,7 +259,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // reputation_metrics_enabled - computed: false, optional: true, required: false
-  private _reputationMetricsEnabled?: boolean | cdktf.IResolvable;
+  private _reputationMetricsEnabled?: boolean | cdktf.IResolvable; 
   public get reputationMetricsEnabled() {
     return this.getBooleanAttribute('reputation_metrics_enabled');
   }
@@ -304,7 +275,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // sending_enabled - computed: false, optional: true, required: false
-  private _sendingEnabled?: boolean | cdktf.IResolvable;
+  private _sendingEnabled?: boolean | cdktf.IResolvable; 
   public get sendingEnabled() {
     return this.getBooleanAttribute('sending_enabled');
   }
@@ -320,11 +291,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // delivery_options - computed: false, optional: true, required: false
-  private _deliveryOptions =
-    new SesConfigurationSetDeliveryOptionsOutputReference(
-      this,
-      'delivery_options',
-    );
+  private _deliveryOptions = new SesConfigurationSetDeliveryOptionsOutputReference(this, "delivery_options");
   public get deliveryOptions() {
     return this._deliveryOptions;
   }
@@ -340,11 +307,7 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
   }
 
   // tracking_options - computed: false, optional: true, required: false
-  private _trackingOptions =
-    new SesConfigurationSetTrackingOptionsOutputReference(
-      this,
-      'tracking_options',
-    );
+  private _trackingOptions = new SesConfigurationSetTrackingOptionsOutputReference(this, "tracking_options");
   public get trackingOptions() {
     return this._trackingOptions;
   }
@@ -367,16 +330,10 @@ export class SesConfigurationSet extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      reputation_metrics_enabled: cdktf.booleanToTerraform(
-        this._reputationMetricsEnabled,
-      ),
+      reputation_metrics_enabled: cdktf.booleanToTerraform(this._reputationMetricsEnabled),
       sending_enabled: cdktf.booleanToTerraform(this._sendingEnabled),
-      delivery_options: sesConfigurationSetDeliveryOptionsToTerraform(
-        this._deliveryOptions.internalValue,
-      ),
-      tracking_options: sesConfigurationSetTrackingOptionsToTerraform(
-        this._trackingOptions.internalValue,
-      ),
+      delivery_options: sesConfigurationSetDeliveryOptionsToTerraform(this._deliveryOptions.internalValue),
+      tracking_options: sesConfigurationSetTrackingOptionsToTerraform(this._trackingOptions.internalValue),
     };
   }
 }

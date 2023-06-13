@@ -1,8 +1,6 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import KubernetesUtils from '../../kubernetes.ts';
-import { ResourceModule } from '../../module.ts';
-import { ProviderStore } from '../../store.ts';
-import { SupportedProviders } from '../../supported-providers.ts';
+import { Construct } from 'constructs';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Eks } from '../.gen/modules/eks.ts';
 import { DataAwsEksClusterAuth } from '../.gen/providers/aws/data-aws-eks-cluster-auth/index.ts';
 import { DataAwsEksCluster } from '../.gen/providers/aws/data-aws-eks-cluster/index.ts';
@@ -11,8 +9,6 @@ import { AwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { Sleep } from '../.gen/providers/time/sleep/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
-import { TerraformOutput } from 'cdktf';
-import { Construct } from 'constructs';
 
 export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluster', AwsCredentials> {
   private eks: Eks;
@@ -21,20 +17,16 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
   private dataAwsEksClusterAuth: DataAwsEksClusterAuth;
   outputs: ResourceOutputs['kubernetesCluster'];
 
-  // Used for kubeconfig yaml generation
-  private readonly clusterEndpointOutput: TerraformOutput;
-  private readonly clusterCaOutput: TerraformOutput;
+  constructor(private scope: Construct, options: ResourceModuleOptions<'kubernetesCluster', AwsCredentials>) {
+    super(scope, options);
 
-  constructor(scope: Construct, private id: string, inputs: ResourceInputs['kubernetesCluster']) {
-    super(scope, id, inputs);
-
-    if (inputs.region) {
-      const aws_provider = this.scope.node.children.find((child) => child instanceof AwsProvider) as any;
-      aws_provider.region = inputs.region;
+    if (this.inputs) {
+      const aws_provider = scope.node.children.find((child) => child instanceof AwsProvider) as any;
+      aws_provider.region = this.inputs.region;
     }
 
-    const vpc_parts = inputs.vpc ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/) : [];
-    if (!vpc_parts && this.inputs.name) {
+    const vpc_parts = this.inputs?.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/) || ['unknown', 'unknown'];
+    if (this.inputs && vpc_parts[1] === 'unknown') {
       throw new Error('VPC must be of the format, <region>/<vpc_id>');
     }
     const vpc_id = vpc_parts ? vpc_parts[2] : '';
@@ -71,7 +63,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
       ],
     });
 
-    const nodeGroups = this.inputs.nodePools
+    const nodeGroups = this.inputs?.nodePools
       ? this.inputs.nodePools.map((nodePool) => ({
         desired_size: 1,
         instance_types: [nodePool.nodeSize],
@@ -86,8 +78,8 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
     }
 
     this.eks = new Eks(this, 'eks', {
-      clusterName: inputs.name || 'deleting',
-      clusterVersion: inputs.kubernetesVersion,
+      clusterName: this.inputs?.name || 'unknown',
+      clusterVersion: this.inputs?.kubernetesVersion || 'unknown',
       createClusterSecurityGroup: true,
       createNodeSecurityGroup: true,
       clusterEndpointPublicAccess: true,
@@ -108,7 +100,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
         createSecurityGroup: false,
       },
       tags: {
-        architectResourceId: inputs.name,
+        architectResourceId: this.inputs?.name || 'unknown',
       },
       eksManagedNodeGroups: managedNodeGroups,
       subnetIds: this.subnet_ids.ids,
@@ -116,7 +108,7 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
     });
 
     this.dataAwsEksCluster = new DataAwsEksCluster(this, 'eks-cluster', {
-      name: this.eks.clusterName || this.inputs.name,
+      name: this.eks.clusterName || this.inputs?.name || 'unknown',
       dependsOn: [this.eks],
     });
 
@@ -125,39 +117,58 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
       name: this.dataAwsEksCluster.name,
     });
 
-    this.clusterEndpointOutput = new TerraformOutput(this, 'clusterEndpoint', {
-      value: this.dataAwsEksCluster.endpoint,
-      description: 'Endpoint for EKS control plane',
-      sensitive: true,
-    });
-    this.clusterCaOutput = new TerraformOutput(this, 'clusterCa', {
-      value: this.dataAwsEksCluster.certificateAuthority.get(0).data,
-      description: 'CA for EKS control plane',
-      sensitive: true,
+    const file = new options.FileConstruct(this, 'configFile', {
+      filename: 'config.yml',
+      content: `apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${this.dataAwsEksCluster.certificateAuthority.get(0).data}
+    server: ${this.dataAwsEksCluster.endpoint}
+  name: cluster
+contexts:
+- context:
+    cluster: cluster
+    user: cluster
+  name: cluster
+current-context: cluster
+kind: Config
+preferences: {}
+users:
+- name: cluster
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - ${this.inputs?.region}
+      - eks
+      - get-token
+      - --cluster-name
+      - cluster
+      command: aws`,
     });
 
     this.outputs = {
-      id: `${this.inputs.region}`,
-      kubernetesVersion: this.eks.clusterVersion || '',
-      name: this.eks.clusterName || this.inputs.name,
-      vpc: this.eks.vpcId || '',
-      account: `kubernetesCluster-${this.inputs.name}`,
+      id: `${this.inputs?.region}/${this.dataAwsEksCluster.id}`,
+      kubernetesVersion: this.eks.clusterVersion || 'unknown',
+      name: this.eks.clusterName || this.inputs?.name || 'unknown',
+      vpc: this.eks.vpcId || 'unknown',
+      configPath: file.filename,
     };
   }
 
-  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  async genImports(resourceId: string): Promise<Record<string, string>> {
     const match = resourceId.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
       throw new Error('ID must be of the format, <region>/<uuid>');
     }
 
     const [_, region, clusterId] = match;
-    this.id = clusterId;
     this.dataAwsEksCluster.name = clusterId;
     this.dataAwsEksClusterAuth.name = clusterId;
     const moduleId = ['module', this.eks.friendlyUniqueId].join('.');
 
-    const ids = await AwsUtils.getEksIds(credentials, region, clusterId);
+    const ids = await AwsUtils.getEksIds(this.credentials, region, clusterId);
 
     const aws_provider = this.scope.node.children[0] as AwsProvider;
     aws_provider.region = region;
@@ -232,64 +243,12 @@ export class AwsKubernetesClusterModule extends ResourceModule<'kubernetesCluste
     const results = {
       [`${moduleId}.aws_eks_cluster.this[0]`]: 'Cluster',
     };
-    for (let i = 0; i < (this.inputs.nodePools || []).length; i++) {
-      const nodeGroup = this.inputs.nodePools[i];
+    for (let i = 0; i < (this.inputs?.nodePools || []).length; i++) {
+      const nodeGroup = this.inputs!.nodePools[i];
       results[
         `${moduleId}.module.eks_managed_node_group["${nodeGroup.name}"].aws_eks_node_group.this[${i}]`
       ] = `Node Pool ${nodeGroup.name}`;
     }
     return results;
   }
-
-  hooks = {
-    afterCreate: async (
-      providerStore: ProviderStore,
-      outputs: ResourceOutputs['kubernetesCluster'],
-      getOutputValue: (id: string) => Promise<any>,
-    ) => {
-      const ca = await getOutputValue(this.clusterCaOutput.friendlyUniqueId);
-      const endpoint = await getOutputValue(this.clusterEndpointOutput.friendlyUniqueId);
-      const credentialsYaml = `apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: ${ca}
-    server: ${endpoint}
-  name: ${this.inputs.name}
-contexts:
-- context:
-    cluster:  ${this.inputs.name}
-    user:  ${this.inputs.name}
-  name:  ${this.inputs.name}
-current-context:  ${this.inputs.name}
-kind: Config
-preferences: {}
-users:
-- name:  ${this.inputs.name}
-  user:
-    exec:
-      apiVersion: client.authentication.k8s.io/v1beta1
-      args:
-      - --region
-      - ${this.inputs.region}
-      - eks
-      - get-token
-      - --cluster-name
-      - ${this.inputs.name}
-      command: aws`;
-      await KubernetesUtils.createProvider(this.inputs.name, credentialsYaml);
-      const configFilePath = providerStore.saveFile(`kubernetesCluster-${this.inputs.name}.yml`, credentialsYaml);
-      providerStore.saveProvider(
-        new SupportedProviders.kubernetes(
-          `kubernetesCluster-${this.inputs.name}`,
-          {
-            configPath: configFilePath,
-          },
-          providerStore.saveFile.bind(providerStore),
-        ),
-      );
-    },
-    afterDelete: async () => {
-      await KubernetesUtils.deleteProvider(this.id);
-    },
-  };
 }

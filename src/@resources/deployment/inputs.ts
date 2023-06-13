@@ -141,8 +141,22 @@ export type DeploymentInputs = {
 
   /**
    * Number of replicas of the deployment to run
+   * @default 1
    */
-  replicas: number;
+  replicas?: number;
+
+  /**
+   * Port that the deployment should expose on all nodes
+   */
+  exposed_ports?: {
+    port: number;
+    target_port: number;
+  }[];
+
+  /**
+   * Target platform the deployment will run on
+   */
+  platform?: string;
 
   /**
    * Autoscaling rules for the deployment

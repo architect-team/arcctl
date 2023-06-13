@@ -1,51 +1,46 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AuditmanagerOrganizationAdminAccountRegistrationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AuditmanagerOrganizationAdminAccountRegistrationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration#admin_account_id AuditmanagerOrganizationAdminAccountRegistration#admin_account_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration#admin_account_id AuditmanagerOrganizationAdminAccountRegistration#admin_account_id}
+  */
   readonly adminAccountId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration aws_auditmanager_organization_admin_account_registration}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration aws_auditmanager_organization_admin_account_registration}
+*/
 export class AuditmanagerOrganizationAdminAccountRegistration extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_auditmanager_organization_admin_account_registration';
+  public static readonly tfResourceType = "aws_auditmanager_organization_admin_account_registration";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration aws_auditmanager_organization_admin_account_registration} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AuditmanagerOrganizationAdminAccountRegistrationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AuditmanagerOrganizationAdminAccountRegistrationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_organization_admin_account_registration aws_auditmanager_organization_admin_account_registration} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AuditmanagerOrganizationAdminAccountRegistrationConfig
+  */
+  public constructor(scope: Construct, id: string, config: AuditmanagerOrganizationAdminAccountRegistrationConfig) {
     super(scope, id, {
-      terraformResourceType:
-        'aws_auditmanager_organization_admin_account_registration',
+      terraformResourceType: 'aws_auditmanager_organization_admin_account_registration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -53,7 +48,7 @@ export class AuditmanagerOrganizationAdminAccountRegistration extends cdktf.Terr
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._adminAccountId = config.adminAccountId;
   }
@@ -63,7 +58,7 @@ export class AuditmanagerOrganizationAdminAccountRegistration extends cdktf.Terr
   // ==========
 
   // admin_account_id - computed: false, optional: false, required: true
-  private _adminAccountId?: string;
+  private _adminAccountId?: string; 
   public get adminAccountId() {
     return this.getStringAttribute('admin_account_id');
   }

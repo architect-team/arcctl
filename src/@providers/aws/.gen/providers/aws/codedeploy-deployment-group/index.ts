@@ -1,168 +1,147 @@
 // https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CodedeployDeploymentGroupConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CodedeployDeploymentGroupConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#app_name CodedeployDeploymentGroup#app_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#app_name CodedeployDeploymentGroup#app_name}
+  */
   readonly appName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#autoscaling_groups CodedeployDeploymentGroup#autoscaling_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#autoscaling_groups CodedeployDeploymentGroup#autoscaling_groups}
+  */
   readonly autoscalingGroups?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_config_name CodedeployDeploymentGroup#deployment_config_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_config_name CodedeployDeploymentGroup#deployment_config_name}
+  */
   readonly deploymentConfigName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_group_name CodedeployDeploymentGroup#deployment_group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_group_name CodedeployDeploymentGroup#deployment_group_name}
+  */
   readonly deploymentGroupName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#id CodedeployDeploymentGroup#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#id CodedeployDeploymentGroup#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#service_role_arn CodedeployDeploymentGroup#service_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#service_role_arn CodedeployDeploymentGroup#service_role_arn}
+  */
   readonly serviceRoleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#tags CodedeployDeploymentGroup#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#tags CodedeployDeploymentGroup#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#tags_all CodedeployDeploymentGroup#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#tags_all CodedeployDeploymentGroup#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * alarm_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#alarm_configuration CodedeployDeploymentGroup#alarm_configuration}
-   */
+  * alarm_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#alarm_configuration CodedeployDeploymentGroup#alarm_configuration}
+  */
   readonly alarmConfiguration?: CodedeployDeploymentGroupAlarmConfiguration;
   /**
-   * auto_rollback_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#auto_rollback_configuration CodedeployDeploymentGroup#auto_rollback_configuration}
-   */
+  * auto_rollback_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#auto_rollback_configuration CodedeployDeploymentGroup#auto_rollback_configuration}
+  */
   readonly autoRollbackConfiguration?: CodedeployDeploymentGroupAutoRollbackConfiguration;
   /**
-   * blue_green_deployment_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#blue_green_deployment_config CodedeployDeploymentGroup#blue_green_deployment_config}
-   */
+  * blue_green_deployment_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#blue_green_deployment_config CodedeployDeploymentGroup#blue_green_deployment_config}
+  */
   readonly blueGreenDeploymentConfig?: CodedeployDeploymentGroupBlueGreenDeploymentConfig;
   /**
-   * deployment_style block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_style CodedeployDeploymentGroup#deployment_style}
-   */
+  * deployment_style block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_style CodedeployDeploymentGroup#deployment_style}
+  */
   readonly deploymentStyle?: CodedeployDeploymentGroupDeploymentStyle;
   /**
-   * ec2_tag_filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_filter CodedeployDeploymentGroup#ec2_tag_filter}
-   */
-  readonly ec2TagFilter?:
-    | CodedeployDeploymentGroupEc2TagFilter[]
-    | cdktf.IResolvable;
+  * ec2_tag_filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_filter CodedeployDeploymentGroup#ec2_tag_filter}
+  */
+  readonly ec2TagFilter?: CodedeployDeploymentGroupEc2TagFilter[] | cdktf.IResolvable;
   /**
-   * ec2_tag_set block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_set CodedeployDeploymentGroup#ec2_tag_set}
-   */
+  * ec2_tag_set block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_set CodedeployDeploymentGroup#ec2_tag_set}
+  */
   readonly ec2TagSet?: CodedeployDeploymentGroupEc2TagSet[] | cdktf.IResolvable;
   /**
-   * ecs_service block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ecs_service CodedeployDeploymentGroup#ecs_service}
-   */
+  * ecs_service block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ecs_service CodedeployDeploymentGroup#ecs_service}
+  */
   readonly ecsService?: CodedeployDeploymentGroupEcsService;
   /**
-   * load_balancer_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#load_balancer_info CodedeployDeploymentGroup#load_balancer_info}
-   */
+  * load_balancer_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#load_balancer_info CodedeployDeploymentGroup#load_balancer_info}
+  */
   readonly loadBalancerInfo?: CodedeployDeploymentGroupLoadBalancerInfo;
   /**
-   * on_premises_instance_tag_filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#on_premises_instance_tag_filter CodedeployDeploymentGroup#on_premises_instance_tag_filter}
-   */
-  readonly onPremisesInstanceTagFilter?:
-    | CodedeployDeploymentGroupOnPremisesInstanceTagFilter[]
-    | cdktf.IResolvable;
+  * on_premises_instance_tag_filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#on_premises_instance_tag_filter CodedeployDeploymentGroup#on_premises_instance_tag_filter}
+  */
+  readonly onPremisesInstanceTagFilter?: CodedeployDeploymentGroupOnPremisesInstanceTagFilter[] | cdktf.IResolvable;
   /**
-   * trigger_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_configuration CodedeployDeploymentGroup#trigger_configuration}
-   */
-  readonly triggerConfiguration?:
-    | CodedeployDeploymentGroupTriggerConfiguration[]
-    | cdktf.IResolvable;
+  * trigger_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_configuration CodedeployDeploymentGroup#trigger_configuration}
+  */
+  readonly triggerConfiguration?: CodedeployDeploymentGroupTriggerConfiguration[] | cdktf.IResolvable;
 }
 export interface CodedeployDeploymentGroupAlarmConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#alarms CodedeployDeploymentGroup#alarms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#alarms CodedeployDeploymentGroup#alarms}
+  */
   readonly alarms?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#enabled CodedeployDeploymentGroup#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#enabled CodedeployDeploymentGroup#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ignore_poll_alarm_failure CodedeployDeploymentGroup#ignore_poll_alarm_failure}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ignore_poll_alarm_failure CodedeployDeploymentGroup#ignore_poll_alarm_failure}
+  */
   readonly ignorePollAlarmFailure?: boolean | cdktf.IResolvable;
 }
 
-export function codedeployDeploymentGroupAlarmConfigurationToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupAlarmConfigurationOutputReference
-    | CodedeployDeploymentGroupAlarmConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupAlarmConfigurationToTerraform(struct?: CodedeployDeploymentGroupAlarmConfigurationOutputReference | CodedeployDeploymentGroupAlarmConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    ignore_poll_alarm_failure: cdktf.booleanToTerraform(
-      struct!.ignorePollAlarmFailure,
-    ),
-  };
+    ignore_poll_alarm_failure: cdktf.booleanToTerraform(struct!.ignorePollAlarmFailure),
+  }
 }
 
 export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupAlarmConfiguration
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupAlarmConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -180,15 +159,14 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupAlarmConfiguration | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupAlarmConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
       this._enabled = undefined;
       this._ignorePollAlarmFailure = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._enabled = value.enabled;
@@ -197,7 +175,7 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[];
+  private _alarms?: string[]; 
   public get alarms() {
     return cdktf.Fn.tolist(this.getListAttribute('alarms'));
   }
@@ -213,7 +191,7 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -229,7 +207,7 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
   }
 
   // ignore_poll_alarm_failure - computed: false, optional: true, required: false
-  private _ignorePollAlarmFailure?: boolean | cdktf.IResolvable;
+  private _ignorePollAlarmFailure?: boolean | cdktf.IResolvable; 
   public get ignorePollAlarmFailure() {
     return this.getBooleanAttribute('ignore_poll_alarm_failure');
   }
@@ -246,51 +224,38 @@ export class CodedeployDeploymentGroupAlarmConfigurationOutputReference extends 
 }
 export interface CodedeployDeploymentGroupAutoRollbackConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#enabled CodedeployDeploymentGroup#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#enabled CodedeployDeploymentGroup#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#events CodedeployDeploymentGroup#events}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#events CodedeployDeploymentGroup#events}
+  */
   readonly events?: string[];
 }
 
-export function codedeployDeploymentGroupAutoRollbackConfigurationToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference
-    | CodedeployDeploymentGroupAutoRollbackConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupAutoRollbackConfigurationToTerraform(struct?: CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference | CodedeployDeploymentGroupAutoRollbackConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     events: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.events),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupAutoRollbackConfiguration
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupAutoRollbackConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -304,14 +269,13 @@ export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupAutoRollbackConfiguration | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupAutoRollbackConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._events = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._events = value.events;
@@ -319,7 +283,7 @@ export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference e
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -335,7 +299,7 @@ export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference e
   }
 
   // events - computed: false, optional: true, required: false
-  private _events?: string[];
+  private _events?: string[]; 
   public get events() {
     return cdktf.Fn.tolist(this.getListAttribute('events'));
   }
@@ -352,51 +316,38 @@ export class CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference e
 }
 export interface CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#action_on_timeout CodedeployDeploymentGroup#action_on_timeout}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#action_on_timeout CodedeployDeploymentGroup#action_on_timeout}
+  */
   readonly actionOnTimeout?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#wait_time_in_minutes CodedeployDeploymentGroup#wait_time_in_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#wait_time_in_minutes CodedeployDeploymentGroup#wait_time_in_minutes}
+  */
   readonly waitTimeInMinutes?: number;
 }
 
-export function codedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputReference
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionToTerraform(struct?: CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputReference | CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     action_on_timeout: cdktf.stringToTerraform(struct!.actionOnTimeout),
     wait_time_in_minutes: cdktf.numberToTerraform(struct!.waitTimeInMinutes),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._actionOnTimeout !== undefined) {
@@ -410,16 +361,13 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._actionOnTimeout = undefined;
       this._waitTimeInMinutes = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._actionOnTimeout = value.actionOnTimeout;
       this._waitTimeInMinutes = value.waitTimeInMinutes;
@@ -427,7 +375,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOp
   }
 
   // action_on_timeout - computed: false, optional: true, required: false
-  private _actionOnTimeout?: string;
+  private _actionOnTimeout?: string; 
   public get actionOnTimeout() {
     return this.getStringAttribute('action_on_timeout');
   }
@@ -443,7 +391,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOp
   }
 
   // wait_time_in_minutes - computed: false, optional: true, required: false
-  private _waitTimeInMinutes?: number;
+  private _waitTimeInMinutes?: number; 
   public get waitTimeInMinutes() {
     return this.getNumberAttribute('wait_time_in_minutes');
   }
@@ -460,46 +408,33 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOp
 }
 export interface CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#action CodedeployDeploymentGroup#action}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#action CodedeployDeploymentGroup#action}
+  */
   readonly action?: string;
 }
 
-export function codedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputReference
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionToTerraform(struct?: CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputReference | CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     action: cdktf.stringToTerraform(struct!.action),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._action !== undefined) {
@@ -509,22 +444,19 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisi
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._action = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._action = value.action;
     }
   }
 
   // action - computed: false, optional: true, required: false
-  private _action?: string;
+  private _action?: string; 
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -541,53 +473,38 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisi
 }
 export interface CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#action CodedeployDeploymentGroup#action}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#action CodedeployDeploymentGroup#action}
+  */
   readonly action?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#termination_wait_time_in_minutes CodedeployDeploymentGroup#termination_wait_time_in_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#termination_wait_time_in_minutes CodedeployDeploymentGroup#termination_wait_time_in_minutes}
+  */
   readonly terminationWaitTimeInMinutes?: number;
 }
 
-export function codedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputReference
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessToTerraform(struct?: CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputReference | CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     action: cdktf.stringToTerraform(struct!.action),
-    termination_wait_time_in_minutes: cdktf.numberToTerraform(
-      struct!.terminationWaitTimeInMinutes,
-    ),
-  };
+    termination_wait_time_in_minutes: cdktf.numberToTerraform(struct!.terminationWaitTimeInMinutes),
+  }
 }
 
 export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._action !== undefined) {
@@ -596,22 +513,18 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
     }
     if (this._terminationWaitTimeInMinutes !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminationWaitTimeInMinutes =
-        this._terminationWaitTimeInMinutes;
+      internalValueResult.terminationWaitTimeInMinutes = this._terminationWaitTimeInMinutes;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._action = undefined;
       this._terminationWaitTimeInMinutes = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._action = value.action;
       this._terminationWaitTimeInMinutes = value.terminationWaitTimeInMinutes;
@@ -619,7 +532,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
   }
 
   // action - computed: false, optional: true, required: false
-  private _action?: string;
+  private _action?: string; 
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -635,7 +548,7 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
   }
 
   // termination_wait_time_in_minutes - computed: false, optional: true, required: false
-  private _terminationWaitTimeInMinutes?: number;
+  private _terminationWaitTimeInMinutes?: number; 
   public get terminationWaitTimeInMinutes() {
     return this.getNumberAttribute('termination_wait_time_in_minutes');
   }
@@ -652,124 +565,87 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInst
 }
 export interface CodedeployDeploymentGroupBlueGreenDeploymentConfig {
   /**
-   * deployment_ready_option block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_ready_option CodedeployDeploymentGroup#deployment_ready_option}
-   */
+  * deployment_ready_option block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_ready_option CodedeployDeploymentGroup#deployment_ready_option}
+  */
   readonly deploymentReadyOption?: CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption;
   /**
-   * green_fleet_provisioning_option block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#green_fleet_provisioning_option CodedeployDeploymentGroup#green_fleet_provisioning_option}
-   */
+  * green_fleet_provisioning_option block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#green_fleet_provisioning_option CodedeployDeploymentGroup#green_fleet_provisioning_option}
+  */
   readonly greenFleetProvisioningOption?: CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption;
   /**
-   * terminate_blue_instances_on_deployment_success block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#terminate_blue_instances_on_deployment_success CodedeployDeploymentGroup#terminate_blue_instances_on_deployment_success}
-   */
+  * terminate_blue_instances_on_deployment_success block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#terminate_blue_instances_on_deployment_success CodedeployDeploymentGroup#terminate_blue_instances_on_deployment_success}
+  */
   readonly terminateBlueInstancesOnDeploymentSuccess?: CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess;
 }
 
-export function codedeployDeploymentGroupBlueGreenDeploymentConfigToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupBlueGreenDeploymentConfigToTerraform(struct?: CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference | CodedeployDeploymentGroupBlueGreenDeploymentConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    deployment_ready_option:
-      codedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionToTerraform(
-        struct!.deploymentReadyOption,
-      ),
-    green_fleet_provisioning_option:
-      codedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionToTerraform(
-        struct!.greenFleetProvisioningOption,
-      ),
-    terminate_blue_instances_on_deployment_success:
-      codedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessToTerraform(
-        struct!.terminateBlueInstancesOnDeploymentSuccess,
-      ),
-  };
+    deployment_ready_option: codedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionToTerraform(struct!.deploymentReadyOption),
+    green_fleet_provisioning_option: codedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionToTerraform(struct!.greenFleetProvisioningOption),
+    terminate_blue_instances_on_deployment_success: codedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessToTerraform(struct!.terminateBlueInstancesOnDeploymentSuccess),
+  }
 }
 
 export class CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupBlueGreenDeploymentConfig
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupBlueGreenDeploymentConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._deploymentReadyOption?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.deploymentReadyOption =
-        this._deploymentReadyOption?.internalValue;
+      internalValueResult.deploymentReadyOption = this._deploymentReadyOption?.internalValue;
     }
     if (this._greenFleetProvisioningOption?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.greenFleetProvisioningOption =
-        this._greenFleetProvisioningOption?.internalValue;
+      internalValueResult.greenFleetProvisioningOption = this._greenFleetProvisioningOption?.internalValue;
     }
-    if (
-      this._terminateBlueInstancesOnDeploymentSuccess?.internalValue !==
-      undefined
-    ) {
+    if (this._terminateBlueInstancesOnDeploymentSuccess?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.terminateBlueInstancesOnDeploymentSuccess =
-        this._terminateBlueInstancesOnDeploymentSuccess?.internalValue;
+      internalValueResult.terminateBlueInstancesOnDeploymentSuccess = this._terminateBlueInstancesOnDeploymentSuccess?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupBlueGreenDeploymentConfig | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupBlueGreenDeploymentConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deploymentReadyOption.internalValue = undefined;
       this._greenFleetProvisioningOption.internalValue = undefined;
       this._terminateBlueInstancesOnDeploymentSuccess.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deploymentReadyOption.internalValue = value.deploymentReadyOption;
-      this._greenFleetProvisioningOption.internalValue =
-        value.greenFleetProvisioningOption;
-      this._terminateBlueInstancesOnDeploymentSuccess.internalValue =
-        value.terminateBlueInstancesOnDeploymentSuccess;
+      this._greenFleetProvisioningOption.internalValue = value.greenFleetProvisioningOption;
+      this._terminateBlueInstancesOnDeploymentSuccess.internalValue = value.terminateBlueInstancesOnDeploymentSuccess;
     }
   }
 
   // deployment_ready_option - computed: false, optional: true, required: false
-  private _deploymentReadyOption =
-    new CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputReference(
-      this,
-      'deployment_ready_option',
-    );
+  private _deploymentReadyOption = new CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputReference(this, "deployment_ready_option");
   public get deploymentReadyOption() {
     return this._deploymentReadyOption;
   }
-  public putDeploymentReadyOption(
-    value: CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption,
-  ) {
+  public putDeploymentReadyOption(value: CodedeployDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) {
     this._deploymentReadyOption.internalValue = value;
   }
   public resetDeploymentReadyOption() {
@@ -781,17 +657,11 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference e
   }
 
   // green_fleet_provisioning_option - computed: false, optional: true, required: false
-  private _greenFleetProvisioningOption =
-    new CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputReference(
-      this,
-      'green_fleet_provisioning_option',
-    );
+  private _greenFleetProvisioningOption = new CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputReference(this, "green_fleet_provisioning_option");
   public get greenFleetProvisioningOption() {
     return this._greenFleetProvisioningOption;
   }
-  public putGreenFleetProvisioningOption(
-    value: CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption,
-  ) {
+  public putGreenFleetProvisioningOption(value: CodedeployDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) {
     this._greenFleetProvisioningOption.internalValue = value;
   }
   public resetGreenFleetProvisioningOption() {
@@ -803,17 +673,11 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference e
   }
 
   // terminate_blue_instances_on_deployment_success - computed: false, optional: true, required: false
-  private _terminateBlueInstancesOnDeploymentSuccess =
-    new CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputReference(
-      this,
-      'terminate_blue_instances_on_deployment_success',
-    );
+  private _terminateBlueInstancesOnDeploymentSuccess = new CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputReference(this, "terminate_blue_instances_on_deployment_success");
   public get terminateBlueInstancesOnDeploymentSuccess() {
     return this._terminateBlueInstancesOnDeploymentSuccess;
   }
-  public putTerminateBlueInstancesOnDeploymentSuccess(
-    value: CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess,
-  ) {
+  public putTerminateBlueInstancesOnDeploymentSuccess(value: CodedeployDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) {
     this._terminateBlueInstancesOnDeploymentSuccess.internalValue = value;
   }
   public resetTerminateBlueInstancesOnDeploymentSuccess() {
@@ -826,51 +690,38 @@ export class CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference e
 }
 export interface CodedeployDeploymentGroupDeploymentStyle {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_option CodedeployDeploymentGroup#deployment_option}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_option CodedeployDeploymentGroup#deployment_option}
+  */
   readonly deploymentOption?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_type CodedeployDeploymentGroup#deployment_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#deployment_type CodedeployDeploymentGroup#deployment_type}
+  */
   readonly deploymentType?: string;
 }
 
-export function codedeployDeploymentGroupDeploymentStyleToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupDeploymentStyleOutputReference
-    | CodedeployDeploymentGroupDeploymentStyle,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupDeploymentStyleToTerraform(struct?: CodedeployDeploymentGroupDeploymentStyleOutputReference | CodedeployDeploymentGroupDeploymentStyle): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     deployment_option: cdktf.stringToTerraform(struct!.deploymentOption),
     deployment_type: cdktf.stringToTerraform(struct!.deploymentType),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupDeploymentStyle
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupDeploymentStyle | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._deploymentOption !== undefined) {
@@ -884,14 +735,13 @@ export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupDeploymentStyle | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupDeploymentStyle | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deploymentOption = undefined;
       this._deploymentType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deploymentOption = value.deploymentOption;
       this._deploymentType = value.deploymentType;
@@ -899,7 +749,7 @@ export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdk
   }
 
   // deployment_option - computed: false, optional: true, required: false
-  private _deploymentOption?: string;
+  private _deploymentOption?: string; 
   public get deploymentOption() {
     return this.getStringAttribute('deployment_option');
   }
@@ -915,7 +765,7 @@ export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdk
   }
 
   // deployment_type - computed: false, optional: true, required: false
-  private _deploymentType?: string;
+  private _deploymentType?: string; 
   public get deploymentType() {
     return this.getStringAttribute('deployment_type');
   }
@@ -932,35 +782,29 @@ export class CodedeployDeploymentGroupDeploymentStyleOutputReference extends cdk
 }
 export interface CodedeployDeploymentGroupEc2TagFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#key CodedeployDeploymentGroup#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#key CodedeployDeploymentGroup#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#type CodedeployDeploymentGroup#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#type CodedeployDeploymentGroup#type}
+  */
   readonly type?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#value CodedeployDeploymentGroup#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#value CodedeployDeploymentGroup#value}
+  */
   readonly value?: string;
 }
 
-export function codedeployDeploymentGroupEc2TagFilterToTerraform(
-  struct?: CodedeployDeploymentGroupEc2TagFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupEc2TagFilterToTerraform(struct?: CodedeployDeploymentGroupEc2TagFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.ComplexObject {
@@ -968,29 +812,16 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupEc2TagFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupEc2TagFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1011,22 +842,19 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupEc2TagFilter
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupEc2TagFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -1036,7 +864,7 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1052,7 +880,7 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1068,7 +896,7 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1085,68 +913,49 @@ export class CodedeployDeploymentGroupEc2TagFilterOutputReference extends cdktf.
 }
 
 export class CodedeployDeploymentGroupEc2TagFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupEc2TagFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupEc2TagFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupEc2TagFilterOutputReference {
-    return new CodedeployDeploymentGroupEc2TagFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupEc2TagFilterOutputReference {
+    return new CodedeployDeploymentGroupEc2TagFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupEc2TagSetEc2TagFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#key CodedeployDeploymentGroup#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#key CodedeployDeploymentGroup#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#type CodedeployDeploymentGroup#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#type CodedeployDeploymentGroup#type}
+  */
   readonly type?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#value CodedeployDeploymentGroup#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#value CodedeployDeploymentGroup#value}
+  */
   readonly value?: string;
 }
 
-export function codedeployDeploymentGroupEc2TagSetEc2TagFilterToTerraform(
-  struct?: CodedeployDeploymentGroupEc2TagSetEc2TagFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupEc2TagSetEc2TagFilterToTerraform(struct?: CodedeployDeploymentGroupEc2TagSetEc2TagFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference extends cdktf.ComplexObject {
@@ -1154,29 +963,16 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupEc2TagSetEc2TagFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupEc2TagSetEc2TagFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1197,22 +993,19 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupEc2TagSetEc2TagFilter
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupEc2TagSetEc2TagFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -1222,7 +1015,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1238,7 +1031,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1254,7 +1047,7 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -1271,65 +1064,41 @@ export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference exten
 }
 
 export class CodedeployDeploymentGroupEc2TagSetEc2TagFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupEc2TagSetEc2TagFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupEc2TagSetEc2TagFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference {
-    return new CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference {
+    return new CodedeployDeploymentGroupEc2TagSetEc2TagFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupEc2TagSet {
   /**
-   * ec2_tag_filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_filter CodedeployDeploymentGroup#ec2_tag_filter}
-   */
-  readonly ec2TagFilter?:
-    | CodedeployDeploymentGroupEc2TagSetEc2TagFilter[]
-    | cdktf.IResolvable;
+  * ec2_tag_filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#ec2_tag_filter CodedeployDeploymentGroup#ec2_tag_filter}
+  */
+  readonly ec2TagFilter?: CodedeployDeploymentGroupEc2TagSetEc2TagFilter[] | cdktf.IResolvable;
 }
 
-export function codedeployDeploymentGroupEc2TagSetToTerraform(
-  struct?: CodedeployDeploymentGroupEc2TagSet | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupEc2TagSetToTerraform(struct?: CodedeployDeploymentGroupEc2TagSet | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    ec2_tag_filter: cdktf.listMapper(
-      codedeployDeploymentGroupEc2TagSetEc2TagFilterToTerraform,
-      true,
-    )(struct!.ec2TagFilter),
-  };
+    ec2_tag_filter: cdktf.listMapper(codedeployDeploymentGroupEc2TagSetEc2TagFilterToTerraform, true)(struct!.ec2TagFilter),
+  }
 }
 
 export class CodedeployDeploymentGroupEc2TagSetOutputReference extends cdktf.ComplexObject {
@@ -1337,29 +1106,16 @@ export class CodedeployDeploymentGroupEc2TagSetOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupEc2TagSet
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupEc2TagSet | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1372,17 +1128,17 @@ export class CodedeployDeploymentGroupEc2TagSetOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupEc2TagSet | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupEc2TagSet | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._ec2TagFilter.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._ec2TagFilter.internalValue = value.ec2TagFilter;
@@ -1390,18 +1146,11 @@ export class CodedeployDeploymentGroupEc2TagSetOutputReference extends cdktf.Com
   }
 
   // ec2_tag_filter - computed: false, optional: true, required: false
-  private _ec2TagFilter =
-    new CodedeployDeploymentGroupEc2TagSetEc2TagFilterList(
-      this,
-      'ec2_tag_filter',
-      true,
-    );
+  private _ec2TagFilter = new CodedeployDeploymentGroupEc2TagSetEc2TagFilterList(this, "ec2_tag_filter", true);
   public get ec2TagFilter() {
     return this._ec2TagFilter;
   }
-  public putEc2TagFilter(
-    value: CodedeployDeploymentGroupEc2TagSetEc2TagFilter[] | cdktf.IResolvable,
-  ) {
+  public putEc2TagFilter(value: CodedeployDeploymentGroupEc2TagSetEc2TagFilter[] | cdktf.IResolvable) {
     this._ec2TagFilter.internalValue = value;
   }
   public resetEc2TagFilter() {
@@ -1414,76 +1163,54 @@ export class CodedeployDeploymentGroupEc2TagSetOutputReference extends cdktf.Com
 }
 
 export class CodedeployDeploymentGroupEc2TagSetList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupEc2TagSet[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupEc2TagSet[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CodedeployDeploymentGroupEc2TagSetOutputReference {
-    return new CodedeployDeploymentGroupEc2TagSetOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CodedeployDeploymentGroupEc2TagSetOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupEcsService {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#cluster_name CodedeployDeploymentGroup#cluster_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#cluster_name CodedeployDeploymentGroup#cluster_name}
+  */
   readonly clusterName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#service_name CodedeployDeploymentGroup#service_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#service_name CodedeployDeploymentGroup#service_name}
+  */
   readonly serviceName: string;
 }
 
-export function codedeployDeploymentGroupEcsServiceToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupEcsServiceOutputReference
-    | CodedeployDeploymentGroupEcsService,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupEcsServiceToTerraform(struct?: CodedeployDeploymentGroupEcsServiceOutputReference | CodedeployDeploymentGroupEcsService): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     cluster_name: cdktf.stringToTerraform(struct!.clusterName),
     service_name: cdktf.stringToTerraform(struct!.serviceName),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1501,14 +1228,13 @@ export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupEcsService | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupEcsService | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._clusterName = undefined;
       this._serviceName = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._clusterName = value.clusterName;
       this._serviceName = value.serviceName;
@@ -1516,7 +1242,7 @@ export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.Co
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string;
+  private _clusterName?: string; 
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -1529,7 +1255,7 @@ export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.Co
   }
 
   // service_name - computed: false, optional: false, required: true
-  private _serviceName?: string;
+  private _serviceName?: string; 
   public get serviceName() {
     return this.getStringAttribute('service_name');
   }
@@ -1543,25 +1269,19 @@ export class CodedeployDeploymentGroupEcsServiceOutputReference extends cdktf.Co
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfoElbInfo {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#name CodedeployDeploymentGroup#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#name CodedeployDeploymentGroup#name}
+  */
   readonly name?: string;
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoElbInfoToTerraform(
-  struct?: CodedeployDeploymentGroupLoadBalancerInfoElbInfo | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoElbInfoToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoElbInfo | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference extends cdktf.ComplexObject {
@@ -1569,29 +1289,16 @@ export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference ext
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfoElbInfo
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfoElbInfo | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1604,20 +1311,17 @@ export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoElbInfo
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfoElbInfo | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -1625,7 +1329,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference ext
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1642,60 +1346,39 @@ export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference ext
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoElbInfoList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupLoadBalancerInfoElbInfo[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupLoadBalancerInfoElbInfo[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference {
-    return new CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference {
+    return new CodedeployDeploymentGroupLoadBalancerInfoElbInfoOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#name CodedeployDeploymentGroup#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#name CodedeployDeploymentGroup#name}
+  */
   readonly name?: string;
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputReference extends cdktf.ComplexObject {
@@ -1703,29 +1386,16 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputRefer
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1738,20 +1408,17 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -1759,7 +1426,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputRefer
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1776,82 +1443,53 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputRefer
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputReference {
-    return new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputReference {
+    return new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#listener_arns CodedeployDeploymentGroup#listener_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#listener_arns CodedeployDeploymentGroup#listener_arns}
+  */
   readonly listenerArns: string[];
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputReference
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputReference | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    listener_arns: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.listenerArns),
-  };
+    listener_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.listenerArns),
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._listenerArns !== undefined) {
@@ -1861,22 +1499,19 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTra
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._listenerArns = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._listenerArns = value.listenerArns;
     }
   }
 
   // listener_arns - computed: false, optional: false, required: true
-  private _listenerArns?: string[];
+  private _listenerArns?: string[]; 
   public get listenerArns() {
     return cdktf.Fn.tolist(this.getListAttribute('listener_arns'));
   }
@@ -1890,27 +1525,19 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTra
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#name CodedeployDeploymentGroup#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#name CodedeployDeploymentGroup#name}
+  */
   readonly name: string;
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputReference extends cdktf.ComplexObject {
@@ -1918,29 +1545,16 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetG
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1953,20 +1567,17 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetG
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -1974,7 +1585,7 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetG
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1988,82 +1599,53 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetG
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputReference {
-    return new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputReference {
+    return new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#listener_arns CodedeployDeploymentGroup#listener_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#listener_arns CodedeployDeploymentGroup#listener_arns}
+  */
   readonly listenerArns: string[];
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputReference
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputReference | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    listener_arns: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.listenerArns),
-  };
+    listener_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.listenerArns),
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._listenerArns !== undefined) {
@@ -2073,22 +1655,19 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTra
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._listenerArns = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._listenerArns = value.listenerArns;
     }
   }
 
   // listener_arns - computed: false, optional: false, required: true
-  private _listenerArns?: string[];
+  private _listenerArns?: string[]; 
   public get listenerArns() {
     return cdktf.Fn.tolist(this.getListAttribute('listener_arns'));
   }
@@ -2102,79 +1681,54 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTra
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
   /**
-   * prod_traffic_route block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#prod_traffic_route CodedeployDeploymentGroup#prod_traffic_route}
-   */
+  * prod_traffic_route block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#prod_traffic_route CodedeployDeploymentGroup#prod_traffic_route}
+  */
   readonly prodTrafficRoute: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute;
   /**
-   * target_group block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group CodedeployDeploymentGroup#target_group}
-   */
-  readonly targetGroup:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[]
-    | cdktf.IResolvable;
+  * target_group block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group CodedeployDeploymentGroup#target_group}
+  */
+  readonly targetGroup: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[] | cdktf.IResolvable;
   /**
-   * test_traffic_route block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#test_traffic_route CodedeployDeploymentGroup#test_traffic_route}
-   */
+  * test_traffic_route block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#test_traffic_route CodedeployDeploymentGroup#test_traffic_route}
+  */
   readonly testTrafficRoute?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute;
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputReference
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputReference | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    prod_traffic_route:
-      codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteToTerraform(
-        struct!.prodTrafficRoute,
-      ),
-    target_group: cdktf.listMapper(
-      codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupToTerraform,
-      true,
-    )(struct!.targetGroup),
-    test_traffic_route:
-      codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteToTerraform(
-        struct!.testTrafficRoute,
-      ),
-  };
+    prod_traffic_route: codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteToTerraform(struct!.prodTrafficRoute),
+    target_group: cdktf.listMapper(codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupToTerraform, true)(struct!.targetGroup),
+    test_traffic_route: codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteToTerraform(struct!.testTrafficRoute),
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._prodTrafficRoute?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.prodTrafficRoute =
-        this._prodTrafficRoute?.internalValue;
+      internalValueResult.prodTrafficRoute = this._prodTrafficRoute?.internalValue;
     }
     if (this._targetGroup?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2182,23 +1736,19 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputR
     }
     if (this._testTrafficRoute?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.testTrafficRoute =
-        this._testTrafficRoute?.internalValue;
+      internalValueResult.testTrafficRoute = this._testTrafficRoute?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._prodTrafficRoute.internalValue = undefined;
       this._targetGroup.internalValue = undefined;
       this._testTrafficRoute.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._prodTrafficRoute.internalValue = value.prodTrafficRoute;
       this._targetGroup.internalValue = value.targetGroup;
@@ -2207,17 +1757,11 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputR
   }
 
   // prod_traffic_route - computed: false, optional: false, required: true
-  private _prodTrafficRoute =
-    new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputReference(
-      this,
-      'prod_traffic_route',
-    );
+  private _prodTrafficRoute = new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputReference(this, "prod_traffic_route");
   public get prodTrafficRoute() {
     return this._prodTrafficRoute;
   }
-  public putProdTrafficRoute(
-    value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute,
-  ) {
+  public putProdTrafficRoute(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) {
     this._prodTrafficRoute.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2226,20 +1770,11 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputR
   }
 
   // target_group - computed: false, optional: false, required: true
-  private _targetGroup =
-    new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupList(
-      this,
-      'target_group',
-      false,
-    );
+  private _targetGroup = new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupList(this, "target_group", false);
   public get targetGroup() {
     return this._targetGroup;
   }
-  public putTargetGroup(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[]
-      | cdktf.IResolvable,
-  ) {
+  public putTargetGroup(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[] | cdktf.IResolvable) {
     this._targetGroup.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2248,17 +1783,11 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputR
   }
 
   // test_traffic_route - computed: false, optional: true, required: false
-  private _testTrafficRoute =
-    new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputReference(
-      this,
-      'test_traffic_route',
-    );
+  private _testTrafficRoute = new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputReference(this, "test_traffic_route");
   public get testTrafficRoute() {
     return this._testTrafficRoute;
   }
-  public putTestTrafficRoute(
-    value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute,
-  ) {
+  public putTestTrafficRoute(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) {
     this._testTrafficRoute.internalValue = value;
   }
   public resetTestTrafficRoute() {
@@ -2271,75 +1800,49 @@ export class CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputR
 }
 export interface CodedeployDeploymentGroupLoadBalancerInfo {
   /**
-   * elb_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#elb_info CodedeployDeploymentGroup#elb_info}
-   */
-  readonly elbInfo?:
-    | CodedeployDeploymentGroupLoadBalancerInfoElbInfo[]
-    | cdktf.IResolvable;
+  * elb_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#elb_info CodedeployDeploymentGroup#elb_info}
+  */
+  readonly elbInfo?: CodedeployDeploymentGroupLoadBalancerInfoElbInfo[] | cdktf.IResolvable;
   /**
-   * target_group_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group_info CodedeployDeploymentGroup#target_group_info}
-   */
-  readonly targetGroupInfo?:
-    | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[]
-    | cdktf.IResolvable;
+  * target_group_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group_info CodedeployDeploymentGroup#target_group_info}
+  */
+  readonly targetGroupInfo?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[] | cdktf.IResolvable;
   /**
-   * target_group_pair_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group_pair_info CodedeployDeploymentGroup#target_group_pair_info}
-   */
+  * target_group_pair_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#target_group_pair_info CodedeployDeploymentGroup#target_group_pair_info}
+  */
   readonly targetGroupPairInfo?: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo;
 }
 
-export function codedeployDeploymentGroupLoadBalancerInfoToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupLoadBalancerInfoOutputReference
-    | CodedeployDeploymentGroupLoadBalancerInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupLoadBalancerInfoToTerraform(struct?: CodedeployDeploymentGroupLoadBalancerInfoOutputReference | CodedeployDeploymentGroupLoadBalancerInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    elb_info: cdktf.listMapper(
-      codedeployDeploymentGroupLoadBalancerInfoElbInfoToTerraform,
-      true,
-    )(struct!.elbInfo),
-    target_group_info: cdktf.listMapper(
-      codedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoToTerraform,
-      true,
-    )(struct!.targetGroupInfo),
-    target_group_pair_info:
-      codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoToTerraform(
-        struct!.targetGroupPairInfo,
-      ),
-  };
+    elb_info: cdktf.listMapper(codedeployDeploymentGroupLoadBalancerInfoElbInfoToTerraform, true)(struct!.elbInfo),
+    target_group_info: cdktf.listMapper(codedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoToTerraform, true)(struct!.targetGroupInfo),
+    target_group_pair_info: codedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoToTerraform(struct!.targetGroupPairInfo),
+  }
 }
 
 export class CodedeployDeploymentGroupLoadBalancerInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupLoadBalancerInfo
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupLoadBalancerInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._elbInfo?.internalValue !== undefined) {
@@ -2348,26 +1851,23 @@ export class CodedeployDeploymentGroupLoadBalancerInfoOutputReference extends cd
     }
     if (this._targetGroupInfo?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.targetGroupInfo =
-        this._targetGroupInfo?.internalValue;
+      internalValueResult.targetGroupInfo = this._targetGroupInfo?.internalValue;
     }
     if (this._targetGroupPairInfo?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.targetGroupPairInfo =
-        this._targetGroupPairInfo?.internalValue;
+      internalValueResult.targetGroupPairInfo = this._targetGroupPairInfo?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodedeployDeploymentGroupLoadBalancerInfo | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupLoadBalancerInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._elbInfo.internalValue = undefined;
       this._targetGroupInfo.internalValue = undefined;
       this._targetGroupPairInfo.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._elbInfo.internalValue = value.elbInfo;
       this._targetGroupInfo.internalValue = value.targetGroupInfo;
@@ -2376,19 +1876,11 @@ export class CodedeployDeploymentGroupLoadBalancerInfoOutputReference extends cd
   }
 
   // elb_info - computed: false, optional: true, required: false
-  private _elbInfo = new CodedeployDeploymentGroupLoadBalancerInfoElbInfoList(
-    this,
-    'elb_info',
-    true,
-  );
+  private _elbInfo = new CodedeployDeploymentGroupLoadBalancerInfoElbInfoList(this, "elb_info", true);
   public get elbInfo() {
     return this._elbInfo;
   }
-  public putElbInfo(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoElbInfo[]
-      | cdktf.IResolvable,
-  ) {
+  public putElbInfo(value: CodedeployDeploymentGroupLoadBalancerInfoElbInfo[] | cdktf.IResolvable) {
     this._elbInfo.internalValue = value;
   }
   public resetElbInfo() {
@@ -2400,20 +1892,11 @@ export class CodedeployDeploymentGroupLoadBalancerInfoOutputReference extends cd
   }
 
   // target_group_info - computed: false, optional: true, required: false
-  private _targetGroupInfo =
-    new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList(
-      this,
-      'target_group_info',
-      true,
-    );
+  private _targetGroupInfo = new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList(this, "target_group_info", true);
   public get targetGroupInfo() {
     return this._targetGroupInfo;
   }
-  public putTargetGroupInfo(
-    value:
-      | CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[]
-      | cdktf.IResolvable,
-  ) {
+  public putTargetGroupInfo(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupInfo[] | cdktf.IResolvable) {
     this._targetGroupInfo.internalValue = value;
   }
   public resetTargetGroupInfo() {
@@ -2425,17 +1908,11 @@ export class CodedeployDeploymentGroupLoadBalancerInfoOutputReference extends cd
   }
 
   // target_group_pair_info - computed: false, optional: true, required: false
-  private _targetGroupPairInfo =
-    new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputReference(
-      this,
-      'target_group_pair_info',
-    );
+  private _targetGroupPairInfo = new CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputReference(this, "target_group_pair_info");
   public get targetGroupPairInfo() {
     return this._targetGroupPairInfo;
   }
-  public putTargetGroupPairInfo(
-    value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo,
-  ) {
+  public putTargetGroupPairInfo(value: CodedeployDeploymentGroupLoadBalancerInfoTargetGroupPairInfo) {
     this._targetGroupPairInfo.internalValue = value;
   }
   public resetTargetGroupPairInfo() {
@@ -2448,37 +1925,29 @@ export class CodedeployDeploymentGroupLoadBalancerInfoOutputReference extends cd
 }
 export interface CodedeployDeploymentGroupOnPremisesInstanceTagFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#key CodedeployDeploymentGroup#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#key CodedeployDeploymentGroup#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#type CodedeployDeploymentGroup#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#type CodedeployDeploymentGroup#type}
+  */
   readonly type?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#value CodedeployDeploymentGroup#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#value CodedeployDeploymentGroup#value}
+  */
   readonly value?: string;
 }
 
-export function codedeployDeploymentGroupOnPremisesInstanceTagFilterToTerraform(
-  struct?:
-    | CodedeployDeploymentGroupOnPremisesInstanceTagFilter
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupOnPremisesInstanceTagFilterToTerraform(struct?: CodedeployDeploymentGroupOnPremisesInstanceTagFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference extends cdktf.ComplexObject {
@@ -2486,29 +1955,16 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupOnPremisesInstanceTagFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupOnPremisesInstanceTagFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2529,22 +1985,19 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupOnPremisesInstanceTagFilter
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupOnPremisesInstanceTagFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2554,7 +2007,7 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2570,7 +2023,7 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -2586,7 +2039,7 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -2603,71 +2056,49 @@ export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference
 }
 
 export class CodedeployDeploymentGroupOnPremisesInstanceTagFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupOnPremisesInstanceTagFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupOnPremisesInstanceTagFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference {
-    return new CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference {
+    return new CodedeployDeploymentGroupOnPremisesInstanceTagFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodedeployDeploymentGroupTriggerConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_events CodedeployDeploymentGroup#trigger_events}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_events CodedeployDeploymentGroup#trigger_events}
+  */
   readonly triggerEvents: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_name CodedeployDeploymentGroup#trigger_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_name CodedeployDeploymentGroup#trigger_name}
+  */
   readonly triggerName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_target_arn CodedeployDeploymentGroup#trigger_target_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group#trigger_target_arn CodedeployDeploymentGroup#trigger_target_arn}
+  */
   readonly triggerTargetArn: string;
 }
 
-export function codedeployDeploymentGroupTriggerConfigurationToTerraform(
-  struct?: CodedeployDeploymentGroupTriggerConfiguration | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codedeployDeploymentGroupTriggerConfigurationToTerraform(struct?: CodedeployDeploymentGroupTriggerConfiguration | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    trigger_events: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.triggerEvents),
+    trigger_events: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.triggerEvents),
     trigger_name: cdktf.stringToTerraform(struct!.triggerName),
     trigger_target_arn: cdktf.stringToTerraform(struct!.triggerTargetArn),
-  };
+  }
 }
 
 export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extends cdktf.ComplexObject {
@@ -2675,29 +2106,16 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodedeployDeploymentGroupTriggerConfiguration
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodedeployDeploymentGroupTriggerConfiguration | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2718,22 +2136,19 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodedeployDeploymentGroupTriggerConfiguration
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodedeployDeploymentGroupTriggerConfiguration | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._triggerEvents = undefined;
       this._triggerName = undefined;
       this._triggerTargetArn = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._triggerEvents = value.triggerEvents;
@@ -2743,7 +2158,7 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   }
 
   // trigger_events - computed: false, optional: false, required: true
-  private _triggerEvents?: string[];
+  private _triggerEvents?: string[]; 
   public get triggerEvents() {
     return cdktf.Fn.tolist(this.getListAttribute('trigger_events'));
   }
@@ -2756,7 +2171,7 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   }
 
   // trigger_name - computed: false, optional: false, required: true
-  private _triggerName?: string;
+  private _triggerName?: string; 
   public get triggerName() {
     return this.getStringAttribute('trigger_name');
   }
@@ -2769,7 +2184,7 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
   }
 
   // trigger_target_arn - computed: false, optional: false, required: true
-  private _triggerTargetArn?: string;
+  private _triggerTargetArn?: string; 
   public get triggerTargetArn() {
     return this.getStringAttribute('trigger_target_arn');
   }
@@ -2783,69 +2198,53 @@ export class CodedeployDeploymentGroupTriggerConfigurationOutputReference extend
 }
 
 export class CodedeployDeploymentGroupTriggerConfigurationList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodedeployDeploymentGroupTriggerConfiguration[]
-    | cdktf.IResolvable;
+  public internalValue? : CodedeployDeploymentGroupTriggerConfiguration[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodedeployDeploymentGroupTriggerConfigurationOutputReference {
-    return new CodedeployDeploymentGroupTriggerConfigurationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodedeployDeploymentGroupTriggerConfigurationOutputReference {
+    return new CodedeployDeploymentGroupTriggerConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group aws_codedeploy_deployment_group}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group aws_codedeploy_deployment_group}
+*/
 export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_codedeploy_deployment_group';
+  public static readonly tfResourceType = "aws_codedeploy_deployment_group";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group aws_codedeploy_deployment_group} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CodedeployDeploymentGroupConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CodedeployDeploymentGroupConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codedeploy_deployment_group aws_codedeploy_deployment_group} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CodedeployDeploymentGroupConfig
+  */
+  public constructor(scope: Construct, id: string, config: CodedeployDeploymentGroupConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_codedeploy_deployment_group',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2853,7 +2252,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._appName = config.appName;
     this._autoscalingGroups = config.autoscalingGroups;
@@ -2864,17 +2263,14 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._alarmConfiguration.internalValue = config.alarmConfiguration;
-    this._autoRollbackConfiguration.internalValue =
-      config.autoRollbackConfiguration;
-    this._blueGreenDeploymentConfig.internalValue =
-      config.blueGreenDeploymentConfig;
+    this._autoRollbackConfiguration.internalValue = config.autoRollbackConfiguration;
+    this._blueGreenDeploymentConfig.internalValue = config.blueGreenDeploymentConfig;
     this._deploymentStyle.internalValue = config.deploymentStyle;
     this._ec2TagFilter.internalValue = config.ec2TagFilter;
     this._ec2TagSet.internalValue = config.ec2TagSet;
     this._ecsService.internalValue = config.ecsService;
     this._loadBalancerInfo.internalValue = config.loadBalancerInfo;
-    this._onPremisesInstanceTagFilter.internalValue =
-      config.onPremisesInstanceTagFilter;
+    this._onPremisesInstanceTagFilter.internalValue = config.onPremisesInstanceTagFilter;
     this._triggerConfiguration.internalValue = config.triggerConfiguration;
   }
 
@@ -2883,7 +2279,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   // ==========
 
   // app_name - computed: false, optional: false, required: true
-  private _appName?: string;
+  private _appName?: string; 
   public get appName() {
     return this.getStringAttribute('app_name');
   }
@@ -2901,7 +2297,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // autoscaling_groups - computed: false, optional: true, required: false
-  private _autoscalingGroups?: string[];
+  private _autoscalingGroups?: string[]; 
   public get autoscalingGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('autoscaling_groups'));
   }
@@ -2922,7 +2318,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // deployment_config_name - computed: false, optional: true, required: false
-  private _deploymentConfigName?: string;
+  private _deploymentConfigName?: string; 
   public get deploymentConfigName() {
     return this.getStringAttribute('deployment_config_name');
   }
@@ -2943,7 +2339,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // deployment_group_name - computed: false, optional: false, required: true
-  private _deploymentGroupName?: string;
+  private _deploymentGroupName?: string; 
   public get deploymentGroupName() {
     return this.getStringAttribute('deployment_group_name');
   }
@@ -2956,7 +2352,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2972,7 +2368,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // service_role_arn - computed: false, optional: false, required: true
-  private _serviceRoleArn?: string;
+  private _serviceRoleArn?: string; 
   public get serviceRoleArn() {
     return this.getStringAttribute('service_role_arn');
   }
@@ -2985,7 +2381,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3001,7 +2397,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -3017,17 +2413,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // alarm_configuration - computed: false, optional: true, required: false
-  private _alarmConfiguration =
-    new CodedeployDeploymentGroupAlarmConfigurationOutputReference(
-      this,
-      'alarm_configuration',
-    );
+  private _alarmConfiguration = new CodedeployDeploymentGroupAlarmConfigurationOutputReference(this, "alarm_configuration");
   public get alarmConfiguration() {
     return this._alarmConfiguration;
   }
-  public putAlarmConfiguration(
-    value: CodedeployDeploymentGroupAlarmConfiguration,
-  ) {
+  public putAlarmConfiguration(value: CodedeployDeploymentGroupAlarmConfiguration) {
     this._alarmConfiguration.internalValue = value;
   }
   public resetAlarmConfiguration() {
@@ -3039,17 +2429,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // auto_rollback_configuration - computed: false, optional: true, required: false
-  private _autoRollbackConfiguration =
-    new CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference(
-      this,
-      'auto_rollback_configuration',
-    );
+  private _autoRollbackConfiguration = new CodedeployDeploymentGroupAutoRollbackConfigurationOutputReference(this, "auto_rollback_configuration");
   public get autoRollbackConfiguration() {
     return this._autoRollbackConfiguration;
   }
-  public putAutoRollbackConfiguration(
-    value: CodedeployDeploymentGroupAutoRollbackConfiguration,
-  ) {
+  public putAutoRollbackConfiguration(value: CodedeployDeploymentGroupAutoRollbackConfiguration) {
     this._autoRollbackConfiguration.internalValue = value;
   }
   public resetAutoRollbackConfiguration() {
@@ -3061,17 +2445,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // blue_green_deployment_config - computed: false, optional: true, required: false
-  private _blueGreenDeploymentConfig =
-    new CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference(
-      this,
-      'blue_green_deployment_config',
-    );
+  private _blueGreenDeploymentConfig = new CodedeployDeploymentGroupBlueGreenDeploymentConfigOutputReference(this, "blue_green_deployment_config");
   public get blueGreenDeploymentConfig() {
     return this._blueGreenDeploymentConfig;
   }
-  public putBlueGreenDeploymentConfig(
-    value: CodedeployDeploymentGroupBlueGreenDeploymentConfig,
-  ) {
+  public putBlueGreenDeploymentConfig(value: CodedeployDeploymentGroupBlueGreenDeploymentConfig) {
     this._blueGreenDeploymentConfig.internalValue = value;
   }
   public resetBlueGreenDeploymentConfig() {
@@ -3083,11 +2461,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // deployment_style - computed: false, optional: true, required: false
-  private _deploymentStyle =
-    new CodedeployDeploymentGroupDeploymentStyleOutputReference(
-      this,
-      'deployment_style',
-    );
+  private _deploymentStyle = new CodedeployDeploymentGroupDeploymentStyleOutputReference(this, "deployment_style");
   public get deploymentStyle() {
     return this._deploymentStyle;
   }
@@ -3103,17 +2477,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // ec2_tag_filter - computed: false, optional: true, required: false
-  private _ec2TagFilter = new CodedeployDeploymentGroupEc2TagFilterList(
-    this,
-    'ec2_tag_filter',
-    true,
-  );
+  private _ec2TagFilter = new CodedeployDeploymentGroupEc2TagFilterList(this, "ec2_tag_filter", true);
   public get ec2TagFilter() {
     return this._ec2TagFilter;
   }
-  public putEc2TagFilter(
-    value: CodedeployDeploymentGroupEc2TagFilter[] | cdktf.IResolvable,
-  ) {
+  public putEc2TagFilter(value: CodedeployDeploymentGroupEc2TagFilter[] | cdktf.IResolvable) {
     this._ec2TagFilter.internalValue = value;
   }
   public resetEc2TagFilter() {
@@ -3125,17 +2493,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // ec2_tag_set - computed: false, optional: true, required: false
-  private _ec2TagSet = new CodedeployDeploymentGroupEc2TagSetList(
-    this,
-    'ec2_tag_set',
-    true,
-  );
+  private _ec2TagSet = new CodedeployDeploymentGroupEc2TagSetList(this, "ec2_tag_set", true);
   public get ec2TagSet() {
     return this._ec2TagSet;
   }
-  public putEc2TagSet(
-    value: CodedeployDeploymentGroupEc2TagSet[] | cdktf.IResolvable,
-  ) {
+  public putEc2TagSet(value: CodedeployDeploymentGroupEc2TagSet[] | cdktf.IResolvable) {
     this._ec2TagSet.internalValue = value;
   }
   public resetEc2TagSet() {
@@ -3147,10 +2509,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // ecs_service - computed: false, optional: true, required: false
-  private _ecsService = new CodedeployDeploymentGroupEcsServiceOutputReference(
-    this,
-    'ecs_service',
-  );
+  private _ecsService = new CodedeployDeploymentGroupEcsServiceOutputReference(this, "ecs_service");
   public get ecsService() {
     return this._ecsService;
   }
@@ -3166,11 +2525,7 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // load_balancer_info - computed: false, optional: true, required: false
-  private _loadBalancerInfo =
-    new CodedeployDeploymentGroupLoadBalancerInfoOutputReference(
-      this,
-      'load_balancer_info',
-    );
+  private _loadBalancerInfo = new CodedeployDeploymentGroupLoadBalancerInfoOutputReference(this, "load_balancer_info");
   public get loadBalancerInfo() {
     return this._loadBalancerInfo;
   }
@@ -3186,20 +2541,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // on_premises_instance_tag_filter - computed: false, optional: true, required: false
-  private _onPremisesInstanceTagFilter =
-    new CodedeployDeploymentGroupOnPremisesInstanceTagFilterList(
-      this,
-      'on_premises_instance_tag_filter',
-      true,
-    );
+  private _onPremisesInstanceTagFilter = new CodedeployDeploymentGroupOnPremisesInstanceTagFilterList(this, "on_premises_instance_tag_filter", true);
   public get onPremisesInstanceTagFilter() {
     return this._onPremisesInstanceTagFilter;
   }
-  public putOnPremisesInstanceTagFilter(
-    value:
-      | CodedeployDeploymentGroupOnPremisesInstanceTagFilter[]
-      | cdktf.IResolvable,
-  ) {
+  public putOnPremisesInstanceTagFilter(value: CodedeployDeploymentGroupOnPremisesInstanceTagFilter[] | cdktf.IResolvable) {
     this._onPremisesInstanceTagFilter.internalValue = value;
   }
   public resetOnPremisesInstanceTagFilter() {
@@ -3211,18 +2557,11 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   }
 
   // trigger_configuration - computed: false, optional: true, required: false
-  private _triggerConfiguration =
-    new CodedeployDeploymentGroupTriggerConfigurationList(
-      this,
-      'trigger_configuration',
-      true,
-    );
+  private _triggerConfiguration = new CodedeployDeploymentGroupTriggerConfigurationList(this, "trigger_configuration", true);
   public get triggerConfiguration() {
     return this._triggerConfiguration;
   }
-  public putTriggerConfiguration(
-    value: CodedeployDeploymentGroupTriggerConfiguration[] | cdktf.IResolvable,
-  ) {
+  public putTriggerConfiguration(value: CodedeployDeploymentGroupTriggerConfiguration[] | cdktf.IResolvable) {
     this._triggerConfiguration.internalValue = value;
   }
   public resetTriggerConfiguration() {
@@ -3240,55 +2579,23 @@ export class CodedeployDeploymentGroup extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       app_name: cdktf.stringToTerraform(this._appName),
-      autoscaling_groups: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._autoscalingGroups),
-      deployment_config_name: cdktf.stringToTerraform(
-        this._deploymentConfigName,
-      ),
+      autoscaling_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(this._autoscalingGroups),
+      deployment_config_name: cdktf.stringToTerraform(this._deploymentConfigName),
       deployment_group_name: cdktf.stringToTerraform(this._deploymentGroupName),
       id: cdktf.stringToTerraform(this._id),
       service_role_arn: cdktf.stringToTerraform(this._serviceRoleArn),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      alarm_configuration:
-        codedeployDeploymentGroupAlarmConfigurationToTerraform(
-          this._alarmConfiguration.internalValue,
-        ),
-      auto_rollback_configuration:
-        codedeployDeploymentGroupAutoRollbackConfigurationToTerraform(
-          this._autoRollbackConfiguration.internalValue,
-        ),
-      blue_green_deployment_config:
-        codedeployDeploymentGroupBlueGreenDeploymentConfigToTerraform(
-          this._blueGreenDeploymentConfig.internalValue,
-        ),
-      deployment_style: codedeployDeploymentGroupDeploymentStyleToTerraform(
-        this._deploymentStyle.internalValue,
-      ),
-      ec2_tag_filter: cdktf.listMapper(
-        codedeployDeploymentGroupEc2TagFilterToTerraform,
-        true,
-      )(this._ec2TagFilter.internalValue),
-      ec2_tag_set: cdktf.listMapper(
-        codedeployDeploymentGroupEc2TagSetToTerraform,
-        true,
-      )(this._ec2TagSet.internalValue),
-      ecs_service: codedeployDeploymentGroupEcsServiceToTerraform(
-        this._ecsService.internalValue,
-      ),
-      load_balancer_info: codedeployDeploymentGroupLoadBalancerInfoToTerraform(
-        this._loadBalancerInfo.internalValue,
-      ),
-      on_premises_instance_tag_filter: cdktf.listMapper(
-        codedeployDeploymentGroupOnPremisesInstanceTagFilterToTerraform,
-        true,
-      )(this._onPremisesInstanceTagFilter.internalValue),
-      trigger_configuration: cdktf.listMapper(
-        codedeployDeploymentGroupTriggerConfigurationToTerraform,
-        true,
-      )(this._triggerConfiguration.internalValue),
+      alarm_configuration: codedeployDeploymentGroupAlarmConfigurationToTerraform(this._alarmConfiguration.internalValue),
+      auto_rollback_configuration: codedeployDeploymentGroupAutoRollbackConfigurationToTerraform(this._autoRollbackConfiguration.internalValue),
+      blue_green_deployment_config: codedeployDeploymentGroupBlueGreenDeploymentConfigToTerraform(this._blueGreenDeploymentConfig.internalValue),
+      deployment_style: codedeployDeploymentGroupDeploymentStyleToTerraform(this._deploymentStyle.internalValue),
+      ec2_tag_filter: cdktf.listMapper(codedeployDeploymentGroupEc2TagFilterToTerraform, true)(this._ec2TagFilter.internalValue),
+      ec2_tag_set: cdktf.listMapper(codedeployDeploymentGroupEc2TagSetToTerraform, true)(this._ec2TagSet.internalValue),
+      ecs_service: codedeployDeploymentGroupEcsServiceToTerraform(this._ecsService.internalValue),
+      load_balancer_info: codedeployDeploymentGroupLoadBalancerInfoToTerraform(this._loadBalancerInfo.internalValue),
+      on_premises_instance_tag_filter: cdktf.listMapper(codedeployDeploymentGroupOnPremisesInstanceTagFilterToTerraform, true)(this._onPremisesInstanceTagFilter.internalValue),
+      trigger_configuration: cdktf.listMapper(codedeployDeploymentGroupTriggerConfigurationToTerraform, true)(this._triggerConfiguration.internalValue),
     };
   }
 }

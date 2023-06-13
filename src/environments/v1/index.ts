@@ -5,11 +5,6 @@ import { ComponentMetadata, Environment } from '../environment.ts';
 
 export default class EnvironmentV1 extends Environment {
   /**
-   * The DNS zone to use for ingresses in the environment
-   */
-  dns_zone?: string;
-
-  /**
    * Local variables that can be used to parameterize the environment
    */
   locals?: Record<string, string>;
@@ -156,11 +151,8 @@ export default class EnvironmentV1 extends Environment {
     const service_config = component_config?.services?.[node.name];
     if (service_config?.host) {
       node.inputs = {
-        type: node.inputs.type,
-        name: node.inputs.name,
-        namespace: node.inputs.namespace,
-        labels: node.inputs.labels,
-        external_name: service_config.host,
+        ...node.inputs,
+        external_hostname: service_config.host,
         target_port: service_config.port || node.inputs.target_port,
       };
     }
@@ -176,13 +168,8 @@ export default class EnvironmentV1 extends Environment {
     const component_config = this.components[node.component];
     const ingress_config = component_config?.ingresses?.[node.name];
 
-    node.inputs.listener = {
-      ...node.inputs.listener,
-      path: ingress_config?.path || node.inputs.listener?.path,
-      subdomain: ingress_config?.subdomain || node.inputs.listener?.subdomain,
-      hostZone: this.dns_zone,
-    };
-
+    node.inputs.path = ingress_config?.path || node.inputs.path;
+    node.inputs.subdomain = ingress_config?.subdomain || node.inputs.subdomain;
     node.inputs.internal = ingress_config?.internal || node.inputs.internal;
 
     return node;

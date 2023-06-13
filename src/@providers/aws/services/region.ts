@@ -1,14 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { BaseService } from '../../service.ts';
+import { ResourceService } from '../../base.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsRegionService extends BaseService<'region'> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
-
+export class AwsRegionService extends ResourceService<'region', AwsCredentials> {
   get(id: string): Promise<ResourceOutputs['region'] | undefined> {
     return new Promise((resolve, reject) => {
       AwsUtils.getEC2(this.credentials).describeRegions({ RegionNames: [id] }, (err, data) => {
@@ -30,8 +26,8 @@ export class AwsRegionService extends BaseService<'region'> {
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['region']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['region']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['region']>> {
     const regionsData = await AwsUtils.getEC2(this.credentials).describeRegions().promise();
     return {

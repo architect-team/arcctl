@@ -1,76 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Ec2TrafficMirrorTargetConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Ec2TrafficMirrorTargetConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#description Ec2TrafficMirrorTarget#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#description Ec2TrafficMirrorTarget#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#gateway_load_balancer_endpoint_id Ec2TrafficMirrorTarget#gateway_load_balancer_endpoint_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#gateway_load_balancer_endpoint_id Ec2TrafficMirrorTarget#gateway_load_balancer_endpoint_id}
+  */
   readonly gatewayLoadBalancerEndpointId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#id Ec2TrafficMirrorTarget#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#id Ec2TrafficMirrorTarget#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#network_interface_id Ec2TrafficMirrorTarget#network_interface_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#network_interface_id Ec2TrafficMirrorTarget#network_interface_id}
+  */
   readonly networkInterfaceId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#network_load_balancer_arn Ec2TrafficMirrorTarget#network_load_balancer_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#network_load_balancer_arn Ec2TrafficMirrorTarget#network_load_balancer_arn}
+  */
   readonly networkLoadBalancerArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#tags Ec2TrafficMirrorTarget#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#tags Ec2TrafficMirrorTarget#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#tags_all Ec2TrafficMirrorTarget#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target#tags_all Ec2TrafficMirrorTarget#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target aws_ec2_traffic_mirror_target}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target aws_ec2_traffic_mirror_target}
+*/
 export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ec2_traffic_mirror_target';
+  public static readonly tfResourceType = "aws_ec2_traffic_mirror_target";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target aws_ec2_traffic_mirror_target} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Ec2TrafficMirrorTargetConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Ec2TrafficMirrorTargetConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_traffic_mirror_target aws_ec2_traffic_mirror_target} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Ec2TrafficMirrorTargetConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: Ec2TrafficMirrorTargetConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_traffic_mirror_target',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -78,7 +75,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._gatewayLoadBalancerEndpointId = config.gatewayLoadBalancerEndpointId;
@@ -99,7 +96,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -115,7 +112,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // gateway_load_balancer_endpoint_id - computed: false, optional: true, required: false
-  private _gatewayLoadBalancerEndpointId?: string;
+  private _gatewayLoadBalancerEndpointId?: string; 
   public get gatewayLoadBalancerEndpointId() {
     return this.getStringAttribute('gateway_load_balancer_endpoint_id');
   }
@@ -131,7 +128,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -147,7 +144,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // network_interface_id - computed: false, optional: true, required: false
-  private _networkInterfaceId?: string;
+  private _networkInterfaceId?: string; 
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -163,7 +160,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // network_load_balancer_arn - computed: false, optional: true, required: false
-  private _networkLoadBalancerArn?: string;
+  private _networkLoadBalancerArn?: string; 
   public get networkLoadBalancerArn() {
     return this.getStringAttribute('network_load_balancer_arn');
   }
@@ -184,7 +181,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -200,7 +197,7 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -222,14 +219,10 @@ export class Ec2TrafficMirrorTarget extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       description: cdktf.stringToTerraform(this._description),
-      gateway_load_balancer_endpoint_id: cdktf.stringToTerraform(
-        this._gatewayLoadBalancerEndpointId,
-      ),
+      gateway_load_balancer_endpoint_id: cdktf.stringToTerraform(this._gatewayLoadBalancerEndpointId),
       id: cdktf.stringToTerraform(this._id),
       network_interface_id: cdktf.stringToTerraform(this._networkInterfaceId),
-      network_load_balancer_arn: cdktf.stringToTerraform(
-        this._networkLoadBalancerArn,
-      ),
+      network_load_balancer_arn: cdktf.stringToTerraform(this._networkLoadBalancerArn),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
     };

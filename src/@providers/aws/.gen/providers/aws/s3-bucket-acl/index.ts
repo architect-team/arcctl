@@ -1,97 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface S3BucketAclConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#acl S3BucketAcl#acl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#acl S3BucketAcl#acl}
+  */
   readonly acl?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#bucket S3BucketAcl#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#bucket S3BucketAcl#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#expected_bucket_owner S3BucketAcl#expected_bucket_owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#expected_bucket_owner S3BucketAcl#expected_bucket_owner}
+  */
   readonly expectedBucketOwner?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#id S3BucketAcl#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#id S3BucketAcl#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * access_control_policy block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#access_control_policy S3BucketAcl#access_control_policy}
-   */
+  * access_control_policy block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#access_control_policy S3BucketAcl#access_control_policy}
+  */
   readonly accessControlPolicy?: S3BucketAclAccessControlPolicy;
 }
 export interface S3BucketAclAccessControlPolicyGrantGrantee {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#email_address S3BucketAcl#email_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#email_address S3BucketAcl#email_address}
+  */
   readonly emailAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#id S3BucketAcl#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#id S3BucketAcl#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#type S3BucketAcl#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#type S3BucketAcl#type}
+  */
   readonly type: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#uri S3BucketAcl#uri}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#uri S3BucketAcl#uri}
+  */
   readonly uri?: string;
 }
 
-export function s3BucketAclAccessControlPolicyGrantGranteeToTerraform(
-  struct?:
-    | S3BucketAclAccessControlPolicyGrantGranteeOutputReference
-    | S3BucketAclAccessControlPolicyGrantGrantee,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketAclAccessControlPolicyGrantGranteeToTerraform(struct?: S3BucketAclAccessControlPolicyGrantGranteeOutputReference | S3BucketAclAccessControlPolicyGrantGrantee): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     email_address: cdktf.stringToTerraform(struct!.emailAddress),
     id: cdktf.stringToTerraform(struct!.id),
     type: cdktf.stringToTerraform(struct!.type),
     uri: cdktf.stringToTerraform(struct!.uri),
-  };
+  }
 }
 
 export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | S3BucketAclAccessControlPolicyGrantGrantee
-    | undefined {
+  public get internalValue(): S3BucketAclAccessControlPolicyGrantGrantee | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._emailAddress !== undefined) {
@@ -113,16 +101,15 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketAclAccessControlPolicyGrantGrantee | undefined,
-  ) {
+  public set internalValue(value: S3BucketAclAccessControlPolicyGrantGrantee | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._emailAddress = undefined;
       this._id = undefined;
       this._type = undefined;
       this._uri = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._emailAddress = value.emailAddress;
       this._id = value.id;
@@ -137,7 +124,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // email_address - computed: false, optional: true, required: false
-  private _emailAddress?: string;
+  private _emailAddress?: string; 
   public get emailAddress() {
     return this.getStringAttribute('email_address');
   }
@@ -153,7 +140,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // id - computed: false, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -169,7 +156,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -182,7 +169,7 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
   }
 
   // uri - computed: false, optional: true, required: false
-  private _uri?: string;
+  private _uri?: string; 
   public get uri() {
     return this.getStringAttribute('uri');
   }
@@ -199,34 +186,26 @@ export class S3BucketAclAccessControlPolicyGrantGranteeOutputReference extends c
 }
 export interface S3BucketAclAccessControlPolicyGrant {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#permission S3BucketAcl#permission}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#permission S3BucketAcl#permission}
+  */
   readonly permission: string;
   /**
-   * grantee block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#grantee S3BucketAcl#grantee}
-   */
+  * grantee block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#grantee S3BucketAcl#grantee}
+  */
   readonly grantee?: S3BucketAclAccessControlPolicyGrantGrantee;
 }
 
-export function s3BucketAclAccessControlPolicyGrantToTerraform(
-  struct?: S3BucketAclAccessControlPolicyGrant | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketAclAccessControlPolicyGrantToTerraform(struct?: S3BucketAclAccessControlPolicyGrant | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     permission: cdktf.stringToTerraform(struct!.permission),
-    grantee: s3BucketAclAccessControlPolicyGrantGranteeToTerraform(
-      struct!.grantee,
-    ),
-  };
+    grantee: s3BucketAclAccessControlPolicyGrantGranteeToTerraform(struct!.grantee),
+  }
 }
 
 export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.ComplexObject {
@@ -234,29 +213,16 @@ export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | S3BucketAclAccessControlPolicyGrant
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): S3BucketAclAccessControlPolicyGrant | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -273,18 +239,18 @@ export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketAclAccessControlPolicyGrant | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: S3BucketAclAccessControlPolicyGrant | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._permission = undefined;
       this._grantee.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._permission = value.permission;
@@ -293,7 +259,7 @@ export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.Co
   }
 
   // permission - computed: false, optional: false, required: true
-  private _permission?: string;
+  private _permission?: string; 
   public get permission() {
     return this.getStringAttribute('permission');
   }
@@ -306,11 +272,7 @@ export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.Co
   }
 
   // grantee - computed: false, optional: true, required: false
-  private _grantee =
-    new S3BucketAclAccessControlPolicyGrantGranteeOutputReference(
-      this,
-      'grantee',
-    );
+  private _grantee = new S3BucketAclAccessControlPolicyGrantGranteeOutputReference(this, "grantee");
   public get grantee() {
     return this._grantee;
   }
@@ -327,81 +289,57 @@ export class S3BucketAclAccessControlPolicyGrantOutputReference extends cdktf.Co
 }
 
 export class S3BucketAclAccessControlPolicyGrantList extends cdktf.ComplexList {
-  public internalValue?:
-    | S3BucketAclAccessControlPolicyGrant[]
-    | cdktf.IResolvable;
+  public internalValue? : S3BucketAclAccessControlPolicyGrant[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): S3BucketAclAccessControlPolicyGrantOutputReference {
-    return new S3BucketAclAccessControlPolicyGrantOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): S3BucketAclAccessControlPolicyGrantOutputReference {
+    return new S3BucketAclAccessControlPolicyGrantOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface S3BucketAclAccessControlPolicyOwner {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#display_name S3BucketAcl#display_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#display_name S3BucketAcl#display_name}
+  */
   readonly displayName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#id S3BucketAcl#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#id S3BucketAcl#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id: string;
 }
 
-export function s3BucketAclAccessControlPolicyOwnerToTerraform(
-  struct?:
-    | S3BucketAclAccessControlPolicyOwnerOutputReference
-    | S3BucketAclAccessControlPolicyOwner,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketAclAccessControlPolicyOwnerToTerraform(struct?: S3BucketAclAccessControlPolicyOwnerOutputReference | S3BucketAclAccessControlPolicyOwner): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     display_name: cdktf.stringToTerraform(struct!.displayName),
     id: cdktf.stringToTerraform(struct!.id),
-  };
+  }
 }
 
 export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -419,14 +357,13 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: S3BucketAclAccessControlPolicyOwner | undefined,
-  ) {
+  public set internalValue(value: S3BucketAclAccessControlPolicyOwner | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._displayName = undefined;
       this._id = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._displayName = value.displayName;
       this._id = value.id;
@@ -434,7 +371,7 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
   }
 
   // display_name - computed: true, optional: true, required: false
-  private _displayName?: string;
+  private _displayName?: string; 
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -450,7 +387,7 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -464,52 +401,38 @@ export class S3BucketAclAccessControlPolicyOwnerOutputReference extends cdktf.Co
 }
 export interface S3BucketAclAccessControlPolicy {
   /**
-   * grant block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#grant S3BucketAcl#grant}
-   */
+  * grant block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#grant S3BucketAcl#grant}
+  */
   readonly grant?: S3BucketAclAccessControlPolicyGrant[] | cdktf.IResolvable;
   /**
-   * owner block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#owner S3BucketAcl#owner}
-   */
+  * owner block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl#owner S3BucketAcl#owner}
+  */
   readonly owner: S3BucketAclAccessControlPolicyOwner;
 }
 
-export function s3BucketAclAccessControlPolicyToTerraform(
-  struct?:
-    | S3BucketAclAccessControlPolicyOutputReference
-    | S3BucketAclAccessControlPolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function s3BucketAclAccessControlPolicyToTerraform(struct?: S3BucketAclAccessControlPolicyOutputReference | S3BucketAclAccessControlPolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    grant: cdktf.listMapper(
-      s3BucketAclAccessControlPolicyGrantToTerraform,
-      true,
-    )(struct!.grant),
+    grant: cdktf.listMapper(s3BucketAclAccessControlPolicyGrantToTerraform, true)(struct!.grant),
     owner: s3BucketAclAccessControlPolicyOwnerToTerraform(struct!.owner),
-  };
+  }
 }
 
 export class S3BucketAclAccessControlPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -532,7 +455,8 @@ export class S3BucketAclAccessControlPolicyOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._grant.internalValue = undefined;
       this._owner.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._grant.internalValue = value.grant;
       this._owner.internalValue = value.owner;
@@ -540,17 +464,11 @@ export class S3BucketAclAccessControlPolicyOutputReference extends cdktf.Complex
   }
 
   // grant - computed: false, optional: true, required: false
-  private _grant = new S3BucketAclAccessControlPolicyGrantList(
-    this,
-    'grant',
-    true,
-  );
+  private _grant = new S3BucketAclAccessControlPolicyGrantList(this, "grant", true);
   public get grant() {
     return this._grant;
   }
-  public putGrant(
-    value: S3BucketAclAccessControlPolicyGrant[] | cdktf.IResolvable,
-  ) {
+  public putGrant(value: S3BucketAclAccessControlPolicyGrant[] | cdktf.IResolvable) {
     this._grant.internalValue = value;
   }
   public resetGrant() {
@@ -562,10 +480,7 @@ export class S3BucketAclAccessControlPolicyOutputReference extends cdktf.Complex
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner = new S3BucketAclAccessControlPolicyOwnerOutputReference(
-    this,
-    'owner',
-  );
+  private _owner = new S3BucketAclAccessControlPolicyOwnerOutputReference(this, "owner");
   public get owner() {
     return this._owner;
   }
@@ -579,32 +494,33 @@ export class S3BucketAclAccessControlPolicyOutputReference extends cdktf.Complex
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl aws_s3_bucket_acl}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl aws_s3_bucket_acl}
+*/
 export class S3BucketAcl extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_s3_bucket_acl';
+  public static readonly tfResourceType = "aws_s3_bucket_acl";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl aws_s3_bucket_acl} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options S3BucketAclConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/s3_bucket_acl aws_s3_bucket_acl} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options S3BucketAclConfig
+  */
   public constructor(scope: Construct, id: string, config: S3BucketAclConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_s3_bucket_acl',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -612,7 +528,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._acl = config.acl;
     this._bucket = config.bucket;
@@ -626,7 +542,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   // ==========
 
   // acl - computed: false, optional: true, required: false
-  private _acl?: string;
+  private _acl?: string; 
   public get acl() {
     return this.getStringAttribute('acl');
   }
@@ -642,7 +558,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -655,7 +571,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // expected_bucket_owner - computed: false, optional: true, required: false
-  private _expectedBucketOwner?: string;
+  private _expectedBucketOwner?: string; 
   public get expectedBucketOwner() {
     return this.getStringAttribute('expected_bucket_owner');
   }
@@ -671,7 +587,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -687,11 +603,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
   }
 
   // access_control_policy - computed: false, optional: true, required: false
-  private _accessControlPolicy =
-    new S3BucketAclAccessControlPolicyOutputReference(
-      this,
-      'access_control_policy',
-    );
+  private _accessControlPolicy = new S3BucketAclAccessControlPolicyOutputReference(this, "access_control_policy");
   public get accessControlPolicy() {
     return this._accessControlPolicy;
   }
@@ -716,9 +628,7 @@ export class S3BucketAcl extends cdktf.TerraformResource {
       bucket: cdktf.stringToTerraform(this._bucket),
       expected_bucket_owner: cdktf.stringToTerraform(this._expectedBucketOwner),
       id: cdktf.stringToTerraform(this._id),
-      access_control_policy: s3BucketAclAccessControlPolicyToTerraform(
-        this._accessControlPolicy.internalValue,
-      ),
+      access_control_policy: s3BucketAclAccessControlPolicyToTerraform(this._accessControlPolicy.internalValue),
     };
   }
 }

@@ -1,97 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/codepipeline
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface CodepipelineConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#id Codepipeline#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#id Codepipeline#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#name Codepipeline#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#name Codepipeline#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#role_arn Codepipeline#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#role_arn Codepipeline#role_arn}
+  */
   readonly roleArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#tags Codepipeline#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#tags Codepipeline#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#tags_all Codepipeline#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#tags_all Codepipeline#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * artifact_store block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#artifact_store Codepipeline#artifact_store}
-   */
+  * artifact_store block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#artifact_store Codepipeline#artifact_store}
+  */
   readonly artifactStore: CodepipelineArtifactStore[] | cdktf.IResolvable;
   /**
-   * stage block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#stage Codepipeline#stage}
-   */
+  * stage block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#stage Codepipeline#stage}
+  */
   readonly stage: CodepipelineStage[] | cdktf.IResolvable;
 }
 export interface CodepipelineArtifactStoreEncryptionKey {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#id Codepipeline#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#id Codepipeline#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#type Codepipeline#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#type Codepipeline#type}
+  */
   readonly type: string;
 }
 
-export function codepipelineArtifactStoreEncryptionKeyToTerraform(
-  struct?:
-    | CodepipelineArtifactStoreEncryptionKeyOutputReference
-    | CodepipelineArtifactStoreEncryptionKey,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codepipelineArtifactStoreEncryptionKeyToTerraform(struct?: CodepipelineArtifactStoreEncryptionKeyOutputReference | CodepipelineArtifactStoreEncryptionKey): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class CodepipelineArtifactStoreEncryptionKeyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodepipelineArtifactStoreEncryptionKey
-    | undefined {
+  public get internalValue(): CodepipelineArtifactStoreEncryptionKey | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -105,14 +93,13 @@ export class CodepipelineArtifactStoreEncryptionKeyOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodepipelineArtifactStoreEncryptionKey | undefined,
-  ) {
+  public set internalValue(value: CodepipelineArtifactStoreEncryptionKey | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._type = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._type = value.type;
@@ -120,7 +107,7 @@ export class CodepipelineArtifactStoreEncryptionKeyOutputReference extends cdktf
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -133,7 +120,7 @@ export class CodepipelineArtifactStoreEncryptionKeyOutputReference extends cdktf
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -147,44 +134,36 @@ export class CodepipelineArtifactStoreEncryptionKeyOutputReference extends cdktf
 }
 export interface CodepipelineArtifactStore {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#location Codepipeline#location}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#location Codepipeline#location}
+  */
   readonly location: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#region Codepipeline#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#region Codepipeline#region}
+  */
   readonly region?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#type Codepipeline#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#type Codepipeline#type}
+  */
   readonly type: string;
   /**
-   * encryption_key block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#encryption_key Codepipeline#encryption_key}
-   */
+  * encryption_key block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#encryption_key Codepipeline#encryption_key}
+  */
   readonly encryptionKey?: CodepipelineArtifactStoreEncryptionKey;
 }
 
-export function codepipelineArtifactStoreToTerraform(
-  struct?: CodepipelineArtifactStore | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codepipelineArtifactStoreToTerraform(struct?: CodepipelineArtifactStore | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     location: cdktf.stringToTerraform(struct!.location),
     region: cdktf.stringToTerraform(struct!.region),
     type: cdktf.stringToTerraform(struct!.type),
-    encryption_key: codepipelineArtifactStoreEncryptionKeyToTerraform(
-      struct!.encryptionKey,
-    ),
-  };
+    encryption_key: codepipelineArtifactStoreEncryptionKeyToTerraform(struct!.encryptionKey),
+  }
 }
 
 export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObject {
@@ -192,29 +171,16 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodepipelineArtifactStore
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodepipelineArtifactStore | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -239,9 +205,7 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodepipelineArtifactStore | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodepipelineArtifactStore | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -249,10 +213,12 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
       this._region = undefined;
       this._type = undefined;
       this._encryptionKey.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._location = value.location;
@@ -263,7 +229,7 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
   }
 
   // location - computed: false, optional: false, required: true
-  private _location?: string;
+  private _location?: string; 
   public get location() {
     return this.getStringAttribute('location');
   }
@@ -276,7 +242,7 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -292,7 +258,7 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -305,11 +271,7 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
   }
 
   // encryption_key - computed: false, optional: true, required: false
-  private _encryptionKey =
-    new CodepipelineArtifactStoreEncryptionKeyOutputReference(
-      this,
-      'encryption_key',
-    );
+  private _encryptionKey = new CodepipelineArtifactStoreEncryptionKeyOutputReference(this, "encryption_key");
   public get encryptionKey() {
     return this._encryptionKey;
   }
@@ -326,117 +288,94 @@ export class CodepipelineArtifactStoreOutputReference extends cdktf.ComplexObjec
 }
 
 export class CodepipelineArtifactStoreList extends cdktf.ComplexList {
-  public internalValue?: CodepipelineArtifactStore[] | cdktf.IResolvable;
+  public internalValue? : CodepipelineArtifactStore[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CodepipelineArtifactStoreOutputReference {
-    return new CodepipelineArtifactStoreOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CodepipelineArtifactStoreOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodepipelineStageAction {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#category Codepipeline#category}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#category Codepipeline#category}
+  */
   readonly category: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#configuration Codepipeline#configuration}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#configuration Codepipeline#configuration}
+  */
   readonly configuration?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#input_artifacts Codepipeline#input_artifacts}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#input_artifacts Codepipeline#input_artifacts}
+  */
   readonly inputArtifacts?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#name Codepipeline#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#name Codepipeline#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#namespace Codepipeline#namespace}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#namespace Codepipeline#namespace}
+  */
   readonly namespace?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#output_artifacts Codepipeline#output_artifacts}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#output_artifacts Codepipeline#output_artifacts}
+  */
   readonly outputArtifacts?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#owner Codepipeline#owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#owner Codepipeline#owner}
+  */
   readonly owner: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#provider Codepipeline#provider}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#provider Codepipeline#provider}
+  */
   readonly provider: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#region Codepipeline#region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#region Codepipeline#region}
+  */
   readonly region?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#role_arn Codepipeline#role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#role_arn Codepipeline#role_arn}
+  */
   readonly roleArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#run_order Codepipeline#run_order}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#run_order Codepipeline#run_order}
+  */
   readonly runOrder?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#version Codepipeline#version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#version Codepipeline#version}
+  */
   readonly version: string;
 }
 
-export function codepipelineStageActionToTerraform(
-  struct?: CodepipelineStageAction | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codepipelineStageActionToTerraform(struct?: CodepipelineStageAction | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     category: cdktf.stringToTerraform(struct!.category),
-    configuration: cdktf.hashMapper(cdktf.stringToTerraform)(
-      struct!.configuration,
-    ),
-    input_artifacts: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.inputArtifacts),
+    configuration: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.configuration),
+    input_artifacts: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.inputArtifacts),
     name: cdktf.stringToTerraform(struct!.name),
     namespace: cdktf.stringToTerraform(struct!.namespace),
-    output_artifacts: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.outputArtifacts),
+    output_artifacts: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.outputArtifacts),
     owner: cdktf.stringToTerraform(struct!.owner),
     provider: cdktf.stringToTerraform(struct!.provider),
     region: cdktf.stringToTerraform(struct!.region),
     role_arn: cdktf.stringToTerraform(struct!.roleArn),
     run_order: cdktf.numberToTerraform(struct!.runOrder),
     version: cdktf.stringToTerraform(struct!.version),
-  };
+  }
 }
 
 export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject {
@@ -444,29 +383,16 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodepipelineStageAction
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodepipelineStageAction | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -523,9 +449,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodepipelineStageAction | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodepipelineStageAction | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -541,10 +465,12 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
       this._roleArn = undefined;
       this._runOrder = undefined;
       this._version = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._category = value.category;
@@ -563,7 +489,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // category - computed: false, optional: false, required: true
-  private _category?: string;
+  private _category?: string; 
   public get category() {
     return this.getStringAttribute('category');
   }
@@ -576,7 +502,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // configuration - computed: false, optional: true, required: false
-  private _configuration?: { [key: string]: string };
+  private _configuration?: { [key: string]: string }; 
   public get configuration() {
     return this.getStringMapAttribute('configuration');
   }
@@ -592,7 +518,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // input_artifacts - computed: false, optional: true, required: false
-  private _inputArtifacts?: string[];
+  private _inputArtifacts?: string[]; 
   public get inputArtifacts() {
     return this.getListAttribute('input_artifacts');
   }
@@ -608,7 +534,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -621,7 +547,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string;
+  private _namespace?: string; 
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -637,7 +563,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // output_artifacts - computed: false, optional: true, required: false
-  private _outputArtifacts?: string[];
+  private _outputArtifacts?: string[]; 
   public get outputArtifacts() {
     return this.getListAttribute('output_artifacts');
   }
@@ -653,7 +579,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string;
+  private _owner?: string; 
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -666,7 +592,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // provider - computed: false, optional: false, required: true
-  private _provider?: string;
+  private _provider?: string; 
   public get provider() {
     return this.getStringAttribute('provider');
   }
@@ -679,7 +605,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // region - computed: true, optional: true, required: false
-  private _region?: string;
+  private _region?: string; 
   public get region() {
     return this.getStringAttribute('region');
   }
@@ -695,7 +621,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // role_arn - computed: false, optional: true, required: false
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -711,7 +637,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // run_order - computed: true, optional: true, required: false
-  private _runOrder?: number;
+  private _runOrder?: number; 
   public get runOrder() {
     return this.getNumberAttribute('run_order');
   }
@@ -727,7 +653,7 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
   }
 
   // version - computed: false, optional: false, required: true
-  private _version?: string;
+  private _version?: string; 
   public get version() {
     return this.getStringAttribute('version');
   }
@@ -741,64 +667,46 @@ export class CodepipelineStageActionOutputReference extends cdktf.ComplexObject 
 }
 
 export class CodepipelineStageActionList extends cdktf.ComplexList {
-  public internalValue?: CodepipelineStageAction[] | cdktf.IResolvable;
+  public internalValue? : CodepipelineStageAction[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CodepipelineStageActionOutputReference {
-    return new CodepipelineStageActionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CodepipelineStageActionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodepipelineStage {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#name Codepipeline#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#name Codepipeline#name}
+  */
   readonly name: string;
   /**
-   * action block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#action Codepipeline#action}
-   */
+  * action block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codepipeline#action Codepipeline#action}
+  */
   readonly action: CodepipelineStageAction[] | cdktf.IResolvable;
 }
 
-export function codepipelineStageToTerraform(
-  struct?: CodepipelineStage | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codepipelineStageToTerraform(struct?: CodepipelineStage | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    action: cdktf.listMapper(
-      codepipelineStageActionToTerraform,
-      true,
-    )(struct!.action),
-  };
+    action: cdktf.listMapper(codepipelineStageActionToTerraform, true)(struct!.action),
+  }
 }
 
 export class CodepipelineStageOutputReference extends cdktf.ComplexObject {
@@ -806,29 +714,16 @@ export class CodepipelineStageOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodepipelineStage
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodepipelineStage | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -845,18 +740,18 @@ export class CodepipelineStageOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodepipelineStage | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodepipelineStage | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._action.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -865,7 +760,7 @@ export class CodepipelineStageOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -878,7 +773,7 @@ export class CodepipelineStageOutputReference extends cdktf.ComplexObject {
   }
 
   // action - computed: false, optional: false, required: true
-  private _action = new CodepipelineStageActionList(this, 'action', false);
+  private _action = new CodepipelineStageActionList(this, "action", false);
   public get action() {
     return this._action;
   }
@@ -892,61 +787,53 @@ export class CodepipelineStageOutputReference extends cdktf.ComplexObject {
 }
 
 export class CodepipelineStageList extends cdktf.ComplexList {
-  public internalValue?: CodepipelineStage[] | cdktf.IResolvable;
+  public internalValue? : CodepipelineStage[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CodepipelineStageOutputReference {
-    return new CodepipelineStageOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CodepipelineStageOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codepipeline aws_codepipeline}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codepipeline aws_codepipeline}
+*/
 export class Codepipeline extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_codepipeline';
+  public static readonly tfResourceType = "aws_codepipeline";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codepipeline aws_codepipeline} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CodepipelineConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codepipeline aws_codepipeline} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CodepipelineConfig
+  */
   public constructor(scope: Construct, id: string, config: CodepipelineConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_codepipeline',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -954,7 +841,7 @@ export class Codepipeline extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -975,7 +862,7 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -991,7 +878,7 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1004,7 +891,7 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // role_arn - computed: false, optional: false, required: true
-  private _roleArn?: string;
+  private _roleArn?: string; 
   public get roleArn() {
     return this.getStringAttribute('role_arn');
   }
@@ -1017,7 +904,7 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1033,7 +920,7 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1049,17 +936,11 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // artifact_store - computed: false, optional: false, required: true
-  private _artifactStore = new CodepipelineArtifactStoreList(
-    this,
-    'artifact_store',
-    true,
-  );
+  private _artifactStore = new CodepipelineArtifactStoreList(this, "artifact_store", true);
   public get artifactStore() {
     return this._artifactStore;
   }
-  public putArtifactStore(
-    value: CodepipelineArtifactStore[] | cdktf.IResolvable,
-  ) {
+  public putArtifactStore(value: CodepipelineArtifactStore[] | cdktf.IResolvable) {
     this._artifactStore.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1068,7 +949,7 @@ export class Codepipeline extends cdktf.TerraformResource {
   }
 
   // stage - computed: false, optional: false, required: true
-  private _stage = new CodepipelineStageList(this, 'stage', false);
+  private _stage = new CodepipelineStageList(this, "stage", false);
   public get stage() {
     return this._stage;
   }
@@ -1091,14 +972,8 @@ export class Codepipeline extends cdktf.TerraformResource {
       role_arn: cdktf.stringToTerraform(this._roleArn),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      artifact_store: cdktf.listMapper(
-        codepipelineArtifactStoreToTerraform,
-        true,
-      )(this._artifactStore.internalValue),
-      stage: cdktf.listMapper(
-        codepipelineStageToTerraform,
-        true,
-      )(this._stage.internalValue),
+      artifact_store: cdktf.listMapper(codepipelineArtifactStoreToTerraform, true)(this._artifactStore.internalValue),
+      stage: cdktf.listMapper(codepipelineStageToTerraform, true)(this._stage.internalValue),
     };
   }
 }

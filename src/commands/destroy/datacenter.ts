@@ -14,7 +14,7 @@ type DestroyDatacenterOptions = {
 
 const DestroyDatacenterCommand = BaseCommand()
   .description('Destroy a datacenter and all the environments managed by it')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .option('--auto-approve', 'Skip all prompts and start the requested action', { default: false })
   .arguments('<name:string>')
   .action(destroy_datacenter_action);
@@ -97,14 +97,14 @@ async function promptForDatacenter(command_helper: CommandHelper, name?: string)
   }
 
   let selected = datacenterRecords.find((d) => d.name === name);
-
-  const datacenter = selected?.name ||
-    (await Select.prompt({
+  if (!selected) {
+    const selectedName = await Select.prompt({
       message: 'Select a datacenter to destroy',
       options: datacenterRecords.map((r) => r.name),
-    }));
+    });
+    selected = datacenterRecords.find((d) => d.name === selectedName);
+  }
 
-  selected = datacenterRecords.find((r) => r.name === datacenter);
   if (!selected) {
     console.log(`Invalid datacenter name: ${selected}`);
     Deno.exit(1);

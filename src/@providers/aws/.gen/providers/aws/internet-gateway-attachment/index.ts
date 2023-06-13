@@ -1,63 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface InternetGatewayAttachmentConfig
-  extends cdktf.TerraformMetaArguments {
+export interface InternetGatewayAttachmentConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#id InternetGatewayAttachment#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#id InternetGatewayAttachment#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#internet_gateway_id InternetGatewayAttachment#internet_gateway_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#internet_gateway_id InternetGatewayAttachment#internet_gateway_id}
+  */
   readonly internetGatewayId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#vpc_id InternetGatewayAttachment#vpc_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#vpc_id InternetGatewayAttachment#vpc_id}
+  */
   readonly vpcId: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#timeouts InternetGatewayAttachment#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#timeouts InternetGatewayAttachment#timeouts}
+  */
   readonly timeouts?: InternetGatewayAttachmentTimeouts;
 }
 export interface InternetGatewayAttachmentTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#create InternetGatewayAttachment#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#create InternetGatewayAttachment#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#delete InternetGatewayAttachment#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment#delete InternetGatewayAttachment#delete}
+  */
   readonly delete?: string;
 }
 
-export function internetGatewayAttachmentTimeoutsToTerraform(
-  struct?:
-    | InternetGatewayAttachmentTimeoutsOutputReference
-    | InternetGatewayAttachmentTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function internetGatewayAttachmentTimeoutsToTerraform(struct?: InternetGatewayAttachmentTimeoutsOutputReference | InternetGatewayAttachmentTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -65,20 +56,14 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | InternetGatewayAttachmentTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): InternetGatewayAttachmentTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -95,18 +80,18 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: InternetGatewayAttachmentTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: InternetGatewayAttachmentTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -115,7 +100,7 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -131,7 +116,7 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -148,36 +133,33 @@ export class InternetGatewayAttachmentTimeoutsOutputReference extends cdktf.Comp
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment aws_internet_gateway_attachment}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment aws_internet_gateway_attachment}
+*/
 export class InternetGatewayAttachment extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_internet_gateway_attachment';
+  public static readonly tfResourceType = "aws_internet_gateway_attachment";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment aws_internet_gateway_attachment} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options InternetGatewayAttachmentConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: InternetGatewayAttachmentConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/internet_gateway_attachment aws_internet_gateway_attachment} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options InternetGatewayAttachmentConfig
+  */
+  public constructor(scope: Construct, id: string, config: InternetGatewayAttachmentConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_internet_gateway_attachment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -185,7 +167,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._internetGatewayId = config.internetGatewayId;
@@ -198,7 +180,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -214,7 +196,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // internet_gateway_id - computed: false, optional: false, required: true
-  private _internetGatewayId?: string;
+  private _internetGatewayId?: string; 
   public get internetGatewayId() {
     return this.getStringAttribute('internet_gateway_id');
   }
@@ -227,7 +209,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string;
+  private _vpcId?: string; 
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -240,10 +222,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new InternetGatewayAttachmentTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new InternetGatewayAttachmentTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -267,9 +246,7 @@ export class InternetGatewayAttachment extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       internet_gateway_id: cdktf.stringToTerraform(this._internetGatewayId),
       vpc_id: cdktf.stringToTerraform(this._vpcId),
-      timeouts: internetGatewayAttachmentTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: internetGatewayAttachmentTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

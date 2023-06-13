@@ -63,9 +63,7 @@ export class CloudGraph {
           options.to &&
           this.edges[index].from === options.from &&
           this.edges[index].to === options.to) ||
-        (options.from &&
-          !options.to &&
-          this.edges[index].from === options.from) ||
+        (options.from && !options.to && this.edges[index].from === options.from) ||
         (options.to && !options.from && this.edges[index].to === options.to)
       ) {
         this.edges.splice(Number(index), 1);
@@ -73,15 +71,13 @@ export class CloudGraph {
       }
     }
 
-    throw new Error(
-      `No edge found matching options: ${JSON.stringify(options)}`,
-    );
+    throw new Error(`No edge found matching options: ${JSON.stringify(options)}`);
   }
 
   public validate(): void {
     for (const node of this.nodes) {
       if (!node.account) {
-        throw new Error(`Missing provider for node: ${node.id}`);
+        throw new Error(`Missing account for node: ${node.id}`);
       }
       if (node.type === 'secret') {
         const secret_node = node as CloudNode<'secret'>;
@@ -95,26 +91,20 @@ export class CloudGraph {
       if (!this.nodes.some((n) => n.id === edge.from)) {
         throw new Error(`${edge.from} is missing from the graph`);
       } else if (!this.nodes.some((n) => n.id === edge.to)) {
-        throw new Error(
-          `${edge.to} is missing from the graph, but required by ${edge.from}`,
-        );
+        throw new Error(`${edge.to} is missing from the graph, but required by ${edge.from}`);
       }
     }
   }
 
   public getDependencies(node_id: string): CloudNode[] {
     return this.nodes.filter(
-      (node) =>
-        node.id !== node_id &&
-        this.edges.some((edge) => edge.from === node_id && edge.to === node.id),
+      (node) => node.id !== node_id && this.edges.some((edge) => edge.from === node_id && edge.to === node.id),
     );
   }
 
   public getDependents(node_id: string): CloudNode[] {
     return this.nodes.filter(
-      (node) =>
-        node.id !== node_id &&
-        this.edges.some((edge) => edge.to === node_id && edge.from === node.id),
+      (node) => node.id !== node_id && this.edges.some((edge) => edge.to === node_id && edge.from === node.id),
     );
   }
 

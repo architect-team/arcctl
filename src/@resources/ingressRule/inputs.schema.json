@@ -5,42 +5,26 @@
     "IngressRuleInputs": {
       "additionalProperties": false,
       "properties": {
+        "dnsZone": {
+          "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+          "type": "string"
+        },
         "internal": {
           "default": false,
           "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
           "type": "boolean"
         },
-        "listener": {
-          "additionalProperties": false,
-          "properties": {
-            "hostZone": {
-              "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
-              "type": "string"
-            },
-            "path": {
-              "default": "/",
-              "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
-              "type": "string"
-            },
-            "protocol": {
-              "default": "http",
-              "description": "Protocol that the ingress rule listens for traffic on",
-              "type": "string"
-            },
-            "subdomain": {
-              "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
-              "type": "string"
-            }
-          },
-          "type": "object"
-        },
-        "loadBalancer": {
-          "description": "ID of the load balancer to use for this ingress rule",
+        "name": {
+          "description": "Name to give to the ingress rule resource",
           "type": "string"
         },
         "namespace": {
-          "default": "default",
           "description": "Namespace to put the ingress rule in",
+          "type": "string"
+        },
+        "path": {
+          "default": "/",
+          "description": "The path the ingress rule listens on",
           "type": "string"
         },
         "port": {
@@ -50,13 +34,27 @@
             "number"
           ]
         },
+        "protocol": {
+          "default": "http",
+          "description": "The protocol the ingress rule listens for traffic on",
+          "type": "string"
+        },
+        "registry": {
+          "description": "Unique ID of the service registry this rule will be stored in",
+          "type": "string"
+        },
         "service": {
           "description": "Service the ingress forwards traffic to",
+          "type": "string"
+        },
+        "subdomain": {
+          "description": "The subdomain the ingress rule listens on",
           "type": "string"
         }
       },
       "required": [
-        "loadBalancer",
+        "name",
+        "registry",
         "port",
         "service"
       ],

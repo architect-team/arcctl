@@ -1,27 +1,25 @@
 version: v2
 
-secrets:
-  API_KEY:
-    description: Some api key
-    required: true
-
 databases:
   kratos:
     type: postgres:13
     migrate:
-      up:
-        image: oryd/kratos:v0.13.0
-        entrypoint: [""]
-        command:
-          - sh
-          - -c
-          - kratos -c ./kratos/.kratos.yml migrate sql -e --yes
-        environment:
-          DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
+      image: oryd/kratos:v0.13.0
+      entrypoint: [""]
+      command:
+        - sh
+        - -c
+        - kratos -c ./kratos/.kratos.yml migrate sql -e --yes
+      environment:
+        DSN: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4
 
 deployments:
   mailslurper:
     image: oryd/mailslurper:latest-smtps
+    volumes:
+      source:
+        mount_path: /volume_test
+        host_path: /home/muesch/Architect/code/arcctl/bin
 
   kratos:
     image: oryd/kratos:v0.13.0
@@ -36,7 +34,6 @@ deployments:
         kratos -c ./kratos/.kratos.yml migrate sql -e --yes
         kratos serve -c ./kratos/.kratos.yml --watch-courier
     environment:
-      API_KEY: ${{ secrets.API_KEY }}
       CONFIG: |
         version: v0.13.0
         dsn: ${{ databases.kratos.url }}?max_conns=20&max_idle_conns=4

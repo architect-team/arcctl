@@ -1,67 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/iot_certificate
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface IotCertificateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#active IotCertificate#active}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#active IotCertificate#active}
+  */
   readonly active: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#ca_pem IotCertificate#ca_pem}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#ca_pem IotCertificate#ca_pem}
+  */
   readonly caPem?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#certificate_pem IotCertificate#certificate_pem}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#certificate_pem IotCertificate#certificate_pem}
+  */
   readonly certificatePem?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#csr IotCertificate#csr}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#csr IotCertificate#csr}
+  */
   readonly csr?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#id IotCertificate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate#id IotCertificate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate aws_iot_certificate}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate aws_iot_certificate}
+*/
 export class IotCertificate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_iot_certificate';
+  public static readonly tfResourceType = "aws_iot_certificate";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate aws_iot_certificate} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options IotCertificateConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: IotCertificateConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iot_certificate aws_iot_certificate} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options IotCertificateConfig
+  */
+  public constructor(scope: Construct, id: string, config: IotCertificateConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_iot_certificate',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -69,7 +67,7 @@ export class IotCertificate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._active = config.active;
     this._caPem = config.caPem;
@@ -83,7 +81,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   // ==========
 
   // active - computed: false, optional: false, required: true
-  private _active?: boolean | cdktf.IResolvable;
+  private _active?: boolean | cdktf.IResolvable; 
   public get active() {
     return this.getBooleanAttribute('active');
   }
@@ -101,7 +99,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // ca_pem - computed: false, optional: true, required: false
-  private _caPem?: string;
+  private _caPem?: string; 
   public get caPem() {
     return this.getStringAttribute('ca_pem');
   }
@@ -117,7 +115,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // certificate_pem - computed: true, optional: true, required: false
-  private _certificatePem?: string;
+  private _certificatePem?: string; 
   public get certificatePem() {
     return this.getStringAttribute('certificate_pem');
   }
@@ -133,7 +131,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // csr - computed: false, optional: true, required: false
-  private _csr?: string;
+  private _csr?: string; 
   public get csr() {
     return this.getStringAttribute('csr');
   }
@@ -149,7 +147,7 @@ export class IotCertificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }

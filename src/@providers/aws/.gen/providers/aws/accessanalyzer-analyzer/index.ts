@@ -1,68 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AccessanalyzerAnalyzerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AccessanalyzerAnalyzerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#analyzer_name AccessanalyzerAnalyzer#analyzer_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#analyzer_name AccessanalyzerAnalyzer#analyzer_name}
+  */
   readonly analyzerName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#id AccessanalyzerAnalyzer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#id AccessanalyzerAnalyzer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#tags AccessanalyzerAnalyzer#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#tags AccessanalyzerAnalyzer#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#tags_all AccessanalyzerAnalyzer#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#tags_all AccessanalyzerAnalyzer#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#type AccessanalyzerAnalyzer#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer#type AccessanalyzerAnalyzer#type}
+  */
   readonly type?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer aws_accessanalyzer_analyzer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer aws_accessanalyzer_analyzer}
+*/
 export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_accessanalyzer_analyzer';
+  public static readonly tfResourceType = "aws_accessanalyzer_analyzer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer aws_accessanalyzer_analyzer} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AccessanalyzerAnalyzerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AccessanalyzerAnalyzerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/accessanalyzer_analyzer aws_accessanalyzer_analyzer} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AccessanalyzerAnalyzerConfig
+  */
+  public constructor(scope: Construct, id: string, config: AccessanalyzerAnalyzerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_accessanalyzer_analyzer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -70,7 +67,7 @@ export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._analyzerName = config.analyzerName;
     this._id = config.id;
@@ -84,7 +81,7 @@ export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
   // ==========
 
   // analyzer_name - computed: false, optional: false, required: true
-  private _analyzerName?: string;
+  private _analyzerName?: string; 
   public get analyzerName() {
     return this.getStringAttribute('analyzer_name');
   }
@@ -102,7 +99,7 @@ export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -118,7 +115,7 @@ export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -134,7 +131,7 @@ export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -150,7 +147,7 @@ export class AccessanalyzerAnalyzer extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }

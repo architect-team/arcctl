@@ -1,109 +1,96 @@
 // https://www.terraform.io/docs/providers/aws/r/config_config_rule
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ConfigConfigRuleConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#description ConfigConfigRule#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#description ConfigConfigRule#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#id ConfigConfigRule#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#id ConfigConfigRule#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#input_parameters ConfigConfigRule#input_parameters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#input_parameters ConfigConfigRule#input_parameters}
+  */
   readonly inputParameters?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#maximum_execution_frequency ConfigConfigRule#maximum_execution_frequency}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#maximum_execution_frequency ConfigConfigRule#maximum_execution_frequency}
+  */
   readonly maximumExecutionFrequency?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#name ConfigConfigRule#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#name ConfigConfigRule#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tags ConfigConfigRule#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tags ConfigConfigRule#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tags_all ConfigConfigRule#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tags_all ConfigConfigRule#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * scope block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#scope ConfigConfigRule#scope}
-   */
+  * scope block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#scope ConfigConfigRule#scope}
+  */
   readonly scope?: ConfigConfigRuleScope;
   /**
-   * source block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#source ConfigConfigRule#source}
-   */
+  * source block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#source ConfigConfigRule#source}
+  */
   readonly source: ConfigConfigRuleSource;
 }
 export interface ConfigConfigRuleScope {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#compliance_resource_id ConfigConfigRule#compliance_resource_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#compliance_resource_id ConfigConfigRule#compliance_resource_id}
+  */
   readonly complianceResourceId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#compliance_resource_types ConfigConfigRule#compliance_resource_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#compliance_resource_types ConfigConfigRule#compliance_resource_types}
+  */
   readonly complianceResourceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tag_key ConfigConfigRule#tag_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tag_key ConfigConfigRule#tag_key}
+  */
   readonly tagKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tag_value ConfigConfigRule#tag_value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#tag_value ConfigConfigRule#tag_value}
+  */
   readonly tagValue?: string;
 }
 
-export function configConfigRuleScopeToTerraform(
-  struct?: ConfigConfigRuleScopeOutputReference | ConfigConfigRuleScope,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function configConfigRuleScopeToTerraform(struct?: ConfigConfigRuleScopeOutputReference | ConfigConfigRuleScope): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    compliance_resource_id: cdktf.stringToTerraform(
-      struct!.complianceResourceId,
-    ),
-    compliance_resource_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.complianceResourceTypes),
+    compliance_resource_id: cdktf.stringToTerraform(struct!.complianceResourceId),
+    compliance_resource_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.complianceResourceTypes),
     tag_key: cdktf.stringToTerraform(struct!.tagKey),
     tag_value: cdktf.stringToTerraform(struct!.tagValue),
-  };
+  }
 }
 
 export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -116,8 +103,7 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
     }
     if (this._complianceResourceTypes !== undefined) {
       hasAnyValues = true;
-      internalValueResult.complianceResourceTypes =
-        this._complianceResourceTypes;
+      internalValueResult.complianceResourceTypes = this._complianceResourceTypes;
     }
     if (this._tagKey !== undefined) {
       hasAnyValues = true;
@@ -137,7 +123,8 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
       this._complianceResourceTypes = undefined;
       this._tagKey = undefined;
       this._tagValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._complianceResourceId = value.complianceResourceId;
       this._complianceResourceTypes = value.complianceResourceTypes;
@@ -147,7 +134,7 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
   }
 
   // compliance_resource_id - computed: false, optional: true, required: false
-  private _complianceResourceId?: string;
+  private _complianceResourceId?: string; 
   public get complianceResourceId() {
     return this.getStringAttribute('compliance_resource_id');
   }
@@ -163,7 +150,7 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
   }
 
   // compliance_resource_types - computed: false, optional: true, required: false
-  private _complianceResourceTypes?: string[];
+  private _complianceResourceTypes?: string[]; 
   public get complianceResourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('compliance_resource_types'));
   }
@@ -179,7 +166,7 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
   }
 
   // tag_key - computed: false, optional: true, required: false
-  private _tagKey?: string;
+  private _tagKey?: string; 
   public get tagKey() {
     return this.getStringAttribute('tag_key');
   }
@@ -195,7 +182,7 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
   }
 
   // tag_value - computed: false, optional: true, required: false
-  private _tagValue?: string;
+  private _tagValue?: string; 
   public get tagValue() {
     return this.getStringAttribute('tag_value');
   }
@@ -212,58 +199,43 @@ export class ConfigConfigRuleScopeOutputReference extends cdktf.ComplexObject {
 }
 export interface ConfigConfigRuleSourceCustomPolicyDetails {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#enable_debug_log_delivery ConfigConfigRule#enable_debug_log_delivery}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#enable_debug_log_delivery ConfigConfigRule#enable_debug_log_delivery}
+  */
   readonly enableDebugLogDelivery?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#policy_runtime ConfigConfigRule#policy_runtime}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#policy_runtime ConfigConfigRule#policy_runtime}
+  */
   readonly policyRuntime: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#policy_text ConfigConfigRule#policy_text}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#policy_text ConfigConfigRule#policy_text}
+  */
   readonly policyText: string;
 }
 
-export function configConfigRuleSourceCustomPolicyDetailsToTerraform(
-  struct?:
-    | ConfigConfigRuleSourceCustomPolicyDetailsOutputReference
-    | ConfigConfigRuleSourceCustomPolicyDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function configConfigRuleSourceCustomPolicyDetailsToTerraform(struct?: ConfigConfigRuleSourceCustomPolicyDetailsOutputReference | ConfigConfigRuleSourceCustomPolicyDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    enable_debug_log_delivery: cdktf.booleanToTerraform(
-      struct!.enableDebugLogDelivery,
-    ),
+    enable_debug_log_delivery: cdktf.booleanToTerraform(struct!.enableDebugLogDelivery),
     policy_runtime: cdktf.stringToTerraform(struct!.policyRuntime),
     policy_text: cdktf.stringToTerraform(struct!.policyText),
-  };
+  }
 }
 
 export class ConfigConfigRuleSourceCustomPolicyDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConfigConfigRuleSourceCustomPolicyDetails
-    | undefined {
+  public get internalValue(): ConfigConfigRuleSourceCustomPolicyDetails | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enableDebugLogDelivery !== undefined) {
@@ -281,15 +253,14 @@ export class ConfigConfigRuleSourceCustomPolicyDetailsOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConfigConfigRuleSourceCustomPolicyDetails | undefined,
-  ) {
+  public set internalValue(value: ConfigConfigRuleSourceCustomPolicyDetails | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enableDebugLogDelivery = undefined;
       this._policyRuntime = undefined;
       this._policyText = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableDebugLogDelivery = value.enableDebugLogDelivery;
       this._policyRuntime = value.policyRuntime;
@@ -298,7 +269,7 @@ export class ConfigConfigRuleSourceCustomPolicyDetailsOutputReference extends cd
   }
 
   // enable_debug_log_delivery - computed: false, optional: true, required: false
-  private _enableDebugLogDelivery?: boolean | cdktf.IResolvable;
+  private _enableDebugLogDelivery?: boolean | cdktf.IResolvable; 
   public get enableDebugLogDelivery() {
     return this.getBooleanAttribute('enable_debug_log_delivery');
   }
@@ -314,7 +285,7 @@ export class ConfigConfigRuleSourceCustomPolicyDetailsOutputReference extends cd
   }
 
   // policy_runtime - computed: false, optional: false, required: true
-  private _policyRuntime?: string;
+  private _policyRuntime?: string; 
   public get policyRuntime() {
     return this.getStringAttribute('policy_runtime');
   }
@@ -327,7 +298,7 @@ export class ConfigConfigRuleSourceCustomPolicyDetailsOutputReference extends cd
   }
 
   // policy_text - computed: false, optional: false, required: true
-  private _policyText?: string;
+  private _policyText?: string; 
   public get policyText() {
     return this.getStringAttribute('policy_text');
   }
@@ -341,37 +312,29 @@ export class ConfigConfigRuleSourceCustomPolicyDetailsOutputReference extends cd
 }
 export interface ConfigConfigRuleSourceSourceDetail {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#event_source ConfigConfigRule#event_source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#event_source ConfigConfigRule#event_source}
+  */
   readonly eventSource?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#maximum_execution_frequency ConfigConfigRule#maximum_execution_frequency}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#maximum_execution_frequency ConfigConfigRule#maximum_execution_frequency}
+  */
   readonly maximumExecutionFrequency?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#message_type ConfigConfigRule#message_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#message_type ConfigConfigRule#message_type}
+  */
   readonly messageType?: string;
 }
 
-export function configConfigRuleSourceSourceDetailToTerraform(
-  struct?: ConfigConfigRuleSourceSourceDetail | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function configConfigRuleSourceSourceDetailToTerraform(struct?: ConfigConfigRuleSourceSourceDetail | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     event_source: cdktf.stringToTerraform(struct!.eventSource),
-    maximum_execution_frequency: cdktf.stringToTerraform(
-      struct!.maximumExecutionFrequency,
-    ),
+    maximum_execution_frequency: cdktf.stringToTerraform(struct!.maximumExecutionFrequency),
     message_type: cdktf.stringToTerraform(struct!.messageType),
-  };
+  }
 }
 
 export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.ComplexObject {
@@ -379,29 +342,16 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | ConfigConfigRuleSourceSourceDetail
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ConfigConfigRuleSourceSourceDetail | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -413,8 +363,7 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
     }
     if (this._maximumExecutionFrequency !== undefined) {
       hasAnyValues = true;
-      internalValueResult.maximumExecutionFrequency =
-        this._maximumExecutionFrequency;
+      internalValueResult.maximumExecutionFrequency = this._maximumExecutionFrequency;
     }
     if (this._messageType !== undefined) {
       hasAnyValues = true;
@@ -423,19 +372,19 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConfigConfigRuleSourceSourceDetail | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: ConfigConfigRuleSourceSourceDetail | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._eventSource = undefined;
       this._maximumExecutionFrequency = undefined;
       this._messageType = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._eventSource = value.eventSource;
@@ -445,7 +394,7 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
   }
 
   // event_source - computed: false, optional: true, required: false
-  private _eventSource?: string;
+  private _eventSource?: string; 
   public get eventSource() {
     return this.getStringAttribute('event_source');
   }
@@ -461,7 +410,7 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
   }
 
   // maximum_execution_frequency - computed: false, optional: true, required: false
-  private _maximumExecutionFrequency?: string;
+  private _maximumExecutionFrequency?: string; 
   public get maximumExecutionFrequency() {
     return this.getStringAttribute('maximum_execution_frequency');
   }
@@ -477,7 +426,7 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
   }
 
   // message_type - computed: false, optional: true, required: false
-  private _messageType?: string;
+  private _messageType?: string; 
   public get messageType() {
     return this.getStringAttribute('message_type');
   }
@@ -494,95 +443,68 @@ export class ConfigConfigRuleSourceSourceDetailOutputReference extends cdktf.Com
 }
 
 export class ConfigConfigRuleSourceSourceDetailList extends cdktf.ComplexList {
-  public internalValue?:
-    | ConfigConfigRuleSourceSourceDetail[]
-    | cdktf.IResolvable;
+  public internalValue? : ConfigConfigRuleSourceSourceDetail[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): ConfigConfigRuleSourceSourceDetailOutputReference {
-    return new ConfigConfigRuleSourceSourceDetailOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new ConfigConfigRuleSourceSourceDetailOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface ConfigConfigRuleSource {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#owner ConfigConfigRule#owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#owner ConfigConfigRule#owner}
+  */
   readonly owner: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#source_identifier ConfigConfigRule#source_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#source_identifier ConfigConfigRule#source_identifier}
+  */
   readonly sourceIdentifier?: string;
   /**
-   * custom_policy_details block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#custom_policy_details ConfigConfigRule#custom_policy_details}
-   */
+  * custom_policy_details block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#custom_policy_details ConfigConfigRule#custom_policy_details}
+  */
   readonly customPolicyDetails?: ConfigConfigRuleSourceCustomPolicyDetails;
   /**
-   * source_detail block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#source_detail ConfigConfigRule#source_detail}
-   */
-  readonly sourceDetail?:
-    | ConfigConfigRuleSourceSourceDetail[]
-    | cdktf.IResolvable;
+  * source_detail block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule#source_detail ConfigConfigRule#source_detail}
+  */
+  readonly sourceDetail?: ConfigConfigRuleSourceSourceDetail[] | cdktf.IResolvable;
 }
 
-export function configConfigRuleSourceToTerraform(
-  struct?: ConfigConfigRuleSourceOutputReference | ConfigConfigRuleSource,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function configConfigRuleSourceToTerraform(struct?: ConfigConfigRuleSourceOutputReference | ConfigConfigRuleSource): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     owner: cdktf.stringToTerraform(struct!.owner),
     source_identifier: cdktf.stringToTerraform(struct!.sourceIdentifier),
-    custom_policy_details: configConfigRuleSourceCustomPolicyDetailsToTerraform(
-      struct!.customPolicyDetails,
-    ),
-    source_detail: cdktf.listMapper(
-      configConfigRuleSourceSourceDetailToTerraform,
-      true,
-    )(struct!.sourceDetail),
-  };
+    custom_policy_details: configConfigRuleSourceCustomPolicyDetailsToTerraform(struct!.customPolicyDetails),
+    source_detail: cdktf.listMapper(configConfigRuleSourceSourceDetailToTerraform, true)(struct!.sourceDetail),
+  }
 }
 
 export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -599,8 +521,7 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
     }
     if (this._customPolicyDetails?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.customPolicyDetails =
-        this._customPolicyDetails?.internalValue;
+      internalValueResult.customPolicyDetails = this._customPolicyDetails?.internalValue;
     }
     if (this._sourceDetail?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -616,7 +537,8 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
       this._sourceIdentifier = undefined;
       this._customPolicyDetails.internalValue = undefined;
       this._sourceDetail.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._owner = value.owner;
       this._sourceIdentifier = value.sourceIdentifier;
@@ -626,7 +548,7 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string;
+  private _owner?: string; 
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -639,7 +561,7 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // source_identifier - computed: false, optional: true, required: false
-  private _sourceIdentifier?: string;
+  private _sourceIdentifier?: string; 
   public get sourceIdentifier() {
     return this.getStringAttribute('source_identifier');
   }
@@ -655,17 +577,11 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // custom_policy_details - computed: false, optional: true, required: false
-  private _customPolicyDetails =
-    new ConfigConfigRuleSourceCustomPolicyDetailsOutputReference(
-      this,
-      'custom_policy_details',
-    );
+  private _customPolicyDetails = new ConfigConfigRuleSourceCustomPolicyDetailsOutputReference(this, "custom_policy_details");
   public get customPolicyDetails() {
     return this._customPolicyDetails;
   }
-  public putCustomPolicyDetails(
-    value: ConfigConfigRuleSourceCustomPolicyDetails,
-  ) {
+  public putCustomPolicyDetails(value: ConfigConfigRuleSourceCustomPolicyDetails) {
     this._customPolicyDetails.internalValue = value;
   }
   public resetCustomPolicyDetails() {
@@ -677,17 +593,11 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
   }
 
   // source_detail - computed: false, optional: true, required: false
-  private _sourceDetail = new ConfigConfigRuleSourceSourceDetailList(
-    this,
-    'source_detail',
-    true,
-  );
+  private _sourceDetail = new ConfigConfigRuleSourceSourceDetailList(this, "source_detail", true);
   public get sourceDetail() {
     return this._sourceDetail;
   }
-  public putSourceDetail(
-    value: ConfigConfigRuleSourceSourceDetail[] | cdktf.IResolvable,
-  ) {
+  public putSourceDetail(value: ConfigConfigRuleSourceSourceDetail[] | cdktf.IResolvable) {
     this._sourceDetail.internalValue = value;
   }
   public resetSourceDetail() {
@@ -700,36 +610,33 @@ export class ConfigConfigRuleSourceOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule aws_config_config_rule}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule aws_config_config_rule}
+*/
 export class ConfigConfigRule extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_config_config_rule';
+  public static readonly tfResourceType = "aws_config_config_rule";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule aws_config_config_rule} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ConfigConfigRuleConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ConfigConfigRuleConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/config_config_rule aws_config_config_rule} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ConfigConfigRuleConfig
+  */
+  public constructor(scope: Construct, id: string, config: ConfigConfigRuleConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_config_config_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -737,7 +644,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._id = config.id;
@@ -760,7 +667,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -776,7 +683,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -792,7 +699,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // input_parameters - computed: false, optional: true, required: false
-  private _inputParameters?: string;
+  private _inputParameters?: string; 
   public get inputParameters() {
     return this.getStringAttribute('input_parameters');
   }
@@ -808,7 +715,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // maximum_execution_frequency - computed: false, optional: true, required: false
-  private _maximumExecutionFrequency?: string;
+  private _maximumExecutionFrequency?: string; 
   public get maximumExecutionFrequency() {
     return this.getStringAttribute('maximum_execution_frequency');
   }
@@ -824,7 +731,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -842,7 +749,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -858,7 +765,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -874,7 +781,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope = new ConfigConfigRuleScopeOutputReference(this, 'scope');
+  private _scope = new ConfigConfigRuleScopeOutputReference(this, "scope");
   public get scope() {
     return this._scope;
   }
@@ -890,7 +797,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
   }
 
   // source - computed: false, optional: false, required: true
-  private _source = new ConfigConfigRuleSourceOutputReference(this, 'source');
+  private _source = new ConfigConfigRuleSourceOutputReference(this, "source");
   public get source() {
     return this._source;
   }
@@ -911,9 +818,7 @@ export class ConfigConfigRule extends cdktf.TerraformResource {
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
       input_parameters: cdktf.stringToTerraform(this._inputParameters),
-      maximum_execution_frequency: cdktf.stringToTerraform(
-        this._maximumExecutionFrequency,
-      ),
+      maximum_execution_frequency: cdktf.stringToTerraform(this._maximumExecutionFrequency),
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),

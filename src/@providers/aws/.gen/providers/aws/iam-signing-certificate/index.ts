@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface IamSigningCertificateConfig
-  extends cdktf.TerraformMetaArguments {
+export interface IamSigningCertificateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#certificate_body IamSigningCertificate#certificate_body}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#certificate_body IamSigningCertificate#certificate_body}
+  */
   readonly certificateBody: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#id IamSigningCertificate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#id IamSigningCertificate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#status IamSigningCertificate#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#status IamSigningCertificate#status}
+  */
   readonly status?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#user_name IamSigningCertificate#user_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate#user_name IamSigningCertificate#user_name}
+  */
   readonly userName: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate aws_iam_signing_certificate}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate aws_iam_signing_certificate}
+*/
 export class IamSigningCertificate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_iam_signing_certificate';
+  public static readonly tfResourceType = "aws_iam_signing_certificate";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate aws_iam_signing_certificate} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options IamSigningCertificateConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: IamSigningCertificateConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_signing_certificate aws_iam_signing_certificate} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options IamSigningCertificateConfig
+  */
+  public constructor(scope: Construct, id: string, config: IamSigningCertificateConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_signing_certificate',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class IamSigningCertificate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._certificateBody = config.certificateBody;
     this._id = config.id;
@@ -79,7 +76,7 @@ export class IamSigningCertificate extends cdktf.TerraformResource {
   // ==========
 
   // certificate_body - computed: false, optional: false, required: true
-  private _certificateBody?: string;
+  private _certificateBody?: string; 
   public get certificateBody() {
     return this.getStringAttribute('certificate_body');
   }
@@ -97,7 +94,7 @@ export class IamSigningCertificate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +110,7 @@ export class IamSigningCertificate extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -129,7 +126,7 @@ export class IamSigningCertificate extends cdktf.TerraformResource {
   }
 
   // user_name - computed: false, optional: false, required: true
-  private _userName?: string;
+  private _userName?: string; 
   public get userName() {
     return this.getStringAttribute('user_name');
   }

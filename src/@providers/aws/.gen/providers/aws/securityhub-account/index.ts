@@ -1,55 +1,53 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_account
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface SecurityhubAccountConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account#enable_default_standards SecurityhubAccount#enable_default_standards}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account#enable_default_standards SecurityhubAccount#enable_default_standards}
+  */
   readonly enableDefaultStandards?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account#id SecurityhubAccount#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account#id SecurityhubAccount#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account aws_securityhub_account}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account aws_securityhub_account}
+*/
 export class SecurityhubAccount extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_securityhub_account';
+  public static readonly tfResourceType = "aws_securityhub_account";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account aws_securityhub_account} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SecurityhubAccountConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SecurityhubAccountConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/securityhub_account aws_securityhub_account} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SecurityhubAccountConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: SecurityhubAccountConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_securityhub_account',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -57,7 +55,7 @@ export class SecurityhubAccount extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._enableDefaultStandards = config.enableDefaultStandards;
     this._id = config.id;
@@ -68,7 +66,7 @@ export class SecurityhubAccount extends cdktf.TerraformResource {
   // ==========
 
   // enable_default_standards - computed: false, optional: true, required: false
-  private _enableDefaultStandards?: boolean | cdktf.IResolvable;
+  private _enableDefaultStandards?: boolean | cdktf.IResolvable; 
   public get enableDefaultStandards() {
     return this.getBooleanAttribute('enable_default_standards');
   }
@@ -84,7 +82,7 @@ export class SecurityhubAccount extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -105,9 +103,7 @@ export class SecurityhubAccount extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      enable_default_standards: cdktf.booleanToTerraform(
-        this._enableDefaultStandards,
-      ),
+      enable_default_standards: cdktf.booleanToTerraform(this._enableDefaultStandards),
       id: cdktf.stringToTerraform(this._id),
     };
   }

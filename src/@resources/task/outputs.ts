@@ -1,3 +1,6 @@
-export type CronjobApplyOutputs = Record<string, unknown>;
+export type CronjobApplyOutputs = {
+  stdout?: string;
+  stderr?: string;
+};
 
 export default CronjobApplyOutputs;

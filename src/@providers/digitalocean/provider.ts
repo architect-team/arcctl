@@ -1,6 +1,6 @@
+import { createApiClient } from 'dots-wrapper';
 import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
-import { DigitaloceanProvider as TerraformDigitaloceanProvider } from './.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials, DigitaloceanCredentialsSchema } from './credentials.ts';
 import { DigitaloceanDatabaseSchemaService } from './services/database-schema.ts';
 import { DigitaloceanDatabaseSizeService } from './services/database-size.ts';
@@ -19,29 +19,26 @@ import { DigitalOceanDatabaseTest } from './tests/database.ts';
 import { DigitalOceanDnsRecordTest } from './tests/dns-record.ts';
 import { DigitalOceanDnsZoneTest } from './tests/dns-zone.ts';
 import { DigitalOceanVpcTest } from './tests/vpc.ts';
-import { Construct } from 'constructs';
-import { createApiClient } from 'dots-wrapper';
 
 export default class DigitaloceanProvider extends Provider<DigitaloceanCredentials> {
   readonly type = 'digitalocean';
-  readonly terraform_version = '1.2.9';
 
   static readonly CredentialsSchema = DigitaloceanCredentialsSchema;
 
   readonly resources = {
-    region: new DigitaloceanRegionService(this.credentials),
-    vpc: new DigitaloceanVpcService(this.credentials),
-    nodeSize: new DigitaloceanNodeSizeService(this.credentials),
-    kubernetesVersion: new DigitaloceanKubernetesVersionService(this.credentials),
-    kubernetesCluster: new DigitaloceanKubernetesClusterService(this.credentials),
-    database: new DigitaloceanDatabaseService(this.credentials),
-    databaseSize: new DigitaloceanDatabaseSizeService(this.credentials),
-    databaseType: new DigitaloceanDatabaseTypeService(this.credentials),
-    databaseSchema: new DigitaloceanDatabaseSchemaService(this.credentials),
-    databaseUser: new DigitaloceanDatabaseUserService(this.credentials),
-    databaseVersion: new DigitaloceanDatabaseVersionService(this.credentials),
-    dnsZone: new DigitaloceanDnsZoneService(this.credentials),
-    dnsRecord: new DigitaloceanDnsRecordService(this.credentials),
+    region: new DigitaloceanRegionService(this.name, this.credentials, this.providerStore),
+    vpc: new DigitaloceanVpcService(this.name, this.credentials, this.providerStore),
+    nodeSize: new DigitaloceanNodeSizeService(this.name, this.credentials, this.providerStore),
+    kubernetesVersion: new DigitaloceanKubernetesVersionService(this.name, this.credentials, this.providerStore),
+    kubernetesCluster: new DigitaloceanKubernetesClusterService(this.name, this.credentials, this.providerStore),
+    database: new DigitaloceanDatabaseService(this.name, this.credentials, this.providerStore),
+    databaseSize: new DigitaloceanDatabaseSizeService(this.name, this.credentials, this.providerStore),
+    databaseType: new DigitaloceanDatabaseTypeService(this.name, this.credentials, this.providerStore),
+    databaseSchema: new DigitaloceanDatabaseSchemaService(this.name, this.credentials, this.providerStore),
+    databaseUser: new DigitaloceanDatabaseUserService(this.name, this.credentials, this.providerStore),
+    databaseVersion: new DigitaloceanDatabaseVersionService(this.name, this.credentials, this.providerStore),
+    dnsZone: new DigitaloceanDnsZoneService(this.name, this.credentials, this.providerStore),
+    dnsRecord: new DigitaloceanDnsRecordService(this.name, this.credentials, this.providerStore),
   };
 
   public async testCredentials(): Promise<boolean> {
@@ -52,12 +49,6 @@ export default class DigitaloceanProvider extends Provider<DigitaloceanCredentia
       return false;
     }
     return true;
-  }
-
-  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
-    return new TerraformDigitaloceanProvider(scope, this.name, {
-      token: this.credentials.token,
-    });
   }
 
   tests: CldctlTestResource<Partial<DigitaloceanCredentials>> = [

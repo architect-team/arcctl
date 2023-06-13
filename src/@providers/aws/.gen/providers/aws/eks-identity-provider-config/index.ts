@@ -1,119 +1,104 @@
 // https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface EksIdentityProviderConfigConfig
-  extends cdktf.TerraformMetaArguments {
+export interface EksIdentityProviderConfigConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#cluster_name EksIdentityProviderConfig#cluster_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#cluster_name EksIdentityProviderConfig#cluster_name}
+  */
   readonly clusterName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#id EksIdentityProviderConfig#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#id EksIdentityProviderConfig#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#tags EksIdentityProviderConfig#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#tags EksIdentityProviderConfig#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#tags_all EksIdentityProviderConfig#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#tags_all EksIdentityProviderConfig#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * oidc block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#oidc EksIdentityProviderConfig#oidc}
-   */
+  * oidc block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#oidc EksIdentityProviderConfig#oidc}
+  */
   readonly oidc: EksIdentityProviderConfigOidc;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#timeouts EksIdentityProviderConfig#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#timeouts EksIdentityProviderConfig#timeouts}
+  */
   readonly timeouts?: EksIdentityProviderConfigTimeouts;
 }
 export interface EksIdentityProviderConfigOidc {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#client_id EksIdentityProviderConfig#client_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#client_id EksIdentityProviderConfig#client_id}
+  */
   readonly clientId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#groups_claim EksIdentityProviderConfig#groups_claim}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#groups_claim EksIdentityProviderConfig#groups_claim}
+  */
   readonly groupsClaim?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#groups_prefix EksIdentityProviderConfig#groups_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#groups_prefix EksIdentityProviderConfig#groups_prefix}
+  */
   readonly groupsPrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#identity_provider_config_name EksIdentityProviderConfig#identity_provider_config_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#identity_provider_config_name EksIdentityProviderConfig#identity_provider_config_name}
+  */
   readonly identityProviderConfigName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#issuer_url EksIdentityProviderConfig#issuer_url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#issuer_url EksIdentityProviderConfig#issuer_url}
+  */
   readonly issuerUrl: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#required_claims EksIdentityProviderConfig#required_claims}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#required_claims EksIdentityProviderConfig#required_claims}
+  */
   readonly requiredClaims?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#username_claim EksIdentityProviderConfig#username_claim}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#username_claim EksIdentityProviderConfig#username_claim}
+  */
   readonly usernameClaim?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#username_prefix EksIdentityProviderConfig#username_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#username_prefix EksIdentityProviderConfig#username_prefix}
+  */
   readonly usernamePrefix?: string;
 }
 
-export function eksIdentityProviderConfigOidcToTerraform(
-  struct?:
-    | EksIdentityProviderConfigOidcOutputReference
-    | EksIdentityProviderConfigOidc,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function eksIdentityProviderConfigOidcToTerraform(struct?: EksIdentityProviderConfigOidcOutputReference | EksIdentityProviderConfigOidc): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     client_id: cdktf.stringToTerraform(struct!.clientId),
     groups_claim: cdktf.stringToTerraform(struct!.groupsClaim),
     groups_prefix: cdktf.stringToTerraform(struct!.groupsPrefix),
-    identity_provider_config_name: cdktf.stringToTerraform(
-      struct!.identityProviderConfigName,
-    ),
+    identity_provider_config_name: cdktf.stringToTerraform(struct!.identityProviderConfigName),
     issuer_url: cdktf.stringToTerraform(struct!.issuerUrl),
-    required_claims: cdktf.hashMapper(cdktf.stringToTerraform)(
-      struct!.requiredClaims,
-    ),
+    required_claims: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.requiredClaims),
     username_claim: cdktf.stringToTerraform(struct!.usernameClaim),
     username_prefix: cdktf.stringToTerraform(struct!.usernamePrefix),
-  };
+  }
 }
 
 export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -134,8 +119,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
     }
     if (this._identityProviderConfigName !== undefined) {
       hasAnyValues = true;
-      internalValueResult.identityProviderConfigName =
-        this._identityProviderConfigName;
+      internalValueResult.identityProviderConfigName = this._identityProviderConfigName;
     }
     if (this._issuerUrl !== undefined) {
       hasAnyValues = true;
@@ -167,7 +151,8 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
       this._requiredClaims = undefined;
       this._usernameClaim = undefined;
       this._usernamePrefix = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._clientId = value.clientId;
       this._groupsClaim = value.groupsClaim;
@@ -181,7 +166,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // client_id - computed: false, optional: false, required: true
-  private _clientId?: string;
+  private _clientId?: string; 
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -194,7 +179,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // groups_claim - computed: false, optional: true, required: false
-  private _groupsClaim?: string;
+  private _groupsClaim?: string; 
   public get groupsClaim() {
     return this.getStringAttribute('groups_claim');
   }
@@ -210,7 +195,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // groups_prefix - computed: false, optional: true, required: false
-  private _groupsPrefix?: string;
+  private _groupsPrefix?: string; 
   public get groupsPrefix() {
     return this.getStringAttribute('groups_prefix');
   }
@@ -226,7 +211,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // identity_provider_config_name - computed: false, optional: false, required: true
-  private _identityProviderConfigName?: string;
+  private _identityProviderConfigName?: string; 
   public get identityProviderConfigName() {
     return this.getStringAttribute('identity_provider_config_name');
   }
@@ -239,7 +224,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // issuer_url - computed: false, optional: false, required: true
-  private _issuerUrl?: string;
+  private _issuerUrl?: string; 
   public get issuerUrl() {
     return this.getStringAttribute('issuer_url');
   }
@@ -252,7 +237,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // required_claims - computed: false, optional: true, required: false
-  private _requiredClaims?: { [key: string]: string };
+  private _requiredClaims?: { [key: string]: string }; 
   public get requiredClaims() {
     return this.getStringMapAttribute('required_claims');
   }
@@ -268,7 +253,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // username_claim - computed: false, optional: true, required: false
-  private _usernameClaim?: string;
+  private _usernameClaim?: string; 
   public get usernameClaim() {
     return this.getStringAttribute('username_claim');
   }
@@ -284,7 +269,7 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
   }
 
   // username_prefix - computed: false, optional: true, required: false
-  private _usernamePrefix?: string;
+  private _usernamePrefix?: string; 
   public get usernamePrefix() {
     return this.getStringAttribute('username_prefix');
   }
@@ -301,33 +286,24 @@ export class EksIdentityProviderConfigOidcOutputReference extends cdktf.ComplexO
 }
 export interface EksIdentityProviderConfigTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#create EksIdentityProviderConfig#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#create EksIdentityProviderConfig#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#delete EksIdentityProviderConfig#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config#delete EksIdentityProviderConfig#delete}
+  */
   readonly delete?: string;
 }
 
-export function eksIdentityProviderConfigTimeoutsToTerraform(
-  struct?:
-    | EksIdentityProviderConfigTimeoutsOutputReference
-    | EksIdentityProviderConfigTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function eksIdentityProviderConfigTimeoutsToTerraform(struct?: EksIdentityProviderConfigTimeoutsOutputReference | EksIdentityProviderConfigTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -335,20 +311,14 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EksIdentityProviderConfigTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): EksIdentityProviderConfigTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -365,18 +335,18 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EksIdentityProviderConfigTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: EksIdentityProviderConfigTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -385,7 +355,7 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -401,7 +371,7 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -418,36 +388,33 @@ export class EksIdentityProviderConfigTimeoutsOutputReference extends cdktf.Comp
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config aws_eks_identity_provider_config}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config aws_eks_identity_provider_config}
+*/
 export class EksIdentityProviderConfig extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_eks_identity_provider_config';
+  public static readonly tfResourceType = "aws_eks_identity_provider_config";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config aws_eks_identity_provider_config} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options EksIdentityProviderConfigConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: EksIdentityProviderConfigConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/eks_identity_provider_config aws_eks_identity_provider_config} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options EksIdentityProviderConfigConfig
+  */
+  public constructor(scope: Construct, id: string, config: EksIdentityProviderConfigConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_eks_identity_provider_config',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -455,7 +422,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._clusterName = config.clusterName;
     this._id = config.id;
@@ -475,7 +442,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // cluster_name - computed: false, optional: false, required: true
-  private _clusterName?: string;
+  private _clusterName?: string; 
   public get clusterName() {
     return this.getStringAttribute('cluster_name');
   }
@@ -488,7 +455,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -509,7 +476,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -525,7 +492,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -541,10 +508,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // oidc - computed: false, optional: false, required: true
-  private _oidc = new EksIdentityProviderConfigOidcOutputReference(
-    this,
-    'oidc',
-  );
+  private _oidc = new EksIdentityProviderConfigOidcOutputReference(this, "oidc");
   public get oidc() {
     return this._oidc;
   }
@@ -557,10 +521,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EksIdentityProviderConfigTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new EksIdentityProviderConfigTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -586,9 +547,7 @@ export class EksIdentityProviderConfig extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       oidc: eksIdentityProviderConfigOidcToTerraform(this._oidc.internalValue),
-      timeouts: eksIdentityProviderConfigTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: eksIdentityProviderConfigTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

@@ -1,39 +1,32 @@
 import { Construct } from 'constructs';
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.ts';
 import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.ts';
 import { DatabaseDb } from '../.gen/providers/digitalocean/database-db/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 
-export class DigitaloceanDatabaseSchemaModule extends ResourceModule<
-  'databaseSchema',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseSchemaModule extends ResourceModule<'databaseSchema', DigitaloceanCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
   db: DatabaseDb;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['databaseSchema'],
-  ) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema', DigitaloceanCredentials>) {
+    super(scope, options);
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
-      name: inputs.database,
+      name: this.inputs?.database || 'unknown',
     });
 
     this.db = new DatabaseDb(this, 'database', {
       clusterId: instance.id,
-      name: inputs.name.replace(/\//g, '--'),
+      name: this.inputs?.name.replace(/\//g, '--') || 'unknown',
     });
 
     const ca = new DataDigitaloceanDatabaseCa(this, 'ca', {
       clusterId: instance.id,
     });
 
-    let protocol = inputs.databaseType;
+    let protocol = this.inputs?.databaseType || 'unknown';
     if (protocol === 'postgres') {
       protocol = 'postgresql';
     }
@@ -45,18 +38,17 @@ export class DigitaloceanDatabaseSchemaModule extends ResourceModule<
       port: instance.port,
       protocol: protocol,
       url: `${protocol}://${instance.host}:${instance.port}/${this.db.name}`,
-      account: inputs.account || '',
+      username: instance.user,
+      password: instance.password,
       certificate: ca.certificate,
+      account: this.accountName,
     };
   }
 
-  async genImports(
-    credentials: DigitaloceanCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.db)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

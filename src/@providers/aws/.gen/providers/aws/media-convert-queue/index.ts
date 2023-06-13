@@ -1,101 +1,89 @@
 // https://www.terraform.io/docs/providers/aws/r/media_convert_queue
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface MediaConvertQueueConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#description MediaConvertQueue#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#description MediaConvertQueue#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#id MediaConvertQueue#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#id MediaConvertQueue#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#name MediaConvertQueue#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#name MediaConvertQueue#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#pricing_plan MediaConvertQueue#pricing_plan}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#pricing_plan MediaConvertQueue#pricing_plan}
+  */
   readonly pricingPlan?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#status MediaConvertQueue#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#status MediaConvertQueue#status}
+  */
   readonly status?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#tags MediaConvertQueue#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#tags MediaConvertQueue#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#tags_all MediaConvertQueue#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#tags_all MediaConvertQueue#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * reservation_plan_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#reservation_plan_settings MediaConvertQueue#reservation_plan_settings}
-   */
+  * reservation_plan_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#reservation_plan_settings MediaConvertQueue#reservation_plan_settings}
+  */
   readonly reservationPlanSettings?: MediaConvertQueueReservationPlanSettings;
 }
 export interface MediaConvertQueueReservationPlanSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#commitment MediaConvertQueue#commitment}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#commitment MediaConvertQueue#commitment}
+  */
   readonly commitment: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#renewal_type MediaConvertQueue#renewal_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#renewal_type MediaConvertQueue#renewal_type}
+  */
   readonly renewalType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#reserved_slots MediaConvertQueue#reserved_slots}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue#reserved_slots MediaConvertQueue#reserved_slots}
+  */
   readonly reservedSlots: number;
 }
 
-export function mediaConvertQueueReservationPlanSettingsToTerraform(
-  struct?:
-    | MediaConvertQueueReservationPlanSettingsOutputReference
-    | MediaConvertQueueReservationPlanSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function mediaConvertQueueReservationPlanSettingsToTerraform(struct?: MediaConvertQueueReservationPlanSettingsOutputReference | MediaConvertQueueReservationPlanSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     commitment: cdktf.stringToTerraform(struct!.commitment),
     renewal_type: cdktf.stringToTerraform(struct!.renewalType),
     reserved_slots: cdktf.numberToTerraform(struct!.reservedSlots),
-  };
+  }
 }
 
 export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | MediaConvertQueueReservationPlanSettings
-    | undefined {
+  public get internalValue(): MediaConvertQueueReservationPlanSettings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._commitment !== undefined) {
@@ -113,15 +101,14 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: MediaConvertQueueReservationPlanSettings | undefined,
-  ) {
+  public set internalValue(value: MediaConvertQueueReservationPlanSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._commitment = undefined;
       this._renewalType = undefined;
       this._reservedSlots = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._commitment = value.commitment;
       this._renewalType = value.renewalType;
@@ -130,7 +117,7 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
   }
 
   // commitment - computed: false, optional: false, required: true
-  private _commitment?: string;
+  private _commitment?: string; 
   public get commitment() {
     return this.getStringAttribute('commitment');
   }
@@ -143,7 +130,7 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
   }
 
   // renewal_type - computed: false, optional: false, required: true
-  private _renewalType?: string;
+  private _renewalType?: string; 
   public get renewalType() {
     return this.getStringAttribute('renewal_type');
   }
@@ -156,7 +143,7 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
   }
 
   // reserved_slots - computed: false, optional: false, required: true
-  private _reservedSlots?: number;
+  private _reservedSlots?: number; 
   public get reservedSlots() {
     return this.getNumberAttribute('reserved_slots');
   }
@@ -170,36 +157,33 @@ export class MediaConvertQueueReservationPlanSettingsOutputReference extends cdk
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue aws_media_convert_queue}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue aws_media_convert_queue}
+*/
 export class MediaConvertQueue extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_media_convert_queue';
+  public static readonly tfResourceType = "aws_media_convert_queue";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue aws_media_convert_queue} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options MediaConvertQueueConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: MediaConvertQueueConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/media_convert_queue aws_media_convert_queue} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options MediaConvertQueueConfig
+  */
+  public constructor(scope: Construct, id: string, config: MediaConvertQueueConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_media_convert_queue',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -207,7 +191,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._id = config.id;
@@ -216,8 +200,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
     this._status = config.status;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._reservationPlanSettings.internalValue =
-      config.reservationPlanSettings;
+    this._reservationPlanSettings.internalValue = config.reservationPlanSettings;
   }
 
   // ==========
@@ -230,7 +213,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -246,7 +229,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -262,7 +245,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -275,7 +258,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // pricing_plan - computed: false, optional: true, required: false
-  private _pricingPlan?: string;
+  private _pricingPlan?: string; 
   public get pricingPlan() {
     return this.getStringAttribute('pricing_plan');
   }
@@ -291,7 +274,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -307,7 +290,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -323,7 +306,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -339,17 +322,11 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
   }
 
   // reservation_plan_settings - computed: false, optional: true, required: false
-  private _reservationPlanSettings =
-    new MediaConvertQueueReservationPlanSettingsOutputReference(
-      this,
-      'reservation_plan_settings',
-    );
+  private _reservationPlanSettings = new MediaConvertQueueReservationPlanSettingsOutputReference(this, "reservation_plan_settings");
   public get reservationPlanSettings() {
     return this._reservationPlanSettings;
   }
-  public putReservationPlanSettings(
-    value: MediaConvertQueueReservationPlanSettings,
-  ) {
+  public putReservationPlanSettings(value: MediaConvertQueueReservationPlanSettings) {
     this._reservationPlanSettings.internalValue = value;
   }
   public resetReservationPlanSettings() {
@@ -373,10 +350,7 @@ export class MediaConvertQueue extends cdktf.TerraformResource {
       status: cdktf.stringToTerraform(this._status),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      reservation_plan_settings:
-        mediaConvertQueueReservationPlanSettingsToTerraform(
-          this._reservationPlanSettings.internalValue,
-        ),
+      reservation_plan_settings: mediaConvertQueueReservationPlanSettingsToTerraform(this._reservationPlanSettings.internalValue),
     };
   }
 }

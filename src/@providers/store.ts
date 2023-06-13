@@ -1,6 +1,8 @@
 import type { Provider } from './provider.ts';
 
 export interface ProviderStore {
+  get storageDir(): string;
+
   /**
    * Saves a file with the given filename and contents and returns the fully resolvable path
    */

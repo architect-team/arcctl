@@ -1,65 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Ec2TransitGatewayMulticastGroupMemberConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Ec2TransitGatewayMulticastGroupMemberConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#group_ip_address Ec2TransitGatewayMulticastGroupMember#group_ip_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#group_ip_address Ec2TransitGatewayMulticastGroupMember#group_ip_address}
+  */
   readonly groupIpAddress: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#id Ec2TransitGatewayMulticastGroupMember#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#id Ec2TransitGatewayMulticastGroupMember#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#network_interface_id Ec2TransitGatewayMulticastGroupMember#network_interface_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#network_interface_id Ec2TransitGatewayMulticastGroupMember#network_interface_id}
+  */
   readonly networkInterfaceId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#transit_gateway_multicast_domain_id Ec2TransitGatewayMulticastGroupMember#transit_gateway_multicast_domain_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member#transit_gateway_multicast_domain_id Ec2TransitGatewayMulticastGroupMember#transit_gateway_multicast_domain_id}
+  */
   readonly transitGatewayMulticastDomainId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member aws_ec2_transit_gateway_multicast_group_member}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member aws_ec2_transit_gateway_multicast_group_member}
+*/
 export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_ec2_transit_gateway_multicast_group_member';
+  public static readonly tfResourceType = "aws_ec2_transit_gateway_multicast_group_member";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member aws_ec2_transit_gateway_multicast_group_member} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Ec2TransitGatewayMulticastGroupMemberConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Ec2TransitGatewayMulticastGroupMemberConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway_multicast_group_member aws_ec2_transit_gateway_multicast_group_member} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Ec2TransitGatewayMulticastGroupMemberConfig
+  */
+  public constructor(scope: Construct, id: string, config: Ec2TransitGatewayMulticastGroupMemberConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_transit_gateway_multicast_group_member',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -67,13 +63,12 @@ export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._groupIpAddress = config.groupIpAddress;
     this._id = config.id;
     this._networkInterfaceId = config.networkInterfaceId;
-    this._transitGatewayMulticastDomainId =
-      config.transitGatewayMulticastDomainId;
+    this._transitGatewayMulticastDomainId = config.transitGatewayMulticastDomainId;
   }
 
   // ==========
@@ -81,7 +76,7 @@ export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResour
   // ==========
 
   // group_ip_address - computed: false, optional: false, required: true
-  private _groupIpAddress?: string;
+  private _groupIpAddress?: string; 
   public get groupIpAddress() {
     return this.getStringAttribute('group_ip_address');
   }
@@ -94,7 +89,7 @@ export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +105,7 @@ export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResour
   }
 
   // network_interface_id - computed: false, optional: false, required: true
-  private _networkInterfaceId?: string;
+  private _networkInterfaceId?: string; 
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -123,7 +118,7 @@ export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResour
   }
 
   // transit_gateway_multicast_domain_id - computed: false, optional: false, required: true
-  private _transitGatewayMulticastDomainId?: string;
+  private _transitGatewayMulticastDomainId?: string; 
   public get transitGatewayMulticastDomainId() {
     return this.getStringAttribute('transit_gateway_multicast_domain_id');
   }
@@ -144,9 +139,7 @@ export class Ec2TransitGatewayMulticastGroupMember extends cdktf.TerraformResour
       group_ip_address: cdktf.stringToTerraform(this._groupIpAddress),
       id: cdktf.stringToTerraform(this._id),
       network_interface_id: cdktf.stringToTerraform(this._networkInterfaceId),
-      transit_gateway_multicast_domain_id: cdktf.stringToTerraform(
-        this._transitGatewayMulticastDomainId,
-      ),
+      transit_gateway_multicast_domain_id: cdktf.stringToTerraform(this._transitGatewayMulticastDomainId),
     };
   }
 }

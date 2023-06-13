@@ -1,12 +1,12 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
+import cliSpinners from 'cli-spinners';
+import { Select } from 'cliffy/prompt/mod.ts';
+import * as path from 'std/path/mod.ts';
+import winston, { Logger } from 'winston';
 import { CloudGraph } from '../../cloud-graph/index.ts';
 import { DatacenterRecord } from '../../datacenters/index.ts';
 import { Environment, parseEnvironment } from '../../environments/index.ts';
 import { Pipeline } from '../../pipeline/index.ts';
-import cliSpinners from 'cli-spinners';
-import * as path from 'std/path/mod.ts';
-import winston, { Logger } from 'winston';
-import { Select } from 'cliffy/prompt/mod.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type CreateEnvironmentOptions = {
   datacenter?: string;
@@ -16,7 +16,7 @@ type CreateEnvironmentOptions = {
 const CreateEnvironmentCommand = BaseCommand()
   .description('Create a new environment')
   .option('-d, --datacenter <datacenter:string>', 'Name of the datacenter to create the environment on')
-  .option('-v, --verbose', 'Turn on verbose logs')
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .arguments('<name:string> [config_path:string]')
   .action(create_environment_action);
 

@@ -1,75 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_workflow
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface GlueWorkflowConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#default_run_properties GlueWorkflow#default_run_properties}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#default_run_properties GlueWorkflow#default_run_properties}
+  */
   readonly defaultRunProperties?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#description GlueWorkflow#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#description GlueWorkflow#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#id GlueWorkflow#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#id GlueWorkflow#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#max_concurrent_runs GlueWorkflow#max_concurrent_runs}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#max_concurrent_runs GlueWorkflow#max_concurrent_runs}
+  */
   readonly maxConcurrentRuns?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#name GlueWorkflow#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#name GlueWorkflow#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#tags GlueWorkflow#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#tags GlueWorkflow#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#tags_all GlueWorkflow#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow#tags_all GlueWorkflow#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow aws_glue_workflow}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow aws_glue_workflow}
+*/
 export class GlueWorkflow extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_glue_workflow';
+  public static readonly tfResourceType = "aws_glue_workflow";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow aws_glue_workflow} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GlueWorkflowConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GlueWorkflowConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_workflow aws_glue_workflow} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GlueWorkflowConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: GlueWorkflowConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_workflow',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -77,7 +75,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._defaultRunProperties = config.defaultRunProperties;
     this._description = config.description;
@@ -98,7 +96,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // default_run_properties - computed: false, optional: true, required: false
-  private _defaultRunProperties?: { [key: string]: string };
+  private _defaultRunProperties?: { [key: string]: string }; 
   public get defaultRunProperties() {
     return this.getStringMapAttribute('default_run_properties');
   }
@@ -114,7 +112,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -130,7 +128,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -146,7 +144,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // max_concurrent_runs - computed: false, optional: true, required: false
-  private _maxConcurrentRuns?: number;
+  private _maxConcurrentRuns?: number; 
   public get maxConcurrentRuns() {
     return this.getNumberAttribute('max_concurrent_runs');
   }
@@ -162,7 +160,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -178,7 +176,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -194,7 +192,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -215,9 +213,7 @@ export class GlueWorkflow extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      default_run_properties: cdktf.hashMapper(cdktf.stringToTerraform)(
-        this._defaultRunProperties,
-      ),
+      default_run_properties: cdktf.hashMapper(cdktf.stringToTerraform)(this._defaultRunProperties),
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
       max_concurrent_runs: cdktf.numberToTerraform(this._maxConcurrentRuns),

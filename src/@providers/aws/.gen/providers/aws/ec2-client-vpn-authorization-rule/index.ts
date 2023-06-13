@@ -1,75 +1,66 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Ec2ClientVpnAuthorizationRuleConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Ec2ClientVpnAuthorizationRuleConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#access_group_id Ec2ClientVpnAuthorizationRule#access_group_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#access_group_id Ec2ClientVpnAuthorizationRule#access_group_id}
+  */
   readonly accessGroupId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#authorize_all_groups Ec2ClientVpnAuthorizationRule#authorize_all_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#authorize_all_groups Ec2ClientVpnAuthorizationRule#authorize_all_groups}
+  */
   readonly authorizeAllGroups?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#client_vpn_endpoint_id Ec2ClientVpnAuthorizationRule#client_vpn_endpoint_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#client_vpn_endpoint_id Ec2ClientVpnAuthorizationRule#client_vpn_endpoint_id}
+  */
   readonly clientVpnEndpointId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#description Ec2ClientVpnAuthorizationRule#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#description Ec2ClientVpnAuthorizationRule#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#id Ec2ClientVpnAuthorizationRule#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#id Ec2ClientVpnAuthorizationRule#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#target_network_cidr Ec2ClientVpnAuthorizationRule#target_network_cidr}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#target_network_cidr Ec2ClientVpnAuthorizationRule#target_network_cidr}
+  */
   readonly targetNetworkCidr: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#timeouts Ec2ClientVpnAuthorizationRule#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#timeouts Ec2ClientVpnAuthorizationRule#timeouts}
+  */
   readonly timeouts?: Ec2ClientVpnAuthorizationRuleTimeouts;
 }
 export interface Ec2ClientVpnAuthorizationRuleTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#create Ec2ClientVpnAuthorizationRule#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#create Ec2ClientVpnAuthorizationRule#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#delete Ec2ClientVpnAuthorizationRule#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule#delete Ec2ClientVpnAuthorizationRule#delete}
+  */
   readonly delete?: string;
 }
 
-export function ec2ClientVpnAuthorizationRuleTimeoutsToTerraform(
-  struct?:
-    | Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference
-    | Ec2ClientVpnAuthorizationRuleTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function ec2ClientVpnAuthorizationRuleTimeoutsToTerraform(struct?: Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference | Ec2ClientVpnAuthorizationRuleTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -77,20 +68,14 @@ export class Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference extends cdktf.
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | Ec2ClientVpnAuthorizationRuleTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): Ec2ClientVpnAuthorizationRuleTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -107,21 +92,18 @@ export class Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | Ec2ClientVpnAuthorizationRuleTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: Ec2ClientVpnAuthorizationRuleTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -130,7 +112,7 @@ export class Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference extends cdktf.
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -146,7 +128,7 @@ export class Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference extends cdktf.
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -163,37 +145,33 @@ export class Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference extends cdktf.
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule aws_ec2_client_vpn_authorization_rule}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule aws_ec2_client_vpn_authorization_rule}
+*/
 export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_ec2_client_vpn_authorization_rule';
+  public static readonly tfResourceType = "aws_ec2_client_vpn_authorization_rule";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule aws_ec2_client_vpn_authorization_rule} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Ec2ClientVpnAuthorizationRuleConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Ec2ClientVpnAuthorizationRuleConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_client_vpn_authorization_rule aws_ec2_client_vpn_authorization_rule} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Ec2ClientVpnAuthorizationRuleConfig
+  */
+  public constructor(scope: Construct, id: string, config: Ec2ClientVpnAuthorizationRuleConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_client_vpn_authorization_rule',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -201,7 +179,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accessGroupId = config.accessGroupId;
     this._authorizeAllGroups = config.authorizeAllGroups;
@@ -217,7 +195,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   // ==========
 
   // access_group_id - computed: false, optional: true, required: false
-  private _accessGroupId?: string;
+  private _accessGroupId?: string; 
   public get accessGroupId() {
     return this.getStringAttribute('access_group_id');
   }
@@ -233,7 +211,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   }
 
   // authorize_all_groups - computed: false, optional: true, required: false
-  private _authorizeAllGroups?: boolean | cdktf.IResolvable;
+  private _authorizeAllGroups?: boolean | cdktf.IResolvable; 
   public get authorizeAllGroups() {
     return this.getBooleanAttribute('authorize_all_groups');
   }
@@ -249,7 +227,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   }
 
   // client_vpn_endpoint_id - computed: false, optional: false, required: true
-  private _clientVpnEndpointId?: string;
+  private _clientVpnEndpointId?: string; 
   public get clientVpnEndpointId() {
     return this.getStringAttribute('client_vpn_endpoint_id');
   }
@@ -262,7 +240,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -278,7 +256,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -294,7 +272,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   }
 
   // target_network_cidr - computed: false, optional: false, required: true
-  private _targetNetworkCidr?: string;
+  private _targetNetworkCidr?: string; 
   public get targetNetworkCidr() {
     return this.getStringAttribute('target_network_cidr');
   }
@@ -307,10 +285,7 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new Ec2ClientVpnAuthorizationRuleTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -333,15 +308,11 @@ export class Ec2ClientVpnAuthorizationRule extends cdktf.TerraformResource {
     return {
       access_group_id: cdktf.stringToTerraform(this._accessGroupId),
       authorize_all_groups: cdktf.booleanToTerraform(this._authorizeAllGroups),
-      client_vpn_endpoint_id: cdktf.stringToTerraform(
-        this._clientVpnEndpointId,
-      ),
+      client_vpn_endpoint_id: cdktf.stringToTerraform(this._clientVpnEndpointId),
       description: cdktf.stringToTerraform(this._description),
       id: cdktf.stringToTerraform(this._id),
       target_network_cidr: cdktf.stringToTerraform(this._targetNetworkCidr),
-      timeouts: ec2ClientVpnAuthorizationRuleTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: ec2ClientVpnAuthorizationRuleTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

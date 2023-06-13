@@ -1,21 +1,17 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { BaseService } from '../../service.ts';
+import { ResourceService } from '../../base.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsDatabaseSizeService extends BaseService<'databaseSize'> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
-
-  async get(id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
-    return undefined;
+export class AwsDatabaseSizeService extends ResourceService<'databaseSize', AwsCredentials> {
+  get(_id: string): Promise<ResourceOutputs['databaseSize'] | undefined> {
+    return Promise.resolve(undefined);
   }
 
   async list(
     filterOptions?: Partial<ResourceOutputs['databaseSize']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseSize']>> {
     const rds = AwsUtils.getRDS(this.credentials);
     const instance_classes: string[] = [];

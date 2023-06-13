@@ -1,57 +1,50 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface WafGeoMatchSetConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#id WafGeoMatchSet#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#id WafGeoMatchSet#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#name WafGeoMatchSet#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#name WafGeoMatchSet#name}
+  */
   readonly name: string;
   /**
-   * geo_match_constraint block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#geo_match_constraint WafGeoMatchSet#geo_match_constraint}
-   */
-  readonly geoMatchConstraint?:
-    | WafGeoMatchSetGeoMatchConstraint[]
-    | cdktf.IResolvable;
+  * geo_match_constraint block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#geo_match_constraint WafGeoMatchSet#geo_match_constraint}
+  */
+  readonly geoMatchConstraint?: WafGeoMatchSetGeoMatchConstraint[] | cdktf.IResolvable;
 }
 export interface WafGeoMatchSetGeoMatchConstraint {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#type WafGeoMatchSet#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#type WafGeoMatchSet#type}
+  */
   readonly type: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#value WafGeoMatchSet#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set#value WafGeoMatchSet#value}
+  */
   readonly value: string;
 }
 
-export function wafGeoMatchSetGeoMatchConstraintToTerraform(
-  struct?: WafGeoMatchSetGeoMatchConstraint | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function wafGeoMatchSetGeoMatchConstraintToTerraform(struct?: WafGeoMatchSetGeoMatchConstraint | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class WafGeoMatchSetGeoMatchConstraintOutputReference extends cdktf.ComplexObject {
@@ -59,29 +52,16 @@ export class WafGeoMatchSetGeoMatchConstraintOutputReference extends cdktf.Compl
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | WafGeoMatchSetGeoMatchConstraint
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): WafGeoMatchSetGeoMatchConstraint | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -98,18 +78,18 @@ export class WafGeoMatchSetGeoMatchConstraintOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: WafGeoMatchSetGeoMatchConstraint | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: WafGeoMatchSetGeoMatchConstraint | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._type = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -118,7 +98,7 @@ export class WafGeoMatchSetGeoMatchConstraintOutputReference extends cdktf.Compl
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -131,7 +111,7 @@ export class WafGeoMatchSetGeoMatchConstraintOutputReference extends cdktf.Compl
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -145,65 +125,53 @@ export class WafGeoMatchSetGeoMatchConstraintOutputReference extends cdktf.Compl
 }
 
 export class WafGeoMatchSetGeoMatchConstraintList extends cdktf.ComplexList {
-  public internalValue?: WafGeoMatchSetGeoMatchConstraint[] | cdktf.IResolvable;
+  public internalValue? : WafGeoMatchSetGeoMatchConstraint[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): WafGeoMatchSetGeoMatchConstraintOutputReference {
-    return new WafGeoMatchSetGeoMatchConstraintOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new WafGeoMatchSetGeoMatchConstraintOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set aws_waf_geo_match_set}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set aws_waf_geo_match_set}
+*/
 export class WafGeoMatchSet extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_waf_geo_match_set';
+  public static readonly tfResourceType = "aws_waf_geo_match_set";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set aws_waf_geo_match_set} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options WafGeoMatchSetConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: WafGeoMatchSetConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_geo_match_set aws_waf_geo_match_set} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options WafGeoMatchSetConfig
+  */
+  public constructor(scope: Construct, id: string, config: WafGeoMatchSetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_waf_geo_match_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -211,7 +179,7 @@ export class WafGeoMatchSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -228,7 +196,7 @@ export class WafGeoMatchSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -244,7 +212,7 @@ export class WafGeoMatchSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -257,17 +225,11 @@ export class WafGeoMatchSet extends cdktf.TerraformResource {
   }
 
   // geo_match_constraint - computed: false, optional: true, required: false
-  private _geoMatchConstraint = new WafGeoMatchSetGeoMatchConstraintList(
-    this,
-    'geo_match_constraint',
-    true,
-  );
+  private _geoMatchConstraint = new WafGeoMatchSetGeoMatchConstraintList(this, "geo_match_constraint", true);
   public get geoMatchConstraint() {
     return this._geoMatchConstraint;
   }
-  public putGeoMatchConstraint(
-    value: WafGeoMatchSetGeoMatchConstraint[] | cdktf.IResolvable,
-  ) {
+  public putGeoMatchConstraint(value: WafGeoMatchSetGeoMatchConstraint[] | cdktf.IResolvable) {
     this._geoMatchConstraint.internalValue = value;
   }
   public resetGeoMatchConstraint() {
@@ -286,10 +248,7 @@ export class WafGeoMatchSet extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      geo_match_constraint: cdktf.listMapper(
-        wafGeoMatchSetGeoMatchConstraintToTerraform,
-        true,
-      )(this._geoMatchConstraint.internalValue),
+      geo_match_constraint: cdktf.listMapper(wafGeoMatchSetGeoMatchConstraintToTerraform, true)(this._geoMatchConstraint.internalValue),
     };
   }
 }

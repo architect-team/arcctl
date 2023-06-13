@@ -1,63 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/ses_template
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface SesTemplateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#html SesTemplate#html}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#html SesTemplate#html}
+  */
   readonly html?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#id SesTemplate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#id SesTemplate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#name SesTemplate#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#name SesTemplate#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#subject SesTemplate#subject}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#subject SesTemplate#subject}
+  */
   readonly subject?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#text SesTemplate#text}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ses_template#text SesTemplate#text}
+  */
   readonly text?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ses_template aws_ses_template}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ses_template aws_ses_template}
+*/
 export class SesTemplate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ses_template';
+  public static readonly tfResourceType = "aws_ses_template";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ses_template aws_ses_template} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SesTemplateConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ses_template aws_ses_template} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SesTemplateConfig
+  */
   public constructor(scope: Construct, id: string, config: SesTemplateConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ses_template',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -65,7 +67,7 @@ export class SesTemplate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._html = config.html;
     this._id = config.id;
@@ -84,7 +86,7 @@ export class SesTemplate extends cdktf.TerraformResource {
   }
 
   // html - computed: false, optional: true, required: false
-  private _html?: string;
+  private _html?: string; 
   public get html() {
     return this.getStringAttribute('html');
   }
@@ -100,7 +102,7 @@ export class SesTemplate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -116,7 +118,7 @@ export class SesTemplate extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -129,7 +131,7 @@ export class SesTemplate extends cdktf.TerraformResource {
   }
 
   // subject - computed: false, optional: true, required: false
-  private _subject?: string;
+  private _subject?: string; 
   public get subject() {
     return this.getStringAttribute('subject');
   }
@@ -145,7 +147,7 @@ export class SesTemplate extends cdktf.TerraformResource {
   }
 
   // text - computed: false, optional: true, required: false
-  private _text?: string;
+  private _text?: string; 
   public get text() {
     return this.getStringAttribute('text');
   }

@@ -60,6 +60,14 @@
     "ts-xor": "^1.0.8"
   },
   "scripts": {
-    "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js"
+    "semantic-release": "./node_modules/semantic-release/bin/semantic-release.js",
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc.cjs",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "version": "oclif readme && git add README.md",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:service": "ts-node --project ./tsconfig.json ./tests/integration/test-runner.ts",
+    "generate:resources": "ts-node --project ./tsconfig.json ./bin/resource-generator.ts"
   }
 }

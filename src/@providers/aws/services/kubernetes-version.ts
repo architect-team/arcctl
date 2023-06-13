@@ -1,14 +1,10 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { BaseService } from '../../service.ts';
+import { ResourceService } from '../../base.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsKubernetesVersionService extends BaseService<'kubernetesVersion'> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
-
+export class AwsKubernetesVersionService extends ResourceService<'kubernetesVersion', AwsCredentials> {
   async get(id: string): Promise<ResourceOutputs['kubernetesVersion'] | undefined> {
     const eks = AwsUtils.getEKS(this.credentials);
     const versionData = await eks.describeAddonVersions({}).promise();
@@ -30,8 +26,8 @@ export class AwsKubernetesVersionService extends BaseService<'kubernetesVersion'
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['kubernetesVersion']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['kubernetesVersion']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesVersion']>> {
     const eks = AwsUtils.getEKS(this.credentials);
     const versionData = await eks.describeAddonVersions({}).promise();

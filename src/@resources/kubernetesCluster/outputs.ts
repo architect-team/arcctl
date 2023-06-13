@@ -3,7 +3,7 @@ export type ClusterApplyOutputs = {
   description?: string;
   vpc: string;
   kubernetesVersion: string;
-  account: string;
+  configPath: string;
 };
 
 export default ClusterApplyOutputs;

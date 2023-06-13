@@ -1,7 +1,7 @@
 import { Fn, TerraformOutput } from 'cdktf';
 import { Construct } from 'constructs';
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { ProviderStore } from '../../store.ts';
 import { SupportedProviders } from '../../supported-providers.ts';
 import { Rds } from '../.gen/modules/rds.ts';
@@ -16,22 +16,18 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
   database: Rds;
   private username: TerraformOutput;
   private password: TerraformOutput;
-  private certificate: TerraformOutput;
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['database']) {
-    super(scope, id, inputs);
+  constructor(private scope: Construct, options: ResourceModuleOptions<'database', AwsCredentials>) {
+    super(scope, options);
 
-    const name = inputs.name.replaceAll('/', '-').toLowerCase();
-    const vpc_parts = inputs.vpc ? inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/) : [];
-    if (!vpc_parts) {
+    const name = this.inputs?.name.replaceAll('/', '-').toLowerCase() || 'unknown';
+    if (this.inputs && !this.inputs.vpc.match(/^([\dA-Za-z-]+)\/(.*)$/)) {
       throw new Error('VPC must be of the format, <region>/<vpc_id>');
     }
-    const [region, vpc_id] = (inputs.vpc || '/').split('/');
+    const [region, vpc_id] = (this.inputs?.vpc || 'unknown/unknown').split('/');
 
     if (region) {
-      const aws_provider = this.scope.node.children.find((child) => child instanceof AwsProvider) as
-        | AwsProvider
-        | undefined;
+      const aws_provider = scope.node.children.find((child) => child instanceof AwsProvider) as AwsProvider | undefined;
       if (!aws_provider) {
         throw new Error('Unable to set region on AWS provider.');
       }
@@ -69,18 +65,18 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
     this.database = new Rds(this, `database-${name}`, {
       identifier: name,
       publiclyAccessible: true,
-      engine: inputs.databaseType,
-      engineVersion: inputs.databaseVersion,
+      engine: this.inputs?.databaseType || 'unknown',
+      engineVersion: this.inputs?.databaseVersion || 'unknown',
       vpcSecurityGroupIds: [database_security_group.id],
-      instanceClass: inputs.databaseSize,
+      instanceClass: this.inputs?.databaseSize || 'unknown',
       allocatedStorage: '50',
       storageEncrypted: false,
       username: 'arcctl',
       dbSubnetGroupName: dbSubnetGroup.name,
-      family: `${inputs.databaseType}${inputs.databaseVersion}`,
+      family: this.inputs ? `${this.inputs.databaseType}${this.inputs.databaseVersion}` : 'unknown',
     });
 
-    let protocol = inputs.databaseType;
+    let protocol = this.inputs?.databaseType || 'unknown';
     if (protocol === 'postgres') {
       protocol = 'postgresql';
     }
@@ -95,31 +91,27 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
       sensitive: true,
     });
 
-    this.certificate = new TerraformOutput(this, `database-${name}-certificate`, {
-      sensitive: true,
-      value: this.database.dbInstanceCaCertIdentifierOutput,
-    });
-
     this.outputs = {
       id: this.database.identifier,
       protocol,
       host: this.database.dbInstanceAddressOutput,
       port: Fn.tonumber(this.database.dbInstancePortOutput),
-      account: `postgres-${inputs.name}`,
-      certificate: this.certificate.value,
+      username: this.database.dbInstanceUsernameOutput,
+      password: this.database.dbInstancePasswordOutput,
+      certificate: this.database.dbInstanceCaCertIdentifierOutput,
     };
   }
 
-  async genImports(credentials: AwsCredentials, resourceId: string): Promise<Record<string, string>> {
+  genImports(resourceId: string): Promise<Record<string, string>> {
     const moduleId = ['module', this.database.friendlyUniqueId].join('.');
 
     const [region, id] = resourceId.split('/');
     const aws_provider = this.scope.node.children[0] as AwsProvider;
     aws_provider.region = region;
 
-    return {
+    return Promise.resolve({
       [`${moduleId}.module.db_instance.aws_db_instance.this[0]`]: id,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {
@@ -140,17 +132,13 @@ export class AwsDatabaseModule extends ResourceModule<'database', AwsCredentials
       const host = outputs.host;
       const port = outputs.port;
       providerStore.saveProvider(
-        new SupportedProviders.postgres(
-          `postgres-${this.inputs.name}`,
-          {
-            host,
-            port,
-            username,
-            password,
-            database: 'postgres',
-          },
-          providerStore.saveFile.bind(providerStore),
-        ),
+        new SupportedProviders.postgres(`postgres-${this.inputs?.name || 'unknown'}`, {
+          host,
+          port,
+          username,
+          password,
+          database: 'postgres',
+        }, providerStore),
       );
     },
   };

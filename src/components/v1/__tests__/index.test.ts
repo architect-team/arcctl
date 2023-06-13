@@ -103,8 +103,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -159,8 +159,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -175,15 +175,18 @@ describe('Component Schema: v1', () => {
       environment: 'test',
       inputs: {
         type: 'ingressRule',
-        loadBalancer: '',
-        listener: {
-          subdomain: 'app',
-          path: '/',
-          protocol: `\${{ ${interface_node.id}.protocol }}`,
-        },
+        registry: '',
+        subdomain: 'app',
+        path: '/',
+        protocol: `\${{ ${interface_node.id}.protocol }}`,
         service: `\${{ ${interface_node.id}.id }}`,
         port: 80,
         internal: false,
+        name: CloudNode.genResourceId({
+          name: 'api',
+          component: 'test',
+          environment: 'test',
+        }),
       },
     });
 
@@ -232,8 +235,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -248,15 +251,18 @@ describe('Component Schema: v1', () => {
       environment: 'test',
       inputs: {
         type: 'ingressRule',
-        loadBalancer: '',
-        listener: {
-          subdomain: 'app',
-          path: '/',
-          protocol: `\${{ ${service_node.id}.protocol }}`,
-        },
+        registry: '',
+        subdomain: 'app',
+        path: '/',
+        protocol: `\${{ ${service_node.id}.protocol }}`,
         service: `\${{ ${service_node.id}.id }}`,
         port: 80,
         internal: false,
+        name: CloudNode.genResourceId({
+          name: 'api-main',
+          component: 'test',
+          environment: 'test',
+        }),
       },
     });
 

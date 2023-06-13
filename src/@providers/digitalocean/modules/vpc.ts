@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Vpc } from '../.gen/providers/digitalocean/vpc/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 
@@ -8,13 +8,13 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
   vpc: Vpc;
   outputs: ResourceOutputs['vpc'];
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['vpc']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'vpc', DigitaloceanCredentials>) {
+    super(scope, options);
 
     this.vpc = new Vpc(this, 'vpc', {
-      description: inputs.description,
-      name: inputs.name || 'delete',
-      region: inputs.region || 'nyc1',
+      description: this.inputs?.description,
+      name: this.inputs?.name || 'unknown',
+      region: this.inputs?.region || 'nyc1',
     });
 
     this.outputs = {
@@ -25,10 +25,10 @@ export class DigitaloceanVpcModule extends ResourceModule<'vpc', DigitaloceanCre
     };
   }
 
-  async genImports(credentials: DigitaloceanCredentials, resourceId: string): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.vpc)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

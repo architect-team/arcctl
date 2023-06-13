@@ -1,68 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AppCookieStickinessPolicyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AppCookieStickinessPolicyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#cookie_name AppCookieStickinessPolicy#cookie_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#cookie_name AppCookieStickinessPolicy#cookie_name}
+  */
   readonly cookieName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#id AppCookieStickinessPolicy#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#id AppCookieStickinessPolicy#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#lb_port AppCookieStickinessPolicy#lb_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#lb_port AppCookieStickinessPolicy#lb_port}
+  */
   readonly lbPort: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#load_balancer AppCookieStickinessPolicy#load_balancer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#load_balancer AppCookieStickinessPolicy#load_balancer}
+  */
   readonly loadBalancer: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#name AppCookieStickinessPolicy#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy#name AppCookieStickinessPolicy#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy aws_app_cookie_stickiness_policy}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy aws_app_cookie_stickiness_policy}
+*/
 export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_app_cookie_stickiness_policy';
+  public static readonly tfResourceType = "aws_app_cookie_stickiness_policy";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy aws_app_cookie_stickiness_policy} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppCookieStickinessPolicyConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AppCookieStickinessPolicyConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/app_cookie_stickiness_policy aws_app_cookie_stickiness_policy} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppCookieStickinessPolicyConfig
+  */
+  public constructor(scope: Construct, id: string, config: AppCookieStickinessPolicyConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_app_cookie_stickiness_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -70,7 +67,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cookieName = config.cookieName;
     this._id = config.id;
@@ -84,7 +81,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   // ==========
 
   // cookie_name - computed: false, optional: false, required: true
-  private _cookieName?: string;
+  private _cookieName?: string; 
   public get cookieName() {
     return this.getStringAttribute('cookie_name');
   }
@@ -97,7 +94,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -113,7 +110,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // lb_port - computed: false, optional: false, required: true
-  private _lbPort?: number;
+  private _lbPort?: number; 
   public get lbPort() {
     return this.getNumberAttribute('lb_port');
   }
@@ -126,7 +123,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // load_balancer - computed: false, optional: false, required: true
-  private _loadBalancer?: string;
+  private _loadBalancer?: string; 
   public get loadBalancer() {
     return this.getStringAttribute('load_balancer');
   }
@@ -139,7 +136,7 @@ export class AppCookieStickinessPolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }

@@ -1,67 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DynamodbTableItemConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#hash_key DynamodbTableItem#hash_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#hash_key DynamodbTableItem#hash_key}
+  */
   readonly hashKey: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#id DynamodbTableItem#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#id DynamodbTableItem#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#item DynamodbTableItem#item}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#item DynamodbTableItem#item}
+  */
   readonly item: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#range_key DynamodbTableItem#range_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#range_key DynamodbTableItem#range_key}
+  */
   readonly rangeKey?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#table_name DynamodbTableItem#table_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item#table_name DynamodbTableItem#table_name}
+  */
   readonly tableName: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item aws_dynamodb_table_item}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item aws_dynamodb_table_item}
+*/
 export class DynamodbTableItem extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_dynamodb_table_item';
+  public static readonly tfResourceType = "aws_dynamodb_table_item";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item aws_dynamodb_table_item} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DynamodbTableItemConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DynamodbTableItemConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/dynamodb_table_item aws_dynamodb_table_item} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DynamodbTableItemConfig
+  */
+  public constructor(scope: Construct, id: string, config: DynamodbTableItemConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_dynamodb_table_item',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -69,7 +67,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._hashKey = config.hashKey;
     this._id = config.id;
@@ -83,7 +81,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   // ==========
 
   // hash_key - computed: false, optional: false, required: true
-  private _hashKey?: string;
+  private _hashKey?: string; 
   public get hashKey() {
     return this.getStringAttribute('hash_key');
   }
@@ -96,7 +94,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -112,7 +110,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // item - computed: false, optional: false, required: true
-  private _item?: string;
+  private _item?: string; 
   public get item() {
     return this.getStringAttribute('item');
   }
@@ -125,7 +123,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // range_key - computed: false, optional: true, required: false
-  private _rangeKey?: string;
+  private _rangeKey?: string; 
   public get rangeKey() {
     return this.getStringAttribute('range_key');
   }
@@ -141,7 +139,7 @@ export class DynamodbTableItem extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string;
+  private _tableName?: string; 
   public get tableName() {
     return this.getStringAttribute('table_name');
   }

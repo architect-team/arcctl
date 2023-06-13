@@ -93,14 +93,14 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
   }
 
   let selected = environmentRecords.find((r) => r.name === name);
-
-  const environment = selected?.name ||
-    (await Select.prompt({
+  if (!selected) {
+    const selectedName = await Select.prompt({
       message: 'Select an environment to destroy',
       options: environmentRecords.map((r) => r.name),
-    }));
+    });
+    selected = environmentRecords.find((r) => r.name === selectedName);
+  }
 
-  selected = environmentRecords.find((r) => r.name === environment);
   if (!selected) {
     console.log(`Invalid environment name: ${selected}`);
     Deno.exit(1);

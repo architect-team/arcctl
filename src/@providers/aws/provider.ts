@@ -1,9 +1,8 @@
 import { Construct } from 'constructs';
 import { AwsDnsZoneTest } from '../aws/tests/dns-zone.ts';
 import { ProviderCredentials } from '../credentials.ts';
-import { Provider, ProviderResources } from '../provider.ts';
+import { Provider } from '../provider.ts';
 import { CldctlTestResource } from '../tests.ts';
-import { AwsProvider as TerraformAwsProvider } from './.gen/providers/aws/provider/index.ts';
 import { AwsCredentials, AwsCredentialsSchema } from './credentials.ts';
 import { AwsDatabaseSizeService } from './services/database-size.ts';
 import { AwsDatabaseTypeService } from './services/database-type.ts';
@@ -21,22 +20,21 @@ import AwsUtils from './utils.ts';
 
 export default class AwsProvider extends Provider<AwsCredentials> {
   readonly type = 'aws';
-  readonly terraform_version = '1.4.6';
 
   static readonly CredentialsSchema = AwsCredentialsSchema;
 
-  readonly resources: ProviderResources = {
-    region: new AwsRegionService(this.credentials),
-    vpc: new AwsVpcService(this.credentials),
-    kubernetesVersion: new AwsKubernetesVersionService(this.credentials),
-    nodeSize: new AwsNodeSizeService(this.credentials),
-    kubernetesCluster: new AwsKubernetesClusterService(this.credentials),
-    databaseType: new AwsDatabaseTypeService(this.credentials),
-    databaseVersion: new AwsDatabaseVersionService(this.credentials),
-    databaseSize: new AwsDatabaseSizeService(this.credentials),
-    database: new AwsDatabaseService(this.credentials),
-    dnsZone: new AwsDnsZoneService(this.credentials),
-    dnsRecord: new AwsDnsRecordService(this.credentials),
+  readonly resources = {
+    region: new AwsRegionService(this.name, this.credentials, this.providerStore),
+    vpc: new AwsVpcService(this.name, this.credentials, this.providerStore),
+    kubernetesVersion: new AwsKubernetesVersionService(this.name, this.credentials, this.providerStore),
+    nodeSize: new AwsNodeSizeService(this.name, this.credentials, this.providerStore),
+    kubernetesCluster: new AwsKubernetesClusterService(this.name, this.credentials, this.providerStore),
+    databaseType: new AwsDatabaseTypeService(this.name, this.credentials, this.providerStore),
+    databaseVersion: new AwsDatabaseVersionService(this.name, this.credentials, this.providerStore),
+    databaseSize: new AwsDatabaseSizeService(this.name, this.credentials, this.providerStore),
+    database: new AwsDatabaseService(this.name, this.credentials, this.providerStore),
+    dnsZone: new AwsDnsZoneService(this.name, this.credentials, this.providerStore),
+    dnsRecord: new AwsDnsRecordService(this.name, this.credentials, this.providerStore),
   };
 
   public async testCredentials(): Promise<boolean> {
@@ -48,15 +46,5 @@ export default class AwsProvider extends Provider<AwsCredentials> {
     return false;
   }
 
-  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
-    return new TerraformAwsProvider(scope, this.name, {
-      accessKey: this.credentials.accessKeyId,
-      secretKey: this.credentials.secretAccessKey,
-    });
-  }
-
-  tests: CldctlTestResource<ProviderCredentials> = [
-    new AwsDnsZoneTest(),
-    new AwsDnsRecordTest(),
-  ];
+  tests: CldctlTestResource<ProviderCredentials> = [new AwsDnsZoneTest(), new AwsDnsRecordTest()];
 }

@@ -1,11 +1,11 @@
-import { ResourceType, ResourceTypeList } from '../../@resources/types.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { Pipeline, PipelineStep } from '../../pipeline/index.ts';
+import cliSpinners from 'cli-spinners';
 import { colors } from 'cliffy/ansi/colors.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
-import cliSpinners from 'cli-spinners';
-import winston, { Logger } from 'winston';
 import { Confirm, Select } from 'cliffy/prompt/mod.ts';
+import winston, { Logger } from 'winston';
+import { ResourceType, ResourceTypeList } from '../../@resources/types.ts';
+import { Pipeline, PipelineStep } from '../../pipeline/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const resourceType = new EnumType(ResourceTypeList);
 
@@ -28,15 +28,6 @@ async function destroy_resource_action(
   resource_id?: string,
 ) {
   const command_helper = new CommandHelper(options);
-
-  if (resource_type) {
-    const is_creatable_type = command_helper.isCreatableResourceType(resource_type);
-    if (!is_creatable_type) {
-      console.error(`Deletion of ${resource_type} resources is not supported`);
-      Deno.exit(1);
-    }
-  }
-
   const account = await command_helper.promptForAccount({
     account: options.account,
     type: resource_type,
@@ -89,8 +80,14 @@ async function destroy_resource_action(
     action: 'delete',
     name: type,
     type: type,
-    resource: {
+    inputs: {
+      type: type,
       account: account.name,
+    },
+    outputs: {
+      id: resource_id,
+    },
+    state: {
       id: resource_id,
     },
   });

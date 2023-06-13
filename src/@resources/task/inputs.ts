@@ -14,7 +14,6 @@ type Container = {
 
 export type TaskInputs = Container & {
   namespace?: string;
-  schedule: string;
   labels?: Record<string, string>;
   sidecars?: Array<Container>;
 };

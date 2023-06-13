@@ -1,60 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/d/connect_instance
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsConnectInstanceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsConnectInstanceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_instance#id DataAwsConnectInstance#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_instance#id DataAwsConnectInstance#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_instance#instance_alias DataAwsConnectInstance#instance_alias}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_instance#instance_alias DataAwsConnectInstance#instance_alias}
+  */
   readonly instanceAlias?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_instance#instance_id DataAwsConnectInstance#instance_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_instance#instance_id DataAwsConnectInstance#instance_id}
+  */
   readonly instanceId?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/connect_instance aws_connect_instance}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/connect_instance aws_connect_instance}
+*/
 export class DataAwsConnectInstance extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_connect_instance';
+  public static readonly tfResourceType = "aws_connect_instance";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/connect_instance aws_connect_instance} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsConnectInstanceConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsConnectInstanceConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/connect_instance aws_connect_instance} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsConnectInstanceConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsConnectInstanceConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_connect_instance',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -62,7 +59,7 @@ export class DataAwsConnectInstance extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._instanceAlias = config.instanceAlias;
@@ -104,7 +101,7 @@ export class DataAwsConnectInstance extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -130,7 +127,7 @@ export class DataAwsConnectInstance extends cdktf.TerraformDataSource {
   }
 
   // instance_alias - computed: true, optional: true, required: false
-  private _instanceAlias?: string;
+  private _instanceAlias?: string; 
   public get instanceAlias() {
     return this.getStringAttribute('instance_alias');
   }
@@ -146,7 +143,7 @@ export class DataAwsConnectInstance extends cdktf.TerraformDataSource {
   }
 
   // instance_id - computed: true, optional: true, required: false
-  private _instanceId?: string;
+  private _instanceId?: string; 
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }

@@ -1,266 +1,249 @@
 // https://www.terraform.io/docs/providers/aws/r/launch_template
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface LaunchTemplateConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#default_version LaunchTemplate#default_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#default_version LaunchTemplate#default_version}
+  */
   readonly defaultVersion?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#description LaunchTemplate#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#description LaunchTemplate#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#disable_api_stop LaunchTemplate#disable_api_stop}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#disable_api_stop LaunchTemplate#disable_api_stop}
+  */
   readonly disableApiStop?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#disable_api_termination LaunchTemplate#disable_api_termination}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#disable_api_termination LaunchTemplate#disable_api_termination}
+  */
   readonly disableApiTermination?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ebs_optimized LaunchTemplate#ebs_optimized}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ebs_optimized LaunchTemplate#ebs_optimized}
+  */
   readonly ebsOptimized?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#id LaunchTemplate#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#id LaunchTemplate#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#image_id LaunchTemplate#image_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#image_id LaunchTemplate#image_id}
+  */
   readonly imageId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_initiated_shutdown_behavior LaunchTemplate#instance_initiated_shutdown_behavior}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_initiated_shutdown_behavior LaunchTemplate#instance_initiated_shutdown_behavior}
+  */
   readonly instanceInitiatedShutdownBehavior?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_type LaunchTemplate#instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_type LaunchTemplate#instance_type}
+  */
   readonly instanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#kernel_id LaunchTemplate#kernel_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#kernel_id LaunchTemplate#kernel_id}
+  */
   readonly kernelId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#key_name LaunchTemplate#key_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#key_name LaunchTemplate#key_name}
+  */
   readonly keyName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#name LaunchTemplate#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#name LaunchTemplate#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#name_prefix LaunchTemplate#name_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#name_prefix LaunchTemplate#name_prefix}
+  */
   readonly namePrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ram_disk_id LaunchTemplate#ram_disk_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ram_disk_id LaunchTemplate#ram_disk_id}
+  */
   readonly ramDiskId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#security_group_names LaunchTemplate#security_group_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#security_group_names LaunchTemplate#security_group_names}
+  */
   readonly securityGroupNames?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tags LaunchTemplate#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tags LaunchTemplate#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tags_all LaunchTemplate#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tags_all LaunchTemplate#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#update_default_version LaunchTemplate#update_default_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#update_default_version LaunchTemplate#update_default_version}
+  */
   readonly updateDefaultVersion?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#user_data LaunchTemplate#user_data}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#user_data LaunchTemplate#user_data}
+  */
   readonly userData?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#vpc_security_group_ids LaunchTemplate#vpc_security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#vpc_security_group_ids LaunchTemplate#vpc_security_group_ids}
+  */
   readonly vpcSecurityGroupIds?: string[];
   /**
-   * block_device_mappings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#block_device_mappings LaunchTemplate#block_device_mappings}
-   */
-  readonly blockDeviceMappings?:
-    | LaunchTemplateBlockDeviceMappings[]
-    | cdktf.IResolvable;
+  * block_device_mappings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#block_device_mappings LaunchTemplate#block_device_mappings}
+  */
+  readonly blockDeviceMappings?: LaunchTemplateBlockDeviceMappings[] | cdktf.IResolvable;
   /**
-   * capacity_reservation_specification block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_specification LaunchTemplate#capacity_reservation_specification}
-   */
+  * capacity_reservation_specification block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_specification LaunchTemplate#capacity_reservation_specification}
+  */
   readonly capacityReservationSpecification?: LaunchTemplateCapacityReservationSpecification;
   /**
-   * cpu_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#cpu_options LaunchTemplate#cpu_options}
-   */
+  * cpu_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#cpu_options LaunchTemplate#cpu_options}
+  */
   readonly cpuOptions?: LaunchTemplateCpuOptions;
   /**
-   * credit_specification block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#credit_specification LaunchTemplate#credit_specification}
-   */
+  * credit_specification block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#credit_specification LaunchTemplate#credit_specification}
+  */
   readonly creditSpecification?: LaunchTemplateCreditSpecification;
   /**
-   * elastic_gpu_specifications block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#elastic_gpu_specifications LaunchTemplate#elastic_gpu_specifications}
-   */
-  readonly elasticGpuSpecifications?:
-    | LaunchTemplateElasticGpuSpecifications[]
-    | cdktf.IResolvable;
+  * elastic_gpu_specifications block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#elastic_gpu_specifications LaunchTemplate#elastic_gpu_specifications}
+  */
+  readonly elasticGpuSpecifications?: LaunchTemplateElasticGpuSpecifications[] | cdktf.IResolvable;
   /**
-   * elastic_inference_accelerator block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#elastic_inference_accelerator LaunchTemplate#elastic_inference_accelerator}
-   */
+  * elastic_inference_accelerator block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#elastic_inference_accelerator LaunchTemplate#elastic_inference_accelerator}
+  */
   readonly elasticInferenceAccelerator?: LaunchTemplateElasticInferenceAccelerator;
   /**
-   * enclave_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enclave_options LaunchTemplate#enclave_options}
-   */
+  * enclave_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enclave_options LaunchTemplate#enclave_options}
+  */
   readonly enclaveOptions?: LaunchTemplateEnclaveOptions;
   /**
-   * hibernation_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#hibernation_options LaunchTemplate#hibernation_options}
-   */
+  * hibernation_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#hibernation_options LaunchTemplate#hibernation_options}
+  */
   readonly hibernationOptions?: LaunchTemplateHibernationOptions;
   /**
-   * iam_instance_profile block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#iam_instance_profile LaunchTemplate#iam_instance_profile}
-   */
+  * iam_instance_profile block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#iam_instance_profile LaunchTemplate#iam_instance_profile}
+  */
   readonly iamInstanceProfile?: LaunchTemplateIamInstanceProfile;
   /**
-   * instance_market_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_market_options LaunchTemplate#instance_market_options}
-   */
+  * instance_market_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_market_options LaunchTemplate#instance_market_options}
+  */
   readonly instanceMarketOptions?: LaunchTemplateInstanceMarketOptions;
   /**
-   * instance_requirements block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_requirements LaunchTemplate#instance_requirements}
-   */
+  * instance_requirements block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_requirements LaunchTemplate#instance_requirements}
+  */
   readonly instanceRequirements?: LaunchTemplateInstanceRequirements;
   /**
-   * license_specification block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#license_specification LaunchTemplate#license_specification}
-   */
-  readonly licenseSpecification?:
-    | LaunchTemplateLicenseSpecification[]
-    | cdktf.IResolvable;
+  * license_specification block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#license_specification LaunchTemplate#license_specification}
+  */
+  readonly licenseSpecification?: LaunchTemplateLicenseSpecification[] | cdktf.IResolvable;
   /**
-   * maintenance_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#maintenance_options LaunchTemplate#maintenance_options}
-   */
+  * maintenance_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#maintenance_options LaunchTemplate#maintenance_options}
+  */
   readonly maintenanceOptions?: LaunchTemplateMaintenanceOptions;
   /**
-   * metadata_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#metadata_options LaunchTemplate#metadata_options}
-   */
+  * metadata_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#metadata_options LaunchTemplate#metadata_options}
+  */
   readonly metadataOptions?: LaunchTemplateMetadataOptions;
   /**
-   * monitoring block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#monitoring LaunchTemplate#monitoring}
-   */
+  * monitoring block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#monitoring LaunchTemplate#monitoring}
+  */
   readonly monitoring?: LaunchTemplateMonitoring;
   /**
-   * network_interfaces block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_interfaces LaunchTemplate#network_interfaces}
-   */
-  readonly networkInterfaces?:
-    | LaunchTemplateNetworkInterfaces[]
-    | cdktf.IResolvable;
+  * network_interfaces block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_interfaces LaunchTemplate#network_interfaces}
+  */
+  readonly networkInterfaces?: LaunchTemplateNetworkInterfaces[] | cdktf.IResolvable;
   /**
-   * placement block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#placement LaunchTemplate#placement}
-   */
+  * placement block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#placement LaunchTemplate#placement}
+  */
   readonly placement?: LaunchTemplatePlacement;
   /**
-   * private_dns_name_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#private_dns_name_options LaunchTemplate#private_dns_name_options}
-   */
+  * private_dns_name_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#private_dns_name_options LaunchTemplate#private_dns_name_options}
+  */
   readonly privateDnsNameOptions?: LaunchTemplatePrivateDnsNameOptions;
   /**
-   * tag_specifications block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tag_specifications LaunchTemplate#tag_specifications}
-   */
-  readonly tagSpecifications?:
-    | LaunchTemplateTagSpecifications[]
-    | cdktf.IResolvable;
+  * tag_specifications block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tag_specifications LaunchTemplate#tag_specifications}
+  */
+  readonly tagSpecifications?: LaunchTemplateTagSpecifications[] | cdktf.IResolvable;
 }
 export interface LaunchTemplateBlockDeviceMappingsEbs {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
+  */
   readonly deleteOnTermination?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#encrypted LaunchTemplate#encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#encrypted LaunchTemplate#encrypted}
+  */
   readonly encrypted?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#iops LaunchTemplate#iops}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#iops LaunchTemplate#iops}
+  */
   readonly iops?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#kms_key_id LaunchTemplate#kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#kms_key_id LaunchTemplate#kms_key_id}
+  */
   readonly kmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#snapshot_id LaunchTemplate#snapshot_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#snapshot_id LaunchTemplate#snapshot_id}
+  */
   readonly snapshotId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#throughput LaunchTemplate#throughput}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#throughput LaunchTemplate#throughput}
+  */
   readonly throughput?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#volume_size LaunchTemplate#volume_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#volume_size LaunchTemplate#volume_size}
+  */
   readonly volumeSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#volume_type LaunchTemplate#volume_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#volume_type LaunchTemplate#volume_type}
+  */
   readonly volumeType?: string;
 }
 
-export function launchTemplateBlockDeviceMappingsEbsToTerraform(
-  struct?:
-    | LaunchTemplateBlockDeviceMappingsEbsOutputReference
-    | LaunchTemplateBlockDeviceMappingsEbs,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateBlockDeviceMappingsEbsToTerraform(struct?: LaunchTemplateBlockDeviceMappingsEbsOutputReference | LaunchTemplateBlockDeviceMappingsEbs): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     delete_on_termination: cdktf.stringToTerraform(struct!.deleteOnTermination),
@@ -271,20 +254,17 @@ export function launchTemplateBlockDeviceMappingsEbsToTerraform(
     throughput: cdktf.numberToTerraform(struct!.throughput),
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
     volume_type: cdktf.stringToTerraform(struct!.volumeType),
-  };
+  }
 }
 
 export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -326,9 +306,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateBlockDeviceMappingsEbs | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateBlockDeviceMappingsEbs | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._deleteOnTermination = undefined;
@@ -339,7 +317,8 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
       this._throughput = undefined;
       this._volumeSize = undefined;
       this._volumeType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._deleteOnTermination = value.deleteOnTermination;
       this._encrypted = value.encrypted;
@@ -353,7 +332,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: string;
+  private _deleteOnTermination?: string; 
   public get deleteOnTermination() {
     return this.getStringAttribute('delete_on_termination');
   }
@@ -369,7 +348,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: string;
+  private _encrypted?: string; 
   public get encrypted() {
     return this.getStringAttribute('encrypted');
   }
@@ -385,7 +364,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // iops - computed: true, optional: true, required: false
-  private _iops?: number;
+  private _iops?: number; 
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -401,7 +380,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string;
+  private _kmsKeyId?: string; 
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -417,7 +396,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // snapshot_id - computed: false, optional: true, required: false
-  private _snapshotId?: string;
+  private _snapshotId?: string; 
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -433,7 +412,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number;
+  private _throughput?: number; 
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -449,7 +428,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number;
+  private _volumeSize?: number; 
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -465,7 +444,7 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
   }
 
   // volume_type - computed: true, optional: true, required: false
-  private _volumeType?: string;
+  private _volumeType?: string; 
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -482,42 +461,36 @@ export class LaunchTemplateBlockDeviceMappingsEbsOutputReference extends cdktf.C
 }
 export interface LaunchTemplateBlockDeviceMappings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#device_name LaunchTemplate#device_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#device_name LaunchTemplate#device_name}
+  */
   readonly deviceName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#no_device LaunchTemplate#no_device}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#no_device LaunchTemplate#no_device}
+  */
   readonly noDevice?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#virtual_name LaunchTemplate#virtual_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#virtual_name LaunchTemplate#virtual_name}
+  */
   readonly virtualName?: string;
   /**
-   * ebs block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ebs LaunchTemplate#ebs}
-   */
+  * ebs block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ebs LaunchTemplate#ebs}
+  */
   readonly ebs?: LaunchTemplateBlockDeviceMappingsEbs;
 }
 
-export function launchTemplateBlockDeviceMappingsToTerraform(
-  struct?: LaunchTemplateBlockDeviceMappings | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateBlockDeviceMappingsToTerraform(struct?: LaunchTemplateBlockDeviceMappings | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     no_device: cdktf.stringToTerraform(struct!.noDevice),
     virtual_name: cdktf.stringToTerraform(struct!.virtualName),
     ebs: launchTemplateBlockDeviceMappingsEbsToTerraform(struct!.ebs),
-  };
+  }
 }
 
 export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.ComplexObject {
@@ -525,29 +498,16 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LaunchTemplateBlockDeviceMappings
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LaunchTemplateBlockDeviceMappings | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -572,9 +532,7 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateBlockDeviceMappings | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateBlockDeviceMappings | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -582,10 +540,12 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
       this._noDevice = undefined;
       this._virtualName = undefined;
       this._ebs.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deviceName = value.deviceName;
@@ -596,7 +556,7 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
   }
 
   // device_name - computed: false, optional: true, required: false
-  private _deviceName?: string;
+  private _deviceName?: string; 
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -612,7 +572,7 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
   }
 
   // no_device - computed: false, optional: true, required: false
-  private _noDevice?: string;
+  private _noDevice?: string; 
   public get noDevice() {
     return this.getStringAttribute('no_device');
   }
@@ -628,7 +588,7 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
   }
 
   // virtual_name - computed: false, optional: true, required: false
-  private _virtualName?: string;
+  private _virtualName?: string; 
   public get virtualName() {
     return this.getStringAttribute('virtual_name');
   }
@@ -644,10 +604,7 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
   }
 
   // ebs - computed: false, optional: true, required: false
-  private _ebs = new LaunchTemplateBlockDeviceMappingsEbsOutputReference(
-    this,
-    'ebs',
-  );
+  private _ebs = new LaunchTemplateBlockDeviceMappingsEbsOutputReference(this, "ebs");
   public get ebs() {
     return this._ebs;
   }
@@ -664,86 +621,58 @@ export class LaunchTemplateBlockDeviceMappingsOutputReference extends cdktf.Comp
 }
 
 export class LaunchTemplateBlockDeviceMappingsList extends cdktf.ComplexList {
-  public internalValue?:
-    | LaunchTemplateBlockDeviceMappings[]
-    | cdktf.IResolvable;
+  public internalValue? : LaunchTemplateBlockDeviceMappings[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): LaunchTemplateBlockDeviceMappingsOutputReference {
-    return new LaunchTemplateBlockDeviceMappingsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new LaunchTemplateBlockDeviceMappingsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_id LaunchTemplate#capacity_reservation_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_id LaunchTemplate#capacity_reservation_id}
+  */
   readonly capacityReservationId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_resource_group_arn LaunchTemplate#capacity_reservation_resource_group_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_resource_group_arn LaunchTemplate#capacity_reservation_resource_group_arn}
+  */
   readonly capacityReservationResourceGroupArn?: string;
 }
 
-export function launchTemplateCapacityReservationSpecificationCapacityReservationTargetToTerraform(
-  struct?:
-    | LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputReference
-    | LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateCapacityReservationSpecificationCapacityReservationTargetToTerraform(struct?: LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputReference | LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    capacity_reservation_id: cdktf.stringToTerraform(
-      struct!.capacityReservationId,
-    ),
-    capacity_reservation_resource_group_arn: cdktf.stringToTerraform(
-      struct!.capacityReservationResourceGroupArn,
-    ),
-  };
+    capacity_reservation_id: cdktf.stringToTerraform(struct!.capacityReservationId),
+    capacity_reservation_resource_group_arn: cdktf.stringToTerraform(struct!.capacityReservationResourceGroupArn),
+  }
 }
 
 export class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
-    | undefined {
+  public get internalValue(): LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._capacityReservationId !== undefined) {
@@ -752,31 +681,26 @@ export class LaunchTemplateCapacityReservationSpecificationCapacityReservationTa
     }
     if (this._capacityReservationResourceGroupArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityReservationResourceGroupArn =
-        this._capacityReservationResourceGroupArn;
+      internalValueResult.capacityReservationResourceGroupArn = this._capacityReservationResourceGroupArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
-      | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._capacityReservationId = undefined;
       this._capacityReservationResourceGroupArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._capacityReservationId = value.capacityReservationId;
-      this._capacityReservationResourceGroupArn =
-        value.capacityReservationResourceGroupArn;
+      this._capacityReservationResourceGroupArn = value.capacityReservationResourceGroupArn;
     }
   }
 
   // capacity_reservation_id - computed: false, optional: true, required: false
-  private _capacityReservationId?: string;
+  private _capacityReservationId?: string; 
   public get capacityReservationId() {
     return this.getStringAttribute('capacity_reservation_id');
   }
@@ -792,7 +716,7 @@ export class LaunchTemplateCapacityReservationSpecificationCapacityReservationTa
   }
 
   // capacity_reservation_resource_group_arn - computed: false, optional: true, required: false
-  private _capacityReservationResourceGroupArn?: string;
+  private _capacityReservationResourceGroupArn?: string; 
   public get capacityReservationResourceGroupArn() {
     return this.getStringAttribute('capacity_reservation_resource_group_arn');
   }
@@ -809,90 +733,68 @@ export class LaunchTemplateCapacityReservationSpecificationCapacityReservationTa
 }
 export interface LaunchTemplateCapacityReservationSpecification {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_preference LaunchTemplate#capacity_reservation_preference}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_preference LaunchTemplate#capacity_reservation_preference}
+  */
   readonly capacityReservationPreference?: string;
   /**
-   * capacity_reservation_target block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_target LaunchTemplate#capacity_reservation_target}
-   */
+  * capacity_reservation_target block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#capacity_reservation_target LaunchTemplate#capacity_reservation_target}
+  */
   readonly capacityReservationTarget?: LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget;
 }
 
-export function launchTemplateCapacityReservationSpecificationToTerraform(
-  struct?:
-    | LaunchTemplateCapacityReservationSpecificationOutputReference
-    | LaunchTemplateCapacityReservationSpecification,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateCapacityReservationSpecificationToTerraform(struct?: LaunchTemplateCapacityReservationSpecificationOutputReference | LaunchTemplateCapacityReservationSpecification): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    capacity_reservation_preference: cdktf.stringToTerraform(
-      struct!.capacityReservationPreference,
-    ),
-    capacity_reservation_target:
-      launchTemplateCapacityReservationSpecificationCapacityReservationTargetToTerraform(
-        struct!.capacityReservationTarget,
-      ),
-  };
+    capacity_reservation_preference: cdktf.stringToTerraform(struct!.capacityReservationPreference),
+    capacity_reservation_target: launchTemplateCapacityReservationSpecificationCapacityReservationTargetToTerraform(struct!.capacityReservationTarget),
+  }
 }
 
 export class LaunchTemplateCapacityReservationSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateCapacityReservationSpecification
-    | undefined {
+  public get internalValue(): LaunchTemplateCapacityReservationSpecification | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._capacityReservationPreference !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityReservationPreference =
-        this._capacityReservationPreference;
+      internalValueResult.capacityReservationPreference = this._capacityReservationPreference;
     }
     if (this._capacityReservationTarget?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.capacityReservationTarget =
-        this._capacityReservationTarget?.internalValue;
+      internalValueResult.capacityReservationTarget = this._capacityReservationTarget?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateCapacityReservationSpecification | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateCapacityReservationSpecification | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._capacityReservationPreference = undefined;
       this._capacityReservationTarget.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._capacityReservationPreference = value.capacityReservationPreference;
-      this._capacityReservationTarget.internalValue =
-        value.capacityReservationTarget;
+      this._capacityReservationTarget.internalValue = value.capacityReservationTarget;
     }
   }
 
   // capacity_reservation_preference - computed: false, optional: true, required: false
-  private _capacityReservationPreference?: string;
+  private _capacityReservationPreference?: string; 
   public get capacityReservationPreference() {
     return this.getStringAttribute('capacity_reservation_preference');
   }
@@ -908,17 +810,11 @@ export class LaunchTemplateCapacityReservationSpecificationOutputReference exten
   }
 
   // capacity_reservation_target - computed: false, optional: true, required: false
-  private _capacityReservationTarget =
-    new LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputReference(
-      this,
-      'capacity_reservation_target',
-    );
+  private _capacityReservationTarget = new LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputReference(this, "capacity_reservation_target");
   public get capacityReservationTarget() {
     return this._capacityReservationTarget;
   }
-  public putCapacityReservationTarget(
-    value: LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget,
-  ) {
+  public putCapacityReservationTarget(value: LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) {
     this._capacityReservationTarget.internalValue = value;
   }
   public resetCapacityReservationTarget() {
@@ -931,43 +827,34 @@ export class LaunchTemplateCapacityReservationSpecificationOutputReference exten
 }
 export interface LaunchTemplateCpuOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#core_count LaunchTemplate#core_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#core_count LaunchTemplate#core_count}
+  */
   readonly coreCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#threads_per_core LaunchTemplate#threads_per_core}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#threads_per_core LaunchTemplate#threads_per_core}
+  */
   readonly threadsPerCore?: number;
 }
 
-export function launchTemplateCpuOptionsToTerraform(
-  struct?: LaunchTemplateCpuOptionsOutputReference | LaunchTemplateCpuOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateCpuOptionsToTerraform(struct?: LaunchTemplateCpuOptionsOutputReference | LaunchTemplateCpuOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     core_count: cdktf.numberToTerraform(struct!.coreCount),
     threads_per_core: cdktf.numberToTerraform(struct!.threadsPerCore),
-  };
+  }
 }
 
 export class LaunchTemplateCpuOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -990,7 +877,8 @@ export class LaunchTemplateCpuOptionsOutputReference extends cdktf.ComplexObject
       this.isEmptyObject = false;
       this._coreCount = undefined;
       this._threadsPerCore = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._coreCount = value.coreCount;
       this._threadsPerCore = value.threadsPerCore;
@@ -998,7 +886,7 @@ export class LaunchTemplateCpuOptionsOutputReference extends cdktf.ComplexObject
   }
 
   // core_count - computed: false, optional: true, required: false
-  private _coreCount?: number;
+  private _coreCount?: number; 
   public get coreCount() {
     return this.getNumberAttribute('core_count');
   }
@@ -1014,7 +902,7 @@ export class LaunchTemplateCpuOptionsOutputReference extends cdktf.ComplexObject
   }
 
   // threads_per_core - computed: false, optional: true, required: false
-  private _threadsPerCore?: number;
+  private _threadsPerCore?: number; 
   public get threadsPerCore() {
     return this.getNumberAttribute('threads_per_core');
   }
@@ -1031,40 +919,29 @@ export class LaunchTemplateCpuOptionsOutputReference extends cdktf.ComplexObject
 }
 export interface LaunchTemplateCreditSpecification {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#cpu_credits LaunchTemplate#cpu_credits}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#cpu_credits LaunchTemplate#cpu_credits}
+  */
   readonly cpuCredits?: string;
 }
 
-export function launchTemplateCreditSpecificationToTerraform(
-  struct?:
-    | LaunchTemplateCreditSpecificationOutputReference
-    | LaunchTemplateCreditSpecification,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateCreditSpecificationToTerraform(struct?: LaunchTemplateCreditSpecificationOutputReference | LaunchTemplateCreditSpecification): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     cpu_credits: cdktf.stringToTerraform(struct!.cpuCredits),
-  };
+  }
 }
 
 export class LaunchTemplateCreditSpecificationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1078,20 +955,19 @@ export class LaunchTemplateCreditSpecificationOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateCreditSpecification | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateCreditSpecification | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cpuCredits = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cpuCredits = value.cpuCredits;
     }
   }
 
   // cpu_credits - computed: false, optional: true, required: false
-  private _cpuCredits?: string;
+  private _cpuCredits?: string; 
   public get cpuCredits() {
     return this.getStringAttribute('cpu_credits');
   }
@@ -1108,25 +984,19 @@ export class LaunchTemplateCreditSpecificationOutputReference extends cdktf.Comp
 }
 export interface LaunchTemplateElasticGpuSpecifications {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#type LaunchTemplate#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#type LaunchTemplate#type}
+  */
   readonly type: string;
 }
 
-export function launchTemplateElasticGpuSpecificationsToTerraform(
-  struct?: LaunchTemplateElasticGpuSpecifications | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateElasticGpuSpecificationsToTerraform(struct?: LaunchTemplateElasticGpuSpecifications | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class LaunchTemplateElasticGpuSpecificationsOutputReference extends cdktf.ComplexObject {
@@ -1134,29 +1004,16 @@ export class LaunchTemplateElasticGpuSpecificationsOutputReference extends cdktf
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LaunchTemplateElasticGpuSpecifications
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LaunchTemplateElasticGpuSpecifications | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1169,20 +1026,17 @@ export class LaunchTemplateElasticGpuSpecificationsOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | LaunchTemplateElasticGpuSpecifications
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateElasticGpuSpecifications | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._type = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._type = value.type;
@@ -1190,7 +1044,7 @@ export class LaunchTemplateElasticGpuSpecificationsOutputReference extends cdktf
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1204,79 +1058,53 @@ export class LaunchTemplateElasticGpuSpecificationsOutputReference extends cdktf
 }
 
 export class LaunchTemplateElasticGpuSpecificationsList extends cdktf.ComplexList {
-  public internalValue?:
-    | LaunchTemplateElasticGpuSpecifications[]
-    | cdktf.IResolvable;
+  public internalValue? : LaunchTemplateElasticGpuSpecifications[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): LaunchTemplateElasticGpuSpecificationsOutputReference {
-    return new LaunchTemplateElasticGpuSpecificationsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): LaunchTemplateElasticGpuSpecificationsOutputReference {
+    return new LaunchTemplateElasticGpuSpecificationsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface LaunchTemplateElasticInferenceAccelerator {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#type LaunchTemplate#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#type LaunchTemplate#type}
+  */
   readonly type: string;
 }
 
-export function launchTemplateElasticInferenceAcceleratorToTerraform(
-  struct?:
-    | LaunchTemplateElasticInferenceAcceleratorOutputReference
-    | LaunchTemplateElasticInferenceAccelerator,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateElasticInferenceAcceleratorToTerraform(struct?: LaunchTemplateElasticInferenceAcceleratorOutputReference | LaunchTemplateElasticInferenceAccelerator): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class LaunchTemplateElasticInferenceAcceleratorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateElasticInferenceAccelerator
-    | undefined {
+  public get internalValue(): LaunchTemplateElasticInferenceAccelerator | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._type !== undefined) {
@@ -1286,20 +1114,19 @@ export class LaunchTemplateElasticInferenceAcceleratorOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateElasticInferenceAccelerator | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateElasticInferenceAccelerator | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._type = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._type = value.type;
     }
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -1313,40 +1140,29 @@ export class LaunchTemplateElasticInferenceAcceleratorOutputReference extends cd
 }
 export interface LaunchTemplateEnclaveOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enabled LaunchTemplate#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enabled LaunchTemplate#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function launchTemplateEnclaveOptionsToTerraform(
-  struct?:
-    | LaunchTemplateEnclaveOptionsOutputReference
-    | LaunchTemplateEnclaveOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateEnclaveOptionsToTerraform(struct?: LaunchTemplateEnclaveOptionsOutputReference | LaunchTemplateEnclaveOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  };
+  }
 }
 
 export class LaunchTemplateEnclaveOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1364,14 +1180,15 @@ export class LaunchTemplateEnclaveOptionsOutputReference extends cdktf.ComplexOb
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -1388,40 +1205,29 @@ export class LaunchTemplateEnclaveOptionsOutputReference extends cdktf.ComplexOb
 }
 export interface LaunchTemplateHibernationOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#configured LaunchTemplate#configured}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#configured LaunchTemplate#configured}
+  */
   readonly configured: boolean | cdktf.IResolvable;
 }
 
-export function launchTemplateHibernationOptionsToTerraform(
-  struct?:
-    | LaunchTemplateHibernationOptionsOutputReference
-    | LaunchTemplateHibernationOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateHibernationOptionsToTerraform(struct?: LaunchTemplateHibernationOptionsOutputReference | LaunchTemplateHibernationOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     configured: cdktf.booleanToTerraform(struct!.configured),
-  };
+  }
 }
 
 export class LaunchTemplateHibernationOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1435,20 +1241,19 @@ export class LaunchTemplateHibernationOptionsOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateHibernationOptions | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateHibernationOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._configured = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._configured = value.configured;
     }
   }
 
   // configured - computed: false, optional: false, required: true
-  private _configured?: boolean | cdktf.IResolvable;
+  private _configured?: boolean | cdktf.IResolvable; 
   public get configured() {
     return this.getBooleanAttribute('configured');
   }
@@ -1462,45 +1267,34 @@ export class LaunchTemplateHibernationOptionsOutputReference extends cdktf.Compl
 }
 export interface LaunchTemplateIamInstanceProfile {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#arn LaunchTemplate#arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#arn LaunchTemplate#arn}
+  */
   readonly arn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#name LaunchTemplate#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#name LaunchTemplate#name}
+  */
   readonly name?: string;
 }
 
-export function launchTemplateIamInstanceProfileToTerraform(
-  struct?:
-    | LaunchTemplateIamInstanceProfileOutputReference
-    | LaunchTemplateIamInstanceProfile,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateIamInstanceProfileToTerraform(struct?: LaunchTemplateIamInstanceProfileOutputReference | LaunchTemplateIamInstanceProfile): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     arn: cdktf.stringToTerraform(struct!.arn),
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class LaunchTemplateIamInstanceProfileOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1518,14 +1312,13 @@ export class LaunchTemplateIamInstanceProfileOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateIamInstanceProfile | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateIamInstanceProfile | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._arn = undefined;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._arn = value.arn;
       this._name = value.name;
@@ -1533,7 +1326,7 @@ export class LaunchTemplateIamInstanceProfileOutputReference extends cdktf.Compl
   }
 
   // arn - computed: false, optional: true, required: false
-  private _arn?: string;
+  private _arn?: string; 
   public get arn() {
     return this.getStringAttribute('arn');
   }
@@ -1549,7 +1342,7 @@ export class LaunchTemplateIamInstanceProfileOutputReference extends cdktf.Compl
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1566,70 +1359,53 @@ export class LaunchTemplateIamInstanceProfileOutputReference extends cdktf.Compl
 }
 export interface LaunchTemplateInstanceMarketOptionsSpotOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#block_duration_minutes LaunchTemplate#block_duration_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#block_duration_minutes LaunchTemplate#block_duration_minutes}
+  */
   readonly blockDurationMinutes?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_interruption_behavior LaunchTemplate#instance_interruption_behavior}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_interruption_behavior LaunchTemplate#instance_interruption_behavior}
+  */
   readonly instanceInterruptionBehavior?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max_price LaunchTemplate#max_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max_price LaunchTemplate#max_price}
+  */
   readonly maxPrice?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spot_instance_type LaunchTemplate#spot_instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spot_instance_type LaunchTemplate#spot_instance_type}
+  */
   readonly spotInstanceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#valid_until LaunchTemplate#valid_until}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#valid_until LaunchTemplate#valid_until}
+  */
   readonly validUntil?: string;
 }
 
-export function launchTemplateInstanceMarketOptionsSpotOptionsToTerraform(
-  struct?:
-    | LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference
-    | LaunchTemplateInstanceMarketOptionsSpotOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceMarketOptionsSpotOptionsToTerraform(struct?: LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference | LaunchTemplateInstanceMarketOptionsSpotOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    block_duration_minutes: cdktf.numberToTerraform(
-      struct!.blockDurationMinutes,
-    ),
-    instance_interruption_behavior: cdktf.stringToTerraform(
-      struct!.instanceInterruptionBehavior,
-    ),
+    block_duration_minutes: cdktf.numberToTerraform(struct!.blockDurationMinutes),
+    instance_interruption_behavior: cdktf.stringToTerraform(struct!.instanceInterruptionBehavior),
     max_price: cdktf.stringToTerraform(struct!.maxPrice),
     spot_instance_type: cdktf.stringToTerraform(struct!.spotInstanceType),
     valid_until: cdktf.stringToTerraform(struct!.validUntil),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceMarketOptionsSpotOptions
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceMarketOptionsSpotOptions | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._blockDurationMinutes !== undefined) {
@@ -1638,8 +1414,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
     }
     if (this._instanceInterruptionBehavior !== undefined) {
       hasAnyValues = true;
-      internalValueResult.instanceInterruptionBehavior =
-        this._instanceInterruptionBehavior;
+      internalValueResult.instanceInterruptionBehavior = this._instanceInterruptionBehavior;
     }
     if (this._maxPrice !== undefined) {
       hasAnyValues = true;
@@ -1656,9 +1431,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceMarketOptionsSpotOptions | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceMarketOptionsSpotOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._blockDurationMinutes = undefined;
@@ -1666,7 +1439,8 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
       this._maxPrice = undefined;
       this._spotInstanceType = undefined;
       this._validUntil = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._blockDurationMinutes = value.blockDurationMinutes;
       this._instanceInterruptionBehavior = value.instanceInterruptionBehavior;
@@ -1677,7 +1451,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
   }
 
   // block_duration_minutes - computed: false, optional: true, required: false
-  private _blockDurationMinutes?: number;
+  private _blockDurationMinutes?: number; 
   public get blockDurationMinutes() {
     return this.getNumberAttribute('block_duration_minutes');
   }
@@ -1693,7 +1467,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
   }
 
   // instance_interruption_behavior - computed: false, optional: true, required: false
-  private _instanceInterruptionBehavior?: string;
+  private _instanceInterruptionBehavior?: string; 
   public get instanceInterruptionBehavior() {
     return this.getStringAttribute('instance_interruption_behavior');
   }
@@ -1709,7 +1483,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
   }
 
   // max_price - computed: false, optional: true, required: false
-  private _maxPrice?: string;
+  private _maxPrice?: string; 
   public get maxPrice() {
     return this.getStringAttribute('max_price');
   }
@@ -1725,7 +1499,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
   }
 
   // spot_instance_type - computed: false, optional: true, required: false
-  private _spotInstanceType?: string;
+  private _spotInstanceType?: string; 
   public get spotInstanceType() {
     return this.getStringAttribute('spot_instance_type');
   }
@@ -1741,7 +1515,7 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
   }
 
   // valid_until - computed: true, optional: true, required: false
-  private _validUntil?: string;
+  private _validUntil?: string; 
   public get validUntil() {
     return this.getStringAttribute('valid_until');
   }
@@ -1758,49 +1532,36 @@ export class LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference exten
 }
 export interface LaunchTemplateInstanceMarketOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#market_type LaunchTemplate#market_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#market_type LaunchTemplate#market_type}
+  */
   readonly marketType?: string;
   /**
-   * spot_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spot_options LaunchTemplate#spot_options}
-   */
+  * spot_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spot_options LaunchTemplate#spot_options}
+  */
   readonly spotOptions?: LaunchTemplateInstanceMarketOptionsSpotOptions;
 }
 
-export function launchTemplateInstanceMarketOptionsToTerraform(
-  struct?:
-    | LaunchTemplateInstanceMarketOptionsOutputReference
-    | LaunchTemplateInstanceMarketOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceMarketOptionsToTerraform(struct?: LaunchTemplateInstanceMarketOptionsOutputReference | LaunchTemplateInstanceMarketOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     market_type: cdktf.stringToTerraform(struct!.marketType),
-    spot_options: launchTemplateInstanceMarketOptionsSpotOptionsToTerraform(
-      struct!.spotOptions,
-    ),
-  };
+    spot_options: launchTemplateInstanceMarketOptionsSpotOptionsToTerraform(struct!.spotOptions),
+  }
 }
 
 export class LaunchTemplateInstanceMarketOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1818,14 +1579,13 @@ export class LaunchTemplateInstanceMarketOptionsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceMarketOptions | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceMarketOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._marketType = undefined;
       this._spotOptions.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._marketType = value.marketType;
       this._spotOptions.internalValue = value.spotOptions;
@@ -1833,7 +1593,7 @@ export class LaunchTemplateInstanceMarketOptionsOutputReference extends cdktf.Co
   }
 
   // market_type - computed: false, optional: true, required: false
-  private _marketType?: string;
+  private _marketType?: string; 
   public get marketType() {
     return this.getStringAttribute('market_type');
   }
@@ -1849,11 +1609,7 @@ export class LaunchTemplateInstanceMarketOptionsOutputReference extends cdktf.Co
   }
 
   // spot_options - computed: false, optional: true, required: false
-  private _spotOptions =
-    new LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference(
-      this,
-      'spot_options',
-    );
+  private _spotOptions = new LaunchTemplateInstanceMarketOptionsSpotOptionsOutputReference(this, "spot_options");
   public get spotOptions() {
     return this._spotOptions;
   }
@@ -1870,51 +1626,38 @@ export class LaunchTemplateInstanceMarketOptionsOutputReference extends cdktf.Co
 }
 export interface LaunchTemplateInstanceRequirementsAcceleratorCount {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsAcceleratorCountToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference
-    | LaunchTemplateInstanceRequirementsAcceleratorCount,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsAcceleratorCountToTerraform(struct?: LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference | LaunchTemplateInstanceRequirementsAcceleratorCount): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsAcceleratorCount
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsAcceleratorCount | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -1928,14 +1671,13 @@ export class LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsAcceleratorCount | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsAcceleratorCount | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -1943,7 +1685,7 @@ export class LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference e
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -1959,7 +1701,7 @@ export class LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference e
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -1976,51 +1718,38 @@ export class LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference e
 }
 export interface LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputReference
-    | LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(struct?: LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputReference | LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2034,16 +1763,13 @@ export class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputRe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib
-      | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2051,7 +1777,7 @@ export class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputRe
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2067,7 +1793,7 @@ export class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputRe
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2084,51 +1810,38 @@ export class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputRe
 }
 export interface LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference
-    | LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(struct?: LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference | LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2142,16 +1855,13 @@ export class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputRef
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps
-      | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2159,7 +1869,7 @@ export class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputRef
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2175,7 +1885,7 @@ export class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputRef
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2192,51 +1902,38 @@ export class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputRef
 }
 export interface LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsMemoryGibPerVcpuToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference
-    | LaunchTemplateInstanceRequirementsMemoryGibPerVcpu,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsMemoryGibPerVcpuToTerraform(struct?: LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference | LaunchTemplateInstanceRequirementsMemoryGibPerVcpu): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsMemoryGibPerVcpu
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsMemoryGibPerVcpu | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2250,14 +1947,13 @@ export class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsMemoryGibPerVcpu | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsMemoryGibPerVcpu | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2265,7 +1961,7 @@ export class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference e
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2281,7 +1977,7 @@ export class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference e
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2298,51 +1994,38 @@ export class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference e
 }
 export interface LaunchTemplateInstanceRequirementsMemoryMib {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min: number;
 }
 
-export function launchTemplateInstanceRequirementsMemoryMibToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsMemoryMibOutputReference
-    | LaunchTemplateInstanceRequirementsMemoryMib,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsMemoryMibToTerraform(struct?: LaunchTemplateInstanceRequirementsMemoryMibOutputReference | LaunchTemplateInstanceRequirementsMemoryMib): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsMemoryMibOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsMemoryMib
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsMemoryMib | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2356,14 +2039,13 @@ export class LaunchTemplateInstanceRequirementsMemoryMibOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsMemoryMib | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsMemoryMib | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2371,7 +2053,7 @@ export class LaunchTemplateInstanceRequirementsMemoryMibOutputReference extends 
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2387,7 +2069,7 @@ export class LaunchTemplateInstanceRequirementsMemoryMibOutputReference extends 
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2401,51 +2083,38 @@ export class LaunchTemplateInstanceRequirementsMemoryMibOutputReference extends 
 }
 export interface LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsNetworkBandwidthGbpsToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReference
-    | LaunchTemplateInstanceRequirementsNetworkBandwidthGbps,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsNetworkBandwidthGbpsToTerraform(struct?: LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReference | LaunchTemplateInstanceRequirementsNetworkBandwidthGbps): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsNetworkBandwidthGbps
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsNetworkBandwidthGbps | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2459,14 +2128,13 @@ export class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReferen
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsNetworkBandwidthGbps | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsNetworkBandwidthGbps | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2474,7 +2142,7 @@ export class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReferen
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2490,7 +2158,7 @@ export class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReferen
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2507,51 +2175,38 @@ export class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReferen
 }
 export interface LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsNetworkInterfaceCountToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputReference
-    | LaunchTemplateInstanceRequirementsNetworkInterfaceCount,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsNetworkInterfaceCountToTerraform(struct?: LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputReference | LaunchTemplateInstanceRequirementsNetworkInterfaceCount): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsNetworkInterfaceCount
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsNetworkInterfaceCount | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2565,14 +2220,13 @@ export class LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsNetworkInterfaceCount | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsNetworkInterfaceCount | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2580,7 +2234,7 @@ export class LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputRefere
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2596,7 +2250,7 @@ export class LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputRefere
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2613,51 +2267,38 @@ export class LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputRefere
 }
 export interface LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min?: number;
 }
 
-export function launchTemplateInstanceRequirementsTotalLocalStorageGbToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReference
-    | LaunchTemplateInstanceRequirementsTotalLocalStorageGb,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsTotalLocalStorageGbToTerraform(struct?: LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReference | LaunchTemplateInstanceRequirementsTotalLocalStorageGb): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsTotalLocalStorageGb
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsTotalLocalStorageGb | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2671,14 +2312,13 @@ export class LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsTotalLocalStorageGb | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsTotalLocalStorageGb | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2686,7 +2326,7 @@ export class LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReferenc
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2702,7 +2342,7 @@ export class LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReferenc
   }
 
   // min - computed: false, optional: true, required: false
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2719,51 +2359,38 @@ export class LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReferenc
 }
 export interface LaunchTemplateInstanceRequirementsVcpuCount {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#max LaunchTemplate#max}
+  */
   readonly max?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#min LaunchTemplate#min}
+  */
   readonly min: number;
 }
 
-export function launchTemplateInstanceRequirementsVcpuCountToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsVcpuCountOutputReference
-    | LaunchTemplateInstanceRequirementsVcpuCount,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsVcpuCountToTerraform(struct?: LaunchTemplateInstanceRequirementsVcpuCountOutputReference | LaunchTemplateInstanceRequirementsVcpuCount): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max: cdktf.numberToTerraform(struct!.max),
     min: cdktf.numberToTerraform(struct!.min),
-  };
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsVcpuCountOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | LaunchTemplateInstanceRequirementsVcpuCount
-    | undefined {
+  public get internalValue(): LaunchTemplateInstanceRequirementsVcpuCount | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._max !== undefined) {
@@ -2777,14 +2404,13 @@ export class LaunchTemplateInstanceRequirementsVcpuCountOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirementsVcpuCount | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirementsVcpuCount | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._max = undefined;
       this._min = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._max = value.max;
       this._min = value.min;
@@ -2792,7 +2418,7 @@ export class LaunchTemplateInstanceRequirementsVcpuCountOutputReference extends 
   }
 
   // max - computed: false, optional: true, required: false
-  private _max?: number;
+  private _max?: number; 
   public get max() {
     return this.getNumberAttribute('max');
   }
@@ -2808,7 +2434,7 @@ export class LaunchTemplateInstanceRequirementsVcpuCountOutputReference extends 
   }
 
   // min - computed: false, optional: false, required: true
-  private _min?: number;
+  private _min?: number; 
   public get min() {
     return this.getNumberAttribute('min');
   }
@@ -2822,225 +2448,157 @@ export class LaunchTemplateInstanceRequirementsVcpuCountOutputReference extends 
 }
 export interface LaunchTemplateInstanceRequirements {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_manufacturers LaunchTemplate#accelerator_manufacturers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_manufacturers LaunchTemplate#accelerator_manufacturers}
+  */
   readonly acceleratorManufacturers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_names LaunchTemplate#accelerator_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_names LaunchTemplate#accelerator_names}
+  */
   readonly acceleratorNames?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_types LaunchTemplate#accelerator_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_types LaunchTemplate#accelerator_types}
+  */
   readonly acceleratorTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#allowed_instance_types LaunchTemplate#allowed_instance_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#allowed_instance_types LaunchTemplate#allowed_instance_types}
+  */
   readonly allowedInstanceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#bare_metal LaunchTemplate#bare_metal}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#bare_metal LaunchTemplate#bare_metal}
+  */
   readonly bareMetal?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#burstable_performance LaunchTemplate#burstable_performance}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#burstable_performance LaunchTemplate#burstable_performance}
+  */
   readonly burstablePerformance?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#cpu_manufacturers LaunchTemplate#cpu_manufacturers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#cpu_manufacturers LaunchTemplate#cpu_manufacturers}
+  */
   readonly cpuManufacturers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#excluded_instance_types LaunchTemplate#excluded_instance_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#excluded_instance_types LaunchTemplate#excluded_instance_types}
+  */
   readonly excludedInstanceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_generations LaunchTemplate#instance_generations}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_generations LaunchTemplate#instance_generations}
+  */
   readonly instanceGenerations?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#local_storage LaunchTemplate#local_storage}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#local_storage LaunchTemplate#local_storage}
+  */
   readonly localStorage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#local_storage_types LaunchTemplate#local_storage_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#local_storage_types LaunchTemplate#local_storage_types}
+  */
   readonly localStorageTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#on_demand_max_price_percentage_over_lowest_price LaunchTemplate#on_demand_max_price_percentage_over_lowest_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#on_demand_max_price_percentage_over_lowest_price LaunchTemplate#on_demand_max_price_percentage_over_lowest_price}
+  */
   readonly onDemandMaxPricePercentageOverLowestPrice?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#require_hibernate_support LaunchTemplate#require_hibernate_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#require_hibernate_support LaunchTemplate#require_hibernate_support}
+  */
   readonly requireHibernateSupport?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spot_max_price_percentage_over_lowest_price LaunchTemplate#spot_max_price_percentage_over_lowest_price}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spot_max_price_percentage_over_lowest_price LaunchTemplate#spot_max_price_percentage_over_lowest_price}
+  */
   readonly spotMaxPricePercentageOverLowestPrice?: number;
   /**
-   * accelerator_count block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_count LaunchTemplate#accelerator_count}
-   */
+  * accelerator_count block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_count LaunchTemplate#accelerator_count}
+  */
   readonly acceleratorCount?: LaunchTemplateInstanceRequirementsAcceleratorCount;
   /**
-   * accelerator_total_memory_mib block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_total_memory_mib LaunchTemplate#accelerator_total_memory_mib}
-   */
+  * accelerator_total_memory_mib block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#accelerator_total_memory_mib LaunchTemplate#accelerator_total_memory_mib}
+  */
   readonly acceleratorTotalMemoryMib?: LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
   /**
-   * baseline_ebs_bandwidth_mbps block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#baseline_ebs_bandwidth_mbps LaunchTemplate#baseline_ebs_bandwidth_mbps}
-   */
+  * baseline_ebs_bandwidth_mbps block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#baseline_ebs_bandwidth_mbps LaunchTemplate#baseline_ebs_bandwidth_mbps}
+  */
   readonly baselineEbsBandwidthMbps?: LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps;
   /**
-   * memory_gib_per_vcpu block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#memory_gib_per_vcpu LaunchTemplate#memory_gib_per_vcpu}
-   */
+  * memory_gib_per_vcpu block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#memory_gib_per_vcpu LaunchTemplate#memory_gib_per_vcpu}
+  */
   readonly memoryGibPerVcpu?: LaunchTemplateInstanceRequirementsMemoryGibPerVcpu;
   /**
-   * memory_mib block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#memory_mib LaunchTemplate#memory_mib}
-   */
+  * memory_mib block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#memory_mib LaunchTemplate#memory_mib}
+  */
   readonly memoryMib: LaunchTemplateInstanceRequirementsMemoryMib;
   /**
-   * network_bandwidth_gbps block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_bandwidth_gbps LaunchTemplate#network_bandwidth_gbps}
-   */
+  * network_bandwidth_gbps block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_bandwidth_gbps LaunchTemplate#network_bandwidth_gbps}
+  */
   readonly networkBandwidthGbps?: LaunchTemplateInstanceRequirementsNetworkBandwidthGbps;
   /**
-   * network_interface_count block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_interface_count LaunchTemplate#network_interface_count}
-   */
+  * network_interface_count block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_interface_count LaunchTemplate#network_interface_count}
+  */
   readonly networkInterfaceCount?: LaunchTemplateInstanceRequirementsNetworkInterfaceCount;
   /**
-   * total_local_storage_gb block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#total_local_storage_gb LaunchTemplate#total_local_storage_gb}
-   */
+  * total_local_storage_gb block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#total_local_storage_gb LaunchTemplate#total_local_storage_gb}
+  */
   readonly totalLocalStorageGb?: LaunchTemplateInstanceRequirementsTotalLocalStorageGb;
   /**
-   * vcpu_count block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#vcpu_count LaunchTemplate#vcpu_count}
-   */
+  * vcpu_count block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#vcpu_count LaunchTemplate#vcpu_count}
+  */
   readonly vcpuCount: LaunchTemplateInstanceRequirementsVcpuCount;
 }
 
-export function launchTemplateInstanceRequirementsToTerraform(
-  struct?:
-    | LaunchTemplateInstanceRequirementsOutputReference
-    | LaunchTemplateInstanceRequirements,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateInstanceRequirementsToTerraform(struct?: LaunchTemplateInstanceRequirementsOutputReference | LaunchTemplateInstanceRequirements): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    accelerator_manufacturers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.acceleratorManufacturers),
-    accelerator_names: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.acceleratorNames),
-    accelerator_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.acceleratorTypes),
-    allowed_instance_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedInstanceTypes),
+    accelerator_manufacturers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorManufacturers),
+    accelerator_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorNames),
+    accelerator_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.acceleratorTypes),
+    allowed_instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedInstanceTypes),
     bare_metal: cdktf.stringToTerraform(struct!.bareMetal),
-    burstable_performance: cdktf.stringToTerraform(
-      struct!.burstablePerformance,
-    ),
-    cpu_manufacturers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.cpuManufacturers),
-    excluded_instance_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.excludedInstanceTypes),
-    instance_generations: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.instanceGenerations),
+    burstable_performance: cdktf.stringToTerraform(struct!.burstablePerformance),
+    cpu_manufacturers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cpuManufacturers),
+    excluded_instance_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.excludedInstanceTypes),
+    instance_generations: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.instanceGenerations),
     local_storage: cdktf.stringToTerraform(struct!.localStorage),
-    local_storage_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.localStorageTypes),
-    on_demand_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(
-      struct!.onDemandMaxPricePercentageOverLowestPrice,
-    ),
-    require_hibernate_support: cdktf.booleanToTerraform(
-      struct!.requireHibernateSupport,
-    ),
-    spot_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(
-      struct!.spotMaxPricePercentageOverLowestPrice,
-    ),
-    accelerator_count:
-      launchTemplateInstanceRequirementsAcceleratorCountToTerraform(
-        struct!.acceleratorCount,
-      ),
-    accelerator_total_memory_mib:
-      launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(
-        struct!.acceleratorTotalMemoryMib,
-      ),
-    baseline_ebs_bandwidth_mbps:
-      launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(
-        struct!.baselineEbsBandwidthMbps,
-      ),
-    memory_gib_per_vcpu:
-      launchTemplateInstanceRequirementsMemoryGibPerVcpuToTerraform(
-        struct!.memoryGibPerVcpu,
-      ),
-    memory_mib: launchTemplateInstanceRequirementsMemoryMibToTerraform(
-      struct!.memoryMib,
-    ),
-    network_bandwidth_gbps:
-      launchTemplateInstanceRequirementsNetworkBandwidthGbpsToTerraform(
-        struct!.networkBandwidthGbps,
-      ),
-    network_interface_count:
-      launchTemplateInstanceRequirementsNetworkInterfaceCountToTerraform(
-        struct!.networkInterfaceCount,
-      ),
-    total_local_storage_gb:
-      launchTemplateInstanceRequirementsTotalLocalStorageGbToTerraform(
-        struct!.totalLocalStorageGb,
-      ),
-    vcpu_count: launchTemplateInstanceRequirementsVcpuCountToTerraform(
-      struct!.vcpuCount,
-    ),
-  };
+    local_storage_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.localStorageTypes),
+    on_demand_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(struct!.onDemandMaxPricePercentageOverLowestPrice),
+    require_hibernate_support: cdktf.booleanToTerraform(struct!.requireHibernateSupport),
+    spot_max_price_percentage_over_lowest_price: cdktf.numberToTerraform(struct!.spotMaxPricePercentageOverLowestPrice),
+    accelerator_count: launchTemplateInstanceRequirementsAcceleratorCountToTerraform(struct!.acceleratorCount),
+    accelerator_total_memory_mib: launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibToTerraform(struct!.acceleratorTotalMemoryMib),
+    baseline_ebs_bandwidth_mbps: launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsToTerraform(struct!.baselineEbsBandwidthMbps),
+    memory_gib_per_vcpu: launchTemplateInstanceRequirementsMemoryGibPerVcpuToTerraform(struct!.memoryGibPerVcpu),
+    memory_mib: launchTemplateInstanceRequirementsMemoryMibToTerraform(struct!.memoryMib),
+    network_bandwidth_gbps: launchTemplateInstanceRequirementsNetworkBandwidthGbpsToTerraform(struct!.networkBandwidthGbps),
+    network_interface_count: launchTemplateInstanceRequirementsNetworkInterfaceCountToTerraform(struct!.networkInterfaceCount),
+    total_local_storage_gb: launchTemplateInstanceRequirementsTotalLocalStorageGbToTerraform(struct!.totalLocalStorageGb),
+    vcpu_count: launchTemplateInstanceRequirementsVcpuCountToTerraform(struct!.vcpuCount),
+  }
 }
 
 export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3049,8 +2607,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
     const internalValueResult: any = {};
     if (this._acceleratorManufacturers !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorManufacturers =
-        this._acceleratorManufacturers;
+      internalValueResult.acceleratorManufacturers = this._acceleratorManufacturers;
     }
     if (this._acceleratorNames !== undefined) {
       hasAnyValues = true;
@@ -3094,38 +2651,31 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
     }
     if (this._onDemandMaxPricePercentageOverLowestPrice !== undefined) {
       hasAnyValues = true;
-      internalValueResult.onDemandMaxPricePercentageOverLowestPrice =
-        this._onDemandMaxPricePercentageOverLowestPrice;
+      internalValueResult.onDemandMaxPricePercentageOverLowestPrice = this._onDemandMaxPricePercentageOverLowestPrice;
     }
     if (this._requireHibernateSupport !== undefined) {
       hasAnyValues = true;
-      internalValueResult.requireHibernateSupport =
-        this._requireHibernateSupport;
+      internalValueResult.requireHibernateSupport = this._requireHibernateSupport;
     }
     if (this._spotMaxPricePercentageOverLowestPrice !== undefined) {
       hasAnyValues = true;
-      internalValueResult.spotMaxPricePercentageOverLowestPrice =
-        this._spotMaxPricePercentageOverLowestPrice;
+      internalValueResult.spotMaxPricePercentageOverLowestPrice = this._spotMaxPricePercentageOverLowestPrice;
     }
     if (this._acceleratorCount?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorCount =
-        this._acceleratorCount?.internalValue;
+      internalValueResult.acceleratorCount = this._acceleratorCount?.internalValue;
     }
     if (this._acceleratorTotalMemoryMib?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.acceleratorTotalMemoryMib =
-        this._acceleratorTotalMemoryMib?.internalValue;
+      internalValueResult.acceleratorTotalMemoryMib = this._acceleratorTotalMemoryMib?.internalValue;
     }
     if (this._baselineEbsBandwidthMbps?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.baselineEbsBandwidthMbps =
-        this._baselineEbsBandwidthMbps?.internalValue;
+      internalValueResult.baselineEbsBandwidthMbps = this._baselineEbsBandwidthMbps?.internalValue;
     }
     if (this._memoryGibPerVcpu?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.memoryGibPerVcpu =
-        this._memoryGibPerVcpu?.internalValue;
+      internalValueResult.memoryGibPerVcpu = this._memoryGibPerVcpu?.internalValue;
     }
     if (this._memoryMib?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3133,18 +2683,15 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
     }
     if (this._networkBandwidthGbps?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkBandwidthGbps =
-        this._networkBandwidthGbps?.internalValue;
+      internalValueResult.networkBandwidthGbps = this._networkBandwidthGbps?.internalValue;
     }
     if (this._networkInterfaceCount?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.networkInterfaceCount =
-        this._networkInterfaceCount?.internalValue;
+      internalValueResult.networkInterfaceCount = this._networkInterfaceCount?.internalValue;
     }
     if (this._totalLocalStorageGb?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.totalLocalStorageGb =
-        this._totalLocalStorageGb?.internalValue;
+      internalValueResult.totalLocalStorageGb = this._totalLocalStorageGb?.internalValue;
     }
     if (this._vcpuCount?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -3153,9 +2700,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateInstanceRequirements | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateInstanceRequirements | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._acceleratorManufacturers = undefined;
@@ -3181,7 +2726,8 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
       this._networkInterfaceCount.internalValue = undefined;
       this._totalLocalStorageGb.internalValue = undefined;
       this._vcpuCount.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._acceleratorManufacturers = value.acceleratorManufacturers;
       this._acceleratorNames = value.acceleratorNames;
@@ -3194,16 +2740,12 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
       this._instanceGenerations = value.instanceGenerations;
       this._localStorage = value.localStorage;
       this._localStorageTypes = value.localStorageTypes;
-      this._onDemandMaxPricePercentageOverLowestPrice =
-        value.onDemandMaxPricePercentageOverLowestPrice;
+      this._onDemandMaxPricePercentageOverLowestPrice = value.onDemandMaxPricePercentageOverLowestPrice;
       this._requireHibernateSupport = value.requireHibernateSupport;
-      this._spotMaxPricePercentageOverLowestPrice =
-        value.spotMaxPricePercentageOverLowestPrice;
+      this._spotMaxPricePercentageOverLowestPrice = value.spotMaxPricePercentageOverLowestPrice;
       this._acceleratorCount.internalValue = value.acceleratorCount;
-      this._acceleratorTotalMemoryMib.internalValue =
-        value.acceleratorTotalMemoryMib;
-      this._baselineEbsBandwidthMbps.internalValue =
-        value.baselineEbsBandwidthMbps;
+      this._acceleratorTotalMemoryMib.internalValue = value.acceleratorTotalMemoryMib;
+      this._baselineEbsBandwidthMbps.internalValue = value.baselineEbsBandwidthMbps;
       this._memoryGibPerVcpu.internalValue = value.memoryGibPerVcpu;
       this._memoryMib.internalValue = value.memoryMib;
       this._networkBandwidthGbps.internalValue = value.networkBandwidthGbps;
@@ -3214,7 +2756,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // accelerator_manufacturers - computed: false, optional: true, required: false
-  private _acceleratorManufacturers?: string[];
+  private _acceleratorManufacturers?: string[]; 
   public get acceleratorManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_manufacturers'));
   }
@@ -3230,7 +2772,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // accelerator_names - computed: false, optional: true, required: false
-  private _acceleratorNames?: string[];
+  private _acceleratorNames?: string[]; 
   public get acceleratorNames() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_names'));
   }
@@ -3246,7 +2788,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // accelerator_types - computed: false, optional: true, required: false
-  private _acceleratorTypes?: string[];
+  private _acceleratorTypes?: string[]; 
   public get acceleratorTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('accelerator_types'));
   }
@@ -3262,7 +2804,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // allowed_instance_types - computed: false, optional: true, required: false
-  private _allowedInstanceTypes?: string[];
+  private _allowedInstanceTypes?: string[]; 
   public get allowedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_instance_types'));
   }
@@ -3278,7 +2820,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // bare_metal - computed: false, optional: true, required: false
-  private _bareMetal?: string;
+  private _bareMetal?: string; 
   public get bareMetal() {
     return this.getStringAttribute('bare_metal');
   }
@@ -3294,7 +2836,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // burstable_performance - computed: false, optional: true, required: false
-  private _burstablePerformance?: string;
+  private _burstablePerformance?: string; 
   public get burstablePerformance() {
     return this.getStringAttribute('burstable_performance');
   }
@@ -3310,7 +2852,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // cpu_manufacturers - computed: false, optional: true, required: false
-  private _cpuManufacturers?: string[];
+  private _cpuManufacturers?: string[]; 
   public get cpuManufacturers() {
     return cdktf.Fn.tolist(this.getListAttribute('cpu_manufacturers'));
   }
@@ -3326,7 +2868,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // excluded_instance_types - computed: false, optional: true, required: false
-  private _excludedInstanceTypes?: string[];
+  private _excludedInstanceTypes?: string[]; 
   public get excludedInstanceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('excluded_instance_types'));
   }
@@ -3342,7 +2884,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // instance_generations - computed: false, optional: true, required: false
-  private _instanceGenerations?: string[];
+  private _instanceGenerations?: string[]; 
   public get instanceGenerations() {
     return cdktf.Fn.tolist(this.getListAttribute('instance_generations'));
   }
@@ -3358,7 +2900,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // local_storage - computed: false, optional: true, required: false
-  private _localStorage?: string;
+  private _localStorage?: string; 
   public get localStorage() {
     return this.getStringAttribute('local_storage');
   }
@@ -3374,7 +2916,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // local_storage_types - computed: false, optional: true, required: false
-  private _localStorageTypes?: string[];
+  private _localStorageTypes?: string[]; 
   public get localStorageTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('local_storage_types'));
   }
@@ -3390,11 +2932,9 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // on_demand_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _onDemandMaxPricePercentageOverLowestPrice?: number;
+  private _onDemandMaxPricePercentageOverLowestPrice?: number; 
   public get onDemandMaxPricePercentageOverLowestPrice() {
-    return this.getNumberAttribute(
-      'on_demand_max_price_percentage_over_lowest_price',
-    );
+    return this.getNumberAttribute('on_demand_max_price_percentage_over_lowest_price');
   }
   public set onDemandMaxPricePercentageOverLowestPrice(value: number) {
     this._onDemandMaxPricePercentageOverLowestPrice = value;
@@ -3408,7 +2948,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // require_hibernate_support - computed: false, optional: true, required: false
-  private _requireHibernateSupport?: boolean | cdktf.IResolvable;
+  private _requireHibernateSupport?: boolean | cdktf.IResolvable; 
   public get requireHibernateSupport() {
     return this.getBooleanAttribute('require_hibernate_support');
   }
@@ -3424,11 +2964,9 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // spot_max_price_percentage_over_lowest_price - computed: false, optional: true, required: false
-  private _spotMaxPricePercentageOverLowestPrice?: number;
+  private _spotMaxPricePercentageOverLowestPrice?: number; 
   public get spotMaxPricePercentageOverLowestPrice() {
-    return this.getNumberAttribute(
-      'spot_max_price_percentage_over_lowest_price',
-    );
+    return this.getNumberAttribute('spot_max_price_percentage_over_lowest_price');
   }
   public set spotMaxPricePercentageOverLowestPrice(value: number) {
     this._spotMaxPricePercentageOverLowestPrice = value;
@@ -3442,17 +2980,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // accelerator_count - computed: false, optional: true, required: false
-  private _acceleratorCount =
-    new LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference(
-      this,
-      'accelerator_count',
-    );
+  private _acceleratorCount = new LaunchTemplateInstanceRequirementsAcceleratorCountOutputReference(this, "accelerator_count");
   public get acceleratorCount() {
     return this._acceleratorCount;
   }
-  public putAcceleratorCount(
-    value: LaunchTemplateInstanceRequirementsAcceleratorCount,
-  ) {
+  public putAcceleratorCount(value: LaunchTemplateInstanceRequirementsAcceleratorCount) {
     this._acceleratorCount.internalValue = value;
   }
   public resetAcceleratorCount() {
@@ -3464,17 +2996,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // accelerator_total_memory_mib - computed: false, optional: true, required: false
-  private _acceleratorTotalMemoryMib =
-    new LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputReference(
-      this,
-      'accelerator_total_memory_mib',
-    );
+  private _acceleratorTotalMemoryMib = new LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputReference(this, "accelerator_total_memory_mib");
   public get acceleratorTotalMemoryMib() {
     return this._acceleratorTotalMemoryMib;
   }
-  public putAcceleratorTotalMemoryMib(
-    value: LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib,
-  ) {
+  public putAcceleratorTotalMemoryMib(value: LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) {
     this._acceleratorTotalMemoryMib.internalValue = value;
   }
   public resetAcceleratorTotalMemoryMib() {
@@ -3486,17 +3012,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // baseline_ebs_bandwidth_mbps - computed: false, optional: true, required: false
-  private _baselineEbsBandwidthMbps =
-    new LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference(
-      this,
-      'baseline_ebs_bandwidth_mbps',
-    );
+  private _baselineEbsBandwidthMbps = new LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputReference(this, "baseline_ebs_bandwidth_mbps");
   public get baselineEbsBandwidthMbps() {
     return this._baselineEbsBandwidthMbps;
   }
-  public putBaselineEbsBandwidthMbps(
-    value: LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps,
-  ) {
+  public putBaselineEbsBandwidthMbps(value: LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) {
     this._baselineEbsBandwidthMbps.internalValue = value;
   }
   public resetBaselineEbsBandwidthMbps() {
@@ -3508,17 +3028,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // memory_gib_per_vcpu - computed: false, optional: true, required: false
-  private _memoryGibPerVcpu =
-    new LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference(
-      this,
-      'memory_gib_per_vcpu',
-    );
+  private _memoryGibPerVcpu = new LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputReference(this, "memory_gib_per_vcpu");
   public get memoryGibPerVcpu() {
     return this._memoryGibPerVcpu;
   }
-  public putMemoryGibPerVcpu(
-    value: LaunchTemplateInstanceRequirementsMemoryGibPerVcpu,
-  ) {
+  public putMemoryGibPerVcpu(value: LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) {
     this._memoryGibPerVcpu.internalValue = value;
   }
   public resetMemoryGibPerVcpu() {
@@ -3530,11 +3044,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // memory_mib - computed: false, optional: false, required: true
-  private _memoryMib =
-    new LaunchTemplateInstanceRequirementsMemoryMibOutputReference(
-      this,
-      'memory_mib',
-    );
+  private _memoryMib = new LaunchTemplateInstanceRequirementsMemoryMibOutputReference(this, "memory_mib");
   public get memoryMib() {
     return this._memoryMib;
   }
@@ -3547,17 +3057,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // network_bandwidth_gbps - computed: false, optional: true, required: false
-  private _networkBandwidthGbps =
-    new LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReference(
-      this,
-      'network_bandwidth_gbps',
-    );
+  private _networkBandwidthGbps = new LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutputReference(this, "network_bandwidth_gbps");
   public get networkBandwidthGbps() {
     return this._networkBandwidthGbps;
   }
-  public putNetworkBandwidthGbps(
-    value: LaunchTemplateInstanceRequirementsNetworkBandwidthGbps,
-  ) {
+  public putNetworkBandwidthGbps(value: LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) {
     this._networkBandwidthGbps.internalValue = value;
   }
   public resetNetworkBandwidthGbps() {
@@ -3569,17 +3073,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // network_interface_count - computed: false, optional: true, required: false
-  private _networkInterfaceCount =
-    new LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputReference(
-      this,
-      'network_interface_count',
-    );
+  private _networkInterfaceCount = new LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputReference(this, "network_interface_count");
   public get networkInterfaceCount() {
     return this._networkInterfaceCount;
   }
-  public putNetworkInterfaceCount(
-    value: LaunchTemplateInstanceRequirementsNetworkInterfaceCount,
-  ) {
+  public putNetworkInterfaceCount(value: LaunchTemplateInstanceRequirementsNetworkInterfaceCount) {
     this._networkInterfaceCount.internalValue = value;
   }
   public resetNetworkInterfaceCount() {
@@ -3591,17 +3089,11 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // total_local_storage_gb - computed: false, optional: true, required: false
-  private _totalLocalStorageGb =
-    new LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReference(
-      this,
-      'total_local_storage_gb',
-    );
+  private _totalLocalStorageGb = new LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputReference(this, "total_local_storage_gb");
   public get totalLocalStorageGb() {
     return this._totalLocalStorageGb;
   }
-  public putTotalLocalStorageGb(
-    value: LaunchTemplateInstanceRequirementsTotalLocalStorageGb,
-  ) {
+  public putTotalLocalStorageGb(value: LaunchTemplateInstanceRequirementsTotalLocalStorageGb) {
     this._totalLocalStorageGb.internalValue = value;
   }
   public resetTotalLocalStorageGb() {
@@ -3613,11 +3105,7 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
   }
 
   // vcpu_count - computed: false, optional: false, required: true
-  private _vcpuCount =
-    new LaunchTemplateInstanceRequirementsVcpuCountOutputReference(
-      this,
-      'vcpu_count',
-    );
+  private _vcpuCount = new LaunchTemplateInstanceRequirementsVcpuCountOutputReference(this, "vcpu_count");
   public get vcpuCount() {
     return this._vcpuCount;
   }
@@ -3631,27 +3119,19 @@ export class LaunchTemplateInstanceRequirementsOutputReference extends cdktf.Com
 }
 export interface LaunchTemplateLicenseSpecification {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#license_configuration_arn LaunchTemplate#license_configuration_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#license_configuration_arn LaunchTemplate#license_configuration_arn}
+  */
   readonly licenseConfigurationArn: string;
 }
 
-export function launchTemplateLicenseSpecificationToTerraform(
-  struct?: LaunchTemplateLicenseSpecification | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateLicenseSpecificationToTerraform(struct?: LaunchTemplateLicenseSpecification | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    license_configuration_arn: cdktf.stringToTerraform(
-      struct!.licenseConfigurationArn,
-    ),
-  };
+    license_configuration_arn: cdktf.stringToTerraform(struct!.licenseConfigurationArn),
+  }
 }
 
 export class LaunchTemplateLicenseSpecificationOutputReference extends cdktf.ComplexObject {
@@ -3659,29 +3139,16 @@ export class LaunchTemplateLicenseSpecificationOutputReference extends cdktf.Com
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LaunchTemplateLicenseSpecification
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LaunchTemplateLicenseSpecification | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3689,23 +3156,22 @@ export class LaunchTemplateLicenseSpecificationOutputReference extends cdktf.Com
     const internalValueResult: any = {};
     if (this._licenseConfigurationArn !== undefined) {
       hasAnyValues = true;
-      internalValueResult.licenseConfigurationArn =
-        this._licenseConfigurationArn;
+      internalValueResult.licenseConfigurationArn = this._licenseConfigurationArn;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateLicenseSpecification | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateLicenseSpecification | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._licenseConfigurationArn = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._licenseConfigurationArn = value.licenseConfigurationArn;
@@ -3713,7 +3179,7 @@ export class LaunchTemplateLicenseSpecificationOutputReference extends cdktf.Com
   }
 
   // license_configuration_arn - computed: false, optional: false, required: true
-  private _licenseConfigurationArn?: string;
+  private _licenseConfigurationArn?: string; 
   public get licenseConfigurationArn() {
     return this.getStringAttribute('license_configuration_arn');
   }
@@ -3727,71 +3193,49 @@ export class LaunchTemplateLicenseSpecificationOutputReference extends cdktf.Com
 }
 
 export class LaunchTemplateLicenseSpecificationList extends cdktf.ComplexList {
-  public internalValue?:
-    | LaunchTemplateLicenseSpecification[]
-    | cdktf.IResolvable;
+  public internalValue? : LaunchTemplateLicenseSpecification[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): LaunchTemplateLicenseSpecificationOutputReference {
-    return new LaunchTemplateLicenseSpecificationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new LaunchTemplateLicenseSpecificationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface LaunchTemplateMaintenanceOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#auto_recovery LaunchTemplate#auto_recovery}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#auto_recovery LaunchTemplate#auto_recovery}
+  */
   readonly autoRecovery?: string;
 }
 
-export function launchTemplateMaintenanceOptionsToTerraform(
-  struct?:
-    | LaunchTemplateMaintenanceOptionsOutputReference
-    | LaunchTemplateMaintenanceOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateMaintenanceOptionsToTerraform(struct?: LaunchTemplateMaintenanceOptionsOutputReference | LaunchTemplateMaintenanceOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     auto_recovery: cdktf.stringToTerraform(struct!.autoRecovery),
-  };
+  }
 }
 
 export class LaunchTemplateMaintenanceOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3805,20 +3249,19 @@ export class LaunchTemplateMaintenanceOptionsOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateMaintenanceOptions | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateMaintenanceOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._autoRecovery = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._autoRecovery = value.autoRecovery;
     }
   }
 
   // auto_recovery - computed: false, optional: true, required: false
-  private _autoRecovery?: string;
+  private _autoRecovery?: string; 
   public get autoRecovery() {
     return this.getStringAttribute('auto_recovery');
   }
@@ -3835,64 +3278,49 @@ export class LaunchTemplateMaintenanceOptionsOutputReference extends cdktf.Compl
 }
 export interface LaunchTemplateMetadataOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_endpoint LaunchTemplate#http_endpoint}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_endpoint LaunchTemplate#http_endpoint}
+  */
   readonly httpEndpoint?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_protocol_ipv6 LaunchTemplate#http_protocol_ipv6}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_protocol_ipv6 LaunchTemplate#http_protocol_ipv6}
+  */
   readonly httpProtocolIpv6?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_put_response_hop_limit LaunchTemplate#http_put_response_hop_limit}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_put_response_hop_limit LaunchTemplate#http_put_response_hop_limit}
+  */
   readonly httpPutResponseHopLimit?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_tokens LaunchTemplate#http_tokens}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#http_tokens LaunchTemplate#http_tokens}
+  */
   readonly httpTokens?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_metadata_tags LaunchTemplate#instance_metadata_tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#instance_metadata_tags LaunchTemplate#instance_metadata_tags}
+  */
   readonly instanceMetadataTags?: string;
 }
 
-export function launchTemplateMetadataOptionsToTerraform(
-  struct?:
-    | LaunchTemplateMetadataOptionsOutputReference
-    | LaunchTemplateMetadataOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateMetadataOptionsToTerraform(struct?: LaunchTemplateMetadataOptionsOutputReference | LaunchTemplateMetadataOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     http_endpoint: cdktf.stringToTerraform(struct!.httpEndpoint),
     http_protocol_ipv6: cdktf.stringToTerraform(struct!.httpProtocolIpv6),
-    http_put_response_hop_limit: cdktf.numberToTerraform(
-      struct!.httpPutResponseHopLimit,
-    ),
+    http_put_response_hop_limit: cdktf.numberToTerraform(struct!.httpPutResponseHopLimit),
     http_tokens: cdktf.stringToTerraform(struct!.httpTokens),
-    instance_metadata_tags: cdktf.stringToTerraform(
-      struct!.instanceMetadataTags,
-    ),
-  };
+    instance_metadata_tags: cdktf.stringToTerraform(struct!.instanceMetadataTags),
+  }
 }
 
 export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3909,8 +3337,7 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
     }
     if (this._httpPutResponseHopLimit !== undefined) {
       hasAnyValues = true;
-      internalValueResult.httpPutResponseHopLimit =
-        this._httpPutResponseHopLimit;
+      internalValueResult.httpPutResponseHopLimit = this._httpPutResponseHopLimit;
     }
     if (this._httpTokens !== undefined) {
       hasAnyValues = true;
@@ -3931,7 +3358,8 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
       this._httpPutResponseHopLimit = undefined;
       this._httpTokens = undefined;
       this._instanceMetadataTags = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._httpEndpoint = value.httpEndpoint;
       this._httpProtocolIpv6 = value.httpProtocolIpv6;
@@ -3942,7 +3370,7 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
   }
 
   // http_endpoint - computed: true, optional: true, required: false
-  private _httpEndpoint?: string;
+  private _httpEndpoint?: string; 
   public get httpEndpoint() {
     return this.getStringAttribute('http_endpoint');
   }
@@ -3958,7 +3386,7 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
   }
 
   // http_protocol_ipv6 - computed: false, optional: true, required: false
-  private _httpProtocolIpv6?: string;
+  private _httpProtocolIpv6?: string; 
   public get httpProtocolIpv6() {
     return this.getStringAttribute('http_protocol_ipv6');
   }
@@ -3974,7 +3402,7 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
   }
 
   // http_put_response_hop_limit - computed: true, optional: true, required: false
-  private _httpPutResponseHopLimit?: number;
+  private _httpPutResponseHopLimit?: number; 
   public get httpPutResponseHopLimit() {
     return this.getNumberAttribute('http_put_response_hop_limit');
   }
@@ -3990,7 +3418,7 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
   }
 
   // http_tokens - computed: true, optional: true, required: false
-  private _httpTokens?: string;
+  private _httpTokens?: string; 
   public get httpTokens() {
     return this.getStringAttribute('http_tokens');
   }
@@ -4006,7 +3434,7 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
   }
 
   // instance_metadata_tags - computed: false, optional: true, required: false
-  private _instanceMetadataTags?: string;
+  private _instanceMetadataTags?: string; 
   public get instanceMetadataTags() {
     return this.getStringAttribute('instance_metadata_tags');
   }
@@ -4023,38 +3451,29 @@ export class LaunchTemplateMetadataOptionsOutputReference extends cdktf.ComplexO
 }
 export interface LaunchTemplateMonitoring {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enabled LaunchTemplate#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enabled LaunchTemplate#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
 }
 
-export function launchTemplateMonitoringToTerraform(
-  struct?: LaunchTemplateMonitoringOutputReference | LaunchTemplateMonitoring,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateMonitoringToTerraform(struct?: LaunchTemplateMonitoringOutputReference | LaunchTemplateMonitoring): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-  };
+  }
 }
 
 export class LaunchTemplateMonitoringOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4072,14 +3491,15 @@ export class LaunchTemplateMonitoringOutputReference extends cdktf.ComplexObject
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
     }
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -4096,134 +3516,109 @@ export class LaunchTemplateMonitoringOutputReference extends cdktf.ComplexObject
 }
 export interface LaunchTemplateNetworkInterfaces {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#associate_carrier_ip_address LaunchTemplate#associate_carrier_ip_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#associate_carrier_ip_address LaunchTemplate#associate_carrier_ip_address}
+  */
   readonly associateCarrierIpAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#associate_public_ip_address LaunchTemplate#associate_public_ip_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#associate_public_ip_address LaunchTemplate#associate_public_ip_address}
+  */
   readonly associatePublicIpAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#delete_on_termination LaunchTemplate#delete_on_termination}
+  */
   readonly deleteOnTermination?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#description LaunchTemplate#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#description LaunchTemplate#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#device_index LaunchTemplate#device_index}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#device_index LaunchTemplate#device_index}
+  */
   readonly deviceIndex?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#interface_type LaunchTemplate#interface_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#interface_type LaunchTemplate#interface_type}
+  */
   readonly interfaceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_address_count LaunchTemplate#ipv4_address_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_address_count LaunchTemplate#ipv4_address_count}
+  */
   readonly ipv4AddressCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_addresses LaunchTemplate#ipv4_addresses}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_addresses LaunchTemplate#ipv4_addresses}
+  */
   readonly ipv4Addresses?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_prefix_count LaunchTemplate#ipv4_prefix_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_prefix_count LaunchTemplate#ipv4_prefix_count}
+  */
   readonly ipv4PrefixCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_prefixes LaunchTemplate#ipv4_prefixes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv4_prefixes LaunchTemplate#ipv4_prefixes}
+  */
   readonly ipv4Prefixes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_address_count LaunchTemplate#ipv6_address_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_address_count LaunchTemplate#ipv6_address_count}
+  */
   readonly ipv6AddressCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_addresses LaunchTemplate#ipv6_addresses}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_addresses LaunchTemplate#ipv6_addresses}
+  */
   readonly ipv6Addresses?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_prefix_count LaunchTemplate#ipv6_prefix_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_prefix_count LaunchTemplate#ipv6_prefix_count}
+  */
   readonly ipv6PrefixCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_prefixes LaunchTemplate#ipv6_prefixes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#ipv6_prefixes LaunchTemplate#ipv6_prefixes}
+  */
   readonly ipv6Prefixes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_card_index LaunchTemplate#network_card_index}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_card_index LaunchTemplate#network_card_index}
+  */
   readonly networkCardIndex?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_interface_id LaunchTemplate#network_interface_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#network_interface_id LaunchTemplate#network_interface_id}
+  */
   readonly networkInterfaceId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#private_ip_address LaunchTemplate#private_ip_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#private_ip_address LaunchTemplate#private_ip_address}
+  */
   readonly privateIpAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#security_groups LaunchTemplate#security_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#security_groups LaunchTemplate#security_groups}
+  */
   readonly securityGroups?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#subnet_id LaunchTemplate#subnet_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#subnet_id LaunchTemplate#subnet_id}
+  */
   readonly subnetId?: string;
 }
 
-export function launchTemplateNetworkInterfacesToTerraform(
-  struct?: LaunchTemplateNetworkInterfaces | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateNetworkInterfacesToTerraform(struct?: LaunchTemplateNetworkInterfaces | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    associate_carrier_ip_address: cdktf.stringToTerraform(
-      struct!.associateCarrierIpAddress,
-    ),
-    associate_public_ip_address: cdktf.stringToTerraform(
-      struct!.associatePublicIpAddress,
-    ),
+    associate_carrier_ip_address: cdktf.stringToTerraform(struct!.associateCarrierIpAddress),
+    associate_public_ip_address: cdktf.stringToTerraform(struct!.associatePublicIpAddress),
     delete_on_termination: cdktf.stringToTerraform(struct!.deleteOnTermination),
     description: cdktf.stringToTerraform(struct!.description),
     device_index: cdktf.numberToTerraform(struct!.deviceIndex),
     interface_type: cdktf.stringToTerraform(struct!.interfaceType),
     ipv4_address_count: cdktf.numberToTerraform(struct!.ipv4AddressCount),
-    ipv4_addresses: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.ipv4Addresses),
+    ipv4_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.ipv4Addresses),
     ipv4_prefix_count: cdktf.numberToTerraform(struct!.ipv4PrefixCount),
-    ipv4_prefixes: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.ipv4Prefixes),
+    ipv4_prefixes: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.ipv4Prefixes),
     ipv6_address_count: cdktf.numberToTerraform(struct!.ipv6AddressCount),
-    ipv6_addresses: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.ipv6Addresses),
+    ipv6_addresses: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.ipv6Addresses),
     ipv6_prefix_count: cdktf.numberToTerraform(struct!.ipv6PrefixCount),
-    ipv6_prefixes: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.ipv6Prefixes),
+    ipv6_prefixes: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.ipv6Prefixes),
     network_card_index: cdktf.numberToTerraform(struct!.networkCardIndex),
     network_interface_id: cdktf.stringToTerraform(struct!.networkInterfaceId),
     private_ip_address: cdktf.stringToTerraform(struct!.privateIpAddress),
-    security_groups: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroups),
+    security_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroups),
     subnet_id: cdktf.stringToTerraform(struct!.subnetId),
-  };
+  }
 }
 
 export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.ComplexObject {
@@ -4231,29 +3626,16 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LaunchTemplateNetworkInterfaces
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LaunchTemplateNetworkInterfaces | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4261,13 +3643,11 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
     const internalValueResult: any = {};
     if (this._associateCarrierIpAddress !== undefined) {
       hasAnyValues = true;
-      internalValueResult.associateCarrierIpAddress =
-        this._associateCarrierIpAddress;
+      internalValueResult.associateCarrierIpAddress = this._associateCarrierIpAddress;
     }
     if (this._associatePublicIpAddress !== undefined) {
       hasAnyValues = true;
-      internalValueResult.associatePublicIpAddress =
-        this._associatePublicIpAddress;
+      internalValueResult.associatePublicIpAddress = this._associatePublicIpAddress;
     }
     if (this._deleteOnTermination !== undefined) {
       hasAnyValues = true;
@@ -4340,9 +3720,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateNetworkInterfaces | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateNetworkInterfaces | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -4365,10 +3743,12 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
       this._privateIpAddress = undefined;
       this._securityGroups = undefined;
       this._subnetId = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._associateCarrierIpAddress = value.associateCarrierIpAddress;
@@ -4394,7 +3774,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // associate_carrier_ip_address - computed: false, optional: true, required: false
-  private _associateCarrierIpAddress?: string;
+  private _associateCarrierIpAddress?: string; 
   public get associateCarrierIpAddress() {
     return this.getStringAttribute('associate_carrier_ip_address');
   }
@@ -4410,7 +3790,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // associate_public_ip_address - computed: false, optional: true, required: false
-  private _associatePublicIpAddress?: string;
+  private _associatePublicIpAddress?: string; 
   public get associatePublicIpAddress() {
     return this.getStringAttribute('associate_public_ip_address');
   }
@@ -4426,7 +3806,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: string;
+  private _deleteOnTermination?: string; 
   public get deleteOnTermination() {
     return this.getStringAttribute('delete_on_termination');
   }
@@ -4442,7 +3822,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -4458,7 +3838,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // device_index - computed: false, optional: true, required: false
-  private _deviceIndex?: number;
+  private _deviceIndex?: number; 
   public get deviceIndex() {
     return this.getNumberAttribute('device_index');
   }
@@ -4474,7 +3854,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // interface_type - computed: false, optional: true, required: false
-  private _interfaceType?: string;
+  private _interfaceType?: string; 
   public get interfaceType() {
     return this.getStringAttribute('interface_type');
   }
@@ -4490,7 +3870,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv4_address_count - computed: false, optional: true, required: false
-  private _ipv4AddressCount?: number;
+  private _ipv4AddressCount?: number; 
   public get ipv4AddressCount() {
     return this.getNumberAttribute('ipv4_address_count');
   }
@@ -4506,7 +3886,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv4_addresses - computed: false, optional: true, required: false
-  private _ipv4Addresses?: string[];
+  private _ipv4Addresses?: string[]; 
   public get ipv4Addresses() {
     return cdktf.Fn.tolist(this.getListAttribute('ipv4_addresses'));
   }
@@ -4522,7 +3902,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv4_prefix_count - computed: false, optional: true, required: false
-  private _ipv4PrefixCount?: number;
+  private _ipv4PrefixCount?: number; 
   public get ipv4PrefixCount() {
     return this.getNumberAttribute('ipv4_prefix_count');
   }
@@ -4538,7 +3918,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv4_prefixes - computed: false, optional: true, required: false
-  private _ipv4Prefixes?: string[];
+  private _ipv4Prefixes?: string[]; 
   public get ipv4Prefixes() {
     return cdktf.Fn.tolist(this.getListAttribute('ipv4_prefixes'));
   }
@@ -4554,7 +3934,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv6_address_count - computed: false, optional: true, required: false
-  private _ipv6AddressCount?: number;
+  private _ipv6AddressCount?: number; 
   public get ipv6AddressCount() {
     return this.getNumberAttribute('ipv6_address_count');
   }
@@ -4570,7 +3950,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv6_addresses - computed: false, optional: true, required: false
-  private _ipv6Addresses?: string[];
+  private _ipv6Addresses?: string[]; 
   public get ipv6Addresses() {
     return cdktf.Fn.tolist(this.getListAttribute('ipv6_addresses'));
   }
@@ -4586,7 +3966,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv6_prefix_count - computed: false, optional: true, required: false
-  private _ipv6PrefixCount?: number;
+  private _ipv6PrefixCount?: number; 
   public get ipv6PrefixCount() {
     return this.getNumberAttribute('ipv6_prefix_count');
   }
@@ -4602,7 +3982,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // ipv6_prefixes - computed: false, optional: true, required: false
-  private _ipv6Prefixes?: string[];
+  private _ipv6Prefixes?: string[]; 
   public get ipv6Prefixes() {
     return cdktf.Fn.tolist(this.getListAttribute('ipv6_prefixes'));
   }
@@ -4618,7 +3998,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // network_card_index - computed: false, optional: true, required: false
-  private _networkCardIndex?: number;
+  private _networkCardIndex?: number; 
   public get networkCardIndex() {
     return this.getNumberAttribute('network_card_index');
   }
@@ -4634,7 +4014,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // network_interface_id - computed: false, optional: true, required: false
-  private _networkInterfaceId?: string;
+  private _networkInterfaceId?: string; 
   public get networkInterfaceId() {
     return this.getStringAttribute('network_interface_id');
   }
@@ -4650,7 +4030,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // private_ip_address - computed: false, optional: true, required: false
-  private _privateIpAddress?: string;
+  private _privateIpAddress?: string; 
   public get privateIpAddress() {
     return this.getStringAttribute('private_ip_address');
   }
@@ -4666,7 +4046,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // security_groups - computed: false, optional: true, required: false
-  private _securityGroups?: string[];
+  private _securityGroups?: string[]; 
   public get securityGroups() {
     return cdktf.Fn.tolist(this.getListAttribute('security_groups'));
   }
@@ -4682,7 +4062,7 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
   }
 
   // subnet_id - computed: false, optional: true, required: false
-  private _subnetId?: string;
+  private _subnetId?: string; 
   public get subnetId() {
     return this.getStringAttribute('subnet_id');
   }
@@ -4699,104 +4079,84 @@ export class LaunchTemplateNetworkInterfacesOutputReference extends cdktf.Comple
 }
 
 export class LaunchTemplateNetworkInterfacesList extends cdktf.ComplexList {
-  public internalValue?: LaunchTemplateNetworkInterfaces[] | cdktf.IResolvable;
+  public internalValue? : LaunchTemplateNetworkInterfaces[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): LaunchTemplateNetworkInterfacesOutputReference {
-    return new LaunchTemplateNetworkInterfacesOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new LaunchTemplateNetworkInterfacesOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface LaunchTemplatePlacement {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#affinity LaunchTemplate#affinity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#affinity LaunchTemplate#affinity}
+  */
   readonly affinity?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#availability_zone LaunchTemplate#availability_zone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#availability_zone LaunchTemplate#availability_zone}
+  */
   readonly availabilityZone?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#group_name LaunchTemplate#group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#group_name LaunchTemplate#group_name}
+  */
   readonly groupName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#host_id LaunchTemplate#host_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#host_id LaunchTemplate#host_id}
+  */
   readonly hostId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#host_resource_group_arn LaunchTemplate#host_resource_group_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#host_resource_group_arn LaunchTemplate#host_resource_group_arn}
+  */
   readonly hostResourceGroupArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#partition_number LaunchTemplate#partition_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#partition_number LaunchTemplate#partition_number}
+  */
   readonly partitionNumber?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spread_domain LaunchTemplate#spread_domain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#spread_domain LaunchTemplate#spread_domain}
+  */
   readonly spreadDomain?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tenancy LaunchTemplate#tenancy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tenancy LaunchTemplate#tenancy}
+  */
   readonly tenancy?: string;
 }
 
-export function launchTemplatePlacementToTerraform(
-  struct?: LaunchTemplatePlacementOutputReference | LaunchTemplatePlacement,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplatePlacementToTerraform(struct?: LaunchTemplatePlacementOutputReference | LaunchTemplatePlacement): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     affinity: cdktf.stringToTerraform(struct!.affinity),
     availability_zone: cdktf.stringToTerraform(struct!.availabilityZone),
     group_name: cdktf.stringToTerraform(struct!.groupName),
     host_id: cdktf.stringToTerraform(struct!.hostId),
-    host_resource_group_arn: cdktf.stringToTerraform(
-      struct!.hostResourceGroupArn,
-    ),
+    host_resource_group_arn: cdktf.stringToTerraform(struct!.hostResourceGroupArn),
     partition_number: cdktf.numberToTerraform(struct!.partitionNumber),
     spread_domain: cdktf.stringToTerraform(struct!.spreadDomain),
     tenancy: cdktf.stringToTerraform(struct!.tenancy),
-  };
+  }
 }
 
 export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4849,7 +4209,8 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
       this._partitionNumber = undefined;
       this._spreadDomain = undefined;
       this._tenancy = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._affinity = value.affinity;
       this._availabilityZone = value.availabilityZone;
@@ -4863,7 +4224,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // affinity - computed: false, optional: true, required: false
-  private _affinity?: string;
+  private _affinity?: string; 
   public get affinity() {
     return this.getStringAttribute('affinity');
   }
@@ -4879,7 +4240,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // availability_zone - computed: false, optional: true, required: false
-  private _availabilityZone?: string;
+  private _availabilityZone?: string; 
   public get availabilityZone() {
     return this.getStringAttribute('availability_zone');
   }
@@ -4895,7 +4256,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // group_name - computed: false, optional: true, required: false
-  private _groupName?: string;
+  private _groupName?: string; 
   public get groupName() {
     return this.getStringAttribute('group_name');
   }
@@ -4911,7 +4272,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // host_id - computed: false, optional: true, required: false
-  private _hostId?: string;
+  private _hostId?: string; 
   public get hostId() {
     return this.getStringAttribute('host_id');
   }
@@ -4927,7 +4288,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // host_resource_group_arn - computed: false, optional: true, required: false
-  private _hostResourceGroupArn?: string;
+  private _hostResourceGroupArn?: string; 
   public get hostResourceGroupArn() {
     return this.getStringAttribute('host_resource_group_arn');
   }
@@ -4943,7 +4304,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // partition_number - computed: false, optional: true, required: false
-  private _partitionNumber?: number;
+  private _partitionNumber?: number; 
   public get partitionNumber() {
     return this.getNumberAttribute('partition_number');
   }
@@ -4959,7 +4320,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // spread_domain - computed: false, optional: true, required: false
-  private _spreadDomain?: string;
+  private _spreadDomain?: string; 
   public get spreadDomain() {
     return this.getStringAttribute('spread_domain');
   }
@@ -4975,7 +4336,7 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
   }
 
   // tenancy - computed: false, optional: true, required: false
-  private _tenancy?: string;
+  private _tenancy?: string; 
   public get tenancy() {
     return this.getStringAttribute('tenancy');
   }
@@ -4992,54 +4353,39 @@ export class LaunchTemplatePlacementOutputReference extends cdktf.ComplexObject 
 }
 export interface LaunchTemplatePrivateDnsNameOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enable_resource_name_dns_a_record LaunchTemplate#enable_resource_name_dns_a_record}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enable_resource_name_dns_a_record LaunchTemplate#enable_resource_name_dns_a_record}
+  */
   readonly enableResourceNameDnsARecord?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enable_resource_name_dns_aaaa_record LaunchTemplate#enable_resource_name_dns_aaaa_record}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#enable_resource_name_dns_aaaa_record LaunchTemplate#enable_resource_name_dns_aaaa_record}
+  */
   readonly enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#hostname_type LaunchTemplate#hostname_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#hostname_type LaunchTemplate#hostname_type}
+  */
   readonly hostnameType?: string;
 }
 
-export function launchTemplatePrivateDnsNameOptionsToTerraform(
-  struct?:
-    | LaunchTemplatePrivateDnsNameOptionsOutputReference
-    | LaunchTemplatePrivateDnsNameOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplatePrivateDnsNameOptionsToTerraform(struct?: LaunchTemplatePrivateDnsNameOptionsOutputReference | LaunchTemplatePrivateDnsNameOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    enable_resource_name_dns_a_record: cdktf.booleanToTerraform(
-      struct!.enableResourceNameDnsARecord,
-    ),
-    enable_resource_name_dns_aaaa_record: cdktf.booleanToTerraform(
-      struct!.enableResourceNameDnsAaaaRecord,
-    ),
+    enable_resource_name_dns_a_record: cdktf.booleanToTerraform(struct!.enableResourceNameDnsARecord),
+    enable_resource_name_dns_aaaa_record: cdktf.booleanToTerraform(struct!.enableResourceNameDnsAaaaRecord),
     hostname_type: cdktf.stringToTerraform(struct!.hostnameType),
-  };
+  }
 }
 
 export class LaunchTemplatePrivateDnsNameOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -5048,13 +4394,11 @@ export class LaunchTemplatePrivateDnsNameOptionsOutputReference extends cdktf.Co
     const internalValueResult: any = {};
     if (this._enableResourceNameDnsARecord !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableResourceNameDnsARecord =
-        this._enableResourceNameDnsARecord;
+      internalValueResult.enableResourceNameDnsARecord = this._enableResourceNameDnsARecord;
     }
     if (this._enableResourceNameDnsAaaaRecord !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableResourceNameDnsAaaaRecord =
-        this._enableResourceNameDnsAaaaRecord;
+      internalValueResult.enableResourceNameDnsAaaaRecord = this._enableResourceNameDnsAaaaRecord;
     }
     if (this._hostnameType !== undefined) {
       hasAnyValues = true;
@@ -5063,25 +4407,23 @@ export class LaunchTemplatePrivateDnsNameOptionsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplatePrivateDnsNameOptions | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplatePrivateDnsNameOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enableResourceNameDnsARecord = undefined;
       this._enableResourceNameDnsAaaaRecord = undefined;
       this._hostnameType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableResourceNameDnsARecord = value.enableResourceNameDnsARecord;
-      this._enableResourceNameDnsAaaaRecord =
-        value.enableResourceNameDnsAaaaRecord;
+      this._enableResourceNameDnsAaaaRecord = value.enableResourceNameDnsAaaaRecord;
       this._hostnameType = value.hostnameType;
     }
   }
 
   // enable_resource_name_dns_a_record - computed: false, optional: true, required: false
-  private _enableResourceNameDnsARecord?: boolean | cdktf.IResolvable;
+  private _enableResourceNameDnsARecord?: boolean | cdktf.IResolvable; 
   public get enableResourceNameDnsARecord() {
     return this.getBooleanAttribute('enable_resource_name_dns_a_record');
   }
@@ -5097,13 +4439,11 @@ export class LaunchTemplatePrivateDnsNameOptionsOutputReference extends cdktf.Co
   }
 
   // enable_resource_name_dns_aaaa_record - computed: false, optional: true, required: false
-  private _enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable;
+  private _enableResourceNameDnsAaaaRecord?: boolean | cdktf.IResolvable; 
   public get enableResourceNameDnsAaaaRecord() {
     return this.getBooleanAttribute('enable_resource_name_dns_aaaa_record');
   }
-  public set enableResourceNameDnsAaaaRecord(
-    value: boolean | cdktf.IResolvable,
-  ) {
+  public set enableResourceNameDnsAaaaRecord(value: boolean | cdktf.IResolvable) {
     this._enableResourceNameDnsAaaaRecord = value;
   }
   public resetEnableResourceNameDnsAaaaRecord() {
@@ -5115,7 +4455,7 @@ export class LaunchTemplatePrivateDnsNameOptionsOutputReference extends cdktf.Co
   }
 
   // hostname_type - computed: false, optional: true, required: false
-  private _hostnameType?: string;
+  private _hostnameType?: string; 
   public get hostnameType() {
     return this.getStringAttribute('hostname_type');
   }
@@ -5132,30 +4472,24 @@ export class LaunchTemplatePrivateDnsNameOptionsOutputReference extends cdktf.Co
 }
 export interface LaunchTemplateTagSpecifications {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#resource_type LaunchTemplate#resource_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#resource_type LaunchTemplate#resource_type}
+  */
   readonly resourceType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tags LaunchTemplate#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/launch_template#tags LaunchTemplate#tags}
+  */
   readonly tags?: { [key: string]: string };
 }
 
-export function launchTemplateTagSpecificationsToTerraform(
-  struct?: LaunchTemplateTagSpecifications | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function launchTemplateTagSpecificationsToTerraform(struct?: LaunchTemplateTagSpecifications | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     resource_type: cdktf.stringToTerraform(struct!.resourceType),
     tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
-  };
+  }
 }
 
 export class LaunchTemplateTagSpecificationsOutputReference extends cdktf.ComplexObject {
@@ -5163,29 +4497,16 @@ export class LaunchTemplateTagSpecificationsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | LaunchTemplateTagSpecifications
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): LaunchTemplateTagSpecifications | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -5202,18 +4523,18 @@ export class LaunchTemplateTagSpecificationsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: LaunchTemplateTagSpecifications | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: LaunchTemplateTagSpecifications | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._resourceType = undefined;
       this._tags = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._resourceType = value.resourceType;
@@ -5222,7 +4543,7 @@ export class LaunchTemplateTagSpecificationsOutputReference extends cdktf.Comple
   }
 
   // resource_type - computed: false, optional: true, required: false
-  private _resourceType?: string;
+  private _resourceType?: string; 
   public get resourceType() {
     return this.getStringAttribute('resource_type');
   }
@@ -5238,7 +4559,7 @@ export class LaunchTemplateTagSpecificationsOutputReference extends cdktf.Comple
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -5255,65 +4576,53 @@ export class LaunchTemplateTagSpecificationsOutputReference extends cdktf.Comple
 }
 
 export class LaunchTemplateTagSpecificationsList extends cdktf.ComplexList {
-  public internalValue?: LaunchTemplateTagSpecifications[] | cdktf.IResolvable;
+  public internalValue? : LaunchTemplateTagSpecifications[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): LaunchTemplateTagSpecificationsOutputReference {
-    return new LaunchTemplateTagSpecificationsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new LaunchTemplateTagSpecificationsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/launch_template aws_launch_template}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/launch_template aws_launch_template}
+*/
 export class LaunchTemplate extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_launch_template';
+  public static readonly tfResourceType = "aws_launch_template";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/launch_template aws_launch_template} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options LaunchTemplateConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: LaunchTemplateConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/launch_template aws_launch_template} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options LaunchTemplateConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: LaunchTemplateConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_launch_template',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -5321,7 +4630,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._defaultVersion = config.defaultVersion;
     this._description = config.description;
@@ -5330,8 +4639,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
     this._ebsOptimized = config.ebsOptimized;
     this._id = config.id;
     this._imageId = config.imageId;
-    this._instanceInitiatedShutdownBehavior =
-      config.instanceInitiatedShutdownBehavior;
+    this._instanceInitiatedShutdownBehavior = config.instanceInitiatedShutdownBehavior;
     this._instanceType = config.instanceType;
     this._kernelId = config.kernelId;
     this._keyName = config.keyName;
@@ -5345,14 +4653,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
     this._userData = config.userData;
     this._vpcSecurityGroupIds = config.vpcSecurityGroupIds;
     this._blockDeviceMappings.internalValue = config.blockDeviceMappings;
-    this._capacityReservationSpecification.internalValue =
-      config.capacityReservationSpecification;
+    this._capacityReservationSpecification.internalValue = config.capacityReservationSpecification;
     this._cpuOptions.internalValue = config.cpuOptions;
     this._creditSpecification.internalValue = config.creditSpecification;
-    this._elasticGpuSpecifications.internalValue =
-      config.elasticGpuSpecifications;
-    this._elasticInferenceAccelerator.internalValue =
-      config.elasticInferenceAccelerator;
+    this._elasticGpuSpecifications.internalValue = config.elasticGpuSpecifications;
+    this._elasticInferenceAccelerator.internalValue = config.elasticInferenceAccelerator;
     this._enclaveOptions.internalValue = config.enclaveOptions;
     this._hibernationOptions.internalValue = config.hibernationOptions;
     this._iamInstanceProfile.internalValue = config.iamInstanceProfile;
@@ -5378,7 +4683,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // default_version - computed: true, optional: true, required: false
-  private _defaultVersion?: number;
+  private _defaultVersion?: number; 
   public get defaultVersion() {
     return this.getNumberAttribute('default_version');
   }
@@ -5394,7 +4699,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -5410,7 +4715,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // disable_api_stop - computed: false, optional: true, required: false
-  private _disableApiStop?: boolean | cdktf.IResolvable;
+  private _disableApiStop?: boolean | cdktf.IResolvable; 
   public get disableApiStop() {
     return this.getBooleanAttribute('disable_api_stop');
   }
@@ -5426,7 +4731,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // disable_api_termination - computed: false, optional: true, required: false
-  private _disableApiTermination?: boolean | cdktf.IResolvable;
+  private _disableApiTermination?: boolean | cdktf.IResolvable; 
   public get disableApiTermination() {
     return this.getBooleanAttribute('disable_api_termination');
   }
@@ -5442,7 +4747,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // ebs_optimized - computed: false, optional: true, required: false
-  private _ebsOptimized?: string;
+  private _ebsOptimized?: string; 
   public get ebsOptimized() {
     return this.getStringAttribute('ebs_optimized');
   }
@@ -5458,7 +4763,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -5474,7 +4779,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // image_id - computed: false, optional: true, required: false
-  private _imageId?: string;
+  private _imageId?: string; 
   public get imageId() {
     return this.getStringAttribute('image_id');
   }
@@ -5490,7 +4795,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // instance_initiated_shutdown_behavior - computed: false, optional: true, required: false
-  private _instanceInitiatedShutdownBehavior?: string;
+  private _instanceInitiatedShutdownBehavior?: string; 
   public get instanceInitiatedShutdownBehavior() {
     return this.getStringAttribute('instance_initiated_shutdown_behavior');
   }
@@ -5506,7 +4811,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // instance_type - computed: false, optional: true, required: false
-  private _instanceType?: string;
+  private _instanceType?: string; 
   public get instanceType() {
     return this.getStringAttribute('instance_type');
   }
@@ -5522,7 +4827,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // kernel_id - computed: false, optional: true, required: false
-  private _kernelId?: string;
+  private _kernelId?: string; 
   public get kernelId() {
     return this.getStringAttribute('kernel_id');
   }
@@ -5538,7 +4843,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // key_name - computed: false, optional: true, required: false
-  private _keyName?: string;
+  private _keyName?: string; 
   public get keyName() {
     return this.getStringAttribute('key_name');
   }
@@ -5559,7 +4864,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -5575,7 +4880,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string;
+  private _namePrefix?: string; 
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -5591,7 +4896,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // ram_disk_id - computed: false, optional: true, required: false
-  private _ramDiskId?: string;
+  private _ramDiskId?: string; 
   public get ramDiskId() {
     return this.getStringAttribute('ram_disk_id');
   }
@@ -5607,7 +4912,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // security_group_names - computed: false, optional: true, required: false
-  private _securityGroupNames?: string[];
+  private _securityGroupNames?: string[]; 
   public get securityGroupNames() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_names'));
   }
@@ -5623,7 +4928,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -5639,7 +4944,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -5655,7 +4960,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // update_default_version - computed: false, optional: true, required: false
-  private _updateDefaultVersion?: boolean | cdktf.IResolvable;
+  private _updateDefaultVersion?: boolean | cdktf.IResolvable; 
   public get updateDefaultVersion() {
     return this.getBooleanAttribute('update_default_version');
   }
@@ -5671,7 +4976,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // user_data - computed: false, optional: true, required: false
-  private _userData?: string;
+  private _userData?: string; 
   public get userData() {
     return this.getStringAttribute('user_data');
   }
@@ -5687,7 +4992,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // vpc_security_group_ids - computed: false, optional: true, required: false
-  private _vpcSecurityGroupIds?: string[];
+  private _vpcSecurityGroupIds?: string[]; 
   public get vpcSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('vpc_security_group_ids'));
   }
@@ -5703,17 +5008,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // block_device_mappings - computed: false, optional: true, required: false
-  private _blockDeviceMappings = new LaunchTemplateBlockDeviceMappingsList(
-    this,
-    'block_device_mappings',
-    false,
-  );
+  private _blockDeviceMappings = new LaunchTemplateBlockDeviceMappingsList(this, "block_device_mappings", false);
   public get blockDeviceMappings() {
     return this._blockDeviceMappings;
   }
-  public putBlockDeviceMappings(
-    value: LaunchTemplateBlockDeviceMappings[] | cdktf.IResolvable,
-  ) {
+  public putBlockDeviceMappings(value: LaunchTemplateBlockDeviceMappings[] | cdktf.IResolvable) {
     this._blockDeviceMappings.internalValue = value;
   }
   public resetBlockDeviceMappings() {
@@ -5725,17 +5024,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // capacity_reservation_specification - computed: false, optional: true, required: false
-  private _capacityReservationSpecification =
-    new LaunchTemplateCapacityReservationSpecificationOutputReference(
-      this,
-      'capacity_reservation_specification',
-    );
+  private _capacityReservationSpecification = new LaunchTemplateCapacityReservationSpecificationOutputReference(this, "capacity_reservation_specification");
   public get capacityReservationSpecification() {
     return this._capacityReservationSpecification;
   }
-  public putCapacityReservationSpecification(
-    value: LaunchTemplateCapacityReservationSpecification,
-  ) {
+  public putCapacityReservationSpecification(value: LaunchTemplateCapacityReservationSpecification) {
     this._capacityReservationSpecification.internalValue = value;
   }
   public resetCapacityReservationSpecification() {
@@ -5747,10 +5040,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // cpu_options - computed: false, optional: true, required: false
-  private _cpuOptions = new LaunchTemplateCpuOptionsOutputReference(
-    this,
-    'cpu_options',
-  );
+  private _cpuOptions = new LaunchTemplateCpuOptionsOutputReference(this, "cpu_options");
   public get cpuOptions() {
     return this._cpuOptions;
   }
@@ -5766,11 +5056,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // credit_specification - computed: false, optional: true, required: false
-  private _creditSpecification =
-    new LaunchTemplateCreditSpecificationOutputReference(
-      this,
-      'credit_specification',
-    );
+  private _creditSpecification = new LaunchTemplateCreditSpecificationOutputReference(this, "credit_specification");
   public get creditSpecification() {
     return this._creditSpecification;
   }
@@ -5786,18 +5072,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // elastic_gpu_specifications - computed: false, optional: true, required: false
-  private _elasticGpuSpecifications =
-    new LaunchTemplateElasticGpuSpecificationsList(
-      this,
-      'elastic_gpu_specifications',
-      false,
-    );
+  private _elasticGpuSpecifications = new LaunchTemplateElasticGpuSpecificationsList(this, "elastic_gpu_specifications", false);
   public get elasticGpuSpecifications() {
     return this._elasticGpuSpecifications;
   }
-  public putElasticGpuSpecifications(
-    value: LaunchTemplateElasticGpuSpecifications[] | cdktf.IResolvable,
-  ) {
+  public putElasticGpuSpecifications(value: LaunchTemplateElasticGpuSpecifications[] | cdktf.IResolvable) {
     this._elasticGpuSpecifications.internalValue = value;
   }
   public resetElasticGpuSpecifications() {
@@ -5809,17 +5088,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // elastic_inference_accelerator - computed: false, optional: true, required: false
-  private _elasticInferenceAccelerator =
-    new LaunchTemplateElasticInferenceAcceleratorOutputReference(
-      this,
-      'elastic_inference_accelerator',
-    );
+  private _elasticInferenceAccelerator = new LaunchTemplateElasticInferenceAcceleratorOutputReference(this, "elastic_inference_accelerator");
   public get elasticInferenceAccelerator() {
     return this._elasticInferenceAccelerator;
   }
-  public putElasticInferenceAccelerator(
-    value: LaunchTemplateElasticInferenceAccelerator,
-  ) {
+  public putElasticInferenceAccelerator(value: LaunchTemplateElasticInferenceAccelerator) {
     this._elasticInferenceAccelerator.internalValue = value;
   }
   public resetElasticInferenceAccelerator() {
@@ -5831,10 +5104,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // enclave_options - computed: false, optional: true, required: false
-  private _enclaveOptions = new LaunchTemplateEnclaveOptionsOutputReference(
-    this,
-    'enclave_options',
-  );
+  private _enclaveOptions = new LaunchTemplateEnclaveOptionsOutputReference(this, "enclave_options");
   public get enclaveOptions() {
     return this._enclaveOptions;
   }
@@ -5850,11 +5120,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // hibernation_options - computed: false, optional: true, required: false
-  private _hibernationOptions =
-    new LaunchTemplateHibernationOptionsOutputReference(
-      this,
-      'hibernation_options',
-    );
+  private _hibernationOptions = new LaunchTemplateHibernationOptionsOutputReference(this, "hibernation_options");
   public get hibernationOptions() {
     return this._hibernationOptions;
   }
@@ -5870,11 +5136,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // iam_instance_profile - computed: false, optional: true, required: false
-  private _iamInstanceProfile =
-    new LaunchTemplateIamInstanceProfileOutputReference(
-      this,
-      'iam_instance_profile',
-    );
+  private _iamInstanceProfile = new LaunchTemplateIamInstanceProfileOutputReference(this, "iam_instance_profile");
   public get iamInstanceProfile() {
     return this._iamInstanceProfile;
   }
@@ -5890,11 +5152,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // instance_market_options - computed: false, optional: true, required: false
-  private _instanceMarketOptions =
-    new LaunchTemplateInstanceMarketOptionsOutputReference(
-      this,
-      'instance_market_options',
-    );
+  private _instanceMarketOptions = new LaunchTemplateInstanceMarketOptionsOutputReference(this, "instance_market_options");
   public get instanceMarketOptions() {
     return this._instanceMarketOptions;
   }
@@ -5910,11 +5168,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // instance_requirements - computed: false, optional: true, required: false
-  private _instanceRequirements =
-    new LaunchTemplateInstanceRequirementsOutputReference(
-      this,
-      'instance_requirements',
-    );
+  private _instanceRequirements = new LaunchTemplateInstanceRequirementsOutputReference(this, "instance_requirements");
   public get instanceRequirements() {
     return this._instanceRequirements;
   }
@@ -5930,17 +5184,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // license_specification - computed: false, optional: true, required: false
-  private _licenseSpecification = new LaunchTemplateLicenseSpecificationList(
-    this,
-    'license_specification',
-    true,
-  );
+  private _licenseSpecification = new LaunchTemplateLicenseSpecificationList(this, "license_specification", true);
   public get licenseSpecification() {
     return this._licenseSpecification;
   }
-  public putLicenseSpecification(
-    value: LaunchTemplateLicenseSpecification[] | cdktf.IResolvable,
-  ) {
+  public putLicenseSpecification(value: LaunchTemplateLicenseSpecification[] | cdktf.IResolvable) {
     this._licenseSpecification.internalValue = value;
   }
   public resetLicenseSpecification() {
@@ -5952,11 +5200,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // maintenance_options - computed: false, optional: true, required: false
-  private _maintenanceOptions =
-    new LaunchTemplateMaintenanceOptionsOutputReference(
-      this,
-      'maintenance_options',
-    );
+  private _maintenanceOptions = new LaunchTemplateMaintenanceOptionsOutputReference(this, "maintenance_options");
   public get maintenanceOptions() {
     return this._maintenanceOptions;
   }
@@ -5972,10 +5216,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // metadata_options - computed: false, optional: true, required: false
-  private _metadataOptions = new LaunchTemplateMetadataOptionsOutputReference(
-    this,
-    'metadata_options',
-  );
+  private _metadataOptions = new LaunchTemplateMetadataOptionsOutputReference(this, "metadata_options");
   public get metadataOptions() {
     return this._metadataOptions;
   }
@@ -5991,10 +5232,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // monitoring - computed: false, optional: true, required: false
-  private _monitoring = new LaunchTemplateMonitoringOutputReference(
-    this,
-    'monitoring',
-  );
+  private _monitoring = new LaunchTemplateMonitoringOutputReference(this, "monitoring");
   public get monitoring() {
     return this._monitoring;
   }
@@ -6010,17 +5248,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // network_interfaces - computed: false, optional: true, required: false
-  private _networkInterfaces = new LaunchTemplateNetworkInterfacesList(
-    this,
-    'network_interfaces',
-    false,
-  );
+  private _networkInterfaces = new LaunchTemplateNetworkInterfacesList(this, "network_interfaces", false);
   public get networkInterfaces() {
     return this._networkInterfaces;
   }
-  public putNetworkInterfaces(
-    value: LaunchTemplateNetworkInterfaces[] | cdktf.IResolvable,
-  ) {
+  public putNetworkInterfaces(value: LaunchTemplateNetworkInterfaces[] | cdktf.IResolvable) {
     this._networkInterfaces.internalValue = value;
   }
   public resetNetworkInterfaces() {
@@ -6032,10 +5264,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // placement - computed: false, optional: true, required: false
-  private _placement = new LaunchTemplatePlacementOutputReference(
-    this,
-    'placement',
-  );
+  private _placement = new LaunchTemplatePlacementOutputReference(this, "placement");
   public get placement() {
     return this._placement;
   }
@@ -6051,11 +5280,7 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // private_dns_name_options - computed: false, optional: true, required: false
-  private _privateDnsNameOptions =
-    new LaunchTemplatePrivateDnsNameOptionsOutputReference(
-      this,
-      'private_dns_name_options',
-    );
+  private _privateDnsNameOptions = new LaunchTemplatePrivateDnsNameOptionsOutputReference(this, "private_dns_name_options");
   public get privateDnsNameOptions() {
     return this._privateDnsNameOptions;
   }
@@ -6071,17 +5296,11 @@ export class LaunchTemplate extends cdktf.TerraformResource {
   }
 
   // tag_specifications - computed: false, optional: true, required: false
-  private _tagSpecifications = new LaunchTemplateTagSpecificationsList(
-    this,
-    'tag_specifications',
-    false,
-  );
+  private _tagSpecifications = new LaunchTemplateTagSpecificationsList(this, "tag_specifications", false);
   public get tagSpecifications() {
     return this._tagSpecifications;
   }
-  public putTagSpecifications(
-    value: LaunchTemplateTagSpecifications[] | cdktf.IResolvable,
-  ) {
+  public putTagSpecifications(value: LaunchTemplateTagSpecifications[] | cdktf.IResolvable) {
     this._tagSpecifications.internalValue = value;
   }
   public resetTagSpecifications() {
@@ -6101,99 +5320,42 @@ export class LaunchTemplate extends cdktf.TerraformResource {
       default_version: cdktf.numberToTerraform(this._defaultVersion),
       description: cdktf.stringToTerraform(this._description),
       disable_api_stop: cdktf.booleanToTerraform(this._disableApiStop),
-      disable_api_termination: cdktf.booleanToTerraform(
-        this._disableApiTermination,
-      ),
+      disable_api_termination: cdktf.booleanToTerraform(this._disableApiTermination),
       ebs_optimized: cdktf.stringToTerraform(this._ebsOptimized),
       id: cdktf.stringToTerraform(this._id),
       image_id: cdktf.stringToTerraform(this._imageId),
-      instance_initiated_shutdown_behavior: cdktf.stringToTerraform(
-        this._instanceInitiatedShutdownBehavior,
-      ),
+      instance_initiated_shutdown_behavior: cdktf.stringToTerraform(this._instanceInitiatedShutdownBehavior),
       instance_type: cdktf.stringToTerraform(this._instanceType),
       kernel_id: cdktf.stringToTerraform(this._kernelId),
       key_name: cdktf.stringToTerraform(this._keyName),
       name: cdktf.stringToTerraform(this._name),
       name_prefix: cdktf.stringToTerraform(this._namePrefix),
       ram_disk_id: cdktf.stringToTerraform(this._ramDiskId),
-      security_group_names: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._securityGroupNames),
+      security_group_names: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityGroupNames),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      update_default_version: cdktf.booleanToTerraform(
-        this._updateDefaultVersion,
-      ),
+      update_default_version: cdktf.booleanToTerraform(this._updateDefaultVersion),
       user_data: cdktf.stringToTerraform(this._userData),
-      vpc_security_group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._vpcSecurityGroupIds),
-      block_device_mappings: cdktf.listMapper(
-        launchTemplateBlockDeviceMappingsToTerraform,
-        true,
-      )(this._blockDeviceMappings.internalValue),
-      capacity_reservation_specification:
-        launchTemplateCapacityReservationSpecificationToTerraform(
-          this._capacityReservationSpecification.internalValue,
-        ),
-      cpu_options: launchTemplateCpuOptionsToTerraform(
-        this._cpuOptions.internalValue,
-      ),
-      credit_specification: launchTemplateCreditSpecificationToTerraform(
-        this._creditSpecification.internalValue,
-      ),
-      elastic_gpu_specifications: cdktf.listMapper(
-        launchTemplateElasticGpuSpecificationsToTerraform,
-        true,
-      )(this._elasticGpuSpecifications.internalValue),
-      elastic_inference_accelerator:
-        launchTemplateElasticInferenceAcceleratorToTerraform(
-          this._elasticInferenceAccelerator.internalValue,
-        ),
-      enclave_options: launchTemplateEnclaveOptionsToTerraform(
-        this._enclaveOptions.internalValue,
-      ),
-      hibernation_options: launchTemplateHibernationOptionsToTerraform(
-        this._hibernationOptions.internalValue,
-      ),
-      iam_instance_profile: launchTemplateIamInstanceProfileToTerraform(
-        this._iamInstanceProfile.internalValue,
-      ),
-      instance_market_options: launchTemplateInstanceMarketOptionsToTerraform(
-        this._instanceMarketOptions.internalValue,
-      ),
-      instance_requirements: launchTemplateInstanceRequirementsToTerraform(
-        this._instanceRequirements.internalValue,
-      ),
-      license_specification: cdktf.listMapper(
-        launchTemplateLicenseSpecificationToTerraform,
-        true,
-      )(this._licenseSpecification.internalValue),
-      maintenance_options: launchTemplateMaintenanceOptionsToTerraform(
-        this._maintenanceOptions.internalValue,
-      ),
-      metadata_options: launchTemplateMetadataOptionsToTerraform(
-        this._metadataOptions.internalValue,
-      ),
-      monitoring: launchTemplateMonitoringToTerraform(
-        this._monitoring.internalValue,
-      ),
-      network_interfaces: cdktf.listMapper(
-        launchTemplateNetworkInterfacesToTerraform,
-        true,
-      )(this._networkInterfaces.internalValue),
-      placement: launchTemplatePlacementToTerraform(
-        this._placement.internalValue,
-      ),
-      private_dns_name_options: launchTemplatePrivateDnsNameOptionsToTerraform(
-        this._privateDnsNameOptions.internalValue,
-      ),
-      tag_specifications: cdktf.listMapper(
-        launchTemplateTagSpecificationsToTerraform,
-        true,
-      )(this._tagSpecifications.internalValue),
+      vpc_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._vpcSecurityGroupIds),
+      block_device_mappings: cdktf.listMapper(launchTemplateBlockDeviceMappingsToTerraform, true)(this._blockDeviceMappings.internalValue),
+      capacity_reservation_specification: launchTemplateCapacityReservationSpecificationToTerraform(this._capacityReservationSpecification.internalValue),
+      cpu_options: launchTemplateCpuOptionsToTerraform(this._cpuOptions.internalValue),
+      credit_specification: launchTemplateCreditSpecificationToTerraform(this._creditSpecification.internalValue),
+      elastic_gpu_specifications: cdktf.listMapper(launchTemplateElasticGpuSpecificationsToTerraform, true)(this._elasticGpuSpecifications.internalValue),
+      elastic_inference_accelerator: launchTemplateElasticInferenceAcceleratorToTerraform(this._elasticInferenceAccelerator.internalValue),
+      enclave_options: launchTemplateEnclaveOptionsToTerraform(this._enclaveOptions.internalValue),
+      hibernation_options: launchTemplateHibernationOptionsToTerraform(this._hibernationOptions.internalValue),
+      iam_instance_profile: launchTemplateIamInstanceProfileToTerraform(this._iamInstanceProfile.internalValue),
+      instance_market_options: launchTemplateInstanceMarketOptionsToTerraform(this._instanceMarketOptions.internalValue),
+      instance_requirements: launchTemplateInstanceRequirementsToTerraform(this._instanceRequirements.internalValue),
+      license_specification: cdktf.listMapper(launchTemplateLicenseSpecificationToTerraform, true)(this._licenseSpecification.internalValue),
+      maintenance_options: launchTemplateMaintenanceOptionsToTerraform(this._maintenanceOptions.internalValue),
+      metadata_options: launchTemplateMetadataOptionsToTerraform(this._metadataOptions.internalValue),
+      monitoring: launchTemplateMonitoringToTerraform(this._monitoring.internalValue),
+      network_interfaces: cdktf.listMapper(launchTemplateNetworkInterfacesToTerraform, true)(this._networkInterfaces.internalValue),
+      placement: launchTemplatePlacementToTerraform(this._placement.internalValue),
+      private_dns_name_options: launchTemplatePrivateDnsNameOptionsToTerraform(this._privateDnsNameOptions.internalValue),
+      tag_specifications: cdktf.listMapper(launchTemplateTagSpecificationsToTerraform, true)(this._tagSpecifications.internalValue),
     };
   }
 }

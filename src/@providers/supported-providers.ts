@@ -4,6 +4,7 @@ import docker from './docker/provider.ts';
 import kubernetes from './kubernetes/provider.ts';
 import local from './local/provider.ts';
 import postgres from './postgres/provider.ts';
+import traefik from './traefik/provider.ts';
 
 export const SupportedProviders = {
   'aws': aws,
@@ -12,4 +13,5 @@ export const SupportedProviders = {
   'kubernetes': kubernetes,
   'local': local,
   'postgres': postgres,
+  'traefik': traefik,
 };

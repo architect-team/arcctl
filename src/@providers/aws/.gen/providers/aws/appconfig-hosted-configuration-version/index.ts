@@ -1,73 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AppconfigHostedConfigurationVersionConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AppconfigHostedConfigurationVersionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#application_id AppconfigHostedConfigurationVersion#application_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#application_id AppconfigHostedConfigurationVersion#application_id}
+  */
   readonly applicationId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#configuration_profile_id AppconfigHostedConfigurationVersion#configuration_profile_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#configuration_profile_id AppconfigHostedConfigurationVersion#configuration_profile_id}
+  */
   readonly configurationProfileId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#content AppconfigHostedConfigurationVersion#content}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#content AppconfigHostedConfigurationVersion#content}
+  */
   readonly content: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#content_type AppconfigHostedConfigurationVersion#content_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#content_type AppconfigHostedConfigurationVersion#content_type}
+  */
   readonly contentType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#description AppconfigHostedConfigurationVersion#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#description AppconfigHostedConfigurationVersion#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#id AppconfigHostedConfigurationVersion#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version#id AppconfigHostedConfigurationVersion#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version aws_appconfig_hosted_configuration_version}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version aws_appconfig_hosted_configuration_version}
+*/
 export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_appconfig_hosted_configuration_version';
+  public static readonly tfResourceType = "aws_appconfig_hosted_configuration_version";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version aws_appconfig_hosted_configuration_version} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppconfigHostedConfigurationVersionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AppconfigHostedConfigurationVersionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appconfig_hosted_configuration_version aws_appconfig_hosted_configuration_version} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppconfigHostedConfigurationVersionConfig
+  */
+  public constructor(scope: Construct, id: string, config: AppconfigHostedConfigurationVersionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appconfig_hosted_configuration_version',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -75,7 +71,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._applicationId = config.applicationId;
     this._configurationProfileId = config.configurationProfileId;
@@ -90,7 +86,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   // ==========
 
   // application_id - computed: false, optional: false, required: true
-  private _applicationId?: string;
+  private _applicationId?: string; 
   public get applicationId() {
     return this.getStringAttribute('application_id');
   }
@@ -108,7 +104,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   }
 
   // configuration_profile_id - computed: false, optional: false, required: true
-  private _configurationProfileId?: string;
+  private _configurationProfileId?: string; 
   public get configurationProfileId() {
     return this.getStringAttribute('configuration_profile_id');
   }
@@ -121,7 +117,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   }
 
   // content - computed: false, optional: false, required: true
-  private _content?: string;
+  private _content?: string; 
   public get content() {
     return this.getStringAttribute('content');
   }
@@ -134,7 +130,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   }
 
   // content_type - computed: false, optional: false, required: true
-  private _contentType?: string;
+  private _contentType?: string; 
   public get contentType() {
     return this.getStringAttribute('content_type');
   }
@@ -147,7 +143,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -163,7 +159,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -190,9 +186,7 @@ export class AppconfigHostedConfigurationVersion extends cdktf.TerraformResource
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       application_id: cdktf.stringToTerraform(this._applicationId),
-      configuration_profile_id: cdktf.stringToTerraform(
-        this._configurationProfileId,
-      ),
+      configuration_profile_id: cdktf.stringToTerraform(this._configurationProfileId),
       content: cdktf.stringToTerraform(this._content),
       content_type: cdktf.stringToTerraform(this._contentType),
       description: cdktf.stringToTerraform(this._description),

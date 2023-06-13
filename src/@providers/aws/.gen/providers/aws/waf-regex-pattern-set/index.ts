@@ -1,59 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface WafRegexPatternSetConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set#id WafRegexPatternSet#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set#id WafRegexPatternSet#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set#name WafRegexPatternSet#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set#name WafRegexPatternSet#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set#regex_pattern_strings WafRegexPatternSet#regex_pattern_strings}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set#regex_pattern_strings WafRegexPatternSet#regex_pattern_strings}
+  */
   readonly regexPatternStrings?: string[];
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set aws_waf_regex_pattern_set}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set aws_waf_regex_pattern_set}
+*/
 export class WafRegexPatternSet extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_waf_regex_pattern_set';
+  public static readonly tfResourceType = "aws_waf_regex_pattern_set";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set aws_waf_regex_pattern_set} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options WafRegexPatternSetConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: WafRegexPatternSetConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set aws_waf_regex_pattern_set} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options WafRegexPatternSetConfig
+  */
+  public constructor(scope: Construct, id: string, config: WafRegexPatternSetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_waf_regex_pattern_set',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -61,7 +59,7 @@ export class WafRegexPatternSet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -78,7 +76,7 @@ export class WafRegexPatternSet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -94,7 +92,7 @@ export class WafRegexPatternSet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -107,7 +105,7 @@ export class WafRegexPatternSet extends cdktf.TerraformResource {
   }
 
   // regex_pattern_strings - computed: false, optional: true, required: false
-  private _regexPatternStrings?: string[];
+  private _regexPatternStrings?: string[]; 
   public get regexPatternStrings() {
     return cdktf.Fn.tolist(this.getListAttribute('regex_pattern_strings'));
   }
@@ -130,10 +128,7 @@ export class WafRegexPatternSet extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      regex_pattern_strings: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._regexPatternStrings),
+      regex_pattern_strings: cdktf.listMapper(cdktf.stringToTerraform, false)(this._regexPatternStrings),
     };
   }
 }

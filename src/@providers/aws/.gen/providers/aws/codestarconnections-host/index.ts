@@ -1,78 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/r/codestarconnections_host
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CodestarconnectionsHostConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CodestarconnectionsHostConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#id CodestarconnectionsHost#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#id CodestarconnectionsHost#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#name CodestarconnectionsHost#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#name CodestarconnectionsHost#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#provider_endpoint CodestarconnectionsHost#provider_endpoint}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#provider_endpoint CodestarconnectionsHost#provider_endpoint}
+  */
   readonly providerEndpoint: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#provider_type CodestarconnectionsHost#provider_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#provider_type CodestarconnectionsHost#provider_type}
+  */
   readonly providerType: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#timeouts CodestarconnectionsHost#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#timeouts CodestarconnectionsHost#timeouts}
+  */
   readonly timeouts?: CodestarconnectionsHostTimeouts;
   /**
-   * vpc_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#vpc_configuration CodestarconnectionsHost#vpc_configuration}
-   */
+  * vpc_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#vpc_configuration CodestarconnectionsHost#vpc_configuration}
+  */
   readonly vpcConfiguration?: CodestarconnectionsHostVpcConfiguration;
 }
 export interface CodestarconnectionsHostTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#create CodestarconnectionsHost#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#create CodestarconnectionsHost#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#delete CodestarconnectionsHost#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#delete CodestarconnectionsHost#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#update CodestarconnectionsHost#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#update CodestarconnectionsHost#update}
+  */
   readonly update?: string;
 }
 
-export function codestarconnectionsHostTimeoutsToTerraform(
-  struct?:
-    | CodestarconnectionsHostTimeoutsOutputReference
-    | CodestarconnectionsHostTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codestarconnectionsHostTimeoutsToTerraform(struct?: CodestarconnectionsHostTimeoutsOutputReference | CodestarconnectionsHostTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -80,20 +71,14 @@ export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodestarconnectionsHostTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodestarconnectionsHostTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -114,19 +99,19 @@ export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodestarconnectionsHostTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodestarconnectionsHostTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -136,7 +121,7 @@ export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.Comple
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -152,7 +137,7 @@ export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.Comple
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -168,7 +153,7 @@ export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.Comple
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -185,67 +170,48 @@ export class CodestarconnectionsHostTimeoutsOutputReference extends cdktf.Comple
 }
 export interface CodestarconnectionsHostVpcConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#security_group_ids CodestarconnectionsHost#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#security_group_ids CodestarconnectionsHost#security_group_ids}
+  */
   readonly securityGroupIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#subnet_ids CodestarconnectionsHost#subnet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#subnet_ids CodestarconnectionsHost#subnet_ids}
+  */
   readonly subnetIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#tls_certificate CodestarconnectionsHost#tls_certificate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#tls_certificate CodestarconnectionsHost#tls_certificate}
+  */
   readonly tlsCertificate?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#vpc_id CodestarconnectionsHost#vpc_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host#vpc_id CodestarconnectionsHost#vpc_id}
+  */
   readonly vpcId: string;
 }
 
-export function codestarconnectionsHostVpcConfigurationToTerraform(
-  struct?:
-    | CodestarconnectionsHostVpcConfigurationOutputReference
-    | CodestarconnectionsHostVpcConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codestarconnectionsHostVpcConfigurationToTerraform(struct?: CodestarconnectionsHostVpcConfigurationOutputReference | CodestarconnectionsHostVpcConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    security_group_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.subnetIds),
+    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
     tls_certificate: cdktf.stringToTerraform(struct!.tlsCertificate),
     vpc_id: cdktf.stringToTerraform(struct!.vpcId),
-  };
+  }
 }
 
 export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodestarconnectionsHostVpcConfiguration
-    | undefined {
+  public get internalValue(): CodestarconnectionsHostVpcConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._securityGroupIds !== undefined) {
@@ -267,16 +233,15 @@ export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodestarconnectionsHostVpcConfiguration | undefined,
-  ) {
+  public set internalValue(value: CodestarconnectionsHostVpcConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._securityGroupIds = undefined;
       this._subnetIds = undefined;
       this._tlsCertificate = undefined;
       this._vpcId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnetIds = value.subnetIds;
@@ -286,7 +251,7 @@ export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdkt
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -299,7 +264,7 @@ export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdkt
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[];
+  private _subnetIds?: string[]; 
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -312,7 +277,7 @@ export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdkt
   }
 
   // tls_certificate - computed: false, optional: true, required: false
-  private _tlsCertificate?: string;
+  private _tlsCertificate?: string; 
   public get tlsCertificate() {
     return this.getStringAttribute('tls_certificate');
   }
@@ -328,7 +293,7 @@ export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdkt
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string;
+  private _vpcId?: string; 
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -342,36 +307,33 @@ export class CodestarconnectionsHostVpcConfigurationOutputReference extends cdkt
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host aws_codestarconnections_host}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host aws_codestarconnections_host}
+*/
 export class CodestarconnectionsHost extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_codestarconnections_host';
+  public static readonly tfResourceType = "aws_codestarconnections_host";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host aws_codestarconnections_host} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CodestarconnectionsHostConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CodestarconnectionsHostConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codestarconnections_host aws_codestarconnections_host} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CodestarconnectionsHostConfig
+  */
+  public constructor(scope: Construct, id: string, config: CodestarconnectionsHostConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_codestarconnections_host',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -379,7 +341,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -399,7 +361,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -415,7 +377,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -428,7 +390,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
   }
 
   // provider_endpoint - computed: false, optional: false, required: true
-  private _providerEndpoint?: string;
+  private _providerEndpoint?: string; 
   public get providerEndpoint() {
     return this.getStringAttribute('provider_endpoint');
   }
@@ -441,7 +403,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
   }
 
   // provider_type - computed: false, optional: false, required: true
-  private _providerType?: string;
+  private _providerType?: string; 
   public get providerType() {
     return this.getStringAttribute('provider_type');
   }
@@ -459,10 +421,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new CodestarconnectionsHostTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new CodestarconnectionsHostTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -478,11 +437,7 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
   }
 
   // vpc_configuration - computed: false, optional: true, required: false
-  private _vpcConfiguration =
-    new CodestarconnectionsHostVpcConfigurationOutputReference(
-      this,
-      'vpc_configuration',
-    );
+  private _vpcConfiguration = new CodestarconnectionsHostVpcConfigurationOutputReference(this, "vpc_configuration");
   public get vpcConfiguration() {
     return this._vpcConfiguration;
   }
@@ -507,12 +462,8 @@ export class CodestarconnectionsHost extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       provider_endpoint: cdktf.stringToTerraform(this._providerEndpoint),
       provider_type: cdktf.stringToTerraform(this._providerType),
-      timeouts: codestarconnectionsHostTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
-      vpc_configuration: codestarconnectionsHostVpcConfigurationToTerraform(
-        this._vpcConfiguration.internalValue,
-      ),
+      timeouts: codestarconnectionsHostTimeoutsToTerraform(this._timeouts.internalValue),
+      vpc_configuration: codestarconnectionsHostVpcConfigurationToTerraform(this._vpcConfiguration.internalValue),
     };
   }
 }

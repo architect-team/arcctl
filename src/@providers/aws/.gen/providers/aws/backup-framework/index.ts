@@ -1,73 +1,68 @@
 // https://www.terraform.io/docs/providers/aws/r/backup_framework
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface BackupFrameworkConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#description BackupFramework#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#description BackupFramework#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#id BackupFramework#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#id BackupFramework#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#name BackupFramework#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#name BackupFramework#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#tags BackupFramework#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#tags BackupFramework#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#tags_all BackupFramework#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#tags_all BackupFramework#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * control block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#control BackupFramework#control}
-   */
+  * control block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#control BackupFramework#control}
+  */
   readonly control: BackupFrameworkControl[] | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#timeouts BackupFramework#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#timeouts BackupFramework#timeouts}
+  */
   readonly timeouts?: BackupFrameworkTimeouts;
 }
 export interface BackupFrameworkControlInputParameter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#name BackupFramework#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#name BackupFramework#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#value BackupFramework#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#value BackupFramework#value}
+  */
   readonly value?: string;
 }
 
-export function backupFrameworkControlInputParameterToTerraform(
-  struct?: BackupFrameworkControlInputParameter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function backupFrameworkControlInputParameterToTerraform(struct?: BackupFrameworkControlInputParameter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class BackupFrameworkControlInputParameterOutputReference extends cdktf.ComplexObject {
@@ -75,29 +70,16 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | BackupFrameworkControlInputParameter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): BackupFrameworkControlInputParameter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -114,18 +96,18 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: BackupFrameworkControlInputParameter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: BackupFrameworkControlInputParameter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -134,7 +116,7 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -150,7 +132,7 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
   }
 
   // value - computed: false, optional: true, required: false
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -167,89 +149,59 @@ export class BackupFrameworkControlInputParameterOutputReference extends cdktf.C
 }
 
 export class BackupFrameworkControlInputParameterList extends cdktf.ComplexList {
-  public internalValue?:
-    | BackupFrameworkControlInputParameter[]
-    | cdktf.IResolvable;
+  public internalValue? : BackupFrameworkControlInputParameter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): BackupFrameworkControlInputParameterOutputReference {
-    return new BackupFrameworkControlInputParameterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): BackupFrameworkControlInputParameterOutputReference {
+    return new BackupFrameworkControlInputParameterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface BackupFrameworkControlScope {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#compliance_resource_ids BackupFramework#compliance_resource_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#compliance_resource_ids BackupFramework#compliance_resource_ids}
+  */
   readonly complianceResourceIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#compliance_resource_types BackupFramework#compliance_resource_types}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#compliance_resource_types BackupFramework#compliance_resource_types}
+  */
   readonly complianceResourceTypes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#tags BackupFramework#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#tags BackupFramework#tags}
+  */
   readonly tags?: { [key: string]: string };
 }
 
-export function backupFrameworkControlScopeToTerraform(
-  struct?:
-    | BackupFrameworkControlScopeOutputReference
-    | BackupFrameworkControlScope,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function backupFrameworkControlScopeToTerraform(struct?: BackupFrameworkControlScopeOutputReference | BackupFrameworkControlScope): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    compliance_resource_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.complianceResourceIds),
-    compliance_resource_types: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.complianceResourceTypes),
+    compliance_resource_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.complianceResourceIds),
+    compliance_resource_types: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.complianceResourceTypes),
     tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
-  };
+  }
 }
 
 export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -262,8 +214,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
     }
     if (this._complianceResourceTypes !== undefined) {
       hasAnyValues = true;
-      internalValueResult.complianceResourceTypes =
-        this._complianceResourceTypes;
+      internalValueResult.complianceResourceTypes = this._complianceResourceTypes;
     }
     if (this._tags !== undefined) {
       hasAnyValues = true;
@@ -278,7 +229,8 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
       this._complianceResourceIds = undefined;
       this._complianceResourceTypes = undefined;
       this._tags = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._complianceResourceIds = value.complianceResourceIds;
       this._complianceResourceTypes = value.complianceResourceTypes;
@@ -287,7 +239,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
   }
 
   // compliance_resource_ids - computed: false, optional: true, required: false
-  private _complianceResourceIds?: string[];
+  private _complianceResourceIds?: string[]; 
   public get complianceResourceIds() {
     return cdktf.Fn.tolist(this.getListAttribute('compliance_resource_ids'));
   }
@@ -303,7 +255,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
   }
 
   // compliance_resource_types - computed: false, optional: true, required: false
-  private _complianceResourceTypes?: string[];
+  private _complianceResourceTypes?: string[]; 
   public get complianceResourceTypes() {
     return cdktf.Fn.tolist(this.getListAttribute('compliance_resource_types'));
   }
@@ -319,7 +271,7 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -336,44 +288,33 @@ export class BackupFrameworkControlScopeOutputReference extends cdktf.ComplexObj
 }
 export interface BackupFrameworkControl {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#name BackupFramework#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#name BackupFramework#name}
+  */
   readonly name: string;
   /**
-   * input_parameter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#input_parameter BackupFramework#input_parameter}
-   */
-  readonly inputParameter?:
-    | BackupFrameworkControlInputParameter[]
-    | cdktf.IResolvable;
+  * input_parameter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#input_parameter BackupFramework#input_parameter}
+  */
+  readonly inputParameter?: BackupFrameworkControlInputParameter[] | cdktf.IResolvable;
   /**
-   * scope block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#scope BackupFramework#scope}
-   */
+  * scope block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#scope BackupFramework#scope}
+  */
   readonly scope?: BackupFrameworkControlScope;
 }
 
-export function backupFrameworkControlToTerraform(
-  struct?: BackupFrameworkControl | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function backupFrameworkControlToTerraform(struct?: BackupFrameworkControl | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-    input_parameter: cdktf.listMapper(
-      backupFrameworkControlInputParameterToTerraform,
-      true,
-    )(struct!.inputParameter),
+    input_parameter: cdktf.listMapper(backupFrameworkControlInputParameterToTerraform, true)(struct!.inputParameter),
     scope: backupFrameworkControlScopeToTerraform(struct!.scope),
-  };
+  }
 }
 
 export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
@@ -381,29 +322,16 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | BackupFrameworkControl
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): BackupFrameworkControl | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -424,19 +352,19 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: BackupFrameworkControl | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: BackupFrameworkControl | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._inputParameter.internalValue = undefined;
       this._scope.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -446,7 +374,7 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,17 +387,11 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
   }
 
   // input_parameter - computed: false, optional: true, required: false
-  private _inputParameter = new BackupFrameworkControlInputParameterList(
-    this,
-    'input_parameter',
-    true,
-  );
+  private _inputParameter = new BackupFrameworkControlInputParameterList(this, "input_parameter", true);
   public get inputParameter() {
     return this._inputParameter;
   }
-  public putInputParameter(
-    value: BackupFrameworkControlInputParameter[] | cdktf.IResolvable,
-  ) {
+  public putInputParameter(value: BackupFrameworkControlInputParameter[] | cdktf.IResolvable) {
     this._inputParameter.internalValue = value;
   }
   public resetInputParameter() {
@@ -481,10 +403,7 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope = new BackupFrameworkControlScopeOutputReference(
-    this,
-    'scope',
-  );
+  private _scope = new BackupFrameworkControlScopeOutputReference(this, "scope");
   public get scope() {
     return this._scope;
   }
@@ -501,67 +420,49 @@ export class BackupFrameworkControlOutputReference extends cdktf.ComplexObject {
 }
 
 export class BackupFrameworkControlList extends cdktf.ComplexList {
-  public internalValue?: BackupFrameworkControl[] | cdktf.IResolvable;
+  public internalValue? : BackupFrameworkControl[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): BackupFrameworkControlOutputReference {
-    return new BackupFrameworkControlOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new BackupFrameworkControlOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface BackupFrameworkTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#create BackupFramework#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#create BackupFramework#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#delete BackupFramework#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#delete BackupFramework#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#update BackupFramework#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/backup_framework#update BackupFramework#update}
+  */
   readonly update?: string;
 }
 
-export function backupFrameworkTimeoutsToTerraform(
-  struct?:
-    | BackupFrameworkTimeoutsOutputReference
-    | BackupFrameworkTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function backupFrameworkTimeoutsToTerraform(struct?: BackupFrameworkTimeoutsOutputReference | BackupFrameworkTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -569,20 +470,14 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | BackupFrameworkTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): BackupFrameworkTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -603,19 +498,19 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: BackupFrameworkTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: BackupFrameworkTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -625,7 +520,7 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -641,7 +536,7 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -657,7 +552,7 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -674,36 +569,33 @@ export class BackupFrameworkTimeoutsOutputReference extends cdktf.ComplexObject 
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/backup_framework aws_backup_framework}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/backup_framework aws_backup_framework}
+*/
 export class BackupFramework extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_backup_framework';
+  public static readonly tfResourceType = "aws_backup_framework";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/backup_framework aws_backup_framework} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options BackupFrameworkConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: BackupFrameworkConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/backup_framework aws_backup_framework} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options BackupFrameworkConfig
+  */
+  public constructor(scope: Construct, id: string, config: BackupFrameworkConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_backup_framework',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -711,7 +603,7 @@ export class BackupFramework extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._id = config.id;
@@ -742,7 +634,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -758,7 +650,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -774,7 +666,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -792,7 +684,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -808,7 +700,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -824,7 +716,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // control - computed: false, optional: false, required: true
-  private _control = new BackupFrameworkControlList(this, 'control', true);
+  private _control = new BackupFrameworkControlList(this, "control", true);
   public get control() {
     return this._control;
   }
@@ -837,10 +729,7 @@ export class BackupFramework extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new BackupFrameworkTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new BackupFrameworkTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -866,13 +755,8 @@ export class BackupFramework extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      control: cdktf.listMapper(
-        backupFrameworkControlToTerraform,
-        true,
-      )(this._control.internalValue),
-      timeouts: backupFrameworkTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      control: cdktf.listMapper(backupFrameworkControlToTerraform, true)(this._control.internalValue),
+      timeouts: backupFrameworkTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

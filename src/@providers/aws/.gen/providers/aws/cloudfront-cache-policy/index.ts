@@ -1,88 +1,75 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CloudfrontCachePolicyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CloudfrontCachePolicyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#comment CloudfrontCachePolicy#comment}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#comment CloudfrontCachePolicy#comment}
+  */
   readonly comment?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#default_ttl CloudfrontCachePolicy#default_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#default_ttl CloudfrontCachePolicy#default_ttl}
+  */
   readonly defaultTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#id CloudfrontCachePolicy#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#id CloudfrontCachePolicy#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#max_ttl CloudfrontCachePolicy#max_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#max_ttl CloudfrontCachePolicy#max_ttl}
+  */
   readonly maxTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#min_ttl CloudfrontCachePolicy#min_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#min_ttl CloudfrontCachePolicy#min_ttl}
+  */
   readonly minTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#name CloudfrontCachePolicy#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#name CloudfrontCachePolicy#name}
+  */
   readonly name: string;
   /**
-   * parameters_in_cache_key_and_forwarded_to_origin block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#parameters_in_cache_key_and_forwarded_to_origin CloudfrontCachePolicy#parameters_in_cache_key_and_forwarded_to_origin}
-   */
+  * parameters_in_cache_key_and_forwarded_to_origin block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#parameters_in_cache_key_and_forwarded_to_origin CloudfrontCachePolicy#parameters_in_cache_key_and_forwarded_to_origin}
+  */
   readonly parametersInCacheKeyAndForwardedToOrigin: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin;
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#items CloudfrontCachePolicy#items}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#items CloudfrontCachePolicy#items}
+  */
   readonly items?: string[];
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  };
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -92,22 +79,19 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookie
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[];
+  private _items?: string[]; 
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -124,56 +108,40 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookie
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#cookie_behavior CloudfrontCachePolicy#cookie_behavior}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#cookie_behavior CloudfrontCachePolicy#cookie_behavior}
+  */
   readonly cookieBehavior: string;
   /**
-   * cookies block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#cookies CloudfrontCachePolicy#cookies}
-   */
+  * cookies block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#cookies CloudfrontCachePolicy#cookies}
+  */
   readonly cookies?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies;
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     cookie_behavior: cdktf.stringToTerraform(struct!.cookieBehavior),
-    cookies:
-      cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesToTerraform(
-        struct!.cookies,
-      ),
-  };
+    cookies: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesToTerraform(struct!.cookies),
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cookieBehavior !== undefined) {
@@ -187,16 +155,13 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookie
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cookieBehavior = undefined;
       this._cookies.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cookieBehavior = value.cookieBehavior;
       this._cookies.internalValue = value.cookies;
@@ -204,7 +169,7 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookie
   }
 
   // cookie_behavior - computed: false, optional: false, required: true
-  private _cookieBehavior?: string;
+  private _cookieBehavior?: string; 
   public get cookieBehavior() {
     return this.getStringAttribute('cookie_behavior');
   }
@@ -217,17 +182,11 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookie
   }
 
   // cookies - computed: false, optional: true, required: false
-  private _cookies =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputReference(
-      this,
-      'cookies',
-    );
+  private _cookies = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutputReference(this, "cookies");
   public get cookies() {
     return this._cookies;
   }
-  public putCookies(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies,
-  ) {
+  public putCookies(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) {
     this._cookies.internalValue = value;
   }
   public resetCookies() {
@@ -240,46 +199,33 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookie
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#items CloudfrontCachePolicy#items}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#items CloudfrontCachePolicy#items}
+  */
   readonly items?: string[];
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  };
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -289,22 +235,19 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeader
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[];
+  private _items?: string[]; 
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -321,56 +264,40 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeader
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#header_behavior CloudfrontCachePolicy#header_behavior}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#header_behavior CloudfrontCachePolicy#header_behavior}
+  */
   readonly headerBehavior?: string;
   /**
-   * headers block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#headers CloudfrontCachePolicy#headers}
-   */
+  * headers block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#headers CloudfrontCachePolicy#headers}
+  */
   readonly headers?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders;
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     header_behavior: cdktf.stringToTerraform(struct!.headerBehavior),
-    headers:
-      cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersToTerraform(
-        struct!.headers,
-      ),
-  };
+    headers: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersToTerraform(struct!.headers),
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._headerBehavior !== undefined) {
@@ -384,16 +311,13 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeader
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._headerBehavior = undefined;
       this._headers.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._headerBehavior = value.headerBehavior;
       this._headers.internalValue = value.headers;
@@ -401,7 +325,7 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeader
   }
 
   // header_behavior - computed: false, optional: true, required: false
-  private _headerBehavior?: string;
+  private _headerBehavior?: string; 
   public get headerBehavior() {
     return this.getStringAttribute('header_behavior');
   }
@@ -417,17 +341,11 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeader
   }
 
   // headers - computed: false, optional: true, required: false
-  private _headers =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputReference(
-      this,
-      'headers',
-    );
+  private _headers = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutputReference(this, "headers");
   public get headers() {
     return this._headers;
   }
-  public putHeaders(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders,
-  ) {
+  public putHeaders(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) {
     this._headers.internalValue = value;
   }
   public resetHeaders() {
@@ -440,46 +358,33 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeader
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#items CloudfrontCachePolicy#items}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#items CloudfrontCachePolicy#items}
+  */
   readonly items?: string[];
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     items: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.items),
-  };
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._items !== undefined) {
@@ -489,22 +394,19 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryS
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._items = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._items = value.items;
     }
   }
 
   // items - computed: false, optional: true, required: false
-  private _items?: string[];
+  private _items?: string[]; 
   public get items() {
     return cdktf.Fn.tolist(this.getListAttribute('items'));
   }
@@ -521,56 +423,40 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryS
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#query_string_behavior CloudfrontCachePolicy#query_string_behavior}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#query_string_behavior CloudfrontCachePolicy#query_string_behavior}
+  */
   readonly queryStringBehavior: string;
   /**
-   * query_strings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#query_strings CloudfrontCachePolicy#query_strings}
-   */
+  * query_strings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#query_strings CloudfrontCachePolicy#query_strings}
+  */
   readonly queryStrings?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings;
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     query_string_behavior: cdktf.stringToTerraform(struct!.queryStringBehavior),
-    query_strings:
-      cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsToTerraform(
-        struct!.queryStrings,
-      ),
-  };
+    query_strings: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsToTerraform(struct!.queryStrings),
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._queryStringBehavior !== undefined) {
@@ -584,16 +470,13 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryS
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._queryStringBehavior = undefined;
       this._queryStrings.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._queryStringBehavior = value.queryStringBehavior;
       this._queryStrings.internalValue = value.queryStrings;
@@ -601,7 +484,7 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryS
   }
 
   // query_string_behavior - computed: false, optional: false, required: true
-  private _queryStringBehavior?: string;
+  private _queryStringBehavior?: string; 
   public get queryStringBehavior() {
     return this.getStringAttribute('query_string_behavior');
   }
@@ -614,17 +497,11 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryS
   }
 
   // query_strings - computed: false, optional: true, required: false
-  private _queryStrings =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputReference(
-      this,
-      'query_strings',
-    );
+  private _queryStrings = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutputReference(this, "query_strings");
   public get queryStrings() {
     return this._queryStrings;
   }
-  public putQueryStrings(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings,
-  ) {
+  public putQueryStrings(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) {
     this._queryStrings.internalValue = value;
   }
   public resetQueryStrings() {
@@ -637,96 +514,68 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryS
 }
 export interface CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#enable_accept_encoding_brotli CloudfrontCachePolicy#enable_accept_encoding_brotli}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#enable_accept_encoding_brotli CloudfrontCachePolicy#enable_accept_encoding_brotli}
+  */
   readonly enableAcceptEncodingBrotli?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#enable_accept_encoding_gzip CloudfrontCachePolicy#enable_accept_encoding_gzip}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#enable_accept_encoding_gzip CloudfrontCachePolicy#enable_accept_encoding_gzip}
+  */
   readonly enableAcceptEncodingGzip?: boolean | cdktf.IResolvable;
   /**
-   * cookies_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#cookies_config CloudfrontCachePolicy#cookies_config}
-   */
+  * cookies_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#cookies_config CloudfrontCachePolicy#cookies_config}
+  */
   readonly cookiesConfig: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig;
   /**
-   * headers_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#headers_config CloudfrontCachePolicy#headers_config}
-   */
+  * headers_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#headers_config CloudfrontCachePolicy#headers_config}
+  */
   readonly headersConfig: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig;
   /**
-   * query_strings_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#query_strings_config CloudfrontCachePolicy#query_strings_config}
-   */
+  * query_strings_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy#query_strings_config CloudfrontCachePolicy#query_strings_config}
+  */
   readonly queryStringsConfig: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig;
 }
 
-export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginToTerraform(
-  struct?:
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutputReference
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginToTerraform(struct?: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutputReference | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    enable_accept_encoding_brotli: cdktf.booleanToTerraform(
-      struct!.enableAcceptEncodingBrotli,
-    ),
-    enable_accept_encoding_gzip: cdktf.booleanToTerraform(
-      struct!.enableAcceptEncodingGzip,
-    ),
-    cookies_config:
-      cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigToTerraform(
-        struct!.cookiesConfig,
-      ),
-    headers_config:
-      cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigToTerraform(
-        struct!.headersConfig,
-      ),
-    query_strings_config:
-      cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigToTerraform(
-        struct!.queryStringsConfig,
-      ),
-  };
+    enable_accept_encoding_brotli: cdktf.booleanToTerraform(struct!.enableAcceptEncodingBrotli),
+    enable_accept_encoding_gzip: cdktf.booleanToTerraform(struct!.enableAcceptEncodingGzip),
+    cookies_config: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigToTerraform(struct!.cookiesConfig),
+    headers_config: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigToTerraform(struct!.headersConfig),
+    query_strings_config: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigToTerraform(struct!.queryStringsConfig),
+  }
 }
 
 export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin
-    | undefined {
+  public get internalValue(): CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enableAcceptEncodingBrotli !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableAcceptEncodingBrotli =
-        this._enableAcceptEncodingBrotli;
+      internalValueResult.enableAcceptEncodingBrotli = this._enableAcceptEncodingBrotli;
     }
     if (this._enableAcceptEncodingGzip !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableAcceptEncodingGzip =
-        this._enableAcceptEncodingGzip;
+      internalValueResult.enableAcceptEncodingGzip = this._enableAcceptEncodingGzip;
     }
     if (this._cookiesConfig?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -738,17 +587,12 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
     }
     if (this._queryStringsConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.queryStringsConfig =
-        this._queryStringsConfig?.internalValue;
+      internalValueResult.queryStringsConfig = this._queryStringsConfig?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enableAcceptEncodingBrotli = undefined;
@@ -756,7 +600,8 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
       this._cookiesConfig.internalValue = undefined;
       this._headersConfig.internalValue = undefined;
       this._queryStringsConfig.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableAcceptEncodingBrotli = value.enableAcceptEncodingBrotli;
       this._enableAcceptEncodingGzip = value.enableAcceptEncodingGzip;
@@ -767,7 +612,7 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
   }
 
   // enable_accept_encoding_brotli - computed: false, optional: true, required: false
-  private _enableAcceptEncodingBrotli?: boolean | cdktf.IResolvable;
+  private _enableAcceptEncodingBrotli?: boolean | cdktf.IResolvable; 
   public get enableAcceptEncodingBrotli() {
     return this.getBooleanAttribute('enable_accept_encoding_brotli');
   }
@@ -783,7 +628,7 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
   }
 
   // enable_accept_encoding_gzip - computed: false, optional: true, required: false
-  private _enableAcceptEncodingGzip?: boolean | cdktf.IResolvable;
+  private _enableAcceptEncodingGzip?: boolean | cdktf.IResolvable; 
   public get enableAcceptEncodingGzip() {
     return this.getBooleanAttribute('enable_accept_encoding_gzip');
   }
@@ -799,17 +644,11 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
   }
 
   // cookies_config - computed: false, optional: false, required: true
-  private _cookiesConfig =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputReference(
-      this,
-      'cookies_config',
-    );
+  private _cookiesConfig = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputReference(this, "cookies_config");
   public get cookiesConfig() {
     return this._cookiesConfig;
   }
-  public putCookiesConfig(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig,
-  ) {
+  public putCookiesConfig(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) {
     this._cookiesConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -818,17 +657,11 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
   }
 
   // headers_config - computed: false, optional: false, required: true
-  private _headersConfig =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputReference(
-      this,
-      'headers_config',
-    );
+  private _headersConfig = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputReference(this, "headers_config");
   public get headersConfig() {
     return this._headersConfig;
   }
-  public putHeadersConfig(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig,
-  ) {
+  public putHeadersConfig(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) {
     this._headersConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -837,17 +670,11 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
   }
 
   // query_strings_config - computed: false, optional: false, required: true
-  private _queryStringsConfig =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputReference(
-      this,
-      'query_strings_config',
-    );
+  private _queryStringsConfig = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputReference(this, "query_strings_config");
   public get queryStringsConfig() {
     return this._queryStringsConfig;
   }
-  public putQueryStringsConfig(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig,
-  ) {
+  public putQueryStringsConfig(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) {
     this._queryStringsConfig.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -857,36 +684,33 @@ export class CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy aws_cloudfront_cache_policy}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy aws_cloudfront_cache_policy}
+*/
 export class CloudfrontCachePolicy extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_cloudfront_cache_policy';
+  public static readonly tfResourceType = "aws_cloudfront_cache_policy";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy aws_cloudfront_cache_policy} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CloudfrontCachePolicyConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CloudfrontCachePolicyConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_cache_policy aws_cloudfront_cache_policy} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CloudfrontCachePolicyConfig
+  */
+  public constructor(scope: Construct, id: string, config: CloudfrontCachePolicyConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudfront_cache_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -894,7 +718,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._comment = config.comment;
     this._defaultTtl = config.defaultTtl;
@@ -902,8 +726,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
     this._maxTtl = config.maxTtl;
     this._minTtl = config.minTtl;
     this._name = config.name;
-    this._parametersInCacheKeyAndForwardedToOrigin.internalValue =
-      config.parametersInCacheKeyAndForwardedToOrigin;
+    this._parametersInCacheKeyAndForwardedToOrigin.internalValue = config.parametersInCacheKeyAndForwardedToOrigin;
   }
 
   // ==========
@@ -911,7 +734,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   // ==========
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string;
+  private _comment?: string; 
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -927,7 +750,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   }
 
   // default_ttl - computed: false, optional: true, required: false
-  private _defaultTtl?: number;
+  private _defaultTtl?: number; 
   public get defaultTtl() {
     return this.getNumberAttribute('default_ttl');
   }
@@ -948,7 +771,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -964,7 +787,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   }
 
   // max_ttl - computed: false, optional: true, required: false
-  private _maxTtl?: number;
+  private _maxTtl?: number; 
   public get maxTtl() {
     return this.getNumberAttribute('max_ttl');
   }
@@ -980,7 +803,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   }
 
   // min_ttl - computed: false, optional: true, required: false
-  private _minTtl?: number;
+  private _minTtl?: number; 
   public get minTtl() {
     return this.getNumberAttribute('min_ttl');
   }
@@ -996,7 +819,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1009,17 +832,11 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
   }
 
   // parameters_in_cache_key_and_forwarded_to_origin - computed: false, optional: false, required: true
-  private _parametersInCacheKeyAndForwardedToOrigin =
-    new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutputReference(
-      this,
-      'parameters_in_cache_key_and_forwarded_to_origin',
-    );
+  private _parametersInCacheKeyAndForwardedToOrigin = new CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginOutputReference(this, "parameters_in_cache_key_and_forwarded_to_origin");
   public get parametersInCacheKeyAndForwardedToOrigin() {
     return this._parametersInCacheKeyAndForwardedToOrigin;
   }
-  public putParametersInCacheKeyAndForwardedToOrigin(
-    value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin,
-  ) {
+  public putParametersInCacheKeyAndForwardedToOrigin(value: CloudfrontCachePolicyParametersInCacheKeyAndForwardedToOrigin) {
     this._parametersInCacheKeyAndForwardedToOrigin.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1039,10 +856,7 @@ export class CloudfrontCachePolicy extends cdktf.TerraformResource {
       max_ttl: cdktf.numberToTerraform(this._maxTtl),
       min_ttl: cdktf.numberToTerraform(this._minTtl),
       name: cdktf.stringToTerraform(this._name),
-      parameters_in_cache_key_and_forwarded_to_origin:
-        cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginToTerraform(
-          this._parametersInCacheKeyAndForwardedToOrigin.internalValue,
-        ),
+      parameters_in_cache_key_and_forwarded_to_origin: cloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginToTerraform(this._parametersInCacheKeyAndForwardedToOrigin.internalValue),
     };
   }
 }

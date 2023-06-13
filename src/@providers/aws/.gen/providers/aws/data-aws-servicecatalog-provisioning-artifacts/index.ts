@@ -1,89 +1,70 @@
 // https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsServicecatalogProvisioningArtifactsConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsServicecatalogProvisioningArtifactsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#accept_language DataAwsServicecatalogProvisioningArtifacts#accept_language}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#accept_language DataAwsServicecatalogProvisioningArtifacts#accept_language}
+  */
   readonly acceptLanguage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#id DataAwsServicecatalogProvisioningArtifacts#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#id DataAwsServicecatalogProvisioningArtifacts#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#product_id DataAwsServicecatalogProvisioningArtifacts#product_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#product_id DataAwsServicecatalogProvisioningArtifacts#product_id}
+  */
   readonly productId: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#timeouts DataAwsServicecatalogProvisioningArtifacts#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#timeouts DataAwsServicecatalogProvisioningArtifacts#timeouts}
+  */
   readonly timeouts?: DataAwsServicecatalogProvisioningArtifactsTimeouts;
 }
-export interface DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails {}
+export interface DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails {
+}
 
-export function dataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsToTerraform(
-  struct?: DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsToTerraform(struct?: DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails
-    | undefined {
+  public get internalValue(): DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetails | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -125,57 +106,38 @@ export class DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetai
 }
 
 export class DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsOutputReference {
-    return new DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsOutputReference {
+    return new DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsServicecatalogProvisioningArtifactsTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#read DataAwsServicecatalogProvisioningArtifacts#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts#read DataAwsServicecatalogProvisioningArtifacts#read}
+  */
   readonly read?: string;
 }
 
-export function dataAwsServicecatalogProvisioningArtifactsTimeoutsToTerraform(
-  struct?:
-    | DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference
-    | DataAwsServicecatalogProvisioningArtifactsTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsServicecatalogProvisioningArtifactsTimeoutsToTerraform(struct?: DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference | DataAwsServicecatalogProvisioningArtifactsTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  };
+  }
 }
 
 export class DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -183,20 +145,14 @@ export class DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference e
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DataAwsServicecatalogProvisioningArtifactsTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsServicecatalogProvisioningArtifactsTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -209,20 +165,17 @@ export class DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsServicecatalogProvisioningArtifactsTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsServicecatalogProvisioningArtifactsTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -230,7 +183,7 @@ export class DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference e
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -247,37 +200,33 @@ export class DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference e
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts aws_servicecatalog_provisioning_artifacts}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts aws_servicecatalog_provisioning_artifacts}
+*/
 export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_servicecatalog_provisioning_artifacts';
+  public static readonly tfResourceType = "aws_servicecatalog_provisioning_artifacts";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts aws_servicecatalog_provisioning_artifacts} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsServicecatalogProvisioningArtifactsConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsServicecatalogProvisioningArtifactsConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/servicecatalog_provisioning_artifacts aws_servicecatalog_provisioning_artifacts} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsServicecatalogProvisioningArtifactsConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsServicecatalogProvisioningArtifactsConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_servicecatalog_provisioning_artifacts',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -285,7 +234,7 @@ export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformD
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._acceptLanguage = config.acceptLanguage;
     this._id = config.id;
@@ -298,7 +247,7 @@ export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformD
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string;
+  private _acceptLanguage?: string; 
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -314,7 +263,7 @@ export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformD
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -330,7 +279,7 @@ export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformD
   }
 
   // product_id - computed: false, optional: false, required: true
-  private _productId?: string;
+  private _productId?: string; 
   public get productId() {
     return this.getStringAttribute('product_id');
   }
@@ -343,28 +292,17 @@ export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformD
   }
 
   // provisioning_artifact_details - computed: true, optional: false, required: false
-  private _provisioningArtifactDetails =
-    new DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsList(
-      this,
-      'provisioning_artifact_details',
-      false,
-    );
+  private _provisioningArtifactDetails = new DataAwsServicecatalogProvisioningArtifactsProvisioningArtifactDetailsList(this, "provisioning_artifact_details", false);
   public get provisioningArtifactDetails() {
     return this._provisioningArtifactDetails;
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new DataAwsServicecatalogProvisioningArtifactsTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
-  public putTimeouts(
-    value: DataAwsServicecatalogProvisioningArtifactsTimeouts,
-  ) {
+  public putTimeouts(value: DataAwsServicecatalogProvisioningArtifactsTimeouts) {
     this._timeouts.internalValue = value;
   }
   public resetTimeouts() {
@@ -384,9 +322,7 @@ export class DataAwsServicecatalogProvisioningArtifacts extends cdktf.TerraformD
       accept_language: cdktf.stringToTerraform(this._acceptLanguage),
       id: cdktf.stringToTerraform(this._id),
       product_id: cdktf.stringToTerraform(this._productId),
-      timeouts: dataAwsServicecatalogProvisioningArtifactsTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: dataAwsServicecatalogProvisioningArtifactsTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

@@ -1,72 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/d/api_gateway_export
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsApiGatewayExportConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsApiGatewayExportConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#accepts DataAwsApiGatewayExport#accepts}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#accepts DataAwsApiGatewayExport#accepts}
+  */
   readonly accepts?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#export_type DataAwsApiGatewayExport#export_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#export_type DataAwsApiGatewayExport#export_type}
+  */
   readonly exportType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#id DataAwsApiGatewayExport#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#id DataAwsApiGatewayExport#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#parameters DataAwsApiGatewayExport#parameters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#parameters DataAwsApiGatewayExport#parameters}
+  */
   readonly parameters?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#rest_api_id DataAwsApiGatewayExport#rest_api_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#rest_api_id DataAwsApiGatewayExport#rest_api_id}
+  */
   readonly restApiId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#stage_name DataAwsApiGatewayExport#stage_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export#stage_name DataAwsApiGatewayExport#stage_name}
+  */
   readonly stageName: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export aws_api_gateway_export}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export aws_api_gateway_export}
+*/
 export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_api_gateway_export';
+  public static readonly tfResourceType = "aws_api_gateway_export";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export aws_api_gateway_export} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsApiGatewayExportConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsApiGatewayExportConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/api_gateway_export aws_api_gateway_export} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsApiGatewayExportConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsApiGatewayExportConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_export',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -74,7 +71,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._accepts = config.accepts;
     this._exportType = config.exportType;
@@ -89,7 +86,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
   // ==========
 
   // accepts - computed: false, optional: true, required: false
-  private _accepts?: string;
+  private _accepts?: string; 
   public get accepts() {
     return this.getStringAttribute('accepts');
   }
@@ -120,7 +117,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
   }
 
   // export_type - computed: false, optional: false, required: true
-  private _exportType?: string;
+  private _exportType?: string; 
   public get exportType() {
     return this.getStringAttribute('export_type');
   }
@@ -133,7 +130,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -149,7 +146,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: { [key: string]: string };
+  private _parameters?: { [key: string]: string }; 
   public get parameters() {
     return this.getStringMapAttribute('parameters');
   }
@@ -165,7 +162,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string;
+  private _restApiId?: string; 
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -178,7 +175,7 @@ export class DataAwsApiGatewayExport extends cdktf.TerraformDataSource {
   }
 
   // stage_name - computed: false, optional: false, required: true
-  private _stageName?: string;
+  private _stageName?: string; 
   public get stageName() {
     return this.getStringAttribute('stage_name');
   }

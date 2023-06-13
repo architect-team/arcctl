@@ -1,10 +1,13 @@
+import { Construct } from 'constructs';
+import { createApiClient } from 'dots-wrapper';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { InputValidators, ResourcePresets } from '../../service.ts';
+import { InputValidators, ResourcePresets } from '../../base.service.ts';
+import { ProviderStore } from '../../store.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { DigitaloceanProvider as TerraformDigitaloceanProvider } from '../.gen/providers/digitalocean/provider/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
 import { DigitaloceanKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
-import { createApiClient } from 'dots-wrapper';
 
 export class DigitaloceanKubernetesClusterService extends TerraformResourceService<
   'kubernetesCluster',
@@ -12,9 +15,18 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
 > {
   private client: ReturnType<typeof createApiClient>;
 
-  constructor(credentials: DigitaloceanCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = DigitaloceanKubernetesClusterModule;
+
+  constructor(accountName: string, credentials: DigitaloceanCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
     this.client = createApiClient({ token: credentials.token });
+  }
+
+  public configureTerraformProviders(scope: Construct): TerraformDigitaloceanProvider {
+    return new TerraformDigitaloceanProvider(scope, 'digitalocean', {
+      token: this.credentials.token,
+    });
   }
 
   async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
@@ -30,7 +42,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
         vpc: kubernetes_cluster.vpc_uuid,
         name: kubernetes_cluster.name,
         kubernetesVersion: kubernetes_cluster.version,
-        account: '',
+        configPath: '',
       };
     } catch {
       return undefined;
@@ -39,7 +51,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
 
   // TODO: Implement filterOptions
   async list(
-    filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
+    _filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>> {
     const {
@@ -58,7 +70,7 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
         name: cluster.name,
         vpc: cluster.vpc_uuid,
         kubernetesVersion: cluster.version,
-        account: '',
+        configPath: '',
       })),
     };
   }
@@ -104,6 +116,4 @@ export class DigitaloceanKubernetesClusterService extends TerraformResourceServi
       },
     ];
   }
-
-  readonly construct = DigitaloceanKubernetesClusterModule;
 }

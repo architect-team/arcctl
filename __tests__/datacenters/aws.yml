@@ -63,10 +63,10 @@ environment:
           type: dnsRecord
           account: aws-architect
           dnsZone: ${{ environment.resources.zone.id }}
-          subdomain: ${{ this.inputs.listener.subdomain }}
+          subdomain: ${{ this.inputs.subdomain }}
           recordType: CNAME
           content: ${{ this.outputs.loadBalancerHostname }}
-      loadBalancer: nginx
+      registry: nginx
       namespace: ${{ environment.resources.namespace.id }}
     - account: ${{ resources.cluster.account }}
       namespace: ${{ environment.resources.namespace.id }}

@@ -1,84 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface SagemakerCodeRepositoryConfig
-  extends cdktf.TerraformMetaArguments {
+export interface SagemakerCodeRepositoryConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#code_repository_name SagemakerCodeRepository#code_repository_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#code_repository_name SagemakerCodeRepository#code_repository_name}
+  */
   readonly codeRepositoryName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#id SagemakerCodeRepository#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#id SagemakerCodeRepository#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#tags SagemakerCodeRepository#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#tags SagemakerCodeRepository#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#tags_all SagemakerCodeRepository#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#tags_all SagemakerCodeRepository#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * git_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#git_config SagemakerCodeRepository#git_config}
-   */
+  * git_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#git_config SagemakerCodeRepository#git_config}
+  */
   readonly gitConfig: SagemakerCodeRepositoryGitConfig;
 }
 export interface SagemakerCodeRepositoryGitConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#branch SagemakerCodeRepository#branch}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#branch SagemakerCodeRepository#branch}
+  */
   readonly branch?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#repository_url SagemakerCodeRepository#repository_url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#repository_url SagemakerCodeRepository#repository_url}
+  */
   readonly repositoryUrl: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#secret_arn SagemakerCodeRepository#secret_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository#secret_arn SagemakerCodeRepository#secret_arn}
+  */
   readonly secretArn?: string;
 }
 
-export function sagemakerCodeRepositoryGitConfigToTerraform(
-  struct?:
-    | SagemakerCodeRepositoryGitConfigOutputReference
-    | SagemakerCodeRepositoryGitConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function sagemakerCodeRepositoryGitConfigToTerraform(struct?: SagemakerCodeRepositoryGitConfigOutputReference | SagemakerCodeRepositoryGitConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     branch: cdktf.stringToTerraform(struct!.branch),
     repository_url: cdktf.stringToTerraform(struct!.repositoryUrl),
     secret_arn: cdktf.stringToTerraform(struct!.secretArn),
-  };
+  }
 }
 
 export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -100,15 +89,14 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: SagemakerCodeRepositoryGitConfig | undefined,
-  ) {
+  public set internalValue(value: SagemakerCodeRepositoryGitConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._branch = undefined;
       this._repositoryUrl = undefined;
       this._secretArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._branch = value.branch;
       this._repositoryUrl = value.repositoryUrl;
@@ -117,7 +105,7 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
   }
 
   // branch - computed: false, optional: true, required: false
-  private _branch?: string;
+  private _branch?: string; 
   public get branch() {
     return this.getStringAttribute('branch');
   }
@@ -133,7 +121,7 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
   }
 
   // repository_url - computed: false, optional: false, required: true
-  private _repositoryUrl?: string;
+  private _repositoryUrl?: string; 
   public get repositoryUrl() {
     return this.getStringAttribute('repository_url');
   }
@@ -146,7 +134,7 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
   }
 
   // secret_arn - computed: false, optional: true, required: false
-  private _secretArn?: string;
+  private _secretArn?: string; 
   public get secretArn() {
     return this.getStringAttribute('secret_arn');
   }
@@ -163,36 +151,33 @@ export class SagemakerCodeRepositoryGitConfigOutputReference extends cdktf.Compl
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository aws_sagemaker_code_repository}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository aws_sagemaker_code_repository}
+*/
 export class SagemakerCodeRepository extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_sagemaker_code_repository';
+  public static readonly tfResourceType = "aws_sagemaker_code_repository";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository aws_sagemaker_code_repository} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SagemakerCodeRepositoryConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SagemakerCodeRepositoryConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/sagemaker_code_repository aws_sagemaker_code_repository} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SagemakerCodeRepositoryConfig
+  */
+  public constructor(scope: Construct, id: string, config: SagemakerCodeRepositoryConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_sagemaker_code_repository',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -200,7 +185,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._codeRepositoryName = config.codeRepositoryName;
     this._id = config.id;
@@ -219,7 +204,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // code_repository_name - computed: false, optional: false, required: true
-  private _codeRepositoryName?: string;
+  private _codeRepositoryName?: string; 
   public get codeRepositoryName() {
     return this.getStringAttribute('code_repository_name');
   }
@@ -232,7 +217,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -248,7 +233,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -264,7 +249,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -280,10 +265,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
   }
 
   // git_config - computed: false, optional: false, required: true
-  private _gitConfig = new SagemakerCodeRepositoryGitConfigOutputReference(
-    this,
-    'git_config',
-  );
+  private _gitConfig = new SagemakerCodeRepositoryGitConfigOutputReference(this, "git_config");
   public get gitConfig() {
     return this._gitConfig;
   }
@@ -305,9 +287,7 @@ export class SagemakerCodeRepository extends cdktf.TerraformResource {
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      git_config: sagemakerCodeRepositoryGitConfigToTerraform(
-        this._gitConfig.internalValue,
-      ),
+      git_config: sagemakerCodeRepositoryGitConfigToTerraform(this._gitConfig.internalValue),
     };
   }
 }

@@ -29,14 +29,15 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
   ): Promise<PagingResponse<ResourceOutputs['database']>> {
     const res = await this.deploymentService.list({
       labels: {
-        'arcctl.architect.io.type': 'database',
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.database': '',
       },
     });
 
     return {
       total: res.total,
       rows: res.rows.map((row) => ({
-        id: row.labels?.['arcctl.architect.io.name'] || 'unknown',
+        id: row.labels?.['io.architect.arcctl.database'] || 'unknown',
         host: 'localhost',
         port: 5432,
         username: 'architect',
@@ -81,11 +82,11 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
         POSTGRES_DB: 'architect',
       },
       labels: {
-        'arcctl.architect.io.type': 'database',
-        'arcctl.architect.io.name': inputs.name,
-        'arcctl.architect.io.volume': volumeRes.id,
-        'arcctl.architect.io.databaseType': inputs.databaseType,
-        'arcctl.architect.io.databaseVersion': inputs.databaseVersion,
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.database': inputs.name,
+        'io.architect.arcctl.volume': volumeRes.id,
+        'io.architect.arcctl.databaseType': inputs.databaseType,
+        'io.architect.arcctl.databaseVersion': inputs.databaseVersion,
       },
       exposed_ports: [{
         port: 5432,
@@ -108,20 +109,21 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     id: string,
     inputs: DeepPartial<ResourceInputs['database']>,
   ): Promise<ResourceOutputs['database']> {
-    const allDbs = await this.deploymentService.list({
+    const deployments = await this.deploymentService.list({
       id,
       labels: {
-        'arcctl.architect.io.type': 'database',
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.database': id,
       },
     });
-    const existingDb = allDbs.rows.find((db) => db.id === id);
-    if (!existingDb) {
+    const existingDeployment = deployments.rows.find((db) => db.id === id);
+    if (!existingDeployment) {
       throw new Error(`No databases matching ID: ${id}`);
     }
 
-    const normalizedName = inputs.name?.replaceAll('/', '--') || existingDb.id;
+    const normalizedName = inputs.name?.replaceAll('/', '--') || existingDeployment.id;
 
-    const volumeId = existingDb.labels?.['arcctl.architect.io.volume'];
+    const volumeId = existingDeployment.labels?.['io.architect.arcctl.volume'];
     const volume_mounts: ResourceInputs['deployment']['volume_mounts'] = [];
     if (volumeId) {
       subscriber.next('Updating storage volume');
@@ -142,7 +144,7 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
       }
     }
 
-    const deployment = await this.deploymentService.update(subscriber, existingDb.id, {
+    const deployment = await this.deploymentService.update(subscriber, existingDeployment.id, {
       type: 'deployment',
       account: this.accountName,
       name: normalizedName,
@@ -156,13 +158,13 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
         POSTGRES_DB: 'architect',
       },
       labels: {
-        'arcctl.architect.io.type': 'database',
-        'arcctl.architect.io.name': inputs.name || existingDb.labels?.['arcctl.architect.io.name'],
-        ...(volume_mounts.length > 0 ? { 'arcctl.architect.io.volume': volume_mounts[0].volume } : {}),
-        'arcctl.architect.io.databaseType': inputs.databaseType ||
-          existingDb.labels?.['arcctl.architect.io.databaseType'],
-        'arcctl.architect.io.databaseVersion': inputs.databaseVersion ||
-          existingDb.labels?.['arcctl.architect.io.databaseVersion'],
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.database': inputs.name,
+        ...(volume_mounts.length > 0 ? { 'io.architect.arcctl.volume': volume_mounts[0].volume } : {}),
+        'io.architect.arcctl.databaseType': inputs.databaseType ||
+          existingDeployment.labels?.['io.architect.arcctl.databaseType'],
+        'io.architect.arcctl.databaseVersion': inputs.databaseVersion ||
+          existingDeployment.labels?.['io.architect.arcctl.databaseVersion'],
       },
       exposed_ports: [{
         port: 5432,
@@ -190,11 +192,11 @@ export class DockerDatabaseService extends CrudResourceService<'database', Docke
     switch (res.protocol) {
       case 'postgresql': {
         const deployment = await this.deploymentService.get(res.id);
-        if (!deployment?.labels?.['arcctl.architect.io.volume']) {
+        if (!deployment?.labels?.['io.architect.arcctl.volume']) {
           throw new Error(`Database is missing metadata needed to clean up its volume`);
         }
 
-        const volumeId = deployment.labels['arcctl.architect.io.volume'];
+        const volumeId = deployment.labels['io.architect.arcctl.volume'];
         await this.deploymentService.delete(subscriber, res.id);
         subscriber.next('Cleaning up database volume');
         await this.volumeService.delete(subscriber, volumeId);

@@ -142,9 +142,12 @@
           "description": "Configuration settings for the components that may be deployed inside this environment",
           "type": "object"
         },
-        "dns_zone": {
-          "description": "The DNS zone to use for ingresses in the environment",
-          "type": "string"
+        "locals": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Local variables that can be used to parameterize the environment",
+          "type": "object"
         },
         "version": {
           "const": "v1",

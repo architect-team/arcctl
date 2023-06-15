@@ -1,76 +1,67 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface NetworkmanagerSiteToSiteVpnAttachmentConfig
-  extends cdktf.TerraformMetaArguments {
+export interface NetworkmanagerSiteToSiteVpnAttachmentConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#core_network_id NetworkmanagerSiteToSiteVpnAttachment#core_network_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#core_network_id NetworkmanagerSiteToSiteVpnAttachment#core_network_id}
+  */
   readonly coreNetworkId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#id NetworkmanagerSiteToSiteVpnAttachment#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#id NetworkmanagerSiteToSiteVpnAttachment#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#tags NetworkmanagerSiteToSiteVpnAttachment#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#tags NetworkmanagerSiteToSiteVpnAttachment#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#tags_all NetworkmanagerSiteToSiteVpnAttachment#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#tags_all NetworkmanagerSiteToSiteVpnAttachment#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#vpn_connection_arn NetworkmanagerSiteToSiteVpnAttachment#vpn_connection_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#vpn_connection_arn NetworkmanagerSiteToSiteVpnAttachment#vpn_connection_arn}
+  */
   readonly vpnConnectionArn: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#timeouts NetworkmanagerSiteToSiteVpnAttachment#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#timeouts NetworkmanagerSiteToSiteVpnAttachment#timeouts}
+  */
   readonly timeouts?: NetworkmanagerSiteToSiteVpnAttachmentTimeouts;
 }
 export interface NetworkmanagerSiteToSiteVpnAttachmentTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#create NetworkmanagerSiteToSiteVpnAttachment#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#create NetworkmanagerSiteToSiteVpnAttachment#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#delete NetworkmanagerSiteToSiteVpnAttachment#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#delete NetworkmanagerSiteToSiteVpnAttachment#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#update NetworkmanagerSiteToSiteVpnAttachment#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment#update NetworkmanagerSiteToSiteVpnAttachment#update}
+  */
   readonly update?: string;
 }
 
-export function networkmanagerSiteToSiteVpnAttachmentTimeoutsToTerraform(
-  struct?:
-    | NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference
-    | NetworkmanagerSiteToSiteVpnAttachmentTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerSiteToSiteVpnAttachmentTimeoutsToTerraform(struct?: NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference | NetworkmanagerSiteToSiteVpnAttachmentTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -78,20 +69,14 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | NetworkmanagerSiteToSiteVpnAttachmentTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): NetworkmanagerSiteToSiteVpnAttachmentTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -112,22 +97,19 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | NetworkmanagerSiteToSiteVpnAttachmentTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: NetworkmanagerSiteToSiteVpnAttachmentTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -137,7 +119,7 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -153,7 +135,7 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -169,7 +151,7 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -186,37 +168,33 @@ export class NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference extend
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment aws_networkmanager_site_to_site_vpn_attachment}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment aws_networkmanager_site_to_site_vpn_attachment}
+*/
 export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_networkmanager_site_to_site_vpn_attachment';
+  public static readonly tfResourceType = "aws_networkmanager_site_to_site_vpn_attachment";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment aws_networkmanager_site_to_site_vpn_attachment} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options NetworkmanagerSiteToSiteVpnAttachmentConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: NetworkmanagerSiteToSiteVpnAttachmentConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_site_to_site_vpn_attachment aws_networkmanager_site_to_site_vpn_attachment} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options NetworkmanagerSiteToSiteVpnAttachmentConfig
+  */
+  public constructor(scope: Construct, id: string, config: NetworkmanagerSiteToSiteVpnAttachmentConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_networkmanager_site_to_site_vpn_attachment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -224,7 +202,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._coreNetworkId = config.coreNetworkId;
     this._id = config.id;
@@ -259,7 +237,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // core_network_id - computed: false, optional: false, required: true
-  private _coreNetworkId?: string;
+  private _coreNetworkId?: string; 
   public get coreNetworkId() {
     return this.getStringAttribute('core_network_id');
   }
@@ -277,7 +255,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -313,7 +291,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -329,7 +307,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -345,7 +323,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // vpn_connection_arn - computed: false, optional: false, required: true
-  private _vpnConnectionArn?: string;
+  private _vpnConnectionArn?: string; 
   public get vpnConnectionArn() {
     return this.getStringAttribute('vpn_connection_arn');
   }
@@ -358,11 +336,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new NetworkmanagerSiteToSiteVpnAttachmentTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -388,9 +362,7 @@ export class NetworkmanagerSiteToSiteVpnAttachment extends cdktf.TerraformResour
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       vpn_connection_arn: cdktf.stringToTerraform(this._vpnConnectionArn),
-      timeouts: networkmanagerSiteToSiteVpnAttachmentTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: networkmanagerSiteToSiteVpnAttachmentTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

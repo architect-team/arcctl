@@ -13,7 +13,6 @@ async function tag_action(options: GlobalOptions, source: string, target: string
 
   try {
     const component = await command_helper.componentStore.getComponentConfig(source);
-    console.log(component);
 
     component.tag(async (sourceRef: string, targetName: string) => {
       const imageRepository = new ImageRepository(target);

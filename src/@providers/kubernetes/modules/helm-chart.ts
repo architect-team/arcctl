@@ -1,45 +1,35 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
-import { ResourceModule } from '../../module.ts';
-import { Release } from '../.gen/providers/helm/release/index.ts';
-import { KubernetesCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
 import yaml from 'js-yaml';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { Release } from '../.gen/providers/helm/release/index.ts';
+import { KubernetesCredentials } from '../credentials.ts';
 
-export class KubernetesHelmChartModule extends ResourceModule<
-  'helmChart',
-  KubernetesCredentials
-> {
+export class KubernetesHelmChartModule extends ResourceModule<'helmChart', KubernetesCredentials> {
   outputs: ResourceOutputs['helmChart'];
   release: Release;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['helmChart'],
-  ) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'helmChart', KubernetesCredentials>) {
+    super(scope, options);
 
     this.release = new Release(this, 'chart', {
-      name: inputs.name,
-      namespace: inputs.namespace,
-      repository: inputs.repository,
-      chart: inputs.chart,
-      version: inputs.version,
-      values: [yaml.dump(inputs.values || {})],
+      name: this.inputs?.name || 'unknown',
+      namespace: this.inputs?.namespace,
+      repository: this.inputs?.repository || 'unknown',
+      chart: this.inputs?.chart || 'unknown',
+      version: this.inputs?.version,
+      values: [yaml.dump(this.inputs?.values || {})],
     });
 
     this.outputs = {
-      id: inputs.namespace ? `${inputs.namespace}/${inputs.name}` : inputs.name,
+      id: this.inputs?.namespace ? `${this.inputs.namespace}/${this.inputs.name}` : this.inputs?.name || 'unknown',
     };
   }
 
-  async genImports(
-    credentials: KubernetesCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.release)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

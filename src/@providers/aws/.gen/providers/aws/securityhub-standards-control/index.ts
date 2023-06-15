@@ -1,64 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface SecurityhubStandardsControlConfig
-  extends cdktf.TerraformMetaArguments {
+export interface SecurityhubStandardsControlConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#control_status SecurityhubStandardsControl#control_status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#control_status SecurityhubStandardsControl#control_status}
+  */
   readonly controlStatus: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#disabled_reason SecurityhubStandardsControl#disabled_reason}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#disabled_reason SecurityhubStandardsControl#disabled_reason}
+  */
   readonly disabledReason?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#id SecurityhubStandardsControl#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#id SecurityhubStandardsControl#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#standards_control_arn SecurityhubStandardsControl#standards_control_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control#standards_control_arn SecurityhubStandardsControl#standards_control_arn}
+  */
   readonly standardsControlArn: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control aws_securityhub_standards_control}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control aws_securityhub_standards_control}
+*/
 export class SecurityhubStandardsControl extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_securityhub_standards_control';
+  public static readonly tfResourceType = "aws_securityhub_standards_control";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control aws_securityhub_standards_control} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SecurityhubStandardsControlConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SecurityhubStandardsControlConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/securityhub_standards_control aws_securityhub_standards_control} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SecurityhubStandardsControlConfig
+  */
+  public constructor(scope: Construct, id: string, config: SecurityhubStandardsControlConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_securityhub_standards_control',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -66,7 +63,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._controlStatus = config.controlStatus;
     this._disabledReason = config.disabledReason;
@@ -84,7 +81,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // control_status - computed: false, optional: false, required: true
-  private _controlStatus?: string;
+  private _controlStatus?: string; 
   public get controlStatus() {
     return this.getStringAttribute('control_status');
   }
@@ -107,7 +104,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // disabled_reason - computed: true, optional: true, required: false
-  private _disabledReason?: string;
+  private _disabledReason?: string; 
   public get disabledReason() {
     return this.getStringAttribute('disabled_reason');
   }
@@ -123,7 +120,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -154,7 +151,7 @@ export class SecurityhubStandardsControl extends cdktf.TerraformResource {
   }
 
   // standards_control_arn - computed: false, optional: false, required: true
-  private _standardsControlArn?: string;
+  private _standardsControlArn?: string; 
   public get standardsControlArn() {
     return this.getStringAttribute('standards_control_arn');
   }

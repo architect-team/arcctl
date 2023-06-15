@@ -1,84 +1,74 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_partition_index
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface GluePartitionIndexConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#catalog_id GluePartitionIndex#catalog_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#catalog_id GluePartitionIndex#catalog_id}
+  */
   readonly catalogId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#database_name GluePartitionIndex#database_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#database_name GluePartitionIndex#database_name}
+  */
   readonly databaseName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#id GluePartitionIndex#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#id GluePartitionIndex#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#table_name GluePartitionIndex#table_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#table_name GluePartitionIndex#table_name}
+  */
   readonly tableName: string;
   /**
-   * partition_index block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#partition_index GluePartitionIndex#partition_index}
-   */
+  * partition_index block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#partition_index GluePartitionIndex#partition_index}
+  */
   readonly partitionIndex: GluePartitionIndexPartitionIndex;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#timeouts GluePartitionIndex#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#timeouts GluePartitionIndex#timeouts}
+  */
   readonly timeouts?: GluePartitionIndexTimeouts;
 }
 export interface GluePartitionIndexPartitionIndex {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#index_name GluePartitionIndex#index_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#index_name GluePartitionIndex#index_name}
+  */
   readonly indexName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#keys GluePartitionIndex#keys}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#keys GluePartitionIndex#keys}
+  */
   readonly keys?: string[];
 }
 
-export function gluePartitionIndexPartitionIndexToTerraform(
-  struct?:
-    | GluePartitionIndexPartitionIndexOutputReference
-    | GluePartitionIndexPartitionIndex,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gluePartitionIndexPartitionIndexToTerraform(struct?: GluePartitionIndexPartitionIndexOutputReference | GluePartitionIndexPartitionIndex): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     index_name: cdktf.stringToTerraform(struct!.indexName),
     keys: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.keys),
-  };
+  }
 }
 
 export class GluePartitionIndexPartitionIndexOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -96,14 +86,13 @@ export class GluePartitionIndexPartitionIndexOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GluePartitionIndexPartitionIndex | undefined,
-  ) {
+  public set internalValue(value: GluePartitionIndexPartitionIndex | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._indexName = undefined;
       this._keys = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._indexName = value.indexName;
       this._keys = value.keys;
@@ -111,7 +100,7 @@ export class GluePartitionIndexPartitionIndexOutputReference extends cdktf.Compl
   }
 
   // index_name - computed: false, optional: true, required: false
-  private _indexName?: string;
+  private _indexName?: string; 
   public get indexName() {
     return this.getStringAttribute('index_name');
   }
@@ -132,7 +121,7 @@ export class GluePartitionIndexPartitionIndexOutputReference extends cdktf.Compl
   }
 
   // keys - computed: false, optional: true, required: false
-  private _keys?: string[];
+  private _keys?: string[]; 
   public get keys() {
     return this.getListAttribute('keys');
   }
@@ -149,33 +138,24 @@ export class GluePartitionIndexPartitionIndexOutputReference extends cdktf.Compl
 }
 export interface GluePartitionIndexTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#create GluePartitionIndex#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#create GluePartitionIndex#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#delete GluePartitionIndex#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index#delete GluePartitionIndex#delete}
+  */
   readonly delete?: string;
 }
 
-export function gluePartitionIndexTimeoutsToTerraform(
-  struct?:
-    | GluePartitionIndexTimeoutsOutputReference
-    | GluePartitionIndexTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gluePartitionIndexTimeoutsToTerraform(struct?: GluePartitionIndexTimeoutsOutputReference | GluePartitionIndexTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class GluePartitionIndexTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -183,20 +163,14 @@ export class GluePartitionIndexTimeoutsOutputReference extends cdktf.ComplexObje
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GluePartitionIndexTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GluePartitionIndexTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -213,18 +187,18 @@ export class GluePartitionIndexTimeoutsOutputReference extends cdktf.ComplexObje
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GluePartitionIndexTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: GluePartitionIndexTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -233,7 +207,7 @@ export class GluePartitionIndexTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -249,7 +223,7 @@ export class GluePartitionIndexTimeoutsOutputReference extends cdktf.ComplexObje
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -266,36 +240,33 @@ export class GluePartitionIndexTimeoutsOutputReference extends cdktf.ComplexObje
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index aws_glue_partition_index}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index aws_glue_partition_index}
+*/
 export class GluePartitionIndex extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_glue_partition_index';
+  public static readonly tfResourceType = "aws_glue_partition_index";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index aws_glue_partition_index} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GluePartitionIndexConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GluePartitionIndexConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_partition_index aws_glue_partition_index} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GluePartitionIndexConfig
+  */
+  public constructor(scope: Construct, id: string, config: GluePartitionIndexConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_partition_index',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -303,7 +274,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._catalogId = config.catalogId;
     this._databaseName = config.databaseName;
@@ -318,7 +289,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
   // ==========
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string;
+  private _catalogId?: string; 
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -334,7 +305,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string;
+  private _databaseName?: string; 
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -347,7 +318,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -363,7 +334,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string;
+  private _tableName?: string; 
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -376,10 +347,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
   }
 
   // partition_index - computed: false, optional: false, required: true
-  private _partitionIndex = new GluePartitionIndexPartitionIndexOutputReference(
-    this,
-    'partition_index',
-  );
+  private _partitionIndex = new GluePartitionIndexPartitionIndexOutputReference(this, "partition_index");
   public get partitionIndex() {
     return this._partitionIndex;
   }
@@ -392,10 +360,7 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GluePartitionIndexTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new GluePartitionIndexTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -420,12 +385,8 @@ export class GluePartitionIndex extends cdktf.TerraformResource {
       database_name: cdktf.stringToTerraform(this._databaseName),
       id: cdktf.stringToTerraform(this._id),
       table_name: cdktf.stringToTerraform(this._tableName),
-      partition_index: gluePartitionIndexPartitionIndexToTerraform(
-        this._partitionIndex.internalValue,
-      ),
-      timeouts: gluePartitionIndexTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      partition_index: gluePartitionIndexPartitionIndexToTerraform(this._partitionIndex.internalValue),
+      timeouts: gluePartitionIndexTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

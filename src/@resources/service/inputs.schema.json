@@ -5,45 +5,46 @@
     "ServiceInputs": {
       "additionalProperties": false,
       "properties": {
-        "external_name": {
-          "description": "Map this service to the specified hostname instead of to a deployment selector",
+        "external_hostname": {
+          "description": "External address to point to",
           "type": "string"
         },
         "labels": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Labels for the service resource",
+          "description": "Resource labels",
           "type": "object"
         },
-        "listener_port": {
-          "default": 80,
-          "description": "Port to listen for requests on",
-          "type": "number"
-        },
         "name": {
-          "description": "Name to give to the service",
+          "description": "Hostname to listen on",
           "type": "string"
         },
         "namespace": {
-          "description": "Namespace the service should be registered in. Not all providers require this.",
+          "description": "Resource namespace",
           "type": "string"
         },
-        "protocol": {
-          "description": "Protocol the service responds to",
-          "type": "string"
+        "port": {
+          "description": "Port to listen on",
+          "type": "number"
         },
-        "selector": {
-          "description": "Reference used to target a deployment",
+        "target_deployment": {
+          "description": "Target deployment name",
           "type": "string"
         },
         "target_port": {
-          "description": "Port to forward requests to",
+          "description": "Target port",
           "type": "number"
+        },
+        "target_protocol": {
+          "default": "http",
+          "description": "Protocol",
+          "type": "string"
         }
       },
       "required": [
         "name",
+        "target_deployment",
         "target_port"
       ],
       "type": "object"

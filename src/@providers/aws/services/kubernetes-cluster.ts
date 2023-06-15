@@ -1,18 +1,26 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { ResourcePresets } from '../../service.ts';
+import { ResourcePresets } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsKubernetesClusterModule } from '../modules/kubernetes-cluster.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
 
 export class AwsKubernetesClusterService extends TerraformResourceService<'kubernetesCluster', AwsCredentials> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
+  readonly terraform_version = '1.4.5';
+  readonly construct = AwsKubernetesClusterModule;
+
+  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
+    return new TerraformAwsProvider(scope, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
   }
 
-  async get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
+  get(id: string): Promise<ResourceOutputs['kubernetesCluster'] | undefined> {
     const match = id.match(/^([\dA-Za-z-]+)\/([\w-]+)$/);
     if (!match) {
       throw new Error('ID must be of the format, <region>/<uuid>');
@@ -20,7 +28,7 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
 
     const [_, region, uuid] = match;
     const eks = AwsUtils.getEKS(this.credentials, region);
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       eks.describeCluster(
         {
           name: uuid,
@@ -32,10 +40,10 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
 
           return resolve({
             id: `${region}/${data?.cluster?.name}`,
-            vpc: data.cluster?.resourcesVpcConfig?.vpcId || '',
-            name: data.cluster?.name || '',
-            kubernetesVersion: data.cluster?.version || '',
-            account: '',
+            vpc: data.cluster?.resourcesVpcConfig?.vpcId || 'unknown',
+            name: data.cluster?.name || 'unknown',
+            kubernetesVersion: data.cluster?.version || 'unknown',
+            configPath: '',
           });
         },
       );
@@ -43,15 +51,16 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['kubernetesCluster']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>> {
-    const regions = await new AwsRegionService(this.credentials).list();
+    const regions = await new AwsRegionService(this.accountName, this.credentials, this.providerStore).list();
 
     const eksPromises: Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>[] = [];
     for (const region of regions.rows) {
       eksPromises.push(
-        new Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>(async (resolve, reject) => {
+        // deno-lint-ignore no-async-promise-executor
+        new Promise<PagingResponse<ResourceOutputs['kubernetesCluster']>>(async (resolve) => {
           const eksClustersData = await AwsUtils.getEKS(this.credentials, region.id).listClusters().promise();
           const clusters = eksClustersData.clusters || [];
           const clusterPromises = [];
@@ -74,10 +83,10 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
             total: clusterResults.length,
             rows: clusterResults.map((clusterData) => ({
               id: `${region?.id}/${clusterData?.cluster?.name}`,
-              vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || '',
-              name: clusterData.cluster?.name || '',
-              kubernetesVersion: clusterData.cluster?.version || '',
-              account: '',
+              vpc: clusterData.cluster?.resourcesVpcConfig?.vpcId || 'unknown',
+              name: clusterData.cluster?.name || 'unknown',
+              kubernetesVersion: clusterData.cluster?.version || 'unknown',
+              configPath: '',
             })),
           });
         }),
@@ -124,6 +133,4 @@ export class AwsKubernetesClusterService extends TerraformResourceService<'kuber
       },
     ];
   }
-
-  construct = AwsKubernetesClusterModule;
 }

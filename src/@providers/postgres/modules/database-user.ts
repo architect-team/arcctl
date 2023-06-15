@@ -1,20 +1,20 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { Construct } from 'constructs';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Role } from '../.gen/providers/postgresql/role/index.ts';
 import { PostgresCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
 export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', PostgresCredentials> {
   outputs: ResourceOutputs['databaseUser'];
   role: Role;
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseUser']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser', PostgresCredentials>) {
+    super(scope, options);
 
     const password = crypto.randomUUID();
 
     this.role = new Role(this, 'user', {
-      name: inputs.username,
+      name: this.inputs?.username || 'unknown',
       password,
       superuser: false,
       createDatabase: false,
@@ -27,19 +27,20 @@ export class PostgresDatabaseUserModule extends ResourceModule<'databaseUser', P
     this.outputs = {
       id: `${this.role.name}`,
       username: this.role.name,
-      password,
-      host: inputs.host || '',
-      port: inputs.port ? Number(inputs.port) : 0,
+      password: this.role.password,
+      host: this.credentials.host,
+      port: this.credentials.port,
       protocol,
-      url: `${protocol}://${inputs.host}:${inputs.port}/${this.inputs.databaseSchema}`,
-      database: this.inputs.databaseSchema,
+      url:
+        `${protocol}://${this.role.name}:${this.role.password}@${this.credentials.host}:${this.credentials.port}/${this.inputs?.databaseSchema}`,
+      database: this.inputs?.databaseSchema || 'unknown',
     };
   }
 
-  async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.role)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

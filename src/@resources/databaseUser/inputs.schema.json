@@ -9,21 +9,6 @@
           "description": "The schema the user should have access to",
           "type": "string"
         },
-        "host": {
-          "description": "The host address of the underlying database",
-          "type": "string"
-        },
-        "port": {
-          "description": "The port the underlying database is listening on",
-          "type": [
-            "string",
-            "number"
-          ]
-        },
-        "protocol": {
-          "description": "The protocol of the underlying database",
-          "type": "string"
-        },
         "username": {
           "description": "Username of the user to create",
           "type": "string"
@@ -31,10 +16,7 @@
       },
       "required": [
         "username",
-        "databaseSchema",
-        "protocol",
-        "host",
-        "port"
+        "databaseSchema"
       ],
       "type": "object"
     }

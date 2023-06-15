@@ -1,72 +1,59 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ConnectUserHierarchyStructureConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ConnectUserHierarchyStructureConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#id ConnectUserHierarchyStructure#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#id ConnectUserHierarchyStructure#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#instance_id ConnectUserHierarchyStructure#instance_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#instance_id ConnectUserHierarchyStructure#instance_id}
+  */
   readonly instanceId: string;
   /**
-   * hierarchy_structure block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#hierarchy_structure ConnectUserHierarchyStructure#hierarchy_structure}
-   */
+  * hierarchy_structure block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#hierarchy_structure ConnectUserHierarchyStructure#hierarchy_structure}
+  */
   readonly hierarchyStructure: ConnectUserHierarchyStructureHierarchyStructure;
 }
 export interface ConnectUserHierarchyStructureHierarchyStructureLevelFive {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
+  */
   readonly name: string;
 }
 
-export function connectUserHierarchyStructureHierarchyStructureLevelFiveToTerraform(
-  struct?:
-    | ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputReference
-    | ConnectUserHierarchyStructureHierarchyStructureLevelFive,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserHierarchyStructureHierarchyStructureLevelFiveToTerraform(struct?: ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputReference | ConnectUserHierarchyStructureHierarchyStructureLevelFive): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConnectUserHierarchyStructureHierarchyStructureLevelFive
-    | undefined {
+  public get internalValue(): ConnectUserHierarchyStructureHierarchyStructureLevelFive | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -76,13 +63,12 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelFive | undefined,
-  ) {
+  public set internalValue(value: ConnectUserHierarchyStructureHierarchyStructureLevelFive | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
@@ -99,7 +85,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -113,46 +99,33 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputRefer
 }
 export interface ConnectUserHierarchyStructureHierarchyStructureLevelFour {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
+  */
   readonly name: string;
 }
 
-export function connectUserHierarchyStructureHierarchyStructureLevelFourToTerraform(
-  struct?:
-    | ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputReference
-    | ConnectUserHierarchyStructureHierarchyStructureLevelFour,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserHierarchyStructureHierarchyStructureLevelFourToTerraform(struct?: ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputReference | ConnectUserHierarchyStructureHierarchyStructureLevelFour): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConnectUserHierarchyStructureHierarchyStructureLevelFour
-    | undefined {
+  public get internalValue(): ConnectUserHierarchyStructureHierarchyStructureLevelFour | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -162,13 +135,12 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelFour | undefined,
-  ) {
+  public set internalValue(value: ConnectUserHierarchyStructureHierarchyStructureLevelFour | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
@@ -185,7 +157,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -199,46 +171,33 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputRefer
 }
 export interface ConnectUserHierarchyStructureHierarchyStructureLevelOne {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
+  */
   readonly name: string;
 }
 
-export function connectUserHierarchyStructureHierarchyStructureLevelOneToTerraform(
-  struct?:
-    | ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputReference
-    | ConnectUserHierarchyStructureHierarchyStructureLevelOne,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserHierarchyStructureHierarchyStructureLevelOneToTerraform(struct?: ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputReference | ConnectUserHierarchyStructureHierarchyStructureLevelOne): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConnectUserHierarchyStructureHierarchyStructureLevelOne
-    | undefined {
+  public get internalValue(): ConnectUserHierarchyStructureHierarchyStructureLevelOne | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -248,13 +207,12 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelOne | undefined,
-  ) {
+  public set internalValue(value: ConnectUserHierarchyStructureHierarchyStructureLevelOne | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
@@ -271,7 +229,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputRefere
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -285,46 +243,33 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputRefere
 }
 export interface ConnectUserHierarchyStructureHierarchyStructureLevelThree {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
+  */
   readonly name: string;
 }
 
-export function connectUserHierarchyStructureHierarchyStructureLevelThreeToTerraform(
-  struct?:
-    | ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputReference
-    | ConnectUserHierarchyStructureHierarchyStructureLevelThree,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserHierarchyStructureHierarchyStructureLevelThreeToTerraform(struct?: ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputReference | ConnectUserHierarchyStructureHierarchyStructureLevelThree): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConnectUserHierarchyStructureHierarchyStructureLevelThree
-    | undefined {
+  public get internalValue(): ConnectUserHierarchyStructureHierarchyStructureLevelThree | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -334,15 +279,12 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | ConnectUserHierarchyStructureHierarchyStructureLevelThree
-      | undefined,
-  ) {
+  public set internalValue(value: ConnectUserHierarchyStructureHierarchyStructureLevelThree | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
@@ -359,7 +301,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputRefe
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -373,46 +315,33 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputRefe
 }
 export interface ConnectUserHierarchyStructureHierarchyStructureLevelTwo {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#name ConnectUserHierarchyStructure#name}
+  */
   readonly name: string;
 }
 
-export function connectUserHierarchyStructureHierarchyStructureLevelTwoToTerraform(
-  struct?:
-    | ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputReference
-    | ConnectUserHierarchyStructureHierarchyStructureLevelTwo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserHierarchyStructureHierarchyStructureLevelTwoToTerraform(struct?: ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputReference | ConnectUserHierarchyStructureHierarchyStructureLevelTwo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConnectUserHierarchyStructureHierarchyStructureLevelTwo
-    | undefined {
+  public get internalValue(): ConnectUserHierarchyStructureHierarchyStructureLevelTwo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -422,13 +351,12 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelTwo | undefined,
-  ) {
+  public set internalValue(value: ConnectUserHierarchyStructureHierarchyStructureLevelTwo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
@@ -445,7 +373,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputRefere
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,91 +387,63 @@ export class ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputRefere
 }
 export interface ConnectUserHierarchyStructureHierarchyStructure {
   /**
-   * level_five block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_five ConnectUserHierarchyStructure#level_five}
-   */
+  * level_five block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_five ConnectUserHierarchyStructure#level_five}
+  */
   readonly levelFive?: ConnectUserHierarchyStructureHierarchyStructureLevelFive;
   /**
-   * level_four block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_four ConnectUserHierarchyStructure#level_four}
-   */
+  * level_four block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_four ConnectUserHierarchyStructure#level_four}
+  */
   readonly levelFour?: ConnectUserHierarchyStructureHierarchyStructureLevelFour;
   /**
-   * level_one block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_one ConnectUserHierarchyStructure#level_one}
-   */
+  * level_one block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_one ConnectUserHierarchyStructure#level_one}
+  */
   readonly levelOne?: ConnectUserHierarchyStructureHierarchyStructureLevelOne;
   /**
-   * level_three block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_three ConnectUserHierarchyStructure#level_three}
-   */
+  * level_three block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_three ConnectUserHierarchyStructure#level_three}
+  */
   readonly levelThree?: ConnectUserHierarchyStructureHierarchyStructureLevelThree;
   /**
-   * level_two block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_two ConnectUserHierarchyStructure#level_two}
-   */
+  * level_two block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure#level_two ConnectUserHierarchyStructure#level_two}
+  */
   readonly levelTwo?: ConnectUserHierarchyStructureHierarchyStructureLevelTwo;
 }
 
-export function connectUserHierarchyStructureHierarchyStructureToTerraform(
-  struct?:
-    | ConnectUserHierarchyStructureHierarchyStructureOutputReference
-    | ConnectUserHierarchyStructureHierarchyStructure,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserHierarchyStructureHierarchyStructureToTerraform(struct?: ConnectUserHierarchyStructureHierarchyStructureOutputReference | ConnectUserHierarchyStructureHierarchyStructure): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    level_five:
-      connectUserHierarchyStructureHierarchyStructureLevelFiveToTerraform(
-        struct!.levelFive,
-      ),
-    level_four:
-      connectUserHierarchyStructureHierarchyStructureLevelFourToTerraform(
-        struct!.levelFour,
-      ),
-    level_one:
-      connectUserHierarchyStructureHierarchyStructureLevelOneToTerraform(
-        struct!.levelOne,
-      ),
-    level_three:
-      connectUserHierarchyStructureHierarchyStructureLevelThreeToTerraform(
-        struct!.levelThree,
-      ),
-    level_two:
-      connectUserHierarchyStructureHierarchyStructureLevelTwoToTerraform(
-        struct!.levelTwo,
-      ),
-  };
+    level_five: connectUserHierarchyStructureHierarchyStructureLevelFiveToTerraform(struct!.levelFive),
+    level_four: connectUserHierarchyStructureHierarchyStructureLevelFourToTerraform(struct!.levelFour),
+    level_one: connectUserHierarchyStructureHierarchyStructureLevelOneToTerraform(struct!.levelOne),
+    level_three: connectUserHierarchyStructureHierarchyStructureLevelThreeToTerraform(struct!.levelThree),
+    level_two: connectUserHierarchyStructureHierarchyStructureLevelTwoToTerraform(struct!.levelTwo),
+  }
 }
 
 export class ConnectUserHierarchyStructureHierarchyStructureOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ConnectUserHierarchyStructureHierarchyStructure
-    | undefined {
+  public get internalValue(): ConnectUserHierarchyStructureHierarchyStructure | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._levelFive?.internalValue !== undefined) {
@@ -569,9 +469,7 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ConnectUserHierarchyStructureHierarchyStructure | undefined,
-  ) {
+  public set internalValue(value: ConnectUserHierarchyStructureHierarchyStructure | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._levelFive.internalValue = undefined;
@@ -579,7 +477,8 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
       this._levelOne.internalValue = undefined;
       this._levelThree.internalValue = undefined;
       this._levelTwo.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._levelFive.internalValue = value.levelFive;
       this._levelFour.internalValue = value.levelFour;
@@ -590,17 +489,11 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
   }
 
   // level_five - computed: false, optional: true, required: false
-  private _levelFive =
-    new ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputReference(
-      this,
-      'level_five',
-    );
+  private _levelFive = new ConnectUserHierarchyStructureHierarchyStructureLevelFiveOutputReference(this, "level_five");
   public get levelFive() {
     return this._levelFive;
   }
-  public putLevelFive(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelFive,
-  ) {
+  public putLevelFive(value: ConnectUserHierarchyStructureHierarchyStructureLevelFive) {
     this._levelFive.internalValue = value;
   }
   public resetLevelFive() {
@@ -612,17 +505,11 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
   }
 
   // level_four - computed: false, optional: true, required: false
-  private _levelFour =
-    new ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputReference(
-      this,
-      'level_four',
-    );
+  private _levelFour = new ConnectUserHierarchyStructureHierarchyStructureLevelFourOutputReference(this, "level_four");
   public get levelFour() {
     return this._levelFour;
   }
-  public putLevelFour(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelFour,
-  ) {
+  public putLevelFour(value: ConnectUserHierarchyStructureHierarchyStructureLevelFour) {
     this._levelFour.internalValue = value;
   }
   public resetLevelFour() {
@@ -634,17 +521,11 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
   }
 
   // level_one - computed: false, optional: true, required: false
-  private _levelOne =
-    new ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputReference(
-      this,
-      'level_one',
-    );
+  private _levelOne = new ConnectUserHierarchyStructureHierarchyStructureLevelOneOutputReference(this, "level_one");
   public get levelOne() {
     return this._levelOne;
   }
-  public putLevelOne(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelOne,
-  ) {
+  public putLevelOne(value: ConnectUserHierarchyStructureHierarchyStructureLevelOne) {
     this._levelOne.internalValue = value;
   }
   public resetLevelOne() {
@@ -656,17 +537,11 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
   }
 
   // level_three - computed: false, optional: true, required: false
-  private _levelThree =
-    new ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputReference(
-      this,
-      'level_three',
-    );
+  private _levelThree = new ConnectUserHierarchyStructureHierarchyStructureLevelThreeOutputReference(this, "level_three");
   public get levelThree() {
     return this._levelThree;
   }
-  public putLevelThree(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelThree,
-  ) {
+  public putLevelThree(value: ConnectUserHierarchyStructureHierarchyStructureLevelThree) {
     this._levelThree.internalValue = value;
   }
   public resetLevelThree() {
@@ -678,17 +553,11 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
   }
 
   // level_two - computed: false, optional: true, required: false
-  private _levelTwo =
-    new ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputReference(
-      this,
-      'level_two',
-    );
+  private _levelTwo = new ConnectUserHierarchyStructureHierarchyStructureLevelTwoOutputReference(this, "level_two");
   public get levelTwo() {
     return this._levelTwo;
   }
-  public putLevelTwo(
-    value: ConnectUserHierarchyStructureHierarchyStructureLevelTwo,
-  ) {
+  public putLevelTwo(value: ConnectUserHierarchyStructureHierarchyStructureLevelTwo) {
     this._levelTwo.internalValue = value;
   }
   public resetLevelTwo() {
@@ -701,37 +570,33 @@ export class ConnectUserHierarchyStructureHierarchyStructureOutputReference exte
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure aws_connect_user_hierarchy_structure}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure aws_connect_user_hierarchy_structure}
+*/
 export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_connect_user_hierarchy_structure';
+  public static readonly tfResourceType = "aws_connect_user_hierarchy_structure";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure aws_connect_user_hierarchy_structure} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ConnectUserHierarchyStructureConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ConnectUserHierarchyStructureConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/connect_user_hierarchy_structure aws_connect_user_hierarchy_structure} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ConnectUserHierarchyStructureConfig
+  */
+  public constructor(scope: Construct, id: string, config: ConnectUserHierarchyStructureConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_connect_user_hierarchy_structure',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -739,7 +604,7 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._instanceId = config.instanceId;
@@ -751,7 +616,7 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -767,7 +632,7 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string;
+  private _instanceId?: string; 
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -780,17 +645,11 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
   }
 
   // hierarchy_structure - computed: false, optional: false, required: true
-  private _hierarchyStructure =
-    new ConnectUserHierarchyStructureHierarchyStructureOutputReference(
-      this,
-      'hierarchy_structure',
-    );
+  private _hierarchyStructure = new ConnectUserHierarchyStructureHierarchyStructureOutputReference(this, "hierarchy_structure");
   public get hierarchyStructure() {
     return this._hierarchyStructure;
   }
-  public putHierarchyStructure(
-    value: ConnectUserHierarchyStructureHierarchyStructure,
-  ) {
+  public putHierarchyStructure(value: ConnectUserHierarchyStructureHierarchyStructure) {
     this._hierarchyStructure.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -806,10 +665,7 @@ export class ConnectUserHierarchyStructure extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       instance_id: cdktf.stringToTerraform(this._instanceId),
-      hierarchy_structure:
-        connectUserHierarchyStructureHierarchyStructureToTerraform(
-          this._hierarchyStructure.internalValue,
-        ),
+      hierarchy_structure: connectUserHierarchyStructureHierarchyStructureToTerraform(this._hierarchyStructure.internalValue),
     };
   }
 }

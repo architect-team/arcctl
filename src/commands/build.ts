@@ -1,8 +1,8 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
-import { Component, parseComponent } from '../components/index.ts';
 import { ImageRepository } from '@architect-io/arc-oci';
 import * as path from 'std/path/mod.ts';
+import { Component, parseComponent } from '../components/index.ts';
 import { exec } from '../utils/command.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from './base-command.ts';
 
 type BuildOptions = {
   tag?: string[];
@@ -48,9 +48,19 @@ async function build_action(options: BuildOptions, context_file: string): Promis
         buildArgs.push('--build-arg', `${key}=${value}`);
       }
     }
-    buildArgs.push(path.join(Deno.cwd(), context, options.context));
-    const { stdout } = await exec('docker', { args: buildArgs });
+    if (path.isAbsolute(options.context)) {
+      buildArgs.push(options.context);
+    } else {
+      buildArgs.push(path.join(Deno.cwd(), context, options.context));
+    }
+    const { code, stdout, stderr } = await exec('docker', { args: buildArgs });
+    if (code !== 0) {
+      throw new Error(stderr);
+    }
     return stdout;
+  }, async (options) => {
+    console.log(options);
+    return '';
   });
 
   const digest = await command_helper.componentStore.add(component);

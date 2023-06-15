@@ -1,3 +1,4 @@
+import * as path from 'std/path/mod.ts';
 import {
   ArchitectPlugin,
   PluginArchitecture,
@@ -6,7 +7,6 @@ import {
   PluginOptions,
   PluginPlatform,
 } from './plugin-types.ts';
-import * as path from 'std/path/mod.ts';
 
 export type TerraformVersion = '1.4.6' | '1.3.2' | '1.2.9' | 'fake';
 

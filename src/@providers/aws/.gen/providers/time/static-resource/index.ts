@@ -1,59 +1,57 @@
 // https://www.terraform.io/docs/providers/time/r/static
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface StaticResourceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/static#id StaticResource#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/static#id StaticResource#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/static#rfc3339 StaticResource#rfc3339}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/static#rfc3339 StaticResource#rfc3339}
+  */
   readonly rfc3339?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/static#triggers StaticResource#triggers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/static#triggers StaticResource#triggers}
+  */
   readonly triggers?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/time/r/static time_static}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/time/r/static time_static}
+*/
 export class StaticResource extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'time_static';
+  public static readonly tfResourceType = "time_static";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/time/r/static time_static} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options StaticResourceConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: StaticResourceConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/time/r/static time_static} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options StaticResourceConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: StaticResourceConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'time_static',
       terraformGeneratorMetadata: {
         providerName: 'time',
         providerVersion: '0.5.0',
-        providerVersionConstraint: '0.5.0',
+        providerVersionConstraint: '0.5.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -61,7 +59,7 @@ export class StaticResource extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._rfc3339 = config.rfc3339;
@@ -83,7 +81,7 @@ export class StaticResource extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -109,7 +107,7 @@ export class StaticResource extends cdktf.TerraformResource {
   }
 
   // rfc3339 - computed: true, optional: true, required: false
-  private _rfc3339?: string;
+  private _rfc3339?: string; 
   public get rfc3339() {
     return this.getStringAttribute('rfc3339');
   }
@@ -130,7 +128,7 @@ export class StaticResource extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string };
+  private _triggers?: { [key: string]: string }; 
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

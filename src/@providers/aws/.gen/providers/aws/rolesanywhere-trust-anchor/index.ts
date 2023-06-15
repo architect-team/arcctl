@@ -1,89 +1,76 @@
 // https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface RolesanywhereTrustAnchorConfig
-  extends cdktf.TerraformMetaArguments {
+export interface RolesanywhereTrustAnchorConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#enabled RolesanywhereTrustAnchor#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#enabled RolesanywhereTrustAnchor#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#id RolesanywhereTrustAnchor#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#id RolesanywhereTrustAnchor#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#name RolesanywhereTrustAnchor#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#name RolesanywhereTrustAnchor#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#tags RolesanywhereTrustAnchor#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#tags RolesanywhereTrustAnchor#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#tags_all RolesanywhereTrustAnchor#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#tags_all RolesanywhereTrustAnchor#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * source block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source RolesanywhereTrustAnchor#source}
-   */
+  * source block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source RolesanywhereTrustAnchor#source}
+  */
   readonly source: RolesanywhereTrustAnchorSource;
 }
 export interface RolesanywhereTrustAnchorSourceSourceData {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#acm_pca_arn RolesanywhereTrustAnchor#acm_pca_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#acm_pca_arn RolesanywhereTrustAnchor#acm_pca_arn}
+  */
   readonly acmPcaArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#x509_certificate_data RolesanywhereTrustAnchor#x509_certificate_data}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#x509_certificate_data RolesanywhereTrustAnchor#x509_certificate_data}
+  */
   readonly x509CertificateData?: string;
 }
 
-export function rolesanywhereTrustAnchorSourceSourceDataToTerraform(
-  struct?:
-    | RolesanywhereTrustAnchorSourceSourceDataOutputReference
-    | RolesanywhereTrustAnchorSourceSourceData,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function rolesanywhereTrustAnchorSourceSourceDataToTerraform(struct?: RolesanywhereTrustAnchorSourceSourceDataOutputReference | RolesanywhereTrustAnchorSourceSourceData): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     acm_pca_arn: cdktf.stringToTerraform(struct!.acmPcaArn),
     x509_certificate_data: cdktf.stringToTerraform(struct!.x509CertificateData),
-  };
+  }
 }
 
 export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | RolesanywhereTrustAnchorSourceSourceData
-    | undefined {
+  public get internalValue(): RolesanywhereTrustAnchorSourceSourceData | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._acmPcaArn !== undefined) {
@@ -97,14 +84,13 @@ export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: RolesanywhereTrustAnchorSourceSourceData | undefined,
-  ) {
+  public set internalValue(value: RolesanywhereTrustAnchorSourceSourceData | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._acmPcaArn = undefined;
       this._x509CertificateData = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._acmPcaArn = value.acmPcaArn;
       this._x509CertificateData = value.x509CertificateData;
@@ -112,7 +98,7 @@ export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdk
   }
 
   // acm_pca_arn - computed: false, optional: true, required: false
-  private _acmPcaArn?: string;
+  private _acmPcaArn?: string; 
   public get acmPcaArn() {
     return this.getStringAttribute('acm_pca_arn');
   }
@@ -128,7 +114,7 @@ export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdk
   }
 
   // x509_certificate_data - computed: false, optional: true, required: false
-  private _x509CertificateData?: string;
+  private _x509CertificateData?: string; 
   public get x509CertificateData() {
     return this.getStringAttribute('x509_certificate_data');
   }
@@ -145,49 +131,36 @@ export class RolesanywhereTrustAnchorSourceSourceDataOutputReference extends cdk
 }
 export interface RolesanywhereTrustAnchorSource {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source_type RolesanywhereTrustAnchor#source_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source_type RolesanywhereTrustAnchor#source_type}
+  */
   readonly sourceType: string;
   /**
-   * source_data block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source_data RolesanywhereTrustAnchor#source_data}
-   */
+  * source_data block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor#source_data RolesanywhereTrustAnchor#source_data}
+  */
   readonly sourceData: RolesanywhereTrustAnchorSourceSourceData;
 }
 
-export function rolesanywhereTrustAnchorSourceToTerraform(
-  struct?:
-    | RolesanywhereTrustAnchorSourceOutputReference
-    | RolesanywhereTrustAnchorSource,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function rolesanywhereTrustAnchorSourceToTerraform(struct?: RolesanywhereTrustAnchorSourceOutputReference | RolesanywhereTrustAnchorSource): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     source_type: cdktf.stringToTerraform(struct!.sourceType),
-    source_data: rolesanywhereTrustAnchorSourceSourceDataToTerraform(
-      struct!.sourceData,
-    ),
-  };
+    source_data: rolesanywhereTrustAnchorSourceSourceDataToTerraform(struct!.sourceData),
+  }
 }
 
 export class RolesanywhereTrustAnchorSourceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -210,7 +183,8 @@ export class RolesanywhereTrustAnchorSourceOutputReference extends cdktf.Complex
       this.isEmptyObject = false;
       this._sourceType = undefined;
       this._sourceData.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._sourceType = value.sourceType;
       this._sourceData.internalValue = value.sourceData;
@@ -218,7 +192,7 @@ export class RolesanywhereTrustAnchorSourceOutputReference extends cdktf.Complex
   }
 
   // source_type - computed: false, optional: false, required: true
-  private _sourceType?: string;
+  private _sourceType?: string; 
   public get sourceType() {
     return this.getStringAttribute('source_type');
   }
@@ -231,11 +205,7 @@ export class RolesanywhereTrustAnchorSourceOutputReference extends cdktf.Complex
   }
 
   // source_data - computed: false, optional: false, required: true
-  private _sourceData =
-    new RolesanywhereTrustAnchorSourceSourceDataOutputReference(
-      this,
-      'source_data',
-    );
+  private _sourceData = new RolesanywhereTrustAnchorSourceSourceDataOutputReference(this, "source_data");
   public get sourceData() {
     return this._sourceData;
   }
@@ -249,36 +219,33 @@ export class RolesanywhereTrustAnchorSourceOutputReference extends cdktf.Complex
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor aws_rolesanywhere_trust_anchor}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor aws_rolesanywhere_trust_anchor}
+*/
 export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_rolesanywhere_trust_anchor';
+  public static readonly tfResourceType = "aws_rolesanywhere_trust_anchor";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor aws_rolesanywhere_trust_anchor} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options RolesanywhereTrustAnchorConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: RolesanywhereTrustAnchorConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/rolesanywhere_trust_anchor aws_rolesanywhere_trust_anchor} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options RolesanywhereTrustAnchorConfig
+  */
+  public constructor(scope: Construct, id: string, config: RolesanywhereTrustAnchorConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_rolesanywhere_trust_anchor',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -286,7 +253,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._enabled = config.enabled;
     this._id = config.id;
@@ -306,7 +273,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // enabled - computed: true, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -322,7 +289,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -338,7 +305,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -351,7 +318,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -367,7 +334,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -383,10 +350,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
   }
 
   // source - computed: false, optional: false, required: true
-  private _source = new RolesanywhereTrustAnchorSourceOutputReference(
-    this,
-    'source',
-  );
+  private _source = new RolesanywhereTrustAnchorSourceOutputReference(this, "source");
   public get source() {
     return this._source;
   }
@@ -409,9 +373,7 @@ export class RolesanywhereTrustAnchor extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      source: rolesanywhereTrustAnchorSourceToTerraform(
-        this._source.internalValue,
-      ),
+      source: rolesanywhereTrustAnchorSourceToTerraform(this._source.internalValue),
     };
   }
 }

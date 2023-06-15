@@ -1,94 +1,81 @@
 // https://www.terraform.io/docs/providers/aws/d/ce_tags
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DataAwsCeTagsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#id DataAwsCeTags#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#id DataAwsCeTags#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#search_string DataAwsCeTags#search_string}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#search_string DataAwsCeTags#search_string}
+  */
   readonly searchString?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tag_key DataAwsCeTags#tag_key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tag_key DataAwsCeTags#tag_key}
+  */
   readonly tagKey?: string;
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#filter DataAwsCeTags#filter}
-   */
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#filter DataAwsCeTags#filter}
+  */
   readonly filter?: DataAwsCeTagsFilter;
   /**
-   * sort_by block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#sort_by DataAwsCeTags#sort_by}
-   */
+  * sort_by block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#sort_by DataAwsCeTags#sort_by}
+  */
   readonly sortBy?: DataAwsCeTagsSortBy[] | cdktf.IResolvable;
   /**
-   * time_period block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#time_period DataAwsCeTags#time_period}
-   */
+  * time_period block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#time_period DataAwsCeTags#time_period}
+  */
   readonly timePeriod: DataAwsCeTagsTimePeriod;
 }
 export interface DataAwsCeTagsFilterAndCostCategory {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterAndCostCategoryToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterAndCostCategoryOutputReference
-    | DataAwsCeTagsFilterAndCostCategory,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterAndCostCategoryToTerraform(struct?: DataAwsCeTagsFilterAndCostCategoryOutputReference | DataAwsCeTagsFilterAndCostCategory): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -110,15 +97,14 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCeTagsFilterAndCostCategory | undefined,
-  ) {
+  public set internalValue(value: DataAwsCeTagsFilterAndCostCategory | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -127,7 +113,7 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -143,7 +129,7 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -159,7 +145,7 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -176,53 +162,39 @@ export class DataAwsCeTagsFilterAndCostCategoryOutputReference extends cdktf.Com
 }
 export interface DataAwsCeTagsFilterAndDimension {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterAndDimensionToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterAndDimensionOutputReference
-    | DataAwsCeTagsFilterAndDimension,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterAndDimensionToTerraform(struct?: DataAwsCeTagsFilterAndDimensionOutputReference | DataAwsCeTagsFilterAndDimension): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -250,7 +222,8 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -259,7 +232,7 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -275,7 +248,7 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -291,7 +264,7 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -308,53 +281,39 @@ export class DataAwsCeTagsFilterAndDimensionOutputReference extends cdktf.Comple
 }
 export interface DataAwsCeTagsFilterAndTags {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterAndTagsToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterAndTagsOutputReference
-    | DataAwsCeTagsFilterAndTags,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterAndTagsToTerraform(struct?: DataAwsCeTagsFilterAndTagsOutputReference | DataAwsCeTagsFilterAndTags): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -382,7 +341,8 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -391,7 +351,7 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -407,7 +367,7 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -423,7 +383,7 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -440,43 +400,35 @@ export class DataAwsCeTagsFilterAndTagsOutputReference extends cdktf.ComplexObje
 }
 export interface DataAwsCeTagsFilterAnd {
   /**
-   * cost_category block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
-   */
+  * cost_category block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
+  */
   readonly costCategory?: DataAwsCeTagsFilterAndCostCategory;
   /**
-   * dimension block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
-   */
+  * dimension block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
+  */
   readonly dimension?: DataAwsCeTagsFilterAndDimension;
   /**
-   * tags block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
-   */
+  * tags block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
+  */
   readonly tags?: DataAwsCeTagsFilterAndTags;
 }
 
-export function dataAwsCeTagsFilterAndToTerraform(
-  struct?: DataAwsCeTagsFilterAnd | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterAndToTerraform(struct?: DataAwsCeTagsFilterAnd | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    cost_category: dataAwsCeTagsFilterAndCostCategoryToTerraform(
-      struct!.costCategory,
-    ),
+    cost_category: dataAwsCeTagsFilterAndCostCategoryToTerraform(struct!.costCategory),
     dimension: dataAwsCeTagsFilterAndDimensionToTerraform(struct!.dimension),
     tags: dataAwsCeTagsFilterAndTagsToTerraform(struct!.tags),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
@@ -484,29 +436,16 @@ export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCeTagsFilterAnd
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsCeTagsFilterAnd | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -527,19 +466,19 @@ export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCeTagsFilterAnd | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataAwsCeTagsFilterAnd | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._costCategory.internalValue = undefined;
       this._dimension.internalValue = undefined;
       this._tags.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._costCategory.internalValue = value.costCategory;
@@ -549,10 +488,7 @@ export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
   }
 
   // cost_category - computed: false, optional: true, required: false
-  private _costCategory = new DataAwsCeTagsFilterAndCostCategoryOutputReference(
-    this,
-    'cost_category',
-  );
+  private _costCategory = new DataAwsCeTagsFilterAndCostCategoryOutputReference(this, "cost_category");
   public get costCategory() {
     return this._costCategory;
   }
@@ -568,10 +504,7 @@ export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
   }
 
   // dimension - computed: false, optional: true, required: false
-  private _dimension = new DataAwsCeTagsFilterAndDimensionOutputReference(
-    this,
-    'dimension',
-  );
+  private _dimension = new DataAwsCeTagsFilterAndDimensionOutputReference(this, "dimension");
   public get dimension() {
     return this._dimension;
   }
@@ -587,7 +520,7 @@ export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags = new DataAwsCeTagsFilterAndTagsOutputReference(this, 'tags');
+  private _tags = new DataAwsCeTagsFilterAndTagsOutputReference(this, "tags");
   public get tags() {
     return this._tags;
   }
@@ -604,82 +537,59 @@ export class DataAwsCeTagsFilterAndOutputReference extends cdktf.ComplexObject {
 }
 
 export class DataAwsCeTagsFilterAndList extends cdktf.ComplexList {
-  public internalValue?: DataAwsCeTagsFilterAnd[] | cdktf.IResolvable;
+  public internalValue? : DataAwsCeTagsFilterAnd[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataAwsCeTagsFilterAndOutputReference {
-    return new DataAwsCeTagsFilterAndOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataAwsCeTagsFilterAndOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsCeTagsFilterCostCategory {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterCostCategoryToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterCostCategoryOutputReference
-    | DataAwsCeTagsFilterCostCategory,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterCostCategoryToTerraform(struct?: DataAwsCeTagsFilterCostCategoryOutputReference | DataAwsCeTagsFilterCostCategory): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -707,7 +617,8 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -716,7 +627,7 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -732,7 +643,7 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -748,7 +659,7 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -765,53 +676,39 @@ export class DataAwsCeTagsFilterCostCategoryOutputReference extends cdktf.Comple
 }
 export interface DataAwsCeTagsFilterDimension {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterDimensionToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterDimensionOutputReference
-    | DataAwsCeTagsFilterDimension,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterDimensionToTerraform(struct?: DataAwsCeTagsFilterDimensionOutputReference | DataAwsCeTagsFilterDimension): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -839,7 +736,8 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -848,7 +746,7 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -864,7 +762,7 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -880,7 +778,7 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -897,53 +795,39 @@ export class DataAwsCeTagsFilterDimensionOutputReference extends cdktf.ComplexOb
 }
 export interface DataAwsCeTagsFilterNotCostCategory {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterNotCostCategoryToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterNotCostCategoryOutputReference
-    | DataAwsCeTagsFilterNotCostCategory,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterNotCostCategoryToTerraform(struct?: DataAwsCeTagsFilterNotCostCategoryOutputReference | DataAwsCeTagsFilterNotCostCategory): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -965,15 +849,14 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCeTagsFilterNotCostCategory | undefined,
-  ) {
+  public set internalValue(value: DataAwsCeTagsFilterNotCostCategory | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -982,7 +865,7 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -998,7 +881,7 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1014,7 +897,7 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1031,53 +914,39 @@ export class DataAwsCeTagsFilterNotCostCategoryOutputReference extends cdktf.Com
 }
 export interface DataAwsCeTagsFilterNotDimension {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterNotDimensionToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterNotDimensionOutputReference
-    | DataAwsCeTagsFilterNotDimension,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterNotDimensionToTerraform(struct?: DataAwsCeTagsFilterNotDimensionOutputReference | DataAwsCeTagsFilterNotDimension): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1105,7 +974,8 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -1114,7 +984,7 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1130,7 +1000,7 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1146,7 +1016,7 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1163,53 +1033,39 @@ export class DataAwsCeTagsFilterNotDimensionOutputReference extends cdktf.Comple
 }
 export interface DataAwsCeTagsFilterNotTags {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterNotTagsToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterNotTagsOutputReference
-    | DataAwsCeTagsFilterNotTags,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterNotTagsToTerraform(struct?: DataAwsCeTagsFilterNotTagsOutputReference | DataAwsCeTagsFilterNotTags): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1237,7 +1093,8 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -1246,7 +1103,7 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1262,7 +1119,7 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1278,7 +1135,7 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1295,56 +1152,45 @@ export class DataAwsCeTagsFilterNotTagsOutputReference extends cdktf.ComplexObje
 }
 export interface DataAwsCeTagsFilterNot {
   /**
-   * cost_category block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
-   */
+  * cost_category block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
+  */
   readonly costCategory?: DataAwsCeTagsFilterNotCostCategory;
   /**
-   * dimension block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
-   */
+  * dimension block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
+  */
   readonly dimension?: DataAwsCeTagsFilterNotDimension;
   /**
-   * tags block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
-   */
+  * tags block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
+  */
   readonly tags?: DataAwsCeTagsFilterNotTags;
 }
 
-export function dataAwsCeTagsFilterNotToTerraform(
-  struct?: DataAwsCeTagsFilterNotOutputReference | DataAwsCeTagsFilterNot,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterNotToTerraform(struct?: DataAwsCeTagsFilterNotOutputReference | DataAwsCeTagsFilterNot): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    cost_category: dataAwsCeTagsFilterNotCostCategoryToTerraform(
-      struct!.costCategory,
-    ),
+    cost_category: dataAwsCeTagsFilterNotCostCategoryToTerraform(struct!.costCategory),
     dimension: dataAwsCeTagsFilterNotDimensionToTerraform(struct!.dimension),
     tags: dataAwsCeTagsFilterNotTagsToTerraform(struct!.tags),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterNotOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1372,7 +1218,8 @@ export class DataAwsCeTagsFilterNotOutputReference extends cdktf.ComplexObject {
       this._costCategory.internalValue = undefined;
       this._dimension.internalValue = undefined;
       this._tags.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._costCategory.internalValue = value.costCategory;
       this._dimension.internalValue = value.dimension;
@@ -1381,10 +1228,7 @@ export class DataAwsCeTagsFilterNotOutputReference extends cdktf.ComplexObject {
   }
 
   // cost_category - computed: false, optional: true, required: false
-  private _costCategory = new DataAwsCeTagsFilterNotCostCategoryOutputReference(
-    this,
-    'cost_category',
-  );
+  private _costCategory = new DataAwsCeTagsFilterNotCostCategoryOutputReference(this, "cost_category");
   public get costCategory() {
     return this._costCategory;
   }
@@ -1400,10 +1244,7 @@ export class DataAwsCeTagsFilterNotOutputReference extends cdktf.ComplexObject {
   }
 
   // dimension - computed: false, optional: true, required: false
-  private _dimension = new DataAwsCeTagsFilterNotDimensionOutputReference(
-    this,
-    'dimension',
-  );
+  private _dimension = new DataAwsCeTagsFilterNotDimensionOutputReference(this, "dimension");
   public get dimension() {
     return this._dimension;
   }
@@ -1419,7 +1260,7 @@ export class DataAwsCeTagsFilterNotOutputReference extends cdktf.ComplexObject {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags = new DataAwsCeTagsFilterNotTagsOutputReference(this, 'tags');
+  private _tags = new DataAwsCeTagsFilterNotTagsOutputReference(this, "tags");
   public get tags() {
     return this._tags;
   }
@@ -1436,53 +1277,39 @@ export class DataAwsCeTagsFilterNotOutputReference extends cdktf.ComplexObject {
 }
 export interface DataAwsCeTagsFilterOrCostCategory {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterOrCostCategoryToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterOrCostCategoryOutputReference
-    | DataAwsCeTagsFilterOrCostCategory,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterOrCostCategoryToTerraform(struct?: DataAwsCeTagsFilterOrCostCategoryOutputReference | DataAwsCeTagsFilterOrCostCategory): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1504,15 +1331,14 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCeTagsFilterOrCostCategory | undefined,
-  ) {
+  public set internalValue(value: DataAwsCeTagsFilterOrCostCategory | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -1521,7 +1347,7 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1537,7 +1363,7 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1553,7 +1379,7 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1570,53 +1396,39 @@ export class DataAwsCeTagsFilterOrCostCategoryOutputReference extends cdktf.Comp
 }
 export interface DataAwsCeTagsFilterOrDimension {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterOrDimensionToTerraform(
-  struct?:
-    | DataAwsCeTagsFilterOrDimensionOutputReference
-    | DataAwsCeTagsFilterOrDimension,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterOrDimensionToTerraform(struct?: DataAwsCeTagsFilterOrDimensionOutputReference | DataAwsCeTagsFilterOrDimension): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1644,7 +1456,8 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -1653,7 +1466,7 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1669,7 +1482,7 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1685,7 +1498,7 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1702,51 +1515,39 @@ export class DataAwsCeTagsFilterOrDimensionOutputReference extends cdktf.Complex
 }
 export interface DataAwsCeTagsFilterOrTags {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterOrTagsToTerraform(
-  struct?: DataAwsCeTagsFilterOrTagsOutputReference | DataAwsCeTagsFilterOrTags,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterOrTagsToTerraform(struct?: DataAwsCeTagsFilterOrTagsOutputReference | DataAwsCeTagsFilterOrTags): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1774,7 +1575,8 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -1783,7 +1585,7 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1799,7 +1601,7 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -1815,7 +1617,7 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -1832,43 +1634,35 @@ export class DataAwsCeTagsFilterOrTagsOutputReference extends cdktf.ComplexObjec
 }
 export interface DataAwsCeTagsFilterOr {
   /**
-   * cost_category block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
-   */
+  * cost_category block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
+  */
   readonly costCategory?: DataAwsCeTagsFilterOrCostCategory;
   /**
-   * dimension block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
-   */
+  * dimension block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
+  */
   readonly dimension?: DataAwsCeTagsFilterOrDimension;
   /**
-   * tags block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
-   */
+  * tags block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
+  */
   readonly tags?: DataAwsCeTagsFilterOrTags;
 }
 
-export function dataAwsCeTagsFilterOrToTerraform(
-  struct?: DataAwsCeTagsFilterOr | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterOrToTerraform(struct?: DataAwsCeTagsFilterOr | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    cost_category: dataAwsCeTagsFilterOrCostCategoryToTerraform(
-      struct!.costCategory,
-    ),
+    cost_category: dataAwsCeTagsFilterOrCostCategoryToTerraform(struct!.costCategory),
     dimension: dataAwsCeTagsFilterOrDimensionToTerraform(struct!.dimension),
     tags: dataAwsCeTagsFilterOrTagsToTerraform(struct!.tags),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
@@ -1876,29 +1670,16 @@ export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCeTagsFilterOr
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsCeTagsFilterOr | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1919,19 +1700,19 @@ export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCeTagsFilterOr | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataAwsCeTagsFilterOr | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._costCategory.internalValue = undefined;
       this._dimension.internalValue = undefined;
       this._tags.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._costCategory.internalValue = value.costCategory;
@@ -1941,10 +1722,7 @@ export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
   }
 
   // cost_category - computed: false, optional: true, required: false
-  private _costCategory = new DataAwsCeTagsFilterOrCostCategoryOutputReference(
-    this,
-    'cost_category',
-  );
+  private _costCategory = new DataAwsCeTagsFilterOrCostCategoryOutputReference(this, "cost_category");
   public get costCategory() {
     return this._costCategory;
   }
@@ -1960,10 +1738,7 @@ export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
   }
 
   // dimension - computed: false, optional: true, required: false
-  private _dimension = new DataAwsCeTagsFilterOrDimensionOutputReference(
-    this,
-    'dimension',
-  );
+  private _dimension = new DataAwsCeTagsFilterOrDimensionOutputReference(this, "dimension");
   public get dimension() {
     return this._dimension;
   }
@@ -1979,7 +1754,7 @@ export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags = new DataAwsCeTagsFilterOrTagsOutputReference(this, 'tags');
+  private _tags = new DataAwsCeTagsFilterOrTagsOutputReference(this, "tags");
   public get tags() {
     return this._tags;
   }
@@ -1996,80 +1771,59 @@ export class DataAwsCeTagsFilterOrOutputReference extends cdktf.ComplexObject {
 }
 
 export class DataAwsCeTagsFilterOrList extends cdktf.ComplexList {
-  public internalValue?: DataAwsCeTagsFilterOr[] | cdktf.IResolvable;
+  public internalValue? : DataAwsCeTagsFilterOr[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataAwsCeTagsFilterOrOutputReference {
-    return new DataAwsCeTagsFilterOrOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataAwsCeTagsFilterOrOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsCeTagsFilterTags {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#match_options DataAwsCeTags#match_options}
+  */
   readonly matchOptions?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#values DataAwsCeTags#values}
+  */
   readonly values?: string[];
 }
 
-export function dataAwsCeTagsFilterTagsToTerraform(
-  struct?: DataAwsCeTagsFilterTagsOutputReference | DataAwsCeTagsFilterTags,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterTagsToTerraform(struct?: DataAwsCeTagsFilterTagsOutputReference | DataAwsCeTagsFilterTags): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
-    match_options: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.matchOptions),
+    match_options: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.matchOptions),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2097,7 +1851,8 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
       this._key = undefined;
       this._matchOptions = undefined;
       this._values = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._key = value.key;
       this._matchOptions = value.matchOptions;
@@ -2106,7 +1861,7 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2122,7 +1877,7 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
   }
 
   // match_options - computed: false, optional: true, required: false
-  private _matchOptions?: string[];
+  private _matchOptions?: string[]; 
   public get matchOptions() {
     return cdktf.Fn.tolist(this.getListAttribute('match_options'));
   }
@@ -2138,7 +1893,7 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
   }
 
   // values - computed: false, optional: true, required: false
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return cdktf.Fn.tolist(this.getListAttribute('values'));
   }
@@ -2155,77 +1910,66 @@ export class DataAwsCeTagsFilterTagsOutputReference extends cdktf.ComplexObject 
 }
 export interface DataAwsCeTagsFilter {
   /**
-   * and block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#and DataAwsCeTags#and}
-   */
+  * and block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#and DataAwsCeTags#and}
+  */
   readonly and?: DataAwsCeTagsFilterAnd[] | cdktf.IResolvable;
   /**
-   * cost_category block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
-   */
+  * cost_category block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#cost_category DataAwsCeTags#cost_category}
+  */
   readonly costCategory?: DataAwsCeTagsFilterCostCategory;
   /**
-   * dimension block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
-   */
+  * dimension block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#dimension DataAwsCeTags#dimension}
+  */
   readonly dimension?: DataAwsCeTagsFilterDimension;
   /**
-   * not block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#not DataAwsCeTags#not}
-   */
+  * not block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#not DataAwsCeTags#not}
+  */
   readonly not?: DataAwsCeTagsFilterNot;
   /**
-   * or block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#or DataAwsCeTags#or}
-   */
+  * or block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#or DataAwsCeTags#or}
+  */
   readonly or?: DataAwsCeTagsFilterOr[] | cdktf.IResolvable;
   /**
-   * tags block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
-   */
+  * tags block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#tags DataAwsCeTags#tags}
+  */
   readonly tags?: DataAwsCeTagsFilterTags;
 }
 
-export function dataAwsCeTagsFilterToTerraform(
-  struct?: DataAwsCeTagsFilterOutputReference | DataAwsCeTagsFilter,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsFilterToTerraform(struct?: DataAwsCeTagsFilterOutputReference | DataAwsCeTagsFilter): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     and: cdktf.listMapper(dataAwsCeTagsFilterAndToTerraform, true)(struct!.and),
-    cost_category: dataAwsCeTagsFilterCostCategoryToTerraform(
-      struct!.costCategory,
-    ),
+    cost_category: dataAwsCeTagsFilterCostCategoryToTerraform(struct!.costCategory),
     dimension: dataAwsCeTagsFilterDimensionToTerraform(struct!.dimension),
     not: dataAwsCeTagsFilterNotToTerraform(struct!.not),
     or: cdktf.listMapper(dataAwsCeTagsFilterOrToTerraform, true)(struct!.or),
     tags: dataAwsCeTagsFilterTagsToTerraform(struct!.tags),
-  };
+  }
 }
 
 export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2268,7 +2012,8 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
       this._not.internalValue = undefined;
       this._or.internalValue = undefined;
       this._tags.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._and.internalValue = value.and;
       this._costCategory.internalValue = value.costCategory;
@@ -2280,7 +2025,7 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // and - computed: false, optional: true, required: false
-  private _and = new DataAwsCeTagsFilterAndList(this, 'and', true);
+  private _and = new DataAwsCeTagsFilterAndList(this, "and", true);
   public get and() {
     return this._and;
   }
@@ -2296,10 +2041,7 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // cost_category - computed: false, optional: true, required: false
-  private _costCategory = new DataAwsCeTagsFilterCostCategoryOutputReference(
-    this,
-    'cost_category',
-  );
+  private _costCategory = new DataAwsCeTagsFilterCostCategoryOutputReference(this, "cost_category");
   public get costCategory() {
     return this._costCategory;
   }
@@ -2315,10 +2057,7 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // dimension - computed: false, optional: true, required: false
-  private _dimension = new DataAwsCeTagsFilterDimensionOutputReference(
-    this,
-    'dimension',
-  );
+  private _dimension = new DataAwsCeTagsFilterDimensionOutputReference(this, "dimension");
   public get dimension() {
     return this._dimension;
   }
@@ -2334,7 +2073,7 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // not - computed: false, optional: true, required: false
-  private _not = new DataAwsCeTagsFilterNotOutputReference(this, 'not');
+  private _not = new DataAwsCeTagsFilterNotOutputReference(this, "not");
   public get not() {
     return this._not;
   }
@@ -2350,7 +2089,7 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // or - computed: false, optional: true, required: false
-  private _or = new DataAwsCeTagsFilterOrList(this, 'or', true);
+  private _or = new DataAwsCeTagsFilterOrList(this, "or", true);
   public get or() {
     return this._or;
   }
@@ -2366,7 +2105,7 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags = new DataAwsCeTagsFilterTagsOutputReference(this, 'tags');
+  private _tags = new DataAwsCeTagsFilterTagsOutputReference(this, "tags");
   public get tags() {
     return this._tags;
   }
@@ -2383,30 +2122,24 @@ export class DataAwsCeTagsFilterOutputReference extends cdktf.ComplexObject {
 }
 export interface DataAwsCeTagsSortBy {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#key DataAwsCeTags#key}
+  */
   readonly key?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#sort_order DataAwsCeTags#sort_order}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#sort_order DataAwsCeTags#sort_order}
+  */
   readonly sortOrder?: string;
 }
 
-export function dataAwsCeTagsSortByToTerraform(
-  struct?: DataAwsCeTagsSortBy | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsSortByToTerraform(struct?: DataAwsCeTagsSortBy | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     key: cdktf.stringToTerraform(struct!.key),
     sort_order: cdktf.stringToTerraform(struct!.sortOrder),
-  };
+  }
 }
 
 export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
@@ -2414,29 +2147,16 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsCeTagsSortBy
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsCeTagsSortBy | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2453,18 +2173,18 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsCeTagsSortBy | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: DataAwsCeTagsSortBy | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._key = undefined;
       this._sortOrder = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._key = value.key;
@@ -2473,7 +2193,7 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
   }
 
   // key - computed: false, optional: true, required: false
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -2489,7 +2209,7 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
   }
 
   // sort_order - computed: false, optional: true, required: false
-  private _sortOrder?: string;
+  private _sortOrder?: string; 
   public get sortOrder() {
     return this.getStringAttribute('sort_order');
   }
@@ -2506,72 +2226,54 @@ export class DataAwsCeTagsSortByOutputReference extends cdktf.ComplexObject {
 }
 
 export class DataAwsCeTagsSortByList extends cdktf.ComplexList {
-  public internalValue?: DataAwsCeTagsSortBy[] | cdktf.IResolvable;
+  public internalValue? : DataAwsCeTagsSortBy[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataAwsCeTagsSortByOutputReference {
-    return new DataAwsCeTagsSortByOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataAwsCeTagsSortByOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsCeTagsTimePeriod {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#end DataAwsCeTags#end}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#end DataAwsCeTags#end}
+  */
   readonly end: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#start DataAwsCeTags#start}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ce_tags#start DataAwsCeTags#start}
+  */
   readonly start: string;
 }
 
-export function dataAwsCeTagsTimePeriodToTerraform(
-  struct?: DataAwsCeTagsTimePeriodOutputReference | DataAwsCeTagsTimePeriod,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsCeTagsTimePeriodToTerraform(struct?: DataAwsCeTagsTimePeriodOutputReference | DataAwsCeTagsTimePeriod): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     end: cdktf.stringToTerraform(struct!.end),
     start: cdktf.stringToTerraform(struct!.start),
-  };
+  }
 }
 
 export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2594,7 +2296,8 @@ export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject 
       this.isEmptyObject = false;
       this._end = undefined;
       this._start = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._end = value.end;
       this._start = value.start;
@@ -2602,7 +2305,7 @@ export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject 
   }
 
   // end - computed: false, optional: false, required: true
-  private _end?: string;
+  private _end?: string; 
   public get end() {
     return this.getStringAttribute('end');
   }
@@ -2615,7 +2318,7 @@ export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject 
   }
 
   // start - computed: false, optional: false, required: true
-  private _start?: string;
+  private _start?: string; 
   public get start() {
     return this.getStringAttribute('start');
   }
@@ -2629,36 +2332,33 @@ export class DataAwsCeTagsTimePeriodOutputReference extends cdktf.ComplexObject 
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/ce_tags aws_ce_tags}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/ce_tags aws_ce_tags}
+*/
 export class DataAwsCeTags extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ce_tags';
+  public static readonly tfResourceType = "aws_ce_tags";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ce_tags aws_ce_tags} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsCeTagsConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsCeTagsConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ce_tags aws_ce_tags} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsCeTagsConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsCeTagsConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ce_tags',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -2666,7 +2366,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._searchString = config.searchString;
@@ -2681,7 +2381,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -2697,7 +2397,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // search_string - computed: false, optional: true, required: false
-  private _searchString?: string;
+  private _searchString?: string; 
   public get searchString() {
     return this.getStringAttribute('search_string');
   }
@@ -2713,7 +2413,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // tag_key - computed: false, optional: true, required: false
-  private _tagKey?: string;
+  private _tagKey?: string; 
   public get tagKey() {
     return this.getStringAttribute('tag_key');
   }
@@ -2734,7 +2434,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsCeTagsFilterOutputReference(this, 'filter');
+  private _filter = new DataAwsCeTagsFilterOutputReference(this, "filter");
   public get filter() {
     return this._filter;
   }
@@ -2750,7 +2450,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // sort_by - computed: false, optional: true, required: false
-  private _sortBy = new DataAwsCeTagsSortByList(this, 'sort_by', false);
+  private _sortBy = new DataAwsCeTagsSortByList(this, "sort_by", false);
   public get sortBy() {
     return this._sortBy;
   }
@@ -2766,10 +2466,7 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
   }
 
   // time_period - computed: false, optional: false, required: true
-  private _timePeriod = new DataAwsCeTagsTimePeriodOutputReference(
-    this,
-    'time_period',
-  );
+  private _timePeriod = new DataAwsCeTagsTimePeriodOutputReference(this, "time_period");
   public get timePeriod() {
     return this._timePeriod;
   }
@@ -2791,13 +2488,8 @@ export class DataAwsCeTags extends cdktf.TerraformDataSource {
       search_string: cdktf.stringToTerraform(this._searchString),
       tag_key: cdktf.stringToTerraform(this._tagKey),
       filter: dataAwsCeTagsFilterToTerraform(this._filter.internalValue),
-      sort_by: cdktf.listMapper(
-        dataAwsCeTagsSortByToTerraform,
-        true,
-      )(this._sortBy.internalValue),
-      time_period: dataAwsCeTagsTimePeriodToTerraform(
-        this._timePeriod.internalValue,
-      ),
+      sort_by: cdktf.listMapper(dataAwsCeTagsSortByToTerraform, true)(this._sortBy.internalValue),
+      time_period: dataAwsCeTagsTimePeriodToTerraform(this._timePeriod.internalValue),
     };
   }
 }

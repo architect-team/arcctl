@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/region
+// https://www.terraform.io/docs/providers/digitalocean/d/region
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -8,20 +8,20 @@ import * as cdktf from 'cdktf';
 
 export interface DataDigitaloceanRegionConfig extends cdktf.TerraformMetaArguments {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/region#id DataDigitaloceanRegion#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/region#id DataDigitaloceanRegion#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
   */
   readonly id?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/region#slug DataDigitaloceanRegion#slug}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/region#slug DataDigitaloceanRegion#slug}
   */
   readonly slug: string;
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/region digitalocean_region}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/region digitalocean_region}
 */
 export class DataDigitaloceanRegion extends cdktf.TerraformDataSource {
 
@@ -35,7 +35,7 @@ export class DataDigitaloceanRegion extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/region digitalocean_region} Data Source
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/region digitalocean_region} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

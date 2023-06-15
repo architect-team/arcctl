@@ -1,6 +1,7 @@
 import { ResourceInputs } from '../../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../../cloud-graph/index.ts';
-import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext } from '../component.ts';
+import { Component, DockerBuildFn, DockerPushFn, DockerTagFn, GraphContext, VolumeBuildFn } from '../component.ts';
+import { ComponentSchema } from '../schema.ts';
 import { DatabaseSchemaV1 } from './database-schema-v1.ts';
 import { parseExpressionRefs } from './expressions.ts';
 import { InterfaceSchemaV1 } from './interface-schema-v1.ts';
@@ -78,12 +79,11 @@ export default class ComponentV1 extends Component {
    */
   databases?: Record<string, DatabaseSchemaV1>;
 
-  constructor(data: object) {
+  constructor(data: ComponentSchema) {
     super();
     Object.assign(this, data);
   }
 
-  // eslint-disable-next-line complexity
   private addServicesToGraph(
     graph: CloudGraph,
     context: GraphContext,
@@ -193,7 +193,11 @@ export default class ComponentV1 extends Component {
                 environment: context.environment,
                 inputs: {
                   type: 'volume',
-                  mountPath: volume_config.mount_path,
+                  name: CloudNode.genResourceId({
+                    name: `${service_name}-${volume_name}`,
+                    component: context.component.name,
+                    environment: context.environment,
+                  }),
                   ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
@@ -243,10 +247,10 @@ export default class ComponentV1 extends Component {
               component: context.component.name,
               environment: context.environment,
             }),
-            protocol: typeof interface_config === 'object' && interface_config.protocol
+            target_deployment: deployment_node.resource_id,
+            target_protocol: typeof interface_config === 'object' && interface_config.protocol
               ? interface_config.protocol
               : 'http',
-            selector: deployment_node.resource_id,
             target_port: Number(
               typeof interface_config === 'object' ? interface_config.port : interface_config,
             ),
@@ -271,13 +275,16 @@ export default class ComponentV1 extends Component {
             environment: context.environment,
             inputs: {
               type: 'ingressRule',
-              loadBalancer: '',
+              name: CloudNode.genResourceId({
+                name: `${service_name}-${interface_name}`,
+                component: context.component.name,
+                environment: context.environment,
+              }),
+              registry: '',
               port: 80,
-              listener: {
-                subdomain: interface_config.ingress.subdomain || '',
-                path: interface_config.ingress.path || '/',
-                protocol: `\${{ ${service_node.id}.protocol }}`,
-              },
+              subdomain: interface_config.ingress.subdomain || '',
+              path: interface_config.ingress.path || '/',
+              protocol: `\${{ ${service_node.id}.protocol }}`,
               service: `\${{ ${service_node.id}.id }}`,
               internal: interface_config.ingress.internal || false,
             },
@@ -382,7 +389,11 @@ export default class ComponentV1 extends Component {
                 environment: context.environment,
                 inputs: {
                   type: 'volume',
-                  mountPath: volume_config.mount_path,
+                  name: CloudNode.genResourceId({
+                    name: `${task_name}-${volume_name}`,
+                    component: context.component.name,
+                    environment: context.environment,
+                  }),
                   ...(volume_config.host_path ? { hostPath: volume_config.host_path } : {}),
                 },
               });
@@ -468,11 +479,11 @@ export default class ComponentV1 extends Component {
             component: context.component.name,
             environment: context.environment,
           }),
-          protocol: typeof target_interface === 'object' && target_interface.protocol
+          target_protocol: typeof target_interface === 'object' && target_interface.protocol
             ? target_interface.protocol
             : 'http',
           target_port: typeof target_interface === 'object' ? target_interface.port : (target_interface as any),
-          selector: deployment_resource_id,
+          target_deployment: deployment_resource_id,
         },
       });
 
@@ -494,14 +505,17 @@ export default class ComponentV1 extends Component {
           environment: context.environment,
           inputs: {
             type: 'ingressRule',
-            loadBalancer: '',
+            name: CloudNode.genResourceId({
+              name: interface_key,
+              component: context.component.name,
+              environment: context.environment,
+            }),
+            registry: '',
             service: `\${{ ${interface_node.id}.id }}`,
             port: 80,
-            listener: {
-              subdomain: interface_config.ingress.subdomain || '',
-              path: interface_config.ingress.path || '/',
-              protocol: `\${{ ${interface_node.id}.protocol }}`,
-            },
+            subdomain: interface_config.ingress.subdomain || '',
+            path: interface_config.ingress.path || '/',
+            protocol: `\${{ ${interface_node.id}.protocol }}`,
             internal: interface_config.ingress.internal || false,
           },
         });
@@ -571,7 +585,7 @@ export default class ComponentV1 extends Component {
     return Object.keys(this.dependencies || {});
   }
 
-  public async build(buildFn: DockerBuildFn): Promise<Component> {
+  public async build(buildFn: DockerBuildFn, volumeBuildFn: VolumeBuildFn): Promise<Component> {
     for (const [svcName, svcConfig] of Object.entries(this.services || {})) {
       if ('build' in svcConfig) {
         const digest = await buildFn({

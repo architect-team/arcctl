@@ -1,26 +1,19 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/types.ts';
-import { ResourceModule } from '../../module.ts';
+import { Construct } from 'constructs';
+import { ResourceOutputs } from '../../../@resources/types.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { DataDigitaloceanDatabaseCa } from '../.gen/providers/digitalocean/data-digitalocean-database-ca/index.ts';
 import { DataDigitaloceanDatabaseCluster } from '../.gen/providers/digitalocean/data-digitalocean-database-cluster/index.ts';
 import { DatabaseUser } from '../.gen/providers/digitalocean/database-user/index.ts';
 import { DigitaloceanCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
-export class DigitaloceanDatabaseUserModule extends ResourceModule<
-  'databaseUser',
-  DigitaloceanCredentials
-> {
+export class DigitaloceanDatabaseUserModule extends ResourceModule<'databaseUser', DigitaloceanCredentials> {
   outputs: ResourceOutputs['databaseUser'];
   user: DatabaseUser;
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['databaseUser'],
-  ) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseUser', DigitaloceanCredentials>) {
+    super(scope, options);
 
-    const [instance_name, database_name] = inputs.databaseSchema.split('/');
+    const [instance_name, database_name] = this.inputs?.databaseSchema.split('/') || ['unknown', 'unknown'];
 
     const instance = new DataDigitaloceanDatabaseCluster(this, 'instance', {
       name: instance_name,
@@ -32,7 +25,7 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<
 
     this.user = new DatabaseUser(this, 'user', {
       clusterId: instance.id,
-      name: inputs.username,
+      name: this.inputs?.username || 'unknown',
     });
 
     const protocol = `\${ ${instance.engine} == "pg" ? "postgresql" : ${instance.engine} }`;
@@ -49,13 +42,10 @@ export class DigitaloceanDatabaseUserModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: DigitaloceanCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.user)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert
+// https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,43 +10,43 @@ export interface UptimeAlertConfig extends cdktf.TerraformMetaArguments {
   /**
   * A unique identifier for a check.
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#check_id UptimeAlert#check_id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#check_id UptimeAlert#check_id}
   */
   readonly checkId: string;
   /**
   * The comparison operator used against the alert's threshold. Enum: 'greater_than' 'less_than
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#comparison UptimeAlert#comparison}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#comparison UptimeAlert#comparison}
   */
   readonly comparison?: string;
   /**
   * A human-friendly display name for the alert.
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#name UptimeAlert#name}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#name UptimeAlert#name}
   */
   readonly name: string;
   /**
   * Period of time the threshold must be exceeded to trigger the alert. Enum '2m' '3m' '5m' '10m' '15m' '30m' '1h'
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#period UptimeAlert#period}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#period UptimeAlert#period}
   */
   readonly period?: string;
   /**
   * The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#threshold UptimeAlert#threshold}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#threshold UptimeAlert#threshold}
   */
   readonly threshold?: number;
   /**
   * The type of health check to perform. Enum: 'latency' 'down' 'down_global' 'ssl_expiry'
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#type UptimeAlert#type}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#type UptimeAlert#type}
   */
   readonly type: string;
   /**
   * notifications block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#notifications UptimeAlert#notifications}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#notifications UptimeAlert#notifications}
   */
   readonly notifications: UptimeAlertNotifications[] | cdktf.IResolvable;
 }
@@ -54,13 +54,13 @@ export interface UptimeAlertNotificationsSlack {
   /**
   * The Slack channel to send alerts to
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#channel UptimeAlert#channel}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#channel UptimeAlert#channel}
   */
   readonly channel: string;
   /**
   * The webhook URL for Slack
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#url UptimeAlert#url}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#url UptimeAlert#url}
   */
   readonly url: string;
 }
@@ -176,13 +176,13 @@ export interface UptimeAlertNotifications {
   /**
   * List of email addresses to sent notifications to
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#email UptimeAlert#email}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#email UptimeAlert#email}
   */
   readonly email?: string[];
   /**
   * slack block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert#slack UptimeAlert#slack}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert#slack UptimeAlert#slack}
   */
   readonly slack?: UptimeAlertNotificationsSlack[] | cdktf.IResolvable;
 }
@@ -302,7 +302,7 @@ export class UptimeAlertNotificationsList extends cdktf.ComplexList {
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert digitalocean_uptime_alert}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert digitalocean_uptime_alert}
 */
 export class UptimeAlert extends cdktf.TerraformResource {
 
@@ -316,7 +316,7 @@ export class UptimeAlert extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/uptime_alert digitalocean_uptime_alert} Resource
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/uptime_alert digitalocean_uptime_alert} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

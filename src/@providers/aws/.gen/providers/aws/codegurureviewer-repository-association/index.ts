@@ -1,101 +1,82 @@
 // https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CodegurureviewerRepositoryAssociationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CodegurureviewerRepositoryAssociationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#id CodegurureviewerRepositoryAssociation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#id CodegurureviewerRepositoryAssociation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#tags CodegurureviewerRepositoryAssociation#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#tags CodegurureviewerRepositoryAssociation#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#tags_all CodegurureviewerRepositoryAssociation#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#tags_all CodegurureviewerRepositoryAssociation#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * kms_key_details block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#kms_key_details CodegurureviewerRepositoryAssociation#kms_key_details}
-   */
+  * kms_key_details block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#kms_key_details CodegurureviewerRepositoryAssociation#kms_key_details}
+  */
   readonly kmsKeyDetails?: CodegurureviewerRepositoryAssociationKmsKeyDetails;
   /**
-   * repository block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#repository CodegurureviewerRepositoryAssociation#repository}
-   */
+  * repository block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#repository CodegurureviewerRepositoryAssociation#repository}
+  */
   readonly repository: CodegurureviewerRepositoryAssociationRepository;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#timeouts CodegurureviewerRepositoryAssociation#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#timeouts CodegurureviewerRepositoryAssociation#timeouts}
+  */
   readonly timeouts?: CodegurureviewerRepositoryAssociationTimeouts;
 }
-export interface CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts {}
+export interface CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts {
+}
 
-export function codegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsToTerraform(
-  struct?: CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsToTerraform(struct?: CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts
-      | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifacts | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -112,86 +93,59 @@ export class CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifac
 }
 
 export class CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsOutputReference {
-    return new CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsOutputReference {
+    return new CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface CodegurureviewerRepositoryAssociationS3RepositoryDetails {}
+export interface CodegurureviewerRepositoryAssociationS3RepositoryDetails {
+}
 
-export function codegurureviewerRepositoryAssociationS3RepositoryDetailsToTerraform(
-  struct?: CodegurureviewerRepositoryAssociationS3RepositoryDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationS3RepositoryDetailsToTerraform(struct?: CodegurureviewerRepositoryAssociationS3RepositoryDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationS3RepositoryDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationS3RepositoryDetails
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationS3RepositoryDetails | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodegurureviewerRepositoryAssociationS3RepositoryDetails | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationS3RepositoryDetails | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -202,92 +156,64 @@ export class CodegurureviewerRepositoryAssociationS3RepositoryDetailsOutputRefer
   }
 
   // code_artifacts - computed: true, optional: false, required: false
-  private _codeArtifacts =
-    new CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsList(
-      this,
-      'code_artifacts',
-      false,
-    );
+  private _codeArtifacts = new CodegurureviewerRepositoryAssociationS3RepositoryDetailsCodeArtifactsList(this, "code_artifacts", false);
   public get codeArtifacts() {
     return this._codeArtifacts;
   }
 }
 
 export class CodegurureviewerRepositoryAssociationS3RepositoryDetailsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CodegurureviewerRepositoryAssociationS3RepositoryDetailsOutputReference {
-    return new CodegurureviewerRepositoryAssociationS3RepositoryDetailsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CodegurureviewerRepositoryAssociationS3RepositoryDetailsOutputReference {
+    return new CodegurureviewerRepositoryAssociationS3RepositoryDetailsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodegurureviewerRepositoryAssociationKmsKeyDetails {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#encryption_option CodegurureviewerRepositoryAssociation#encryption_option}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#encryption_option CodegurureviewerRepositoryAssociation#encryption_option}
+  */
   readonly encryptionOption?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#kms_key_id CodegurureviewerRepositoryAssociation#kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#kms_key_id CodegurureviewerRepositoryAssociation#kms_key_id}
+  */
   readonly kmsKeyId?: string;
 }
 
-export function codegurureviewerRepositoryAssociationKmsKeyDetailsToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference
-    | CodegurureviewerRepositoryAssociationKmsKeyDetails,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationKmsKeyDetailsToTerraform(struct?: CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference | CodegurureviewerRepositoryAssociationKmsKeyDetails): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     encryption_option: cdktf.stringToTerraform(struct!.encryptionOption),
     kms_key_id: cdktf.stringToTerraform(struct!.kmsKeyId),
-  };
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationKmsKeyDetails
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationKmsKeyDetails | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._encryptionOption !== undefined) {
@@ -301,14 +227,13 @@ export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference e
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodegurureviewerRepositoryAssociationKmsKeyDetails | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationKmsKeyDetails | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._encryptionOption = undefined;
       this._kmsKeyId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._encryptionOption = value.encryptionOption;
       this._kmsKeyId = value.kmsKeyId;
@@ -316,7 +241,7 @@ export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference e
   }
 
   // encryption_option - computed: false, optional: true, required: false
-  private _encryptionOption?: string;
+  private _encryptionOption?: string; 
   public get encryptionOption() {
     return this.getStringAttribute('encryption_option');
   }
@@ -332,7 +257,7 @@ export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference e
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string;
+  private _kmsKeyId?: string; 
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -349,56 +274,43 @@ export class CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference e
 }
 export interface CodegurureviewerRepositoryAssociationRepositoryBitbucket {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#connection_arn CodegurureviewerRepositoryAssociation#connection_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#connection_arn CodegurureviewerRepositoryAssociation#connection_arn}
+  */
   readonly connectionArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#owner CodegurureviewerRepositoryAssociation#owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#owner CodegurureviewerRepositoryAssociation#owner}
+  */
   readonly owner: string;
 }
 
-export function codegurureviewerRepositoryAssociationRepositoryBitbucketToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputReference
-    | CodegurureviewerRepositoryAssociationRepositoryBitbucket,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationRepositoryBitbucketToTerraform(struct?: CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputReference | CodegurureviewerRepositoryAssociationRepositoryBitbucket): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     connection_arn: cdktf.stringToTerraform(struct!.connectionArn),
     name: cdktf.stringToTerraform(struct!.name),
     owner: cdktf.stringToTerraform(struct!.owner),
-  };
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationRepositoryBitbucket
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationRepositoryBitbucket | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._connectionArn !== undefined) {
@@ -416,15 +328,14 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodegurureviewerRepositoryAssociationRepositoryBitbucket | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationRepositoryBitbucket | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._connectionArn = undefined;
       this._name = undefined;
       this._owner = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._connectionArn = value.connectionArn;
       this._name = value.name;
@@ -433,7 +344,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
   }
 
   // connection_arn - computed: false, optional: false, required: true
-  private _connectionArn?: string;
+  private _connectionArn?: string; 
   public get connectionArn() {
     return this.getStringAttribute('connection_arn');
   }
@@ -446,7 +357,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -459,7 +370,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string;
+  private _owner?: string; 
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -473,46 +384,33 @@ export class CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputRefer
 }
 export interface CodegurureviewerRepositoryAssociationRepositoryCodecommit {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
+  */
   readonly name: string;
 }
 
-export function codegurureviewerRepositoryAssociationRepositoryCodecommitToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputReference
-    | CodegurureviewerRepositoryAssociationRepositoryCodecommit,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationRepositoryCodecommitToTerraform(struct?: CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputReference | CodegurureviewerRepositoryAssociationRepositoryCodecommit): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationRepositoryCodecommit
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationRepositoryCodecommit | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._name !== undefined) {
@@ -522,22 +420,19 @@ export class CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodegurureviewerRepositoryAssociationRepositoryCodecommit
-      | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationRepositoryCodecommit | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._name = value.name;
     }
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -551,56 +446,43 @@ export class CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputRefe
 }
 export interface CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#connection_arn CodegurureviewerRepositoryAssociation#connection_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#connection_arn CodegurureviewerRepositoryAssociation#connection_arn}
+  */
   readonly connectionArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#owner CodegurureviewerRepositoryAssociation#owner}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#owner CodegurureviewerRepositoryAssociation#owner}
+  */
   readonly owner: string;
 }
 
-export function codegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerOutputReference
-    | CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerToTerraform(struct?: CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerOutputReference | CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     connection_arn: cdktf.stringToTerraform(struct!.connectionArn),
     name: cdktf.stringToTerraform(struct!.name),
     owner: cdktf.stringToTerraform(struct!.owner),
-  };
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._connectionArn !== undefined) {
@@ -618,17 +500,14 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer
-      | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._connectionArn = undefined;
       this._name = undefined;
       this._owner = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._connectionArn = value.connectionArn;
       this._name = value.name;
@@ -637,7 +516,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
   }
 
   // connection_arn - computed: false, optional: false, required: true
-  private _connectionArn?: string;
+  private _connectionArn?: string; 
   public get connectionArn() {
     return this.getStringAttribute('connection_arn');
   }
@@ -650,7 +529,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -663,7 +542,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
   }
 
   // owner - computed: false, optional: false, required: true
-  private _owner?: string;
+  private _owner?: string; 
   public get owner() {
     return this.getStringAttribute('owner');
   }
@@ -677,51 +556,38 @@ export class CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServ
 }
 export interface CodegurureviewerRepositoryAssociationRepositoryS3Bucket {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#bucket_name CodegurureviewerRepositoryAssociation#bucket_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#bucket_name CodegurureviewerRepositoryAssociation#bucket_name}
+  */
   readonly bucketName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#name CodegurureviewerRepositoryAssociation#name}
+  */
   readonly name: string;
 }
 
-export function codegurureviewerRepositoryAssociationRepositoryS3BucketToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputReference
-    | CodegurureviewerRepositoryAssociationRepositoryS3Bucket,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationRepositoryS3BucketToTerraform(struct?: CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputReference | CodegurureviewerRepositoryAssociationRepositoryS3Bucket): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationRepositoryS3Bucket
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationRepositoryS3Bucket | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -735,14 +601,13 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodegurureviewerRepositoryAssociationRepositoryS3Bucket | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationRepositoryS3Bucket | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._name = value.name;
@@ -750,7 +615,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
   }
 
   // bucket_name - computed: false, optional: false, required: true
-  private _bucketName?: string;
+  private _bucketName?: string; 
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -763,7 +628,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -777,81 +642,56 @@ export class CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputRefere
 }
 export interface CodegurureviewerRepositoryAssociationRepository {
   /**
-   * bitbucket block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#bitbucket CodegurureviewerRepositoryAssociation#bitbucket}
-   */
+  * bitbucket block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#bitbucket CodegurureviewerRepositoryAssociation#bitbucket}
+  */
   readonly bitbucket?: CodegurureviewerRepositoryAssociationRepositoryBitbucket;
   /**
-   * codecommit block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#codecommit CodegurureviewerRepositoryAssociation#codecommit}
-   */
+  * codecommit block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#codecommit CodegurureviewerRepositoryAssociation#codecommit}
+  */
   readonly codecommit?: CodegurureviewerRepositoryAssociationRepositoryCodecommit;
   /**
-   * github_enterprise_server block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#github_enterprise_server CodegurureviewerRepositoryAssociation#github_enterprise_server}
-   */
+  * github_enterprise_server block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#github_enterprise_server CodegurureviewerRepositoryAssociation#github_enterprise_server}
+  */
   readonly githubEnterpriseServer?: CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer;
   /**
-   * s3_bucket block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#s3_bucket CodegurureviewerRepositoryAssociation#s3_bucket}
-   */
+  * s3_bucket block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#s3_bucket CodegurureviewerRepositoryAssociation#s3_bucket}
+  */
   readonly s3Bucket?: CodegurureviewerRepositoryAssociationRepositoryS3Bucket;
 }
 
-export function codegurureviewerRepositoryAssociationRepositoryToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationRepositoryOutputReference
-    | CodegurureviewerRepositoryAssociationRepository,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationRepositoryToTerraform(struct?: CodegurureviewerRepositoryAssociationRepositoryOutputReference | CodegurureviewerRepositoryAssociationRepository): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    bitbucket:
-      codegurureviewerRepositoryAssociationRepositoryBitbucketToTerraform(
-        struct!.bitbucket,
-      ),
-    codecommit:
-      codegurureviewerRepositoryAssociationRepositoryCodecommitToTerraform(
-        struct!.codecommit,
-      ),
-    github_enterprise_server:
-      codegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerToTerraform(
-        struct!.githubEnterpriseServer,
-      ),
-    s3_bucket:
-      codegurureviewerRepositoryAssociationRepositoryS3BucketToTerraform(
-        struct!.s3Bucket,
-      ),
-  };
+    bitbucket: codegurureviewerRepositoryAssociationRepositoryBitbucketToTerraform(struct!.bitbucket),
+    codecommit: codegurureviewerRepositoryAssociationRepositoryCodecommitToTerraform(struct!.codecommit),
+    github_enterprise_server: codegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerToTerraform(struct!.githubEnterpriseServer),
+    s3_bucket: codegurureviewerRepositoryAssociationRepositoryS3BucketToTerraform(struct!.s3Bucket),
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationRepositoryOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationRepository
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationRepository | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bitbucket?.internalValue !== undefined) {
@@ -864,8 +704,7 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
     }
     if (this._githubEnterpriseServer?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.githubEnterpriseServer =
-        this._githubEnterpriseServer?.internalValue;
+      internalValueResult.githubEnterpriseServer = this._githubEnterpriseServer?.internalValue;
     }
     if (this._s3Bucket?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -874,16 +713,15 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodegurureviewerRepositoryAssociationRepository | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationRepository | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bitbucket.internalValue = undefined;
       this._codecommit.internalValue = undefined;
       this._githubEnterpriseServer.internalValue = undefined;
       this._s3Bucket.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bitbucket.internalValue = value.bitbucket;
       this._codecommit.internalValue = value.codecommit;
@@ -893,17 +731,11 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
   }
 
   // bitbucket - computed: false, optional: true, required: false
-  private _bitbucket =
-    new CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputReference(
-      this,
-      'bitbucket',
-    );
+  private _bitbucket = new CodegurureviewerRepositoryAssociationRepositoryBitbucketOutputReference(this, "bitbucket");
   public get bitbucket() {
     return this._bitbucket;
   }
-  public putBitbucket(
-    value: CodegurureviewerRepositoryAssociationRepositoryBitbucket,
-  ) {
+  public putBitbucket(value: CodegurureviewerRepositoryAssociationRepositoryBitbucket) {
     this._bitbucket.internalValue = value;
   }
   public resetBitbucket() {
@@ -915,17 +747,11 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
   }
 
   // codecommit - computed: false, optional: true, required: false
-  private _codecommit =
-    new CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputReference(
-      this,
-      'codecommit',
-    );
+  private _codecommit = new CodegurureviewerRepositoryAssociationRepositoryCodecommitOutputReference(this, "codecommit");
   public get codecommit() {
     return this._codecommit;
   }
-  public putCodecommit(
-    value: CodegurureviewerRepositoryAssociationRepositoryCodecommit,
-  ) {
+  public putCodecommit(value: CodegurureviewerRepositoryAssociationRepositoryCodecommit) {
     this._codecommit.internalValue = value;
   }
   public resetCodecommit() {
@@ -937,17 +763,11 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
   }
 
   // github_enterprise_server - computed: false, optional: true, required: false
-  private _githubEnterpriseServer =
-    new CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerOutputReference(
-      this,
-      'github_enterprise_server',
-    );
+  private _githubEnterpriseServer = new CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServerOutputReference(this, "github_enterprise_server");
   public get githubEnterpriseServer() {
     return this._githubEnterpriseServer;
   }
-  public putGithubEnterpriseServer(
-    value: CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer,
-  ) {
+  public putGithubEnterpriseServer(value: CodegurureviewerRepositoryAssociationRepositoryGithubEnterpriseServer) {
     this._githubEnterpriseServer.internalValue = value;
   }
   public resetGithubEnterpriseServer() {
@@ -959,17 +779,11 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
   }
 
   // s3_bucket - computed: false, optional: true, required: false
-  private _s3Bucket =
-    new CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputReference(
-      this,
-      's3_bucket',
-    );
+  private _s3Bucket = new CodegurureviewerRepositoryAssociationRepositoryS3BucketOutputReference(this, "s3_bucket");
   public get s3Bucket() {
     return this._s3Bucket;
   }
-  public putS3Bucket(
-    value: CodegurureviewerRepositoryAssociationRepositoryS3Bucket,
-  ) {
+  public putS3Bucket(value: CodegurureviewerRepositoryAssociationRepositoryS3Bucket) {
     this._s3Bucket.internalValue = value;
   }
   public resetS3Bucket() {
@@ -982,38 +796,29 @@ export class CodegurureviewerRepositoryAssociationRepositoryOutputReference exte
 }
 export interface CodegurureviewerRepositoryAssociationTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#create CodegurureviewerRepositoryAssociation#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#create CodegurureviewerRepositoryAssociation#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#delete CodegurureviewerRepositoryAssociation#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#delete CodegurureviewerRepositoryAssociation#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#update CodegurureviewerRepositoryAssociation#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association#update CodegurureviewerRepositoryAssociation#update}
+  */
   readonly update?: string;
 }
 
-export function codegurureviewerRepositoryAssociationTimeoutsToTerraform(
-  struct?:
-    | CodegurureviewerRepositoryAssociationTimeoutsOutputReference
-    | CodegurureviewerRepositoryAssociationTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codegurureviewerRepositoryAssociationTimeoutsToTerraform(struct?: CodegurureviewerRepositoryAssociationTimeoutsOutputReference | CodegurureviewerRepositoryAssociationTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -1021,20 +826,14 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CodegurureviewerRepositoryAssociationTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodegurureviewerRepositoryAssociationTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1055,22 +854,19 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CodegurureviewerRepositoryAssociationTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CodegurureviewerRepositoryAssociationTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -1080,7 +876,7 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -1096,7 +892,7 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -1112,7 +908,7 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -1129,37 +925,33 @@ export class CodegurureviewerRepositoryAssociationTimeoutsOutputReference extend
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association aws_codegurureviewer_repository_association}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association aws_codegurureviewer_repository_association}
+*/
 export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_codegurureviewer_repository_association';
+  public static readonly tfResourceType = "aws_codegurureviewer_repository_association";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association aws_codegurureviewer_repository_association} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CodegurureviewerRepositoryAssociationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CodegurureviewerRepositoryAssociationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codegurureviewer_repository_association aws_codegurureviewer_repository_association} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CodegurureviewerRepositoryAssociationConfig
+  */
+  public constructor(scope: Construct, id: string, config: CodegurureviewerRepositoryAssociationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_codegurureviewer_repository_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1167,7 +959,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._tags = config.tags;
@@ -1197,7 +989,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1228,12 +1020,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // s3_repository_details - computed: true, optional: false, required: false
-  private _s3RepositoryDetails =
-    new CodegurureviewerRepositoryAssociationS3RepositoryDetailsList(
-      this,
-      's3_repository_details',
-      false,
-    );
+  private _s3RepositoryDetails = new CodegurureviewerRepositoryAssociationS3RepositoryDetailsList(this, "s3_repository_details", false);
   public get s3RepositoryDetails() {
     return this._s3RepositoryDetails;
   }
@@ -1249,7 +1036,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1265,7 +1052,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1281,17 +1068,11 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // kms_key_details - computed: false, optional: true, required: false
-  private _kmsKeyDetails =
-    new CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference(
-      this,
-      'kms_key_details',
-    );
+  private _kmsKeyDetails = new CodegurureviewerRepositoryAssociationKmsKeyDetailsOutputReference(this, "kms_key_details");
   public get kmsKeyDetails() {
     return this._kmsKeyDetails;
   }
-  public putKmsKeyDetails(
-    value: CodegurureviewerRepositoryAssociationKmsKeyDetails,
-  ) {
+  public putKmsKeyDetails(value: CodegurureviewerRepositoryAssociationKmsKeyDetails) {
     this._kmsKeyDetails.internalValue = value;
   }
   public resetKmsKeyDetails() {
@@ -1303,11 +1084,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // repository - computed: false, optional: false, required: true
-  private _repository =
-    new CodegurureviewerRepositoryAssociationRepositoryOutputReference(
-      this,
-      'repository',
-    );
+  private _repository = new CodegurureviewerRepositoryAssociationRepositoryOutputReference(this, "repository");
   public get repository() {
     return this._repository;
   }
@@ -1320,11 +1097,7 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new CodegurureviewerRepositoryAssociationTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new CodegurureviewerRepositoryAssociationTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1348,16 +1121,9 @@ export class CodegurureviewerRepositoryAssociation extends cdktf.TerraformResour
       id: cdktf.stringToTerraform(this._id),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      kms_key_details:
-        codegurureviewerRepositoryAssociationKmsKeyDetailsToTerraform(
-          this._kmsKeyDetails.internalValue,
-        ),
-      repository: codegurureviewerRepositoryAssociationRepositoryToTerraform(
-        this._repository.internalValue,
-      ),
-      timeouts: codegurureviewerRepositoryAssociationTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      kms_key_details: codegurureviewerRepositoryAssociationKmsKeyDetailsToTerraform(this._kmsKeyDetails.internalValue),
+      repository: codegurureviewerRepositoryAssociationRepositoryToTerraform(this._repository.internalValue),
+      timeouts: codegurureviewerRepositoryAssociationTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

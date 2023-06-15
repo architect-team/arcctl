@@ -1,21 +1,17 @@
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { BaseService } from '../../service.ts';
+import { ResourceService } from '../../base.service.ts';
 import { AwsCredentials } from '../credentials.ts';
 import AwsUtils from '../utils.ts';
 
-export class AwsDatabaseTypeService extends BaseService<'databaseType'> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
-
-  async get(id: string): Promise<ResourceOutputs['databaseType'] | undefined> {
-    return undefined;
+export class AwsDatabaseTypeService extends ResourceService<'databaseType', AwsCredentials> {
+  get(_id: string): Promise<ResourceOutputs['databaseType'] | undefined> {
+    return Promise.resolve(undefined);
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['databaseType']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['databaseType']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['databaseType']>> {
     const rds = AwsUtils.getRDS(this.credentials);
     let marker = '';

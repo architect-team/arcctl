@@ -1,61 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface VpcEndpointConnectionAccepterConfig
-  extends cdktf.TerraformMetaArguments {
+export interface VpcEndpointConnectionAccepterConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter#id VpcEndpointConnectionAccepter#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter#id VpcEndpointConnectionAccepter#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter#vpc_endpoint_id VpcEndpointConnectionAccepter#vpc_endpoint_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter#vpc_endpoint_id VpcEndpointConnectionAccepter#vpc_endpoint_id}
+  */
   readonly vpcEndpointId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter#vpc_endpoint_service_id VpcEndpointConnectionAccepter#vpc_endpoint_service_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter#vpc_endpoint_service_id VpcEndpointConnectionAccepter#vpc_endpoint_service_id}
+  */
   readonly vpcEndpointServiceId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter aws_vpc_endpoint_connection_accepter}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter aws_vpc_endpoint_connection_accepter}
+*/
 export class VpcEndpointConnectionAccepter extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_vpc_endpoint_connection_accepter';
+  public static readonly tfResourceType = "aws_vpc_endpoint_connection_accepter";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter aws_vpc_endpoint_connection_accepter} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options VpcEndpointConnectionAccepterConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: VpcEndpointConnectionAccepterConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/vpc_endpoint_connection_accepter aws_vpc_endpoint_connection_accepter} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options VpcEndpointConnectionAccepterConfig
+  */
+  public constructor(scope: Construct, id: string, config: VpcEndpointConnectionAccepterConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_vpc_endpoint_connection_accepter',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -63,7 +59,7 @@ export class VpcEndpointConnectionAccepter extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._vpcEndpointId = config.vpcEndpointId;
@@ -75,7 +71,7 @@ export class VpcEndpointConnectionAccepter extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -91,7 +87,7 @@ export class VpcEndpointConnectionAccepter extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_id - computed: false, optional: false, required: true
-  private _vpcEndpointId?: string;
+  private _vpcEndpointId?: string; 
   public get vpcEndpointId() {
     return this.getStringAttribute('vpc_endpoint_id');
   }
@@ -104,7 +100,7 @@ export class VpcEndpointConnectionAccepter extends cdktf.TerraformResource {
   }
 
   // vpc_endpoint_service_id - computed: false, optional: false, required: true
-  private _vpcEndpointServiceId?: string;
+  private _vpcEndpointServiceId?: string; 
   public get vpcEndpointServiceId() {
     return this.getStringAttribute('vpc_endpoint_service_id');
   }
@@ -129,9 +125,7 @@ export class VpcEndpointConnectionAccepter extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       vpc_endpoint_id: cdktf.stringToTerraform(this._vpcEndpointId),
-      vpc_endpoint_service_id: cdktf.stringToTerraform(
-        this._vpcEndpointServiceId,
-      ),
+      vpc_endpoint_service_id: cdktf.stringToTerraform(this._vpcEndpointServiceId),
     };
   }
 }

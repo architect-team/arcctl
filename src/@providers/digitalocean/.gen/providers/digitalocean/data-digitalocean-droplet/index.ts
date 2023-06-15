@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/droplet
+// https://www.terraform.io/docs/providers/digitalocean/d/droplet
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,7 +10,7 @@ export interface DataDigitaloceanDropletConfig extends cdktf.TerraformMetaArgume
   /**
   * id of the Droplet
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/droplet#id DataDigitaloceanDroplet#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet#id DataDigitaloceanDroplet#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -19,19 +19,19 @@ export interface DataDigitaloceanDropletConfig extends cdktf.TerraformMetaArgume
   /**
   * name of the Droplet
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/droplet#name DataDigitaloceanDroplet#name}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet#name DataDigitaloceanDroplet#name}
   */
   readonly name?: string;
   /**
   * unique tag of the Droplet
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/droplet#tag DataDigitaloceanDroplet#tag}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet#tag DataDigitaloceanDroplet#tag}
   */
   readonly tag?: string;
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/droplet digitalocean_droplet}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet digitalocean_droplet}
 */
 export class DataDigitaloceanDroplet extends cdktf.TerraformDataSource {
 
@@ -45,7 +45,7 @@ export class DataDigitaloceanDroplet extends cdktf.TerraformDataSource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/data-sources/droplet digitalocean_droplet} Data Source
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/d/droplet digitalocean_droplet} Data Source
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

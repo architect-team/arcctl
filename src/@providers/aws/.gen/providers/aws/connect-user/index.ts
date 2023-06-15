@@ -1,111 +1,103 @@
 // https://www.terraform.io/docs/providers/aws/r/connect_user
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ConnectUserConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#directory_user_id ConnectUser#directory_user_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#directory_user_id ConnectUser#directory_user_id}
+  */
   readonly directoryUserId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#hierarchy_group_id ConnectUser#hierarchy_group_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#hierarchy_group_id ConnectUser#hierarchy_group_id}
+  */
   readonly hierarchyGroupId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#id ConnectUser#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#id ConnectUser#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#instance_id ConnectUser#instance_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#instance_id ConnectUser#instance_id}
+  */
   readonly instanceId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#name ConnectUser#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#name ConnectUser#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#password ConnectUser#password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#password ConnectUser#password}
+  */
   readonly password?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#routing_profile_id ConnectUser#routing_profile_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#routing_profile_id ConnectUser#routing_profile_id}
+  */
   readonly routingProfileId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#security_profile_ids ConnectUser#security_profile_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#security_profile_ids ConnectUser#security_profile_ids}
+  */
   readonly securityProfileIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#tags ConnectUser#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#tags ConnectUser#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#tags_all ConnectUser#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#tags_all ConnectUser#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * identity_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#identity_info ConnectUser#identity_info}
-   */
+  * identity_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#identity_info ConnectUser#identity_info}
+  */
   readonly identityInfo?: ConnectUserIdentityInfo;
   /**
-   * phone_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#phone_config ConnectUser#phone_config}
-   */
+  * phone_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#phone_config ConnectUser#phone_config}
+  */
   readonly phoneConfig: ConnectUserPhoneConfig;
 }
 export interface ConnectUserIdentityInfo {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#email ConnectUser#email}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#email ConnectUser#email}
+  */
   readonly email?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#first_name ConnectUser#first_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#first_name ConnectUser#first_name}
+  */
   readonly firstName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#last_name ConnectUser#last_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#last_name ConnectUser#last_name}
+  */
   readonly lastName?: string;
 }
 
-export function connectUserIdentityInfoToTerraform(
-  struct?: ConnectUserIdentityInfoOutputReference | ConnectUserIdentityInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserIdentityInfoToTerraform(struct?: ConnectUserIdentityInfoOutputReference | ConnectUserIdentityInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     email: cdktf.stringToTerraform(struct!.email),
     first_name: cdktf.stringToTerraform(struct!.firstName),
     last_name: cdktf.stringToTerraform(struct!.lastName),
-  };
+  }
 }
 
 export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -133,7 +125,8 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
       this._email = undefined;
       this._firstName = undefined;
       this._lastName = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._email = value.email;
       this._firstName = value.firstName;
@@ -142,7 +135,7 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
   }
 
   // email - computed: false, optional: true, required: false
-  private _email?: string;
+  private _email?: string; 
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -158,7 +151,7 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
   }
 
   // first_name - computed: false, optional: true, required: false
-  private _firstName?: string;
+  private _firstName?: string; 
   public get firstName() {
     return this.getStringAttribute('first_name');
   }
@@ -174,7 +167,7 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
   }
 
   // last_name - computed: false, optional: true, required: false
-  private _lastName?: string;
+  private _lastName?: string; 
   public get lastName() {
     return this.getStringAttribute('last_name');
   }
@@ -191,55 +184,44 @@ export class ConnectUserIdentityInfoOutputReference extends cdktf.ComplexObject 
 }
 export interface ConnectUserPhoneConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#after_contact_work_time_limit ConnectUser#after_contact_work_time_limit}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#after_contact_work_time_limit ConnectUser#after_contact_work_time_limit}
+  */
   readonly afterContactWorkTimeLimit?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#auto_accept ConnectUser#auto_accept}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#auto_accept ConnectUser#auto_accept}
+  */
   readonly autoAccept?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#desk_phone_number ConnectUser#desk_phone_number}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#desk_phone_number ConnectUser#desk_phone_number}
+  */
   readonly deskPhoneNumber?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#phone_type ConnectUser#phone_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/connect_user#phone_type ConnectUser#phone_type}
+  */
   readonly phoneType: string;
 }
 
-export function connectUserPhoneConfigToTerraform(
-  struct?: ConnectUserPhoneConfigOutputReference | ConnectUserPhoneConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function connectUserPhoneConfigToTerraform(struct?: ConnectUserPhoneConfigOutputReference | ConnectUserPhoneConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    after_contact_work_time_limit: cdktf.numberToTerraform(
-      struct!.afterContactWorkTimeLimit,
-    ),
+    after_contact_work_time_limit: cdktf.numberToTerraform(struct!.afterContactWorkTimeLimit),
     auto_accept: cdktf.booleanToTerraform(struct!.autoAccept),
     desk_phone_number: cdktf.stringToTerraform(struct!.deskPhoneNumber),
     phone_type: cdktf.stringToTerraform(struct!.phoneType),
-  };
+  }
 }
 
 export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -248,8 +230,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
     const internalValueResult: any = {};
     if (this._afterContactWorkTimeLimit !== undefined) {
       hasAnyValues = true;
-      internalValueResult.afterContactWorkTimeLimit =
-        this._afterContactWorkTimeLimit;
+      internalValueResult.afterContactWorkTimeLimit = this._afterContactWorkTimeLimit;
     }
     if (this._autoAccept !== undefined) {
       hasAnyValues = true;
@@ -273,7 +254,8 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
       this._autoAccept = undefined;
       this._deskPhoneNumber = undefined;
       this._phoneType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._afterContactWorkTimeLimit = value.afterContactWorkTimeLimit;
       this._autoAccept = value.autoAccept;
@@ -283,7 +265,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // after_contact_work_time_limit - computed: false, optional: true, required: false
-  private _afterContactWorkTimeLimit?: number;
+  private _afterContactWorkTimeLimit?: number; 
   public get afterContactWorkTimeLimit() {
     return this.getNumberAttribute('after_contact_work_time_limit');
   }
@@ -299,7 +281,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // auto_accept - computed: false, optional: true, required: false
-  private _autoAccept?: boolean | cdktf.IResolvable;
+  private _autoAccept?: boolean | cdktf.IResolvable; 
   public get autoAccept() {
     return this.getBooleanAttribute('auto_accept');
   }
@@ -315,7 +297,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // desk_phone_number - computed: false, optional: true, required: false
-  private _deskPhoneNumber?: string;
+  private _deskPhoneNumber?: string; 
   public get deskPhoneNumber() {
     return this.getStringAttribute('desk_phone_number');
   }
@@ -331,7 +313,7 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
   }
 
   // phone_type - computed: false, optional: false, required: true
-  private _phoneType?: string;
+  private _phoneType?: string; 
   public get phoneType() {
     return this.getStringAttribute('phone_type');
   }
@@ -345,32 +327,33 @@ export class ConnectUserPhoneConfigOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/connect_user aws_connect_user}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/connect_user aws_connect_user}
+*/
 export class ConnectUser extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_connect_user';
+  public static readonly tfResourceType = "aws_connect_user";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/connect_user aws_connect_user} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ConnectUserConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/connect_user aws_connect_user} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ConnectUserConfig
+  */
   public constructor(scope: Construct, id: string, config: ConnectUserConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_connect_user',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -378,7 +361,7 @@ export class ConnectUser extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._directoryUserId = config.directoryUserId;
     this._hierarchyGroupId = config.hierarchyGroupId;
@@ -404,7 +387,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // directory_user_id - computed: true, optional: true, required: false
-  private _directoryUserId?: string;
+  private _directoryUserId?: string; 
   public get directoryUserId() {
     return this.getStringAttribute('directory_user_id');
   }
@@ -420,7 +403,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // hierarchy_group_id - computed: false, optional: true, required: false
-  private _hierarchyGroupId?: string;
+  private _hierarchyGroupId?: string; 
   public get hierarchyGroupId() {
     return this.getStringAttribute('hierarchy_group_id');
   }
@@ -436,7 +419,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -452,7 +435,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string;
+  private _instanceId?: string; 
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -465,7 +448,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -478,7 +461,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // password - computed: false, optional: true, required: false
-  private _password?: string;
+  private _password?: string; 
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -494,7 +477,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // routing_profile_id - computed: false, optional: false, required: true
-  private _routingProfileId?: string;
+  private _routingProfileId?: string; 
   public get routingProfileId() {
     return this.getStringAttribute('routing_profile_id');
   }
@@ -507,7 +490,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // security_profile_ids - computed: false, optional: false, required: true
-  private _securityProfileIds?: string[];
+  private _securityProfileIds?: string[]; 
   public get securityProfileIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_profile_ids'));
   }
@@ -520,7 +503,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -536,7 +519,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -557,10 +540,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // identity_info - computed: false, optional: true, required: false
-  private _identityInfo = new ConnectUserIdentityInfoOutputReference(
-    this,
-    'identity_info',
-  );
+  private _identityInfo = new ConnectUserIdentityInfoOutputReference(this, "identity_info");
   public get identityInfo() {
     return this._identityInfo;
   }
@@ -576,10 +556,7 @@ export class ConnectUser extends cdktf.TerraformResource {
   }
 
   // phone_config - computed: false, optional: false, required: true
-  private _phoneConfig = new ConnectUserPhoneConfigOutputReference(
-    this,
-    'phone_config',
-  );
+  private _phoneConfig = new ConnectUserPhoneConfigOutputReference(this, "phone_config");
   public get phoneConfig() {
     return this._phoneConfig;
   }
@@ -604,18 +581,11 @@ export class ConnectUser extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       password: cdktf.stringToTerraform(this._password),
       routing_profile_id: cdktf.stringToTerraform(this._routingProfileId),
-      security_profile_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._securityProfileIds),
+      security_profile_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._securityProfileIds),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      identity_info: connectUserIdentityInfoToTerraform(
-        this._identityInfo.internalValue,
-      ),
-      phone_config: connectUserPhoneConfigToTerraform(
-        this._phoneConfig.internalValue,
-      ),
+      identity_info: connectUserIdentityInfoToTerraform(this._identityInfo.internalValue),
+      phone_config: connectUserPhoneConfigToTerraform(this._phoneConfig.internalValue),
     };
   }
 }

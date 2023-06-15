@@ -1,26 +1,19 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
+import { Construct } from 'constructs';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
 import { Namespace } from '../.gen/providers/kubernetes/namespace/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
-import { Construct } from 'constructs';
 
-export class KubernetesNamespaceModule extends ResourceModule<
-  'namespace',
-  KubernetesCredentials
-> {
+export class KubernetesNamespaceModule extends ResourceModule<'namespace', KubernetesCredentials> {
   private namespace: Namespace;
   outputs: ResourceOutputs['namespace'];
 
-  constructor(
-    scope: Construct,
-    id: string,
-    inputs: ResourceInputs['namespace'],
-  ) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'namespace', KubernetesCredentials>) {
+    super(scope, options);
 
-    this.namespace = new Namespace(scope, inputs.name, {
+    this.namespace = new Namespace(scope, 'namespace', {
       metadata: {
-        name: inputs.name,
+        name: this.inputs?.name || 'unknown',
       },
     });
 
@@ -29,13 +22,10 @@ export class KubernetesNamespaceModule extends ResourceModule<
     };
   }
 
-  async genImports(
-    credentials: KubernetesCredentials,
-    resourceId: string,
-  ): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.namespace)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

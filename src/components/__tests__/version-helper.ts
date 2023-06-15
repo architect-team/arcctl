@@ -1,11 +1,104 @@
-import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
-import { Component } from '../component.ts';
 import yaml from 'js-yaml';
 import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { CloudEdge, CloudNode } from '../../cloud-graph/index.ts';
+import { Component } from '../component.ts';
+import { ComponentSchema } from '../schema.ts';
+
+export const testSecretGeneration = (
+  contents: string,
+  constructor: new (data: ComponentSchema) => Component,
+  options: { secret_name: string; data: string },
+): void => {
+  const component = new constructor(yaml.load(contents) as any);
+  const graph = component.getGraph({
+    component: {
+      name: 'test',
+      source: 'fake/source',
+    },
+    environment: 'test',
+  });
+
+  const secret_node = new CloudNode({
+    name: options.secret_name,
+    component: 'test',
+    environment: 'test',
+    inputs: {
+      type: 'secret',
+      name: CloudNode.genResourceId({
+        name: options.secret_name,
+        component: 'test',
+        environment: 'test',
+      }),
+      data: '',
+      required: false,
+    },
+  });
+
+  assertArrayIncludes(graph.nodes, [secret_node]);
+};
+
+export const testSecretIntegration = (
+  contents: string,
+  constructor: new (data: ComponentSchema) => Component,
+  options: { secret_name: string; deployment_name: string },
+): void => {
+  const component = new constructor(yaml.load(contents) as any);
+  const graph = component.getGraph({
+    component: {
+      name: 'component',
+      source: 'fake/source',
+    },
+    environment: 'environment',
+  });
+
+  const secret_node = new CloudNode({
+    name: options.secret_name,
+    component: 'component',
+    environment: 'environment',
+    inputs: {
+      type: 'secret',
+      name: CloudNode.genResourceId({
+        name: options.secret_name,
+        component: 'component',
+        environment: 'environment',
+      }),
+      data: '',
+      required: false,
+    },
+  });
+
+  const deployment_node = new CloudNode({
+    name: options.deployment_name,
+    component: 'component',
+    environment: 'environment',
+    inputs: {
+      type: 'deployment',
+      name: CloudNode.genResourceId({
+        name: options.deployment_name,
+        component: 'component',
+        environment: 'environment',
+      }),
+      replicas: 1,
+      image: 'nginx:1.14.2',
+      volume_mounts: [],
+      environment: {
+        DB_DSN: `\${{ ${secret_node.id}.data }}`,
+      },
+    },
+  });
+  assertArrayIncludes(graph.nodes, [secret_node, deployment_node]);
+  assertArrayIncludes(graph.edges, [
+    new CloudEdge({
+      from: deployment_node.id,
+      to: secret_node.id,
+      required: true,
+    }),
+  ]);
+};
 
 export const testDatabaseGeneration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: {
     database_name: string;
     database_type: string;
@@ -43,10 +136,10 @@ export const testDatabaseGeneration = (
 
 export const testDatabaseIntegration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: { database_name: string; deployment_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -111,10 +204,10 @@ export const testDatabaseIntegration = (
 
 export const testDeploymentGeneration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: { deployment_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'test',
@@ -145,10 +238,10 @@ export const testDeploymentGeneration = (
 
 export const testServiceGeneration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: { deployment_name: string; service_name: string },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'component',
@@ -168,8 +261,8 @@ export const testServiceGeneration = (
         component: 'component',
         environment: 'environment',
       }),
-      protocol: 'http',
-      selector: CloudNode.genResourceId({
+      target_protocol: 'http',
+      target_deployment: CloudNode.genResourceId({
         name: options.deployment_name,
         component: 'component',
         environment: 'environment',
@@ -195,13 +288,13 @@ export const testServiceGeneration = (
 
 export const testServiceIntegration = (
   contents: string,
-  constructor: new (data: object) => Component,
+  constructor: new (data: ComponentSchema) => Component,
   options: {
     service_name: string;
     deployment_name: string;
   },
 ): void => {
-  const component = new constructor(yaml.load(contents) as object);
+  const component = new constructor(yaml.load(contents) as ComponentSchema);
   const graph = component.getGraph({
     component: {
       name: 'component',

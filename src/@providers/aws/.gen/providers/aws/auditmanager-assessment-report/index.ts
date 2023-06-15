@@ -1,57 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AuditmanagerAssessmentReportConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AuditmanagerAssessmentReportConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report#assessment_id AuditmanagerAssessmentReport#assessment_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report#assessment_id AuditmanagerAssessmentReport#assessment_id}
+  */
   readonly assessmentId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report#description AuditmanagerAssessmentReport#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report#description AuditmanagerAssessmentReport#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report#name AuditmanagerAssessmentReport#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report#name AuditmanagerAssessmentReport#name}
+  */
   readonly name: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report aws_auditmanager_assessment_report}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report aws_auditmanager_assessment_report}
+*/
 export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_auditmanager_assessment_report';
+  public static readonly tfResourceType = "aws_auditmanager_assessment_report";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report aws_auditmanager_assessment_report} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AuditmanagerAssessmentReportConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AuditmanagerAssessmentReportConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/auditmanager_assessment_report aws_auditmanager_assessment_report} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AuditmanagerAssessmentReportConfig
+  */
+  public constructor(scope: Construct, id: string, config: AuditmanagerAssessmentReportConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_auditmanager_assessment_report',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -59,7 +56,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._assessmentId = config.assessmentId;
     this._description = config.description;
@@ -71,7 +68,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
   // ==========
 
   // assessment_id - computed: false, optional: false, required: true
-  private _assessmentId?: string;
+  private _assessmentId?: string; 
   public get assessmentId() {
     return this.getStringAttribute('assessment_id');
   }
@@ -89,7 +86,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -110,7 +107,7 @@ export class AuditmanagerAssessmentReport extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }

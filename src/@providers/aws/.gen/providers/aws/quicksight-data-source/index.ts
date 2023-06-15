@@ -1,121 +1,108 @@
 // https://www.terraform.io/docs/providers/aws/r/quicksight_data_source
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface QuicksightDataSourceConfig
-  extends cdktf.TerraformMetaArguments {
+export interface QuicksightDataSourceConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aws_account_id QuicksightDataSource#aws_account_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aws_account_id QuicksightDataSource#aws_account_id}
+  */
   readonly awsAccountId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#data_source_id QuicksightDataSource#data_source_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#data_source_id QuicksightDataSource#data_source_id}
+  */
   readonly dataSourceId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#id QuicksightDataSource#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#id QuicksightDataSource#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#name QuicksightDataSource#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#name QuicksightDataSource#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#tags QuicksightDataSource#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#tags QuicksightDataSource#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#tags_all QuicksightDataSource#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#tags_all QuicksightDataSource#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#type QuicksightDataSource#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#type QuicksightDataSource#type}
+  */
   readonly type: string;
   /**
-   * credentials block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#credentials QuicksightDataSource#credentials}
-   */
+  * credentials block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#credentials QuicksightDataSource#credentials}
+  */
   readonly credentials?: QuicksightDataSourceCredentials;
   /**
-   * parameters block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#parameters QuicksightDataSource#parameters}
-   */
+  * parameters block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#parameters QuicksightDataSource#parameters}
+  */
   readonly parameters: QuicksightDataSourceParameters;
   /**
-   * permission block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#permission QuicksightDataSource#permission}
-   */
+  * permission block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#permission QuicksightDataSource#permission}
+  */
   readonly permission?: QuicksightDataSourcePermission[] | cdktf.IResolvable;
   /**
-   * ssl_properties block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#ssl_properties QuicksightDataSource#ssl_properties}
-   */
+  * ssl_properties block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#ssl_properties QuicksightDataSource#ssl_properties}
+  */
   readonly sslProperties?: QuicksightDataSourceSslProperties;
   /**
-   * vpc_connection_properties block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#vpc_connection_properties QuicksightDataSource#vpc_connection_properties}
-   */
+  * vpc_connection_properties block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#vpc_connection_properties QuicksightDataSource#vpc_connection_properties}
+  */
   readonly vpcConnectionProperties?: QuicksightDataSourceVpcConnectionProperties;
 }
 export interface QuicksightDataSourceCredentialsCredentialPair {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#password QuicksightDataSource#password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#password QuicksightDataSource#password}
+  */
   readonly password: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#username QuicksightDataSource#username}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#username QuicksightDataSource#username}
+  */
   readonly username: string;
 }
 
-export function quicksightDataSourceCredentialsCredentialPairToTerraform(
-  struct?:
-    | QuicksightDataSourceCredentialsCredentialPairOutputReference
-    | QuicksightDataSourceCredentialsCredentialPair,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceCredentialsCredentialPairToTerraform(struct?: QuicksightDataSourceCredentialsCredentialPairOutputReference | QuicksightDataSourceCredentialsCredentialPair): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     password: cdktf.stringToTerraform(struct!.password),
     username: cdktf.stringToTerraform(struct!.username),
-  };
+  }
 }
 
 export class QuicksightDataSourceCredentialsCredentialPairOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceCredentialsCredentialPair
-    | undefined {
+  public get internalValue(): QuicksightDataSourceCredentialsCredentialPair | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._password !== undefined) {
@@ -129,14 +116,13 @@ export class QuicksightDataSourceCredentialsCredentialPairOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceCredentialsCredentialPair | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceCredentialsCredentialPair | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._password = undefined;
       this._username = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._password = value.password;
       this._username = value.username;
@@ -144,7 +130,7 @@ export class QuicksightDataSourceCredentialsCredentialPairOutputReference extend
   }
 
   // password - computed: false, optional: false, required: true
-  private _password?: string;
+  private _password?: string; 
   public get password() {
     return this.getStringAttribute('password');
   }
@@ -157,7 +143,7 @@ export class QuicksightDataSourceCredentialsCredentialPairOutputReference extend
   }
 
   // username - computed: false, optional: false, required: true
-  private _username?: string;
+  private _username?: string; 
   public get username() {
     return this.getStringAttribute('username');
   }
@@ -171,49 +157,36 @@ export class QuicksightDataSourceCredentialsCredentialPairOutputReference extend
 }
 export interface QuicksightDataSourceCredentials {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#copy_source_arn QuicksightDataSource#copy_source_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#copy_source_arn QuicksightDataSource#copy_source_arn}
+  */
   readonly copySourceArn?: string;
   /**
-   * credential_pair block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#credential_pair QuicksightDataSource#credential_pair}
-   */
+  * credential_pair block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#credential_pair QuicksightDataSource#credential_pair}
+  */
   readonly credentialPair?: QuicksightDataSourceCredentialsCredentialPair;
 }
 
-export function quicksightDataSourceCredentialsToTerraform(
-  struct?:
-    | QuicksightDataSourceCredentialsOutputReference
-    | QuicksightDataSourceCredentials,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceCredentialsToTerraform(struct?: QuicksightDataSourceCredentialsOutputReference | QuicksightDataSourceCredentials): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     copy_source_arn: cdktf.stringToTerraform(struct!.copySourceArn),
-    credential_pair: quicksightDataSourceCredentialsCredentialPairToTerraform(
-      struct!.credentialPair,
-    ),
-  };
+    credential_pair: quicksightDataSourceCredentialsCredentialPairToTerraform(struct!.credentialPair),
+  }
 }
 
 export class QuicksightDataSourceCredentialsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -236,7 +209,8 @@ export class QuicksightDataSourceCredentialsOutputReference extends cdktf.Comple
       this.isEmptyObject = false;
       this._copySourceArn = undefined;
       this._credentialPair.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._copySourceArn = value.copySourceArn;
       this._credentialPair.internalValue = value.credentialPair;
@@ -244,7 +218,7 @@ export class QuicksightDataSourceCredentialsOutputReference extends cdktf.Comple
   }
 
   // copy_source_arn - computed: false, optional: true, required: false
-  private _copySourceArn?: string;
+  private _copySourceArn?: string; 
   public get copySourceArn() {
     return this.getStringAttribute('copy_source_arn');
   }
@@ -260,17 +234,11 @@ export class QuicksightDataSourceCredentialsOutputReference extends cdktf.Comple
   }
 
   // credential_pair - computed: false, optional: true, required: false
-  private _credentialPair =
-    new QuicksightDataSourceCredentialsCredentialPairOutputReference(
-      this,
-      'credential_pair',
-    );
+  private _credentialPair = new QuicksightDataSourceCredentialsCredentialPairOutputReference(this, "credential_pair");
   public get credentialPair() {
     return this._credentialPair;
   }
-  public putCredentialPair(
-    value: QuicksightDataSourceCredentialsCredentialPair,
-  ) {
+  public putCredentialPair(value: QuicksightDataSourceCredentialsCredentialPair) {
     this._credentialPair.internalValue = value;
   }
   public resetCredentialPair() {
@@ -283,46 +251,33 @@ export class QuicksightDataSourceCredentialsOutputReference extends cdktf.Comple
 }
 export interface QuicksightDataSourceParametersAmazonElasticsearch {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#domain QuicksightDataSource#domain}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#domain QuicksightDataSource#domain}
+  */
   readonly domain: string;
 }
 
-export function quicksightDataSourceParametersAmazonElasticsearchToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersAmazonElasticsearchOutputReference
-    | QuicksightDataSourceParametersAmazonElasticsearch,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersAmazonElasticsearchToTerraform(struct?: QuicksightDataSourceParametersAmazonElasticsearchOutputReference | QuicksightDataSourceParametersAmazonElasticsearch): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     domain: cdktf.stringToTerraform(struct!.domain),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersAmazonElasticsearchOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersAmazonElasticsearch
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersAmazonElasticsearch | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._domain !== undefined) {
@@ -332,20 +287,19 @@ export class QuicksightDataSourceParametersAmazonElasticsearchOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersAmazonElasticsearch | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersAmazonElasticsearch | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._domain = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._domain = value.domain;
     }
   }
 
   // domain - computed: false, optional: false, required: true
-  private _domain?: string;
+  private _domain?: string; 
   public get domain() {
     return this.getStringAttribute('domain');
   }
@@ -359,40 +313,29 @@ export class QuicksightDataSourceParametersAmazonElasticsearchOutputReference ex
 }
 export interface QuicksightDataSourceParametersAthena {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#work_group QuicksightDataSource#work_group}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#work_group QuicksightDataSource#work_group}
+  */
   readonly workGroup?: string;
 }
 
-export function quicksightDataSourceParametersAthenaToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersAthenaOutputReference
-    | QuicksightDataSourceParametersAthena,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersAthenaToTerraform(struct?: QuicksightDataSourceParametersAthenaOutputReference | QuicksightDataSourceParametersAthena): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     work_group: cdktf.stringToTerraform(struct!.workGroup),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersAthenaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -406,20 +349,19 @@ export class QuicksightDataSourceParametersAthenaOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersAthena | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersAthena | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._workGroup = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._workGroup = value.workGroup;
     }
   }
 
   // work_group - computed: false, optional: true, required: false
-  private _workGroup?: string;
+  private _workGroup?: string; 
   public get workGroup() {
     return this.getStringAttribute('work_group');
   }
@@ -436,50 +378,39 @@ export class QuicksightDataSourceParametersAthenaOutputReference extends cdktf.C
 }
 export interface QuicksightDataSourceParametersAurora {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersAuroraToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersAuroraOutputReference
-    | QuicksightDataSourceParametersAurora,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersAuroraToTerraform(struct?: QuicksightDataSourceParametersAuroraOutputReference | QuicksightDataSourceParametersAurora): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -501,15 +432,14 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersAurora | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersAurora | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -518,7 +448,7 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -531,7 +461,7 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -544,7 +474,7 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -558,56 +488,43 @@ export class QuicksightDataSourceParametersAuroraOutputReference extends cdktf.C
 }
 export interface QuicksightDataSourceParametersAuroraPostgresql {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersAuroraPostgresqlToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersAuroraPostgresqlOutputReference
-    | QuicksightDataSourceParametersAuroraPostgresql,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersAuroraPostgresqlToTerraform(struct?: QuicksightDataSourceParametersAuroraPostgresqlOutputReference | QuicksightDataSourceParametersAuroraPostgresql): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersAuroraPostgresql
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersAuroraPostgresql | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._database !== undefined) {
@@ -625,15 +542,14 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersAuroraPostgresql | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersAuroraPostgresql | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -642,7 +558,7 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -655,7 +571,7 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -668,7 +584,7 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -682,46 +598,33 @@ export class QuicksightDataSourceParametersAuroraPostgresqlOutputReference exten
 }
 export interface QuicksightDataSourceParametersAwsIotAnalytics {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#data_set_name QuicksightDataSource#data_set_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#data_set_name QuicksightDataSource#data_set_name}
+  */
   readonly dataSetName: string;
 }
 
-export function quicksightDataSourceParametersAwsIotAnalyticsToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersAwsIotAnalyticsOutputReference
-    | QuicksightDataSourceParametersAwsIotAnalytics,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersAwsIotAnalyticsToTerraform(struct?: QuicksightDataSourceParametersAwsIotAnalyticsOutputReference | QuicksightDataSourceParametersAwsIotAnalytics): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     data_set_name: cdktf.stringToTerraform(struct!.dataSetName),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersAwsIotAnalyticsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersAwsIotAnalytics
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersAwsIotAnalytics | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._dataSetName !== undefined) {
@@ -731,20 +634,19 @@ export class QuicksightDataSourceParametersAwsIotAnalyticsOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersAwsIotAnalytics | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersAwsIotAnalytics | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._dataSetName = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._dataSetName = value.dataSetName;
     }
   }
 
   // data_set_name - computed: false, optional: false, required: true
-  private _dataSetName?: string;
+  private _dataSetName?: string; 
   public get dataSetName() {
     return this.getStringAttribute('data_set_name');
   }
@@ -758,40 +660,29 @@ export class QuicksightDataSourceParametersAwsIotAnalyticsOutputReference extend
 }
 export interface QuicksightDataSourceParametersJira {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#site_base_url QuicksightDataSource#site_base_url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#site_base_url QuicksightDataSource#site_base_url}
+  */
   readonly siteBaseUrl: string;
 }
 
-export function quicksightDataSourceParametersJiraToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersJiraOutputReference
-    | QuicksightDataSourceParametersJira,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersJiraToTerraform(struct?: QuicksightDataSourceParametersJiraOutputReference | QuicksightDataSourceParametersJira): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     site_base_url: cdktf.stringToTerraform(struct!.siteBaseUrl),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersJiraOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -805,20 +696,19 @@ export class QuicksightDataSourceParametersJiraOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersJira | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersJira | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._siteBaseUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._siteBaseUrl = value.siteBaseUrl;
     }
   }
 
   // site_base_url - computed: false, optional: false, required: true
-  private _siteBaseUrl?: string;
+  private _siteBaseUrl?: string; 
   public get siteBaseUrl() {
     return this.getStringAttribute('site_base_url');
   }
@@ -832,56 +722,43 @@ export class QuicksightDataSourceParametersJiraOutputReference extends cdktf.Com
 }
 export interface QuicksightDataSourceParametersMariaDb {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersMariaDbToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersMariaDbOutputReference
-    | QuicksightDataSourceParametersMariaDb,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersMariaDbToTerraform(struct?: QuicksightDataSourceParametersMariaDbOutputReference | QuicksightDataSourceParametersMariaDb): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersMariaDb
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersMariaDb | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._database !== undefined) {
@@ -899,15 +776,14 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersMariaDb | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersMariaDb | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -916,7 +792,7 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -929,7 +805,7 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -942,7 +818,7 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -956,50 +832,39 @@ export class QuicksightDataSourceParametersMariaDbOutputReference extends cdktf.
 }
 export interface QuicksightDataSourceParametersMysql {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersMysqlToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersMysqlOutputReference
-    | QuicksightDataSourceParametersMysql,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersMysqlToTerraform(struct?: QuicksightDataSourceParametersMysqlOutputReference | QuicksightDataSourceParametersMysql): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1021,15 +886,14 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersMysql | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersMysql | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -1038,7 +902,7 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1051,7 +915,7 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1064,7 +928,7 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1078,50 +942,39 @@ export class QuicksightDataSourceParametersMysqlOutputReference extends cdktf.Co
 }
 export interface QuicksightDataSourceParametersOracle {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersOracleToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersOracleOutputReference
-    | QuicksightDataSourceParametersOracle,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersOracleToTerraform(struct?: QuicksightDataSourceParametersOracleOutputReference | QuicksightDataSourceParametersOracle): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1143,15 +996,14 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersOracle | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersOracle | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -1160,7 +1012,7 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1173,7 +1025,7 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1186,7 +1038,7 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1200,56 +1052,43 @@ export class QuicksightDataSourceParametersOracleOutputReference extends cdktf.C
 }
 export interface QuicksightDataSourceParametersPostgresql {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersPostgresqlToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersPostgresqlOutputReference
-    | QuicksightDataSourceParametersPostgresql,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersPostgresqlToTerraform(struct?: QuicksightDataSourceParametersPostgresqlOutputReference | QuicksightDataSourceParametersPostgresql): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersPostgresql
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersPostgresql | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._database !== undefined) {
@@ -1267,15 +1106,14 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersPostgresql | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersPostgresql | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -1284,7 +1122,7 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1297,7 +1135,7 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1310,7 +1148,7 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1324,50 +1162,39 @@ export class QuicksightDataSourceParametersPostgresqlOutputReference extends cdk
 }
 export interface QuicksightDataSourceParametersPresto {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#catalog QuicksightDataSource#catalog}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#catalog QuicksightDataSource#catalog}
+  */
   readonly catalog: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersPrestoToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersPrestoOutputReference
-    | QuicksightDataSourceParametersPresto,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersPrestoToTerraform(struct?: QuicksightDataSourceParametersPrestoOutputReference | QuicksightDataSourceParametersPresto): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     catalog: cdktf.stringToTerraform(struct!.catalog),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1389,15 +1216,14 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersPresto | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersPresto | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._catalog = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._catalog = value.catalog;
       this._host = value.host;
@@ -1406,7 +1232,7 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
   }
 
   // catalog - computed: false, optional: false, required: true
-  private _catalog?: string;
+  private _catalog?: string; 
   public get catalog() {
     return this.getStringAttribute('catalog');
   }
@@ -1419,7 +1245,7 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1432,7 +1258,7 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1446,45 +1272,34 @@ export class QuicksightDataSourceParametersPrestoOutputReference extends cdktf.C
 }
 export interface QuicksightDataSourceParametersRds {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#instance_id QuicksightDataSource#instance_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#instance_id QuicksightDataSource#instance_id}
+  */
   readonly instanceId: string;
 }
 
-export function quicksightDataSourceParametersRdsToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersRdsOutputReference
-    | QuicksightDataSourceParametersRds,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersRdsToTerraform(struct?: QuicksightDataSourceParametersRdsOutputReference | QuicksightDataSourceParametersRds): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     instance_id: cdktf.stringToTerraform(struct!.instanceId),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1502,14 +1317,13 @@ export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersRds | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersRds | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._instanceId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._instanceId = value.instanceId;
@@ -1517,7 +1331,7 @@ export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.Comp
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1530,7 +1344,7 @@ export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.Comp
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string;
+  private _instanceId?: string; 
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -1544,61 +1358,48 @@ export class QuicksightDataSourceParametersRdsOutputReference extends cdktf.Comp
 }
 export interface QuicksightDataSourceParametersRedshift {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#cluster_id QuicksightDataSource#cluster_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#cluster_id QuicksightDataSource#cluster_id}
+  */
   readonly clusterId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port?: number;
 }
 
-export function quicksightDataSourceParametersRedshiftToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersRedshiftOutputReference
-    | QuicksightDataSourceParametersRedshift,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersRedshiftToTerraform(struct?: QuicksightDataSourceParametersRedshiftOutputReference | QuicksightDataSourceParametersRedshift): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     cluster_id: cdktf.stringToTerraform(struct!.clusterId),
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersRedshift
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersRedshift | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._clusterId !== undefined) {
@@ -1620,16 +1421,15 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersRedshift | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersRedshift | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._clusterId = undefined;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._clusterId = value.clusterId;
       this._database = value.database;
@@ -1639,7 +1439,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // cluster_id - computed: false, optional: true, required: false
-  private _clusterId?: string;
+  private _clusterId?: string; 
   public get clusterId() {
     return this.getStringAttribute('cluster_id');
   }
@@ -1655,7 +1455,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -1668,7 +1468,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // host - computed: false, optional: true, required: false
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -1684,7 +1484,7 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
   }
 
   // port - computed: false, optional: true, required: false
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -1701,51 +1501,38 @@ export class QuicksightDataSourceParametersRedshiftOutputReference extends cdktf
 }
 export interface QuicksightDataSourceParametersS3ManifestFileLocation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#bucket QuicksightDataSource#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#bucket QuicksightDataSource#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#key QuicksightDataSource#key}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#key QuicksightDataSource#key}
+  */
   readonly key: string;
 }
 
-export function quicksightDataSourceParametersS3ManifestFileLocationToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
-    | QuicksightDataSourceParametersS3ManifestFileLocation,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersS3ManifestFileLocationToTerraform(struct?: QuicksightDataSourceParametersS3ManifestFileLocationOutputReference | QuicksightDataSourceParametersS3ManifestFileLocation): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     key: cdktf.stringToTerraform(struct!.key),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersS3ManifestFileLocation
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersS3ManifestFileLocation | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucket !== undefined) {
@@ -1759,14 +1546,13 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersS3ManifestFileLocation | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersS3ManifestFileLocation | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
       this._key = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._key = value.key;
@@ -1774,7 +1560,7 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -1787,7 +1573,7 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
   }
 
   // key - computed: false, optional: false, required: true
-  private _key?: string;
+  private _key?: string; 
   public get key() {
     return this.getStringAttribute('key');
   }
@@ -1801,45 +1587,31 @@ export class QuicksightDataSourceParametersS3ManifestFileLocationOutputReference
 }
 export interface QuicksightDataSourceParametersS3 {
   /**
-   * manifest_file_location block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#manifest_file_location QuicksightDataSource#manifest_file_location}
-   */
+  * manifest_file_location block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#manifest_file_location QuicksightDataSource#manifest_file_location}
+  */
   readonly manifestFileLocation: QuicksightDataSourceParametersS3ManifestFileLocation;
 }
 
-export function quicksightDataSourceParametersS3ToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersS3OutputReference
-    | QuicksightDataSourceParametersS3,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersS3ToTerraform(struct?: QuicksightDataSourceParametersS3OutputReference | QuicksightDataSourceParametersS3): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    manifest_file_location:
-      quicksightDataSourceParametersS3ManifestFileLocationToTerraform(
-        struct!.manifestFileLocation,
-      ),
-  };
+    manifest_file_location: quicksightDataSourceParametersS3ManifestFileLocationToTerraform(struct!.manifestFileLocation),
+  }
 }
 
 export class QuicksightDataSourceParametersS3OutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -1848,36 +1620,28 @@ export class QuicksightDataSourceParametersS3OutputReference extends cdktf.Compl
     const internalValueResult: any = {};
     if (this._manifestFileLocation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.manifestFileLocation =
-        this._manifestFileLocation?.internalValue;
+      internalValueResult.manifestFileLocation = this._manifestFileLocation?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersS3 | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersS3 | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._manifestFileLocation.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._manifestFileLocation.internalValue = value.manifestFileLocation;
     }
   }
 
   // manifest_file_location - computed: false, optional: false, required: true
-  private _manifestFileLocation =
-    new QuicksightDataSourceParametersS3ManifestFileLocationOutputReference(
-      this,
-      'manifest_file_location',
-    );
+  private _manifestFileLocation = new QuicksightDataSourceParametersS3ManifestFileLocationOutputReference(this, "manifest_file_location");
   public get manifestFileLocation() {
     return this._manifestFileLocation;
   }
-  public putManifestFileLocation(
-    value: QuicksightDataSourceParametersS3ManifestFileLocation,
-  ) {
+  public putManifestFileLocation(value: QuicksightDataSourceParametersS3ManifestFileLocation) {
     this._manifestFileLocation.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -1887,46 +1651,33 @@ export class QuicksightDataSourceParametersS3OutputReference extends cdktf.Compl
 }
 export interface QuicksightDataSourceParametersServiceNow {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#site_base_url QuicksightDataSource#site_base_url}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#site_base_url QuicksightDataSource#site_base_url}
+  */
   readonly siteBaseUrl: string;
 }
 
-export function quicksightDataSourceParametersServiceNowToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersServiceNowOutputReference
-    | QuicksightDataSourceParametersServiceNow,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersServiceNowToTerraform(struct?: QuicksightDataSourceParametersServiceNowOutputReference | QuicksightDataSourceParametersServiceNow): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     site_base_url: cdktf.stringToTerraform(struct!.siteBaseUrl),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersServiceNowOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersServiceNow
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersServiceNow | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._siteBaseUrl !== undefined) {
@@ -1936,20 +1687,19 @@ export class QuicksightDataSourceParametersServiceNowOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersServiceNow | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersServiceNow | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._siteBaseUrl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._siteBaseUrl = value.siteBaseUrl;
     }
   }
 
   // site_base_url - computed: false, optional: false, required: true
-  private _siteBaseUrl?: string;
+  private _siteBaseUrl?: string; 
   public get siteBaseUrl() {
     return this.getStringAttribute('site_base_url');
   }
@@ -1963,56 +1713,43 @@ export class QuicksightDataSourceParametersServiceNowOutputReference extends cdk
 }
 export interface QuicksightDataSourceParametersSnowflake {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#warehouse QuicksightDataSource#warehouse}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#warehouse QuicksightDataSource#warehouse}
+  */
   readonly warehouse: string;
 }
 
-export function quicksightDataSourceParametersSnowflakeToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersSnowflakeOutputReference
-    | QuicksightDataSourceParametersSnowflake,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersSnowflakeToTerraform(struct?: QuicksightDataSourceParametersSnowflakeOutputReference | QuicksightDataSourceParametersSnowflake): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     warehouse: cdktf.stringToTerraform(struct!.warehouse),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersSnowflake
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersSnowflake | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._database !== undefined) {
@@ -2030,15 +1767,14 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersSnowflake | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersSnowflake | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._warehouse = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -2047,7 +1783,7 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -2060,7 +1796,7 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -2073,7 +1809,7 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
   }
 
   // warehouse - computed: false, optional: false, required: true
-  private _warehouse?: string;
+  private _warehouse?: string; 
   public get warehouse() {
     return this.getStringAttribute('warehouse');
   }
@@ -2087,45 +1823,34 @@ export class QuicksightDataSourceParametersSnowflakeOutputReference extends cdkt
 }
 export interface QuicksightDataSourceParametersSpark {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersSparkToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersSparkOutputReference
-    | QuicksightDataSourceParametersSpark,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersSparkToTerraform(struct?: QuicksightDataSourceParametersSparkOutputReference | QuicksightDataSourceParametersSpark): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2143,14 +1868,13 @@ export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersSpark | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersSpark | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._host = value.host;
       this._port = value.port;
@@ -2158,7 +1882,7 @@ export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.Co
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -2171,7 +1895,7 @@ export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.Co
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2185,56 +1909,43 @@ export class QuicksightDataSourceParametersSparkOutputReference extends cdktf.Co
 }
 export interface QuicksightDataSourceParametersSqlServer {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersSqlServerToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersSqlServerOutputReference
-    | QuicksightDataSourceParametersSqlServer,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersSqlServerToTerraform(struct?: QuicksightDataSourceParametersSqlServerOutputReference | QuicksightDataSourceParametersSqlServer): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersSqlServerOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersSqlServer
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersSqlServer | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._database !== undefined) {
@@ -2252,15 +1963,14 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersSqlServer | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersSqlServer | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -2269,7 +1979,7 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -2282,7 +1992,7 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -2295,7 +2005,7 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2309,56 +2019,43 @@ export class QuicksightDataSourceParametersSqlServerOutputReference extends cdkt
 }
 export interface QuicksightDataSourceParametersTeradata {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#database QuicksightDataSource#database}
+  */
   readonly database: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#host QuicksightDataSource#host}
+  */
   readonly host: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#port QuicksightDataSource#port}
+  */
   readonly port: number;
 }
 
-export function quicksightDataSourceParametersTeradataToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersTeradataOutputReference
-    | QuicksightDataSourceParametersTeradata,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersTeradataToTerraform(struct?: QuicksightDataSourceParametersTeradataOutputReference | QuicksightDataSourceParametersTeradata): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     database: cdktf.stringToTerraform(struct!.database),
     host: cdktf.stringToTerraform(struct!.host),
     port: cdktf.numberToTerraform(struct!.port),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersTeradata
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersTeradata | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._database !== undefined) {
@@ -2376,15 +2073,14 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersTeradata | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersTeradata | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._database = undefined;
       this._host = undefined;
       this._port = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._database = value.database;
       this._host = value.host;
@@ -2393,7 +2089,7 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
   }
 
   // database - computed: false, optional: false, required: true
-  private _database?: string;
+  private _database?: string; 
   public get database() {
     return this.getStringAttribute('database');
   }
@@ -2406,7 +2102,7 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
   }
 
   // host - computed: false, optional: false, required: true
-  private _host?: string;
+  private _host?: string; 
   public get host() {
     return this.getStringAttribute('host');
   }
@@ -2419,7 +2115,7 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
   }
 
   // port - computed: false, optional: false, required: true
-  private _port?: number;
+  private _port?: number; 
   public get port() {
     return this.getNumberAttribute('port');
   }
@@ -2433,51 +2129,38 @@ export class QuicksightDataSourceParametersTeradataOutputReference extends cdktf
 }
 export interface QuicksightDataSourceParametersTwitter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#max_rows QuicksightDataSource#max_rows}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#max_rows QuicksightDataSource#max_rows}
+  */
   readonly maxRows: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#query QuicksightDataSource#query}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#query QuicksightDataSource#query}
+  */
   readonly query: string;
 }
 
-export function quicksightDataSourceParametersTwitterToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersTwitterOutputReference
-    | QuicksightDataSourceParametersTwitter,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersTwitterToTerraform(struct?: QuicksightDataSourceParametersTwitterOutputReference | QuicksightDataSourceParametersTwitter): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     max_rows: cdktf.numberToTerraform(struct!.maxRows),
     query: cdktf.stringToTerraform(struct!.query),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceParametersTwitter
-    | undefined {
+  public get internalValue(): QuicksightDataSourceParametersTwitter | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._maxRows !== undefined) {
@@ -2491,14 +2174,13 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceParametersTwitter | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceParametersTwitter | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._maxRows = undefined;
       this._query = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._maxRows = value.maxRows;
       this._query = value.query;
@@ -2506,7 +2188,7 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
   }
 
   // max_rows - computed: false, optional: false, required: true
-  private _maxRows?: number;
+  private _maxRows?: number; 
   public get maxRows() {
     return this.getNumberAttribute('max_rows');
   }
@@ -2519,7 +2201,7 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
   }
 
   // query - computed: false, optional: false, required: true
-  private _query?: string;
+  private _query?: string; 
   public get query() {
     return this.getStringAttribute('query');
   }
@@ -2533,195 +2215,164 @@ export class QuicksightDataSourceParametersTwitterOutputReference extends cdktf.
 }
 export interface QuicksightDataSourceParameters {
   /**
-   * amazon_elasticsearch block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#amazon_elasticsearch QuicksightDataSource#amazon_elasticsearch}
-   */
+  * amazon_elasticsearch block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#amazon_elasticsearch QuicksightDataSource#amazon_elasticsearch}
+  */
   readonly amazonElasticsearch?: QuicksightDataSourceParametersAmazonElasticsearch;
   /**
-   * athena block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#athena QuicksightDataSource#athena}
-   */
+  * athena block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#athena QuicksightDataSource#athena}
+  */
   readonly athena?: QuicksightDataSourceParametersAthena;
   /**
-   * aurora block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aurora QuicksightDataSource#aurora}
-   */
+  * aurora block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aurora QuicksightDataSource#aurora}
+  */
   readonly aurora?: QuicksightDataSourceParametersAurora;
   /**
-   * aurora_postgresql block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aurora_postgresql QuicksightDataSource#aurora_postgresql}
-   */
+  * aurora_postgresql block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aurora_postgresql QuicksightDataSource#aurora_postgresql}
+  */
   readonly auroraPostgresql?: QuicksightDataSourceParametersAuroraPostgresql;
   /**
-   * aws_iot_analytics block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aws_iot_analytics QuicksightDataSource#aws_iot_analytics}
-   */
+  * aws_iot_analytics block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#aws_iot_analytics QuicksightDataSource#aws_iot_analytics}
+  */
   readonly awsIotAnalytics?: QuicksightDataSourceParametersAwsIotAnalytics;
   /**
-   * jira block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#jira QuicksightDataSource#jira}
-   */
+  * jira block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#jira QuicksightDataSource#jira}
+  */
   readonly jira?: QuicksightDataSourceParametersJira;
   /**
-   * maria_db block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#maria_db QuicksightDataSource#maria_db}
-   */
+  * maria_db block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#maria_db QuicksightDataSource#maria_db}
+  */
   readonly mariaDb?: QuicksightDataSourceParametersMariaDb;
   /**
-   * mysql block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#mysql QuicksightDataSource#mysql}
-   */
+  * mysql block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#mysql QuicksightDataSource#mysql}
+  */
   readonly mysql?: QuicksightDataSourceParametersMysql;
   /**
-   * oracle block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#oracle QuicksightDataSource#oracle}
-   */
+  * oracle block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#oracle QuicksightDataSource#oracle}
+  */
   readonly oracle?: QuicksightDataSourceParametersOracle;
   /**
-   * postgresql block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#postgresql QuicksightDataSource#postgresql}
-   */
+  * postgresql block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#postgresql QuicksightDataSource#postgresql}
+  */
   readonly postgresql?: QuicksightDataSourceParametersPostgresql;
   /**
-   * presto block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#presto QuicksightDataSource#presto}
-   */
+  * presto block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#presto QuicksightDataSource#presto}
+  */
   readonly presto?: QuicksightDataSourceParametersPresto;
   /**
-   * rds block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#rds QuicksightDataSource#rds}
-   */
+  * rds block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#rds QuicksightDataSource#rds}
+  */
   readonly rds?: QuicksightDataSourceParametersRds;
   /**
-   * redshift block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#redshift QuicksightDataSource#redshift}
-   */
+  * redshift block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#redshift QuicksightDataSource#redshift}
+  */
   readonly redshift?: QuicksightDataSourceParametersRedshift;
   /**
-   * s3 block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#s3 QuicksightDataSource#s3}
-   */
+  * s3 block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#s3 QuicksightDataSource#s3}
+  */
   readonly s3?: QuicksightDataSourceParametersS3;
   /**
-   * service_now block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#service_now QuicksightDataSource#service_now}
-   */
+  * service_now block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#service_now QuicksightDataSource#service_now}
+  */
   readonly serviceNow?: QuicksightDataSourceParametersServiceNow;
   /**
-   * snowflake block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#snowflake QuicksightDataSource#snowflake}
-   */
+  * snowflake block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#snowflake QuicksightDataSource#snowflake}
+  */
   readonly snowflake?: QuicksightDataSourceParametersSnowflake;
   /**
-   * spark block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#spark QuicksightDataSource#spark}
-   */
+  * spark block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#spark QuicksightDataSource#spark}
+  */
   readonly spark?: QuicksightDataSourceParametersSpark;
   /**
-   * sql_server block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#sql_server QuicksightDataSource#sql_server}
-   */
+  * sql_server block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#sql_server QuicksightDataSource#sql_server}
+  */
   readonly sqlServer?: QuicksightDataSourceParametersSqlServer;
   /**
-   * teradata block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#teradata QuicksightDataSource#teradata}
-   */
+  * teradata block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#teradata QuicksightDataSource#teradata}
+  */
   readonly teradata?: QuicksightDataSourceParametersTeradata;
   /**
-   * twitter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#twitter QuicksightDataSource#twitter}
-   */
+  * twitter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#twitter QuicksightDataSource#twitter}
+  */
   readonly twitter?: QuicksightDataSourceParametersTwitter;
 }
 
-export function quicksightDataSourceParametersToTerraform(
-  struct?:
-    | QuicksightDataSourceParametersOutputReference
-    | QuicksightDataSourceParameters,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceParametersToTerraform(struct?: QuicksightDataSourceParametersOutputReference | QuicksightDataSourceParameters): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    amazon_elasticsearch:
-      quicksightDataSourceParametersAmazonElasticsearchToTerraform(
-        struct!.amazonElasticsearch,
-      ),
+    amazon_elasticsearch: quicksightDataSourceParametersAmazonElasticsearchToTerraform(struct!.amazonElasticsearch),
     athena: quicksightDataSourceParametersAthenaToTerraform(struct!.athena),
     aurora: quicksightDataSourceParametersAuroraToTerraform(struct!.aurora),
-    aurora_postgresql:
-      quicksightDataSourceParametersAuroraPostgresqlToTerraform(
-        struct!.auroraPostgresql,
-      ),
-    aws_iot_analytics: quicksightDataSourceParametersAwsIotAnalyticsToTerraform(
-      struct!.awsIotAnalytics,
-    ),
+    aurora_postgresql: quicksightDataSourceParametersAuroraPostgresqlToTerraform(struct!.auroraPostgresql),
+    aws_iot_analytics: quicksightDataSourceParametersAwsIotAnalyticsToTerraform(struct!.awsIotAnalytics),
     jira: quicksightDataSourceParametersJiraToTerraform(struct!.jira),
     maria_db: quicksightDataSourceParametersMariaDbToTerraform(struct!.mariaDb),
     mysql: quicksightDataSourceParametersMysqlToTerraform(struct!.mysql),
     oracle: quicksightDataSourceParametersOracleToTerraform(struct!.oracle),
-    postgresql: quicksightDataSourceParametersPostgresqlToTerraform(
-      struct!.postgresql,
-    ),
+    postgresql: quicksightDataSourceParametersPostgresqlToTerraform(struct!.postgresql),
     presto: quicksightDataSourceParametersPrestoToTerraform(struct!.presto),
     rds: quicksightDataSourceParametersRdsToTerraform(struct!.rds),
-    redshift: quicksightDataSourceParametersRedshiftToTerraform(
-      struct!.redshift,
-    ),
+    redshift: quicksightDataSourceParametersRedshiftToTerraform(struct!.redshift),
     s3: quicksightDataSourceParametersS3ToTerraform(struct!.s3),
-    service_now: quicksightDataSourceParametersServiceNowToTerraform(
-      struct!.serviceNow,
-    ),
-    snowflake: quicksightDataSourceParametersSnowflakeToTerraform(
-      struct!.snowflake,
-    ),
+    service_now: quicksightDataSourceParametersServiceNowToTerraform(struct!.serviceNow),
+    snowflake: quicksightDataSourceParametersSnowflakeToTerraform(struct!.snowflake),
     spark: quicksightDataSourceParametersSparkToTerraform(struct!.spark),
-    sql_server: quicksightDataSourceParametersSqlServerToTerraform(
-      struct!.sqlServer,
-    ),
-    teradata: quicksightDataSourceParametersTeradataToTerraform(
-      struct!.teradata,
-    ),
+    sql_server: quicksightDataSourceParametersSqlServerToTerraform(struct!.sqlServer),
+    teradata: quicksightDataSourceParametersTeradataToTerraform(struct!.teradata),
     twitter: quicksightDataSourceParametersTwitterToTerraform(struct!.twitter),
-  };
+  }
 }
 
 export class QuicksightDataSourceParametersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2730,8 +2381,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
     const internalValueResult: any = {};
     if (this._amazonElasticsearch?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.amazonElasticsearch =
-        this._amazonElasticsearch?.internalValue;
+      internalValueResult.amazonElasticsearch = this._amazonElasticsearch?.internalValue;
     }
     if (this._athena?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2743,13 +2393,11 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
     }
     if (this._auroraPostgresql?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.auroraPostgresql =
-        this._auroraPostgresql?.internalValue;
+      internalValueResult.auroraPostgresql = this._auroraPostgresql?.internalValue;
     }
     if (this._awsIotAnalytics?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.awsIotAnalytics =
-        this._awsIotAnalytics?.internalValue;
+      internalValueResult.awsIotAnalytics = this._awsIotAnalytics?.internalValue;
     }
     if (this._jira?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -2837,7 +2485,8 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
       this._sqlServer.internalValue = undefined;
       this._teradata.internalValue = undefined;
       this._twitter.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._amazonElasticsearch.internalValue = value.amazonElasticsearch;
       this._athena.internalValue = value.athena;
@@ -2863,17 +2512,11 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // amazon_elasticsearch - computed: false, optional: true, required: false
-  private _amazonElasticsearch =
-    new QuicksightDataSourceParametersAmazonElasticsearchOutputReference(
-      this,
-      'amazon_elasticsearch',
-    );
+  private _amazonElasticsearch = new QuicksightDataSourceParametersAmazonElasticsearchOutputReference(this, "amazon_elasticsearch");
   public get amazonElasticsearch() {
     return this._amazonElasticsearch;
   }
-  public putAmazonElasticsearch(
-    value: QuicksightDataSourceParametersAmazonElasticsearch,
-  ) {
+  public putAmazonElasticsearch(value: QuicksightDataSourceParametersAmazonElasticsearch) {
     this._amazonElasticsearch.internalValue = value;
   }
   public resetAmazonElasticsearch() {
@@ -2885,10 +2528,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // athena - computed: false, optional: true, required: false
-  private _athena = new QuicksightDataSourceParametersAthenaOutputReference(
-    this,
-    'athena',
-  );
+  private _athena = new QuicksightDataSourceParametersAthenaOutputReference(this, "athena");
   public get athena() {
     return this._athena;
   }
@@ -2904,10 +2544,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // aurora - computed: false, optional: true, required: false
-  private _aurora = new QuicksightDataSourceParametersAuroraOutputReference(
-    this,
-    'aurora',
-  );
+  private _aurora = new QuicksightDataSourceParametersAuroraOutputReference(this, "aurora");
   public get aurora() {
     return this._aurora;
   }
@@ -2923,17 +2560,11 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // aurora_postgresql - computed: false, optional: true, required: false
-  private _auroraPostgresql =
-    new QuicksightDataSourceParametersAuroraPostgresqlOutputReference(
-      this,
-      'aurora_postgresql',
-    );
+  private _auroraPostgresql = new QuicksightDataSourceParametersAuroraPostgresqlOutputReference(this, "aurora_postgresql");
   public get auroraPostgresql() {
     return this._auroraPostgresql;
   }
-  public putAuroraPostgresql(
-    value: QuicksightDataSourceParametersAuroraPostgresql,
-  ) {
+  public putAuroraPostgresql(value: QuicksightDataSourceParametersAuroraPostgresql) {
     this._auroraPostgresql.internalValue = value;
   }
   public resetAuroraPostgresql() {
@@ -2945,17 +2576,11 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // aws_iot_analytics - computed: false, optional: true, required: false
-  private _awsIotAnalytics =
-    new QuicksightDataSourceParametersAwsIotAnalyticsOutputReference(
-      this,
-      'aws_iot_analytics',
-    );
+  private _awsIotAnalytics = new QuicksightDataSourceParametersAwsIotAnalyticsOutputReference(this, "aws_iot_analytics");
   public get awsIotAnalytics() {
     return this._awsIotAnalytics;
   }
-  public putAwsIotAnalytics(
-    value: QuicksightDataSourceParametersAwsIotAnalytics,
-  ) {
+  public putAwsIotAnalytics(value: QuicksightDataSourceParametersAwsIotAnalytics) {
     this._awsIotAnalytics.internalValue = value;
   }
   public resetAwsIotAnalytics() {
@@ -2967,10 +2592,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // jira - computed: false, optional: true, required: false
-  private _jira = new QuicksightDataSourceParametersJiraOutputReference(
-    this,
-    'jira',
-  );
+  private _jira = new QuicksightDataSourceParametersJiraOutputReference(this, "jira");
   public get jira() {
     return this._jira;
   }
@@ -2986,10 +2608,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // maria_db - computed: false, optional: true, required: false
-  private _mariaDb = new QuicksightDataSourceParametersMariaDbOutputReference(
-    this,
-    'maria_db',
-  );
+  private _mariaDb = new QuicksightDataSourceParametersMariaDbOutputReference(this, "maria_db");
   public get mariaDb() {
     return this._mariaDb;
   }
@@ -3005,10 +2624,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // mysql - computed: false, optional: true, required: false
-  private _mysql = new QuicksightDataSourceParametersMysqlOutputReference(
-    this,
-    'mysql',
-  );
+  private _mysql = new QuicksightDataSourceParametersMysqlOutputReference(this, "mysql");
   public get mysql() {
     return this._mysql;
   }
@@ -3024,10 +2640,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // oracle - computed: false, optional: true, required: false
-  private _oracle = new QuicksightDataSourceParametersOracleOutputReference(
-    this,
-    'oracle',
-  );
+  private _oracle = new QuicksightDataSourceParametersOracleOutputReference(this, "oracle");
   public get oracle() {
     return this._oracle;
   }
@@ -3043,11 +2656,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // postgresql - computed: false, optional: true, required: false
-  private _postgresql =
-    new QuicksightDataSourceParametersPostgresqlOutputReference(
-      this,
-      'postgresql',
-    );
+  private _postgresql = new QuicksightDataSourceParametersPostgresqlOutputReference(this, "postgresql");
   public get postgresql() {
     return this._postgresql;
   }
@@ -3063,10 +2672,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // presto - computed: false, optional: true, required: false
-  private _presto = new QuicksightDataSourceParametersPrestoOutputReference(
-    this,
-    'presto',
-  );
+  private _presto = new QuicksightDataSourceParametersPrestoOutputReference(this, "presto");
   public get presto() {
     return this._presto;
   }
@@ -3082,10 +2688,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // rds - computed: false, optional: true, required: false
-  private _rds = new QuicksightDataSourceParametersRdsOutputReference(
-    this,
-    'rds',
-  );
+  private _rds = new QuicksightDataSourceParametersRdsOutputReference(this, "rds");
   public get rds() {
     return this._rds;
   }
@@ -3101,10 +2704,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // redshift - computed: false, optional: true, required: false
-  private _redshift = new QuicksightDataSourceParametersRedshiftOutputReference(
-    this,
-    'redshift',
-  );
+  private _redshift = new QuicksightDataSourceParametersRedshiftOutputReference(this, "redshift");
   public get redshift() {
     return this._redshift;
   }
@@ -3120,7 +2720,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // s3 - computed: false, optional: true, required: false
-  private _s3 = new QuicksightDataSourceParametersS3OutputReference(this, 's3');
+  private _s3 = new QuicksightDataSourceParametersS3OutputReference(this, "s3");
   public get s3() {
     return this._s3;
   }
@@ -3136,11 +2736,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // service_now - computed: false, optional: true, required: false
-  private _serviceNow =
-    new QuicksightDataSourceParametersServiceNowOutputReference(
-      this,
-      'service_now',
-    );
+  private _serviceNow = new QuicksightDataSourceParametersServiceNowOutputReference(this, "service_now");
   public get serviceNow() {
     return this._serviceNow;
   }
@@ -3156,11 +2752,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // snowflake - computed: false, optional: true, required: false
-  private _snowflake =
-    new QuicksightDataSourceParametersSnowflakeOutputReference(
-      this,
-      'snowflake',
-    );
+  private _snowflake = new QuicksightDataSourceParametersSnowflakeOutputReference(this, "snowflake");
   public get snowflake() {
     return this._snowflake;
   }
@@ -3176,10 +2768,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // spark - computed: false, optional: true, required: false
-  private _spark = new QuicksightDataSourceParametersSparkOutputReference(
-    this,
-    'spark',
-  );
+  private _spark = new QuicksightDataSourceParametersSparkOutputReference(this, "spark");
   public get spark() {
     return this._spark;
   }
@@ -3195,11 +2784,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // sql_server - computed: false, optional: true, required: false
-  private _sqlServer =
-    new QuicksightDataSourceParametersSqlServerOutputReference(
-      this,
-      'sql_server',
-    );
+  private _sqlServer = new QuicksightDataSourceParametersSqlServerOutputReference(this, "sql_server");
   public get sqlServer() {
     return this._sqlServer;
   }
@@ -3215,10 +2800,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // teradata - computed: false, optional: true, required: false
-  private _teradata = new QuicksightDataSourceParametersTeradataOutputReference(
-    this,
-    'teradata',
-  );
+  private _teradata = new QuicksightDataSourceParametersTeradataOutputReference(this, "teradata");
   public get teradata() {
     return this._teradata;
   }
@@ -3234,10 +2816,7 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
   }
 
   // twitter - computed: false, optional: true, required: false
-  private _twitter = new QuicksightDataSourceParametersTwitterOutputReference(
-    this,
-    'twitter',
-  );
+  private _twitter = new QuicksightDataSourceParametersTwitterOutputReference(this, "twitter");
   public get twitter() {
     return this._twitter;
   }
@@ -3254,30 +2833,24 @@ export class QuicksightDataSourceParametersOutputReference extends cdktf.Complex
 }
 export interface QuicksightDataSourcePermission {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#actions QuicksightDataSource#actions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#actions QuicksightDataSource#actions}
+  */
   readonly actions: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#principal QuicksightDataSource#principal}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#principal QuicksightDataSource#principal}
+  */
   readonly principal: string;
 }
 
-export function quicksightDataSourcePermissionToTerraform(
-  struct?: QuicksightDataSourcePermission | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourcePermissionToTerraform(struct?: QuicksightDataSourcePermission | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     actions: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.actions),
     principal: cdktf.stringToTerraform(struct!.principal),
-  };
+  }
 }
 
 export class QuicksightDataSourcePermissionOutputReference extends cdktf.ComplexObject {
@@ -3285,29 +2858,16 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | QuicksightDataSourcePermission
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): QuicksightDataSourcePermission | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3324,18 +2884,18 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourcePermission | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourcePermission | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._actions = undefined;
       this._principal = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._actions = value.actions;
@@ -3344,7 +2904,7 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
   }
 
   // actions - computed: false, optional: false, required: true
-  private _actions?: string[];
+  private _actions?: string[]; 
   public get actions() {
     return cdktf.Fn.tolist(this.getListAttribute('actions'));
   }
@@ -3357,7 +2917,7 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
   }
 
   // principal - computed: false, optional: false, required: true
-  private _principal?: string;
+  private _principal?: string; 
   public get principal() {
     return this.getStringAttribute('principal');
   }
@@ -3371,69 +2931,49 @@ export class QuicksightDataSourcePermissionOutputReference extends cdktf.Complex
 }
 
 export class QuicksightDataSourcePermissionList extends cdktf.ComplexList {
-  public internalValue?: QuicksightDataSourcePermission[] | cdktf.IResolvable;
+  public internalValue? : QuicksightDataSourcePermission[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): QuicksightDataSourcePermissionOutputReference {
-    return new QuicksightDataSourcePermissionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new QuicksightDataSourcePermissionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface QuicksightDataSourceSslProperties {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#disable_ssl QuicksightDataSource#disable_ssl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#disable_ssl QuicksightDataSource#disable_ssl}
+  */
   readonly disableSsl: boolean | cdktf.IResolvable;
 }
 
-export function quicksightDataSourceSslPropertiesToTerraform(
-  struct?:
-    | QuicksightDataSourceSslPropertiesOutputReference
-    | QuicksightDataSourceSslProperties,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceSslPropertiesToTerraform(struct?: QuicksightDataSourceSslPropertiesOutputReference | QuicksightDataSourceSslProperties): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     disable_ssl: cdktf.booleanToTerraform(struct!.disableSsl),
-  };
+  }
 }
 
 export class QuicksightDataSourceSslPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -3447,20 +2987,19 @@ export class QuicksightDataSourceSslPropertiesOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceSslProperties | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceSslProperties | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._disableSsl = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._disableSsl = value.disableSsl;
     }
   }
 
   // disable_ssl - computed: false, optional: false, required: true
-  private _disableSsl?: boolean | cdktf.IResolvable;
+  private _disableSsl?: boolean | cdktf.IResolvable; 
   public get disableSsl() {
     return this.getBooleanAttribute('disable_ssl');
   }
@@ -3474,46 +3013,33 @@ export class QuicksightDataSourceSslPropertiesOutputReference extends cdktf.Comp
 }
 export interface QuicksightDataSourceVpcConnectionProperties {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#vpc_connection_arn QuicksightDataSource#vpc_connection_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source#vpc_connection_arn QuicksightDataSource#vpc_connection_arn}
+  */
   readonly vpcConnectionArn: string;
 }
 
-export function quicksightDataSourceVpcConnectionPropertiesToTerraform(
-  struct?:
-    | QuicksightDataSourceVpcConnectionPropertiesOutputReference
-    | QuicksightDataSourceVpcConnectionProperties,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function quicksightDataSourceVpcConnectionPropertiesToTerraform(struct?: QuicksightDataSourceVpcConnectionPropertiesOutputReference | QuicksightDataSourceVpcConnectionProperties): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     vpc_connection_arn: cdktf.stringToTerraform(struct!.vpcConnectionArn),
-  };
+  }
 }
 
 export class QuicksightDataSourceVpcConnectionPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | QuicksightDataSourceVpcConnectionProperties
-    | undefined {
+  public get internalValue(): QuicksightDataSourceVpcConnectionProperties | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._vpcConnectionArn !== undefined) {
@@ -3523,20 +3049,19 @@ export class QuicksightDataSourceVpcConnectionPropertiesOutputReference extends 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: QuicksightDataSourceVpcConnectionProperties | undefined,
-  ) {
+  public set internalValue(value: QuicksightDataSourceVpcConnectionProperties | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._vpcConnectionArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._vpcConnectionArn = value.vpcConnectionArn;
     }
   }
 
   // vpc_connection_arn - computed: false, optional: false, required: true
-  private _vpcConnectionArn?: string;
+  private _vpcConnectionArn?: string; 
   public get vpcConnectionArn() {
     return this.getStringAttribute('vpc_connection_arn');
   }
@@ -3550,36 +3075,33 @@ export class QuicksightDataSourceVpcConnectionPropertiesOutputReference extends 
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source aws_quicksight_data_source}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source aws_quicksight_data_source}
+*/
 export class QuicksightDataSource extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_quicksight_data_source';
+  public static readonly tfResourceType = "aws_quicksight_data_source";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source aws_quicksight_data_source} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options QuicksightDataSourceConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: QuicksightDataSourceConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/quicksight_data_source aws_quicksight_data_source} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options QuicksightDataSourceConfig
+  */
+  public constructor(scope: Construct, id: string, config: QuicksightDataSourceConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_quicksight_data_source',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -3587,7 +3109,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._awsAccountId = config.awsAccountId;
     this._dataSourceId = config.dataSourceId;
@@ -3600,8 +3122,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
     this._parameters.internalValue = config.parameters;
     this._permission.internalValue = config.permission;
     this._sslProperties.internalValue = config.sslProperties;
-    this._vpcConnectionProperties.internalValue =
-      config.vpcConnectionProperties;
+    this._vpcConnectionProperties.internalValue = config.vpcConnectionProperties;
   }
 
   // ==========
@@ -3614,7 +3135,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // aws_account_id - computed: true, optional: true, required: false
-  private _awsAccountId?: string;
+  private _awsAccountId?: string; 
   public get awsAccountId() {
     return this.getStringAttribute('aws_account_id');
   }
@@ -3630,7 +3151,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // data_source_id - computed: false, optional: false, required: true
-  private _dataSourceId?: string;
+  private _dataSourceId?: string; 
   public get dataSourceId() {
     return this.getStringAttribute('data_source_id');
   }
@@ -3643,7 +3164,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -3659,7 +3180,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3672,7 +3193,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -3688,7 +3209,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -3704,7 +3225,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -3717,10 +3238,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // credentials - computed: false, optional: true, required: false
-  private _credentials = new QuicksightDataSourceCredentialsOutputReference(
-    this,
-    'credentials',
-  );
+  private _credentials = new QuicksightDataSourceCredentialsOutputReference(this, "credentials");
   public get credentials() {
     return this._credentials;
   }
@@ -3736,10 +3254,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // parameters - computed: false, optional: false, required: true
-  private _parameters = new QuicksightDataSourceParametersOutputReference(
-    this,
-    'parameters',
-  );
+  private _parameters = new QuicksightDataSourceParametersOutputReference(this, "parameters");
   public get parameters() {
     return this._parameters;
   }
@@ -3752,17 +3267,11 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // permission - computed: false, optional: true, required: false
-  private _permission = new QuicksightDataSourcePermissionList(
-    this,
-    'permission',
-    true,
-  );
+  private _permission = new QuicksightDataSourcePermissionList(this, "permission", true);
   public get permission() {
     return this._permission;
   }
-  public putPermission(
-    value: QuicksightDataSourcePermission[] | cdktf.IResolvable,
-  ) {
+  public putPermission(value: QuicksightDataSourcePermission[] | cdktf.IResolvable) {
     this._permission.internalValue = value;
   }
   public resetPermission() {
@@ -3774,10 +3283,7 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // ssl_properties - computed: false, optional: true, required: false
-  private _sslProperties = new QuicksightDataSourceSslPropertiesOutputReference(
-    this,
-    'ssl_properties',
-  );
+  private _sslProperties = new QuicksightDataSourceSslPropertiesOutputReference(this, "ssl_properties");
   public get sslProperties() {
     return this._sslProperties;
   }
@@ -3793,17 +3299,11 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
   }
 
   // vpc_connection_properties - computed: false, optional: true, required: false
-  private _vpcConnectionProperties =
-    new QuicksightDataSourceVpcConnectionPropertiesOutputReference(
-      this,
-      'vpc_connection_properties',
-    );
+  private _vpcConnectionProperties = new QuicksightDataSourceVpcConnectionPropertiesOutputReference(this, "vpc_connection_properties");
   public get vpcConnectionProperties() {
     return this._vpcConnectionProperties;
   }
-  public putVpcConnectionProperties(
-    value: QuicksightDataSourceVpcConnectionProperties,
-  ) {
+  public putVpcConnectionProperties(value: QuicksightDataSourceVpcConnectionProperties) {
     this._vpcConnectionProperties.internalValue = value;
   }
   public resetVpcConnectionProperties() {
@@ -3827,23 +3327,11 @@ export class QuicksightDataSource extends cdktf.TerraformResource {
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       type: cdktf.stringToTerraform(this._type),
-      credentials: quicksightDataSourceCredentialsToTerraform(
-        this._credentials.internalValue,
-      ),
-      parameters: quicksightDataSourceParametersToTerraform(
-        this._parameters.internalValue,
-      ),
-      permission: cdktf.listMapper(
-        quicksightDataSourcePermissionToTerraform,
-        true,
-      )(this._permission.internalValue),
-      ssl_properties: quicksightDataSourceSslPropertiesToTerraform(
-        this._sslProperties.internalValue,
-      ),
-      vpc_connection_properties:
-        quicksightDataSourceVpcConnectionPropertiesToTerraform(
-          this._vpcConnectionProperties.internalValue,
-        ),
+      credentials: quicksightDataSourceCredentialsToTerraform(this._credentials.internalValue),
+      parameters: quicksightDataSourceParametersToTerraform(this._parameters.internalValue),
+      permission: cdktf.listMapper(quicksightDataSourcePermissionToTerraform, true)(this._permission.internalValue),
+      ssl_properties: quicksightDataSourceSslPropertiesToTerraform(this._sslProperties.internalValue),
+      vpc_connection_properties: quicksightDataSourceVpcConnectionPropertiesToTerraform(this._vpcConnectionProperties.internalValue),
     };
   }
 }

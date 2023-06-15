@@ -1,7 +1,7 @@
+import { TerraformOutput } from 'cdktf';
 import { ResourceInputs, ResourceOutputs, ResourceType } from '../@resources/index.ts';
 import { ProviderCredentials } from './credentials.ts';
 import { ResourceModule } from './module.ts';
-import { TerraformOutput } from 'cdktf';
 
 export interface CldctlTestStack {
   inputs: ResourceInputs[ResourceType];

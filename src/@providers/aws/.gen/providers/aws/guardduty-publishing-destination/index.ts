@@ -1,69 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface GuarddutyPublishingDestinationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface GuarddutyPublishingDestinationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#destination_arn GuarddutyPublishingDestination#destination_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#destination_arn GuarddutyPublishingDestination#destination_arn}
+  */
   readonly destinationArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#destination_type GuarddutyPublishingDestination#destination_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#destination_type GuarddutyPublishingDestination#destination_type}
+  */
   readonly destinationType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#detector_id GuarddutyPublishingDestination#detector_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#detector_id GuarddutyPublishingDestination#detector_id}
+  */
   readonly detectorId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#id GuarddutyPublishingDestination#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#id GuarddutyPublishingDestination#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#kms_key_arn GuarddutyPublishingDestination#kms_key_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination#kms_key_arn GuarddutyPublishingDestination#kms_key_arn}
+  */
   readonly kmsKeyArn: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination aws_guardduty_publishing_destination}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination aws_guardduty_publishing_destination}
+*/
 export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_guardduty_publishing_destination';
+  public static readonly tfResourceType = "aws_guardduty_publishing_destination";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination aws_guardduty_publishing_destination} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GuarddutyPublishingDestinationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GuarddutyPublishingDestinationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/guardduty_publishing_destination aws_guardduty_publishing_destination} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GuarddutyPublishingDestinationConfig
+  */
+  public constructor(scope: Construct, id: string, config: GuarddutyPublishingDestinationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_guardduty_publishing_destination',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -71,7 +67,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._destinationArn = config.destinationArn;
     this._destinationType = config.destinationType;
@@ -85,7 +81,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   // ==========
 
   // destination_arn - computed: false, optional: false, required: true
-  private _destinationArn?: string;
+  private _destinationArn?: string; 
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -98,7 +94,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // destination_type - computed: false, optional: true, required: false
-  private _destinationType?: string;
+  private _destinationType?: string; 
   public get destinationType() {
     return this.getStringAttribute('destination_type');
   }
@@ -114,7 +110,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // detector_id - computed: false, optional: false, required: true
-  private _detectorId?: string;
+  private _detectorId?: string; 
   public get detectorId() {
     return this.getStringAttribute('detector_id');
   }
@@ -127,7 +123,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -143,7 +139,7 @@ export class GuarddutyPublishingDestination extends cdktf.TerraformResource {
   }
 
   // kms_key_arn - computed: false, optional: false, required: true
-  private _kmsKeyArn?: string;
+  private _kmsKeyArn?: string; 
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }

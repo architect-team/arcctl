@@ -1,105 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface TimestreamwriteTableConfig
-  extends cdktf.TerraformMetaArguments {
+export interface TimestreamwriteTableConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#database_name TimestreamwriteTable#database_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#database_name TimestreamwriteTable#database_name}
+  */
   readonly databaseName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#id TimestreamwriteTable#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#id TimestreamwriteTable#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#table_name TimestreamwriteTable#table_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#table_name TimestreamwriteTable#table_name}
+  */
   readonly tableName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#tags TimestreamwriteTable#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#tags TimestreamwriteTable#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#tags_all TimestreamwriteTable#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#tags_all TimestreamwriteTable#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * magnetic_store_write_properties block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_write_properties TimestreamwriteTable#magnetic_store_write_properties}
-   */
+  * magnetic_store_write_properties block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_write_properties TimestreamwriteTable#magnetic_store_write_properties}
+  */
   readonly magneticStoreWriteProperties?: TimestreamwriteTableMagneticStoreWriteProperties;
   /**
-   * retention_properties block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#retention_properties TimestreamwriteTable#retention_properties}
-   */
+  * retention_properties block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#retention_properties TimestreamwriteTable#retention_properties}
+  */
   readonly retentionProperties?: TimestreamwriteTableRetentionProperties;
 }
 export interface TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#bucket_name TimestreamwriteTable#bucket_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#bucket_name TimestreamwriteTable#bucket_name}
+  */
   readonly bucketName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#encryption_option TimestreamwriteTable#encryption_option}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#encryption_option TimestreamwriteTable#encryption_option}
+  */
   readonly encryptionOption?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#kms_key_id TimestreamwriteTable#kms_key_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#kms_key_id TimestreamwriteTable#kms_key_id}
+  */
   readonly kmsKeyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#object_key_prefix TimestreamwriteTable#object_key_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#object_key_prefix TimestreamwriteTable#object_key_prefix}
+  */
   readonly objectKeyPrefix?: string;
 }
 
-export function timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationToTerraform(
-  struct?:
-    | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputReference
-    | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationToTerraform(struct?: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputReference | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket_name: cdktf.stringToTerraform(struct!.bucketName),
     encryption_option: cdktf.stringToTerraform(struct!.encryptionOption),
     kms_key_id: cdktf.stringToTerraform(struct!.kmsKeyId),
     object_key_prefix: cdktf.stringToTerraform(struct!.objectKeyPrefix),
-  };
+  }
 }
 
 export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration
-    | undefined {
+  public get internalValue(): TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._bucketName !== undefined) {
@@ -121,18 +108,15 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration
-      | undefined,
-  ) {
+  public set internalValue(value: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketName = undefined;
       this._encryptionOption = undefined;
       this._kmsKeyId = undefined;
       this._objectKeyPrefix = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketName = value.bucketName;
       this._encryptionOption = value.encryptionOption;
@@ -142,7 +126,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // bucket_name - computed: false, optional: true, required: false
-  private _bucketName?: string;
+  private _bucketName?: string; 
   public get bucketName() {
     return this.getStringAttribute('bucket_name');
   }
@@ -158,7 +142,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // encryption_option - computed: false, optional: true, required: false
-  private _encryptionOption?: string;
+  private _encryptionOption?: string; 
   public get encryptionOption() {
     return this.getStringAttribute('encryption_option');
   }
@@ -174,7 +158,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // kms_key_id - computed: false, optional: true, required: false
-  private _kmsKeyId?: string;
+  private _kmsKeyId?: string; 
   public get kmsKeyId() {
     return this.getStringAttribute('kms_key_id');
   }
@@ -190,7 +174,7 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
   }
 
   // object_key_prefix - computed: false, optional: true, required: false
-  private _objectKeyPrefix?: string;
+  private _objectKeyPrefix?: string; 
   public get objectKeyPrefix() {
     return this.getStringAttribute('object_key_prefix');
   }
@@ -207,87 +191,61 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
 }
 export interface TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
   /**
-   * s3_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#s3_configuration TimestreamwriteTable#s3_configuration}
-   */
+  * s3_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#s3_configuration TimestreamwriteTable#s3_configuration}
+  */
   readonly s3Configuration?: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration;
 }
 
-export function timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationToTerraform(
-  struct?:
-    | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputReference
-    | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationToTerraform(struct?: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputReference | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    s3_configuration:
-      timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationToTerraform(
-        struct!.s3Configuration,
-      ),
-  };
+    s3_configuration: timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationToTerraform(struct!.s3Configuration),
+  }
 }
 
 export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation
-    | undefined {
+  public get internalValue(): TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._s3Configuration?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.s3Configuration =
-        this._s3Configuration?.internalValue;
+      internalValueResult.s3Configuration = this._s3Configuration?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation
-      | undefined,
-  ) {
+  public set internalValue(value: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._s3Configuration.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._s3Configuration.internalValue = value.s3Configuration;
     }
   }
 
   // s3_configuration - computed: false, optional: true, required: false
-  private _s3Configuration =
-    new TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputReference(
-      this,
-      's3_configuration',
-    );
+  private _s3Configuration = new TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputReference(this, "s3_configuration");
   public get s3Configuration() {
     return this._s3Configuration;
   }
-  public putS3Configuration(
-    value: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration,
-  ) {
+  public putS3Configuration(value: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) {
     this._s3Configuration.internalValue = value;
   }
   public resetS3Configuration() {
@@ -300,90 +258,68 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreReject
 }
 export interface TimestreamwriteTableMagneticStoreWriteProperties {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#enable_magnetic_store_writes TimestreamwriteTable#enable_magnetic_store_writes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#enable_magnetic_store_writes TimestreamwriteTable#enable_magnetic_store_writes}
+  */
   readonly enableMagneticStoreWrites?: boolean | cdktf.IResolvable;
   /**
-   * magnetic_store_rejected_data_location block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_rejected_data_location TimestreamwriteTable#magnetic_store_rejected_data_location}
-   */
+  * magnetic_store_rejected_data_location block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_rejected_data_location TimestreamwriteTable#magnetic_store_rejected_data_location}
+  */
   readonly magneticStoreRejectedDataLocation?: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation;
 }
 
-export function timestreamwriteTableMagneticStoreWritePropertiesToTerraform(
-  struct?:
-    | TimestreamwriteTableMagneticStoreWritePropertiesOutputReference
-    | TimestreamwriteTableMagneticStoreWriteProperties,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function timestreamwriteTableMagneticStoreWritePropertiesToTerraform(struct?: TimestreamwriteTableMagneticStoreWritePropertiesOutputReference | TimestreamwriteTableMagneticStoreWriteProperties): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    enable_magnetic_store_writes: cdktf.booleanToTerraform(
-      struct!.enableMagneticStoreWrites,
-    ),
-    magnetic_store_rejected_data_location:
-      timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationToTerraform(
-        struct!.magneticStoreRejectedDataLocation,
-      ),
-  };
+    enable_magnetic_store_writes: cdktf.booleanToTerraform(struct!.enableMagneticStoreWrites),
+    magnetic_store_rejected_data_location: timestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationToTerraform(struct!.magneticStoreRejectedDataLocation),
+  }
 }
 
 export class TimestreamwriteTableMagneticStoreWritePropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | TimestreamwriteTableMagneticStoreWriteProperties
-    | undefined {
+  public get internalValue(): TimestreamwriteTableMagneticStoreWriteProperties | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enableMagneticStoreWrites !== undefined) {
       hasAnyValues = true;
-      internalValueResult.enableMagneticStoreWrites =
-        this._enableMagneticStoreWrites;
+      internalValueResult.enableMagneticStoreWrites = this._enableMagneticStoreWrites;
     }
     if (this._magneticStoreRejectedDataLocation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.magneticStoreRejectedDataLocation =
-        this._magneticStoreRejectedDataLocation?.internalValue;
+      internalValueResult.magneticStoreRejectedDataLocation = this._magneticStoreRejectedDataLocation?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: TimestreamwriteTableMagneticStoreWriteProperties | undefined,
-  ) {
+  public set internalValue(value: TimestreamwriteTableMagneticStoreWriteProperties | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enableMagneticStoreWrites = undefined;
       this._magneticStoreRejectedDataLocation.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enableMagneticStoreWrites = value.enableMagneticStoreWrites;
-      this._magneticStoreRejectedDataLocation.internalValue =
-        value.magneticStoreRejectedDataLocation;
+      this._magneticStoreRejectedDataLocation.internalValue = value.magneticStoreRejectedDataLocation;
     }
   }
 
   // enable_magnetic_store_writes - computed: false, optional: true, required: false
-  private _enableMagneticStoreWrites?: boolean | cdktf.IResolvable;
+  private _enableMagneticStoreWrites?: boolean | cdktf.IResolvable; 
   public get enableMagneticStoreWrites() {
     return this.getBooleanAttribute('enable_magnetic_store_writes');
   }
@@ -399,17 +335,11 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesOutputReference ext
   }
 
   // magnetic_store_rejected_data_location - computed: false, optional: true, required: false
-  private _magneticStoreRejectedDataLocation =
-    new TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputReference(
-      this,
-      'magnetic_store_rejected_data_location',
-    );
+  private _magneticStoreRejectedDataLocation = new TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputReference(this, "magnetic_store_rejected_data_location");
   public get magneticStoreRejectedDataLocation() {
     return this._magneticStoreRejectedDataLocation;
   }
-  public putMagneticStoreRejectedDataLocation(
-    value: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation,
-  ) {
+  public putMagneticStoreRejectedDataLocation(value: TimestreamwriteTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) {
     this._magneticStoreRejectedDataLocation.internalValue = value;
   }
   public resetMagneticStoreRejectedDataLocation() {
@@ -422,88 +352,66 @@ export class TimestreamwriteTableMagneticStoreWritePropertiesOutputReference ext
 }
 export interface TimestreamwriteTableRetentionProperties {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_retention_period_in_days TimestreamwriteTable#magnetic_store_retention_period_in_days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#magnetic_store_retention_period_in_days TimestreamwriteTable#magnetic_store_retention_period_in_days}
+  */
   readonly magneticStoreRetentionPeriodInDays: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#memory_store_retention_period_in_hours TimestreamwriteTable#memory_store_retention_period_in_hours}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table#memory_store_retention_period_in_hours TimestreamwriteTable#memory_store_retention_period_in_hours}
+  */
   readonly memoryStoreRetentionPeriodInHours: number;
 }
 
-export function timestreamwriteTableRetentionPropertiesToTerraform(
-  struct?:
-    | TimestreamwriteTableRetentionPropertiesOutputReference
-    | TimestreamwriteTableRetentionProperties,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function timestreamwriteTableRetentionPropertiesToTerraform(struct?: TimestreamwriteTableRetentionPropertiesOutputReference | TimestreamwriteTableRetentionProperties): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    magnetic_store_retention_period_in_days: cdktf.numberToTerraform(
-      struct!.magneticStoreRetentionPeriodInDays,
-    ),
-    memory_store_retention_period_in_hours: cdktf.numberToTerraform(
-      struct!.memoryStoreRetentionPeriodInHours,
-    ),
-  };
+    magnetic_store_retention_period_in_days: cdktf.numberToTerraform(struct!.magneticStoreRetentionPeriodInDays),
+    memory_store_retention_period_in_hours: cdktf.numberToTerraform(struct!.memoryStoreRetentionPeriodInHours),
+  }
 }
 
 export class TimestreamwriteTableRetentionPropertiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | TimestreamwriteTableRetentionProperties
-    | undefined {
+  public get internalValue(): TimestreamwriteTableRetentionProperties | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._magneticStoreRetentionPeriodInDays !== undefined) {
       hasAnyValues = true;
-      internalValueResult.magneticStoreRetentionPeriodInDays =
-        this._magneticStoreRetentionPeriodInDays;
+      internalValueResult.magneticStoreRetentionPeriodInDays = this._magneticStoreRetentionPeriodInDays;
     }
     if (this._memoryStoreRetentionPeriodInHours !== undefined) {
       hasAnyValues = true;
-      internalValueResult.memoryStoreRetentionPeriodInHours =
-        this._memoryStoreRetentionPeriodInHours;
+      internalValueResult.memoryStoreRetentionPeriodInHours = this._memoryStoreRetentionPeriodInHours;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: TimestreamwriteTableRetentionProperties | undefined,
-  ) {
+  public set internalValue(value: TimestreamwriteTableRetentionProperties | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._magneticStoreRetentionPeriodInDays = undefined;
       this._memoryStoreRetentionPeriodInHours = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._magneticStoreRetentionPeriodInDays =
-        value.magneticStoreRetentionPeriodInDays;
-      this._memoryStoreRetentionPeriodInHours =
-        value.memoryStoreRetentionPeriodInHours;
+      this._magneticStoreRetentionPeriodInDays = value.magneticStoreRetentionPeriodInDays;
+      this._memoryStoreRetentionPeriodInHours = value.memoryStoreRetentionPeriodInHours;
     }
   }
 
   // magnetic_store_retention_period_in_days - computed: false, optional: false, required: true
-  private _magneticStoreRetentionPeriodInDays?: number;
+  private _magneticStoreRetentionPeriodInDays?: number; 
   public get magneticStoreRetentionPeriodInDays() {
     return this.getNumberAttribute('magnetic_store_retention_period_in_days');
   }
@@ -516,7 +424,7 @@ export class TimestreamwriteTableRetentionPropertiesOutputReference extends cdkt
   }
 
   // memory_store_retention_period_in_hours - computed: false, optional: false, required: true
-  private _memoryStoreRetentionPeriodInHours?: number;
+  private _memoryStoreRetentionPeriodInHours?: number; 
   public get memoryStoreRetentionPeriodInHours() {
     return this.getNumberAttribute('memory_store_retention_period_in_hours');
   }
@@ -530,36 +438,33 @@ export class TimestreamwriteTableRetentionPropertiesOutputReference extends cdkt
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table aws_timestreamwrite_table}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table aws_timestreamwrite_table}
+*/
 export class TimestreamwriteTable extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_timestreamwrite_table';
+  public static readonly tfResourceType = "aws_timestreamwrite_table";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table aws_timestreamwrite_table} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options TimestreamwriteTableConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: TimestreamwriteTableConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/timestreamwrite_table aws_timestreamwrite_table} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options TimestreamwriteTableConfig
+  */
+  public constructor(scope: Construct, id: string, config: TimestreamwriteTableConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_timestreamwrite_table',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -567,15 +472,14 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._databaseName = config.databaseName;
     this._id = config.id;
     this._tableName = config.tableName;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._magneticStoreWriteProperties.internalValue =
-      config.magneticStoreWriteProperties;
+    this._magneticStoreWriteProperties.internalValue = config.magneticStoreWriteProperties;
     this._retentionProperties.internalValue = config.retentionProperties;
   }
 
@@ -589,7 +493,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string;
+  private _databaseName?: string; 
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -602,7 +506,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -618,7 +522,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // table_name - computed: false, optional: false, required: true
-  private _tableName?: string;
+  private _tableName?: string; 
   public get tableName() {
     return this.getStringAttribute('table_name');
   }
@@ -631,7 +535,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -647,7 +551,7 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -663,17 +567,11 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // magnetic_store_write_properties - computed: false, optional: true, required: false
-  private _magneticStoreWriteProperties =
-    new TimestreamwriteTableMagneticStoreWritePropertiesOutputReference(
-      this,
-      'magnetic_store_write_properties',
-    );
+  private _magneticStoreWriteProperties = new TimestreamwriteTableMagneticStoreWritePropertiesOutputReference(this, "magnetic_store_write_properties");
   public get magneticStoreWriteProperties() {
     return this._magneticStoreWriteProperties;
   }
-  public putMagneticStoreWriteProperties(
-    value: TimestreamwriteTableMagneticStoreWriteProperties,
-  ) {
+  public putMagneticStoreWriteProperties(value: TimestreamwriteTableMagneticStoreWriteProperties) {
     this._magneticStoreWriteProperties.internalValue = value;
   }
   public resetMagneticStoreWriteProperties() {
@@ -685,17 +583,11 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
   }
 
   // retention_properties - computed: false, optional: true, required: false
-  private _retentionProperties =
-    new TimestreamwriteTableRetentionPropertiesOutputReference(
-      this,
-      'retention_properties',
-    );
+  private _retentionProperties = new TimestreamwriteTableRetentionPropertiesOutputReference(this, "retention_properties");
   public get retentionProperties() {
     return this._retentionProperties;
   }
-  public putRetentionProperties(
-    value: TimestreamwriteTableRetentionProperties,
-  ) {
+  public putRetentionProperties(value: TimestreamwriteTableRetentionProperties) {
     this._retentionProperties.internalValue = value;
   }
   public resetRetentionProperties() {
@@ -717,13 +609,8 @@ export class TimestreamwriteTable extends cdktf.TerraformResource {
       table_name: cdktf.stringToTerraform(this._tableName),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      magnetic_store_write_properties:
-        timestreamwriteTableMagneticStoreWritePropertiesToTerraform(
-          this._magneticStoreWriteProperties.internalValue,
-        ),
-      retention_properties: timestreamwriteTableRetentionPropertiesToTerraform(
-        this._retentionProperties.internalValue,
-      ),
+      magnetic_store_write_properties: timestreamwriteTableMagneticStoreWritePropertiesToTerraform(this._magneticStoreWriteProperties.internalValue),
+      retention_properties: timestreamwriteTableRetentionPropertiesToTerraform(this._retentionProperties.internalValue),
     };
   }
 }

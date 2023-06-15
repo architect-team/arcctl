@@ -1,88 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/organizations_account
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface OrganizationsAccountConfig
-  extends cdktf.TerraformMetaArguments {
+export interface OrganizationsAccountConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#close_on_deletion OrganizationsAccount#close_on_deletion}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#close_on_deletion OrganizationsAccount#close_on_deletion}
+  */
   readonly closeOnDeletion?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#create_govcloud OrganizationsAccount#create_govcloud}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#create_govcloud OrganizationsAccount#create_govcloud}
+  */
   readonly createGovcloud?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#email OrganizationsAccount#email}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#email OrganizationsAccount#email}
+  */
   readonly email: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#iam_user_access_to_billing OrganizationsAccount#iam_user_access_to_billing}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#iam_user_access_to_billing OrganizationsAccount#iam_user_access_to_billing}
+  */
   readonly iamUserAccessToBilling?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#id OrganizationsAccount#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#id OrganizationsAccount#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#name OrganizationsAccount#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#name OrganizationsAccount#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#parent_id OrganizationsAccount#parent_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#parent_id OrganizationsAccount#parent_id}
+  */
   readonly parentId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#role_name OrganizationsAccount#role_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#role_name OrganizationsAccount#role_name}
+  */
   readonly roleName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#tags OrganizationsAccount#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#tags OrganizationsAccount#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#tags_all OrganizationsAccount#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/organizations_account#tags_all OrganizationsAccount#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/organizations_account aws_organizations_account}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/organizations_account aws_organizations_account}
+*/
 export class OrganizationsAccount extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_organizations_account';
+  public static readonly tfResourceType = "aws_organizations_account";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/organizations_account aws_organizations_account} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options OrganizationsAccountConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: OrganizationsAccountConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/organizations_account aws_organizations_account} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options OrganizationsAccountConfig
+  */
+  public constructor(scope: Construct, id: string, config: OrganizationsAccountConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_organizations_account',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -90,7 +87,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._closeOnDeletion = config.closeOnDeletion;
     this._createGovcloud = config.createGovcloud;
@@ -114,7 +111,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // close_on_deletion - computed: false, optional: true, required: false
-  private _closeOnDeletion?: boolean | cdktf.IResolvable;
+  private _closeOnDeletion?: boolean | cdktf.IResolvable; 
   public get closeOnDeletion() {
     return this.getBooleanAttribute('close_on_deletion');
   }
@@ -130,7 +127,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // create_govcloud - computed: false, optional: true, required: false
-  private _createGovcloud?: boolean | cdktf.IResolvable;
+  private _createGovcloud?: boolean | cdktf.IResolvable; 
   public get createGovcloud() {
     return this.getBooleanAttribute('create_govcloud');
   }
@@ -146,7 +143,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // email - computed: false, optional: false, required: true
-  private _email?: string;
+  private _email?: string; 
   public get email() {
     return this.getStringAttribute('email');
   }
@@ -164,7 +161,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // iam_user_access_to_billing - computed: false, optional: true, required: false
-  private _iamUserAccessToBilling?: string;
+  private _iamUserAccessToBilling?: string; 
   public get iamUserAccessToBilling() {
     return this.getStringAttribute('iam_user_access_to_billing');
   }
@@ -180,7 +177,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -206,7 +203,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -219,7 +216,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // parent_id - computed: true, optional: true, required: false
-  private _parentId?: string;
+  private _parentId?: string; 
   public get parentId() {
     return this.getStringAttribute('parent_id');
   }
@@ -235,7 +232,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // role_name - computed: false, optional: true, required: false
-  private _roleName?: string;
+  private _roleName?: string; 
   public get roleName() {
     return this.getStringAttribute('role_name');
   }
@@ -256,7 +253,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -272,7 +269,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -296,9 +293,7 @@ export class OrganizationsAccount extends cdktf.TerraformResource {
       close_on_deletion: cdktf.booleanToTerraform(this._closeOnDeletion),
       create_govcloud: cdktf.booleanToTerraform(this._createGovcloud),
       email: cdktf.stringToTerraform(this._email),
-      iam_user_access_to_billing: cdktf.stringToTerraform(
-        this._iamUserAccessToBilling,
-      ),
+      iam_user_access_to_billing: cdktf.stringToTerraform(this._iamUserAccessToBilling),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
       parent_id: cdktf.stringToTerraform(this._parentId),

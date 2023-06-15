@@ -1,17 +1,18 @@
+import k8s from '@kubernetes/client-node';
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { KubernetesProvider as TerraformKubernetesProvider } from '../.gen/providers/kubernetes/provider/index.ts';
 import { KubernetesCredentials } from '../credentials.ts';
 import { KubernetesDeploymentModule } from '../modules/deployment.ts';
 import { KubernetesNamespaceService } from './namespace.ts';
-import k8s from '@kubernetes/client-node';
 
 export class KubernetesDeploymentService extends TerraformResourceService<'deployment', KubernetesCredentials> {
   private _client?: k8s.AppsV1Api;
 
-  constructor(private readonly credentials: KubernetesCredentials) {
-    super();
-  }
+  readonly terraform_version = '1.4.5';
+  readonly construct = KubernetesDeploymentModule;
 
   private get client(): k8s.AppsV1Api {
     if (this._client) {
@@ -55,10 +56,10 @@ export class KubernetesDeploymentService extends TerraformResourceService<'deplo
   }
 
   async list(
-    filterOptions?: Partial<ResourceOutputs['deployment']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _filterOptions?: Partial<ResourceOutputs['deployment']>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
-    const namespaceService = new KubernetesNamespaceService(this.credentials);
+    const namespaceService = new KubernetesNamespaceService(this.accountName, this.credentials, this.providerStore);
     const namespaces = await namespaceService.list();
 
     const rows: Array<ResourceOutputs['deployment']> = [];
@@ -78,5 +79,10 @@ export class KubernetesDeploymentService extends TerraformResourceService<'deplo
     };
   }
 
-  readonly construct = KubernetesDeploymentModule;
+  public configureTerraformProviders(scope: Construct): void {
+    new TerraformKubernetesProvider(scope, 'kubernetes', {
+      configPath: this.credentials.configPath,
+      configContext: this.credentials.configContext,
+    });
+  }
 }

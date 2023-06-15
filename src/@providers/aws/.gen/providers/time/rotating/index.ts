@@ -1,83 +1,81 @@
 // https://www.terraform.io/docs/providers/time/r/rotating
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface RotatingConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#id Rotating#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#id Rotating#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rfc3339 Rotating#rfc3339}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rfc3339 Rotating#rfc3339}
+  */
   readonly rfc3339?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_days Rotating#rotation_days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_days Rotating#rotation_days}
+  */
   readonly rotationDays?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_hours Rotating#rotation_hours}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_hours Rotating#rotation_hours}
+  */
   readonly rotationHours?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_minutes Rotating#rotation_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_minutes Rotating#rotation_minutes}
+  */
   readonly rotationMinutes?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_months Rotating#rotation_months}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_months Rotating#rotation_months}
+  */
   readonly rotationMonths?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_rfc3339 Rotating#rotation_rfc3339}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_rfc3339 Rotating#rotation_rfc3339}
+  */
   readonly rotationRfc3339?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_years Rotating#rotation_years}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#rotation_years Rotating#rotation_years}
+  */
   readonly rotationYears?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#triggers Rotating#triggers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/time/r/rotating#triggers Rotating#triggers}
+  */
   readonly triggers?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/time/r/rotating time_rotating}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/time/r/rotating time_rotating}
+*/
 export class Rotating extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'time_rotating';
+  public static readonly tfResourceType = "time_rotating";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/time/r/rotating time_rotating} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options RotatingConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: RotatingConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/time/r/rotating time_rotating} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options RotatingConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: RotatingConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'time_rotating',
       terraformGeneratorMetadata: {
         providerName: 'time',
         providerVersion: '0.5.0',
-        providerVersionConstraint: '0.5.0',
+        providerVersionConstraint: '0.5.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -85,7 +83,7 @@ export class Rotating extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._rfc3339 = config.rfc3339;
@@ -113,7 +111,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -139,7 +137,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rfc3339 - computed: true, optional: true, required: false
-  private _rfc3339?: string;
+  private _rfc3339?: string; 
   public get rfc3339() {
     return this.getStringAttribute('rfc3339');
   }
@@ -155,7 +153,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_days - computed: false, optional: true, required: false
-  private _rotationDays?: number;
+  private _rotationDays?: number; 
   public get rotationDays() {
     return this.getNumberAttribute('rotation_days');
   }
@@ -171,7 +169,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_hours - computed: false, optional: true, required: false
-  private _rotationHours?: number;
+  private _rotationHours?: number; 
   public get rotationHours() {
     return this.getNumberAttribute('rotation_hours');
   }
@@ -187,7 +185,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_minutes - computed: false, optional: true, required: false
-  private _rotationMinutes?: number;
+  private _rotationMinutes?: number; 
   public get rotationMinutes() {
     return this.getNumberAttribute('rotation_minutes');
   }
@@ -203,7 +201,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_months - computed: false, optional: true, required: false
-  private _rotationMonths?: number;
+  private _rotationMonths?: number; 
   public get rotationMonths() {
     return this.getNumberAttribute('rotation_months');
   }
@@ -219,7 +217,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_rfc3339 - computed: true, optional: true, required: false
-  private _rotationRfc3339?: string;
+  private _rotationRfc3339?: string; 
   public get rotationRfc3339() {
     return this.getStringAttribute('rotation_rfc3339');
   }
@@ -235,7 +233,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // rotation_years - computed: false, optional: true, required: false
-  private _rotationYears?: number;
+  private _rotationYears?: number; 
   public get rotationYears() {
     return this.getNumberAttribute('rotation_years');
   }
@@ -256,7 +254,7 @@ export class Rotating extends cdktf.TerraformResource {
   }
 
   // triggers - computed: false, optional: true, required: false
-  private _triggers?: { [key: string]: string };
+  private _triggers?: { [key: string]: string }; 
   public get triggers() {
     return this.getStringMapAttribute('triggers');
   }

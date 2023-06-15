@@ -1,4 +1,4 @@
-// https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc
+// https://www.terraform.io/docs/providers/digitalocean/r/vpc
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
@@ -10,11 +10,11 @@ export interface VpcConfig extends cdktf.TerraformMetaArguments {
   /**
   * A free-form description for the VPC
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#description Vpc#description}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#description Vpc#description}
   */
   readonly description?: string;
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#id Vpc#id}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#id Vpc#id}
   *
   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
@@ -23,36 +23,36 @@ export interface VpcConfig extends cdktf.TerraformMetaArguments {
   /**
   * The range of IP addresses for the VPC in CIDR notation
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#ip_range Vpc#ip_range}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#ip_range Vpc#ip_range}
   */
   readonly ipRange?: string;
   /**
   * The name of the VPC
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#name Vpc#name}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#name Vpc#name}
   */
   readonly name: string;
   /**
   * DigitalOcean region slug for the VPC's location
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#region Vpc#region}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#region Vpc#region}
   */
   readonly region: string;
   /**
   * timeouts block
   * 
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#timeouts Vpc#timeouts}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#timeouts Vpc#timeouts}
   */
   readonly timeouts?: VpcTimeouts;
 }
 export interface VpcTimeouts {
   /**
-  * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc#delete Vpc#delete}
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc#delete Vpc#delete}
   */
   readonly delete?: string;
 }
 
-export function vpcTimeoutsToTerraform(struct?: VpcTimeouts | cdktf.IResolvable): any {
+export function vpcTimeoutsToTerraform(struct?: VpcTimeoutsOutputReference | VpcTimeouts | cdktf.IResolvable): any {
   if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
     throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
@@ -71,7 +71,7 @@ export class VpcTimeoutsOutputReference extends cdktf.ComplexObject {
   * @param terraformAttribute The attribute on the parent resource this class is referencing
   */
   public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
-    super(terraformResource, terraformAttribute, false);
+    super(terraformResource, terraformAttribute, false, 0);
   }
 
   public get internalValue(): VpcTimeouts | cdktf.IResolvable | undefined {
@@ -122,7 +122,7 @@ export class VpcTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
-* Represents a {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc digitalocean_vpc}
+* Represents a {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc digitalocean_vpc}
 */
 export class Vpc extends cdktf.TerraformResource {
 
@@ -136,7 +136,7 @@ export class Vpc extends cdktf.TerraformResource {
   // ===========
 
   /**
-  * Create a new {@link https://registry.terraform.io/providers/digitalocean/digitalocean/2.28.1/docs/resources/vpc digitalocean_vpc} Resource
+  * Create a new {@link https://www.terraform.io/docs/providers/digitalocean/r/vpc digitalocean_vpc} Resource
   *
   * @param scope The scope in which to define this construct
   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope

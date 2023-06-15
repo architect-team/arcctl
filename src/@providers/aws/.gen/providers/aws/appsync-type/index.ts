@@ -1,59 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/appsync_type
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface AppsyncTypeConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#api_id AppsyncType#api_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#api_id AppsyncType#api_id}
+  */
   readonly apiId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#definition AppsyncType#definition}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#definition AppsyncType#definition}
+  */
   readonly definition: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#format AppsyncType#format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#format AppsyncType#format}
+  */
   readonly format: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#id AppsyncType#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appsync_type#id AppsyncType#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_type aws_appsync_type}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appsync_type aws_appsync_type}
+*/
 export class AppsyncType extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_appsync_type';
+  public static readonly tfResourceType = "aws_appsync_type";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_type aws_appsync_type} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppsyncTypeConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appsync_type aws_appsync_type} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppsyncTypeConfig
+  */
   public constructor(scope: Construct, id: string, config: AppsyncTypeConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appsync_type',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -61,7 +63,7 @@ export class AppsyncType extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._apiId = config.apiId;
     this._definition = config.definition;
@@ -74,7 +76,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   // ==========
 
   // api_id - computed: false, optional: false, required: true
-  private _apiId?: string;
+  private _apiId?: string; 
   public get apiId() {
     return this.getStringAttribute('api_id');
   }
@@ -92,7 +94,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   }
 
   // definition - computed: false, optional: false, required: true
-  private _definition?: string;
+  private _definition?: string; 
   public get definition() {
     return this.getStringAttribute('definition');
   }
@@ -110,7 +112,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string;
+  private _format?: string; 
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -123,7 +125,7 @@ export class AppsyncType extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }

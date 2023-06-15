@@ -1,12 +1,16 @@
 export type IngressRuleInputs = {
   /**
-   * ID of the load balancer to use for this ingress rule
+   * Name to give to the ingress rule resource
    */
-  loadBalancer: string;
+  name: string;
+
+  /**
+   * Unique ID of the service registry this rule will be stored in
+   */
+  registry: string;
 
   /**
    * Namespace to put the ingress rule in
-   * @default default
    */
   namespace?: string;
 
@@ -20,29 +24,27 @@ export type IngressRuleInputs = {
    */
   service: string;
 
-  listener?: {
-    /**
-     * Protocol that the ingress rule listens for traffic on
-     * @default http
-     */
-    protocol?: string;
+  /**
+   * The protocol the ingress rule listens for traffic on
+   * @default http
+   */
+  protocol?: string;
 
-    /**
-     * The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)
-     */
-    subdomain?: string;
+  /**
+   * The subdomain the ingress rule listens on
+   */
+  subdomain?: string;
 
-    /**
-     * The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)
-     */
-    hostZone?: string;
+  /**
+   * The DNS zone (aka base URL) that the ingress rule listens on
+   */
+  dnsZone?: string;
 
-    /**
-     * The path that the ingress rule listens for traffic on (only works w/ application load balancers)
-     * @default /
-     */
-    path?: string;
-  };
+  /**
+   * The path the ingress rule listens on
+   * @default /
+   */
+  path?: string;
 
   /**
    * Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)

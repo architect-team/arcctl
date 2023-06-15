@@ -1,155 +1,148 @@
 // https://www.terraform.io/docs/providers/aws/r/ami
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface AmiConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#architecture Ami#architecture}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#architecture Ami#architecture}
+  */
   readonly architecture?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#boot_mode Ami#boot_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#boot_mode Ami#boot_mode}
+  */
   readonly bootMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#deprecation_time Ami#deprecation_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#deprecation_time Ami#deprecation_time}
+  */
   readonly deprecationTime?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#description Ami#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#description Ami#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ena_support Ami#ena_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ena_support Ami#ena_support}
+  */
   readonly enaSupport?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#id Ami#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#id Ami#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#image_location Ami#image_location}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#image_location Ami#image_location}
+  */
   readonly imageLocation?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#imds_support Ami#imds_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#imds_support Ami#imds_support}
+  */
   readonly imdsSupport?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#kernel_id Ami#kernel_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#kernel_id Ami#kernel_id}
+  */
   readonly kernelId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#name Ami#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#name Ami#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ramdisk_id Ami#ramdisk_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ramdisk_id Ami#ramdisk_id}
+  */
   readonly ramdiskId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#root_device_name Ami#root_device_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#root_device_name Ami#root_device_name}
+  */
   readonly rootDeviceName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#sriov_net_support Ami#sriov_net_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#sriov_net_support Ami#sriov_net_support}
+  */
   readonly sriovNetSupport?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#tags Ami#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#tags Ami#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#tags_all Ami#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#tags_all Ami#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#tpm_support Ami#tpm_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#tpm_support Ami#tpm_support}
+  */
   readonly tpmSupport?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#virtualization_type Ami#virtualization_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#virtualization_type Ami#virtualization_type}
+  */
   readonly virtualizationType?: string;
   /**
-   * ebs_block_device block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ebs_block_device Ami#ebs_block_device}
-   */
+  * ebs_block_device block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ebs_block_device Ami#ebs_block_device}
+  */
   readonly ebsBlockDevice?: AmiEbsBlockDevice[] | cdktf.IResolvable;
   /**
-   * ephemeral_block_device block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ephemeral_block_device Ami#ephemeral_block_device}
-   */
+  * ephemeral_block_device block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#ephemeral_block_device Ami#ephemeral_block_device}
+  */
   readonly ephemeralBlockDevice?: AmiEphemeralBlockDevice[] | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#timeouts Ami#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#timeouts Ami#timeouts}
+  */
   readonly timeouts?: AmiTimeouts;
 }
 export interface AmiEbsBlockDevice {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#delete_on_termination Ami#delete_on_termination}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#delete_on_termination Ami#delete_on_termination}
+  */
   readonly deleteOnTermination?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#device_name Ami#device_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#device_name Ami#device_name}
+  */
   readonly deviceName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#encrypted Ami#encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#encrypted Ami#encrypted}
+  */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#iops Ami#iops}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#iops Ami#iops}
+  */
   readonly iops?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#outpost_arn Ami#outpost_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#outpost_arn Ami#outpost_arn}
+  */
   readonly outpostArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#snapshot_id Ami#snapshot_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#snapshot_id Ami#snapshot_id}
+  */
   readonly snapshotId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#throughput Ami#throughput}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#throughput Ami#throughput}
+  */
   readonly throughput?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#volume_size Ami#volume_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#volume_size Ami#volume_size}
+  */
   readonly volumeSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#volume_type Ami#volume_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#volume_type Ami#volume_type}
+  */
   readonly volumeType?: string;
 }
 
-export function amiEbsBlockDeviceToTerraform(
-  struct?: AmiEbsBlockDevice | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function amiEbsBlockDeviceToTerraform(struct?: AmiEbsBlockDevice | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    delete_on_termination: cdktf.booleanToTerraform(
-      struct!.deleteOnTermination,
-    ),
+    delete_on_termination: cdktf.booleanToTerraform(struct!.deleteOnTermination),
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
     iops: cdktf.numberToTerraform(struct!.iops),
@@ -158,7 +151,7 @@ export function amiEbsBlockDeviceToTerraform(
     throughput: cdktf.numberToTerraform(struct!.throughput),
     volume_size: cdktf.numberToTerraform(struct!.volumeSize),
     volume_type: cdktf.stringToTerraform(struct!.volumeType),
-  };
+  }
 }
 
 export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -166,29 +159,16 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AmiEbsBlockDevice
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AmiEbsBlockDevice | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -233,9 +213,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AmiEbsBlockDevice | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AmiEbsBlockDevice | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -248,10 +226,12 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
       this._throughput = undefined;
       this._volumeSize = undefined;
       this._volumeType = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deleteOnTermination = value.deleteOnTermination;
@@ -267,7 +247,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // delete_on_termination - computed: false, optional: true, required: false
-  private _deleteOnTermination?: boolean | cdktf.IResolvable;
+  private _deleteOnTermination?: boolean | cdktf.IResolvable; 
   public get deleteOnTermination() {
     return this.getBooleanAttribute('delete_on_termination');
   }
@@ -283,7 +263,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string;
+  private _deviceName?: string; 
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -296,7 +276,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable;
+  private _encrypted?: boolean | cdktf.IResolvable; 
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -312,7 +292,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number;
+  private _iops?: number; 
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -328,7 +308,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // outpost_arn - computed: false, optional: true, required: false
-  private _outpostArn?: string;
+  private _outpostArn?: string; 
   public get outpostArn() {
     return this.getStringAttribute('outpost_arn');
   }
@@ -344,7 +324,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // snapshot_id - computed: false, optional: true, required: false
-  private _snapshotId?: string;
+  private _snapshotId?: string; 
   public get snapshotId() {
     return this.getStringAttribute('snapshot_id');
   }
@@ -360,7 +340,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // throughput - computed: true, optional: true, required: false
-  private _throughput?: number;
+  private _throughput?: number; 
   public get throughput() {
     return this.getNumberAttribute('throughput');
   }
@@ -376,7 +356,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_size - computed: true, optional: true, required: false
-  private _volumeSize?: number;
+  private _volumeSize?: number; 
   public get volumeSize() {
     return this.getNumberAttribute('volume_size');
   }
@@ -392,7 +372,7 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
   }
 
   // volume_type - computed: false, optional: true, required: false
-  private _volumeType?: string;
+  private _volumeType?: string; 
   public get volumeType() {
     return this.getStringAttribute('volume_type');
   }
@@ -409,59 +389,44 @@ export class AmiEbsBlockDeviceOutputReference extends cdktf.ComplexObject {
 }
 
 export class AmiEbsBlockDeviceList extends cdktf.ComplexList {
-  public internalValue?: AmiEbsBlockDevice[] | cdktf.IResolvable;
+  public internalValue? : AmiEbsBlockDevice[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AmiEbsBlockDeviceOutputReference {
-    return new AmiEbsBlockDeviceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AmiEbsBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AmiEphemeralBlockDevice {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#device_name Ami#device_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#device_name Ami#device_name}
+  */
   readonly deviceName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#virtual_name Ami#virtual_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#virtual_name Ami#virtual_name}
+  */
   readonly virtualName: string;
 }
 
-export function amiEphemeralBlockDeviceToTerraform(
-  struct?: AmiEphemeralBlockDevice | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function amiEphemeralBlockDeviceToTerraform(struct?: AmiEphemeralBlockDevice | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     device_name: cdktf.stringToTerraform(struct!.deviceName),
     virtual_name: cdktf.stringToTerraform(struct!.virtualName),
-  };
+  }
 }
 
 export class AmiEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject {
@@ -469,29 +434,16 @@ export class AmiEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | AmiEphemeralBlockDevice
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): AmiEphemeralBlockDevice | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -508,18 +460,18 @@ export class AmiEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AmiEphemeralBlockDevice | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: AmiEphemeralBlockDevice | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._deviceName = undefined;
       this._virtualName = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._deviceName = value.deviceName;
@@ -528,7 +480,7 @@ export class AmiEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject 
   }
 
   // device_name - computed: false, optional: false, required: true
-  private _deviceName?: string;
+  private _deviceName?: string; 
   public get deviceName() {
     return this.getStringAttribute('device_name');
   }
@@ -541,7 +493,7 @@ export class AmiEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject 
   }
 
   // virtual_name - computed: false, optional: false, required: true
-  private _virtualName?: string;
+  private _virtualName?: string; 
   public get virtualName() {
     return this.getStringAttribute('virtual_name');
   }
@@ -555,64 +507,49 @@ export class AmiEphemeralBlockDeviceOutputReference extends cdktf.ComplexObject 
 }
 
 export class AmiEphemeralBlockDeviceList extends cdktf.ComplexList {
-  public internalValue?: AmiEphemeralBlockDevice[] | cdktf.IResolvable;
+  public internalValue? : AmiEphemeralBlockDevice[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): AmiEphemeralBlockDeviceOutputReference {
-    return new AmiEphemeralBlockDeviceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new AmiEphemeralBlockDeviceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface AmiTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#create Ami#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#create Ami#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#delete Ami#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#delete Ami#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#update Ami#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ami#update Ami#update}
+  */
   readonly update?: string;
 }
 
-export function amiTimeoutsToTerraform(
-  struct?: AmiTimeoutsOutputReference | AmiTimeouts | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function amiTimeoutsToTerraform(struct?: AmiTimeoutsOutputReference | AmiTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -620,13 +557,10 @@ export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -658,10 +592,12 @@ export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -671,7 +607,7 @@ export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -687,7 +623,7 @@ export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -703,7 +639,7 @@ export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -720,32 +656,33 @@ export class AmiTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ami aws_ami}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ami aws_ami}
+*/
 export class Ami extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ami';
+  public static readonly tfResourceType = "aws_ami";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ami aws_ami} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AmiConfig
-   */
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ami aws_ami} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AmiConfig
+  */
   public constructor(scope: Construct, id: string, config: AmiConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ami',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -753,7 +690,7 @@ export class Ami extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._architecture = config.architecture;
     this._bootMode = config.bootMode;
@@ -782,7 +719,7 @@ export class Ami extends cdktf.TerraformResource {
   // ==========
 
   // architecture - computed: false, optional: true, required: false
-  private _architecture?: string;
+  private _architecture?: string; 
   public get architecture() {
     return this.getStringAttribute('architecture');
   }
@@ -803,7 +740,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // boot_mode - computed: false, optional: true, required: false
-  private _bootMode?: string;
+  private _bootMode?: string; 
   public get bootMode() {
     return this.getStringAttribute('boot_mode');
   }
@@ -819,7 +756,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // deprecation_time - computed: false, optional: true, required: false
-  private _deprecationTime?: string;
+  private _deprecationTime?: string; 
   public get deprecationTime() {
     return this.getStringAttribute('deprecation_time');
   }
@@ -835,7 +772,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -851,7 +788,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // ena_support - computed: false, optional: true, required: false
-  private _enaSupport?: boolean | cdktf.IResolvable;
+  private _enaSupport?: boolean | cdktf.IResolvable; 
   public get enaSupport() {
     return this.getBooleanAttribute('ena_support');
   }
@@ -872,7 +809,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -888,7 +825,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // image_location - computed: true, optional: true, required: false
-  private _imageLocation?: string;
+  private _imageLocation?: string; 
   public get imageLocation() {
     return this.getStringAttribute('image_location');
   }
@@ -914,7 +851,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // imds_support - computed: false, optional: true, required: false
-  private _imdsSupport?: string;
+  private _imdsSupport?: string; 
   public get imdsSupport() {
     return this.getStringAttribute('imds_support');
   }
@@ -930,7 +867,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // kernel_id - computed: false, optional: true, required: false
-  private _kernelId?: string;
+  private _kernelId?: string; 
   public get kernelId() {
     return this.getStringAttribute('kernel_id');
   }
@@ -951,7 +888,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -984,7 +921,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // ramdisk_id - computed: false, optional: true, required: false
-  private _ramdiskId?: string;
+  private _ramdiskId?: string; 
   public get ramdiskId() {
     return this.getStringAttribute('ramdisk_id');
   }
@@ -1000,7 +937,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // root_device_name - computed: false, optional: true, required: false
-  private _rootDeviceName?: string;
+  private _rootDeviceName?: string; 
   public get rootDeviceName() {
     return this.getStringAttribute('root_device_name');
   }
@@ -1021,7 +958,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // sriov_net_support - computed: false, optional: true, required: false
-  private _sriovNetSupport?: string;
+  private _sriovNetSupport?: string; 
   public get sriovNetSupport() {
     return this.getStringAttribute('sriov_net_support');
   }
@@ -1037,7 +974,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1053,7 +990,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1069,7 +1006,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // tpm_support - computed: false, optional: true, required: false
-  private _tpmSupport?: string;
+  private _tpmSupport?: string; 
   public get tpmSupport() {
     return this.getStringAttribute('tpm_support');
   }
@@ -1090,7 +1027,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // virtualization_type - computed: false, optional: true, required: false
-  private _virtualizationType?: string;
+  private _virtualizationType?: string; 
   public get virtualizationType() {
     return this.getStringAttribute('virtualization_type');
   }
@@ -1106,11 +1043,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // ebs_block_device - computed: false, optional: true, required: false
-  private _ebsBlockDevice = new AmiEbsBlockDeviceList(
-    this,
-    'ebs_block_device',
-    true,
-  );
+  private _ebsBlockDevice = new AmiEbsBlockDeviceList(this, "ebs_block_device", true);
   public get ebsBlockDevice() {
     return this._ebsBlockDevice;
   }
@@ -1126,17 +1059,11 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // ephemeral_block_device - computed: false, optional: true, required: false
-  private _ephemeralBlockDevice = new AmiEphemeralBlockDeviceList(
-    this,
-    'ephemeral_block_device',
-    true,
-  );
+  private _ephemeralBlockDevice = new AmiEphemeralBlockDeviceList(this, "ephemeral_block_device", true);
   public get ephemeralBlockDevice() {
     return this._ephemeralBlockDevice;
   }
-  public putEphemeralBlockDevice(
-    value: AmiEphemeralBlockDevice[] | cdktf.IResolvable,
-  ) {
+  public putEphemeralBlockDevice(value: AmiEphemeralBlockDevice[] | cdktf.IResolvable) {
     this._ephemeralBlockDevice.internalValue = value;
   }
   public resetEphemeralBlockDevice() {
@@ -1148,7 +1075,7 @@ export class Ami extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new AmiTimeoutsOutputReference(this, 'timeouts');
+  private _timeouts = new AmiTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1186,14 +1113,8 @@ export class Ami extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       tpm_support: cdktf.stringToTerraform(this._tpmSupport),
       virtualization_type: cdktf.stringToTerraform(this._virtualizationType),
-      ebs_block_device: cdktf.listMapper(
-        amiEbsBlockDeviceToTerraform,
-        true,
-      )(this._ebsBlockDevice.internalValue),
-      ephemeral_block_device: cdktf.listMapper(
-        amiEphemeralBlockDeviceToTerraform,
-        true,
-      )(this._ephemeralBlockDevice.internalValue),
+      ebs_block_device: cdktf.listMapper(amiEbsBlockDeviceToTerraform, true)(this._ebsBlockDevice.internalValue),
+      ephemeral_block_device: cdktf.listMapper(amiEphemeralBlockDeviceToTerraform, true)(this._ephemeralBlockDevice.internalValue),
       timeouts: amiTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

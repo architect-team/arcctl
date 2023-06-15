@@ -1,37 +1,53 @@
-import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
-import { ResourceModule } from '../../module.ts';
-import { Database } from '../.gen/providers/postgresql/database/index.ts';
-import { PostgresCredentials } from '../credentials.ts';
 import { Construct } from 'constructs';
+import { ResourceOutputs } from '../../../@resources/index.ts';
+import { ResourceModule, ResourceModuleOptions } from '../../module.ts';
+import { Database } from '../.gen/providers/postgresql/database/index.ts';
+import { Role } from '../.gen/providers/postgresql/role/index.ts';
+import { PostgresCredentials } from '../credentials.ts';
 
 export class PostgresDatabaseSchemaModule extends ResourceModule<'databaseSchema', PostgresCredentials> {
   outputs: ResourceOutputs['databaseSchema'];
   db: Database;
+  role: Role;
 
-  constructor(scope: Construct, id: string, inputs: ResourceInputs['databaseSchema']) {
-    super(scope, id, inputs);
+  constructor(scope: Construct, options: ResourceModuleOptions<'databaseSchema', PostgresCredentials>) {
+    super(scope, options);
 
+    const normalizedName = this.inputs?.name.replaceAll('/', '--');
     this.db = new Database(this, 'postgres-database', {
-      name: inputs.name,
+      name: normalizedName || 'unknown',
+    });
+
+    const password = crypto.randomUUID();
+    this.role = new Role(this, 'user', {
+      name: normalizedName || 'unknown',
+      password,
+      superuser: false,
+      createDatabase: false,
+      encrypted: 'true',
+      login: true,
     });
 
     const protocol = 'postgresql';
-
+    const host = this.credentials.host;
+    const port = this.credentials.port;
     this.outputs = {
       id: this.db.name,
       name: this.db.name,
-      host: inputs.host || '',
-      port: inputs.port || 5432,
+      host,
+      port,
+      username: this.role.name,
+      password: this.role.password,
+      account: this.accountName,
       protocol,
-      url: `${protocol}://${inputs.host}:${inputs.port}/${this.db.name}`,
-      account: inputs.account || '',
+      url: `${protocol}://${this.role.name}:${this.role.password}@${host}:${port}/${this.db.name}`,
     };
   }
 
-  async genImports(credentials: PostgresCredentials, resourceId: string): Promise<Record<string, string>> {
-    return {
+  genImports(resourceId: string): Promise<Record<string, string>> {
+    return Promise.resolve({
       [this.getResourceRef(this.db)]: resourceId,
-    };
+    });
   }
 
   getDisplayNames(): Record<string, string> {

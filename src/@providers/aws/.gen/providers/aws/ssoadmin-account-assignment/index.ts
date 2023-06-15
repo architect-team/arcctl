@@ -1,76 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface SsoadminAccountAssignmentConfig
-  extends cdktf.TerraformMetaArguments {
+export interface SsoadminAccountAssignmentConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#id SsoadminAccountAssignment#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#id SsoadminAccountAssignment#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#instance_arn SsoadminAccountAssignment#instance_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#instance_arn SsoadminAccountAssignment#instance_arn}
+  */
   readonly instanceArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#permission_set_arn SsoadminAccountAssignment#permission_set_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#permission_set_arn SsoadminAccountAssignment#permission_set_arn}
+  */
   readonly permissionSetArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#principal_id SsoadminAccountAssignment#principal_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#principal_id SsoadminAccountAssignment#principal_id}
+  */
   readonly principalId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#principal_type SsoadminAccountAssignment#principal_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#principal_type SsoadminAccountAssignment#principal_type}
+  */
   readonly principalType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#target_id SsoadminAccountAssignment#target_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#target_id SsoadminAccountAssignment#target_id}
+  */
   readonly targetId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#target_type SsoadminAccountAssignment#target_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment#target_type SsoadminAccountAssignment#target_type}
+  */
   readonly targetType?: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment aws_ssoadmin_account_assignment}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment aws_ssoadmin_account_assignment}
+*/
 export class SsoadminAccountAssignment extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ssoadmin_account_assignment';
+  public static readonly tfResourceType = "aws_ssoadmin_account_assignment";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment aws_ssoadmin_account_assignment} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options SsoadminAccountAssignmentConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: SsoadminAccountAssignmentConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ssoadmin_account_assignment aws_ssoadmin_account_assignment} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options SsoadminAccountAssignmentConfig
+  */
+  public constructor(scope: Construct, id: string, config: SsoadminAccountAssignmentConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ssoadmin_account_assignment',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -78,7 +75,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._instanceArn = config.instanceArn;
@@ -94,7 +91,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -110,7 +107,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   }
 
   // instance_arn - computed: false, optional: false, required: true
-  private _instanceArn?: string;
+  private _instanceArn?: string; 
   public get instanceArn() {
     return this.getStringAttribute('instance_arn');
   }
@@ -123,7 +120,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   }
 
   // permission_set_arn - computed: false, optional: false, required: true
-  private _permissionSetArn?: string;
+  private _permissionSetArn?: string; 
   public get permissionSetArn() {
     return this.getStringAttribute('permission_set_arn');
   }
@@ -136,7 +133,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   }
 
   // principal_id - computed: false, optional: false, required: true
-  private _principalId?: string;
+  private _principalId?: string; 
   public get principalId() {
     return this.getStringAttribute('principal_id');
   }
@@ -149,7 +146,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   }
 
   // principal_type - computed: false, optional: false, required: true
-  private _principalType?: string;
+  private _principalType?: string; 
   public get principalType() {
     return this.getStringAttribute('principal_type');
   }
@@ -162,7 +159,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   }
 
   // target_id - computed: false, optional: false, required: true
-  private _targetId?: string;
+  private _targetId?: string; 
   public get targetId() {
     return this.getStringAttribute('target_id');
   }
@@ -175,7 +172,7 @@ export class SsoadminAccountAssignment extends cdktf.TerraformResource {
   }
 
   // target_type - computed: false, optional: true, required: false
-  private _targetType?: string;
+  private _targetType?: string; 
   public get targetType() {
     return this.getStringAttribute('target_type');
   }

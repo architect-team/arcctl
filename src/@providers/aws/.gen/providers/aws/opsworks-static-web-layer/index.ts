@@ -1,181 +1,173 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface OpsworksStaticWebLayerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface OpsworksStaticWebLayerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#auto_assign_elastic_ips OpsworksStaticWebLayer#auto_assign_elastic_ips}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#auto_assign_elastic_ips OpsworksStaticWebLayer#auto_assign_elastic_ips}
+  */
   readonly autoAssignElasticIps?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#auto_assign_public_ips OpsworksStaticWebLayer#auto_assign_public_ips}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#auto_assign_public_ips OpsworksStaticWebLayer#auto_assign_public_ips}
+  */
   readonly autoAssignPublicIps?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#auto_healing OpsworksStaticWebLayer#auto_healing}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#auto_healing OpsworksStaticWebLayer#auto_healing}
+  */
   readonly autoHealing?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_configure_recipes OpsworksStaticWebLayer#custom_configure_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_configure_recipes OpsworksStaticWebLayer#custom_configure_recipes}
+  */
   readonly customConfigureRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_deploy_recipes OpsworksStaticWebLayer#custom_deploy_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_deploy_recipes OpsworksStaticWebLayer#custom_deploy_recipes}
+  */
   readonly customDeployRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_instance_profile_arn OpsworksStaticWebLayer#custom_instance_profile_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_instance_profile_arn OpsworksStaticWebLayer#custom_instance_profile_arn}
+  */
   readonly customInstanceProfileArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_json OpsworksStaticWebLayer#custom_json}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_json OpsworksStaticWebLayer#custom_json}
+  */
   readonly customJson?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_security_group_ids OpsworksStaticWebLayer#custom_security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_security_group_ids OpsworksStaticWebLayer#custom_security_group_ids}
+  */
   readonly customSecurityGroupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_setup_recipes OpsworksStaticWebLayer#custom_setup_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_setup_recipes OpsworksStaticWebLayer#custom_setup_recipes}
+  */
   readonly customSetupRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_shutdown_recipes OpsworksStaticWebLayer#custom_shutdown_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_shutdown_recipes OpsworksStaticWebLayer#custom_shutdown_recipes}
+  */
   readonly customShutdownRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_undeploy_recipes OpsworksStaticWebLayer#custom_undeploy_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#custom_undeploy_recipes OpsworksStaticWebLayer#custom_undeploy_recipes}
+  */
   readonly customUndeployRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#drain_elb_on_shutdown OpsworksStaticWebLayer#drain_elb_on_shutdown}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#drain_elb_on_shutdown OpsworksStaticWebLayer#drain_elb_on_shutdown}
+  */
   readonly drainElbOnShutdown?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#elastic_load_balancer OpsworksStaticWebLayer#elastic_load_balancer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#elastic_load_balancer OpsworksStaticWebLayer#elastic_load_balancer}
+  */
   readonly elasticLoadBalancer?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#id OpsworksStaticWebLayer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#id OpsworksStaticWebLayer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#install_updates_on_boot OpsworksStaticWebLayer#install_updates_on_boot}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#install_updates_on_boot OpsworksStaticWebLayer#install_updates_on_boot}
+  */
   readonly installUpdatesOnBoot?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#instance_shutdown_timeout OpsworksStaticWebLayer#instance_shutdown_timeout}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#instance_shutdown_timeout OpsworksStaticWebLayer#instance_shutdown_timeout}
+  */
   readonly instanceShutdownTimeout?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#name OpsworksStaticWebLayer#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#name OpsworksStaticWebLayer#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#stack_id OpsworksStaticWebLayer#stack_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#stack_id OpsworksStaticWebLayer#stack_id}
+  */
   readonly stackId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#system_packages OpsworksStaticWebLayer#system_packages}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#system_packages OpsworksStaticWebLayer#system_packages}
+  */
   readonly systemPackages?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#tags OpsworksStaticWebLayer#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#tags OpsworksStaticWebLayer#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#tags_all OpsworksStaticWebLayer#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#tags_all OpsworksStaticWebLayer#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#use_ebs_optimized_instances OpsworksStaticWebLayer#use_ebs_optimized_instances}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#use_ebs_optimized_instances OpsworksStaticWebLayer#use_ebs_optimized_instances}
+  */
   readonly useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
   /**
-   * cloudwatch_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cloudwatch_configuration OpsworksStaticWebLayer#cloudwatch_configuration}
-   */
+  * cloudwatch_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cloudwatch_configuration OpsworksStaticWebLayer#cloudwatch_configuration}
+  */
   readonly cloudwatchConfiguration?: OpsworksStaticWebLayerCloudwatchConfiguration;
   /**
-   * ebs_volume block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ebs_volume OpsworksStaticWebLayer#ebs_volume}
-   */
+  * ebs_volume block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ebs_volume OpsworksStaticWebLayer#ebs_volume}
+  */
   readonly ebsVolume?: OpsworksStaticWebLayerEbsVolume[] | cdktf.IResolvable;
   /**
-   * load_based_auto_scaling block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_based_auto_scaling OpsworksStaticWebLayer#load_based_auto_scaling}
-   */
+  * load_based_auto_scaling block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_based_auto_scaling OpsworksStaticWebLayer#load_based_auto_scaling}
+  */
   readonly loadBasedAutoScaling?: OpsworksStaticWebLayerLoadBasedAutoScaling;
 }
 export interface OpsworksStaticWebLayerCloudwatchConfigurationLogStreams {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#batch_count OpsworksStaticWebLayer#batch_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#batch_count OpsworksStaticWebLayer#batch_count}
+  */
   readonly batchCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#batch_size OpsworksStaticWebLayer#batch_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#batch_size OpsworksStaticWebLayer#batch_size}
+  */
   readonly batchSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#buffer_duration OpsworksStaticWebLayer#buffer_duration}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#buffer_duration OpsworksStaticWebLayer#buffer_duration}
+  */
   readonly bufferDuration?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#datetime_format OpsworksStaticWebLayer#datetime_format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#datetime_format OpsworksStaticWebLayer#datetime_format}
+  */
   readonly datetimeFormat?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#encoding OpsworksStaticWebLayer#encoding}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#encoding OpsworksStaticWebLayer#encoding}
+  */
   readonly encoding?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#file OpsworksStaticWebLayer#file}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#file OpsworksStaticWebLayer#file}
+  */
   readonly file: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#file_fingerprint_lines OpsworksStaticWebLayer#file_fingerprint_lines}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#file_fingerprint_lines OpsworksStaticWebLayer#file_fingerprint_lines}
+  */
   readonly fileFingerprintLines?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#initial_position OpsworksStaticWebLayer#initial_position}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#initial_position OpsworksStaticWebLayer#initial_position}
+  */
   readonly initialPosition?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#log_group_name OpsworksStaticWebLayer#log_group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#log_group_name OpsworksStaticWebLayer#log_group_name}
+  */
   readonly logGroupName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#multiline_start_pattern OpsworksStaticWebLayer#multiline_start_pattern}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#multiline_start_pattern OpsworksStaticWebLayer#multiline_start_pattern}
+  */
   readonly multilineStartPattern?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#time_zone OpsworksStaticWebLayer#time_zone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#time_zone OpsworksStaticWebLayer#time_zone}
+  */
   readonly timeZone?: string;
 }
 
-export function opsworksStaticWebLayerCloudwatchConfigurationLogStreamsToTerraform(
-  struct?:
-    | OpsworksStaticWebLayerCloudwatchConfigurationLogStreams
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksStaticWebLayerCloudwatchConfigurationLogStreamsToTerraform(struct?: OpsworksStaticWebLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     batch_count: cdktf.numberToTerraform(struct!.batchCount),
@@ -184,16 +176,12 @@ export function opsworksStaticWebLayerCloudwatchConfigurationLogStreamsToTerrafo
     datetime_format: cdktf.stringToTerraform(struct!.datetimeFormat),
     encoding: cdktf.stringToTerraform(struct!.encoding),
     file: cdktf.stringToTerraform(struct!.file),
-    file_fingerprint_lines: cdktf.stringToTerraform(
-      struct!.fileFingerprintLines,
-    ),
+    file_fingerprint_lines: cdktf.stringToTerraform(struct!.fileFingerprintLines),
     initial_position: cdktf.stringToTerraform(struct!.initialPosition),
     log_group_name: cdktf.stringToTerraform(struct!.logGroupName),
-    multiline_start_pattern: cdktf.stringToTerraform(
-      struct!.multilineStartPattern,
-    ),
+    multiline_start_pattern: cdktf.stringToTerraform(struct!.multilineStartPattern),
     time_zone: cdktf.stringToTerraform(struct!.timeZone),
-  };
+  }
 }
 
 export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputReference extends cdktf.ComplexObject {
@@ -201,29 +189,16 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | OpsworksStaticWebLayerCloudwatchConfigurationLogStreams
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): OpsworksStaticWebLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -276,12 +251,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | OpsworksStaticWebLayerCloudwatchConfigurationLogStreams
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: OpsworksStaticWebLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -296,10 +266,12 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
       this._logGroupName = undefined;
       this._multilineStartPattern = undefined;
       this._timeZone = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._batchCount = value.batchCount;
@@ -317,7 +289,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // batch_count - computed: false, optional: true, required: false
-  private _batchCount?: number;
+  private _batchCount?: number; 
   public get batchCount() {
     return this.getNumberAttribute('batch_count');
   }
@@ -333,7 +305,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // batch_size - computed: false, optional: true, required: false
-  private _batchSize?: number;
+  private _batchSize?: number; 
   public get batchSize() {
     return this.getNumberAttribute('batch_size');
   }
@@ -349,7 +321,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // buffer_duration - computed: false, optional: true, required: false
-  private _bufferDuration?: number;
+  private _bufferDuration?: number; 
   public get bufferDuration() {
     return this.getNumberAttribute('buffer_duration');
   }
@@ -365,7 +337,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // datetime_format - computed: false, optional: true, required: false
-  private _datetimeFormat?: string;
+  private _datetimeFormat?: string; 
   public get datetimeFormat() {
     return this.getStringAttribute('datetime_format');
   }
@@ -381,7 +353,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // encoding - computed: false, optional: true, required: false
-  private _encoding?: string;
+  private _encoding?: string; 
   public get encoding() {
     return this.getStringAttribute('encoding');
   }
@@ -397,7 +369,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // file - computed: false, optional: false, required: true
-  private _file?: string;
+  private _file?: string; 
   public get file() {
     return this.getStringAttribute('file');
   }
@@ -410,7 +382,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // file_fingerprint_lines - computed: false, optional: true, required: false
-  private _fileFingerprintLines?: string;
+  private _fileFingerprintLines?: string; 
   public get fileFingerprintLines() {
     return this.getStringAttribute('file_fingerprint_lines');
   }
@@ -426,7 +398,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // initial_position - computed: false, optional: true, required: false
-  private _initialPosition?: string;
+  private _initialPosition?: string; 
   public get initialPosition() {
     return this.getStringAttribute('initial_position');
   }
@@ -442,7 +414,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string;
+  private _logGroupName?: string; 
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -455,7 +427,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // multiline_start_pattern - computed: false, optional: true, required: false
-  private _multilineStartPattern?: string;
+  private _multilineStartPattern?: string; 
   public get multilineStartPattern() {
     return this.getStringAttribute('multiline_start_pattern');
   }
@@ -471,7 +443,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
   }
 
   // time_zone - computed: false, optional: true, required: false
-  private _timeZone?: string;
+  private _timeZone?: string; 
   public get timeZone() {
     return this.getStringAttribute('time_zone');
   }
@@ -488,91 +460,60 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputRefere
 }
 
 export class OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsList extends cdktf.ComplexList {
-  public internalValue?:
-    | OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[]
-    | cdktf.IResolvable;
+  public internalValue? : OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputReference {
-    return new OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputReference {
+    return new OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface OpsworksStaticWebLayerCloudwatchConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#enabled OpsworksStaticWebLayer#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#enabled OpsworksStaticWebLayer#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * log_streams block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#log_streams OpsworksStaticWebLayer#log_streams}
-   */
-  readonly logStreams?:
-    | OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[]
-    | cdktf.IResolvable;
+  * log_streams block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#log_streams OpsworksStaticWebLayer#log_streams}
+  */
+  readonly logStreams?: OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable;
 }
 
-export function opsworksStaticWebLayerCloudwatchConfigurationToTerraform(
-  struct?:
-    | OpsworksStaticWebLayerCloudwatchConfigurationOutputReference
-    | OpsworksStaticWebLayerCloudwatchConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksStaticWebLayerCloudwatchConfigurationToTerraform(struct?: OpsworksStaticWebLayerCloudwatchConfigurationOutputReference | OpsworksStaticWebLayerCloudwatchConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    log_streams: cdktf.listMapper(
-      opsworksStaticWebLayerCloudwatchConfigurationLogStreamsToTerraform,
-      true,
-    )(struct!.logStreams),
-  };
+    log_streams: cdktf.listMapper(opsworksStaticWebLayerCloudwatchConfigurationLogStreamsToTerraform, true)(struct!.logStreams),
+  }
 }
 
 export class OpsworksStaticWebLayerCloudwatchConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksStaticWebLayerCloudwatchConfiguration
-    | undefined {
+  public get internalValue(): OpsworksStaticWebLayerCloudwatchConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -586,14 +527,13 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationOutputReference extend
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksStaticWebLayerCloudwatchConfiguration | undefined,
-  ) {
+  public set internalValue(value: OpsworksStaticWebLayerCloudwatchConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._logStreams.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._logStreams.internalValue = value.logStreams;
@@ -601,7 +541,7 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationOutputReference extend
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -617,20 +557,11 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationOutputReference extend
   }
 
   // log_streams - computed: false, optional: true, required: false
-  private _logStreams =
-    new OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsList(
-      this,
-      'log_streams',
-      false,
-    );
+  private _logStreams = new OpsworksStaticWebLayerCloudwatchConfigurationLogStreamsList(this, "log_streams", false);
   public get logStreams() {
     return this._logStreams;
   }
-  public putLogStreams(
-    value:
-      | OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[]
-      | cdktf.IResolvable,
-  ) {
+  public putLogStreams(value: OpsworksStaticWebLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable) {
     this._logStreams.internalValue = value;
   }
   public resetLogStreams() {
@@ -643,45 +574,39 @@ export class OpsworksStaticWebLayerCloudwatchConfigurationOutputReference extend
 }
 export interface OpsworksStaticWebLayerEbsVolume {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#encrypted OpsworksStaticWebLayer#encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#encrypted OpsworksStaticWebLayer#encrypted}
+  */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#iops OpsworksStaticWebLayer#iops}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#iops OpsworksStaticWebLayer#iops}
+  */
   readonly iops?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#mount_point OpsworksStaticWebLayer#mount_point}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#mount_point OpsworksStaticWebLayer#mount_point}
+  */
   readonly mountPoint: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#number_of_disks OpsworksStaticWebLayer#number_of_disks}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#number_of_disks OpsworksStaticWebLayer#number_of_disks}
+  */
   readonly numberOfDisks: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#raid_level OpsworksStaticWebLayer#raid_level}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#raid_level OpsworksStaticWebLayer#raid_level}
+  */
   readonly raidLevel?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#size OpsworksStaticWebLayer#size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#size OpsworksStaticWebLayer#size}
+  */
   readonly size: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#type OpsworksStaticWebLayer#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#type OpsworksStaticWebLayer#type}
+  */
   readonly type?: string;
 }
 
-export function opsworksStaticWebLayerEbsVolumeToTerraform(
-  struct?: OpsworksStaticWebLayerEbsVolume | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksStaticWebLayerEbsVolumeToTerraform(struct?: OpsworksStaticWebLayerEbsVolume | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
@@ -691,7 +616,7 @@ export function opsworksStaticWebLayerEbsVolumeToTerraform(
     raid_level: cdktf.stringToTerraform(struct!.raidLevel),
     size: cdktf.numberToTerraform(struct!.size),
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.ComplexObject {
@@ -699,29 +624,16 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | OpsworksStaticWebLayerEbsVolume
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): OpsworksStaticWebLayerEbsVolume | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -758,9 +670,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksStaticWebLayerEbsVolume | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: OpsworksStaticWebLayerEbsVolume | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -771,10 +681,12 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
       this._raidLevel = undefined;
       this._size = undefined;
       this._type = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._encrypted = value.encrypted;
@@ -788,7 +700,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable;
+  private _encrypted?: boolean | cdktf.IResolvable; 
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -804,7 +716,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number;
+  private _iops?: number; 
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -820,7 +732,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // mount_point - computed: false, optional: false, required: true
-  private _mountPoint?: string;
+  private _mountPoint?: string; 
   public get mountPoint() {
     return this.getStringAttribute('mount_point');
   }
@@ -833,7 +745,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // number_of_disks - computed: false, optional: false, required: true
-  private _numberOfDisks?: number;
+  private _numberOfDisks?: number; 
   public get numberOfDisks() {
     return this.getNumberAttribute('number_of_disks');
   }
@@ -846,7 +758,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // raid_level - computed: false, optional: true, required: false
-  private _raidLevel?: string;
+  private _raidLevel?: string; 
   public get raidLevel() {
     return this.getStringAttribute('raid_level');
   }
@@ -862,7 +774,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number;
+  private _size?: number; 
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -875,7 +787,7 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -892,76 +804,59 @@ export class OpsworksStaticWebLayerEbsVolumeOutputReference extends cdktf.Comple
 }
 
 export class OpsworksStaticWebLayerEbsVolumeList extends cdktf.ComplexList {
-  public internalValue?: OpsworksStaticWebLayerEbsVolume[] | cdktf.IResolvable;
+  public internalValue? : OpsworksStaticWebLayerEbsVolume[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): OpsworksStaticWebLayerEbsVolumeOutputReference {
-    return new OpsworksStaticWebLayerEbsVolumeOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new OpsworksStaticWebLayerEbsVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#alarms OpsworksStaticWebLayer#alarms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#alarms OpsworksStaticWebLayer#alarms}
+  */
   readonly alarms?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cpu_threshold OpsworksStaticWebLayer#cpu_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cpu_threshold OpsworksStaticWebLayer#cpu_threshold}
+  */
   readonly cpuThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ignore_metrics_time OpsworksStaticWebLayer#ignore_metrics_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ignore_metrics_time OpsworksStaticWebLayer#ignore_metrics_time}
+  */
   readonly ignoreMetricsTime?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#instance_count OpsworksStaticWebLayer#instance_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#instance_count OpsworksStaticWebLayer#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_threshold OpsworksStaticWebLayer#load_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_threshold OpsworksStaticWebLayer#load_threshold}
+  */
   readonly loadThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#memory_threshold OpsworksStaticWebLayer#memory_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#memory_threshold OpsworksStaticWebLayer#memory_threshold}
+  */
   readonly memoryThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#thresholds_wait_time OpsworksStaticWebLayer#thresholds_wait_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#thresholds_wait_time OpsworksStaticWebLayer#thresholds_wait_time}
+  */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksStaticWebLayerLoadBasedAutoScalingDownscalingToTerraform(
-  struct?:
-    | OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReference
-    | OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksStaticWebLayerLoadBasedAutoScalingDownscalingToTerraform(struct?: OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReference | OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -971,26 +866,21 @@ export function opsworksStaticWebLayerLoadBasedAutoScalingDownscalingToTerraform
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  };
+  }
 }
 
 export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling
-    | undefined {
+  public get internalValue(): OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -1024,9 +914,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling | undefined,
-  ) {
+  public set internalValue(value: OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -1036,7 +924,8 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1049,7 +938,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[];
+  private _alarms?: string[]; 
   public get alarms() {
     return this.getListAttribute('alarms');
   }
@@ -1065,7 +954,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // cpu_threshold - computed: false, optional: true, required: false
-  private _cpuThreshold?: number;
+  private _cpuThreshold?: number; 
   public get cpuThreshold() {
     return this.getNumberAttribute('cpu_threshold');
   }
@@ -1081,7 +970,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // ignore_metrics_time - computed: false, optional: true, required: false
-  private _ignoreMetricsTime?: number;
+  private _ignoreMetricsTime?: number; 
   public get ignoreMetricsTime() {
     return this.getNumberAttribute('ignore_metrics_time');
   }
@@ -1097,7 +986,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1113,7 +1002,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // load_threshold - computed: false, optional: true, required: false
-  private _loadThreshold?: number;
+  private _loadThreshold?: number; 
   public get loadThreshold() {
     return this.getNumberAttribute('load_threshold');
   }
@@ -1129,7 +1018,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // memory_threshold - computed: false, optional: true, required: false
-  private _memoryThreshold?: number;
+  private _memoryThreshold?: number; 
   public get memoryThreshold() {
     return this.getNumberAttribute('memory_threshold');
   }
@@ -1145,7 +1034,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
   }
 
   // thresholds_wait_time - computed: false, optional: true, required: false
-  private _thresholdsWaitTime?: number;
+  private _thresholdsWaitTime?: number; 
   public get thresholdsWaitTime() {
     return this.getNumberAttribute('thresholds_wait_time');
   }
@@ -1162,47 +1051,39 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReferenc
 }
 export interface OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#alarms OpsworksStaticWebLayer#alarms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#alarms OpsworksStaticWebLayer#alarms}
+  */
   readonly alarms?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cpu_threshold OpsworksStaticWebLayer#cpu_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#cpu_threshold OpsworksStaticWebLayer#cpu_threshold}
+  */
   readonly cpuThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ignore_metrics_time OpsworksStaticWebLayer#ignore_metrics_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#ignore_metrics_time OpsworksStaticWebLayer#ignore_metrics_time}
+  */
   readonly ignoreMetricsTime?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#instance_count OpsworksStaticWebLayer#instance_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#instance_count OpsworksStaticWebLayer#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_threshold OpsworksStaticWebLayer#load_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#load_threshold OpsworksStaticWebLayer#load_threshold}
+  */
   readonly loadThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#memory_threshold OpsworksStaticWebLayer#memory_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#memory_threshold OpsworksStaticWebLayer#memory_threshold}
+  */
   readonly memoryThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#thresholds_wait_time OpsworksStaticWebLayer#thresholds_wait_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#thresholds_wait_time OpsworksStaticWebLayer#thresholds_wait_time}
+  */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksStaticWebLayerLoadBasedAutoScalingUpscalingToTerraform(
-  struct?:
-    | OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference
-    | OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksStaticWebLayerLoadBasedAutoScalingUpscalingToTerraform(struct?: OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference | OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -1212,26 +1093,21 @@ export function opsworksStaticWebLayerLoadBasedAutoScalingUpscalingToTerraform(
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  };
+  }
 }
 
 export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling
-    | undefined {
+  public get internalValue(): OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -1265,9 +1141,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling | undefined,
-  ) {
+  public set internalValue(value: OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -1277,7 +1151,8 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1290,7 +1165,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[];
+  private _alarms?: string[]; 
   public get alarms() {
     return this.getListAttribute('alarms');
   }
@@ -1306,7 +1181,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // cpu_threshold - computed: false, optional: true, required: false
-  private _cpuThreshold?: number;
+  private _cpuThreshold?: number; 
   public get cpuThreshold() {
     return this.getNumberAttribute('cpu_threshold');
   }
@@ -1322,7 +1197,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // ignore_metrics_time - computed: false, optional: true, required: false
-  private _ignoreMetricsTime?: number;
+  private _ignoreMetricsTime?: number; 
   public get ignoreMetricsTime() {
     return this.getNumberAttribute('ignore_metrics_time');
   }
@@ -1338,7 +1213,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1354,7 +1229,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // load_threshold - computed: false, optional: true, required: false
-  private _loadThreshold?: number;
+  private _loadThreshold?: number; 
   public get loadThreshold() {
     return this.getNumberAttribute('load_threshold');
   }
@@ -1370,7 +1245,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // memory_threshold - computed: false, optional: true, required: false
-  private _memoryThreshold?: number;
+  private _memoryThreshold?: number; 
   public get memoryThreshold() {
     return this.getNumberAttribute('memory_threshold');
   }
@@ -1386,7 +1261,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
   }
 
   // thresholds_wait_time - computed: false, optional: true, required: false
-  private _thresholdsWaitTime?: number;
+  private _thresholdsWaitTime?: number; 
   public get thresholdsWaitTime() {
     return this.getNumberAttribute('thresholds_wait_time');
   }
@@ -1403,65 +1278,47 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference 
 }
 export interface OpsworksStaticWebLayerLoadBasedAutoScaling {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#enable OpsworksStaticWebLayer#enable}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#enable OpsworksStaticWebLayer#enable}
+  */
   readonly enable?: boolean | cdktf.IResolvable;
   /**
-   * downscaling block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#downscaling OpsworksStaticWebLayer#downscaling}
-   */
+  * downscaling block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#downscaling OpsworksStaticWebLayer#downscaling}
+  */
   readonly downscaling?: OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling;
   /**
-   * upscaling block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#upscaling OpsworksStaticWebLayer#upscaling}
-   */
+  * upscaling block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer#upscaling OpsworksStaticWebLayer#upscaling}
+  */
   readonly upscaling?: OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling;
 }
 
-export function opsworksStaticWebLayerLoadBasedAutoScalingToTerraform(
-  struct?:
-    | OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference
-    | OpsworksStaticWebLayerLoadBasedAutoScaling,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksStaticWebLayerLoadBasedAutoScalingToTerraform(struct?: OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference | OpsworksStaticWebLayerLoadBasedAutoScaling): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-    downscaling:
-      opsworksStaticWebLayerLoadBasedAutoScalingDownscalingToTerraform(
-        struct!.downscaling,
-      ),
-    upscaling: opsworksStaticWebLayerLoadBasedAutoScalingUpscalingToTerraform(
-      struct!.upscaling,
-    ),
-  };
+    downscaling: opsworksStaticWebLayerLoadBasedAutoScalingDownscalingToTerraform(struct!.downscaling),
+    upscaling: opsworksStaticWebLayerLoadBasedAutoScalingUpscalingToTerraform(struct!.upscaling),
+  }
 }
 
 export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksStaticWebLayerLoadBasedAutoScaling
-    | undefined {
+  public get internalValue(): OpsworksStaticWebLayerLoadBasedAutoScaling | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -1479,15 +1336,14 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksStaticWebLayerLoadBasedAutoScaling | undefined,
-  ) {
+  public set internalValue(value: OpsworksStaticWebLayerLoadBasedAutoScaling | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
       this._downscaling.internalValue = undefined;
       this._upscaling.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
       this._downscaling.internalValue = value.downscaling;
@@ -1496,7 +1352,7 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends c
   }
 
   // enable - computed: false, optional: true, required: false
-  private _enable?: boolean | cdktf.IResolvable;
+  private _enable?: boolean | cdktf.IResolvable; 
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -1512,17 +1368,11 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends c
   }
 
   // downscaling - computed: false, optional: true, required: false
-  private _downscaling =
-    new OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReference(
-      this,
-      'downscaling',
-    );
+  private _downscaling = new OpsworksStaticWebLayerLoadBasedAutoScalingDownscalingOutputReference(this, "downscaling");
   public get downscaling() {
     return this._downscaling;
   }
-  public putDownscaling(
-    value: OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling,
-  ) {
+  public putDownscaling(value: OpsworksStaticWebLayerLoadBasedAutoScalingDownscaling) {
     this._downscaling.internalValue = value;
   }
   public resetDownscaling() {
@@ -1534,17 +1384,11 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends c
   }
 
   // upscaling - computed: false, optional: true, required: false
-  private _upscaling =
-    new OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference(
-      this,
-      'upscaling',
-    );
+  private _upscaling = new OpsworksStaticWebLayerLoadBasedAutoScalingUpscalingOutputReference(this, "upscaling");
   public get upscaling() {
     return this._upscaling;
   }
-  public putUpscaling(
-    value: OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling,
-  ) {
+  public putUpscaling(value: OpsworksStaticWebLayerLoadBasedAutoScalingUpscaling) {
     this._upscaling.internalValue = value;
   }
   public resetUpscaling() {
@@ -1557,36 +1401,33 @@ export class OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference extends c
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer aws_opsworks_static_web_layer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer aws_opsworks_static_web_layer}
+*/
 export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_opsworks_static_web_layer';
+  public static readonly tfResourceType = "aws_opsworks_static_web_layer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer aws_opsworks_static_web_layer} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options OpsworksStaticWebLayerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: OpsworksStaticWebLayerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_static_web_layer aws_opsworks_static_web_layer} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options OpsworksStaticWebLayerConfig
+  */
+  public constructor(scope: Construct, id: string, config: OpsworksStaticWebLayerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_opsworks_static_web_layer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1594,7 +1435,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._autoAssignElasticIps = config.autoAssignElasticIps;
     this._autoAssignPublicIps = config.autoAssignPublicIps;
@@ -1618,8 +1459,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._useEbsOptimizedInstances = config.useEbsOptimizedInstances;
-    this._cloudwatchConfiguration.internalValue =
-      config.cloudwatchConfiguration;
+    this._cloudwatchConfiguration.internalValue = config.cloudwatchConfiguration;
     this._ebsVolume.internalValue = config.ebsVolume;
     this._loadBasedAutoScaling.internalValue = config.loadBasedAutoScaling;
   }
@@ -1634,7 +1474,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // auto_assign_elastic_ips - computed: false, optional: true, required: false
-  private _autoAssignElasticIps?: boolean | cdktf.IResolvable;
+  private _autoAssignElasticIps?: boolean | cdktf.IResolvable; 
   public get autoAssignElasticIps() {
     return this.getBooleanAttribute('auto_assign_elastic_ips');
   }
@@ -1650,7 +1490,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // auto_assign_public_ips - computed: false, optional: true, required: false
-  private _autoAssignPublicIps?: boolean | cdktf.IResolvable;
+  private _autoAssignPublicIps?: boolean | cdktf.IResolvable; 
   public get autoAssignPublicIps() {
     return this.getBooleanAttribute('auto_assign_public_ips');
   }
@@ -1666,7 +1506,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // auto_healing - computed: false, optional: true, required: false
-  private _autoHealing?: boolean | cdktf.IResolvable;
+  private _autoHealing?: boolean | cdktf.IResolvable; 
   public get autoHealing() {
     return this.getBooleanAttribute('auto_healing');
   }
@@ -1682,7 +1522,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_configure_recipes - computed: false, optional: true, required: false
-  private _customConfigureRecipes?: string[];
+  private _customConfigureRecipes?: string[]; 
   public get customConfigureRecipes() {
     return this.getListAttribute('custom_configure_recipes');
   }
@@ -1698,7 +1538,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_deploy_recipes - computed: false, optional: true, required: false
-  private _customDeployRecipes?: string[];
+  private _customDeployRecipes?: string[]; 
   public get customDeployRecipes() {
     return this.getListAttribute('custom_deploy_recipes');
   }
@@ -1714,7 +1554,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_instance_profile_arn - computed: false, optional: true, required: false
-  private _customInstanceProfileArn?: string;
+  private _customInstanceProfileArn?: string; 
   public get customInstanceProfileArn() {
     return this.getStringAttribute('custom_instance_profile_arn');
   }
@@ -1730,7 +1570,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_json - computed: false, optional: true, required: false
-  private _customJson?: string;
+  private _customJson?: string; 
   public get customJson() {
     return this.getStringAttribute('custom_json');
   }
@@ -1746,7 +1586,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_security_group_ids - computed: false, optional: true, required: false
-  private _customSecurityGroupIds?: string[];
+  private _customSecurityGroupIds?: string[]; 
   public get customSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('custom_security_group_ids'));
   }
@@ -1762,7 +1602,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_setup_recipes - computed: false, optional: true, required: false
-  private _customSetupRecipes?: string[];
+  private _customSetupRecipes?: string[]; 
   public get customSetupRecipes() {
     return this.getListAttribute('custom_setup_recipes');
   }
@@ -1778,7 +1618,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_shutdown_recipes - computed: false, optional: true, required: false
-  private _customShutdownRecipes?: string[];
+  private _customShutdownRecipes?: string[]; 
   public get customShutdownRecipes() {
     return this.getListAttribute('custom_shutdown_recipes');
   }
@@ -1794,7 +1634,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // custom_undeploy_recipes - computed: false, optional: true, required: false
-  private _customUndeployRecipes?: string[];
+  private _customUndeployRecipes?: string[]; 
   public get customUndeployRecipes() {
     return this.getListAttribute('custom_undeploy_recipes');
   }
@@ -1810,7 +1650,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // drain_elb_on_shutdown - computed: false, optional: true, required: false
-  private _drainElbOnShutdown?: boolean | cdktf.IResolvable;
+  private _drainElbOnShutdown?: boolean | cdktf.IResolvable; 
   public get drainElbOnShutdown() {
     return this.getBooleanAttribute('drain_elb_on_shutdown');
   }
@@ -1826,7 +1666,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // elastic_load_balancer - computed: false, optional: true, required: false
-  private _elasticLoadBalancer?: string;
+  private _elasticLoadBalancer?: string; 
   public get elasticLoadBalancer() {
     return this.getStringAttribute('elastic_load_balancer');
   }
@@ -1842,7 +1682,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1858,7 +1698,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // install_updates_on_boot - computed: false, optional: true, required: false
-  private _installUpdatesOnBoot?: boolean | cdktf.IResolvable;
+  private _installUpdatesOnBoot?: boolean | cdktf.IResolvable; 
   public get installUpdatesOnBoot() {
     return this.getBooleanAttribute('install_updates_on_boot');
   }
@@ -1874,7 +1714,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // instance_shutdown_timeout - computed: false, optional: true, required: false
-  private _instanceShutdownTimeout?: number;
+  private _instanceShutdownTimeout?: number; 
   public get instanceShutdownTimeout() {
     return this.getNumberAttribute('instance_shutdown_timeout');
   }
@@ -1890,7 +1730,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1906,7 +1746,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // stack_id - computed: false, optional: false, required: true
-  private _stackId?: string;
+  private _stackId?: string; 
   public get stackId() {
     return this.getStringAttribute('stack_id');
   }
@@ -1919,7 +1759,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // system_packages - computed: false, optional: true, required: false
-  private _systemPackages?: string[];
+  private _systemPackages?: string[]; 
   public get systemPackages() {
     return cdktf.Fn.tolist(this.getListAttribute('system_packages'));
   }
@@ -1935,7 +1775,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1951,7 +1791,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1967,7 +1807,7 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // use_ebs_optimized_instances - computed: false, optional: true, required: false
-  private _useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
+  private _useEbsOptimizedInstances?: boolean | cdktf.IResolvable; 
   public get useEbsOptimizedInstances() {
     return this.getBooleanAttribute('use_ebs_optimized_instances');
   }
@@ -1983,17 +1823,11 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // cloudwatch_configuration - computed: false, optional: true, required: false
-  private _cloudwatchConfiguration =
-    new OpsworksStaticWebLayerCloudwatchConfigurationOutputReference(
-      this,
-      'cloudwatch_configuration',
-    );
+  private _cloudwatchConfiguration = new OpsworksStaticWebLayerCloudwatchConfigurationOutputReference(this, "cloudwatch_configuration");
   public get cloudwatchConfiguration() {
     return this._cloudwatchConfiguration;
   }
-  public putCloudwatchConfiguration(
-    value: OpsworksStaticWebLayerCloudwatchConfiguration,
-  ) {
+  public putCloudwatchConfiguration(value: OpsworksStaticWebLayerCloudwatchConfiguration) {
     this._cloudwatchConfiguration.internalValue = value;
   }
   public resetCloudwatchConfiguration() {
@@ -2005,17 +1839,11 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // ebs_volume - computed: false, optional: true, required: false
-  private _ebsVolume = new OpsworksStaticWebLayerEbsVolumeList(
-    this,
-    'ebs_volume',
-    true,
-  );
+  private _ebsVolume = new OpsworksStaticWebLayerEbsVolumeList(this, "ebs_volume", true);
   public get ebsVolume() {
     return this._ebsVolume;
   }
-  public putEbsVolume(
-    value: OpsworksStaticWebLayerEbsVolume[] | cdktf.IResolvable,
-  ) {
+  public putEbsVolume(value: OpsworksStaticWebLayerEbsVolume[] | cdktf.IResolvable) {
     this._ebsVolume.internalValue = value;
   }
   public resetEbsVolume() {
@@ -2027,17 +1855,11 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
   }
 
   // load_based_auto_scaling - computed: false, optional: true, required: false
-  private _loadBasedAutoScaling =
-    new OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference(
-      this,
-      'load_based_auto_scaling',
-    );
+  private _loadBasedAutoScaling = new OpsworksStaticWebLayerLoadBasedAutoScalingOutputReference(this, "load_based_auto_scaling");
   public get loadBasedAutoScaling() {
     return this._loadBasedAutoScaling;
   }
-  public putLoadBasedAutoScaling(
-    value: OpsworksStaticWebLayerLoadBasedAutoScaling,
-  ) {
+  public putLoadBasedAutoScaling(value: OpsworksStaticWebLayerLoadBasedAutoScaling) {
     this._loadBasedAutoScaling.internalValue = value;
   }
   public resetLoadBasedAutoScaling() {
@@ -2054,73 +1876,31 @@ export class OpsworksStaticWebLayer extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      auto_assign_elastic_ips: cdktf.booleanToTerraform(
-        this._autoAssignElasticIps,
-      ),
-      auto_assign_public_ips: cdktf.booleanToTerraform(
-        this._autoAssignPublicIps,
-      ),
+      auto_assign_elastic_ips: cdktf.booleanToTerraform(this._autoAssignElasticIps),
+      auto_assign_public_ips: cdktf.booleanToTerraform(this._autoAssignPublicIps),
       auto_healing: cdktf.booleanToTerraform(this._autoHealing),
-      custom_configure_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customConfigureRecipes),
-      custom_deploy_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customDeployRecipes),
-      custom_instance_profile_arn: cdktf.stringToTerraform(
-        this._customInstanceProfileArn,
-      ),
+      custom_configure_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customConfigureRecipes),
+      custom_deploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customDeployRecipes),
+      custom_instance_profile_arn: cdktf.stringToTerraform(this._customInstanceProfileArn),
       custom_json: cdktf.stringToTerraform(this._customJson),
-      custom_security_group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customSecurityGroupIds),
-      custom_setup_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customSetupRecipes),
-      custom_shutdown_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customShutdownRecipes),
-      custom_undeploy_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customUndeployRecipes),
+      custom_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSecurityGroupIds),
+      custom_setup_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSetupRecipes),
+      custom_shutdown_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customShutdownRecipes),
+      custom_undeploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customUndeployRecipes),
       drain_elb_on_shutdown: cdktf.booleanToTerraform(this._drainElbOnShutdown),
       elastic_load_balancer: cdktf.stringToTerraform(this._elasticLoadBalancer),
       id: cdktf.stringToTerraform(this._id),
-      install_updates_on_boot: cdktf.booleanToTerraform(
-        this._installUpdatesOnBoot,
-      ),
-      instance_shutdown_timeout: cdktf.numberToTerraform(
-        this._instanceShutdownTimeout,
-      ),
+      install_updates_on_boot: cdktf.booleanToTerraform(this._installUpdatesOnBoot),
+      instance_shutdown_timeout: cdktf.numberToTerraform(this._instanceShutdownTimeout),
       name: cdktf.stringToTerraform(this._name),
       stack_id: cdktf.stringToTerraform(this._stackId),
-      system_packages: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._systemPackages),
+      system_packages: cdktf.listMapper(cdktf.stringToTerraform, false)(this._systemPackages),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      use_ebs_optimized_instances: cdktf.booleanToTerraform(
-        this._useEbsOptimizedInstances,
-      ),
-      cloudwatch_configuration:
-        opsworksStaticWebLayerCloudwatchConfigurationToTerraform(
-          this._cloudwatchConfiguration.internalValue,
-        ),
-      ebs_volume: cdktf.listMapper(
-        opsworksStaticWebLayerEbsVolumeToTerraform,
-        true,
-      )(this._ebsVolume.internalValue),
-      load_based_auto_scaling:
-        opsworksStaticWebLayerLoadBasedAutoScalingToTerraform(
-          this._loadBasedAutoScaling.internalValue,
-        ),
+      use_ebs_optimized_instances: cdktf.booleanToTerraform(this._useEbsOptimizedInstances),
+      cloudwatch_configuration: opsworksStaticWebLayerCloudwatchConfigurationToTerraform(this._cloudwatchConfiguration.internalValue),
+      ebs_volume: cdktf.listMapper(opsworksStaticWebLayerEbsVolumeToTerraform, true)(this._ebsVolume.internalValue),
+      load_based_auto_scaling: opsworksStaticWebLayerLoadBasedAutoScalingToTerraform(this._loadBasedAutoScaling.internalValue),
     };
   }
 }

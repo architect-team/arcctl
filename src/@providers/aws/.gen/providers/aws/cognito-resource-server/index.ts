@@ -1,64 +1,58 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_resource_server
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CognitoResourceServerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CognitoResourceServerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#id CognitoResourceServer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#id CognitoResourceServer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#identifier CognitoResourceServer#identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#identifier CognitoResourceServer#identifier}
+  */
   readonly identifier: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#name CognitoResourceServer#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#name CognitoResourceServer#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#user_pool_id CognitoResourceServer#user_pool_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#user_pool_id CognitoResourceServer#user_pool_id}
+  */
   readonly userPoolId: string;
   /**
-   * scope block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope CognitoResourceServer#scope}
-   */
+  * scope block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope CognitoResourceServer#scope}
+  */
   readonly scope?: CognitoResourceServerScope[] | cdktf.IResolvable;
 }
 export interface CognitoResourceServerScope {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope_description CognitoResourceServer#scope_description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope_description CognitoResourceServer#scope_description}
+  */
   readonly scopeDescription: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope_name CognitoResourceServer#scope_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server#scope_name CognitoResourceServer#scope_name}
+  */
   readonly scopeName: string;
 }
 
-export function cognitoResourceServerScopeToTerraform(
-  struct?: CognitoResourceServerScope | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cognitoResourceServerScopeToTerraform(struct?: CognitoResourceServerScope | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     scope_description: cdktf.stringToTerraform(struct!.scopeDescription),
     scope_name: cdktf.stringToTerraform(struct!.scopeName),
-  };
+  }
 }
 
 export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObject {
@@ -66,29 +60,16 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CognitoResourceServerScope
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CognitoResourceServerScope | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -105,18 +86,18 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CognitoResourceServerScope | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CognitoResourceServerScope | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._scopeDescription = undefined;
       this._scopeName = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._scopeDescription = value.scopeDescription;
@@ -125,7 +106,7 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
   }
 
   // scope_description - computed: false, optional: false, required: true
-  private _scopeDescription?: string;
+  private _scopeDescription?: string; 
   public get scopeDescription() {
     return this.getStringAttribute('scope_description');
   }
@@ -138,7 +119,7 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
   }
 
   // scope_name - computed: false, optional: false, required: true
-  private _scopeName?: string;
+  private _scopeName?: string; 
   public get scopeName() {
     return this.getStringAttribute('scope_name');
   }
@@ -152,65 +133,53 @@ export class CognitoResourceServerScopeOutputReference extends cdktf.ComplexObje
 }
 
 export class CognitoResourceServerScopeList extends cdktf.ComplexList {
-  public internalValue?: CognitoResourceServerScope[] | cdktf.IResolvable;
+  public internalValue? : CognitoResourceServerScope[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CognitoResourceServerScopeOutputReference {
-    return new CognitoResourceServerScopeOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CognitoResourceServerScopeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server aws_cognito_resource_server}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server aws_cognito_resource_server}
+*/
 export class CognitoResourceServer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_cognito_resource_server';
+  public static readonly tfResourceType = "aws_cognito_resource_server";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server aws_cognito_resource_server} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CognitoResourceServerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CognitoResourceServerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_resource_server aws_cognito_resource_server} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CognitoResourceServerConfig
+  */
+  public constructor(scope: Construct, id: string, config: CognitoResourceServerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cognito_resource_server',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -218,7 +187,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._identifier = config.identifier;
@@ -232,7 +201,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -248,7 +217,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // identifier - computed: false, optional: false, required: true
-  private _identifier?: string;
+  private _identifier?: string; 
   public get identifier() {
     return this.getStringAttribute('identifier');
   }
@@ -261,7 +230,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -279,7 +248,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string;
+  private _userPoolId?: string; 
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }
@@ -292,7 +261,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
   }
 
   // scope - computed: false, optional: true, required: false
-  private _scope = new CognitoResourceServerScopeList(this, 'scope', true);
+  private _scope = new CognitoResourceServerScopeList(this, "scope", true);
   public get scope() {
     return this._scope;
   }
@@ -317,10 +286,7 @@ export class CognitoResourceServer extends cdktf.TerraformResource {
       identifier: cdktf.stringToTerraform(this._identifier),
       name: cdktf.stringToTerraform(this._name),
       user_pool_id: cdktf.stringToTerraform(this._userPoolId),
-      scope: cdktf.listMapper(
-        cognitoResourceServerScopeToTerraform,
-        true,
-      )(this._scope.internalValue),
+      scope: cdktf.listMapper(cognitoResourceServerScopeToTerraform, true)(this._scope.internalValue),
     };
   }
 }

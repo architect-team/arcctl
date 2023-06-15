@@ -1,88 +1,85 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface IamAccountPasswordPolicyConfig
-  extends cdktf.TerraformMetaArguments {
+export interface IamAccountPasswordPolicyConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#allow_users_to_change_password IamAccountPasswordPolicy#allow_users_to_change_password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#allow_users_to_change_password IamAccountPasswordPolicy#allow_users_to_change_password}
+  */
   readonly allowUsersToChangePassword?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#hard_expiry IamAccountPasswordPolicy#hard_expiry}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#hard_expiry IamAccountPasswordPolicy#hard_expiry}
+  */
   readonly hardExpiry?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#id IamAccountPasswordPolicy#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#id IamAccountPasswordPolicy#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#max_password_age IamAccountPasswordPolicy#max_password_age}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#max_password_age IamAccountPasswordPolicy#max_password_age}
+  */
   readonly maxPasswordAge?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#minimum_password_length IamAccountPasswordPolicy#minimum_password_length}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#minimum_password_length IamAccountPasswordPolicy#minimum_password_length}
+  */
   readonly minimumPasswordLength?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#password_reuse_prevention IamAccountPasswordPolicy#password_reuse_prevention}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#password_reuse_prevention IamAccountPasswordPolicy#password_reuse_prevention}
+  */
   readonly passwordReusePrevention?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_lowercase_characters IamAccountPasswordPolicy#require_lowercase_characters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_lowercase_characters IamAccountPasswordPolicy#require_lowercase_characters}
+  */
   readonly requireLowercaseCharacters?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_numbers IamAccountPasswordPolicy#require_numbers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_numbers IamAccountPasswordPolicy#require_numbers}
+  */
   readonly requireNumbers?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_symbols IamAccountPasswordPolicy#require_symbols}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_symbols IamAccountPasswordPolicy#require_symbols}
+  */
   readonly requireSymbols?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_uppercase_characters IamAccountPasswordPolicy#require_uppercase_characters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy#require_uppercase_characters IamAccountPasswordPolicy#require_uppercase_characters}
+  */
   readonly requireUppercaseCharacters?: boolean | cdktf.IResolvable;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy aws_iam_account_password_policy}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy aws_iam_account_password_policy}
+*/
 export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_iam_account_password_policy';
+  public static readonly tfResourceType = "aws_iam_account_password_policy";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy aws_iam_account_password_policy} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options IamAccountPasswordPolicyConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: IamAccountPasswordPolicyConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_account_password_policy aws_iam_account_password_policy} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options IamAccountPasswordPolicyConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: IamAccountPasswordPolicyConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_account_password_policy',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -90,7 +87,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._allowUsersToChangePassword = config.allowUsersToChangePassword;
     this._hardExpiry = config.hardExpiry;
@@ -109,7 +106,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   // ==========
 
   // allow_users_to_change_password - computed: false, optional: true, required: false
-  private _allowUsersToChangePassword?: boolean | cdktf.IResolvable;
+  private _allowUsersToChangePassword?: boolean | cdktf.IResolvable; 
   public get allowUsersToChangePassword() {
     return this.getBooleanAttribute('allow_users_to_change_password');
   }
@@ -130,7 +127,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // hard_expiry - computed: true, optional: true, required: false
-  private _hardExpiry?: boolean | cdktf.IResolvable;
+  private _hardExpiry?: boolean | cdktf.IResolvable; 
   public get hardExpiry() {
     return this.getBooleanAttribute('hard_expiry');
   }
@@ -146,7 +143,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -162,7 +159,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // max_password_age - computed: true, optional: true, required: false
-  private _maxPasswordAge?: number;
+  private _maxPasswordAge?: number; 
   public get maxPasswordAge() {
     return this.getNumberAttribute('max_password_age');
   }
@@ -178,7 +175,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // minimum_password_length - computed: false, optional: true, required: false
-  private _minimumPasswordLength?: number;
+  private _minimumPasswordLength?: number; 
   public get minimumPasswordLength() {
     return this.getNumberAttribute('minimum_password_length');
   }
@@ -194,7 +191,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // password_reuse_prevention - computed: true, optional: true, required: false
-  private _passwordReusePrevention?: number;
+  private _passwordReusePrevention?: number; 
   public get passwordReusePrevention() {
     return this.getNumberAttribute('password_reuse_prevention');
   }
@@ -210,7 +207,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_lowercase_characters - computed: true, optional: true, required: false
-  private _requireLowercaseCharacters?: boolean | cdktf.IResolvable;
+  private _requireLowercaseCharacters?: boolean | cdktf.IResolvable; 
   public get requireLowercaseCharacters() {
     return this.getBooleanAttribute('require_lowercase_characters');
   }
@@ -226,7 +223,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_numbers - computed: true, optional: true, required: false
-  private _requireNumbers?: boolean | cdktf.IResolvable;
+  private _requireNumbers?: boolean | cdktf.IResolvable; 
   public get requireNumbers() {
     return this.getBooleanAttribute('require_numbers');
   }
@@ -242,7 +239,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_symbols - computed: true, optional: true, required: false
-  private _requireSymbols?: boolean | cdktf.IResolvable;
+  private _requireSymbols?: boolean | cdktf.IResolvable; 
   public get requireSymbols() {
     return this.getBooleanAttribute('require_symbols');
   }
@@ -258,7 +255,7 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
   }
 
   // require_uppercase_characters - computed: true, optional: true, required: false
-  private _requireUppercaseCharacters?: boolean | cdktf.IResolvable;
+  private _requireUppercaseCharacters?: boolean | cdktf.IResolvable; 
   public get requireUppercaseCharacters() {
     return this.getBooleanAttribute('require_uppercase_characters');
   }
@@ -279,26 +276,16 @@ export class IamAccountPasswordPolicy extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      allow_users_to_change_password: cdktf.booleanToTerraform(
-        this._allowUsersToChangePassword,
-      ),
+      allow_users_to_change_password: cdktf.booleanToTerraform(this._allowUsersToChangePassword),
       hard_expiry: cdktf.booleanToTerraform(this._hardExpiry),
       id: cdktf.stringToTerraform(this._id),
       max_password_age: cdktf.numberToTerraform(this._maxPasswordAge),
-      minimum_password_length: cdktf.numberToTerraform(
-        this._minimumPasswordLength,
-      ),
-      password_reuse_prevention: cdktf.numberToTerraform(
-        this._passwordReusePrevention,
-      ),
-      require_lowercase_characters: cdktf.booleanToTerraform(
-        this._requireLowercaseCharacters,
-      ),
+      minimum_password_length: cdktf.numberToTerraform(this._minimumPasswordLength),
+      password_reuse_prevention: cdktf.numberToTerraform(this._passwordReusePrevention),
+      require_lowercase_characters: cdktf.booleanToTerraform(this._requireLowercaseCharacters),
       require_numbers: cdktf.booleanToTerraform(this._requireNumbers),
       require_symbols: cdktf.booleanToTerraform(this._requireSymbols),
-      require_uppercase_characters: cdktf.booleanToTerraform(
-        this._requireUppercaseCharacters,
-      ),
+      require_uppercase_characters: cdktf.booleanToTerraform(this._requireUppercaseCharacters),
     };
   }
 }

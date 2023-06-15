@@ -2,20 +2,46 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "request": "launch",
-            "name": "Deno Debug Template",
+            "name": "Create DO",
             "type": "node",
-            "program": "${workspaceFolder}/main.ts",
+            "request": "launch",
             "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "${userHome}/.deno/bin/deno",
+            "runtimeExecutable": "deno",
             "runtimeArgs": [
                 "run",
-                "--unstable",
-                "--inspect-wait",
-                "--allow-all"
+                "--inspect-brk",
+                "-A",
+                "main.ts"
             ],
-            "args": [],
-            "attachSimplePort": 9229
+            "args": [
+                "create",
+                "datacenter",
+                "do-dc",
+                "./__tests__/datacenters/digitalocean.yml"
+            ],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Deploy Auth",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "-A",
+                "main.ts"
+            ],
+            "args": [
+                "deploy",
+                "-e",
+                "do-env",
+                "architect/auth:latest"
+            ],
+            "attachSimplePort": 9229,
+            "console": "integratedTerminal"
         }
     ]
 }

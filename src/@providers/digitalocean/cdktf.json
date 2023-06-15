@@ -7,6 +7,11 @@
       "name": "digitalocean",
       "source": "digitalocean/digitalocean",
       "version": "2.28.1"
+    },
+    {
+      "name": "template",
+      "source": "hashicorp/template",
+      "version": "2.2.0"
     }
   ],
   "projectId": "4de3b96d-2ce0-4a21-b081-4d842476fc80"

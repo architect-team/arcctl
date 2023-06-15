@@ -1,103 +1,95 @@
 // https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface Ec2TransitGatewayConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#amazon_side_asn Ec2TransitGateway#amazon_side_asn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#amazon_side_asn Ec2TransitGateway#amazon_side_asn}
+  */
   readonly amazonSideAsn?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#auto_accept_shared_attachments Ec2TransitGateway#auto_accept_shared_attachments}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#auto_accept_shared_attachments Ec2TransitGateway#auto_accept_shared_attachments}
+  */
   readonly autoAcceptSharedAttachments?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#default_route_table_association Ec2TransitGateway#default_route_table_association}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#default_route_table_association Ec2TransitGateway#default_route_table_association}
+  */
   readonly defaultRouteTableAssociation?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#default_route_table_propagation Ec2TransitGateway#default_route_table_propagation}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#default_route_table_propagation Ec2TransitGateway#default_route_table_propagation}
+  */
   readonly defaultRouteTablePropagation?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#description Ec2TransitGateway#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#description Ec2TransitGateway#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#dns_support Ec2TransitGateway#dns_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#dns_support Ec2TransitGateway#dns_support}
+  */
   readonly dnsSupport?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#id Ec2TransitGateway#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#id Ec2TransitGateway#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#multicast_support Ec2TransitGateway#multicast_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#multicast_support Ec2TransitGateway#multicast_support}
+  */
   readonly multicastSupport?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#tags Ec2TransitGateway#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#tags Ec2TransitGateway#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#tags_all Ec2TransitGateway#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#tags_all Ec2TransitGateway#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#transit_gateway_cidr_blocks Ec2TransitGateway#transit_gateway_cidr_blocks}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#transit_gateway_cidr_blocks Ec2TransitGateway#transit_gateway_cidr_blocks}
+  */
   readonly transitGatewayCidrBlocks?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#vpn_ecmp_support Ec2TransitGateway#vpn_ecmp_support}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#vpn_ecmp_support Ec2TransitGateway#vpn_ecmp_support}
+  */
   readonly vpnEcmpSupport?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#timeouts Ec2TransitGateway#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#timeouts Ec2TransitGateway#timeouts}
+  */
   readonly timeouts?: Ec2TransitGatewayTimeouts;
 }
 export interface Ec2TransitGatewayTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#create Ec2TransitGateway#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#create Ec2TransitGateway#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#delete Ec2TransitGateway#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#delete Ec2TransitGateway#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#update Ec2TransitGateway#update}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway#update Ec2TransitGateway#update}
+  */
   readonly update?: string;
 }
 
-export function ec2TransitGatewayTimeoutsToTerraform(
-  struct?:
-    | Ec2TransitGatewayTimeoutsOutputReference
-    | Ec2TransitGatewayTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function ec2TransitGatewayTimeoutsToTerraform(struct?: Ec2TransitGatewayTimeoutsOutputReference | Ec2TransitGatewayTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     update: cdktf.stringToTerraform(struct!.update),
-  };
+  }
 }
 
 export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -105,20 +97,14 @@ export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObjec
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | Ec2TransitGatewayTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): Ec2TransitGatewayTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -139,19 +125,19 @@ export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObjec
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: Ec2TransitGatewayTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: Ec2TransitGatewayTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._update = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -161,7 +147,7 @@ export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -177,7 +163,7 @@ export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -193,7 +179,7 @@ export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObjec
   }
 
   // update - computed: false, optional: true, required: false
-  private _update?: string;
+  private _update?: string; 
   public get update() {
     return this.getStringAttribute('update');
   }
@@ -210,36 +196,33 @@ export class Ec2TransitGatewayTimeoutsOutputReference extends cdktf.ComplexObjec
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway aws_ec2_transit_gateway}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway aws_ec2_transit_gateway}
+*/
 export class Ec2TransitGateway extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ec2_transit_gateway';
+  public static readonly tfResourceType = "aws_ec2_transit_gateway";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway aws_ec2_transit_gateway} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Ec2TransitGatewayConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Ec2TransitGatewayConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway aws_ec2_transit_gateway} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Ec2TransitGatewayConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: Ec2TransitGatewayConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_transit_gateway',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -247,7 +230,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._amazonSideAsn = config.amazonSideAsn;
     this._autoAcceptSharedAttachments = config.autoAcceptSharedAttachments;
@@ -269,7 +252,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   // ==========
 
   // amazon_side_asn - computed: false, optional: true, required: false
-  private _amazonSideAsn?: number;
+  private _amazonSideAsn?: number; 
   public get amazonSideAsn() {
     return this.getNumberAttribute('amazon_side_asn');
   }
@@ -295,7 +278,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // auto_accept_shared_attachments - computed: false, optional: true, required: false
-  private _autoAcceptSharedAttachments?: string;
+  private _autoAcceptSharedAttachments?: string; 
   public get autoAcceptSharedAttachments() {
     return this.getStringAttribute('auto_accept_shared_attachments');
   }
@@ -311,7 +294,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // default_route_table_association - computed: false, optional: true, required: false
-  private _defaultRouteTableAssociation?: string;
+  private _defaultRouteTableAssociation?: string; 
   public get defaultRouteTableAssociation() {
     return this.getStringAttribute('default_route_table_association');
   }
@@ -327,7 +310,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // default_route_table_propagation - computed: false, optional: true, required: false
-  private _defaultRouteTablePropagation?: string;
+  private _defaultRouteTablePropagation?: string; 
   public get defaultRouteTablePropagation() {
     return this.getStringAttribute('default_route_table_propagation');
   }
@@ -343,7 +326,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -359,7 +342,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // dns_support - computed: false, optional: true, required: false
-  private _dnsSupport?: string;
+  private _dnsSupport?: string; 
   public get dnsSupport() {
     return this.getStringAttribute('dns_support');
   }
@@ -375,7 +358,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -391,7 +374,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // multicast_support - computed: false, optional: true, required: false
-  private _multicastSupport?: string;
+  private _multicastSupport?: string; 
   public get multicastSupport() {
     return this.getStringAttribute('multicast_support');
   }
@@ -417,7 +400,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -433,7 +416,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -449,11 +432,9 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // transit_gateway_cidr_blocks - computed: false, optional: true, required: false
-  private _transitGatewayCidrBlocks?: string[];
+  private _transitGatewayCidrBlocks?: string[]; 
   public get transitGatewayCidrBlocks() {
-    return cdktf.Fn.tolist(
-      this.getListAttribute('transit_gateway_cidr_blocks'),
-    );
+    return cdktf.Fn.tolist(this.getListAttribute('transit_gateway_cidr_blocks'));
   }
   public set transitGatewayCidrBlocks(value: string[]) {
     this._transitGatewayCidrBlocks = value;
@@ -467,7 +448,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // vpn_ecmp_support - computed: false, optional: true, required: false
-  private _vpnEcmpSupport?: string;
+  private _vpnEcmpSupport?: string; 
   public get vpnEcmpSupport() {
     return this.getStringAttribute('vpn_ecmp_support');
   }
@@ -483,10 +464,7 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new Ec2TransitGatewayTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new Ec2TransitGatewayTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -508,29 +486,18 @@ export class Ec2TransitGateway extends cdktf.TerraformResource {
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       amazon_side_asn: cdktf.numberToTerraform(this._amazonSideAsn),
-      auto_accept_shared_attachments: cdktf.stringToTerraform(
-        this._autoAcceptSharedAttachments,
-      ),
-      default_route_table_association: cdktf.stringToTerraform(
-        this._defaultRouteTableAssociation,
-      ),
-      default_route_table_propagation: cdktf.stringToTerraform(
-        this._defaultRouteTablePropagation,
-      ),
+      auto_accept_shared_attachments: cdktf.stringToTerraform(this._autoAcceptSharedAttachments),
+      default_route_table_association: cdktf.stringToTerraform(this._defaultRouteTableAssociation),
+      default_route_table_propagation: cdktf.stringToTerraform(this._defaultRouteTablePropagation),
       description: cdktf.stringToTerraform(this._description),
       dns_support: cdktf.stringToTerraform(this._dnsSupport),
       id: cdktf.stringToTerraform(this._id),
       multicast_support: cdktf.stringToTerraform(this._multicastSupport),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      transit_gateway_cidr_blocks: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._transitGatewayCidrBlocks),
+      transit_gateway_cidr_blocks: cdktf.listMapper(cdktf.stringToTerraform, false)(this._transitGatewayCidrBlocks),
       vpn_ecmp_support: cdktf.stringToTerraform(this._vpnEcmpSupport),
-      timeouts: ec2TransitGatewayTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: ec2TransitGatewayTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

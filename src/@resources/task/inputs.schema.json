@@ -55,9 +55,6 @@
         "namespace": {
           "type": "string"
         },
-        "schedule": {
-          "type": "string"
-        },
         "sidecars": {
           "items": {
             "additionalProperties": false,
@@ -157,8 +154,7 @@
         }
       },
       "required": [
-        "image",
-        "schedule"
+        "image"
       ],
       "type": "object"
     }

@@ -1,85 +1,69 @@
 // https://www.terraform.io/docs/providers/aws/r/glue_security_configuration
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface GlueSecurityConfigurationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface GlueSecurityConfigurationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#id GlueSecurityConfiguration#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#id GlueSecurityConfiguration#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#name GlueSecurityConfiguration#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#name GlueSecurityConfiguration#name}
+  */
   readonly name: string;
   /**
-   * encryption_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#encryption_configuration GlueSecurityConfiguration#encryption_configuration}
-   */
+  * encryption_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#encryption_configuration GlueSecurityConfiguration#encryption_configuration}
+  */
   readonly encryptionConfiguration: GlueSecurityConfigurationEncryptionConfiguration;
 }
 export interface GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#cloudwatch_encryption_mode GlueSecurityConfiguration#cloudwatch_encryption_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#cloudwatch_encryption_mode GlueSecurityConfiguration#cloudwatch_encryption_mode}
+  */
   readonly cloudwatchEncryptionMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#kms_key_arn GlueSecurityConfiguration#kms_key_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#kms_key_arn GlueSecurityConfiguration#kms_key_arn}
+  */
   readonly kmsKeyArn?: string;
 }
 
-export function glueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionToTerraform(
-  struct?:
-    | GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputReference
-    | GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function glueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionToTerraform(struct?: GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputReference | GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    cloudwatch_encryption_mode: cdktf.stringToTerraform(
-      struct!.cloudwatchEncryptionMode,
-    ),
+    cloudwatch_encryption_mode: cdktf.stringToTerraform(struct!.cloudwatchEncryptionMode),
     kms_key_arn: cdktf.stringToTerraform(struct!.kmsKeyArn),
-  };
+  }
 }
 
 export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption
-    | undefined {
+  public get internalValue(): GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cloudwatchEncryptionMode !== undefined) {
       hasAnyValues = true;
-      internalValueResult.cloudwatchEncryptionMode =
-        this._cloudwatchEncryptionMode;
+      internalValueResult.cloudwatchEncryptionMode = this._cloudwatchEncryptionMode;
     }
     if (this._kmsKeyArn !== undefined) {
       hasAnyValues = true;
@@ -88,16 +72,13 @@ export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptio
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption
-      | undefined,
-  ) {
+  public set internalValue(value: GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cloudwatchEncryptionMode = undefined;
       this._kmsKeyArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchEncryptionMode = value.cloudwatchEncryptionMode;
       this._kmsKeyArn = value.kmsKeyArn;
@@ -105,7 +86,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptio
   }
 
   // cloudwatch_encryption_mode - computed: false, optional: true, required: false
-  private _cloudwatchEncryptionMode?: string;
+  private _cloudwatchEncryptionMode?: string; 
   public get cloudwatchEncryptionMode() {
     return this.getStringAttribute('cloudwatch_encryption_mode');
   }
@@ -121,7 +102,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptio
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string;
+  private _kmsKeyArn?: string; 
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -138,59 +119,43 @@ export class GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptio
 }
 export interface GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#job_bookmarks_encryption_mode GlueSecurityConfiguration#job_bookmarks_encryption_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#job_bookmarks_encryption_mode GlueSecurityConfiguration#job_bookmarks_encryption_mode}
+  */
   readonly jobBookmarksEncryptionMode?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#kms_key_arn GlueSecurityConfiguration#kms_key_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#kms_key_arn GlueSecurityConfiguration#kms_key_arn}
+  */
   readonly kmsKeyArn?: string;
 }
 
-export function glueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionToTerraform(
-  struct?:
-    | GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputReference
-    | GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function glueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionToTerraform(struct?: GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputReference | GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    job_bookmarks_encryption_mode: cdktf.stringToTerraform(
-      struct!.jobBookmarksEncryptionMode,
-    ),
+    job_bookmarks_encryption_mode: cdktf.stringToTerraform(struct!.jobBookmarksEncryptionMode),
     kms_key_arn: cdktf.stringToTerraform(struct!.kmsKeyArn),
-  };
+  }
 }
 
 export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption
-    | undefined {
+  public get internalValue(): GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._jobBookmarksEncryptionMode !== undefined) {
       hasAnyValues = true;
-      internalValueResult.jobBookmarksEncryptionMode =
-        this._jobBookmarksEncryptionMode;
+      internalValueResult.jobBookmarksEncryptionMode = this._jobBookmarksEncryptionMode;
     }
     if (this._kmsKeyArn !== undefined) {
       hasAnyValues = true;
@@ -199,16 +164,13 @@ export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncrypt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption
-      | undefined,
-  ) {
+  public set internalValue(value: GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._jobBookmarksEncryptionMode = undefined;
       this._kmsKeyArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._jobBookmarksEncryptionMode = value.jobBookmarksEncryptionMode;
       this._kmsKeyArn = value.kmsKeyArn;
@@ -216,7 +178,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncrypt
   }
 
   // job_bookmarks_encryption_mode - computed: false, optional: true, required: false
-  private _jobBookmarksEncryptionMode?: string;
+  private _jobBookmarksEncryptionMode?: string; 
   public get jobBookmarksEncryptionMode() {
     return this.getStringAttribute('job_bookmarks_encryption_mode');
   }
@@ -232,7 +194,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncrypt
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string;
+  private _kmsKeyArn?: string; 
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -249,51 +211,38 @@ export class GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncrypt
 }
 export interface GlueSecurityConfigurationEncryptionConfigurationS3Encryption {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#kms_key_arn GlueSecurityConfiguration#kms_key_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#kms_key_arn GlueSecurityConfiguration#kms_key_arn}
+  */
   readonly kmsKeyArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#s3_encryption_mode GlueSecurityConfiguration#s3_encryption_mode}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#s3_encryption_mode GlueSecurityConfiguration#s3_encryption_mode}
+  */
   readonly s3EncryptionMode?: string;
 }
 
-export function glueSecurityConfigurationEncryptionConfigurationS3EncryptionToTerraform(
-  struct?:
-    | GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputReference
-    | GlueSecurityConfigurationEncryptionConfigurationS3Encryption,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function glueSecurityConfigurationEncryptionConfigurationS3EncryptionToTerraform(struct?: GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputReference | GlueSecurityConfigurationEncryptionConfigurationS3Encryption): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     kms_key_arn: cdktf.stringToTerraform(struct!.kmsKeyArn),
     s3_encryption_mode: cdktf.stringToTerraform(struct!.s3EncryptionMode),
-  };
+  }
 }
 
 export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GlueSecurityConfigurationEncryptionConfigurationS3Encryption
-    | undefined {
+  public get internalValue(): GlueSecurityConfigurationEncryptionConfigurationS3Encryption | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._kmsKeyArn !== undefined) {
@@ -307,16 +256,13 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GlueSecurityConfigurationEncryptionConfigurationS3Encryption
-      | undefined,
-  ) {
+  public set internalValue(value: GlueSecurityConfigurationEncryptionConfigurationS3Encryption | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._kmsKeyArn = undefined;
       this._s3EncryptionMode = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._kmsKeyArn = value.kmsKeyArn;
       this._s3EncryptionMode = value.s3EncryptionMode;
@@ -324,7 +270,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
   }
 
   // kms_key_arn - computed: false, optional: true, required: false
-  private _kmsKeyArn?: string;
+  private _kmsKeyArn?: string; 
   public get kmsKeyArn() {
     return this.getStringAttribute('kms_key_arn');
   }
@@ -340,7 +286,7 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
   }
 
   // s3_encryption_mode - computed: false, optional: true, required: false
-  private _s3EncryptionMode?: string;
+  private _s3EncryptionMode?: string; 
   public get s3EncryptionMode() {
     return this.getStringAttribute('s3_encryption_mode');
   }
@@ -357,82 +303,58 @@ export class GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputR
 }
 export interface GlueSecurityConfigurationEncryptionConfiguration {
   /**
-   * cloudwatch_encryption block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#cloudwatch_encryption GlueSecurityConfiguration#cloudwatch_encryption}
-   */
+  * cloudwatch_encryption block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#cloudwatch_encryption GlueSecurityConfiguration#cloudwatch_encryption}
+  */
   readonly cloudwatchEncryption: GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption;
   /**
-   * job_bookmarks_encryption block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#job_bookmarks_encryption GlueSecurityConfiguration#job_bookmarks_encryption}
-   */
+  * job_bookmarks_encryption block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#job_bookmarks_encryption GlueSecurityConfiguration#job_bookmarks_encryption}
+  */
   readonly jobBookmarksEncryption: GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption;
   /**
-   * s3_encryption block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#s3_encryption GlueSecurityConfiguration#s3_encryption}
-   */
+  * s3_encryption block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration#s3_encryption GlueSecurityConfiguration#s3_encryption}
+  */
   readonly s3Encryption: GlueSecurityConfigurationEncryptionConfigurationS3Encryption;
 }
 
-export function glueSecurityConfigurationEncryptionConfigurationToTerraform(
-  struct?:
-    | GlueSecurityConfigurationEncryptionConfigurationOutputReference
-    | GlueSecurityConfigurationEncryptionConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function glueSecurityConfigurationEncryptionConfigurationToTerraform(struct?: GlueSecurityConfigurationEncryptionConfigurationOutputReference | GlueSecurityConfigurationEncryptionConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    cloudwatch_encryption:
-      glueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionToTerraform(
-        struct!.cloudwatchEncryption,
-      ),
-    job_bookmarks_encryption:
-      glueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionToTerraform(
-        struct!.jobBookmarksEncryption,
-      ),
-    s3_encryption:
-      glueSecurityConfigurationEncryptionConfigurationS3EncryptionToTerraform(
-        struct!.s3Encryption,
-      ),
-  };
+    cloudwatch_encryption: glueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionToTerraform(struct!.cloudwatchEncryption),
+    job_bookmarks_encryption: glueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionToTerraform(struct!.jobBookmarksEncryption),
+    s3_encryption: glueSecurityConfigurationEncryptionConfigurationS3EncryptionToTerraform(struct!.s3Encryption),
+  }
 }
 
 export class GlueSecurityConfigurationEncryptionConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GlueSecurityConfigurationEncryptionConfiguration
-    | undefined {
+  public get internalValue(): GlueSecurityConfigurationEncryptionConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._cloudwatchEncryption?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.cloudwatchEncryption =
-        this._cloudwatchEncryption?.internalValue;
+      internalValueResult.cloudwatchEncryption = this._cloudwatchEncryption?.internalValue;
     }
     if (this._jobBookmarksEncryption?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.jobBookmarksEncryption =
-        this._jobBookmarksEncryption?.internalValue;
+      internalValueResult.jobBookmarksEncryption = this._jobBookmarksEncryption?.internalValue;
     }
     if (this._s3Encryption?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -441,15 +363,14 @@ export class GlueSecurityConfigurationEncryptionConfigurationOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GlueSecurityConfigurationEncryptionConfiguration | undefined,
-  ) {
+  public set internalValue(value: GlueSecurityConfigurationEncryptionConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._cloudwatchEncryption.internalValue = undefined;
       this._jobBookmarksEncryption.internalValue = undefined;
       this._s3Encryption.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._cloudwatchEncryption.internalValue = value.cloudwatchEncryption;
       this._jobBookmarksEncryption.internalValue = value.jobBookmarksEncryption;
@@ -458,17 +379,11 @@ export class GlueSecurityConfigurationEncryptionConfigurationOutputReference ext
   }
 
   // cloudwatch_encryption - computed: false, optional: false, required: true
-  private _cloudwatchEncryption =
-    new GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputReference(
-      this,
-      'cloudwatch_encryption',
-    );
+  private _cloudwatchEncryption = new GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputReference(this, "cloudwatch_encryption");
   public get cloudwatchEncryption() {
     return this._cloudwatchEncryption;
   }
-  public putCloudwatchEncryption(
-    value: GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption,
-  ) {
+  public putCloudwatchEncryption(value: GlueSecurityConfigurationEncryptionConfigurationCloudwatchEncryption) {
     this._cloudwatchEncryption.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -477,17 +392,11 @@ export class GlueSecurityConfigurationEncryptionConfigurationOutputReference ext
   }
 
   // job_bookmarks_encryption - computed: false, optional: false, required: true
-  private _jobBookmarksEncryption =
-    new GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputReference(
-      this,
-      'job_bookmarks_encryption',
-    );
+  private _jobBookmarksEncryption = new GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputReference(this, "job_bookmarks_encryption");
   public get jobBookmarksEncryption() {
     return this._jobBookmarksEncryption;
   }
-  public putJobBookmarksEncryption(
-    value: GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption,
-  ) {
+  public putJobBookmarksEncryption(value: GlueSecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) {
     this._jobBookmarksEncryption.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -496,17 +405,11 @@ export class GlueSecurityConfigurationEncryptionConfigurationOutputReference ext
   }
 
   // s3_encryption - computed: false, optional: false, required: true
-  private _s3Encryption =
-    new GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputReference(
-      this,
-      's3_encryption',
-    );
+  private _s3Encryption = new GlueSecurityConfigurationEncryptionConfigurationS3EncryptionOutputReference(this, "s3_encryption");
   public get s3Encryption() {
     return this._s3Encryption;
   }
-  public putS3Encryption(
-    value: GlueSecurityConfigurationEncryptionConfigurationS3Encryption,
-  ) {
+  public putS3Encryption(value: GlueSecurityConfigurationEncryptionConfigurationS3Encryption) {
     this._s3Encryption.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -516,36 +419,33 @@ export class GlueSecurityConfigurationEncryptionConfigurationOutputReference ext
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration aws_glue_security_configuration}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration aws_glue_security_configuration}
+*/
 export class GlueSecurityConfiguration extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_glue_security_configuration';
+  public static readonly tfResourceType = "aws_glue_security_configuration";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration aws_glue_security_configuration} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GlueSecurityConfigurationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GlueSecurityConfigurationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/glue_security_configuration aws_glue_security_configuration} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GlueSecurityConfigurationConfig
+  */
+  public constructor(scope: Construct, id: string, config: GlueSecurityConfigurationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_security_configuration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -553,12 +453,11 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
-    this._encryptionConfiguration.internalValue =
-      config.encryptionConfiguration;
+    this._encryptionConfiguration.internalValue = config.encryptionConfiguration;
   }
 
   // ==========
@@ -566,7 +465,7 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -582,7 +481,7 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -595,17 +494,11 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
   }
 
   // encryption_configuration - computed: false, optional: false, required: true
-  private _encryptionConfiguration =
-    new GlueSecurityConfigurationEncryptionConfigurationOutputReference(
-      this,
-      'encryption_configuration',
-    );
+  private _encryptionConfiguration = new GlueSecurityConfigurationEncryptionConfigurationOutputReference(this, "encryption_configuration");
   public get encryptionConfiguration() {
     return this._encryptionConfiguration;
   }
-  public putEncryptionConfiguration(
-    value: GlueSecurityConfigurationEncryptionConfiguration,
-  ) {
+  public putEncryptionConfiguration(value: GlueSecurityConfigurationEncryptionConfiguration) {
     this._encryptionConfiguration.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -621,10 +514,7 @@ export class GlueSecurityConfiguration extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      encryption_configuration:
-        glueSecurityConfigurationEncryptionConfigurationToTerraform(
-          this._encryptionConfiguration.internalValue,
-        ),
+      encryption_configuration: glueSecurityConfigurationEncryptionConfigurationToTerraform(this._encryptionConfiguration.internalValue),
     };
   }
 }

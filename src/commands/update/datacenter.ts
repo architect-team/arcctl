@@ -1,10 +1,10 @@
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
-import { CloudGraph } from '../../cloud-graph/index.ts';
-import { parseDatacenter } from '../../datacenters/index.ts';
-import { Pipeline } from '../../pipeline/index.ts';
 import cliSpinners from 'cli-spinners';
 import * as path from 'std/path/mod.ts';
 import winston, { Logger } from 'winston';
+import { CloudGraph } from '../../cloud-graph/index.ts';
+import { parseDatacenter } from '../../datacenters/index.ts';
+import { Pipeline } from '../../pipeline/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 type UpdateDatacenterOptions = {
   verbose: boolean;
@@ -13,7 +13,7 @@ type UpdateDatacenterOptions = {
 const UpdateDatacenterCommand = BaseCommand()
   .alias('update dc')
   .description('Apply changes to a new or existing datacenter')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .option('-v, --verbose [verbose:boolean]', 'Turn on verbose logs', { default: false })
   .arguments('<name:string> <config_path:string>')
   .action(update_datacenter_action);
 
@@ -22,6 +22,10 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
 
   try {
     const currentDatacenterRecord = await command_helper.datacenterStore.get(name);
+    if (!currentDatacenterRecord) {
+      throw new Error(`No datacenter named "${name}"`);
+    }
+
     const newDatacenter = await parseDatacenter(config_path);
     const allEnvironments = await command_helper.environmentStore.find();
     const datacenterEnvironments = allEnvironments.filter((e) => e.datacenter === name);
@@ -36,12 +40,7 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
       targetGraph.insertEdges(...targetEnvGraph.edges);
     }
 
-    targetGraph.validate();
-
-    const originalPipeline = currentDatacenterRecord
-      ? await command_helper.getPipelineForDatacenter(currentDatacenterRecord)
-      : new Pipeline();
-
+    const originalPipeline = await command_helper.getPipelineForDatacenter(currentDatacenterRecord);
     const newPipeline = Pipeline.plan({
       before: originalPipeline,
       after: targetGraph,
@@ -51,6 +50,8 @@ async function update_datacenter_action(options: UpdateDatacenterOptions, name: 
       await command_helper.saveDatacenter(name, newDatacenter, newPipeline);
       console.log('Datacenter updated successfully');
     }
+
+    newPipeline.validate();
 
     let interval: number;
     if (!options.verbose) {

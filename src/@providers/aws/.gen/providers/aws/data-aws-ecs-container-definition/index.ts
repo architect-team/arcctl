@@ -1,60 +1,57 @@
 // https://www.terraform.io/docs/providers/aws/d/ecs_container_definition
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsEcsContainerDefinitionConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsEcsContainerDefinitionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition#container_name DataAwsEcsContainerDefinition#container_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition#container_name DataAwsEcsContainerDefinition#container_name}
+  */
   readonly containerName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition#id DataAwsEcsContainerDefinition#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition#id DataAwsEcsContainerDefinition#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition#task_definition DataAwsEcsContainerDefinition#task_definition}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition#task_definition DataAwsEcsContainerDefinition#task_definition}
+  */
   readonly taskDefinition: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition aws_ecs_container_definition}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition aws_ecs_container_definition}
+*/
 export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_ecs_container_definition';
+  public static readonly tfResourceType = "aws_ecs_container_definition";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition aws_ecs_container_definition} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsEcsContainerDefinitionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsEcsContainerDefinitionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ecs_container_definition aws_ecs_container_definition} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsEcsContainerDefinitionConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsEcsContainerDefinitionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_ecs_container_definition',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -62,7 +59,7 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._containerName = config.containerName;
     this._id = config.id;
@@ -74,7 +71,7 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
   // ==========
 
   // container_name - computed: false, optional: false, required: true
-  private _containerName?: string;
+  private _containerName?: string; 
   public get containerName() {
     return this.getStringAttribute('container_name');
   }
@@ -97,19 +94,19 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
   }
 
   // docker_labels - computed: true, optional: false, required: false
-  private _dockerLabels = new cdktf.StringMap(this, 'docker_labels');
+  private _dockerLabels = new cdktf.StringMap(this, "docker_labels");
   public get dockerLabels() {
     return this._dockerLabels;
   }
 
   // environment - computed: true, optional: false, required: false
-  private _environment = new cdktf.StringMap(this, 'environment');
+  private _environment = new cdktf.StringMap(this, "environment");
   public get environment() {
     return this._environment;
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -145,7 +142,7 @@ export class DataAwsEcsContainerDefinition extends cdktf.TerraformDataSource {
   }
 
   // task_definition - computed: false, optional: false, required: true
-  private _taskDefinition?: string;
+  private _taskDefinition?: string; 
   public get taskDefinition() {
     return this.getStringAttribute('task_definition');
   }

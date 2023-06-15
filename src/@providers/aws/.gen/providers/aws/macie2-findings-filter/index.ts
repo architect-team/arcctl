@@ -1,113 +1,104 @@
 // https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface Macie2FindingsFilterConfig
-  extends cdktf.TerraformMetaArguments {
+export interface Macie2FindingsFilterConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#action Macie2FindingsFilter#action}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#action Macie2FindingsFilter#action}
+  */
   readonly action: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#description Macie2FindingsFilter#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#description Macie2FindingsFilter#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#id Macie2FindingsFilter#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#id Macie2FindingsFilter#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#name Macie2FindingsFilter#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#name Macie2FindingsFilter#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#name_prefix Macie2FindingsFilter#name_prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#name_prefix Macie2FindingsFilter#name_prefix}
+  */
   readonly namePrefix?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#position Macie2FindingsFilter#position}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#position Macie2FindingsFilter#position}
+  */
   readonly position?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#tags Macie2FindingsFilter#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#tags Macie2FindingsFilter#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#tags_all Macie2FindingsFilter#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#tags_all Macie2FindingsFilter#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * finding_criteria block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#finding_criteria Macie2FindingsFilter#finding_criteria}
-   */
+  * finding_criteria block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#finding_criteria Macie2FindingsFilter#finding_criteria}
+  */
   readonly findingCriteria: Macie2FindingsFilterFindingCriteria;
 }
 export interface Macie2FindingsFilterFindingCriteriaCriterion {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#eq Macie2FindingsFilter#eq}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#eq Macie2FindingsFilter#eq}
+  */
   readonly eq?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#eq_exact_match Macie2FindingsFilter#eq_exact_match}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#eq_exact_match Macie2FindingsFilter#eq_exact_match}
+  */
   readonly eqExactMatch?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#field Macie2FindingsFilter#field}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#field Macie2FindingsFilter#field}
+  */
   readonly field: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#gt Macie2FindingsFilter#gt}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#gt Macie2FindingsFilter#gt}
+  */
   readonly gt?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#gte Macie2FindingsFilter#gte}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#gte Macie2FindingsFilter#gte}
+  */
   readonly gte?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#lt Macie2FindingsFilter#lt}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#lt Macie2FindingsFilter#lt}
+  */
   readonly lt?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#lte Macie2FindingsFilter#lte}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#lte Macie2FindingsFilter#lte}
+  */
   readonly lte?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#neq Macie2FindingsFilter#neq}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#neq Macie2FindingsFilter#neq}
+  */
   readonly neq?: string[];
 }
 
-export function macie2FindingsFilterFindingCriteriaCriterionToTerraform(
-  struct?: Macie2FindingsFilterFindingCriteriaCriterion | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function macie2FindingsFilterFindingCriteriaCriterionToTerraform(struct?: Macie2FindingsFilterFindingCriteriaCriterion | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     eq: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.eq),
-    eq_exact_match: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.eqExactMatch),
+    eq_exact_match: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.eqExactMatch),
     field: cdktf.stringToTerraform(struct!.field),
     gt: cdktf.stringToTerraform(struct!.gt),
     gte: cdktf.stringToTerraform(struct!.gte),
     lt: cdktf.stringToTerraform(struct!.lt),
     lte: cdktf.stringToTerraform(struct!.lte),
     neq: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.neq),
-  };
+  }
 }
 
 export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends cdktf.ComplexObject {
@@ -115,29 +106,16 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | Macie2FindingsFilterFindingCriteriaCriterion
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): Macie2FindingsFilterFindingCriteriaCriterion | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -178,12 +156,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | Macie2FindingsFilterFindingCriteriaCriterion
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: Macie2FindingsFilterFindingCriteriaCriterion | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -195,10 +168,12 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
       this._lt = undefined;
       this._lte = undefined;
       this._neq = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._eq = value.eq;
@@ -213,7 +188,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // eq - computed: false, optional: true, required: false
-  private _eq?: string[];
+  private _eq?: string[]; 
   public get eq() {
     return cdktf.Fn.tolist(this.getListAttribute('eq'));
   }
@@ -229,7 +204,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // eq_exact_match - computed: false, optional: true, required: false
-  private _eqExactMatch?: string[];
+  private _eqExactMatch?: string[]; 
   public get eqExactMatch() {
     return cdktf.Fn.tolist(this.getListAttribute('eq_exact_match'));
   }
@@ -245,7 +220,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // field - computed: false, optional: false, required: true
-  private _field?: string;
+  private _field?: string; 
   public get field() {
     return this.getStringAttribute('field');
   }
@@ -258,7 +233,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // gt - computed: false, optional: true, required: false
-  private _gt?: string;
+  private _gt?: string; 
   public get gt() {
     return this.getStringAttribute('gt');
   }
@@ -274,7 +249,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // gte - computed: false, optional: true, required: false
-  private _gte?: string;
+  private _gte?: string; 
   public get gte() {
     return this.getStringAttribute('gte');
   }
@@ -290,7 +265,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // lt - computed: false, optional: true, required: false
-  private _lt?: string;
+  private _lt?: string; 
   public get lt() {
     return this.getStringAttribute('lt');
   }
@@ -306,7 +281,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // lte - computed: false, optional: true, required: false
-  private _lte?: string;
+  private _lte?: string; 
   public get lte() {
     return this.getStringAttribute('lte');
   }
@@ -322,7 +297,7 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
   }
 
   // neq - computed: false, optional: true, required: false
-  private _neq?: string[];
+  private _neq?: string[]; 
   public get neq() {
     return cdktf.Fn.tolist(this.getListAttribute('neq'));
   }
@@ -339,80 +314,51 @@ export class Macie2FindingsFilterFindingCriteriaCriterionOutputReference extends
 }
 
 export class Macie2FindingsFilterFindingCriteriaCriterionList extends cdktf.ComplexList {
-  public internalValue?:
-    | Macie2FindingsFilterFindingCriteriaCriterion[]
-    | cdktf.IResolvable;
+  public internalValue? : Macie2FindingsFilterFindingCriteriaCriterion[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): Macie2FindingsFilterFindingCriteriaCriterionOutputReference {
-    return new Macie2FindingsFilterFindingCriteriaCriterionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): Macie2FindingsFilterFindingCriteriaCriterionOutputReference {
+    return new Macie2FindingsFilterFindingCriteriaCriterionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface Macie2FindingsFilterFindingCriteria {
   /**
-   * criterion block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#criterion Macie2FindingsFilter#criterion}
-   */
-  readonly criterion?:
-    | Macie2FindingsFilterFindingCriteriaCriterion[]
-    | cdktf.IResolvable;
+  * criterion block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter#criterion Macie2FindingsFilter#criterion}
+  */
+  readonly criterion?: Macie2FindingsFilterFindingCriteriaCriterion[] | cdktf.IResolvable;
 }
 
-export function macie2FindingsFilterFindingCriteriaToTerraform(
-  struct?:
-    | Macie2FindingsFilterFindingCriteriaOutputReference
-    | Macie2FindingsFilterFindingCriteria,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function macie2FindingsFilterFindingCriteriaToTerraform(struct?: Macie2FindingsFilterFindingCriteriaOutputReference | Macie2FindingsFilterFindingCriteria): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    criterion: cdktf.listMapper(
-      macie2FindingsFilterFindingCriteriaCriterionToTerraform,
-      true,
-    )(struct!.criterion),
-  };
+    criterion: cdktf.listMapper(macie2FindingsFilterFindingCriteriaCriterionToTerraform, true)(struct!.criterion),
+  }
 }
 
 export class Macie2FindingsFilterFindingCriteriaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -426,30 +372,23 @@ export class Macie2FindingsFilterFindingCriteriaOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: Macie2FindingsFilterFindingCriteria | undefined,
-  ) {
+  public set internalValue(value: Macie2FindingsFilterFindingCriteria | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._criterion.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._criterion.internalValue = value.criterion;
     }
   }
 
   // criterion - computed: false, optional: true, required: false
-  private _criterion = new Macie2FindingsFilterFindingCriteriaCriterionList(
-    this,
-    'criterion',
-    true,
-  );
+  private _criterion = new Macie2FindingsFilterFindingCriteriaCriterionList(this, "criterion", true);
   public get criterion() {
     return this._criterion;
   }
-  public putCriterion(
-    value: Macie2FindingsFilterFindingCriteriaCriterion[] | cdktf.IResolvable,
-  ) {
+  public putCriterion(value: Macie2FindingsFilterFindingCriteriaCriterion[] | cdktf.IResolvable) {
     this._criterion.internalValue = value;
   }
   public resetCriterion() {
@@ -462,36 +401,33 @@ export class Macie2FindingsFilterFindingCriteriaOutputReference extends cdktf.Co
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter aws_macie2_findings_filter}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter aws_macie2_findings_filter}
+*/
 export class Macie2FindingsFilter extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_macie2_findings_filter';
+  public static readonly tfResourceType = "aws_macie2_findings_filter";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter aws_macie2_findings_filter} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options Macie2FindingsFilterConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: Macie2FindingsFilterConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/macie2_findings_filter aws_macie2_findings_filter} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options Macie2FindingsFilterConfig
+  */
+  public constructor(scope: Construct, id: string, config: Macie2FindingsFilterConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_macie2_findings_filter',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -499,7 +435,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._action = config.action;
     this._description = config.description;
@@ -517,7 +453,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   // ==========
 
   // action - computed: false, optional: false, required: true
-  private _action?: string;
+  private _action?: string; 
   public get action() {
     return this.getStringAttribute('action');
   }
@@ -535,7 +471,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -551,7 +487,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -567,7 +503,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // name - computed: true, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -583,7 +519,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // name_prefix - computed: true, optional: true, required: false
-  private _namePrefix?: string;
+  private _namePrefix?: string; 
   public get namePrefix() {
     return this.getStringAttribute('name_prefix');
   }
@@ -599,7 +535,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // position - computed: true, optional: true, required: false
-  private _position?: number;
+  private _position?: number; 
   public get position() {
     return this.getNumberAttribute('position');
   }
@@ -615,7 +551,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -631,7 +567,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -647,11 +583,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
   }
 
   // finding_criteria - computed: false, optional: false, required: true
-  private _findingCriteria =
-    new Macie2FindingsFilterFindingCriteriaOutputReference(
-      this,
-      'finding_criteria',
-    );
+  private _findingCriteria = new Macie2FindingsFilterFindingCriteriaOutputReference(this, "finding_criteria");
   public get findingCriteria() {
     return this._findingCriteria;
   }
@@ -677,9 +609,7 @@ export class Macie2FindingsFilter extends cdktf.TerraformResource {
       position: cdktf.numberToTerraform(this._position),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      finding_criteria: macie2FindingsFilterFindingCriteriaToTerraform(
-        this._findingCriteria.internalValue,
-      ),
+      finding_criteria: macie2FindingsFilterFindingCriteriaToTerraform(this._findingCriteria.internalValue),
     };
   }
 }

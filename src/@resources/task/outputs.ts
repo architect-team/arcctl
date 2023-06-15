@@ -1,3 +1,6 @@
-export type CronjobApplyOutputs = {};
+export type CronjobApplyOutputs = {
+  stdout?: string;
+  stderr?: string;
+};
 
 export default CronjobApplyOutputs;

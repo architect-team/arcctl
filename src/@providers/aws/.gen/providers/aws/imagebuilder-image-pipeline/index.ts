@@ -1,119 +1,106 @@
 // https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ImagebuilderImagePipelineConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ImagebuilderImagePipelineConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#container_recipe_arn ImagebuilderImagePipeline#container_recipe_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#container_recipe_arn ImagebuilderImagePipeline#container_recipe_arn}
+  */
   readonly containerRecipeArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#description ImagebuilderImagePipeline#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#description ImagebuilderImagePipeline#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#distribution_configuration_arn ImagebuilderImagePipeline#distribution_configuration_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#distribution_configuration_arn ImagebuilderImagePipeline#distribution_configuration_arn}
+  */
   readonly distributionConfigurationArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#enhanced_image_metadata_enabled ImagebuilderImagePipeline#enhanced_image_metadata_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#enhanced_image_metadata_enabled ImagebuilderImagePipeline#enhanced_image_metadata_enabled}
+  */
   readonly enhancedImageMetadataEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#id ImagebuilderImagePipeline#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#id ImagebuilderImagePipeline#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_recipe_arn ImagebuilderImagePipeline#image_recipe_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_recipe_arn ImagebuilderImagePipeline#image_recipe_arn}
+  */
   readonly imageRecipeArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#infrastructure_configuration_arn ImagebuilderImagePipeline#infrastructure_configuration_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#infrastructure_configuration_arn ImagebuilderImagePipeline#infrastructure_configuration_arn}
+  */
   readonly infrastructureConfigurationArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#name ImagebuilderImagePipeline#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#name ImagebuilderImagePipeline#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#status ImagebuilderImagePipeline#status}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#status ImagebuilderImagePipeline#status}
+  */
   readonly status?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#tags ImagebuilderImagePipeline#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#tags ImagebuilderImagePipeline#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#tags_all ImagebuilderImagePipeline#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#tags_all ImagebuilderImagePipeline#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * image_tests_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_tests_configuration ImagebuilderImagePipeline#image_tests_configuration}
-   */
+  * image_tests_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_tests_configuration ImagebuilderImagePipeline#image_tests_configuration}
+  */
   readonly imageTestsConfiguration?: ImagebuilderImagePipelineImageTestsConfiguration;
   /**
-   * schedule block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#schedule ImagebuilderImagePipeline#schedule}
-   */
+  * schedule block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#schedule ImagebuilderImagePipeline#schedule}
+  */
   readonly schedule?: ImagebuilderImagePipelineSchedule;
 }
 export interface ImagebuilderImagePipelineImageTestsConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_tests_enabled ImagebuilderImagePipeline#image_tests_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#image_tests_enabled ImagebuilderImagePipeline#image_tests_enabled}
+  */
   readonly imageTestsEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#timeout_minutes ImagebuilderImagePipeline#timeout_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#timeout_minutes ImagebuilderImagePipeline#timeout_minutes}
+  */
   readonly timeoutMinutes?: number;
 }
 
-export function imagebuilderImagePipelineImageTestsConfigurationToTerraform(
-  struct?:
-    | ImagebuilderImagePipelineImageTestsConfigurationOutputReference
-    | ImagebuilderImagePipelineImageTestsConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function imagebuilderImagePipelineImageTestsConfigurationToTerraform(struct?: ImagebuilderImagePipelineImageTestsConfigurationOutputReference | ImagebuilderImagePipelineImageTestsConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     image_tests_enabled: cdktf.booleanToTerraform(struct!.imageTestsEnabled),
     timeout_minutes: cdktf.numberToTerraform(struct!.timeoutMinutes),
-  };
+  }
 }
 
 export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ImagebuilderImagePipelineImageTestsConfiguration
-    | undefined {
+  public get internalValue(): ImagebuilderImagePipelineImageTestsConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._imageTestsEnabled !== undefined) {
@@ -127,14 +114,13 @@ export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ImagebuilderImagePipelineImageTestsConfiguration | undefined,
-  ) {
+  public set internalValue(value: ImagebuilderImagePipelineImageTestsConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._imageTestsEnabled = undefined;
       this._timeoutMinutes = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._imageTestsEnabled = value.imageTestsEnabled;
       this._timeoutMinutes = value.timeoutMinutes;
@@ -142,7 +128,7 @@ export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference ext
   }
 
   // image_tests_enabled - computed: false, optional: true, required: false
-  private _imageTestsEnabled?: boolean | cdktf.IResolvable;
+  private _imageTestsEnabled?: boolean | cdktf.IResolvable; 
   public get imageTestsEnabled() {
     return this.getBooleanAttribute('image_tests_enabled');
   }
@@ -158,7 +144,7 @@ export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference ext
   }
 
   // timeout_minutes - computed: false, optional: true, required: false
-  private _timeoutMinutes?: number;
+  private _timeoutMinutes?: number; 
   public get timeoutMinutes() {
     return this.getNumberAttribute('timeout_minutes');
   }
@@ -175,52 +161,39 @@ export class ImagebuilderImagePipelineImageTestsConfigurationOutputReference ext
 }
 export interface ImagebuilderImagePipelineSchedule {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#pipeline_execution_start_condition ImagebuilderImagePipeline#pipeline_execution_start_condition}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#pipeline_execution_start_condition ImagebuilderImagePipeline#pipeline_execution_start_condition}
+  */
   readonly pipelineExecutionStartCondition?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#schedule_expression ImagebuilderImagePipeline#schedule_expression}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#schedule_expression ImagebuilderImagePipeline#schedule_expression}
+  */
   readonly scheduleExpression: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#timezone ImagebuilderImagePipeline#timezone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline#timezone ImagebuilderImagePipeline#timezone}
+  */
   readonly timezone?: string;
 }
 
-export function imagebuilderImagePipelineScheduleToTerraform(
-  struct?:
-    | ImagebuilderImagePipelineScheduleOutputReference
-    | ImagebuilderImagePipelineSchedule,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function imagebuilderImagePipelineScheduleToTerraform(struct?: ImagebuilderImagePipelineScheduleOutputReference | ImagebuilderImagePipelineSchedule): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    pipeline_execution_start_condition: cdktf.stringToTerraform(
-      struct!.pipelineExecutionStartCondition,
-    ),
+    pipeline_execution_start_condition: cdktf.stringToTerraform(struct!.pipelineExecutionStartCondition),
     schedule_expression: cdktf.stringToTerraform(struct!.scheduleExpression),
     timezone: cdktf.stringToTerraform(struct!.timezone),
-  };
+  }
 }
 
 export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -229,8 +202,7 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
     const internalValueResult: any = {};
     if (this._pipelineExecutionStartCondition !== undefined) {
       hasAnyValues = true;
-      internalValueResult.pipelineExecutionStartCondition =
-        this._pipelineExecutionStartCondition;
+      internalValueResult.pipelineExecutionStartCondition = this._pipelineExecutionStartCondition;
     }
     if (this._scheduleExpression !== undefined) {
       hasAnyValues = true;
@@ -243,25 +215,23 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ImagebuilderImagePipelineSchedule | undefined,
-  ) {
+  public set internalValue(value: ImagebuilderImagePipelineSchedule | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._pipelineExecutionStartCondition = undefined;
       this._scheduleExpression = undefined;
       this._timezone = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._pipelineExecutionStartCondition =
-        value.pipelineExecutionStartCondition;
+      this._pipelineExecutionStartCondition = value.pipelineExecutionStartCondition;
       this._scheduleExpression = value.scheduleExpression;
       this._timezone = value.timezone;
     }
   }
 
   // pipeline_execution_start_condition - computed: false, optional: true, required: false
-  private _pipelineExecutionStartCondition?: string;
+  private _pipelineExecutionStartCondition?: string; 
   public get pipelineExecutionStartCondition() {
     return this.getStringAttribute('pipeline_execution_start_condition');
   }
@@ -277,7 +247,7 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
   }
 
   // schedule_expression - computed: false, optional: false, required: true
-  private _scheduleExpression?: string;
+  private _scheduleExpression?: string; 
   public get scheduleExpression() {
     return this.getStringAttribute('schedule_expression');
   }
@@ -290,7 +260,7 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
   }
 
   // timezone - computed: true, optional: true, required: false
-  private _timezone?: string;
+  private _timezone?: string; 
   public get timezone() {
     return this.getStringAttribute('timezone');
   }
@@ -307,36 +277,33 @@ export class ImagebuilderImagePipelineScheduleOutputReference extends cdktf.Comp
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline aws_imagebuilder_image_pipeline}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline aws_imagebuilder_image_pipeline}
+*/
 export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_imagebuilder_image_pipeline';
+  public static readonly tfResourceType = "aws_imagebuilder_image_pipeline";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline aws_imagebuilder_image_pipeline} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ImagebuilderImagePipelineConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ImagebuilderImagePipelineConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/imagebuilder_image_pipeline aws_imagebuilder_image_pipeline} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ImagebuilderImagePipelineConfig
+  */
+  public constructor(scope: Construct, id: string, config: ImagebuilderImagePipelineConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_imagebuilder_image_pipeline',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -344,7 +311,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._containerRecipeArn = config.containerRecipeArn;
     this._description = config.description;
@@ -352,14 +319,12 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
     this._enhancedImageMetadataEnabled = config.enhancedImageMetadataEnabled;
     this._id = config.id;
     this._imageRecipeArn = config.imageRecipeArn;
-    this._infrastructureConfigurationArn =
-      config.infrastructureConfigurationArn;
+    this._infrastructureConfigurationArn = config.infrastructureConfigurationArn;
     this._name = config.name;
     this._status = config.status;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._imageTestsConfiguration.internalValue =
-      config.imageTestsConfiguration;
+    this._imageTestsConfiguration.internalValue = config.imageTestsConfiguration;
     this._schedule.internalValue = config.schedule;
   }
 
@@ -373,7 +338,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // container_recipe_arn - computed: false, optional: true, required: false
-  private _containerRecipeArn?: string;
+  private _containerRecipeArn?: string; 
   public get containerRecipeArn() {
     return this.getStringAttribute('container_recipe_arn');
   }
@@ -409,7 +374,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -425,7 +390,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // distribution_configuration_arn - computed: false, optional: true, required: false
-  private _distributionConfigurationArn?: string;
+  private _distributionConfigurationArn?: string; 
   public get distributionConfigurationArn() {
     return this.getStringAttribute('distribution_configuration_arn');
   }
@@ -441,7 +406,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // enhanced_image_metadata_enabled - computed: false, optional: true, required: false
-  private _enhancedImageMetadataEnabled?: boolean | cdktf.IResolvable;
+  private _enhancedImageMetadataEnabled?: boolean | cdktf.IResolvable; 
   public get enhancedImageMetadataEnabled() {
     return this.getBooleanAttribute('enhanced_image_metadata_enabled');
   }
@@ -457,7 +422,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -473,7 +438,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // image_recipe_arn - computed: false, optional: true, required: false
-  private _imageRecipeArn?: string;
+  private _imageRecipeArn?: string; 
   public get imageRecipeArn() {
     return this.getStringAttribute('image_recipe_arn');
   }
@@ -489,7 +454,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // infrastructure_configuration_arn - computed: false, optional: false, required: true
-  private _infrastructureConfigurationArn?: string;
+  private _infrastructureConfigurationArn?: string; 
   public get infrastructureConfigurationArn() {
     return this.getStringAttribute('infrastructure_configuration_arn');
   }
@@ -502,7 +467,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -520,7 +485,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // status - computed: false, optional: true, required: false
-  private _status?: string;
+  private _status?: string; 
   public get status() {
     return this.getStringAttribute('status');
   }
@@ -536,7 +501,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -552,7 +517,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -568,17 +533,11 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // image_tests_configuration - computed: false, optional: true, required: false
-  private _imageTestsConfiguration =
-    new ImagebuilderImagePipelineImageTestsConfigurationOutputReference(
-      this,
-      'image_tests_configuration',
-    );
+  private _imageTestsConfiguration = new ImagebuilderImagePipelineImageTestsConfigurationOutputReference(this, "image_tests_configuration");
   public get imageTestsConfiguration() {
     return this._imageTestsConfiguration;
   }
-  public putImageTestsConfiguration(
-    value: ImagebuilderImagePipelineImageTestsConfiguration,
-  ) {
+  public putImageTestsConfiguration(value: ImagebuilderImagePipelineImageTestsConfiguration) {
     this._imageTestsConfiguration.internalValue = value;
   }
   public resetImageTestsConfiguration() {
@@ -590,10 +549,7 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
   }
 
   // schedule - computed: false, optional: true, required: false
-  private _schedule = new ImagebuilderImagePipelineScheduleOutputReference(
-    this,
-    'schedule',
-  );
+  private _schedule = new ImagebuilderImagePipelineScheduleOutputReference(this, "schedule");
   public get schedule() {
     return this._schedule;
   }
@@ -616,28 +572,17 @@ export class ImagebuilderImagePipeline extends cdktf.TerraformResource {
     return {
       container_recipe_arn: cdktf.stringToTerraform(this._containerRecipeArn),
       description: cdktf.stringToTerraform(this._description),
-      distribution_configuration_arn: cdktf.stringToTerraform(
-        this._distributionConfigurationArn,
-      ),
-      enhanced_image_metadata_enabled: cdktf.booleanToTerraform(
-        this._enhancedImageMetadataEnabled,
-      ),
+      distribution_configuration_arn: cdktf.stringToTerraform(this._distributionConfigurationArn),
+      enhanced_image_metadata_enabled: cdktf.booleanToTerraform(this._enhancedImageMetadataEnabled),
       id: cdktf.stringToTerraform(this._id),
       image_recipe_arn: cdktf.stringToTerraform(this._imageRecipeArn),
-      infrastructure_configuration_arn: cdktf.stringToTerraform(
-        this._infrastructureConfigurationArn,
-      ),
+      infrastructure_configuration_arn: cdktf.stringToTerraform(this._infrastructureConfigurationArn),
       name: cdktf.stringToTerraform(this._name),
       status: cdktf.stringToTerraform(this._status),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      image_tests_configuration:
-        imagebuilderImagePipelineImageTestsConfigurationToTerraform(
-          this._imageTestsConfiguration.internalValue,
-        ),
-      schedule: imagebuilderImagePipelineScheduleToTerraform(
-        this._schedule.internalValue,
-      ),
+      image_tests_configuration: imagebuilderImagePipelineImageTestsConfigurationToTerraform(this._imageTestsConfiguration.internalValue),
+      schedule: imagebuilderImagePipelineScheduleToTerraform(this._schedule.internalValue),
     };
   }
 }

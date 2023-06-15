@@ -1,109 +1,92 @@
 // https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface NetworkmanagerConnectPeerConfig
-  extends cdktf.TerraformMetaArguments {
+export interface NetworkmanagerConnectPeerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#connect_attachment_id NetworkmanagerConnectPeer#connect_attachment_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#connect_attachment_id NetworkmanagerConnectPeer#connect_attachment_id}
+  */
   readonly connectAttachmentId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#core_network_address NetworkmanagerConnectPeer#core_network_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#core_network_address NetworkmanagerConnectPeer#core_network_address}
+  */
   readonly coreNetworkAddress?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#id NetworkmanagerConnectPeer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#id NetworkmanagerConnectPeer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#inside_cidr_blocks NetworkmanagerConnectPeer#inside_cidr_blocks}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#inside_cidr_blocks NetworkmanagerConnectPeer#inside_cidr_blocks}
+  */
   readonly insideCidrBlocks: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#peer_address NetworkmanagerConnectPeer#peer_address}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#peer_address NetworkmanagerConnectPeer#peer_address}
+  */
   readonly peerAddress: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#tags NetworkmanagerConnectPeer#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#tags NetworkmanagerConnectPeer#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#tags_all NetworkmanagerConnectPeer#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#tags_all NetworkmanagerConnectPeer#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * bgp_options block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#bgp_options NetworkmanagerConnectPeer#bgp_options}
-   */
+  * bgp_options block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#bgp_options NetworkmanagerConnectPeer#bgp_options}
+  */
   readonly bgpOptions?: NetworkmanagerConnectPeerBgpOptions;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#timeouts NetworkmanagerConnectPeer#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#timeouts NetworkmanagerConnectPeer#timeouts}
+  */
   readonly timeouts?: NetworkmanagerConnectPeerTimeouts;
 }
-export interface NetworkmanagerConnectPeerConfigurationBgpConfigurations {}
+export interface NetworkmanagerConnectPeerConfigurationBgpConfigurations {
+}
 
-export function networkmanagerConnectPeerConfigurationBgpConfigurationsToTerraform(
-  struct?: NetworkmanagerConnectPeerConfigurationBgpConfigurations,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerConnectPeerConfigurationBgpConfigurationsToTerraform(struct?: NetworkmanagerConnectPeerConfigurationBgpConfigurations): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class NetworkmanagerConnectPeerConfigurationBgpConfigurationsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | NetworkmanagerConnectPeerConfigurationBgpConfigurations
-    | undefined {
+  public get internalValue(): NetworkmanagerConnectPeerConfigurationBgpConfigurations | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: NetworkmanagerConnectPeerConfigurationBgpConfigurations | undefined,
-  ) {
+  public set internalValue(value: NetworkmanagerConnectPeerConfigurationBgpConfigurations | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -130,97 +113,65 @@ export class NetworkmanagerConnectPeerConfigurationBgpConfigurationsOutputRefere
 }
 
 export class NetworkmanagerConnectPeerConfigurationBgpConfigurationsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): NetworkmanagerConnectPeerConfigurationBgpConfigurationsOutputReference {
-    return new NetworkmanagerConnectPeerConfigurationBgpConfigurationsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): NetworkmanagerConnectPeerConfigurationBgpConfigurationsOutputReference {
+    return new NetworkmanagerConnectPeerConfigurationBgpConfigurationsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface NetworkmanagerConnectPeerConfiguration {}
+export interface NetworkmanagerConnectPeerConfiguration {
+}
 
-export function networkmanagerConnectPeerConfigurationToTerraform(
-  struct?: NetworkmanagerConnectPeerConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerConnectPeerConfigurationToTerraform(struct?: NetworkmanagerConnectPeerConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class NetworkmanagerConnectPeerConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | NetworkmanagerConnectPeerConfiguration
-    | undefined {
+  public get internalValue(): NetworkmanagerConnectPeerConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: NetworkmanagerConnectPeerConfiguration | undefined,
-  ) {
+  public set internalValue(value: NetworkmanagerConnectPeerConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // bgp_configurations - computed: true, optional: false, required: false
-  private _bgpConfigurations =
-    new NetworkmanagerConnectPeerConfigurationBgpConfigurationsList(
-      this,
-      'bgp_configurations',
-      false,
-    );
+  private _bgpConfigurations = new NetworkmanagerConnectPeerConfigurationBgpConfigurationsList(this, "bgp_configurations", false);
   public get bgpConfigurations() {
     return this._bgpConfigurations;
   }
@@ -247,69 +198,48 @@ export class NetworkmanagerConnectPeerConfigurationOutputReference extends cdktf
 }
 
 export class NetworkmanagerConnectPeerConfigurationList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): NetworkmanagerConnectPeerConfigurationOutputReference {
-    return new NetworkmanagerConnectPeerConfigurationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): NetworkmanagerConnectPeerConfigurationOutputReference {
+    return new NetworkmanagerConnectPeerConfigurationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface NetworkmanagerConnectPeerBgpOptions {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#peer_asn NetworkmanagerConnectPeer#peer_asn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#peer_asn NetworkmanagerConnectPeer#peer_asn}
+  */
   readonly peerAsn?: number;
 }
 
-export function networkmanagerConnectPeerBgpOptionsToTerraform(
-  struct?:
-    | NetworkmanagerConnectPeerBgpOptionsOutputReference
-    | NetworkmanagerConnectPeerBgpOptions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerConnectPeerBgpOptionsToTerraform(struct?: NetworkmanagerConnectPeerBgpOptionsOutputReference | NetworkmanagerConnectPeerBgpOptions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     peer_asn: cdktf.numberToTerraform(struct!.peerAsn),
-  };
+  }
 }
 
 export class NetworkmanagerConnectPeerBgpOptionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -323,20 +253,19 @@ export class NetworkmanagerConnectPeerBgpOptionsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: NetworkmanagerConnectPeerBgpOptions | undefined,
-  ) {
+  public set internalValue(value: NetworkmanagerConnectPeerBgpOptions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._peerAsn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._peerAsn = value.peerAsn;
     }
   }
 
   // peer_asn - computed: false, optional: true, required: false
-  private _peerAsn?: number;
+  private _peerAsn?: number; 
   public get peerAsn() {
     return this.getNumberAttribute('peer_asn');
   }
@@ -353,33 +282,24 @@ export class NetworkmanagerConnectPeerBgpOptionsOutputReference extends cdktf.Co
 }
 export interface NetworkmanagerConnectPeerTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#create NetworkmanagerConnectPeer#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#create NetworkmanagerConnectPeer#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#delete NetworkmanagerConnectPeer#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer#delete NetworkmanagerConnectPeer#delete}
+  */
   readonly delete?: string;
 }
 
-export function networkmanagerConnectPeerTimeoutsToTerraform(
-  struct?:
-    | NetworkmanagerConnectPeerTimeoutsOutputReference
-    | NetworkmanagerConnectPeerTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function networkmanagerConnectPeerTimeoutsToTerraform(struct?: NetworkmanagerConnectPeerTimeoutsOutputReference | NetworkmanagerConnectPeerTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -387,20 +307,14 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | NetworkmanagerConnectPeerTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): NetworkmanagerConnectPeerTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -417,18 +331,18 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: NetworkmanagerConnectPeerTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: NetworkmanagerConnectPeerTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -437,7 +351,7 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -453,7 +367,7 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -470,36 +384,33 @@ export class NetworkmanagerConnectPeerTimeoutsOutputReference extends cdktf.Comp
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer aws_networkmanager_connect_peer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer aws_networkmanager_connect_peer}
+*/
 export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_networkmanager_connect_peer';
+  public static readonly tfResourceType = "aws_networkmanager_connect_peer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer aws_networkmanager_connect_peer} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options NetworkmanagerConnectPeerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: NetworkmanagerConnectPeerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/networkmanager_connect_peer aws_networkmanager_connect_peer} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options NetworkmanagerConnectPeerConfig
+  */
+  public constructor(scope: Construct, id: string, config: NetworkmanagerConnectPeerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_networkmanager_connect_peer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -507,7 +418,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._connectAttachmentId = config.connectAttachmentId;
     this._coreNetworkAddress = config.coreNetworkAddress;
@@ -530,17 +441,13 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // configuration - computed: true, optional: false, required: false
-  private _configuration = new NetworkmanagerConnectPeerConfigurationList(
-    this,
-    'configuration',
-    false,
-  );
+  private _configuration = new NetworkmanagerConnectPeerConfigurationList(this, "configuration", false);
   public get configuration() {
     return this._configuration;
   }
 
   // connect_attachment_id - computed: false, optional: false, required: true
-  private _connectAttachmentId?: string;
+  private _connectAttachmentId?: string; 
   public get connectAttachmentId() {
     return this.getStringAttribute('connect_attachment_id');
   }
@@ -558,7 +465,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // core_network_address - computed: false, optional: true, required: false
-  private _coreNetworkAddress?: string;
+  private _coreNetworkAddress?: string; 
   public get coreNetworkAddress() {
     return this.getStringAttribute('core_network_address');
   }
@@ -589,7 +496,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -605,7 +512,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // inside_cidr_blocks - computed: false, optional: false, required: true
-  private _insideCidrBlocks?: string[];
+  private _insideCidrBlocks?: string[]; 
   public get insideCidrBlocks() {
     return this.getListAttribute('inside_cidr_blocks');
   }
@@ -618,7 +525,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // peer_address - computed: false, optional: false, required: true
-  private _peerAddress?: string;
+  private _peerAddress?: string; 
   public get peerAddress() {
     return this.getStringAttribute('peer_address');
   }
@@ -636,7 +543,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -652,7 +559,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -668,10 +575,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // bgp_options - computed: false, optional: true, required: false
-  private _bgpOptions = new NetworkmanagerConnectPeerBgpOptionsOutputReference(
-    this,
-    'bgp_options',
-  );
+  private _bgpOptions = new NetworkmanagerConnectPeerBgpOptionsOutputReference(this, "bgp_options");
   public get bgpOptions() {
     return this._bgpOptions;
   }
@@ -687,10 +591,7 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new NetworkmanagerConnectPeerTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new NetworkmanagerConnectPeerTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -714,19 +615,12 @@ export class NetworkmanagerConnectPeer extends cdktf.TerraformResource {
       connect_attachment_id: cdktf.stringToTerraform(this._connectAttachmentId),
       core_network_address: cdktf.stringToTerraform(this._coreNetworkAddress),
       id: cdktf.stringToTerraform(this._id),
-      inside_cidr_blocks: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._insideCidrBlocks),
+      inside_cidr_blocks: cdktf.listMapper(cdktf.stringToTerraform, false)(this._insideCidrBlocks),
       peer_address: cdktf.stringToTerraform(this._peerAddress),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      bgp_options: networkmanagerConnectPeerBgpOptionsToTerraform(
-        this._bgpOptions.internalValue,
-      ),
-      timeouts: networkmanagerConnectPeerTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      bgp_options: networkmanagerConnectPeerBgpOptionsToTerraform(this._bgpOptions.internalValue),
+      timeouts: networkmanagerConnectPeerTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

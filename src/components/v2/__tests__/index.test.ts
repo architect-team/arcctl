@@ -1,15 +1,18 @@
+import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 import { CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDatabaseGeneration,
   testDatabaseIntegration,
   testDeploymentGeneration,
+  testSecretGeneration,
+  testSecretIntegration,
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
+import { ComponentSchema } from '../../schema.ts';
 import ComponentV2 from '../index.ts';
-import yaml from 'js-yaml';
-import { assertArrayIncludes } from 'std/testing/asserts.ts';
-import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component Schema: v2', () => {
   it('should generate deployments', () =>
@@ -73,7 +76,7 @@ describe('Component Schema: v2', () => {
         builds:
           test:
             context: ./
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({
@@ -100,6 +103,39 @@ describe('Component Schema: v2', () => {
 
     assertArrayIncludes(graph.nodes, [build_node]);
   });
+
+  it('should generate secrets', () =>
+    testSecretGeneration(
+      `
+        secrets:
+          DB_HOST:
+            description: The host for the database
+      `,
+      ComponentV2,
+      {
+        secret_name: 'DB_HOST',
+        data: '',
+      },
+    ));
+
+  it('should connect deployments to secrets', () =>
+    testSecretIntegration(
+      `
+      secrets:
+        DB_HOST:
+          description: The host for the database
+      deployments:
+        main:
+          image: nginx:1.14.2
+          environment:
+            DB_DSN: \${{ secrets.DB_HOST }}
+      `,
+      ComponentV2,
+      {
+        secret_name: 'DB_HOST',
+        deployment_name: 'main',
+      },
+    ));
 
   it('should generate databases', () =>
     testDatabaseGeneration(

@@ -1,76 +1,67 @@
 // https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ServicecatalogPrincipalPortfolioAssociationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ServicecatalogPrincipalPortfolioAssociationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#accept_language ServicecatalogPrincipalPortfolioAssociation#accept_language}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#accept_language ServicecatalogPrincipalPortfolioAssociation#accept_language}
+  */
   readonly acceptLanguage?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#id ServicecatalogPrincipalPortfolioAssociation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#id ServicecatalogPrincipalPortfolioAssociation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#portfolio_id ServicecatalogPrincipalPortfolioAssociation#portfolio_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#portfolio_id ServicecatalogPrincipalPortfolioAssociation#portfolio_id}
+  */
   readonly portfolioId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#principal_arn ServicecatalogPrincipalPortfolioAssociation#principal_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#principal_arn ServicecatalogPrincipalPortfolioAssociation#principal_arn}
+  */
   readonly principalArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#principal_type ServicecatalogPrincipalPortfolioAssociation#principal_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#principal_type ServicecatalogPrincipalPortfolioAssociation#principal_type}
+  */
   readonly principalType?: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#timeouts ServicecatalogPrincipalPortfolioAssociation#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#timeouts ServicecatalogPrincipalPortfolioAssociation#timeouts}
+  */
   readonly timeouts?: ServicecatalogPrincipalPortfolioAssociationTimeouts;
 }
 export interface ServicecatalogPrincipalPortfolioAssociationTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#create ServicecatalogPrincipalPortfolioAssociation#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#create ServicecatalogPrincipalPortfolioAssociation#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#delete ServicecatalogPrincipalPortfolioAssociation#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#delete ServicecatalogPrincipalPortfolioAssociation#delete}
+  */
   readonly delete?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#read ServicecatalogPrincipalPortfolioAssociation#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association#read ServicecatalogPrincipalPortfolioAssociation#read}
+  */
   readonly read?: string;
 }
 
-export function servicecatalogPrincipalPortfolioAssociationTimeoutsToTerraform(
-  struct?:
-    | ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference
-    | ServicecatalogPrincipalPortfolioAssociationTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function servicecatalogPrincipalPortfolioAssociationTimeoutsToTerraform(struct?: ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference | ServicecatalogPrincipalPortfolioAssociationTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
     read: cdktf.stringToTerraform(struct!.read),
-  };
+  }
 }
 
 export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -78,20 +69,14 @@ export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ServicecatalogPrincipalPortfolioAssociationTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ServicecatalogPrincipalPortfolioAssociationTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -112,22 +97,19 @@ export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | ServicecatalogPrincipalPortfolioAssociationTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: ServicecatalogPrincipalPortfolioAssociationTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
       this._read = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -137,7 +119,7 @@ export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference 
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -153,7 +135,7 @@ export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference 
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -169,7 +151,7 @@ export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference 
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -186,38 +168,33 @@ export class ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference 
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association aws_servicecatalog_principal_portfolio_association}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association aws_servicecatalog_principal_portfolio_association}
+*/
 export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_servicecatalog_principal_portfolio_association';
+  public static readonly tfResourceType = "aws_servicecatalog_principal_portfolio_association";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association aws_servicecatalog_principal_portfolio_association} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ServicecatalogPrincipalPortfolioAssociationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ServicecatalogPrincipalPortfolioAssociationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/servicecatalog_principal_portfolio_association aws_servicecatalog_principal_portfolio_association} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ServicecatalogPrincipalPortfolioAssociationConfig
+  */
+  public constructor(scope: Construct, id: string, config: ServicecatalogPrincipalPortfolioAssociationConfig) {
     super(scope, id, {
-      terraformResourceType:
-        'aws_servicecatalog_principal_portfolio_association',
+      terraformResourceType: 'aws_servicecatalog_principal_portfolio_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -225,7 +202,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._acceptLanguage = config.acceptLanguage;
     this._id = config.id;
@@ -240,7 +217,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
   // ==========
 
   // accept_language - computed: false, optional: true, required: false
-  private _acceptLanguage?: string;
+  private _acceptLanguage?: string; 
   public get acceptLanguage() {
     return this.getStringAttribute('accept_language');
   }
@@ -256,7 +233,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -272,7 +249,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
   }
 
   // portfolio_id - computed: false, optional: false, required: true
-  private _portfolioId?: string;
+  private _portfolioId?: string; 
   public get portfolioId() {
     return this.getStringAttribute('portfolio_id');
   }
@@ -285,7 +262,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
   }
 
   // principal_arn - computed: false, optional: false, required: true
-  private _principalArn?: string;
+  private _principalArn?: string; 
   public get principalArn() {
     return this.getStringAttribute('principal_arn');
   }
@@ -298,7 +275,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
   }
 
   // principal_type - computed: false, optional: true, required: false
-  private _principalType?: string;
+  private _principalType?: string; 
   public get principalType() {
     return this.getStringAttribute('principal_type');
   }
@@ -314,17 +291,11 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new ServicecatalogPrincipalPortfolioAssociationTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
-  public putTimeouts(
-    value: ServicecatalogPrincipalPortfolioAssociationTimeouts,
-  ) {
+  public putTimeouts(value: ServicecatalogPrincipalPortfolioAssociationTimeouts) {
     this._timeouts.internalValue = value;
   }
   public resetTimeouts() {
@@ -346,9 +317,7 @@ export class ServicecatalogPrincipalPortfolioAssociation extends cdktf.Terraform
       portfolio_id: cdktf.stringToTerraform(this._portfolioId),
       principal_arn: cdktf.stringToTerraform(this._principalArn),
       principal_type: cdktf.stringToTerraform(this._principalType),
-      timeouts: servicecatalogPrincipalPortfolioAssociationTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: servicecatalogPrincipalPortfolioAssociationTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

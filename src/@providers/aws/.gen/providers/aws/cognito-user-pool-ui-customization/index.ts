@@ -1,69 +1,65 @@
 // https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CognitoUserPoolUiCustomizationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CognitoUserPoolUiCustomizationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#client_id CognitoUserPoolUiCustomization#client_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#client_id CognitoUserPoolUiCustomization#client_id}
+  */
   readonly clientId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#css CognitoUserPoolUiCustomization#css}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#css CognitoUserPoolUiCustomization#css}
+  */
   readonly css?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#id CognitoUserPoolUiCustomization#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#id CognitoUserPoolUiCustomization#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#image_file CognitoUserPoolUiCustomization#image_file}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#image_file CognitoUserPoolUiCustomization#image_file}
+  */
   readonly imageFile?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#user_pool_id CognitoUserPoolUiCustomization#user_pool_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization#user_pool_id CognitoUserPoolUiCustomization#user_pool_id}
+  */
   readonly userPoolId: string;
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization aws_cognito_user_pool_ui_customization}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization aws_cognito_user_pool_ui_customization}
+*/
 export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_cognito_user_pool_ui_customization';
+  public static readonly tfResourceType = "aws_cognito_user_pool_ui_customization";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization aws_cognito_user_pool_ui_customization} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CognitoUserPoolUiCustomizationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CognitoUserPoolUiCustomizationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cognito_user_pool_ui_customization aws_cognito_user_pool_ui_customization} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CognitoUserPoolUiCustomizationConfig
+  */
+  public constructor(scope: Construct, id: string, config: CognitoUserPoolUiCustomizationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cognito_user_pool_ui_customization',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -71,7 +67,7 @@ export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._clientId = config.clientId;
     this._css = config.css;
@@ -85,7 +81,7 @@ export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
   // ==========
 
   // client_id - computed: false, optional: true, required: false
-  private _clientId?: string;
+  private _clientId?: string; 
   public get clientId() {
     return this.getStringAttribute('client_id');
   }
@@ -106,7 +102,7 @@ export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
   }
 
   // css - computed: false, optional: true, required: false
-  private _css?: string;
+  private _css?: string; 
   public get css() {
     return this.getStringAttribute('css');
   }
@@ -127,7 +123,7 @@ export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -143,7 +139,7 @@ export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
   }
 
   // image_file - computed: false, optional: true, required: false
-  private _imageFile?: string;
+  private _imageFile?: string; 
   public get imageFile() {
     return this.getStringAttribute('image_file');
   }
@@ -169,7 +165,7 @@ export class CognitoUserPoolUiCustomization extends cdktf.TerraformResource {
   }
 
   // user_pool_id - computed: false, optional: false, required: true
-  private _userPoolId?: string;
+  private _userPoolId?: string; 
   public get userPoolId() {
     return this.getStringAttribute('user_pool_id');
   }

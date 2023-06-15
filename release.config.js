@@ -57,7 +57,6 @@ const mainPlugins = [
   github,
 ];
 
-// eslint-disable-next-line unicorn/prefer-module
 module.exports = {
   branches: [
     'main',
@@ -69,5 +68,4 @@ module.exports = {
   plugins: branch === 'main' ? mainPlugins : defaultPlugins,
 };
 
-// eslint-disable-next-line unicorn/prefer-module
 console.log(module.exports);

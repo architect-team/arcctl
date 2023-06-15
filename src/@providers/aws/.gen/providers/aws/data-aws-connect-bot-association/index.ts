@@ -1,71 +1,60 @@
 // https://www.terraform.io/docs/providers/aws/d/connect_bot_association
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsConnectBotAssociationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsConnectBotAssociationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#id DataAwsConnectBotAssociation#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#id DataAwsConnectBotAssociation#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#instance_id DataAwsConnectBotAssociation#instance_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#instance_id DataAwsConnectBotAssociation#instance_id}
+  */
   readonly instanceId: string;
   /**
-   * lex_bot block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#lex_bot DataAwsConnectBotAssociation#lex_bot}
-   */
+  * lex_bot block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#lex_bot DataAwsConnectBotAssociation#lex_bot}
+  */
   readonly lexBot: DataAwsConnectBotAssociationLexBot;
 }
 export interface DataAwsConnectBotAssociationLexBot {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#lex_region DataAwsConnectBotAssociation#lex_region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#lex_region DataAwsConnectBotAssociation#lex_region}
+  */
   readonly lexRegion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#name DataAwsConnectBotAssociation#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association#name DataAwsConnectBotAssociation#name}
+  */
   readonly name: string;
 }
 
-export function dataAwsConnectBotAssociationLexBotToTerraform(
-  struct?:
-    | DataAwsConnectBotAssociationLexBotOutputReference
-    | DataAwsConnectBotAssociationLexBot,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsConnectBotAssociationLexBotToTerraform(struct?: DataAwsConnectBotAssociationLexBotOutputReference | DataAwsConnectBotAssociationLexBot): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     lex_region: cdktf.stringToTerraform(struct!.lexRegion),
     name: cdktf.stringToTerraform(struct!.name),
-  };
+  }
 }
 
 export class DataAwsConnectBotAssociationLexBotOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -83,14 +72,13 @@ export class DataAwsConnectBotAssociationLexBotOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsConnectBotAssociationLexBot | undefined,
-  ) {
+  public set internalValue(value: DataAwsConnectBotAssociationLexBot | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._lexRegion = undefined;
       this._name = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._lexRegion = value.lexRegion;
       this._name = value.name;
@@ -98,7 +86,7 @@ export class DataAwsConnectBotAssociationLexBotOutputReference extends cdktf.Com
   }
 
   // lex_region - computed: true, optional: true, required: false
-  private _lexRegion?: string;
+  private _lexRegion?: string; 
   public get lexRegion() {
     return this.getStringAttribute('lex_region');
   }
@@ -114,7 +102,7 @@ export class DataAwsConnectBotAssociationLexBotOutputReference extends cdktf.Com
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -128,36 +116,33 @@ export class DataAwsConnectBotAssociationLexBotOutputReference extends cdktf.Com
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association aws_connect_bot_association}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association aws_connect_bot_association}
+*/
 export class DataAwsConnectBotAssociation extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_connect_bot_association';
+  public static readonly tfResourceType = "aws_connect_bot_association";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association aws_connect_bot_association} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsConnectBotAssociationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsConnectBotAssociationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/connect_bot_association aws_connect_bot_association} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsConnectBotAssociationConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsConnectBotAssociationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_connect_bot_association',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -165,7 +150,7 @@ export class DataAwsConnectBotAssociation extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._instanceId = config.instanceId;
@@ -177,7 +162,7 @@ export class DataAwsConnectBotAssociation extends cdktf.TerraformDataSource {
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -193,7 +178,7 @@ export class DataAwsConnectBotAssociation extends cdktf.TerraformDataSource {
   }
 
   // instance_id - computed: false, optional: false, required: true
-  private _instanceId?: string;
+  private _instanceId?: string; 
   public get instanceId() {
     return this.getStringAttribute('instance_id');
   }
@@ -206,10 +191,7 @@ export class DataAwsConnectBotAssociation extends cdktf.TerraformDataSource {
   }
 
   // lex_bot - computed: false, optional: false, required: true
-  private _lexBot = new DataAwsConnectBotAssociationLexBotOutputReference(
-    this,
-    'lex_bot',
-  );
+  private _lexBot = new DataAwsConnectBotAssociationLexBotOutputReference(this, "lex_bot");
   public get lexBot() {
     return this._lexBot;
   }
@@ -229,9 +211,7 @@ export class DataAwsConnectBotAssociation extends cdktf.TerraformDataSource {
     return {
       id: cdktf.stringToTerraform(this._id),
       instance_id: cdktf.stringToTerraform(this._instanceId),
-      lex_bot: dataAwsConnectBotAssociationLexBotToTerraform(
-        this._lexBot.internalValue,
-      ),
+      lex_bot: dataAwsConnectBotAssociationLexBotToTerraform(this._lexBot.internalValue),
     };
   }
 }

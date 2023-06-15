@@ -1,92 +1,82 @@
 // https://www.terraform.io/docs/providers/aws/r/worklink_fleet
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface WorklinkFleetConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#audit_stream_arn WorklinkFleet#audit_stream_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#audit_stream_arn WorklinkFleet#audit_stream_arn}
+  */
   readonly auditStreamArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#device_ca_certificate WorklinkFleet#device_ca_certificate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#device_ca_certificate WorklinkFleet#device_ca_certificate}
+  */
   readonly deviceCaCertificate?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#display_name WorklinkFleet#display_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#display_name WorklinkFleet#display_name}
+  */
   readonly displayName?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#id WorklinkFleet#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#id WorklinkFleet#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#name WorklinkFleet#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#name WorklinkFleet#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#optimize_for_end_user_location WorklinkFleet#optimize_for_end_user_location}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#optimize_for_end_user_location WorklinkFleet#optimize_for_end_user_location}
+  */
   readonly optimizeForEndUserLocation?: boolean | cdktf.IResolvable;
   /**
-   * identity_provider block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#identity_provider WorklinkFleet#identity_provider}
-   */
+  * identity_provider block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#identity_provider WorklinkFleet#identity_provider}
+  */
   readonly identityProvider?: WorklinkFleetIdentityProvider;
   /**
-   * network block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#network WorklinkFleet#network}
-   */
+  * network block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#network WorklinkFleet#network}
+  */
   readonly network?: WorklinkFleetNetwork;
 }
 export interface WorklinkFleetIdentityProvider {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#saml_metadata WorklinkFleet#saml_metadata}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#saml_metadata WorklinkFleet#saml_metadata}
+  */
   readonly samlMetadata: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#type WorklinkFleet#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#type WorklinkFleet#type}
+  */
   readonly type: string;
 }
 
-export function worklinkFleetIdentityProviderToTerraform(
-  struct?:
-    | WorklinkFleetIdentityProviderOutputReference
-    | WorklinkFleetIdentityProvider,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function worklinkFleetIdentityProviderToTerraform(struct?: WorklinkFleetIdentityProviderOutputReference | WorklinkFleetIdentityProvider): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     saml_metadata: cdktf.stringToTerraform(struct!.samlMetadata),
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -109,7 +99,8 @@ export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexO
       this.isEmptyObject = false;
       this._samlMetadata = undefined;
       this._type = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._samlMetadata = value.samlMetadata;
       this._type = value.type;
@@ -117,7 +108,7 @@ export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexO
   }
 
   // saml_metadata - computed: false, optional: false, required: true
-  private _samlMetadata?: string;
+  private _samlMetadata?: string; 
   public get samlMetadata() {
     return this.getStringAttribute('saml_metadata');
   }
@@ -130,7 +121,7 @@ export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexO
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -144,54 +135,39 @@ export class WorklinkFleetIdentityProviderOutputReference extends cdktf.ComplexO
 }
 export interface WorklinkFleetNetwork {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#security_group_ids WorklinkFleet#security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#security_group_ids WorklinkFleet#security_group_ids}
+  */
   readonly securityGroupIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#subnet_ids WorklinkFleet#subnet_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#subnet_ids WorklinkFleet#subnet_ids}
+  */
   readonly subnetIds: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#vpc_id WorklinkFleet#vpc_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet#vpc_id WorklinkFleet#vpc_id}
+  */
   readonly vpcId: string;
 }
 
-export function worklinkFleetNetworkToTerraform(
-  struct?: WorklinkFleetNetworkOutputReference | WorklinkFleetNetwork,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function worklinkFleetNetworkToTerraform(struct?: WorklinkFleetNetworkOutputReference | WorklinkFleetNetwork): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    security_group_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.securityGroupIds),
-    subnet_ids: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.subnetIds),
+    security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.securityGroupIds),
+    subnet_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.subnetIds),
     vpc_id: cdktf.stringToTerraform(struct!.vpcId),
-  };
+  }
 }
 
 export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -219,7 +195,8 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
       this._securityGroupIds = undefined;
       this._subnetIds = undefined;
       this._vpcId = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._securityGroupIds = value.securityGroupIds;
       this._subnetIds = value.subnetIds;
@@ -228,7 +205,7 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   }
 
   // security_group_ids - computed: false, optional: false, required: true
-  private _securityGroupIds?: string[];
+  private _securityGroupIds?: string[]; 
   public get securityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('security_group_ids'));
   }
@@ -241,7 +218,7 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   }
 
   // subnet_ids - computed: false, optional: false, required: true
-  private _subnetIds?: string[];
+  private _subnetIds?: string[]; 
   public get subnetIds() {
     return cdktf.Fn.tolist(this.getListAttribute('subnet_ids'));
   }
@@ -254,7 +231,7 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
   }
 
   // vpc_id - computed: false, optional: false, required: true
-  private _vpcId?: string;
+  private _vpcId?: string; 
   public get vpcId() {
     return this.getStringAttribute('vpc_id');
   }
@@ -268,36 +245,33 @@ export class WorklinkFleetNetworkOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet aws_worklink_fleet}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet aws_worklink_fleet}
+*/
 export class WorklinkFleet extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_worklink_fleet';
+  public static readonly tfResourceType = "aws_worklink_fleet";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet aws_worklink_fleet} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options WorklinkFleetConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: WorklinkFleetConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/worklink_fleet aws_worklink_fleet} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options WorklinkFleetConfig
+  */
+  public constructor(scope: Construct, id: string, config: WorklinkFleetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_worklink_fleet',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -305,7 +279,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._auditStreamArn = config.auditStreamArn;
     this._deviceCaCertificate = config.deviceCaCertificate;
@@ -327,7 +301,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // audit_stream_arn - computed: false, optional: true, required: false
-  private _auditStreamArn?: string;
+  private _auditStreamArn?: string; 
   public get auditStreamArn() {
     return this.getStringAttribute('audit_stream_arn');
   }
@@ -353,7 +327,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // device_ca_certificate - computed: false, optional: true, required: false
-  private _deviceCaCertificate?: string;
+  private _deviceCaCertificate?: string; 
   public get deviceCaCertificate() {
     return this.getStringAttribute('device_ca_certificate');
   }
@@ -369,7 +343,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // display_name - computed: false, optional: true, required: false
-  private _displayName?: string;
+  private _displayName?: string; 
   public get displayName() {
     return this.getStringAttribute('display_name');
   }
@@ -385,7 +359,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -406,7 +380,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -419,7 +393,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // optimize_for_end_user_location - computed: false, optional: true, required: false
-  private _optimizeForEndUserLocation?: boolean | cdktf.IResolvable;
+  private _optimizeForEndUserLocation?: boolean | cdktf.IResolvable; 
   public get optimizeForEndUserLocation() {
     return this.getBooleanAttribute('optimize_for_end_user_location');
   }
@@ -435,10 +409,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // identity_provider - computed: false, optional: true, required: false
-  private _identityProvider = new WorklinkFleetIdentityProviderOutputReference(
-    this,
-    'identity_provider',
-  );
+  private _identityProvider = new WorklinkFleetIdentityProviderOutputReference(this, "identity_provider");
   public get identityProvider() {
     return this._identityProvider;
   }
@@ -454,7 +425,7 @@ export class WorklinkFleet extends cdktf.TerraformResource {
   }
 
   // network - computed: false, optional: true, required: false
-  private _network = new WorklinkFleetNetworkOutputReference(this, 'network');
+  private _network = new WorklinkFleetNetworkOutputReference(this, "network");
   public get network() {
     return this._network;
   }
@@ -480,12 +451,8 @@ export class WorklinkFleet extends cdktf.TerraformResource {
       display_name: cdktf.stringToTerraform(this._displayName),
       id: cdktf.stringToTerraform(this._id),
       name: cdktf.stringToTerraform(this._name),
-      optimize_for_end_user_location: cdktf.booleanToTerraform(
-        this._optimizeForEndUserLocation,
-      ),
-      identity_provider: worklinkFleetIdentityProviderToTerraform(
-        this._identityProvider.internalValue,
-      ),
+      optimize_for_end_user_location: cdktf.booleanToTerraform(this._optimizeForEndUserLocation),
+      identity_provider: worklinkFleetIdentityProviderToTerraform(this._identityProvider.internalValue),
       network: worklinkFleetNetworkToTerraform(this._network.internalValue),
     };
   }

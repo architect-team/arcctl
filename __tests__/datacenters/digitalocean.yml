@@ -19,21 +19,31 @@ resources:
         count: 3
         nodeSize: s-1vcpu-2gb
 
+accounts:
+  cluster:
+    name: do-personal-cluster
+    provider: kubernetes
+    credentials:
+      configPath: ${{ resources.cluster.configPath }}
+
 environment:
   resources:
     namespace:
       type: namespace
-      account: ${{ resources.cluster.account }}
+      account: ${{ accounts.cluster.id }}
       name: ${{ environment.name }}
     nginx-ingress-controller:
       type: helmChart
       name: ${{ environment.name }}-ingress-nginx
-      account: ${{ resources.cluster.account }}
+      account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
 
   hooks:
+    - when:
+        type: secret
+      account: local
     - when:
         type: databaseSchema
         databaseType: postgres
@@ -47,7 +57,7 @@ environment:
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
           region: nyc1
-      account: ${{ this.resources.db.account }}
+      account: do-personal
       database: ${{ this.resources.db.id }}
     - when:
         type: ingressRule
@@ -55,11 +65,12 @@ environment:
         dnsRecord:
           type: dnsRecord
           account: do-personal
-          dnsZone: ${{ this.inputs.listener.hostZone }}
-          subdomain: ${{ this.inputs.listener.subdomain }}
+          dnsZone: davidthor.me
+          subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}
-      loadBalancer: nginx
+      registry: nginx
       namespace: ${{ environment.resources.namespace.id }}
-    - account: ${{ resources.cluster.account }}
+      dnsZone: muesch.me
+    - account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}

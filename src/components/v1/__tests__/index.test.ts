@@ -1,13 +1,14 @@
+import yaml from 'js-yaml';
+import { assertArrayIncludes } from 'std/testing/asserts.ts';
+import { describe, it } from 'std/testing/bdd.ts';
 import { CloudEdge, CloudNode } from '../../../cloud-graph/index.ts';
 import {
   testDeploymentGeneration,
   testServiceGeneration,
   testServiceIntegration,
 } from '../../__tests__/version-helper.ts';
+import { ComponentSchema } from '../../schema.ts';
 import ComponentV1 from '../index.ts';
-import yaml from 'js-yaml';
-import { assertArrayIncludes } from 'std/testing/asserts.ts';
-import { describe, it } from 'std/testing/bdd.ts';
 
 describe('Component Schema: v1', () => {
   it('should generate deployments', () =>
@@ -102,8 +103,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -136,7 +137,7 @@ describe('Component Schema: v1', () => {
             url: \${{ services.api.interfaces.main.url }}
             ingress:
               subdomain: app
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({
@@ -158,8 +159,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -174,15 +175,18 @@ describe('Component Schema: v1', () => {
       environment: 'test',
       inputs: {
         type: 'ingressRule',
-        loadBalancer: '',
-        listener: {
-          subdomain: 'app',
-          path: '/',
-          protocol: `\${{ ${interface_node.id}.protocol }}`,
-        },
+        registry: '',
+        subdomain: 'app',
+        path: '/',
+        protocol: `\${{ ${interface_node.id}.protocol }}`,
         service: `\${{ ${interface_node.id}.id }}`,
         port: 80,
         internal: false,
+        name: CloudNode.genResourceId({
+          name: 'api',
+          component: 'test',
+          environment: 'test',
+        }),
       },
     });
 
@@ -209,7 +213,7 @@ describe('Component Schema: v1', () => {
                 port: 80
                 ingress:
                   subdomain: app
-      `) as object,
+      `) as ComponentSchema,
     );
 
     const graph = component.getGraph({
@@ -231,8 +235,8 @@ describe('Component Schema: v1', () => {
           component: 'test',
           environment: 'test',
         }),
-        protocol: 'http',
-        selector: CloudNode.genResourceId({
+        target_protocol: 'http',
+        target_deployment: CloudNode.genResourceId({
           name: 'api',
           component: 'test',
           environment: 'test',
@@ -247,15 +251,18 @@ describe('Component Schema: v1', () => {
       environment: 'test',
       inputs: {
         type: 'ingressRule',
-        loadBalancer: '',
-        listener: {
-          subdomain: 'app',
-          path: '/',
-          protocol: `\${{ ${service_node.id}.protocol }}`,
-        },
+        registry: '',
+        subdomain: 'app',
+        path: '/',
+        protocol: `\${{ ${service_node.id}.protocol }}`,
         service: `\${{ ${service_node.id}.id }}`,
         port: 80,
         internal: false,
+        name: CloudNode.genResourceId({
+          name: 'api-main',
+          component: 'test',
+          environment: 'test',
+        }),
       },
     });
 

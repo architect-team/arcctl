@@ -1,9 +1,7 @@
+import { SupportedProviders } from '../@providers/supported-providers.ts';
 import { CloudEdge, CloudGraph } from '../cloud-graph/index.ts';
-import { Terraform } from '../terraform/terraform.ts';
-import CloudCtlConfig from '../utils/config.ts';
-import { replaceAsync } from '../utils/string.ts';
 import { PipelineStep } from './step.ts';
-import { ApplyOptions, ApplyStepOptions } from './types.ts';
+import { ApplyOptions } from './types.ts';
 
 export type PlanOptions = {
   before: Pipeline;
@@ -15,9 +13,45 @@ export type PipelineOptions = {
   edges?: CloudEdge[];
 };
 
-export class Pipeline {
-  private _terraform?: Terraform;
+const setNoopSteps = (previousPipeline: Pipeline, nextPipeline: Pipeline): Pipeline => {
+  let done = false;
 
+  do {
+    done = true;
+    for (let step of nextPipeline.steps.filter((step) => step.action === 'update')) {
+      const previousStep = previousPipeline.steps.find((n) => n.id.startsWith(step.id));
+
+      if (!previousStep) {
+        continue;
+      }
+
+      const allDependencies = nextPipeline.getDependencies(step.id);
+      const completeDependencies = allDependencies.filter((step) => step.status.state === 'complete');
+
+      if (allDependencies.length !== completeDependencies.length) {
+        continue;
+      }
+
+      step = new PipelineStep(nextPipeline.replaceRefsWithOutputValues(step));
+
+      if (
+        step.equals(previousStep) &&
+        previousStep.status.state === 'complete'
+      ) {
+        step.action = 'no-op';
+        step.status.state = 'complete';
+        step.state = previousStep.state;
+        step.outputs = previousStep.outputs;
+        nextPipeline.insertSteps(step);
+        done = false;
+      }
+    }
+  } while (!done);
+
+  return nextPipeline;
+};
+
+export class Pipeline {
   steps: PipelineStep[];
   edges: CloudEdge[];
 
@@ -59,30 +93,20 @@ export class Pipeline {
   /**
    * Replace step references with actual output values
    */
-  public async replaceRefsWithOutputValues<T>(input: T, options: ApplyStepOptions): Promise<T> {
-    const strVal = await replaceAsync(JSON.stringify(input), /\${{\s?([^.]+).(\S+)\s?}}/g, async (_, step_id, key) => {
-      const step = this.steps.find((s) => s.id === step_id);
-      const outputs = await step?.getOutputs(options);
-      if (!step || !outputs) {
-        throw new Error(`Missing outputs for ${step_id}`);
-      } else if (!(outputs as any)[key]) {
-        throw new Error(`Invalid key, ${key}, for ${step.type}`);
-      }
+  public replaceRefsWithOutputValues<T>(input: T): T {
+    return JSON.parse(
+      JSON.stringify(input).replace(/\${{\s?([^.]+).(\S+)\s?}}/g, (_, step_id, key) => {
+        const step = this.steps.find((s) => s.id === step_id);
+        const outputs = step?.outputs;
+        if (!step || !outputs) {
+          throw new Error(`Missing outputs for ${step_id}`);
+        } else if (!(outputs as any)[key]) {
+          throw new Error(`Invalid key, ${key}, for ${step.type}`);
+        }
 
-      return (outputs as any)[key];
-    });
-
-    return JSON.parse(strVal);
-  }
-
-  public async getTerraformPlugin(): Promise<Terraform> {
-    if (this._terraform) {
-      return this._terraform;
-    }
-
-    this._terraform = await Terraform.generate(CloudCtlConfig.getPluginDirectory(), '1.4.5');
-
-    return this._terraform;
+        return (outputs as any)[key];
+      }),
+    );
   }
 
   /**
@@ -209,6 +233,10 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
+          resource: {
+            id: newNode.resource_id,
+            account: newNode.account || '',
+          },
         });
         pipeline.insertSteps(newStep);
         replacements[oldId] = newStep.id;
@@ -221,6 +249,10 @@ export class Pipeline {
           action: 'update',
           status: {
             state: 'pending',
+          },
+          resource: {
+            id: newNode.resource_id,
+            account: newNode.account || '',
           },
         });
         pipeline.insertSteps(newExecutable);
@@ -235,7 +267,11 @@ export class Pipeline {
 
     // Check for nodes that should be removed
     for (const previousStep of options.before.steps) {
-      if (previousStep.action === 'delete' && previousStep.status.state !== 'error') {
+      if (
+        (previousStep.action === 'delete' && previousStep.status.state === 'complete') ||
+        (previousStep.action === 'create' && previousStep.status.state === 'pending') ||
+        (previousStep.action === 'delete' && !previousStep.outputs)
+      ) {
         continue;
       }
 
@@ -265,7 +301,8 @@ export class Pipeline {
       }
     }
 
-    return pipeline;
+    // Check for nodes that can be no-op'd
+    return setNoopSteps(options.before, pipeline);
   }
 
   /**
@@ -275,7 +312,6 @@ export class Pipeline {
     const cwd = options.cwd || Deno.makeTempDirSync({ prefix: 'arcctl-' });
 
     let step: PipelineStep | undefined;
-    const terraform = await this.getTerraformPlugin();
     while (
       (step = this.getNextStep(
         ...this.steps.filter((n) => n.status.state === 'complete' || n.status.state === 'error').map((n) => n.id),
@@ -287,11 +323,9 @@ export class Pipeline {
 
       if (step.inputs) {
         try {
-          step.inputs = await this.replaceRefsWithOutputValues(step.inputs, {
-            ...options,
-            terraform,
-            cwd,
-          });
+          if (step.action !== 'delete') {
+            step.inputs = this.replaceRefsWithOutputValues(step.inputs);
+          }
         } catch (err: any) {
           step.status.state = 'error';
           step.status.message = err.message;
@@ -299,11 +333,60 @@ export class Pipeline {
         }
       }
 
+      // Hijack the arcctl account type to execute w/out a provider
+      if (step.inputs?.type === 'arcctlAccount') {
+        if (!Object.keys(SupportedProviders).includes(step.inputs.provider)) {
+          step.status.state = 'error';
+          step.status.message = 'Invalid provider specified';
+          throw new Error(`Invalid provider specified: ${step.inputs.provider}`);
+        }
+
+        if (step.action === 'delete') {
+          step.status = {
+            state: 'destroying',
+            message: '',
+            startTime: Date.now(),
+            endTime: Date.now(),
+          };
+
+          options.providerStore.deleteProvider(step.inputs.name);
+        } else {
+          step.status = {
+            state: 'applying',
+            message: '',
+            startTime: Date.now(),
+            endTime: Date.now(),
+          };
+
+          options.providerStore.saveProvider(
+            new SupportedProviders[step.inputs.provider as keyof typeof SupportedProviders](
+              step.inputs.name,
+              step.inputs.credentials as any,
+              options.providerStore,
+            ),
+          );
+        }
+
+        step.outputs = {
+          id: step.inputs.name,
+        };
+        step.state = {
+          id: step.inputs.name,
+        };
+
+        step.status = {
+          state: 'complete',
+          message: '',
+          startTime: Date.now(),
+          endTime: Date.now(),
+        };
+        continue;
+      }
+
       await new Promise<void>((resolve, reject) => {
         step!
           .apply({
             ...options,
-            terraform,
             cwd,
           })
           .subscribe({

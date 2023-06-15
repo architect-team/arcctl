@@ -5,10 +5,64 @@
     "DatacenterSchema": {
       "additionalProperties": false,
       "properties": {
+        "accounts": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "credentials": {
+                "description": "Credentials used to access the cloud provider",
+                "type": "object"
+              },
+              "name": {
+                "description": "Name of the new account",
+                "type": "string"
+              },
+              "provider": {
+                "description": "Cloud provider the account connects to",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "provider",
+              "credentials"
+            ],
+            "type": "object"
+          },
+          "description": "Cloud accounts to register and remove with the lifecycle of the datacenter",
+          "type": "object"
+        },
         "environment": {
           "additionalProperties": false,
           "description": "A template for how environments inside the datacenter should behave",
           "properties": {
+            "accounts": {
+              "additionalProperties": {
+                "additionalProperties": false,
+                "properties": {
+                  "credentials": {
+                    "description": "Credentials used to access the cloud provider",
+                    "type": "object"
+                  },
+                  "name": {
+                    "description": "Name of the new account",
+                    "type": "string"
+                  },
+                  "provider": {
+                    "description": "Cloud provider the account connects to",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "provider",
+                  "credentials"
+                ],
+                "type": "object"
+              },
+              "description": "Cloud accounts to register and remove with the lifecycle of the environment",
+              "type": "object"
+            },
             "hooks": {
               "description": "Configure rules for how application resources should behave in the environment",
               "items": {
@@ -16,6 +70,32 @@
                 "properties": {
                   "account": {
                     "type": "string"
+                  },
+                  "accounts": {
+                    "additionalProperties": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "credentials": {
+                          "description": "Credentials used to access the cloud provider",
+                          "type": "object"
+                        },
+                        "name": {
+                          "description": "Name of the new account",
+                          "type": "string"
+                        },
+                        "provider": {
+                          "description": "Cloud provider the account connects to",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "provider",
+                        "credentials"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "object"
                   },
                   "args": {
                     "additionalProperties": {
@@ -70,6 +150,13 @@
                       }
                     ]
                   },
+                  "credentials": {
+                    "additionalProperties": {
+                      "additionalProperties": false,
+                      "type": "object"
+                    },
+                    "type": "object"
+                  },
                   "data": {
                     "type": "string"
                   },
@@ -112,7 +199,22 @@
                     "additionalProperties": false,
                     "type": "object"
                   },
-                  "external_name": {
+                  "exposed_ports": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "port": {
+                          "type": "number"
+                        },
+                        "target_port": {
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "external_hostname": {
                     "type": "string"
                   },
                   "host": {
@@ -145,30 +247,6 @@
                     "additionalProperties": false,
                     "type": "object"
                   },
-                  "listener": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "hostZone": {
-                        "type": "string"
-                      },
-                      "path": {
-                        "type": "string"
-                      },
-                      "protocol": {
-                        "type": "string"
-                      },
-                      "subdomain": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "listener_port": {
-                    "type": "number"
-                  },
-                  "loadBalancer": {
-                    "type": "string"
-                  },
                   "loadBalancerType": {
                     "type": "string"
                   },
@@ -189,9 +267,6 @@
                       "type": "object"
                     },
                     "type": "object"
-                  },
-                  "mountPath": {
-                    "type": "string"
                   },
                   "name": {
                     "type": "string"
@@ -217,6 +292,12 @@
                     },
                     "type": "array"
                   },
+                  "path": {
+                    "type": "string"
+                  },
+                  "platform": {
+                    "type": "string"
+                  },
                   "port": {
                     "anyOf": [
                       {
@@ -239,6 +320,10 @@
                           "string",
                           "number"
                         ]
+                      },
+                      {
+                        "description": "Port to listen on",
+                        "type": "number"
                       }
                     ]
                   },
@@ -309,6 +394,9 @@
                   "protocol": {
                     "type": "string"
                   },
+                  "provider": {
+                    "type": "string"
+                  },
                   "recordType": {
                     "type": "string"
                   },
@@ -327,6 +415,48 @@
                   "resources": {
                     "additionalProperties": {
                       "allOf": [
+                        {
+                          "if": {
+                            "properties": {
+                              "type": {
+                                "const": "arcctlAccount",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "then": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "credentials": {
+                                "description": "Credentials used to access the cloud provider",
+                                "type": "object"
+                              },
+                              "name": {
+                                "description": "Name of the new account",
+                                "type": "string"
+                              },
+                              "provider": {
+                                "description": "Cloud provider the account connects to",
+                                "type": "string"
+                              },
+                              "type": {
+                                "const": "arcctlAccount",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "account",
+                              "credentials",
+                              "name",
+                              "provider",
+                              "type"
+                            ],
+                            "type": "object"
+                          }
+                        },
                         {
                           "if": {
                             "properties": {
@@ -729,9 +859,6 @@
                             "required": [
                               "account",
                               "databaseSchema",
-                              "host",
-                              "port",
-                              "protocol",
                               "type",
                               "username"
                             ],
@@ -860,6 +987,26 @@
                                 "description": "Environment variables to pass to the container",
                                 "type": "object"
                               },
+                              "exposed_ports": {
+                                "description": "Port that the deployment should expose on all nodes",
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "port": {
+                                      "type": "number"
+                                    },
+                                    "target_port": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "port",
+                                    "target_port"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
                               "image": {
                                 "description": "Image the container runs from",
                                 "type": "string"
@@ -881,6 +1028,10 @@
                               },
                               "namespace": {
                                 "description": "Namespace the deployment should be in",
+                                "type": "string"
+                              },
+                              "platform": {
+                                "description": "Target platform the deployment will run on",
                                 "type": "string"
                               },
                               "probes": {
@@ -1022,6 +1173,7 @@
                                 "type": "object"
                               },
                               "replicas": {
+                                "default": 1,
                                 "description": "Number of replicas of the deployment to run",
                                 "type": "number"
                               },
@@ -1298,7 +1450,6 @@
                               "account",
                               "image",
                               "name",
-                              "replicas",
                               "type",
                               "volume_mounts"
                             ],
@@ -1521,42 +1672,26 @@
                               "account": {
                                 "type": "string"
                               },
+                              "dnsZone": {
+                                "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+                                "type": "string"
+                              },
                               "internal": {
                                 "default": false,
                                 "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                                 "type": "boolean"
                               },
-                              "listener": {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "hostZone": {
-                                    "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                                    "type": "string"
-                                  },
-                                  "path": {
-                                    "default": "/",
-                                    "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                                    "type": "string"
-                                  },
-                                  "protocol": {
-                                    "default": "http",
-                                    "description": "Protocol that the ingress rule listens for traffic on",
-                                    "type": "string"
-                                  },
-                                  "subdomain": {
-                                    "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                                    "type": "string"
-                                  }
-                                },
-                                "type": "object"
-                              },
-                              "loadBalancer": {
-                                "description": "ID of the load balancer to use for this ingress rule",
+                              "name": {
+                                "description": "Name to give to the ingress rule resource",
                                 "type": "string"
                               },
                               "namespace": {
-                                "default": "default",
                                 "description": "Namespace to put the ingress rule in",
+                                "type": "string"
+                              },
+                              "path": {
+                                "default": "/",
+                                "description": "The path the ingress rule listens on",
                                 "type": "string"
                               },
                               "port": {
@@ -1566,8 +1701,21 @@
                                   "number"
                                 ]
                               },
+                              "protocol": {
+                                "default": "http",
+                                "description": "The protocol the ingress rule listens for traffic on",
+                                "type": "string"
+                              },
+                              "registry": {
+                                "description": "Unique ID of the service registry this rule will be stored in",
+                                "type": "string"
+                              },
                               "service": {
                                 "description": "Service the ingress forwards traffic to",
+                                "type": "string"
+                              },
+                              "subdomain": {
+                                "description": "The subdomain the ingress rule listens on",
                                 "type": "string"
                               },
                               "type": {
@@ -1577,8 +1725,9 @@
                             },
                             "required": [
                               "account",
-                              "loadBalancer",
+                              "name",
                               "port",
+                              "registry",
                               "service",
                               "type"
                             ],
@@ -1719,6 +1868,10 @@
                               },
                               "name": {
                                 "description": "Name for the new load balancer",
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "description": "A namespace to put the load balancer in",
                                 "type": "string"
                               },
                               "type": {
@@ -1930,41 +2083,41 @@
                               "account": {
                                 "type": "string"
                               },
-                              "external_name": {
-                                "description": "Map this service to the specified hostname instead of to a deployment selector",
+                              "external_hostname": {
+                                "description": "External address to point to",
                                 "type": "string"
                               },
                               "labels": {
                                 "additionalProperties": {
                                   "type": "string"
                                 },
-                                "description": "Labels for the service resource",
+                                "description": "Resource labels",
                                 "type": "object"
                               },
-                              "listener_port": {
-                                "default": 80,
-                                "description": "Port to listen for requests on",
-                                "type": "number"
-                              },
                               "name": {
-                                "description": "Name to give to the service",
+                                "description": "Hostname to listen on",
                                 "type": "string"
                               },
                               "namespace": {
-                                "description": "Namespace the service should be registered in. Not all providers require this.",
+                                "description": "Resource namespace",
                                 "type": "string"
                               },
-                              "protocol": {
-                                "description": "Protocol the service responds to",
-                                "type": "string"
+                              "port": {
+                                "description": "Port to listen on",
+                                "type": "number"
                               },
-                              "selector": {
-                                "description": "Reference used to target a deployment",
+                              "target_deployment": {
+                                "description": "Target deployment name",
                                 "type": "string"
                               },
                               "target_port": {
-                                "description": "Port to forward requests to",
+                                "description": "Target port",
                                 "type": "number"
+                              },
+                              "target_protocol": {
+                                "default": "http",
+                                "description": "Protocol",
+                                "type": "string"
                               },
                               "type": {
                                 "const": "service",
@@ -1974,6 +2127,7 @@
                             "required": [
                               "account",
                               "name",
+                              "target_deployment",
                               "target_port",
                               "type"
                             ],
@@ -2043,9 +2197,6 @@
                                 "type": "string"
                               },
                               "namespace": {
-                                "type": "string"
-                              },
-                              "schedule": {
                                 "type": "string"
                               },
                               "sidecars": {
@@ -2153,7 +2304,6 @@
                             "required": [
                               "account",
                               "image",
-                              "schedule",
                               "type"
                             ],
                             "type": "object"
@@ -2178,8 +2328,8 @@
                                 "description": "Path on the host machine to mount the volume to",
                                 "type": "string"
                               },
-                              "mountPath": {
-                                "description": "Path inside the container runtime to mount the volume to",
+                              "name": {
+                                "description": "Name to give to the volume resource",
                                 "type": "string"
                               },
                               "type": {
@@ -2189,7 +2339,7 @@
                             },
                             "required": [
                               "account",
-                              "mountPath",
+                              "name",
                               "type"
                             ],
                             "type": "object"
@@ -2240,6 +2390,7 @@
                       "properties": {
                         "type": {
                           "enum": [
+                            "arcctlAccount",
                             "cronjob",
                             "database",
                             "databaseSchema",
@@ -2279,9 +2430,6 @@
                   "schedule": {
                     "type": "string"
                   },
-                  "selector": {
-                    "type": "string"
-                  },
                   "service": {
                     "type": "string"
                   },
@@ -2298,14 +2446,21 @@
                   "target": {
                     "type": "string"
                   },
+                  "target_deployment": {
+                    "type": "string"
+                  },
                   "target_port": {
                     "type": "number"
+                  },
+                  "target_protocol": {
+                    "type": "string"
                   },
                   "ttl": {
                     "type": "number"
                   },
                   "type": {
                     "enum": [
+                      "arcctlAccount",
                       "cronjob",
                       "database",
                       "databaseSchema",
@@ -2414,6 +2569,13 @@
                           }
                         ]
                       },
+                      "credentials": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "type": "object"
+                        },
+                        "type": "object"
+                      },
                       "data": {
                         "type": "string"
                       },
@@ -2456,7 +2618,22 @@
                         "additionalProperties": false,
                         "type": "object"
                       },
-                      "external_name": {
+                      "exposed_ports": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "port": {
+                              "type": "number"
+                            },
+                            "target_port": {
+                              "type": "number"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "external_hostname": {
                         "type": "string"
                       },
                       "host": {
@@ -2489,37 +2666,10 @@
                         "additionalProperties": false,
                         "type": "object"
                       },
-                      "listener": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "hostZone": {
-                            "type": "string"
-                          },
-                          "path": {
-                            "type": "string"
-                          },
-                          "protocol": {
-                            "type": "string"
-                          },
-                          "subdomain": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      },
-                      "listener_port": {
-                        "type": "number"
-                      },
-                      "loadBalancer": {
-                        "type": "string"
-                      },
                       "loadBalancerType": {
                         "type": "string"
                       },
                       "memory": {
-                        "type": "string"
-                      },
-                      "mountPath": {
                         "type": "string"
                       },
                       "name": {
@@ -2546,6 +2696,12 @@
                         },
                         "type": "array"
                       },
+                      "path": {
+                        "type": "string"
+                      },
+                      "platform": {
+                        "type": "string"
+                      },
                       "port": {
                         "anyOf": [
                           {
@@ -2568,6 +2724,10 @@
                               "string",
                               "number"
                             ]
+                          },
+                          {
+                            "description": "Port to listen on",
+                            "type": "number"
                           }
                         ]
                       },
@@ -2638,6 +2798,9 @@
                       "protocol": {
                         "type": "string"
                       },
+                      "provider": {
+                        "type": "string"
+                      },
                       "recordType": {
                         "type": "string"
                       },
@@ -2656,9 +2819,6 @@
                       "schedule": {
                         "type": "string"
                       },
-                      "selector": {
-                        "type": "string"
-                      },
                       "service": {
                         "type": "string"
                       },
@@ -2675,14 +2835,21 @@
                       "target": {
                         "type": "string"
                       },
+                      "target_deployment": {
+                        "type": "string"
+                      },
                       "target_port": {
                         "type": "number"
+                      },
+                      "target_protocol": {
+                        "type": "string"
                       },
                       "ttl": {
                         "type": "number"
                       },
                       "type": {
                         "enum": [
+                          "arcctlAccount",
                           "cronjob",
                           "database",
                           "databaseSchema",
@@ -2762,6 +2929,48 @@
             "resources": {
               "additionalProperties": {
                 "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "arcctlAccount",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "then": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "credentials": {
+                          "description": "Credentials used to access the cloud provider",
+                          "type": "object"
+                        },
+                        "name": {
+                          "description": "Name of the new account",
+                          "type": "string"
+                        },
+                        "provider": {
+                          "description": "Cloud provider the account connects to",
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "arcctlAccount",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "account",
+                        "credentials",
+                        "name",
+                        "provider",
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  },
                   {
                     "if": {
                       "properties": {
@@ -3164,9 +3373,6 @@
                       "required": [
                         "account",
                         "databaseSchema",
-                        "host",
-                        "port",
-                        "protocol",
                         "type",
                         "username"
                       ],
@@ -3295,6 +3501,26 @@
                           "description": "Environment variables to pass to the container",
                           "type": "object"
                         },
+                        "exposed_ports": {
+                          "description": "Port that the deployment should expose on all nodes",
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "port": {
+                                "type": "number"
+                              },
+                              "target_port": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "port",
+                              "target_port"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
                         "image": {
                           "description": "Image the container runs from",
                           "type": "string"
@@ -3316,6 +3542,10 @@
                         },
                         "namespace": {
                           "description": "Namespace the deployment should be in",
+                          "type": "string"
+                        },
+                        "platform": {
+                          "description": "Target platform the deployment will run on",
                           "type": "string"
                         },
                         "probes": {
@@ -3457,6 +3687,7 @@
                           "type": "object"
                         },
                         "replicas": {
+                          "default": 1,
                           "description": "Number of replicas of the deployment to run",
                           "type": "number"
                         },
@@ -3733,7 +3964,6 @@
                         "account",
                         "image",
                         "name",
-                        "replicas",
                         "type",
                         "volume_mounts"
                       ],
@@ -3956,42 +4186,26 @@
                         "account": {
                           "type": "string"
                         },
+                        "dnsZone": {
+                          "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+                          "type": "string"
+                        },
                         "internal": {
                           "default": false,
                           "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                           "type": "boolean"
                         },
-                        "listener": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "hostZone": {
-                              "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                              "type": "string"
-                            },
-                            "path": {
-                              "default": "/",
-                              "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                              "type": "string"
-                            },
-                            "protocol": {
-                              "default": "http",
-                              "description": "Protocol that the ingress rule listens for traffic on",
-                              "type": "string"
-                            },
-                            "subdomain": {
-                              "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                              "type": "string"
-                            }
-                          },
-                          "type": "object"
-                        },
-                        "loadBalancer": {
-                          "description": "ID of the load balancer to use for this ingress rule",
+                        "name": {
+                          "description": "Name to give to the ingress rule resource",
                           "type": "string"
                         },
                         "namespace": {
-                          "default": "default",
                           "description": "Namespace to put the ingress rule in",
+                          "type": "string"
+                        },
+                        "path": {
+                          "default": "/",
+                          "description": "The path the ingress rule listens on",
                           "type": "string"
                         },
                         "port": {
@@ -4001,8 +4215,21 @@
                             "number"
                           ]
                         },
+                        "protocol": {
+                          "default": "http",
+                          "description": "The protocol the ingress rule listens for traffic on",
+                          "type": "string"
+                        },
+                        "registry": {
+                          "description": "Unique ID of the service registry this rule will be stored in",
+                          "type": "string"
+                        },
                         "service": {
                           "description": "Service the ingress forwards traffic to",
+                          "type": "string"
+                        },
+                        "subdomain": {
+                          "description": "The subdomain the ingress rule listens on",
                           "type": "string"
                         },
                         "type": {
@@ -4012,8 +4239,9 @@
                       },
                       "required": [
                         "account",
-                        "loadBalancer",
+                        "name",
                         "port",
+                        "registry",
                         "service",
                         "type"
                       ],
@@ -4154,6 +4382,10 @@
                         },
                         "name": {
                           "description": "Name for the new load balancer",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "A namespace to put the load balancer in",
                           "type": "string"
                         },
                         "type": {
@@ -4365,41 +4597,41 @@
                         "account": {
                           "type": "string"
                         },
-                        "external_name": {
-                          "description": "Map this service to the specified hostname instead of to a deployment selector",
+                        "external_hostname": {
+                          "description": "External address to point to",
                           "type": "string"
                         },
                         "labels": {
                           "additionalProperties": {
                             "type": "string"
                           },
-                          "description": "Labels for the service resource",
+                          "description": "Resource labels",
                           "type": "object"
                         },
-                        "listener_port": {
-                          "default": 80,
-                          "description": "Port to listen for requests on",
-                          "type": "number"
-                        },
                         "name": {
-                          "description": "Name to give to the service",
+                          "description": "Hostname to listen on",
                           "type": "string"
                         },
                         "namespace": {
-                          "description": "Namespace the service should be registered in. Not all providers require this.",
+                          "description": "Resource namespace",
                           "type": "string"
                         },
-                        "protocol": {
-                          "description": "Protocol the service responds to",
-                          "type": "string"
+                        "port": {
+                          "description": "Port to listen on",
+                          "type": "number"
                         },
-                        "selector": {
-                          "description": "Reference used to target a deployment",
+                        "target_deployment": {
+                          "description": "Target deployment name",
                           "type": "string"
                         },
                         "target_port": {
-                          "description": "Port to forward requests to",
+                          "description": "Target port",
                           "type": "number"
+                        },
+                        "target_protocol": {
+                          "default": "http",
+                          "description": "Protocol",
+                          "type": "string"
                         },
                         "type": {
                           "const": "service",
@@ -4409,6 +4641,7 @@
                       "required": [
                         "account",
                         "name",
+                        "target_deployment",
                         "target_port",
                         "type"
                       ],
@@ -4478,9 +4711,6 @@
                           "type": "string"
                         },
                         "namespace": {
-                          "type": "string"
-                        },
-                        "schedule": {
                           "type": "string"
                         },
                         "sidecars": {
@@ -4588,7 +4818,6 @@
                       "required": [
                         "account",
                         "image",
-                        "schedule",
                         "type"
                       ],
                       "type": "object"
@@ -4613,8 +4842,8 @@
                           "description": "Path on the host machine to mount the volume to",
                           "type": "string"
                         },
-                        "mountPath": {
-                          "description": "Path inside the container runtime to mount the volume to",
+                        "name": {
+                          "description": "Name to give to the volume resource",
                           "type": "string"
                         },
                         "type": {
@@ -4624,7 +4853,7 @@
                       },
                       "required": [
                         "account",
-                        "mountPath",
+                        "name",
                         "type"
                       ],
                       "type": "object"
@@ -4675,6 +4904,7 @@
                 "properties": {
                   "type": {
                     "enum": [
+                      "arcctlAccount",
                       "cronjob",
                       "database",
                       "databaseSchema",
@@ -4734,6 +4964,48 @@
         "resources": {
           "additionalProperties": {
             "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "arcctlAccount",
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "account": {
+                      "type": "string"
+                    },
+                    "credentials": {
+                      "description": "Credentials used to access the cloud provider",
+                      "type": "object"
+                    },
+                    "name": {
+                      "description": "Name of the new account",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "description": "Cloud provider the account connects to",
+                      "type": "string"
+                    },
+                    "type": {
+                      "const": "arcctlAccount",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account",
+                    "credentials",
+                    "name",
+                    "provider",
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              },
               {
                 "if": {
                   "properties": {
@@ -5136,9 +5408,6 @@
                   "required": [
                     "account",
                     "databaseSchema",
-                    "host",
-                    "port",
-                    "protocol",
                     "type",
                     "username"
                   ],
@@ -5267,6 +5536,26 @@
                       "description": "Environment variables to pass to the container",
                       "type": "object"
                     },
+                    "exposed_ports": {
+                      "description": "Port that the deployment should expose on all nodes",
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "port": {
+                            "type": "number"
+                          },
+                          "target_port": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "port",
+                          "target_port"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
                     "image": {
                       "description": "Image the container runs from",
                       "type": "string"
@@ -5288,6 +5577,10 @@
                     },
                     "namespace": {
                       "description": "Namespace the deployment should be in",
+                      "type": "string"
+                    },
+                    "platform": {
+                      "description": "Target platform the deployment will run on",
                       "type": "string"
                     },
                     "probes": {
@@ -5429,6 +5722,7 @@
                       "type": "object"
                     },
                     "replicas": {
+                      "default": 1,
                       "description": "Number of replicas of the deployment to run",
                       "type": "number"
                     },
@@ -5705,7 +5999,6 @@
                     "account",
                     "image",
                     "name",
-                    "replicas",
                     "type",
                     "volume_mounts"
                   ],
@@ -5928,42 +6221,26 @@
                     "account": {
                       "type": "string"
                     },
+                    "dnsZone": {
+                      "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+                      "type": "string"
+                    },
                     "internal": {
                       "default": false,
                       "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
                       "type": "boolean"
                     },
-                    "listener": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "hostZone": {
-                          "description": "The DNS zone that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                          "type": "string"
-                        },
-                        "path": {
-                          "default": "/",
-                          "description": "The path that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                          "type": "string"
-                        },
-                        "protocol": {
-                          "default": "http",
-                          "description": "Protocol that the ingress rule listens for traffic on",
-                          "type": "string"
-                        },
-                        "subdomain": {
-                          "description": "The DNS subdomain that the ingress rule listens for traffic on (only works w/ application load balancers)",
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "loadBalancer": {
-                      "description": "ID of the load balancer to use for this ingress rule",
+                    "name": {
+                      "description": "Name to give to the ingress rule resource",
                       "type": "string"
                     },
                     "namespace": {
-                      "default": "default",
                       "description": "Namespace to put the ingress rule in",
+                      "type": "string"
+                    },
+                    "path": {
+                      "default": "/",
+                      "description": "The path the ingress rule listens on",
                       "type": "string"
                     },
                     "port": {
@@ -5973,8 +6250,21 @@
                         "number"
                       ]
                     },
+                    "protocol": {
+                      "default": "http",
+                      "description": "The protocol the ingress rule listens for traffic on",
+                      "type": "string"
+                    },
+                    "registry": {
+                      "description": "Unique ID of the service registry this rule will be stored in",
+                      "type": "string"
+                    },
                     "service": {
                       "description": "Service the ingress forwards traffic to",
+                      "type": "string"
+                    },
+                    "subdomain": {
+                      "description": "The subdomain the ingress rule listens on",
                       "type": "string"
                     },
                     "type": {
@@ -5984,8 +6274,9 @@
                   },
                   "required": [
                     "account",
-                    "loadBalancer",
+                    "name",
                     "port",
+                    "registry",
                     "service",
                     "type"
                   ],
@@ -6126,6 +6417,10 @@
                     },
                     "name": {
                       "description": "Name for the new load balancer",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "A namespace to put the load balancer in",
                       "type": "string"
                     },
                     "type": {
@@ -6337,41 +6632,41 @@
                     "account": {
                       "type": "string"
                     },
-                    "external_name": {
-                      "description": "Map this service to the specified hostname instead of to a deployment selector",
+                    "external_hostname": {
+                      "description": "External address to point to",
                       "type": "string"
                     },
                     "labels": {
                       "additionalProperties": {
                         "type": "string"
                       },
-                      "description": "Labels for the service resource",
+                      "description": "Resource labels",
                       "type": "object"
                     },
-                    "listener_port": {
-                      "default": 80,
-                      "description": "Port to listen for requests on",
-                      "type": "number"
-                    },
                     "name": {
-                      "description": "Name to give to the service",
+                      "description": "Hostname to listen on",
                       "type": "string"
                     },
                     "namespace": {
-                      "description": "Namespace the service should be registered in. Not all providers require this.",
+                      "description": "Resource namespace",
                       "type": "string"
                     },
-                    "protocol": {
-                      "description": "Protocol the service responds to",
-                      "type": "string"
+                    "port": {
+                      "description": "Port to listen on",
+                      "type": "number"
                     },
-                    "selector": {
-                      "description": "Reference used to target a deployment",
+                    "target_deployment": {
+                      "description": "Target deployment name",
                       "type": "string"
                     },
                     "target_port": {
-                      "description": "Port to forward requests to",
+                      "description": "Target port",
                       "type": "number"
+                    },
+                    "target_protocol": {
+                      "default": "http",
+                      "description": "Protocol",
+                      "type": "string"
                     },
                     "type": {
                       "const": "service",
@@ -6381,6 +6676,7 @@
                   "required": [
                     "account",
                     "name",
+                    "target_deployment",
                     "target_port",
                     "type"
                   ],
@@ -6450,9 +6746,6 @@
                       "type": "string"
                     },
                     "namespace": {
-                      "type": "string"
-                    },
-                    "schedule": {
                       "type": "string"
                     },
                     "sidecars": {
@@ -6560,7 +6853,6 @@
                   "required": [
                     "account",
                     "image",
-                    "schedule",
                     "type"
                   ],
                   "type": "object"
@@ -6585,8 +6877,8 @@
                       "description": "Path on the host machine to mount the volume to",
                       "type": "string"
                     },
-                    "mountPath": {
-                      "description": "Path inside the container runtime to mount the volume to",
+                    "name": {
+                      "description": "Name to give to the volume resource",
                       "type": "string"
                     },
                     "type": {
@@ -6596,7 +6888,7 @@
                   },
                   "required": [
                     "account",
-                    "mountPath",
+                    "name",
                     "type"
                   ],
                   "type": "object"
@@ -6647,6 +6939,7 @@
             "properties": {
               "type": {
                 "enum": [
+                  "arcctlAccount",
                   "cronjob",
                   "database",
                   "databaseSchema",

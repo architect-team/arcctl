@@ -1,88 +1,75 @@
 // https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface AppintegrationsEventIntegrationConfig
-  extends cdktf.TerraformMetaArguments {
+export interface AppintegrationsEventIntegrationConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#description AppintegrationsEventIntegration#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#description AppintegrationsEventIntegration#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#eventbridge_bus AppintegrationsEventIntegration#eventbridge_bus}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#eventbridge_bus AppintegrationsEventIntegration#eventbridge_bus}
+  */
   readonly eventbridgeBus: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#id AppintegrationsEventIntegration#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#id AppintegrationsEventIntegration#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#name AppintegrationsEventIntegration#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#name AppintegrationsEventIntegration#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#tags AppintegrationsEventIntegration#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#tags AppintegrationsEventIntegration#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#tags_all AppintegrationsEventIntegration#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#tags_all AppintegrationsEventIntegration#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * event_filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#event_filter AppintegrationsEventIntegration#event_filter}
-   */
+  * event_filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#event_filter AppintegrationsEventIntegration#event_filter}
+  */
   readonly eventFilter: AppintegrationsEventIntegrationEventFilter;
 }
 export interface AppintegrationsEventIntegrationEventFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#source AppintegrationsEventIntegration#source}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration#source AppintegrationsEventIntegration#source}
+  */
   readonly source: string;
 }
 
-export function appintegrationsEventIntegrationEventFilterToTerraform(
-  struct?:
-    | AppintegrationsEventIntegrationEventFilterOutputReference
-    | AppintegrationsEventIntegrationEventFilter,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function appintegrationsEventIntegrationEventFilterToTerraform(struct?: AppintegrationsEventIntegrationEventFilterOutputReference | AppintegrationsEventIntegrationEventFilter): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     source: cdktf.stringToTerraform(struct!.source),
-  };
+  }
 }
 
 export class AppintegrationsEventIntegrationEventFilterOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | AppintegrationsEventIntegrationEventFilter
-    | undefined {
+  public get internalValue(): AppintegrationsEventIntegrationEventFilter | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._source !== undefined) {
@@ -92,20 +79,19 @@ export class AppintegrationsEventIntegrationEventFilterOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: AppintegrationsEventIntegrationEventFilter | undefined,
-  ) {
+  public set internalValue(value: AppintegrationsEventIntegrationEventFilter | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._source = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._source = value.source;
     }
   }
 
   // source - computed: false, optional: false, required: true
-  private _source?: string;
+  private _source?: string; 
   public get source() {
     return this.getStringAttribute('source');
   }
@@ -119,37 +105,33 @@ export class AppintegrationsEventIntegrationEventFilterOutputReference extends c
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration aws_appintegrations_event_integration}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration aws_appintegrations_event_integration}
+*/
 export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_appintegrations_event_integration';
+  public static readonly tfResourceType = "aws_appintegrations_event_integration";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration aws_appintegrations_event_integration} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options AppintegrationsEventIntegrationConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: AppintegrationsEventIntegrationConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/appintegrations_event_integration aws_appintegrations_event_integration} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options AppintegrationsEventIntegrationConfig
+  */
+  public constructor(scope: Construct, id: string, config: AppintegrationsEventIntegrationConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_appintegrations_event_integration',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -157,7 +139,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._description = config.description;
     this._eventbridgeBus = config.eventbridgeBus;
@@ -178,7 +160,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -194,7 +176,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // eventbridge_bus - computed: false, optional: false, required: true
-  private _eventbridgeBus?: string;
+  private _eventbridgeBus?: string; 
   public get eventbridgeBus() {
     return this.getStringAttribute('eventbridge_bus');
   }
@@ -207,7 +189,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -223,7 +205,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -236,7 +218,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -252,7 +234,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -268,11 +250,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
   }
 
   // event_filter - computed: false, optional: false, required: true
-  private _eventFilter =
-    new AppintegrationsEventIntegrationEventFilterOutputReference(
-      this,
-      'event_filter',
-    );
+  private _eventFilter = new AppintegrationsEventIntegrationEventFilterOutputReference(this, "event_filter");
   public get eventFilter() {
     return this._eventFilter;
   }
@@ -296,9 +274,7 @@ export class AppintegrationsEventIntegration extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      event_filter: appintegrationsEventIntegrationEventFilterToTerraform(
-        this._eventFilter.internalValue,
-      ),
+      event_filter: appintegrationsEventIntegrationEventFilterToTerraform(this._eventFilter.internalValue),
     };
   }
 }

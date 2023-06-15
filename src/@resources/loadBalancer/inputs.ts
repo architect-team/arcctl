@@ -5,6 +5,11 @@ export type LoadBalancerInputs = {
   name: string;
 
   /**
+   * A namespace to put the load balancer in
+   */
+  namespace?: string;
+
+  /**
    * What type of load balancer to create
    */
   loadBalancerType: string;

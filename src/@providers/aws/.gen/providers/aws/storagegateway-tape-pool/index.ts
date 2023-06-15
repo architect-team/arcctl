@@ -1,76 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface StoragegatewayTapePoolConfig
-  extends cdktf.TerraformMetaArguments {
+export interface StoragegatewayTapePoolConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#id StoragegatewayTapePool#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#id StoragegatewayTapePool#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#pool_name StoragegatewayTapePool#pool_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#pool_name StoragegatewayTapePool#pool_name}
+  */
   readonly poolName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#retention_lock_time_in_days StoragegatewayTapePool#retention_lock_time_in_days}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#retention_lock_time_in_days StoragegatewayTapePool#retention_lock_time_in_days}
+  */
   readonly retentionLockTimeInDays?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#retention_lock_type StoragegatewayTapePool#retention_lock_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#retention_lock_type StoragegatewayTapePool#retention_lock_type}
+  */
   readonly retentionLockType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#storage_class StoragegatewayTapePool#storage_class}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#storage_class StoragegatewayTapePool#storage_class}
+  */
   readonly storageClass: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#tags StoragegatewayTapePool#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#tags StoragegatewayTapePool#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#tags_all StoragegatewayTapePool#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool#tags_all StoragegatewayTapePool#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool aws_storagegateway_tape_pool}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool aws_storagegateway_tape_pool}
+*/
 export class StoragegatewayTapePool extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_storagegateway_tape_pool';
+  public static readonly tfResourceType = "aws_storagegateway_tape_pool";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool aws_storagegateway_tape_pool} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options StoragegatewayTapePoolConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: StoragegatewayTapePoolConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/storagegateway_tape_pool aws_storagegateway_tape_pool} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options StoragegatewayTapePoolConfig
+  */
+  public constructor(scope: Construct, id: string, config: StoragegatewayTapePoolConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_storagegateway_tape_pool',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -78,7 +75,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._poolName = config.poolName;
@@ -99,7 +96,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -115,7 +112,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // pool_name - computed: false, optional: false, required: true
-  private _poolName?: string;
+  private _poolName?: string; 
   public get poolName() {
     return this.getStringAttribute('pool_name');
   }
@@ -128,7 +125,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // retention_lock_time_in_days - computed: false, optional: true, required: false
-  private _retentionLockTimeInDays?: number;
+  private _retentionLockTimeInDays?: number; 
   public get retentionLockTimeInDays() {
     return this.getNumberAttribute('retention_lock_time_in_days');
   }
@@ -144,7 +141,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // retention_lock_type - computed: false, optional: true, required: false
-  private _retentionLockType?: string;
+  private _retentionLockType?: string; 
   public get retentionLockType() {
     return this.getStringAttribute('retention_lock_type');
   }
@@ -160,7 +157,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // storage_class - computed: false, optional: false, required: true
-  private _storageClass?: string;
+  private _storageClass?: string; 
   public get storageClass() {
     return this.getStringAttribute('storage_class');
   }
@@ -173,7 +170,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -189,7 +186,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -212,9 +209,7 @@ export class StoragegatewayTapePool extends cdktf.TerraformResource {
     return {
       id: cdktf.stringToTerraform(this._id),
       pool_name: cdktf.stringToTerraform(this._poolName),
-      retention_lock_time_in_days: cdktf.numberToTerraform(
-        this._retentionLockTimeInDays,
-      ),
+      retention_lock_time_in_days: cdktf.numberToTerraform(this._retentionLockTimeInDays),
       retention_lock_type: cdktf.stringToTerraform(this._retentionLockType),
       storage_class: cdktf.stringToTerraform(this._storageClass),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),

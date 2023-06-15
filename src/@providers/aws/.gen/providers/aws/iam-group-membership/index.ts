@@ -1,63 +1,61 @@
 // https://www.terraform.io/docs/providers/aws/r/iam_group_membership
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface IamGroupMembershipConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#group IamGroupMembership#group}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#group IamGroupMembership#group}
+  */
   readonly group: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#id IamGroupMembership#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#id IamGroupMembership#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#name IamGroupMembership#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#name IamGroupMembership#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#users IamGroupMembership#users}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership#users IamGroupMembership#users}
+  */
   readonly users: string[];
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership aws_iam_group_membership}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership aws_iam_group_membership}
+*/
 export class IamGroupMembership extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_iam_group_membership';
+  public static readonly tfResourceType = "aws_iam_group_membership";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership aws_iam_group_membership} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options IamGroupMembershipConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: IamGroupMembershipConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/iam_group_membership aws_iam_group_membership} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options IamGroupMembershipConfig
+  */
+  public constructor(scope: Construct, id: string, config: IamGroupMembershipConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_iam_group_membership',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -65,7 +63,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._group = config.group;
     this._id = config.id;
@@ -78,7 +76,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   // ==========
 
   // group - computed: false, optional: false, required: true
-  private _group?: string;
+  private _group?: string; 
   public get group() {
     return this.getStringAttribute('group');
   }
@@ -91,7 +89,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -107,7 +105,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -120,7 +118,7 @@ export class IamGroupMembership extends cdktf.TerraformResource {
   }
 
   // users - computed: false, optional: false, required: true
-  private _users?: string[];
+  private _users?: string[]; 
   public get users() {
     return cdktf.Fn.tolist(this.getListAttribute('users'));
   }

@@ -1,63 +1,54 @@
 // https://www.terraform.io/docs/providers/aws/r/controltower_control
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface ControltowerControlConfig
-  extends cdktf.TerraformMetaArguments {
+export interface ControltowerControlConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#control_identifier ControltowerControl#control_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#control_identifier ControltowerControl#control_identifier}
+  */
   readonly controlIdentifier: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#id ControltowerControl#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#id ControltowerControl#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#target_identifier ControltowerControl#target_identifier}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#target_identifier ControltowerControl#target_identifier}
+  */
   readonly targetIdentifier: string;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#timeouts ControltowerControl#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#timeouts ControltowerControl#timeouts}
+  */
   readonly timeouts?: ControltowerControlTimeouts;
 }
 export interface ControltowerControlTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#create ControltowerControl#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#create ControltowerControl#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#delete ControltowerControl#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/controltower_control#delete ControltowerControl#delete}
+  */
   readonly delete?: string;
 }
 
-export function controltowerControlTimeoutsToTerraform(
-  struct?:
-    | ControltowerControlTimeoutsOutputReference
-    | ControltowerControlTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function controltowerControlTimeoutsToTerraform(struct?: ControltowerControlTimeoutsOutputReference | ControltowerControlTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -65,20 +56,14 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | ControltowerControlTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): ControltowerControlTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -95,18 +80,18 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ControltowerControlTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: ControltowerControlTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -115,7 +100,7 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -131,7 +116,7 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -148,36 +133,33 @@ export class ControltowerControlTimeoutsOutputReference extends cdktf.ComplexObj
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/controltower_control aws_controltower_control}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/controltower_control aws_controltower_control}
+*/
 export class ControltowerControl extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_controltower_control';
+  public static readonly tfResourceType = "aws_controltower_control";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/controltower_control aws_controltower_control} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ControltowerControlConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ControltowerControlConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/controltower_control aws_controltower_control} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ControltowerControlConfig
+  */
+  public constructor(scope: Construct, id: string, config: ControltowerControlConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_controltower_control',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -185,7 +167,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._controlIdentifier = config.controlIdentifier;
     this._id = config.id;
@@ -198,7 +180,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   // ==========
 
   // control_identifier - computed: false, optional: false, required: true
-  private _controlIdentifier?: string;
+  private _controlIdentifier?: string; 
   public get controlIdentifier() {
     return this.getStringAttribute('control_identifier');
   }
@@ -211,7 +193,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -227,7 +209,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   }
 
   // target_identifier - computed: false, optional: false, required: true
-  private _targetIdentifier?: string;
+  private _targetIdentifier?: string; 
   public get targetIdentifier() {
     return this.getStringAttribute('target_identifier');
   }
@@ -240,10 +222,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new ControltowerControlTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new ControltowerControlTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -267,9 +246,7 @@ export class ControltowerControl extends cdktf.TerraformResource {
       control_identifier: cdktf.stringToTerraform(this._controlIdentifier),
       id: cdktf.stringToTerraform(this._id),
       target_identifier: cdktf.stringToTerraform(this._targetIdentifier),
-      timeouts: controltowerControlTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      timeouts: controltowerControlTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

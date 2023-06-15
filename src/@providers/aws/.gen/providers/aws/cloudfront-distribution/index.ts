@@ -1,175 +1,152 @@
 // https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface CloudfrontDistributionConfig
-  extends cdktf.TerraformMetaArguments {
+export interface CloudfrontDistributionConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#aliases CloudfrontDistribution#aliases}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#aliases CloudfrontDistribution#aliases}
+  */
   readonly aliases?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#comment CloudfrontDistribution#comment}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#comment CloudfrontDistribution#comment}
+  */
   readonly comment?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_root_object CloudfrontDistribution#default_root_object}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_root_object CloudfrontDistribution#default_root_object}
+  */
   readonly defaultRootObject?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#enabled CloudfrontDistribution#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#enabled CloudfrontDistribution#enabled}
+  */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#http_version CloudfrontDistribution#http_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#http_version CloudfrontDistribution#http_version}
+  */
   readonly httpVersion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#id CloudfrontDistribution#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#id CloudfrontDistribution#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#is_ipv6_enabled CloudfrontDistribution#is_ipv6_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#is_ipv6_enabled CloudfrontDistribution#is_ipv6_enabled}
+  */
   readonly isIpv6Enabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#price_class CloudfrontDistribution#price_class}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#price_class CloudfrontDistribution#price_class}
+  */
   readonly priceClass?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#retain_on_delete CloudfrontDistribution#retain_on_delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#retain_on_delete CloudfrontDistribution#retain_on_delete}
+  */
   readonly retainOnDelete?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#tags CloudfrontDistribution#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#tags CloudfrontDistribution#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#tags_all CloudfrontDistribution#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#tags_all CloudfrontDistribution#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#wait_for_deployment CloudfrontDistribution#wait_for_deployment}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#wait_for_deployment CloudfrontDistribution#wait_for_deployment}
+  */
   readonly waitForDeployment?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#web_acl_id CloudfrontDistribution#web_acl_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#web_acl_id CloudfrontDistribution#web_acl_id}
+  */
   readonly webAclId?: string;
   /**
-   * custom_error_response block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_error_response CloudfrontDistribution#custom_error_response}
-   */
-  readonly customErrorResponse?:
-    | CloudfrontDistributionCustomErrorResponse[]
-    | cdktf.IResolvable;
+  * custom_error_response block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_error_response CloudfrontDistribution#custom_error_response}
+  */
+  readonly customErrorResponse?: CloudfrontDistributionCustomErrorResponse[] | cdktf.IResolvable;
   /**
-   * default_cache_behavior block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_cache_behavior CloudfrontDistribution#default_cache_behavior}
-   */
+  * default_cache_behavior block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_cache_behavior CloudfrontDistribution#default_cache_behavior}
+  */
   readonly defaultCacheBehavior: CloudfrontDistributionDefaultCacheBehavior;
   /**
-   * logging_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#logging_config CloudfrontDistribution#logging_config}
-   */
+  * logging_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#logging_config CloudfrontDistribution#logging_config}
+  */
   readonly loggingConfig?: CloudfrontDistributionLoggingConfig;
   /**
-   * ordered_cache_behavior block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#ordered_cache_behavior CloudfrontDistribution#ordered_cache_behavior}
-   */
-  readonly orderedCacheBehavior?:
-    | CloudfrontDistributionOrderedCacheBehavior[]
-    | cdktf.IResolvable;
+  * ordered_cache_behavior block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#ordered_cache_behavior CloudfrontDistribution#ordered_cache_behavior}
+  */
+  readonly orderedCacheBehavior?: CloudfrontDistributionOrderedCacheBehavior[] | cdktf.IResolvable;
   /**
-   * origin block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin CloudfrontDistribution#origin}
-   */
+  * origin block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin CloudfrontDistribution#origin}
+  */
   readonly origin: CloudfrontDistributionOrigin[] | cdktf.IResolvable;
   /**
-   * origin_group block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_group CloudfrontDistribution#origin_group}
-   */
-  readonly originGroup?:
-    | CloudfrontDistributionOriginGroup[]
-    | cdktf.IResolvable;
+  * origin_group block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_group CloudfrontDistribution#origin_group}
+  */
+  readonly originGroup?: CloudfrontDistributionOriginGroup[] | cdktf.IResolvable;
   /**
-   * restrictions block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#restrictions CloudfrontDistribution#restrictions}
-   */
+  * restrictions block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#restrictions CloudfrontDistribution#restrictions}
+  */
   readonly restrictions: CloudfrontDistributionRestrictions;
   /**
-   * viewer_certificate block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_certificate CloudfrontDistribution#viewer_certificate}
-   */
+  * viewer_certificate block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_certificate CloudfrontDistribution#viewer_certificate}
+  */
   readonly viewerCertificate: CloudfrontDistributionViewerCertificate;
 }
-export interface CloudfrontDistributionTrustedKeyGroupsItems {}
+export interface CloudfrontDistributionTrustedKeyGroupsItems {
+}
 
-export function cloudfrontDistributionTrustedKeyGroupsItemsToTerraform(
-  struct?: CloudfrontDistributionTrustedKeyGroupsItems,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionTrustedKeyGroupsItemsToTerraform(struct?: CloudfrontDistributionTrustedKeyGroupsItems): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class CloudfrontDistributionTrustedKeyGroupsItemsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionTrustedKeyGroupsItems
-    | undefined {
+  public get internalValue(): CloudfrontDistributionTrustedKeyGroupsItems | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionTrustedKeyGroupsItems | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionTrustedKeyGroupsItems | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -186,86 +163,59 @@ export class CloudfrontDistributionTrustedKeyGroupsItemsOutputReference extends 
 }
 
 export class CloudfrontDistributionTrustedKeyGroupsItemsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionTrustedKeyGroupsItemsOutputReference {
-    return new CloudfrontDistributionTrustedKeyGroupsItemsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionTrustedKeyGroupsItemsOutputReference {
+    return new CloudfrontDistributionTrustedKeyGroupsItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface CloudfrontDistributionTrustedKeyGroups {}
+export interface CloudfrontDistributionTrustedKeyGroups {
+}
 
-export function cloudfrontDistributionTrustedKeyGroupsToTerraform(
-  struct?: CloudfrontDistributionTrustedKeyGroups,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionTrustedKeyGroupsToTerraform(struct?: CloudfrontDistributionTrustedKeyGroups): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class CloudfrontDistributionTrustedKeyGroupsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionTrustedKeyGroups
-    | undefined {
+  public get internalValue(): CloudfrontDistributionTrustedKeyGroups | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionTrustedKeyGroups | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionTrustedKeyGroups | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -276,97 +226,66 @@ export class CloudfrontDistributionTrustedKeyGroupsOutputReference extends cdktf
   }
 
   // items - computed: true, optional: false, required: false
-  private _items = new CloudfrontDistributionTrustedKeyGroupsItemsList(
-    this,
-    'items',
-    false,
-  );
+  private _items = new CloudfrontDistributionTrustedKeyGroupsItemsList(this, "items", false);
   public get items() {
     return this._items;
   }
 }
 
 export class CloudfrontDistributionTrustedKeyGroupsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionTrustedKeyGroupsOutputReference {
-    return new CloudfrontDistributionTrustedKeyGroupsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionTrustedKeyGroupsOutputReference {
+    return new CloudfrontDistributionTrustedKeyGroupsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface CloudfrontDistributionTrustedSignersItems {}
+export interface CloudfrontDistributionTrustedSignersItems {
+}
 
-export function cloudfrontDistributionTrustedSignersItemsToTerraform(
-  struct?: CloudfrontDistributionTrustedSignersItems,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionTrustedSignersItemsToTerraform(struct?: CloudfrontDistributionTrustedSignersItems): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class CloudfrontDistributionTrustedSignersItemsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionTrustedSignersItems
-    | undefined {
+  public get internalValue(): CloudfrontDistributionTrustedSignersItems | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionTrustedSignersItems | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionTrustedSignersItems | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -383,70 +302,46 @@ export class CloudfrontDistributionTrustedSignersItemsOutputReference extends cd
 }
 
 export class CloudfrontDistributionTrustedSignersItemsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionTrustedSignersItemsOutputReference {
-    return new CloudfrontDistributionTrustedSignersItemsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionTrustedSignersItemsOutputReference {
+    return new CloudfrontDistributionTrustedSignersItemsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface CloudfrontDistributionTrustedSigners {}
+export interface CloudfrontDistributionTrustedSigners {
+}
 
-export function cloudfrontDistributionTrustedSignersToTerraform(
-  struct?: CloudfrontDistributionTrustedSigners,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionTrustedSignersToTerraform(struct?: CloudfrontDistributionTrustedSigners): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class CloudfrontDistributionTrustedSignersOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): CloudfrontDistributionTrustedSigners | undefined {
@@ -455,12 +350,11 @@ export class CloudfrontDistributionTrustedSignersOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionTrustedSigners | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionTrustedSigners | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -471,80 +365,60 @@ export class CloudfrontDistributionTrustedSignersOutputReference extends cdktf.C
   }
 
   // items - computed: true, optional: false, required: false
-  private _items = new CloudfrontDistributionTrustedSignersItemsList(
-    this,
-    'items',
-    false,
-  );
+  private _items = new CloudfrontDistributionTrustedSignersItemsList(this, "items", false);
   public get items() {
     return this._items;
   }
 }
 
 export class CloudfrontDistributionTrustedSignersList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionTrustedSignersOutputReference {
-    return new CloudfrontDistributionTrustedSignersOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionTrustedSignersOutputReference {
+    return new CloudfrontDistributionTrustedSignersOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionCustomErrorResponse {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#error_caching_min_ttl CloudfrontDistribution#error_caching_min_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#error_caching_min_ttl CloudfrontDistribution#error_caching_min_ttl}
+  */
   readonly errorCachingMinTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#error_code CloudfrontDistribution#error_code}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#error_code CloudfrontDistribution#error_code}
+  */
   readonly errorCode: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_code CloudfrontDistribution#response_code}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_code CloudfrontDistribution#response_code}
+  */
   readonly responseCode?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_page_path CloudfrontDistribution#response_page_path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_page_path CloudfrontDistribution#response_page_path}
+  */
   readonly responsePagePath?: string;
 }
 
-export function cloudfrontDistributionCustomErrorResponseToTerraform(
-  struct?: CloudfrontDistributionCustomErrorResponse | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionCustomErrorResponseToTerraform(struct?: CloudfrontDistributionCustomErrorResponse | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     error_caching_min_ttl: cdktf.numberToTerraform(struct!.errorCachingMinTtl),
     error_code: cdktf.numberToTerraform(struct!.errorCode),
     response_code: cdktf.numberToTerraform(struct!.responseCode),
     response_page_path: cdktf.stringToTerraform(struct!.responsePagePath),
-  };
+  }
 }
 
 export class CloudfrontDistributionCustomErrorResponseOutputReference extends cdktf.ComplexObject {
@@ -552,29 +426,16 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionCustomErrorResponse
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionCustomErrorResponse | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -599,12 +460,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionCustomErrorResponse
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionCustomErrorResponse | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -612,10 +468,12 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
       this._errorCode = undefined;
       this._responseCode = undefined;
       this._responsePagePath = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._errorCachingMinTtl = value.errorCachingMinTtl;
@@ -626,7 +484,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // error_caching_min_ttl - computed: false, optional: true, required: false
-  private _errorCachingMinTtl?: number;
+  private _errorCachingMinTtl?: number; 
   public get errorCachingMinTtl() {
     return this.getNumberAttribute('error_caching_min_ttl');
   }
@@ -642,7 +500,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // error_code - computed: false, optional: false, required: true
-  private _errorCode?: number;
+  private _errorCode?: number; 
   public get errorCode() {
     return this.getNumberAttribute('error_code');
   }
@@ -655,7 +513,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // response_code - computed: false, optional: true, required: false
-  private _responseCode?: number;
+  private _responseCode?: number; 
   public get responseCode() {
     return this.getNumberAttribute('response_code');
   }
@@ -671,7 +529,7 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
   }
 
   // response_page_path - computed: false, optional: true, required: false
-  private _responsePagePath?: string;
+  private _responsePagePath?: string; 
   public get responsePagePath() {
     return this.getStringAttribute('response_page_path');
   }
@@ -688,87 +546,58 @@ export class CloudfrontDistributionCustomErrorResponseOutputReference extends cd
 }
 
 export class CloudfrontDistributionCustomErrorResponseList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionCustomErrorResponse[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionCustomErrorResponse[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionCustomErrorResponseOutputReference {
-    return new CloudfrontDistributionCustomErrorResponseOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionCustomErrorResponseOutputReference {
+    return new CloudfrontDistributionCustomErrorResponseOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forward CloudfrontDistribution#forward}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forward CloudfrontDistribution#forward}
+  */
   readonly forward: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#whitelisted_names CloudfrontDistribution#whitelisted_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#whitelisted_names CloudfrontDistribution#whitelisted_names}
+  */
   readonly whitelistedNames?: string[];
 }
 
-export function cloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesToTerraform(
-  struct?:
-    | CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOutputReference
-    | CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesToTerraform(struct?: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOutputReference | CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     forward: cdktf.stringToTerraform(struct!.forward),
-    whitelisted_names: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.whitelistedNames),
-  };
+    whitelisted_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.whitelistedNames),
+  }
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies
-    | undefined {
+  public get internalValue(): CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._forward !== undefined) {
@@ -782,16 +611,13 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._forward = undefined;
       this._whitelistedNames = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._forward = value.forward;
       this._whitelistedNames = value.whitelistedNames;
@@ -799,7 +625,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOut
   }
 
   // forward - computed: false, optional: false, required: true
-  private _forward?: string;
+  private _forward?: string; 
   public get forward() {
     return this.getStringAttribute('forward');
   }
@@ -812,7 +638,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOut
   }
 
   // whitelisted_names - computed: true, optional: true, required: false
-  private _whitelistedNames?: string[];
+  private _whitelistedNames?: string[]; 
   public get whitelistedNames() {
     return cdktf.Fn.tolist(this.getListAttribute('whitelisted_names'));
   }
@@ -829,69 +655,50 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOut
 }
 export interface CloudfrontDistributionDefaultCacheBehaviorForwardedValues {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#headers CloudfrontDistribution#headers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#headers CloudfrontDistribution#headers}
+  */
   readonly headers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string CloudfrontDistribution#query_string}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string CloudfrontDistribution#query_string}
+  */
   readonly queryString: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string_cache_keys CloudfrontDistribution#query_string_cache_keys}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string_cache_keys CloudfrontDistribution#query_string_cache_keys}
+  */
   readonly queryStringCacheKeys?: string[];
   /**
-   * cookies block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cookies CloudfrontDistribution#cookies}
-   */
+  * cookies block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cookies CloudfrontDistribution#cookies}
+  */
   readonly cookies: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies;
 }
 
-export function cloudfrontDistributionDefaultCacheBehaviorForwardedValuesToTerraform(
-  struct?:
-    | CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputReference
-    | CloudfrontDistributionDefaultCacheBehaviorForwardedValues,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionDefaultCacheBehaviorForwardedValuesToTerraform(struct?: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputReference | CloudfrontDistributionDefaultCacheBehaviorForwardedValues): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.headers),
     query_string: cdktf.booleanToTerraform(struct!.queryString),
-    query_string_cache_keys: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.queryStringCacheKeys),
-    cookies:
-      cloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesToTerraform(
-        struct!.cookies,
-      ),
-  };
+    query_string_cache_keys: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.queryStringCacheKeys),
+    cookies: cloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesToTerraform(struct!.cookies),
+  }
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionDefaultCacheBehaviorForwardedValues
-    | undefined {
+  public get internalValue(): CloudfrontDistributionDefaultCacheBehaviorForwardedValues | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._headers !== undefined) {
@@ -913,18 +720,15 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionDefaultCacheBehaviorForwardedValues
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionDefaultCacheBehaviorForwardedValues | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._headers = undefined;
       this._queryString = undefined;
       this._queryStringCacheKeys = undefined;
       this._cookies.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._headers = value.headers;
       this._queryString = value.queryString;
@@ -934,7 +738,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // headers - computed: true, optional: true, required: false
-  private _headers?: string[];
+  private _headers?: string[]; 
   public get headers() {
     return cdktf.Fn.tolist(this.getListAttribute('headers'));
   }
@@ -950,7 +754,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string - computed: false, optional: false, required: true
-  private _queryString?: boolean | cdktf.IResolvable;
+  private _queryString?: boolean | cdktf.IResolvable; 
   public get queryString() {
     return this.getBooleanAttribute('query_string');
   }
@@ -963,7 +767,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string_cache_keys - computed: true, optional: true, required: false
-  private _queryStringCacheKeys?: string[];
+  private _queryStringCacheKeys?: string[]; 
   public get queryStringCacheKeys() {
     return this.getListAttribute('query_string_cache_keys');
   }
@@ -979,17 +783,11 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
   }
 
   // cookies - computed: false, optional: false, required: true
-  private _cookies =
-    new CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOutputReference(
-      this,
-      'cookies',
-    );
+  private _cookies = new CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookiesOutputReference(this, "cookies");
   public get cookies() {
     return this._cookies;
   }
-  public putCookies(
-    value: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies,
-  ) {
+  public putCookies(value: CloudfrontDistributionDefaultCacheBehaviorForwardedValuesCookies) {
     this._cookies.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -999,32 +797,24 @@ export class CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputRefe
 }
 export interface CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
+  */
   readonly eventType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_arn CloudfrontDistribution#function_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_arn CloudfrontDistribution#function_arn}
+  */
   readonly functionArn: string;
 }
 
-export function cloudfrontDistributionDefaultCacheBehaviorFunctionAssociationToTerraform(
-  struct?:
-    | CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionDefaultCacheBehaviorFunctionAssociationToTerraform(struct?: CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     event_type: cdktf.stringToTerraform(struct!.eventType),
     function_arn: cdktf.stringToTerraform(struct!.functionArn),
-  };
+  }
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutputReference extends cdktf.ComplexObject {
@@ -1032,29 +822,16 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1071,21 +848,18 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._eventType = undefined;
       this._functionArn = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._eventType = value.eventType;
@@ -1094,7 +868,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string;
+  private _eventType?: string; 
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -1107,7 +881,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
   }
 
   // function_arn - computed: false, optional: false, required: true
-  private _functionArn?: string;
+  private _functionArn?: string; 
   public get functionArn() {
     return this.getStringAttribute('function_arn');
   }
@@ -1121,70 +895,49 @@ export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutput
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutputReference {
-    return new CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutputReference {
+    return new CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
+  */
   readonly eventType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#include_body CloudfrontDistribution#include_body}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#include_body CloudfrontDistribution#include_body}
+  */
   readonly includeBody?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_arn CloudfrontDistribution#lambda_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_arn CloudfrontDistribution#lambda_arn}
+  */
   readonly lambdaArn: string;
 }
 
-export function cloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationToTerraform(
-  struct?:
-    | CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationToTerraform(struct?: CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     event_type: cdktf.stringToTerraform(struct!.eventType),
     include_body: cdktf.booleanToTerraform(struct!.includeBody),
     lambda_arn: cdktf.stringToTerraform(struct!.lambdaArn),
-  };
+  }
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputReference extends cdktf.ComplexObject {
@@ -1192,29 +945,16 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -1235,22 +975,19 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._eventType = undefined;
       this._includeBody = undefined;
       this._lambdaArn = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._eventType = value.eventType;
@@ -1260,7 +997,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string;
+  private _eventType?: string; 
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -1273,7 +1010,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   }
 
   // include_body - computed: false, optional: true, required: false
-  private _includeBody?: boolean | cdktf.IResolvable;
+  private _includeBody?: boolean | cdktf.IResolvable; 
   public get includeBody() {
     return this.getBooleanAttribute('include_body');
   }
@@ -1289,7 +1026,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
   }
 
   // lambda_arn - computed: false, optional: false, required: true
-  private _lambdaArn?: string;
+  private _lambdaArn?: string; 
   public get lambdaArn() {
     return this.getStringAttribute('lambda_arn');
   }
@@ -1303,210 +1040,149 @@ export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputReference {
-    return new CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputReference {
+    return new CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionDefaultCacheBehavior {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#allowed_methods CloudfrontDistribution#allowed_methods}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#allowed_methods CloudfrontDistribution#allowed_methods}
+  */
   readonly allowedMethods: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cache_policy_id CloudfrontDistribution#cache_policy_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cache_policy_id CloudfrontDistribution#cache_policy_id}
+  */
   readonly cachePolicyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cached_methods CloudfrontDistribution#cached_methods}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cached_methods CloudfrontDistribution#cached_methods}
+  */
   readonly cachedMethods: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#compress CloudfrontDistribution#compress}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#compress CloudfrontDistribution#compress}
+  */
   readonly compress?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_ttl CloudfrontDistribution#default_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_ttl CloudfrontDistribution#default_ttl}
+  */
   readonly defaultTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#field_level_encryption_id CloudfrontDistribution#field_level_encryption_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#field_level_encryption_id CloudfrontDistribution#field_level_encryption_id}
+  */
   readonly fieldLevelEncryptionId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#max_ttl CloudfrontDistribution#max_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#max_ttl CloudfrontDistribution#max_ttl}
+  */
   readonly maxTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#min_ttl CloudfrontDistribution#min_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#min_ttl CloudfrontDistribution#min_ttl}
+  */
   readonly minTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_request_policy_id CloudfrontDistribution#origin_request_policy_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_request_policy_id CloudfrontDistribution#origin_request_policy_id}
+  */
   readonly originRequestPolicyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#realtime_log_config_arn CloudfrontDistribution#realtime_log_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#realtime_log_config_arn CloudfrontDistribution#realtime_log_config_arn}
+  */
   readonly realtimeLogConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_headers_policy_id CloudfrontDistribution#response_headers_policy_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_headers_policy_id CloudfrontDistribution#response_headers_policy_id}
+  */
   readonly responseHeadersPolicyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#smooth_streaming CloudfrontDistribution#smooth_streaming}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#smooth_streaming CloudfrontDistribution#smooth_streaming}
+  */
   readonly smoothStreaming?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#target_origin_id CloudfrontDistribution#target_origin_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#target_origin_id CloudfrontDistribution#target_origin_id}
+  */
   readonly targetOriginId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_key_groups CloudfrontDistribution#trusted_key_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_key_groups CloudfrontDistribution#trusted_key_groups}
+  */
   readonly trustedKeyGroups?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_signers CloudfrontDistribution#trusted_signers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_signers CloudfrontDistribution#trusted_signers}
+  */
   readonly trustedSigners?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_protocol_policy CloudfrontDistribution#viewer_protocol_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_protocol_policy CloudfrontDistribution#viewer_protocol_policy}
+  */
   readonly viewerProtocolPolicy: string;
   /**
-   * forwarded_values block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forwarded_values CloudfrontDistribution#forwarded_values}
-   */
+  * forwarded_values block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forwarded_values CloudfrontDistribution#forwarded_values}
+  */
   readonly forwardedValues?: CloudfrontDistributionDefaultCacheBehaviorForwardedValues;
   /**
-   * function_association block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_association CloudfrontDistribution#function_association}
-   */
-  readonly functionAssociation?:
-    | CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[]
-    | cdktf.IResolvable;
+  * function_association block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_association CloudfrontDistribution#function_association}
+  */
+  readonly functionAssociation?: CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[] | cdktf.IResolvable;
   /**
-   * lambda_function_association block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_function_association CloudfrontDistribution#lambda_function_association}
-   */
-  readonly lambdaFunctionAssociation?:
-    | CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[]
-    | cdktf.IResolvable;
+  * lambda_function_association block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_function_association CloudfrontDistribution#lambda_function_association}
+  */
+  readonly lambdaFunctionAssociation?: CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable;
 }
 
-export function cloudfrontDistributionDefaultCacheBehaviorToTerraform(
-  struct?:
-    | CloudfrontDistributionDefaultCacheBehaviorOutputReference
-    | CloudfrontDistributionDefaultCacheBehavior,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionDefaultCacheBehaviorToTerraform(struct?: CloudfrontDistributionDefaultCacheBehaviorOutputReference | CloudfrontDistributionDefaultCacheBehavior): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    allowed_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedMethods),
+    allowed_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedMethods),
     cache_policy_id: cdktf.stringToTerraform(struct!.cachePolicyId),
-    cached_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.cachedMethods),
+    cached_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cachedMethods),
     compress: cdktf.booleanToTerraform(struct!.compress),
     default_ttl: cdktf.numberToTerraform(struct!.defaultTtl),
-    field_level_encryption_id: cdktf.stringToTerraform(
-      struct!.fieldLevelEncryptionId,
-    ),
+    field_level_encryption_id: cdktf.stringToTerraform(struct!.fieldLevelEncryptionId),
     max_ttl: cdktf.numberToTerraform(struct!.maxTtl),
     min_ttl: cdktf.numberToTerraform(struct!.minTtl),
-    origin_request_policy_id: cdktf.stringToTerraform(
-      struct!.originRequestPolicyId,
-    ),
-    realtime_log_config_arn: cdktf.stringToTerraform(
-      struct!.realtimeLogConfigArn,
-    ),
-    response_headers_policy_id: cdktf.stringToTerraform(
-      struct!.responseHeadersPolicyId,
-    ),
+    origin_request_policy_id: cdktf.stringToTerraform(struct!.originRequestPolicyId),
+    realtime_log_config_arn: cdktf.stringToTerraform(struct!.realtimeLogConfigArn),
+    response_headers_policy_id: cdktf.stringToTerraform(struct!.responseHeadersPolicyId),
     smooth_streaming: cdktf.booleanToTerraform(struct!.smoothStreaming),
     target_origin_id: cdktf.stringToTerraform(struct!.targetOriginId),
-    trusted_key_groups: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.trustedKeyGroups),
-    trusted_signers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.trustedSigners),
-    viewer_protocol_policy: cdktf.stringToTerraform(
-      struct!.viewerProtocolPolicy,
-    ),
-    forwarded_values:
-      cloudfrontDistributionDefaultCacheBehaviorForwardedValuesToTerraform(
-        struct!.forwardedValues,
-      ),
-    function_association: cdktf.listMapper(
-      cloudfrontDistributionDefaultCacheBehaviorFunctionAssociationToTerraform,
-      true,
-    )(struct!.functionAssociation),
-    lambda_function_association: cdktf.listMapper(
-      cloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationToTerraform,
-      true,
-    )(struct!.lambdaFunctionAssociation),
-  };
+    trusted_key_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.trustedKeyGroups),
+    trusted_signers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.trustedSigners),
+    viewer_protocol_policy: cdktf.stringToTerraform(struct!.viewerProtocolPolicy),
+    forwarded_values: cloudfrontDistributionDefaultCacheBehaviorForwardedValuesToTerraform(struct!.forwardedValues),
+    function_association: cdktf.listMapper(cloudfrontDistributionDefaultCacheBehaviorFunctionAssociationToTerraform, true)(struct!.functionAssociation),
+    lambda_function_association: cdktf.listMapper(cloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationToTerraform, true)(struct!.lambdaFunctionAssociation),
+  }
 }
 
 export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionDefaultCacheBehavior
-    | undefined {
+  public get internalValue(): CloudfrontDistributionDefaultCacheBehavior | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._allowedMethods !== undefined) {
@@ -1551,8 +1227,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
     }
     if (this._responseHeadersPolicyId !== undefined) {
       hasAnyValues = true;
-      internalValueResult.responseHeadersPolicyId =
-        this._responseHeadersPolicyId;
+      internalValueResult.responseHeadersPolicyId = this._responseHeadersPolicyId;
     }
     if (this._smoothStreaming !== undefined) {
       hasAnyValues = true;
@@ -1576,25 +1251,20 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
     }
     if (this._forwardedValues?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.forwardedValues =
-        this._forwardedValues?.internalValue;
+      internalValueResult.forwardedValues = this._forwardedValues?.internalValue;
     }
     if (this._functionAssociation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.functionAssociation =
-        this._functionAssociation?.internalValue;
+      internalValueResult.functionAssociation = this._functionAssociation?.internalValue;
     }
     if (this._lambdaFunctionAssociation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaFunctionAssociation =
-        this._lambdaFunctionAssociation?.internalValue;
+      internalValueResult.lambdaFunctionAssociation = this._lambdaFunctionAssociation?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionDefaultCacheBehavior | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionDefaultCacheBehavior | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._allowedMethods = undefined;
@@ -1616,7 +1286,8 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
       this._forwardedValues.internalValue = undefined;
       this._functionAssociation.internalValue = undefined;
       this._lambdaFunctionAssociation.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._allowedMethods = value.allowedMethods;
       this._cachePolicyId = value.cachePolicyId;
@@ -1636,13 +1307,12 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
       this._viewerProtocolPolicy = value.viewerProtocolPolicy;
       this._forwardedValues.internalValue = value.forwardedValues;
       this._functionAssociation.internalValue = value.functionAssociation;
-      this._lambdaFunctionAssociation.internalValue =
-        value.lambdaFunctionAssociation;
+      this._lambdaFunctionAssociation.internalValue = value.lambdaFunctionAssociation;
     }
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[];
+  private _allowedMethods?: string[]; 
   public get allowedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_methods'));
   }
@@ -1655,7 +1325,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // cache_policy_id - computed: false, optional: true, required: false
-  private _cachePolicyId?: string;
+  private _cachePolicyId?: string; 
   public get cachePolicyId() {
     return this.getStringAttribute('cache_policy_id');
   }
@@ -1671,7 +1341,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // cached_methods - computed: false, optional: false, required: true
-  private _cachedMethods?: string[];
+  private _cachedMethods?: string[]; 
   public get cachedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('cached_methods'));
   }
@@ -1684,7 +1354,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // compress - computed: false, optional: true, required: false
-  private _compress?: boolean | cdktf.IResolvable;
+  private _compress?: boolean | cdktf.IResolvable; 
   public get compress() {
     return this.getBooleanAttribute('compress');
   }
@@ -1700,7 +1370,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // default_ttl - computed: true, optional: true, required: false
-  private _defaultTtl?: number;
+  private _defaultTtl?: number; 
   public get defaultTtl() {
     return this.getNumberAttribute('default_ttl');
   }
@@ -1716,7 +1386,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // field_level_encryption_id - computed: false, optional: true, required: false
-  private _fieldLevelEncryptionId?: string;
+  private _fieldLevelEncryptionId?: string; 
   public get fieldLevelEncryptionId() {
     return this.getStringAttribute('field_level_encryption_id');
   }
@@ -1732,7 +1402,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // max_ttl - computed: true, optional: true, required: false
-  private _maxTtl?: number;
+  private _maxTtl?: number; 
   public get maxTtl() {
     return this.getNumberAttribute('max_ttl');
   }
@@ -1748,7 +1418,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // min_ttl - computed: false, optional: true, required: false
-  private _minTtl?: number;
+  private _minTtl?: number; 
   public get minTtl() {
     return this.getNumberAttribute('min_ttl');
   }
@@ -1764,7 +1434,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // origin_request_policy_id - computed: false, optional: true, required: false
-  private _originRequestPolicyId?: string;
+  private _originRequestPolicyId?: string; 
   public get originRequestPolicyId() {
     return this.getStringAttribute('origin_request_policy_id');
   }
@@ -1780,7 +1450,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // realtime_log_config_arn - computed: false, optional: true, required: false
-  private _realtimeLogConfigArn?: string;
+  private _realtimeLogConfigArn?: string; 
   public get realtimeLogConfigArn() {
     return this.getStringAttribute('realtime_log_config_arn');
   }
@@ -1796,7 +1466,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // response_headers_policy_id - computed: false, optional: true, required: false
-  private _responseHeadersPolicyId?: string;
+  private _responseHeadersPolicyId?: string; 
   public get responseHeadersPolicyId() {
     return this.getStringAttribute('response_headers_policy_id');
   }
@@ -1812,7 +1482,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // smooth_streaming - computed: false, optional: true, required: false
-  private _smoothStreaming?: boolean | cdktf.IResolvable;
+  private _smoothStreaming?: boolean | cdktf.IResolvable; 
   public get smoothStreaming() {
     return this.getBooleanAttribute('smooth_streaming');
   }
@@ -1828,7 +1498,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // target_origin_id - computed: false, optional: false, required: true
-  private _targetOriginId?: string;
+  private _targetOriginId?: string; 
   public get targetOriginId() {
     return this.getStringAttribute('target_origin_id');
   }
@@ -1841,7 +1511,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // trusted_key_groups - computed: true, optional: true, required: false
-  private _trustedKeyGroups?: string[];
+  private _trustedKeyGroups?: string[]; 
   public get trustedKeyGroups() {
     return this.getListAttribute('trusted_key_groups');
   }
@@ -1857,7 +1527,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // trusted_signers - computed: true, optional: true, required: false
-  private _trustedSigners?: string[];
+  private _trustedSigners?: string[]; 
   public get trustedSigners() {
     return this.getListAttribute('trusted_signers');
   }
@@ -1873,7 +1543,7 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // viewer_protocol_policy - computed: false, optional: false, required: true
-  private _viewerProtocolPolicy?: string;
+  private _viewerProtocolPolicy?: string; 
   public get viewerProtocolPolicy() {
     return this.getStringAttribute('viewer_protocol_policy');
   }
@@ -1886,17 +1556,11 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // forwarded_values - computed: false, optional: true, required: false
-  private _forwardedValues =
-    new CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputReference(
-      this,
-      'forwarded_values',
-    );
+  private _forwardedValues = new CloudfrontDistributionDefaultCacheBehaviorForwardedValuesOutputReference(this, "forwarded_values");
   public get forwardedValues() {
     return this._forwardedValues;
   }
-  public putForwardedValues(
-    value: CloudfrontDistributionDefaultCacheBehaviorForwardedValues,
-  ) {
+  public putForwardedValues(value: CloudfrontDistributionDefaultCacheBehaviorForwardedValues) {
     this._forwardedValues.internalValue = value;
   }
   public resetForwardedValues() {
@@ -1908,20 +1572,11 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // function_association - computed: false, optional: true, required: false
-  private _functionAssociation =
-    new CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationList(
-      this,
-      'function_association',
-      true,
-    );
+  private _functionAssociation = new CloudfrontDistributionDefaultCacheBehaviorFunctionAssociationList(this, "function_association", true);
   public get functionAssociation() {
     return this._functionAssociation;
   }
-  public putFunctionAssociation(
-    value:
-      | CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[]
-      | cdktf.IResolvable,
-  ) {
+  public putFunctionAssociation(value: CloudfrontDistributionDefaultCacheBehaviorFunctionAssociation[] | cdktf.IResolvable) {
     this._functionAssociation.internalValue = value;
   }
   public resetFunctionAssociation() {
@@ -1933,20 +1588,11 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
   }
 
   // lambda_function_association - computed: false, optional: true, required: false
-  private _lambdaFunctionAssociation =
-    new CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationList(
-      this,
-      'lambda_function_association',
-      true,
-    );
+  private _lambdaFunctionAssociation = new CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociationList(this, "lambda_function_association", true);
   public get lambdaFunctionAssociation() {
     return this._lambdaFunctionAssociation;
   }
-  public putLambdaFunctionAssociation(
-    value:
-      | CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[]
-      | cdktf.IResolvable,
-  ) {
+  public putLambdaFunctionAssociation(value: CloudfrontDistributionDefaultCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable) {
     this._lambdaFunctionAssociation.internalValue = value;
   }
   public resetLambdaFunctionAssociation() {
@@ -1959,50 +1605,39 @@ export class CloudfrontDistributionDefaultCacheBehaviorOutputReference extends c
 }
 export interface CloudfrontDistributionLoggingConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#bucket CloudfrontDistribution#bucket}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#bucket CloudfrontDistribution#bucket}
+  */
   readonly bucket: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#include_cookies CloudfrontDistribution#include_cookies}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#include_cookies CloudfrontDistribution#include_cookies}
+  */
   readonly includeCookies?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#prefix CloudfrontDistribution#prefix}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#prefix CloudfrontDistribution#prefix}
+  */
   readonly prefix?: string;
 }
 
-export function cloudfrontDistributionLoggingConfigToTerraform(
-  struct?:
-    | CloudfrontDistributionLoggingConfigOutputReference
-    | CloudfrontDistributionLoggingConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionLoggingConfigToTerraform(struct?: CloudfrontDistributionLoggingConfigOutputReference | CloudfrontDistributionLoggingConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     bucket: cdktf.stringToTerraform(struct!.bucket),
     include_cookies: cdktf.booleanToTerraform(struct!.includeCookies),
     prefix: cdktf.stringToTerraform(struct!.prefix),
-  };
+  }
 }
 
 export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -2024,15 +1659,14 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionLoggingConfig | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionLoggingConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucket = undefined;
       this._includeCookies = undefined;
       this._prefix = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucket = value.bucket;
       this._includeCookies = value.includeCookies;
@@ -2041,7 +1675,7 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
   }
 
   // bucket - computed: false, optional: false, required: true
-  private _bucket?: string;
+  private _bucket?: string; 
   public get bucket() {
     return this.getStringAttribute('bucket');
   }
@@ -2054,7 +1688,7 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
   }
 
   // include_cookies - computed: false, optional: true, required: false
-  private _includeCookies?: boolean | cdktf.IResolvable;
+  private _includeCookies?: boolean | cdktf.IResolvable; 
   public get includeCookies() {
     return this.getBooleanAttribute('include_cookies');
   }
@@ -2070,7 +1704,7 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
   }
 
   // prefix - computed: false, optional: true, required: false
-  private _prefix?: string;
+  private _prefix?: string; 
   public get prefix() {
     return this.getStringAttribute('prefix');
   }
@@ -2087,54 +1721,38 @@ export class CloudfrontDistributionLoggingConfigOutputReference extends cdktf.Co
 }
 export interface CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forward CloudfrontDistribution#forward}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forward CloudfrontDistribution#forward}
+  */
   readonly forward: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#whitelisted_names CloudfrontDistribution#whitelisted_names}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#whitelisted_names CloudfrontDistribution#whitelisted_names}
+  */
   readonly whitelistedNames?: string[];
 }
 
-export function cloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesToTerraform(
-  struct?:
-    | CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOutputReference
-    | CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesToTerraform(struct?: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOutputReference | CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     forward: cdktf.stringToTerraform(struct!.forward),
-    whitelisted_names: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.whitelistedNames),
-  };
+    whitelisted_names: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.whitelistedNames),
+  }
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._forward !== undefined) {
@@ -2148,16 +1766,13 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOut
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._forward = undefined;
       this._whitelistedNames = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._forward = value.forward;
       this._whitelistedNames = value.whitelistedNames;
@@ -2165,7 +1780,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOut
   }
 
   // forward - computed: false, optional: false, required: true
-  private _forward?: string;
+  private _forward?: string; 
   public get forward() {
     return this.getStringAttribute('forward');
   }
@@ -2178,7 +1793,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOut
   }
 
   // whitelisted_names - computed: false, optional: true, required: false
-  private _whitelistedNames?: string[];
+  private _whitelistedNames?: string[]; 
   public get whitelistedNames() {
     return cdktf.Fn.tolist(this.getListAttribute('whitelisted_names'));
   }
@@ -2195,69 +1810,50 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOut
 }
 export interface CloudfrontDistributionOrderedCacheBehaviorForwardedValues {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#headers CloudfrontDistribution#headers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#headers CloudfrontDistribution#headers}
+  */
   readonly headers?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string CloudfrontDistribution#query_string}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string CloudfrontDistribution#query_string}
+  */
   readonly queryString: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string_cache_keys CloudfrontDistribution#query_string_cache_keys}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#query_string_cache_keys CloudfrontDistribution#query_string_cache_keys}
+  */
   readonly queryStringCacheKeys?: string[];
   /**
-   * cookies block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cookies CloudfrontDistribution#cookies}
-   */
+  * cookies block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cookies CloudfrontDistribution#cookies}
+  */
   readonly cookies: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies;
 }
 
-export function cloudfrontDistributionOrderedCacheBehaviorForwardedValuesToTerraform(
-  struct?:
-    | CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputReference
-    | CloudfrontDistributionOrderedCacheBehaviorForwardedValues,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOrderedCacheBehaviorForwardedValuesToTerraform(struct?: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputReference | CloudfrontDistributionOrderedCacheBehaviorForwardedValues): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     headers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.headers),
     query_string: cdktf.booleanToTerraform(struct!.queryString),
-    query_string_cache_keys: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.queryStringCacheKeys),
-    cookies:
-      cloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesToTerraform(
-        struct!.cookies,
-      ),
-  };
+    query_string_cache_keys: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.queryStringCacheKeys),
+    cookies: cloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesToTerraform(struct!.cookies),
+  }
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOrderedCacheBehaviorForwardedValues
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOrderedCacheBehaviorForwardedValues | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._headers !== undefined) {
@@ -2279,18 +1875,15 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOrderedCacheBehaviorForwardedValues
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOrderedCacheBehaviorForwardedValues | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._headers = undefined;
       this._queryString = undefined;
       this._queryStringCacheKeys = undefined;
       this._cookies.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._headers = value.headers;
       this._queryString = value.queryString;
@@ -2300,7 +1893,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // headers - computed: true, optional: true, required: false
-  private _headers?: string[];
+  private _headers?: string[]; 
   public get headers() {
     return cdktf.Fn.tolist(this.getListAttribute('headers'));
   }
@@ -2316,7 +1909,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string - computed: false, optional: false, required: true
-  private _queryString?: boolean | cdktf.IResolvable;
+  private _queryString?: boolean | cdktf.IResolvable; 
   public get queryString() {
     return this.getBooleanAttribute('query_string');
   }
@@ -2329,7 +1922,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // query_string_cache_keys - computed: true, optional: true, required: false
-  private _queryStringCacheKeys?: string[];
+  private _queryStringCacheKeys?: string[]; 
   public get queryStringCacheKeys() {
     return this.getListAttribute('query_string_cache_keys');
   }
@@ -2345,17 +1938,11 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
   }
 
   // cookies - computed: false, optional: false, required: true
-  private _cookies =
-    new CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOutputReference(
-      this,
-      'cookies',
-    );
+  private _cookies = new CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookiesOutputReference(this, "cookies");
   public get cookies() {
     return this._cookies;
   }
-  public putCookies(
-    value: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies,
-  ) {
+  public putCookies(value: CloudfrontDistributionOrderedCacheBehaviorForwardedValuesCookies) {
     this._cookies.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -2365,32 +1952,24 @@ export class CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputRefe
 }
 export interface CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
+  */
   readonly eventType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_arn CloudfrontDistribution#function_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_arn CloudfrontDistribution#function_arn}
+  */
   readonly functionArn: string;
 }
 
-export function cloudfrontDistributionOrderedCacheBehaviorFunctionAssociationToTerraform(
-  struct?:
-    | CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOrderedCacheBehaviorFunctionAssociationToTerraform(struct?: CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     event_type: cdktf.stringToTerraform(struct!.eventType),
     function_arn: cdktf.stringToTerraform(struct!.functionArn),
-  };
+  }
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutputReference extends cdktf.ComplexObject {
@@ -2398,29 +1977,16 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2437,21 +2003,18 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._eventType = undefined;
       this._functionArn = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._eventType = value.eventType;
@@ -2460,7 +2023,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string;
+  private _eventType?: string; 
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -2473,7 +2036,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
   }
 
   // function_arn - computed: false, optional: false, required: true
-  private _functionArn?: string;
+  private _functionArn?: string; 
   public get functionArn() {
     return this.getStringAttribute('function_arn');
   }
@@ -2487,70 +2050,49 @@ export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutput
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutputReference {
-    return new CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutputReference {
+    return new CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#event_type CloudfrontDistribution#event_type}
+  */
   readonly eventType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#include_body CloudfrontDistribution#include_body}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#include_body CloudfrontDistribution#include_body}
+  */
   readonly includeBody?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_arn CloudfrontDistribution#lambda_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_arn CloudfrontDistribution#lambda_arn}
+  */
   readonly lambdaArn: string;
 }
 
-export function cloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationToTerraform(
-  struct?:
-    | CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationToTerraform(struct?: CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     event_type: cdktf.stringToTerraform(struct!.eventType),
     include_body: cdktf.booleanToTerraform(struct!.includeBody),
     lambda_arn: cdktf.stringToTerraform(struct!.lambdaArn),
-  };
+  }
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationOutputReference extends cdktf.ComplexObject {
@@ -2558,29 +2100,16 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2601,22 +2130,19 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._eventType = undefined;
       this._includeBody = undefined;
       this._lambdaArn = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._eventType = value.eventType;
@@ -2626,7 +2152,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   }
 
   // event_type - computed: false, optional: false, required: true
-  private _eventType?: string;
+  private _eventType?: string; 
   public get eventType() {
     return this.getStringAttribute('event_type');
   }
@@ -2639,7 +2165,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   }
 
   // include_body - computed: false, optional: true, required: false
-  private _includeBody?: boolean | cdktf.IResolvable;
+  private _includeBody?: boolean | cdktf.IResolvable; 
   public get includeBody() {
     return this.getBooleanAttribute('include_body');
   }
@@ -2655,7 +2181,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
   }
 
   // lambda_arn - computed: false, optional: false, required: true
-  private _lambdaArn?: string;
+  private _lambdaArn?: string; 
   public get lambdaArn() {
     return this.getStringAttribute('lambda_arn');
   }
@@ -2669,194 +2195,140 @@ export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationOutputReference {
-    return new CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationOutputReference {
+    return new CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionOrderedCacheBehavior {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#allowed_methods CloudfrontDistribution#allowed_methods}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#allowed_methods CloudfrontDistribution#allowed_methods}
+  */
   readonly allowedMethods: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cache_policy_id CloudfrontDistribution#cache_policy_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cache_policy_id CloudfrontDistribution#cache_policy_id}
+  */
   readonly cachePolicyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cached_methods CloudfrontDistribution#cached_methods}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cached_methods CloudfrontDistribution#cached_methods}
+  */
   readonly cachedMethods: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#compress CloudfrontDistribution#compress}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#compress CloudfrontDistribution#compress}
+  */
   readonly compress?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_ttl CloudfrontDistribution#default_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#default_ttl CloudfrontDistribution#default_ttl}
+  */
   readonly defaultTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#field_level_encryption_id CloudfrontDistribution#field_level_encryption_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#field_level_encryption_id CloudfrontDistribution#field_level_encryption_id}
+  */
   readonly fieldLevelEncryptionId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#max_ttl CloudfrontDistribution#max_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#max_ttl CloudfrontDistribution#max_ttl}
+  */
   readonly maxTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#min_ttl CloudfrontDistribution#min_ttl}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#min_ttl CloudfrontDistribution#min_ttl}
+  */
   readonly minTtl?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_request_policy_id CloudfrontDistribution#origin_request_policy_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_request_policy_id CloudfrontDistribution#origin_request_policy_id}
+  */
   readonly originRequestPolicyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#path_pattern CloudfrontDistribution#path_pattern}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#path_pattern CloudfrontDistribution#path_pattern}
+  */
   readonly pathPattern: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#realtime_log_config_arn CloudfrontDistribution#realtime_log_config_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#realtime_log_config_arn CloudfrontDistribution#realtime_log_config_arn}
+  */
   readonly realtimeLogConfigArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_headers_policy_id CloudfrontDistribution#response_headers_policy_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#response_headers_policy_id CloudfrontDistribution#response_headers_policy_id}
+  */
   readonly responseHeadersPolicyId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#smooth_streaming CloudfrontDistribution#smooth_streaming}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#smooth_streaming CloudfrontDistribution#smooth_streaming}
+  */
   readonly smoothStreaming?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#target_origin_id CloudfrontDistribution#target_origin_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#target_origin_id CloudfrontDistribution#target_origin_id}
+  */
   readonly targetOriginId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_key_groups CloudfrontDistribution#trusted_key_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_key_groups CloudfrontDistribution#trusted_key_groups}
+  */
   readonly trustedKeyGroups?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_signers CloudfrontDistribution#trusted_signers}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#trusted_signers CloudfrontDistribution#trusted_signers}
+  */
   readonly trustedSigners?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_protocol_policy CloudfrontDistribution#viewer_protocol_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#viewer_protocol_policy CloudfrontDistribution#viewer_protocol_policy}
+  */
   readonly viewerProtocolPolicy: string;
   /**
-   * forwarded_values block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forwarded_values CloudfrontDistribution#forwarded_values}
-   */
+  * forwarded_values block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#forwarded_values CloudfrontDistribution#forwarded_values}
+  */
   readonly forwardedValues?: CloudfrontDistributionOrderedCacheBehaviorForwardedValues;
   /**
-   * function_association block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_association CloudfrontDistribution#function_association}
-   */
-  readonly functionAssociation?:
-    | CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[]
-    | cdktf.IResolvable;
+  * function_association block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#function_association CloudfrontDistribution#function_association}
+  */
+  readonly functionAssociation?: CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[] | cdktf.IResolvable;
   /**
-   * lambda_function_association block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_function_association CloudfrontDistribution#lambda_function_association}
-   */
-  readonly lambdaFunctionAssociation?:
-    | CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[]
-    | cdktf.IResolvable;
+  * lambda_function_association block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#lambda_function_association CloudfrontDistribution#lambda_function_association}
+  */
+  readonly lambdaFunctionAssociation?: CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable;
 }
 
-export function cloudfrontDistributionOrderedCacheBehaviorToTerraform(
-  struct?: CloudfrontDistributionOrderedCacheBehavior | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOrderedCacheBehaviorToTerraform(struct?: CloudfrontDistributionOrderedCacheBehavior | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    allowed_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.allowedMethods),
+    allowed_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.allowedMethods),
     cache_policy_id: cdktf.stringToTerraform(struct!.cachePolicyId),
-    cached_methods: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.cachedMethods),
+    cached_methods: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.cachedMethods),
     compress: cdktf.booleanToTerraform(struct!.compress),
     default_ttl: cdktf.numberToTerraform(struct!.defaultTtl),
-    field_level_encryption_id: cdktf.stringToTerraform(
-      struct!.fieldLevelEncryptionId,
-    ),
+    field_level_encryption_id: cdktf.stringToTerraform(struct!.fieldLevelEncryptionId),
     max_ttl: cdktf.numberToTerraform(struct!.maxTtl),
     min_ttl: cdktf.numberToTerraform(struct!.minTtl),
-    origin_request_policy_id: cdktf.stringToTerraform(
-      struct!.originRequestPolicyId,
-    ),
+    origin_request_policy_id: cdktf.stringToTerraform(struct!.originRequestPolicyId),
     path_pattern: cdktf.stringToTerraform(struct!.pathPattern),
-    realtime_log_config_arn: cdktf.stringToTerraform(
-      struct!.realtimeLogConfigArn,
-    ),
-    response_headers_policy_id: cdktf.stringToTerraform(
-      struct!.responseHeadersPolicyId,
-    ),
+    realtime_log_config_arn: cdktf.stringToTerraform(struct!.realtimeLogConfigArn),
+    response_headers_policy_id: cdktf.stringToTerraform(struct!.responseHeadersPolicyId),
     smooth_streaming: cdktf.booleanToTerraform(struct!.smoothStreaming),
     target_origin_id: cdktf.stringToTerraform(struct!.targetOriginId),
-    trusted_key_groups: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.trustedKeyGroups),
-    trusted_signers: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.trustedSigners),
-    viewer_protocol_policy: cdktf.stringToTerraform(
-      struct!.viewerProtocolPolicy,
-    ),
-    forwarded_values:
-      cloudfrontDistributionOrderedCacheBehaviorForwardedValuesToTerraform(
-        struct!.forwardedValues,
-      ),
-    function_association: cdktf.listMapper(
-      cloudfrontDistributionOrderedCacheBehaviorFunctionAssociationToTerraform,
-      true,
-    )(struct!.functionAssociation),
-    lambda_function_association: cdktf.listMapper(
-      cloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationToTerraform,
-      true,
-    )(struct!.lambdaFunctionAssociation),
-  };
+    trusted_key_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.trustedKeyGroups),
+    trusted_signers: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.trustedSigners),
+    viewer_protocol_policy: cdktf.stringToTerraform(struct!.viewerProtocolPolicy),
+    forwarded_values: cloudfrontDistributionOrderedCacheBehaviorForwardedValuesToTerraform(struct!.forwardedValues),
+    function_association: cdktf.listMapper(cloudfrontDistributionOrderedCacheBehaviorFunctionAssociationToTerraform, true)(struct!.functionAssociation),
+    lambda_function_association: cdktf.listMapper(cloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationToTerraform, true)(struct!.lambdaFunctionAssociation),
+  }
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends cdktf.ComplexObject {
@@ -2864,29 +2336,16 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOrderedCacheBehavior
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOrderedCacheBehavior | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -2938,8 +2397,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
     }
     if (this._responseHeadersPolicyId !== undefined) {
       hasAnyValues = true;
-      internalValueResult.responseHeadersPolicyId =
-        this._responseHeadersPolicyId;
+      internalValueResult.responseHeadersPolicyId = this._responseHeadersPolicyId;
     }
     if (this._smoothStreaming !== undefined) {
       hasAnyValues = true;
@@ -2963,28 +2421,20 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
     }
     if (this._forwardedValues?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.forwardedValues =
-        this._forwardedValues?.internalValue;
+      internalValueResult.forwardedValues = this._forwardedValues?.internalValue;
     }
     if (this._functionAssociation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.functionAssociation =
-        this._functionAssociation?.internalValue;
+      internalValueResult.functionAssociation = this._functionAssociation?.internalValue;
     }
     if (this._lambdaFunctionAssociation?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.lambdaFunctionAssociation =
-        this._lambdaFunctionAssociation?.internalValue;
+      internalValueResult.lambdaFunctionAssociation = this._lambdaFunctionAssociation?.internalValue;
     }
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOrderedCacheBehavior
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOrderedCacheBehavior | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -3008,10 +2458,12 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
       this._forwardedValues.internalValue = undefined;
       this._functionAssociation.internalValue = undefined;
       this._lambdaFunctionAssociation.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._allowedMethods = value.allowedMethods;
@@ -3033,13 +2485,12 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
       this._viewerProtocolPolicy = value.viewerProtocolPolicy;
       this._forwardedValues.internalValue = value.forwardedValues;
       this._functionAssociation.internalValue = value.functionAssociation;
-      this._lambdaFunctionAssociation.internalValue =
-        value.lambdaFunctionAssociation;
+      this._lambdaFunctionAssociation.internalValue = value.lambdaFunctionAssociation;
     }
   }
 
   // allowed_methods - computed: false, optional: false, required: true
-  private _allowedMethods?: string[];
+  private _allowedMethods?: string[]; 
   public get allowedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('allowed_methods'));
   }
@@ -3052,7 +2503,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // cache_policy_id - computed: false, optional: true, required: false
-  private _cachePolicyId?: string;
+  private _cachePolicyId?: string; 
   public get cachePolicyId() {
     return this.getStringAttribute('cache_policy_id');
   }
@@ -3068,7 +2519,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // cached_methods - computed: false, optional: false, required: true
-  private _cachedMethods?: string[];
+  private _cachedMethods?: string[]; 
   public get cachedMethods() {
     return cdktf.Fn.tolist(this.getListAttribute('cached_methods'));
   }
@@ -3081,7 +2532,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // compress - computed: false, optional: true, required: false
-  private _compress?: boolean | cdktf.IResolvable;
+  private _compress?: boolean | cdktf.IResolvable; 
   public get compress() {
     return this.getBooleanAttribute('compress');
   }
@@ -3097,7 +2548,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // default_ttl - computed: true, optional: true, required: false
-  private _defaultTtl?: number;
+  private _defaultTtl?: number; 
   public get defaultTtl() {
     return this.getNumberAttribute('default_ttl');
   }
@@ -3113,7 +2564,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // field_level_encryption_id - computed: false, optional: true, required: false
-  private _fieldLevelEncryptionId?: string;
+  private _fieldLevelEncryptionId?: string; 
   public get fieldLevelEncryptionId() {
     return this.getStringAttribute('field_level_encryption_id');
   }
@@ -3129,7 +2580,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // max_ttl - computed: true, optional: true, required: false
-  private _maxTtl?: number;
+  private _maxTtl?: number; 
   public get maxTtl() {
     return this.getNumberAttribute('max_ttl');
   }
@@ -3145,7 +2596,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // min_ttl - computed: false, optional: true, required: false
-  private _minTtl?: number;
+  private _minTtl?: number; 
   public get minTtl() {
     return this.getNumberAttribute('min_ttl');
   }
@@ -3161,7 +2612,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // origin_request_policy_id - computed: false, optional: true, required: false
-  private _originRequestPolicyId?: string;
+  private _originRequestPolicyId?: string; 
   public get originRequestPolicyId() {
     return this.getStringAttribute('origin_request_policy_id');
   }
@@ -3177,7 +2628,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // path_pattern - computed: false, optional: false, required: true
-  private _pathPattern?: string;
+  private _pathPattern?: string; 
   public get pathPattern() {
     return this.getStringAttribute('path_pattern');
   }
@@ -3190,7 +2641,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // realtime_log_config_arn - computed: false, optional: true, required: false
-  private _realtimeLogConfigArn?: string;
+  private _realtimeLogConfigArn?: string; 
   public get realtimeLogConfigArn() {
     return this.getStringAttribute('realtime_log_config_arn');
   }
@@ -3206,7 +2657,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // response_headers_policy_id - computed: false, optional: true, required: false
-  private _responseHeadersPolicyId?: string;
+  private _responseHeadersPolicyId?: string; 
   public get responseHeadersPolicyId() {
     return this.getStringAttribute('response_headers_policy_id');
   }
@@ -3222,7 +2673,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // smooth_streaming - computed: false, optional: true, required: false
-  private _smoothStreaming?: boolean | cdktf.IResolvable;
+  private _smoothStreaming?: boolean | cdktf.IResolvable; 
   public get smoothStreaming() {
     return this.getBooleanAttribute('smooth_streaming');
   }
@@ -3238,7 +2689,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // target_origin_id - computed: false, optional: false, required: true
-  private _targetOriginId?: string;
+  private _targetOriginId?: string; 
   public get targetOriginId() {
     return this.getStringAttribute('target_origin_id');
   }
@@ -3251,7 +2702,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // trusted_key_groups - computed: false, optional: true, required: false
-  private _trustedKeyGroups?: string[];
+  private _trustedKeyGroups?: string[]; 
   public get trustedKeyGroups() {
     return this.getListAttribute('trusted_key_groups');
   }
@@ -3267,7 +2718,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // trusted_signers - computed: false, optional: true, required: false
-  private _trustedSigners?: string[];
+  private _trustedSigners?: string[]; 
   public get trustedSigners() {
     return this.getListAttribute('trusted_signers');
   }
@@ -3283,7 +2734,7 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // viewer_protocol_policy - computed: false, optional: false, required: true
-  private _viewerProtocolPolicy?: string;
+  private _viewerProtocolPolicy?: string; 
   public get viewerProtocolPolicy() {
     return this.getStringAttribute('viewer_protocol_policy');
   }
@@ -3296,17 +2747,11 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // forwarded_values - computed: false, optional: true, required: false
-  private _forwardedValues =
-    new CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputReference(
-      this,
-      'forwarded_values',
-    );
+  private _forwardedValues = new CloudfrontDistributionOrderedCacheBehaviorForwardedValuesOutputReference(this, "forwarded_values");
   public get forwardedValues() {
     return this._forwardedValues;
   }
-  public putForwardedValues(
-    value: CloudfrontDistributionOrderedCacheBehaviorForwardedValues,
-  ) {
+  public putForwardedValues(value: CloudfrontDistributionOrderedCacheBehaviorForwardedValues) {
     this._forwardedValues.internalValue = value;
   }
   public resetForwardedValues() {
@@ -3318,20 +2763,11 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // function_association - computed: false, optional: true, required: false
-  private _functionAssociation =
-    new CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationList(
-      this,
-      'function_association',
-      true,
-    );
+  private _functionAssociation = new CloudfrontDistributionOrderedCacheBehaviorFunctionAssociationList(this, "function_association", true);
   public get functionAssociation() {
     return this._functionAssociation;
   }
-  public putFunctionAssociation(
-    value:
-      | CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[]
-      | cdktf.IResolvable,
-  ) {
+  public putFunctionAssociation(value: CloudfrontDistributionOrderedCacheBehaviorFunctionAssociation[] | cdktf.IResolvable) {
     this._functionAssociation.internalValue = value;
   }
   public resetFunctionAssociation() {
@@ -3343,20 +2779,11 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
   }
 
   // lambda_function_association - computed: false, optional: true, required: false
-  private _lambdaFunctionAssociation =
-    new CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationList(
-      this,
-      'lambda_function_association',
-      true,
-    );
+  private _lambdaFunctionAssociation = new CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociationList(this, "lambda_function_association", true);
   public get lambdaFunctionAssociation() {
     return this._lambdaFunctionAssociation;
   }
-  public putLambdaFunctionAssociation(
-    value:
-      | CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[]
-      | cdktf.IResolvable,
-  ) {
+  public putLambdaFunctionAssociation(value: CloudfrontDistributionOrderedCacheBehaviorLambdaFunctionAssociation[] | cdktf.IResolvable) {
     this._lambdaFunctionAssociation.internalValue = value;
   }
   public resetLambdaFunctionAssociation() {
@@ -3369,63 +2796,44 @@ export class CloudfrontDistributionOrderedCacheBehaviorOutputReference extends c
 }
 
 export class CloudfrontDistributionOrderedCacheBehaviorList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionOrderedCacheBehavior[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOrderedCacheBehavior[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionOrderedCacheBehaviorOutputReference {
-    return new CloudfrontDistributionOrderedCacheBehaviorOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionOrderedCacheBehaviorOutputReference {
+    return new CloudfrontDistributionOrderedCacheBehaviorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionOriginCustomHeader {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#name CloudfrontDistribution#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#name CloudfrontDistribution#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#value CloudfrontDistribution#value}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#value CloudfrontDistribution#value}
+  */
   readonly value: string;
 }
 
-export function cloudfrontDistributionOriginCustomHeaderToTerraform(
-  struct?: CloudfrontDistributionOriginCustomHeader | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginCustomHeaderToTerraform(struct?: CloudfrontDistributionOriginCustomHeader | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     value: cdktf.stringToTerraform(struct!.value),
-  };
+  }
 }
 
 export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdktf.ComplexObject {
@@ -3433,29 +2841,16 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginCustomHeader
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginCustomHeader | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -3472,21 +2867,18 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOriginCustomHeader
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginCustomHeader | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._value = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -3495,7 +2887,7 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -3508,7 +2900,7 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
   }
 
   // value - computed: false, optional: false, required: true
-  private _value?: string;
+  private _value?: string; 
   public get value() {
     return this.getStringAttribute('value');
   }
@@ -3522,111 +2914,78 @@ export class CloudfrontDistributionOriginCustomHeaderOutputReference extends cdk
 }
 
 export class CloudfrontDistributionOriginCustomHeaderList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionOriginCustomHeader[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOriginCustomHeader[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionOriginCustomHeaderOutputReference {
-    return new CloudfrontDistributionOriginCustomHeaderOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionOriginCustomHeaderOutputReference {
+    return new CloudfrontDistributionOriginCustomHeaderOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionOriginCustomOriginConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#http_port CloudfrontDistribution#http_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#http_port CloudfrontDistribution#http_port}
+  */
   readonly httpPort: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#https_port CloudfrontDistribution#https_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#https_port CloudfrontDistribution#https_port}
+  */
   readonly httpsPort: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_keepalive_timeout CloudfrontDistribution#origin_keepalive_timeout}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_keepalive_timeout CloudfrontDistribution#origin_keepalive_timeout}
+  */
   readonly originKeepaliveTimeout?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_protocol_policy CloudfrontDistribution#origin_protocol_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_protocol_policy CloudfrontDistribution#origin_protocol_policy}
+  */
   readonly originProtocolPolicy: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_read_timeout CloudfrontDistribution#origin_read_timeout}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_read_timeout CloudfrontDistribution#origin_read_timeout}
+  */
   readonly originReadTimeout?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_ssl_protocols CloudfrontDistribution#origin_ssl_protocols}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_ssl_protocols CloudfrontDistribution#origin_ssl_protocols}
+  */
   readonly originSslProtocols: string[];
 }
 
-export function cloudfrontDistributionOriginCustomOriginConfigToTerraform(
-  struct?:
-    | CloudfrontDistributionOriginCustomOriginConfigOutputReference
-    | CloudfrontDistributionOriginCustomOriginConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginCustomOriginConfigToTerraform(struct?: CloudfrontDistributionOriginCustomOriginConfigOutputReference | CloudfrontDistributionOriginCustomOriginConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     http_port: cdktf.numberToTerraform(struct!.httpPort),
     https_port: cdktf.numberToTerraform(struct!.httpsPort),
-    origin_keepalive_timeout: cdktf.numberToTerraform(
-      struct!.originKeepaliveTimeout,
-    ),
-    origin_protocol_policy: cdktf.stringToTerraform(
-      struct!.originProtocolPolicy,
-    ),
+    origin_keepalive_timeout: cdktf.numberToTerraform(struct!.originKeepaliveTimeout),
+    origin_protocol_policy: cdktf.stringToTerraform(struct!.originProtocolPolicy),
     origin_read_timeout: cdktf.numberToTerraform(struct!.originReadTimeout),
-    origin_ssl_protocols: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.originSslProtocols),
-  };
+    origin_ssl_protocols: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.originSslProtocols),
+  }
 }
 
 export class CloudfrontDistributionOriginCustomOriginConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginCustomOriginConfig
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginCustomOriginConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._httpPort !== undefined) {
@@ -3656,9 +3015,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionOriginCustomOriginConfig | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginCustomOriginConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._httpPort = undefined;
@@ -3667,7 +3024,8 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
       this._originProtocolPolicy = undefined;
       this._originReadTimeout = undefined;
       this._originSslProtocols = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._httpPort = value.httpPort;
       this._httpsPort = value.httpsPort;
@@ -3679,7 +3037,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // http_port - computed: false, optional: false, required: true
-  private _httpPort?: number;
+  private _httpPort?: number; 
   public get httpPort() {
     return this.getNumberAttribute('http_port');
   }
@@ -3692,7 +3050,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // https_port - computed: false, optional: false, required: true
-  private _httpsPort?: number;
+  private _httpsPort?: number; 
   public get httpsPort() {
     return this.getNumberAttribute('https_port');
   }
@@ -3705,7 +3063,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_keepalive_timeout - computed: false, optional: true, required: false
-  private _originKeepaliveTimeout?: number;
+  private _originKeepaliveTimeout?: number; 
   public get originKeepaliveTimeout() {
     return this.getNumberAttribute('origin_keepalive_timeout');
   }
@@ -3721,7 +3079,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_protocol_policy - computed: false, optional: false, required: true
-  private _originProtocolPolicy?: string;
+  private _originProtocolPolicy?: string; 
   public get originProtocolPolicy() {
     return this.getStringAttribute('origin_protocol_policy');
   }
@@ -3734,7 +3092,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_read_timeout - computed: false, optional: true, required: false
-  private _originReadTimeout?: number;
+  private _originReadTimeout?: number; 
   public get originReadTimeout() {
     return this.getNumberAttribute('origin_read_timeout');
   }
@@ -3750,7 +3108,7 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
   }
 
   // origin_ssl_protocols - computed: false, optional: false, required: true
-  private _originSslProtocols?: string[];
+  private _originSslProtocols?: string[]; 
   public get originSslProtocols() {
     return cdktf.Fn.tolist(this.getListAttribute('origin_ssl_protocols'));
   }
@@ -3764,51 +3122,38 @@ export class CloudfrontDistributionOriginCustomOriginConfigOutputReference exten
 }
 export interface CloudfrontDistributionOriginOriginShield {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#enabled CloudfrontDistribution#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#enabled CloudfrontDistribution#enabled}
+  */
   readonly enabled: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_shield_region CloudfrontDistribution#origin_shield_region}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_shield_region CloudfrontDistribution#origin_shield_region}
+  */
   readonly originShieldRegion: string;
 }
 
-export function cloudfrontDistributionOriginOriginShieldToTerraform(
-  struct?:
-    | CloudfrontDistributionOriginOriginShieldOutputReference
-    | CloudfrontDistributionOriginOriginShield,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginOriginShieldToTerraform(struct?: CloudfrontDistributionOriginOriginShieldOutputReference | CloudfrontDistributionOriginOriginShield): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
     origin_shield_region: cdktf.stringToTerraform(struct!.originShieldRegion),
-  };
+  }
 }
 
 export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginOriginShield
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginOriginShield | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -3822,14 +3167,13 @@ export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionOriginOriginShield | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginOriginShield | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._originShieldRegion = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._originShieldRegion = value.originShieldRegion;
@@ -3837,7 +3181,7 @@ export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdk
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -3850,7 +3194,7 @@ export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdk
   }
 
   // origin_shield_region - computed: false, optional: false, required: true
-  private _originShieldRegion?: string;
+  private _originShieldRegion?: string; 
   public get originShieldRegion() {
     return this.getStringAttribute('origin_shield_region');
   }
@@ -3864,48 +3208,33 @@ export class CloudfrontDistributionOriginOriginShieldOutputReference extends cdk
 }
 export interface CloudfrontDistributionOriginS3OriginConfig {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_access_identity CloudfrontDistribution#origin_access_identity}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_access_identity CloudfrontDistribution#origin_access_identity}
+  */
   readonly originAccessIdentity: string;
 }
 
-export function cloudfrontDistributionOriginS3OriginConfigToTerraform(
-  struct?:
-    | CloudfrontDistributionOriginS3OriginConfigOutputReference
-    | CloudfrontDistributionOriginS3OriginConfig,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginS3OriginConfigToTerraform(struct?: CloudfrontDistributionOriginS3OriginConfigOutputReference | CloudfrontDistributionOriginS3OriginConfig): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    origin_access_identity: cdktf.stringToTerraform(
-      struct!.originAccessIdentity,
-    ),
-  };
+    origin_access_identity: cdktf.stringToTerraform(struct!.originAccessIdentity),
+  }
 }
 
 export class CloudfrontDistributionOriginS3OriginConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginS3OriginConfig
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginS3OriginConfig | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._originAccessIdentity !== undefined) {
@@ -3915,20 +3244,19 @@ export class CloudfrontDistributionOriginS3OriginConfigOutputReference extends c
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionOriginS3OriginConfig | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginS3OriginConfig | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._originAccessIdentity = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._originAccessIdentity = value.originAccessIdentity;
     }
   }
 
   // origin_access_identity - computed: false, optional: false, required: true
-  private _originAccessIdentity?: string;
+  private _originAccessIdentity?: string; 
   public get originAccessIdentity() {
     return this.getStringAttribute('origin_access_identity');
   }
@@ -3942,92 +3270,72 @@ export class CloudfrontDistributionOriginS3OriginConfigOutputReference extends c
 }
 export interface CloudfrontDistributionOrigin {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#connection_attempts CloudfrontDistribution#connection_attempts}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#connection_attempts CloudfrontDistribution#connection_attempts}
+  */
   readonly connectionAttempts?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#connection_timeout CloudfrontDistribution#connection_timeout}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#connection_timeout CloudfrontDistribution#connection_timeout}
+  */
   readonly connectionTimeout?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#domain_name CloudfrontDistribution#domain_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#domain_name CloudfrontDistribution#domain_name}
+  */
   readonly domainName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_access_control_id CloudfrontDistribution#origin_access_control_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_access_control_id CloudfrontDistribution#origin_access_control_id}
+  */
   readonly originAccessControlId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_id CloudfrontDistribution#origin_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_id CloudfrontDistribution#origin_id}
+  */
   readonly originId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_path CloudfrontDistribution#origin_path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_path CloudfrontDistribution#origin_path}
+  */
   readonly originPath?: string;
   /**
-   * custom_header block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_header CloudfrontDistribution#custom_header}
-   */
-  readonly customHeader?:
-    | CloudfrontDistributionOriginCustomHeader[]
-    | cdktf.IResolvable;
+  * custom_header block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_header CloudfrontDistribution#custom_header}
+  */
+  readonly customHeader?: CloudfrontDistributionOriginCustomHeader[] | cdktf.IResolvable;
   /**
-   * custom_origin_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_origin_config CloudfrontDistribution#custom_origin_config}
-   */
+  * custom_origin_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#custom_origin_config CloudfrontDistribution#custom_origin_config}
+  */
   readonly customOriginConfig?: CloudfrontDistributionOriginCustomOriginConfig;
   /**
-   * origin_shield block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_shield CloudfrontDistribution#origin_shield}
-   */
+  * origin_shield block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_shield CloudfrontDistribution#origin_shield}
+  */
   readonly originShield?: CloudfrontDistributionOriginOriginShield;
   /**
-   * s3_origin_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#s3_origin_config CloudfrontDistribution#s3_origin_config}
-   */
+  * s3_origin_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#s3_origin_config CloudfrontDistribution#s3_origin_config}
+  */
   readonly s3OriginConfig?: CloudfrontDistributionOriginS3OriginConfig;
 }
 
-export function cloudfrontDistributionOriginToTerraform(
-  struct?: CloudfrontDistributionOrigin | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginToTerraform(struct?: CloudfrontDistributionOrigin | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     connection_attempts: cdktf.numberToTerraform(struct!.connectionAttempts),
     connection_timeout: cdktf.numberToTerraform(struct!.connectionTimeout),
     domain_name: cdktf.stringToTerraform(struct!.domainName),
-    origin_access_control_id: cdktf.stringToTerraform(
-      struct!.originAccessControlId,
-    ),
+    origin_access_control_id: cdktf.stringToTerraform(struct!.originAccessControlId),
     origin_id: cdktf.stringToTerraform(struct!.originId),
     origin_path: cdktf.stringToTerraform(struct!.originPath),
-    custom_header: cdktf.listMapper(
-      cloudfrontDistributionOriginCustomHeaderToTerraform,
-      true,
-    )(struct!.customHeader),
-    custom_origin_config:
-      cloudfrontDistributionOriginCustomOriginConfigToTerraform(
-        struct!.customOriginConfig,
-      ),
-    origin_shield: cloudfrontDistributionOriginOriginShieldToTerraform(
-      struct!.originShield,
-    ),
-    s3_origin_config: cloudfrontDistributionOriginS3OriginConfigToTerraform(
-      struct!.s3OriginConfig,
-    ),
-  };
+    custom_header: cdktf.listMapper(cloudfrontDistributionOriginCustomHeaderToTerraform, true)(struct!.customHeader),
+    custom_origin_config: cloudfrontDistributionOriginCustomOriginConfigToTerraform(struct!.customOriginConfig),
+    origin_shield: cloudfrontDistributionOriginOriginShieldToTerraform(struct!.originShield),
+    s3_origin_config: cloudfrontDistributionOriginS3OriginConfigToTerraform(struct!.s3OriginConfig),
+  }
 }
 
 export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexObject {
@@ -4035,29 +3343,16 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOrigin
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOrigin | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4093,8 +3388,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
     }
     if (this._customOriginConfig?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.customOriginConfig =
-        this._customOriginConfig?.internalValue;
+      internalValueResult.customOriginConfig = this._customOriginConfig?.internalValue;
     }
     if (this._originShield?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4107,9 +3401,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionOrigin | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOrigin | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -4123,10 +3415,12 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
       this._customOriginConfig.internalValue = undefined;
       this._originShield.internalValue = undefined;
       this._s3OriginConfig.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._connectionAttempts = value.connectionAttempts;
@@ -4143,7 +3437,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // connection_attempts - computed: false, optional: true, required: false
-  private _connectionAttempts?: number;
+  private _connectionAttempts?: number; 
   public get connectionAttempts() {
     return this.getNumberAttribute('connection_attempts');
   }
@@ -4159,7 +3453,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // connection_timeout - computed: false, optional: true, required: false
-  private _connectionTimeout?: number;
+  private _connectionTimeout?: number; 
   public get connectionTimeout() {
     return this.getNumberAttribute('connection_timeout');
   }
@@ -4175,7 +3469,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // domain_name - computed: false, optional: false, required: true
-  private _domainName?: string;
+  private _domainName?: string; 
   public get domainName() {
     return this.getStringAttribute('domain_name');
   }
@@ -4188,7 +3482,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_access_control_id - computed: false, optional: true, required: false
-  private _originAccessControlId?: string;
+  private _originAccessControlId?: string; 
   public get originAccessControlId() {
     return this.getStringAttribute('origin_access_control_id');
   }
@@ -4204,7 +3498,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_id - computed: false, optional: false, required: true
-  private _originId?: string;
+  private _originId?: string; 
   public get originId() {
     return this.getStringAttribute('origin_id');
   }
@@ -4217,7 +3511,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_path - computed: false, optional: true, required: false
-  private _originPath?: string;
+  private _originPath?: string; 
   public get originPath() {
     return this.getStringAttribute('origin_path');
   }
@@ -4233,17 +3527,11 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // custom_header - computed: false, optional: true, required: false
-  private _customHeader = new CloudfrontDistributionOriginCustomHeaderList(
-    this,
-    'custom_header',
-    true,
-  );
+  private _customHeader = new CloudfrontDistributionOriginCustomHeaderList(this, "custom_header", true);
   public get customHeader() {
     return this._customHeader;
   }
-  public putCustomHeader(
-    value: CloudfrontDistributionOriginCustomHeader[] | cdktf.IResolvable,
-  ) {
+  public putCustomHeader(value: CloudfrontDistributionOriginCustomHeader[] | cdktf.IResolvable) {
     this._customHeader.internalValue = value;
   }
   public resetCustomHeader() {
@@ -4255,17 +3543,11 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // custom_origin_config - computed: false, optional: true, required: false
-  private _customOriginConfig =
-    new CloudfrontDistributionOriginCustomOriginConfigOutputReference(
-      this,
-      'custom_origin_config',
-    );
+  private _customOriginConfig = new CloudfrontDistributionOriginCustomOriginConfigOutputReference(this, "custom_origin_config");
   public get customOriginConfig() {
     return this._customOriginConfig;
   }
-  public putCustomOriginConfig(
-    value: CloudfrontDistributionOriginCustomOriginConfig,
-  ) {
+  public putCustomOriginConfig(value: CloudfrontDistributionOriginCustomOriginConfig) {
     this._customOriginConfig.internalValue = value;
   }
   public resetCustomOriginConfig() {
@@ -4277,11 +3559,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // origin_shield - computed: false, optional: true, required: false
-  private _originShield =
-    new CloudfrontDistributionOriginOriginShieldOutputReference(
-      this,
-      'origin_shield',
-    );
+  private _originShield = new CloudfrontDistributionOriginOriginShieldOutputReference(this, "origin_shield");
   public get originShield() {
     return this._originShield;
   }
@@ -4297,11 +3575,7 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
   }
 
   // s3_origin_config - computed: false, optional: true, required: false
-  private _s3OriginConfig =
-    new CloudfrontDistributionOriginS3OriginConfigOutputReference(
-      this,
-      's3_origin_config',
-    );
+  private _s3OriginConfig = new CloudfrontDistributionOriginS3OriginConfigOutputReference(this, "s3_origin_config");
   public get s3OriginConfig() {
     return this._s3OriginConfig;
   }
@@ -4318,78 +3592,53 @@ export class CloudfrontDistributionOriginOutputReference extends cdktf.ComplexOb
 }
 
 export class CloudfrontDistributionOriginList extends cdktf.ComplexList {
-  public internalValue?: CloudfrontDistributionOrigin[] | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOrigin[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CloudfrontDistributionOriginOutputReference {
-    return new CloudfrontDistributionOriginOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CloudfrontDistributionOriginOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionOriginGroupFailoverCriteria {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#status_codes CloudfrontDistribution#status_codes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#status_codes CloudfrontDistribution#status_codes}
+  */
   readonly statusCodes: number[];
 }
 
-export function cloudfrontDistributionOriginGroupFailoverCriteriaToTerraform(
-  struct?:
-    | CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference
-    | CloudfrontDistributionOriginGroupFailoverCriteria,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginGroupFailoverCriteriaToTerraform(struct?: CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference | CloudfrontDistributionOriginGroupFailoverCriteria): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    status_codes: cdktf.listMapper(
-      cdktf.numberToTerraform,
-      false,
-    )(struct!.statusCodes),
-  };
+    status_codes: cdktf.listMapper(cdktf.numberToTerraform, false)(struct!.statusCodes),
+  }
 }
 
 export class CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginGroupFailoverCriteria
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginGroupFailoverCriteria | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._statusCodes !== undefined) {
@@ -4399,24 +3648,21 @@ export class CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionOriginGroupFailoverCriteria | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginGroupFailoverCriteria | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._statusCodes = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._statusCodes = value.statusCodes;
     }
   }
 
   // status_codes - computed: false, optional: false, required: true
-  private _statusCodes?: number[];
+  private _statusCodes?: number[]; 
   public get statusCodes() {
-    return cdktf.Token.asNumberList(
-      cdktf.Fn.tolist(this.getNumberListAttribute('status_codes')),
-    );
+    return cdktf.Token.asNumberList(cdktf.Fn.tolist(this.getNumberListAttribute('status_codes')));
   }
   public set statusCodes(value: number[]) {
     this._statusCodes = value;
@@ -4428,25 +3674,19 @@ export class CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference ex
 }
 export interface CloudfrontDistributionOriginGroupMember {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_id CloudfrontDistribution#origin_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_id CloudfrontDistribution#origin_id}
+  */
   readonly originId: string;
 }
 
-export function cloudfrontDistributionOriginGroupMemberToTerraform(
-  struct?: CloudfrontDistributionOriginGroupMember | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginGroupMemberToTerraform(struct?: CloudfrontDistributionOriginGroupMember | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     origin_id: cdktf.stringToTerraform(struct!.originId),
-  };
+  }
 }
 
 export class CloudfrontDistributionOriginGroupMemberOutputReference extends cdktf.ComplexObject {
@@ -4454,29 +3694,16 @@ export class CloudfrontDistributionOriginGroupMemberOutputReference extends cdkt
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginGroupMember
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginGroupMember | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4489,20 +3716,17 @@ export class CloudfrontDistributionOriginGroupMemberOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | CloudfrontDistributionOriginGroupMember
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginGroupMember | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._originId = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._originId = value.originId;
@@ -4510,7 +3734,7 @@ export class CloudfrontDistributionOriginGroupMemberOutputReference extends cdkt
   }
 
   // origin_id - computed: false, optional: false, required: true
-  private _originId?: string;
+  private _originId?: string; 
   public get originId() {
     return this.getStringAttribute('origin_id');
   }
@@ -4524,80 +3748,53 @@ export class CloudfrontDistributionOriginGroupMemberOutputReference extends cdkt
 }
 
 export class CloudfrontDistributionOriginGroupMemberList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionOriginGroupMember[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOriginGroupMember[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): CloudfrontDistributionOriginGroupMemberOutputReference {
-    return new CloudfrontDistributionOriginGroupMemberOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): CloudfrontDistributionOriginGroupMemberOutputReference {
+    return new CloudfrontDistributionOriginGroupMemberOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionOriginGroup {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_id CloudfrontDistribution#origin_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#origin_id CloudfrontDistribution#origin_id}
+  */
   readonly originId: string;
   /**
-   * failover_criteria block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#failover_criteria CloudfrontDistribution#failover_criteria}
-   */
+  * failover_criteria block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#failover_criteria CloudfrontDistribution#failover_criteria}
+  */
   readonly failoverCriteria: CloudfrontDistributionOriginGroupFailoverCriteria;
   /**
-   * member block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#member CloudfrontDistribution#member}
-   */
-  readonly member:
-    | CloudfrontDistributionOriginGroupMember[]
-    | cdktf.IResolvable;
+  * member block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#member CloudfrontDistribution#member}
+  */
+  readonly member: CloudfrontDistributionOriginGroupMember[] | cdktf.IResolvable;
 }
 
-export function cloudfrontDistributionOriginGroupToTerraform(
-  struct?: CloudfrontDistributionOriginGroup | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionOriginGroupToTerraform(struct?: CloudfrontDistributionOriginGroup | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     origin_id: cdktf.stringToTerraform(struct!.originId),
-    failover_criteria:
-      cloudfrontDistributionOriginGroupFailoverCriteriaToTerraform(
-        struct!.failoverCriteria,
-      ),
-    member: cdktf.listMapper(
-      cloudfrontDistributionOriginGroupMemberToTerraform,
-      true,
-    )(struct!.member),
-  };
+    failover_criteria: cloudfrontDistributionOriginGroupFailoverCriteriaToTerraform(struct!.failoverCriteria),
+    member: cdktf.listMapper(cloudfrontDistributionOriginGroupMemberToTerraform, true)(struct!.member),
+  }
 }
 
 export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.ComplexObject {
@@ -4605,29 +3802,16 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionOriginGroup
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CloudfrontDistributionOriginGroup | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -4639,8 +3823,7 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
     }
     if (this._failoverCriteria?.internalValue !== undefined) {
       hasAnyValues = true;
-      internalValueResult.failoverCriteria =
-        this._failoverCriteria?.internalValue;
+      internalValueResult.failoverCriteria = this._failoverCriteria?.internalValue;
     }
     if (this._member?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -4649,19 +3832,19 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionOriginGroup | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionOriginGroup | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._originId = undefined;
       this._failoverCriteria.internalValue = undefined;
       this._member.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._originId = value.originId;
@@ -4671,7 +3854,7 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
   }
 
   // origin_id - computed: false, optional: false, required: true
-  private _originId?: string;
+  private _originId?: string; 
   public get originId() {
     return this.getStringAttribute('origin_id');
   }
@@ -4684,17 +3867,11 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
   }
 
   // failover_criteria - computed: false, optional: false, required: true
-  private _failoverCriteria =
-    new CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference(
-      this,
-      'failover_criteria',
-    );
+  private _failoverCriteria = new CloudfrontDistributionOriginGroupFailoverCriteriaOutputReference(this, "failover_criteria");
   public get failoverCriteria() {
     return this._failoverCriteria;
   }
-  public putFailoverCriteria(
-    value: CloudfrontDistributionOriginGroupFailoverCriteria,
-  ) {
+  public putFailoverCriteria(value: CloudfrontDistributionOriginGroupFailoverCriteria) {
     this._failoverCriteria.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -4703,17 +3880,11 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
   }
 
   // member - computed: false, optional: false, required: true
-  private _member = new CloudfrontDistributionOriginGroupMemberList(
-    this,
-    'member',
-    false,
-  );
+  private _member = new CloudfrontDistributionOriginGroupMemberList(this, "member", false);
   public get member() {
     return this._member;
   }
-  public putMember(
-    value: CloudfrontDistributionOriginGroupMember[] | cdktf.IResolvable,
-  ) {
+  public putMember(value: CloudfrontDistributionOriginGroupMember[] | cdktf.IResolvable) {
     this._member.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -4723,85 +3894,58 @@ export class CloudfrontDistributionOriginGroupOutputReference extends cdktf.Comp
 }
 
 export class CloudfrontDistributionOriginGroupList extends cdktf.ComplexList {
-  public internalValue?:
-    | CloudfrontDistributionOriginGroup[]
-    | cdktf.IResolvable;
+  public internalValue? : CloudfrontDistributionOriginGroup[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CloudfrontDistributionOriginGroupOutputReference {
-    return new CloudfrontDistributionOriginGroupOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CloudfrontDistributionOriginGroupOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CloudfrontDistributionRestrictionsGeoRestriction {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#locations CloudfrontDistribution#locations}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#locations CloudfrontDistribution#locations}
+  */
   readonly locations?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#restriction_type CloudfrontDistribution#restriction_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#restriction_type CloudfrontDistribution#restriction_type}
+  */
   readonly restrictionType: string;
 }
 
-export function cloudfrontDistributionRestrictionsGeoRestrictionToTerraform(
-  struct?:
-    | CloudfrontDistributionRestrictionsGeoRestrictionOutputReference
-    | CloudfrontDistributionRestrictionsGeoRestriction,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionRestrictionsGeoRestrictionToTerraform(struct?: CloudfrontDistributionRestrictionsGeoRestrictionOutputReference | CloudfrontDistributionRestrictionsGeoRestriction): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    locations: cdktf.listMapper(
-      cdktf.stringToTerraform,
-      false,
-    )(struct!.locations),
+    locations: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.locations),
     restriction_type: cdktf.stringToTerraform(struct!.restrictionType),
-  };
+  }
 }
 
 export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionRestrictionsGeoRestriction
-    | undefined {
+  public get internalValue(): CloudfrontDistributionRestrictionsGeoRestriction | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._locations !== undefined) {
@@ -4815,14 +3959,13 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionRestrictionsGeoRestriction | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionRestrictionsGeoRestriction | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._locations = undefined;
       this._restrictionType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._locations = value.locations;
       this._restrictionType = value.restrictionType;
@@ -4830,7 +3973,7 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
   }
 
   // locations - computed: true, optional: true, required: false
-  private _locations?: string[];
+  private _locations?: string[]; 
   public get locations() {
     return cdktf.Fn.tolist(this.getListAttribute('locations'));
   }
@@ -4846,7 +3989,7 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
   }
 
   // restriction_type - computed: false, optional: false, required: true
-  private _restrictionType?: string;
+  private _restrictionType?: string; 
   public get restrictionType() {
     return this.getStringAttribute('restriction_type');
   }
@@ -4860,45 +4003,31 @@ export class CloudfrontDistributionRestrictionsGeoRestrictionOutputReference ext
 }
 export interface CloudfrontDistributionRestrictions {
   /**
-   * geo_restriction block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#geo_restriction CloudfrontDistribution#geo_restriction}
-   */
+  * geo_restriction block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#geo_restriction CloudfrontDistribution#geo_restriction}
+  */
   readonly geoRestriction: CloudfrontDistributionRestrictionsGeoRestriction;
 }
 
-export function cloudfrontDistributionRestrictionsToTerraform(
-  struct?:
-    | CloudfrontDistributionRestrictionsOutputReference
-    | CloudfrontDistributionRestrictions,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionRestrictionsToTerraform(struct?: CloudfrontDistributionRestrictionsOutputReference | CloudfrontDistributionRestrictions): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    geo_restriction:
-      cloudfrontDistributionRestrictionsGeoRestrictionToTerraform(
-        struct!.geoRestriction,
-      ),
-  };
+    geo_restriction: cloudfrontDistributionRestrictionsGeoRestrictionToTerraform(struct!.geoRestriction),
+  }
 }
 
 export class CloudfrontDistributionRestrictionsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -4912,30 +4041,23 @@ export class CloudfrontDistributionRestrictionsOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionRestrictions | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionRestrictions | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._geoRestriction.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._geoRestriction.internalValue = value.geoRestriction;
     }
   }
 
   // geo_restriction - computed: false, optional: false, required: true
-  private _geoRestriction =
-    new CloudfrontDistributionRestrictionsGeoRestrictionOutputReference(
-      this,
-      'geo_restriction',
-    );
+  private _geoRestriction = new CloudfrontDistributionRestrictionsGeoRestrictionOutputReference(this, "geo_restriction");
   public get geoRestriction() {
     return this._geoRestriction;
   }
-  public putGeoRestriction(
-    value: CloudfrontDistributionRestrictionsGeoRestriction,
-  ) {
+  public putGeoRestriction(value: CloudfrontDistributionRestrictionsGeoRestriction) {
     this._geoRestriction.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -4945,70 +4067,53 @@ export class CloudfrontDistributionRestrictionsOutputReference extends cdktf.Com
 }
 export interface CloudfrontDistributionViewerCertificate {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#acm_certificate_arn CloudfrontDistribution#acm_certificate_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#acm_certificate_arn CloudfrontDistribution#acm_certificate_arn}
+  */
   readonly acmCertificateArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cloudfront_default_certificate CloudfrontDistribution#cloudfront_default_certificate}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#cloudfront_default_certificate CloudfrontDistribution#cloudfront_default_certificate}
+  */
   readonly cloudfrontDefaultCertificate?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#iam_certificate_id CloudfrontDistribution#iam_certificate_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#iam_certificate_id CloudfrontDistribution#iam_certificate_id}
+  */
   readonly iamCertificateId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#minimum_protocol_version CloudfrontDistribution#minimum_protocol_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#minimum_protocol_version CloudfrontDistribution#minimum_protocol_version}
+  */
   readonly minimumProtocolVersion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#ssl_support_method CloudfrontDistribution#ssl_support_method}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution#ssl_support_method CloudfrontDistribution#ssl_support_method}
+  */
   readonly sslSupportMethod?: string;
 }
 
-export function cloudfrontDistributionViewerCertificateToTerraform(
-  struct?:
-    | CloudfrontDistributionViewerCertificateOutputReference
-    | CloudfrontDistributionViewerCertificate,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function cloudfrontDistributionViewerCertificateToTerraform(struct?: CloudfrontDistributionViewerCertificateOutputReference | CloudfrontDistributionViewerCertificate): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     acm_certificate_arn: cdktf.stringToTerraform(struct!.acmCertificateArn),
-    cloudfront_default_certificate: cdktf.booleanToTerraform(
-      struct!.cloudfrontDefaultCertificate,
-    ),
+    cloudfront_default_certificate: cdktf.booleanToTerraform(struct!.cloudfrontDefaultCertificate),
     iam_certificate_id: cdktf.stringToTerraform(struct!.iamCertificateId),
-    minimum_protocol_version: cdktf.stringToTerraform(
-      struct!.minimumProtocolVersion,
-    ),
+    minimum_protocol_version: cdktf.stringToTerraform(struct!.minimumProtocolVersion),
     ssl_support_method: cdktf.stringToTerraform(struct!.sslSupportMethod),
-  };
+  }
 }
 
 export class CloudfrontDistributionViewerCertificateOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | CloudfrontDistributionViewerCertificate
-    | undefined {
+  public get internalValue(): CloudfrontDistributionViewerCertificate | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._acmCertificateArn !== undefined) {
@@ -5017,8 +4122,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
     }
     if (this._cloudfrontDefaultCertificate !== undefined) {
       hasAnyValues = true;
-      internalValueResult.cloudfrontDefaultCertificate =
-        this._cloudfrontDefaultCertificate;
+      internalValueResult.cloudfrontDefaultCertificate = this._cloudfrontDefaultCertificate;
     }
     if (this._iamCertificateId !== undefined) {
       hasAnyValues = true;
@@ -5035,9 +4139,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CloudfrontDistributionViewerCertificate | undefined,
-  ) {
+  public set internalValue(value: CloudfrontDistributionViewerCertificate | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._acmCertificateArn = undefined;
@@ -5045,7 +4147,8 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
       this._iamCertificateId = undefined;
       this._minimumProtocolVersion = undefined;
       this._sslSupportMethod = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._acmCertificateArn = value.acmCertificateArn;
       this._cloudfrontDefaultCertificate = value.cloudfrontDefaultCertificate;
@@ -5056,7 +4159,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // acm_certificate_arn - computed: false, optional: true, required: false
-  private _acmCertificateArn?: string;
+  private _acmCertificateArn?: string; 
   public get acmCertificateArn() {
     return this.getStringAttribute('acm_certificate_arn');
   }
@@ -5072,7 +4175,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // cloudfront_default_certificate - computed: false, optional: true, required: false
-  private _cloudfrontDefaultCertificate?: boolean | cdktf.IResolvable;
+  private _cloudfrontDefaultCertificate?: boolean | cdktf.IResolvable; 
   public get cloudfrontDefaultCertificate() {
     return this.getBooleanAttribute('cloudfront_default_certificate');
   }
@@ -5088,7 +4191,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // iam_certificate_id - computed: false, optional: true, required: false
-  private _iamCertificateId?: string;
+  private _iamCertificateId?: string; 
   public get iamCertificateId() {
     return this.getStringAttribute('iam_certificate_id');
   }
@@ -5104,7 +4207,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // minimum_protocol_version - computed: false, optional: true, required: false
-  private _minimumProtocolVersion?: string;
+  private _minimumProtocolVersion?: string; 
   public get minimumProtocolVersion() {
     return this.getStringAttribute('minimum_protocol_version');
   }
@@ -5120,7 +4223,7 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
   }
 
   // ssl_support_method - computed: false, optional: true, required: false
-  private _sslSupportMethod?: string;
+  private _sslSupportMethod?: string; 
   public get sslSupportMethod() {
     return this.getStringAttribute('ssl_support_method');
   }
@@ -5137,36 +4240,33 @@ export class CloudfrontDistributionViewerCertificateOutputReference extends cdkt
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution aws_cloudfront_distribution}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution aws_cloudfront_distribution}
+*/
 export class CloudfrontDistribution extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_cloudfront_distribution';
+  public static readonly tfResourceType = "aws_cloudfront_distribution";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution aws_cloudfront_distribution} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CloudfrontDistributionConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CloudfrontDistributionConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution aws_cloudfront_distribution} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CloudfrontDistributionConfig
+  */
+  public constructor(scope: Construct, id: string, config: CloudfrontDistributionConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_cloudfront_distribution',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -5174,7 +4274,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._aliases = config.aliases;
     this._comment = config.comment;
@@ -5204,7 +4304,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   // ==========
 
   // aliases - computed: false, optional: true, required: false
-  private _aliases?: string[];
+  private _aliases?: string[]; 
   public get aliases() {
     return cdktf.Fn.tolist(this.getListAttribute('aliases'));
   }
@@ -5230,7 +4330,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // comment - computed: false, optional: true, required: false
-  private _comment?: string;
+  private _comment?: string; 
   public get comment() {
     return this.getStringAttribute('comment');
   }
@@ -5246,7 +4346,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // default_root_object - computed: false, optional: true, required: false
-  private _defaultRootObject?: string;
+  private _defaultRootObject?: string; 
   public get defaultRootObject() {
     return this.getStringAttribute('default_root_object');
   }
@@ -5267,7 +4367,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // enabled - computed: false, optional: false, required: true
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -5290,7 +4390,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // http_version - computed: false, optional: true, required: false
-  private _httpVersion?: string;
+  private _httpVersion?: string; 
   public get httpVersion() {
     return this.getStringAttribute('http_version');
   }
@@ -5306,7 +4406,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -5327,7 +4427,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // is_ipv6_enabled - computed: false, optional: true, required: false
-  private _isIpv6Enabled?: boolean | cdktf.IResolvable;
+  private _isIpv6Enabled?: boolean | cdktf.IResolvable; 
   public get isIpv6Enabled() {
     return this.getBooleanAttribute('is_ipv6_enabled');
   }
@@ -5348,7 +4448,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // price_class - computed: false, optional: true, required: false
-  private _priceClass?: string;
+  private _priceClass?: string; 
   public get priceClass() {
     return this.getStringAttribute('price_class');
   }
@@ -5364,7 +4464,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // retain_on_delete - computed: false, optional: true, required: false
-  private _retainOnDelete?: boolean | cdktf.IResolvable;
+  private _retainOnDelete?: boolean | cdktf.IResolvable; 
   public get retainOnDelete() {
     return this.getBooleanAttribute('retain_on_delete');
   }
@@ -5385,7 +4485,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -5401,7 +4501,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -5417,27 +4517,19 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // trusted_key_groups - computed: true, optional: false, required: false
-  private _trustedKeyGroups = new CloudfrontDistributionTrustedKeyGroupsList(
-    this,
-    'trusted_key_groups',
-    false,
-  );
+  private _trustedKeyGroups = new CloudfrontDistributionTrustedKeyGroupsList(this, "trusted_key_groups", false);
   public get trustedKeyGroups() {
     return this._trustedKeyGroups;
   }
 
   // trusted_signers - computed: true, optional: false, required: false
-  private _trustedSigners = new CloudfrontDistributionTrustedSignersList(
-    this,
-    'trusted_signers',
-    false,
-  );
+  private _trustedSigners = new CloudfrontDistributionTrustedSignersList(this, "trusted_signers", false);
   public get trustedSigners() {
     return this._trustedSigners;
   }
 
   // wait_for_deployment - computed: false, optional: true, required: false
-  private _waitForDeployment?: boolean | cdktf.IResolvable;
+  private _waitForDeployment?: boolean | cdktf.IResolvable; 
   public get waitForDeployment() {
     return this.getBooleanAttribute('wait_for_deployment');
   }
@@ -5453,7 +4545,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // web_acl_id - computed: false, optional: true, required: false
-  private _webAclId?: string;
+  private _webAclId?: string; 
   public get webAclId() {
     return this.getStringAttribute('web_acl_id');
   }
@@ -5469,18 +4561,11 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // custom_error_response - computed: false, optional: true, required: false
-  private _customErrorResponse =
-    new CloudfrontDistributionCustomErrorResponseList(
-      this,
-      'custom_error_response',
-      true,
-    );
+  private _customErrorResponse = new CloudfrontDistributionCustomErrorResponseList(this, "custom_error_response", true);
   public get customErrorResponse() {
     return this._customErrorResponse;
   }
-  public putCustomErrorResponse(
-    value: CloudfrontDistributionCustomErrorResponse[] | cdktf.IResolvable,
-  ) {
+  public putCustomErrorResponse(value: CloudfrontDistributionCustomErrorResponse[] | cdktf.IResolvable) {
     this._customErrorResponse.internalValue = value;
   }
   public resetCustomErrorResponse() {
@@ -5492,17 +4577,11 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // default_cache_behavior - computed: false, optional: false, required: true
-  private _defaultCacheBehavior =
-    new CloudfrontDistributionDefaultCacheBehaviorOutputReference(
-      this,
-      'default_cache_behavior',
-    );
+  private _defaultCacheBehavior = new CloudfrontDistributionDefaultCacheBehaviorOutputReference(this, "default_cache_behavior");
   public get defaultCacheBehavior() {
     return this._defaultCacheBehavior;
   }
-  public putDefaultCacheBehavior(
-    value: CloudfrontDistributionDefaultCacheBehavior,
-  ) {
+  public putDefaultCacheBehavior(value: CloudfrontDistributionDefaultCacheBehavior) {
     this._defaultCacheBehavior.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -5511,11 +4590,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // logging_config - computed: false, optional: true, required: false
-  private _loggingConfig =
-    new CloudfrontDistributionLoggingConfigOutputReference(
-      this,
-      'logging_config',
-    );
+  private _loggingConfig = new CloudfrontDistributionLoggingConfigOutputReference(this, "logging_config");
   public get loggingConfig() {
     return this._loggingConfig;
   }
@@ -5531,18 +4606,11 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // ordered_cache_behavior - computed: false, optional: true, required: false
-  private _orderedCacheBehavior =
-    new CloudfrontDistributionOrderedCacheBehaviorList(
-      this,
-      'ordered_cache_behavior',
-      false,
-    );
+  private _orderedCacheBehavior = new CloudfrontDistributionOrderedCacheBehaviorList(this, "ordered_cache_behavior", false);
   public get orderedCacheBehavior() {
     return this._orderedCacheBehavior;
   }
-  public putOrderedCacheBehavior(
-    value: CloudfrontDistributionOrderedCacheBehavior[] | cdktf.IResolvable,
-  ) {
+  public putOrderedCacheBehavior(value: CloudfrontDistributionOrderedCacheBehavior[] | cdktf.IResolvable) {
     this._orderedCacheBehavior.internalValue = value;
   }
   public resetOrderedCacheBehavior() {
@@ -5554,7 +4622,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // origin - computed: false, optional: false, required: true
-  private _origin = new CloudfrontDistributionOriginList(this, 'origin', true);
+  private _origin = new CloudfrontDistributionOriginList(this, "origin", true);
   public get origin() {
     return this._origin;
   }
@@ -5567,17 +4635,11 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // origin_group - computed: false, optional: true, required: false
-  private _originGroup = new CloudfrontDistributionOriginGroupList(
-    this,
-    'origin_group',
-    true,
-  );
+  private _originGroup = new CloudfrontDistributionOriginGroupList(this, "origin_group", true);
   public get originGroup() {
     return this._originGroup;
   }
-  public putOriginGroup(
-    value: CloudfrontDistributionOriginGroup[] | cdktf.IResolvable,
-  ) {
+  public putOriginGroup(value: CloudfrontDistributionOriginGroup[] | cdktf.IResolvable) {
     this._originGroup.internalValue = value;
   }
   public resetOriginGroup() {
@@ -5589,10 +4651,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // restrictions - computed: false, optional: false, required: true
-  private _restrictions = new CloudfrontDistributionRestrictionsOutputReference(
-    this,
-    'restrictions',
-  );
+  private _restrictions = new CloudfrontDistributionRestrictionsOutputReference(this, "restrictions");
   public get restrictions() {
     return this._restrictions;
   }
@@ -5605,11 +4664,7 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
   }
 
   // viewer_certificate - computed: false, optional: false, required: true
-  private _viewerCertificate =
-    new CloudfrontDistributionViewerCertificateOutputReference(
-      this,
-      'viewer_certificate',
-    );
+  private _viewerCertificate = new CloudfrontDistributionViewerCertificateOutputReference(this, "viewer_certificate");
   public get viewerCertificate() {
     return this._viewerCertificate;
   }
@@ -5640,35 +4695,14 @@ export class CloudfrontDistribution extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       wait_for_deployment: cdktf.booleanToTerraform(this._waitForDeployment),
       web_acl_id: cdktf.stringToTerraform(this._webAclId),
-      custom_error_response: cdktf.listMapper(
-        cloudfrontDistributionCustomErrorResponseToTerraform,
-        true,
-      )(this._customErrorResponse.internalValue),
-      default_cache_behavior:
-        cloudfrontDistributionDefaultCacheBehaviorToTerraform(
-          this._defaultCacheBehavior.internalValue,
-        ),
-      logging_config: cloudfrontDistributionLoggingConfigToTerraform(
-        this._loggingConfig.internalValue,
-      ),
-      ordered_cache_behavior: cdktf.listMapper(
-        cloudfrontDistributionOrderedCacheBehaviorToTerraform,
-        true,
-      )(this._orderedCacheBehavior.internalValue),
-      origin: cdktf.listMapper(
-        cloudfrontDistributionOriginToTerraform,
-        true,
-      )(this._origin.internalValue),
-      origin_group: cdktf.listMapper(
-        cloudfrontDistributionOriginGroupToTerraform,
-        true,
-      )(this._originGroup.internalValue),
-      restrictions: cloudfrontDistributionRestrictionsToTerraform(
-        this._restrictions.internalValue,
-      ),
-      viewer_certificate: cloudfrontDistributionViewerCertificateToTerraform(
-        this._viewerCertificate.internalValue,
-      ),
+      custom_error_response: cdktf.listMapper(cloudfrontDistributionCustomErrorResponseToTerraform, true)(this._customErrorResponse.internalValue),
+      default_cache_behavior: cloudfrontDistributionDefaultCacheBehaviorToTerraform(this._defaultCacheBehavior.internalValue),
+      logging_config: cloudfrontDistributionLoggingConfigToTerraform(this._loggingConfig.internalValue),
+      ordered_cache_behavior: cdktf.listMapper(cloudfrontDistributionOrderedCacheBehaviorToTerraform, true)(this._orderedCacheBehavior.internalValue),
+      origin: cdktf.listMapper(cloudfrontDistributionOriginToTerraform, true)(this._origin.internalValue),
+      origin_group: cdktf.listMapper(cloudfrontDistributionOriginGroupToTerraform, true)(this._originGroup.internalValue),
+      restrictions: cloudfrontDistributionRestrictionsToTerraform(this._restrictions.internalValue),
+      viewer_certificate: cloudfrontDistributionViewerCertificateToTerraform(this._viewerCertificate.internalValue),
     };
   }
 }

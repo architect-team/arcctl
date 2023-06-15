@@ -13,6 +13,11 @@ export type SecretInputs = {
    * Data to populate the secret with
    */
   data: string;
+
+  /**
+   * Whether or not the secret is required
+   */
+  required?: boolean;
 };
 
 export default SecretInputs;

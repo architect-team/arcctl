@@ -28,6 +28,11 @@
       "name": "time",
       "source": "hashicorp/time",
       "version": "0.5.0"
+    },
+    {
+      "name": "template",
+      "source": "hashicorp/template",
+      "version": "2.2.0"
     }
   ],
   "projectId": "d4509dfd-a7ca-4546-b4e9-87d3d4ff144e"

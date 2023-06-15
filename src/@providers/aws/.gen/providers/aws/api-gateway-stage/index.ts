@@ -1,120 +1,110 @@
 // https://www.terraform.io/docs/providers/aws/r/api_gateway_stage
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface ApiGatewayStageConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#cache_cluster_enabled ApiGatewayStage#cache_cluster_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#cache_cluster_enabled ApiGatewayStage#cache_cluster_enabled}
+  */
   readonly cacheClusterEnabled?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#cache_cluster_size ApiGatewayStage#cache_cluster_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#cache_cluster_size ApiGatewayStage#cache_cluster_size}
+  */
   readonly cacheClusterSize?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#client_certificate_id ApiGatewayStage#client_certificate_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#client_certificate_id ApiGatewayStage#client_certificate_id}
+  */
   readonly clientCertificateId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#deployment_id ApiGatewayStage#deployment_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#deployment_id ApiGatewayStage#deployment_id}
+  */
   readonly deploymentId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#description ApiGatewayStage#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#description ApiGatewayStage#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#documentation_version ApiGatewayStage#documentation_version}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#documentation_version ApiGatewayStage#documentation_version}
+  */
   readonly documentationVersion?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#id ApiGatewayStage#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#id ApiGatewayStage#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#rest_api_id ApiGatewayStage#rest_api_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#rest_api_id ApiGatewayStage#rest_api_id}
+  */
   readonly restApiId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#stage_name ApiGatewayStage#stage_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#stage_name ApiGatewayStage#stage_name}
+  */
   readonly stageName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#tags ApiGatewayStage#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#tags ApiGatewayStage#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#tags_all ApiGatewayStage#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#tags_all ApiGatewayStage#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#variables ApiGatewayStage#variables}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#variables ApiGatewayStage#variables}
+  */
   readonly variables?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#xray_tracing_enabled ApiGatewayStage#xray_tracing_enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#xray_tracing_enabled ApiGatewayStage#xray_tracing_enabled}
+  */
   readonly xrayTracingEnabled?: boolean | cdktf.IResolvable;
   /**
-   * access_log_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#access_log_settings ApiGatewayStage#access_log_settings}
-   */
+  * access_log_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#access_log_settings ApiGatewayStage#access_log_settings}
+  */
   readonly accessLogSettings?: ApiGatewayStageAccessLogSettings;
   /**
-   * canary_settings block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#canary_settings ApiGatewayStage#canary_settings}
-   */
+  * canary_settings block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#canary_settings ApiGatewayStage#canary_settings}
+  */
   readonly canarySettings?: ApiGatewayStageCanarySettings;
 }
 export interface ApiGatewayStageAccessLogSettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#destination_arn ApiGatewayStage#destination_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#destination_arn ApiGatewayStage#destination_arn}
+  */
   readonly destinationArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#format ApiGatewayStage#format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#format ApiGatewayStage#format}
+  */
   readonly format: string;
 }
 
-export function apiGatewayStageAccessLogSettingsToTerraform(
-  struct?:
-    | ApiGatewayStageAccessLogSettingsOutputReference
-    | ApiGatewayStageAccessLogSettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function apiGatewayStageAccessLogSettingsToTerraform(struct?: ApiGatewayStageAccessLogSettingsOutputReference | ApiGatewayStageAccessLogSettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     destination_arn: cdktf.stringToTerraform(struct!.destinationArn),
     format: cdktf.stringToTerraform(struct!.format),
-  };
+  }
 }
 
 export class ApiGatewayStageAccessLogSettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -132,14 +122,13 @@ export class ApiGatewayStageAccessLogSettingsOutputReference extends cdktf.Compl
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: ApiGatewayStageAccessLogSettings | undefined,
-  ) {
+  public set internalValue(value: ApiGatewayStageAccessLogSettings | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._destinationArn = undefined;
       this._format = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._destinationArn = value.destinationArn;
       this._format = value.format;
@@ -147,7 +136,7 @@ export class ApiGatewayStageAccessLogSettingsOutputReference extends cdktf.Compl
   }
 
   // destination_arn - computed: false, optional: false, required: true
-  private _destinationArn?: string;
+  private _destinationArn?: string; 
   public get destinationArn() {
     return this.getStringAttribute('destination_arn');
   }
@@ -160,7 +149,7 @@ export class ApiGatewayStageAccessLogSettingsOutputReference extends cdktf.Compl
   }
 
   // format - computed: false, optional: false, required: true
-  private _format?: string;
+  private _format?: string; 
   public get format() {
     return this.getStringAttribute('format');
   }
@@ -174,52 +163,39 @@ export class ApiGatewayStageAccessLogSettingsOutputReference extends cdktf.Compl
 }
 export interface ApiGatewayStageCanarySettings {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#percent_traffic ApiGatewayStage#percent_traffic}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#percent_traffic ApiGatewayStage#percent_traffic}
+  */
   readonly percentTraffic?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#stage_variable_overrides ApiGatewayStage#stage_variable_overrides}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#stage_variable_overrides ApiGatewayStage#stage_variable_overrides}
+  */
   readonly stageVariableOverrides?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#use_stage_cache ApiGatewayStage#use_stage_cache}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage#use_stage_cache ApiGatewayStage#use_stage_cache}
+  */
   readonly useStageCache?: boolean | cdktf.IResolvable;
 }
 
-export function apiGatewayStageCanarySettingsToTerraform(
-  struct?:
-    | ApiGatewayStageCanarySettingsOutputReference
-    | ApiGatewayStageCanarySettings,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function apiGatewayStageCanarySettingsToTerraform(struct?: ApiGatewayStageCanarySettingsOutputReference | ApiGatewayStageCanarySettings): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     percent_traffic: cdktf.numberToTerraform(struct!.percentTraffic),
-    stage_variable_overrides: cdktf.hashMapper(cdktf.stringToTerraform)(
-      struct!.stageVariableOverrides,
-    ),
+    stage_variable_overrides: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.stageVariableOverrides),
     use_stage_cache: cdktf.booleanToTerraform(struct!.useStageCache),
-  };
+  }
 }
 
 export class ApiGatewayStageCanarySettingsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -247,7 +223,8 @@ export class ApiGatewayStageCanarySettingsOutputReference extends cdktf.ComplexO
       this._percentTraffic = undefined;
       this._stageVariableOverrides = undefined;
       this._useStageCache = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._percentTraffic = value.percentTraffic;
       this._stageVariableOverrides = value.stageVariableOverrides;
@@ -256,7 +233,7 @@ export class ApiGatewayStageCanarySettingsOutputReference extends cdktf.ComplexO
   }
 
   // percent_traffic - computed: false, optional: true, required: false
-  private _percentTraffic?: number;
+  private _percentTraffic?: number; 
   public get percentTraffic() {
     return this.getNumberAttribute('percent_traffic');
   }
@@ -272,7 +249,7 @@ export class ApiGatewayStageCanarySettingsOutputReference extends cdktf.ComplexO
   }
 
   // stage_variable_overrides - computed: false, optional: true, required: false
-  private _stageVariableOverrides?: { [key: string]: string };
+  private _stageVariableOverrides?: { [key: string]: string }; 
   public get stageVariableOverrides() {
     return this.getStringMapAttribute('stage_variable_overrides');
   }
@@ -288,7 +265,7 @@ export class ApiGatewayStageCanarySettingsOutputReference extends cdktf.ComplexO
   }
 
   // use_stage_cache - computed: false, optional: true, required: false
-  private _useStageCache?: boolean | cdktf.IResolvable;
+  private _useStageCache?: boolean | cdktf.IResolvable; 
   public get useStageCache() {
     return this.getBooleanAttribute('use_stage_cache');
   }
@@ -305,36 +282,33 @@ export class ApiGatewayStageCanarySettingsOutputReference extends cdktf.ComplexO
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage aws_api_gateway_stage}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage aws_api_gateway_stage}
+*/
 export class ApiGatewayStage extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_api_gateway_stage';
+  public static readonly tfResourceType = "aws_api_gateway_stage";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage aws_api_gateway_stage} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options ApiGatewayStageConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: ApiGatewayStageConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/api_gateway_stage aws_api_gateway_stage} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options ApiGatewayStageConfig
+  */
+  public constructor(scope: Construct, id: string, config: ApiGatewayStageConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_api_gateway_stage',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -342,7 +316,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._cacheClusterEnabled = config.cacheClusterEnabled;
     this._cacheClusterSize = config.cacheClusterSize;
@@ -371,7 +345,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // cache_cluster_enabled - computed: false, optional: true, required: false
-  private _cacheClusterEnabled?: boolean | cdktf.IResolvable;
+  private _cacheClusterEnabled?: boolean | cdktf.IResolvable; 
   public get cacheClusterEnabled() {
     return this.getBooleanAttribute('cache_cluster_enabled');
   }
@@ -387,7 +361,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // cache_cluster_size - computed: false, optional: true, required: false
-  private _cacheClusterSize?: string;
+  private _cacheClusterSize?: string; 
   public get cacheClusterSize() {
     return this.getStringAttribute('cache_cluster_size');
   }
@@ -403,7 +377,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // client_certificate_id - computed: false, optional: true, required: false
-  private _clientCertificateId?: string;
+  private _clientCertificateId?: string; 
   public get clientCertificateId() {
     return this.getStringAttribute('client_certificate_id');
   }
@@ -419,7 +393,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // deployment_id - computed: false, optional: false, required: true
-  private _deploymentId?: string;
+  private _deploymentId?: string; 
   public get deploymentId() {
     return this.getStringAttribute('deployment_id');
   }
@@ -432,7 +406,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -448,7 +422,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // documentation_version - computed: false, optional: true, required: false
-  private _documentationVersion?: string;
+  private _documentationVersion?: string; 
   public get documentationVersion() {
     return this.getStringAttribute('documentation_version');
   }
@@ -469,7 +443,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -490,7 +464,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // rest_api_id - computed: false, optional: false, required: true
-  private _restApiId?: string;
+  private _restApiId?: string; 
   public get restApiId() {
     return this.getStringAttribute('rest_api_id');
   }
@@ -503,7 +477,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // stage_name - computed: false, optional: false, required: true
-  private _stageName?: string;
+  private _stageName?: string; 
   public get stageName() {
     return this.getStringAttribute('stage_name');
   }
@@ -516,7 +490,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -532,7 +506,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -548,7 +522,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // variables - computed: false, optional: true, required: false
-  private _variables?: { [key: string]: string };
+  private _variables?: { [key: string]: string }; 
   public get variables() {
     return this.getStringMapAttribute('variables');
   }
@@ -569,7 +543,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // xray_tracing_enabled - computed: false, optional: true, required: false
-  private _xrayTracingEnabled?: boolean | cdktf.IResolvable;
+  private _xrayTracingEnabled?: boolean | cdktf.IResolvable; 
   public get xrayTracingEnabled() {
     return this.getBooleanAttribute('xray_tracing_enabled');
   }
@@ -585,11 +559,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // access_log_settings - computed: false, optional: true, required: false
-  private _accessLogSettings =
-    new ApiGatewayStageAccessLogSettingsOutputReference(
-      this,
-      'access_log_settings',
-    );
+  private _accessLogSettings = new ApiGatewayStageAccessLogSettingsOutputReference(this, "access_log_settings");
   public get accessLogSettings() {
     return this._accessLogSettings;
   }
@@ -605,10 +575,7 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
   }
 
   // canary_settings - computed: false, optional: true, required: false
-  private _canarySettings = new ApiGatewayStageCanarySettingsOutputReference(
-    this,
-    'canary_settings',
-  );
+  private _canarySettings = new ApiGatewayStageCanarySettingsOutputReference(this, "canary_settings");
   public get canarySettings() {
     return this._canarySettings;
   }
@@ -629,16 +596,12 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      cache_cluster_enabled: cdktf.booleanToTerraform(
-        this._cacheClusterEnabled,
-      ),
+      cache_cluster_enabled: cdktf.booleanToTerraform(this._cacheClusterEnabled),
       cache_cluster_size: cdktf.stringToTerraform(this._cacheClusterSize),
       client_certificate_id: cdktf.stringToTerraform(this._clientCertificateId),
       deployment_id: cdktf.stringToTerraform(this._deploymentId),
       description: cdktf.stringToTerraform(this._description),
-      documentation_version: cdktf.stringToTerraform(
-        this._documentationVersion,
-      ),
+      documentation_version: cdktf.stringToTerraform(this._documentationVersion),
       id: cdktf.stringToTerraform(this._id),
       rest_api_id: cdktf.stringToTerraform(this._restApiId),
       stage_name: cdktf.stringToTerraform(this._stageName),
@@ -646,12 +609,8 @@ export class ApiGatewayStage extends cdktf.TerraformResource {
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
       variables: cdktf.hashMapper(cdktf.stringToTerraform)(this._variables),
       xray_tracing_enabled: cdktf.booleanToTerraform(this._xrayTracingEnabled),
-      access_log_settings: apiGatewayStageAccessLogSettingsToTerraform(
-        this._accessLogSettings.internalValue,
-      ),
-      canary_settings: apiGatewayStageCanarySettingsToTerraform(
-        this._canarySettings.internalValue,
-      ),
+      access_log_settings: apiGatewayStageAccessLogSettingsToTerraform(this._accessLogSettings.internalValue),
+      canary_settings: apiGatewayStageCanarySettingsToTerraform(this._canarySettings.internalValue),
     };
   }
 }

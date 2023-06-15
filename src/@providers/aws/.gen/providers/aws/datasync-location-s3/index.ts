@@ -1,87 +1,75 @@
 // https://www.terraform.io/docs/providers/aws/r/datasync_location_s3
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface DatasyncLocationS3Config extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#agent_arns DatasyncLocationS3#agent_arns}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#agent_arns DatasyncLocationS3#agent_arns}
+  */
   readonly agentArns?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#id DatasyncLocationS3#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#id DatasyncLocationS3#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_bucket_arn DatasyncLocationS3#s3_bucket_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_bucket_arn DatasyncLocationS3#s3_bucket_arn}
+  */
   readonly s3BucketArn: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_storage_class DatasyncLocationS3#s3_storage_class}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_storage_class DatasyncLocationS3#s3_storage_class}
+  */
   readonly s3StorageClass?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#subdirectory DatasyncLocationS3#subdirectory}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#subdirectory DatasyncLocationS3#subdirectory}
+  */
   readonly subdirectory: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#tags DatasyncLocationS3#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#tags DatasyncLocationS3#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#tags_all DatasyncLocationS3#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#tags_all DatasyncLocationS3#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * s3_config block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_config DatasyncLocationS3#s3_config}
-   */
+  * s3_config block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#s3_config DatasyncLocationS3#s3_config}
+  */
   readonly s3Config: DatasyncLocationS3S3Config;
 }
 export interface DatasyncLocationS3S3Config {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#bucket_access_role_arn DatasyncLocationS3#bucket_access_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3#bucket_access_role_arn DatasyncLocationS3#bucket_access_role_arn}
+  */
   readonly bucketAccessRoleArn: string;
 }
 
-export function datasyncLocationS3S3ConfigToTerraform(
-  struct?:
-    | DatasyncLocationS3S3ConfigOutputReference
-    | DatasyncLocationS3S3Config,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function datasyncLocationS3S3ConfigToTerraform(struct?: DatasyncLocationS3S3ConfigOutputReference | DatasyncLocationS3S3Config): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    bucket_access_role_arn: cdktf.stringToTerraform(
-      struct!.bucketAccessRoleArn,
-    ),
-  };
+    bucket_access_role_arn: cdktf.stringToTerraform(struct!.bucketAccessRoleArn),
+  }
 }
 
 export class DatasyncLocationS3S3ConfigOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -99,14 +87,15 @@ export class DatasyncLocationS3S3ConfigOutputReference extends cdktf.ComplexObje
     if (value === undefined) {
       this.isEmptyObject = false;
       this._bucketAccessRoleArn = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._bucketAccessRoleArn = value.bucketAccessRoleArn;
     }
   }
 
   // bucket_access_role_arn - computed: false, optional: false, required: true
-  private _bucketAccessRoleArn?: string;
+  private _bucketAccessRoleArn?: string; 
   public get bucketAccessRoleArn() {
     return this.getStringAttribute('bucket_access_role_arn');
   }
@@ -120,36 +109,33 @@ export class DatasyncLocationS3S3ConfigOutputReference extends cdktf.ComplexObje
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3 aws_datasync_location_s3}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3 aws_datasync_location_s3}
+*/
 export class DatasyncLocationS3 extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_datasync_location_s3';
+  public static readonly tfResourceType = "aws_datasync_location_s3";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3 aws_datasync_location_s3} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DatasyncLocationS3Config
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DatasyncLocationS3Config,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/datasync_location_s3 aws_datasync_location_s3} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DatasyncLocationS3Config
+  */
+  public constructor(scope: Construct, id: string, config: DatasyncLocationS3Config) {
     super(scope, id, {
       terraformResourceType: 'aws_datasync_location_s3',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -157,7 +143,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._agentArns = config.agentArns;
     this._id = config.id;
@@ -174,7 +160,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   // ==========
 
   // agent_arns - computed: false, optional: true, required: false
-  private _agentArns?: string[];
+  private _agentArns?: string[]; 
   public get agentArns() {
     return cdktf.Fn.tolist(this.getListAttribute('agent_arns'));
   }
@@ -195,7 +181,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -211,7 +197,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // s3_bucket_arn - computed: false, optional: false, required: true
-  private _s3BucketArn?: string;
+  private _s3BucketArn?: string; 
   public get s3BucketArn() {
     return this.getStringAttribute('s3_bucket_arn');
   }
@@ -224,7 +210,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // s3_storage_class - computed: true, optional: true, required: false
-  private _s3StorageClass?: string;
+  private _s3StorageClass?: string; 
   public get s3StorageClass() {
     return this.getStringAttribute('s3_storage_class');
   }
@@ -240,7 +226,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // subdirectory - computed: false, optional: false, required: true
-  private _subdirectory?: string;
+  private _subdirectory?: string; 
   public get subdirectory() {
     return this.getStringAttribute('subdirectory');
   }
@@ -253,7 +239,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -269,7 +255,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -290,10 +276,7 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
   }
 
   // s3_config - computed: false, optional: false, required: true
-  private _s3Config = new DatasyncLocationS3S3ConfigOutputReference(
-    this,
-    's3_config',
-  );
+  private _s3Config = new DatasyncLocationS3S3ConfigOutputReference(this, "s3_config");
   public get s3Config() {
     return this._s3Config;
   }
@@ -311,19 +294,14 @@ export class DatasyncLocationS3 extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      agent_arns: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._agentArns),
+      agent_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(this._agentArns),
       id: cdktf.stringToTerraform(this._id),
       s3_bucket_arn: cdktf.stringToTerraform(this._s3BucketArn),
       s3_storage_class: cdktf.stringToTerraform(this._s3StorageClass),
       subdirectory: cdktf.stringToTerraform(this._subdirectory),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      s3_config: datasyncLocationS3S3ConfigToTerraform(
-        this._s3Config.internalValue,
-      ),
+      s3_config: datasyncLocationS3S3ConfigToTerraform(this._s3Config.internalValue),
     };
   }
 }

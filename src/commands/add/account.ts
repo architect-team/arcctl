@@ -1,7 +1,7 @@
-import { SupportedProviders } from '../../@providers/index.ts';
-import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 import { EnumType } from 'cliffy/command/mod.ts';
 import { Select } from 'cliffy/prompt/mod.ts';
+import { SupportedProviders } from '../../@providers/index.ts';
+import { BaseCommand, CommandHelper, GlobalOptions } from '../base-command.ts';
 
 const providerType = new EnumType(Object.keys(SupportedProviders));
 
@@ -47,7 +47,7 @@ async function add_account_action(options: AddAccountOptions, account_name?: str
   const account = new SupportedProviders[providerType](
     name,
     credentials as any,
-    command_helper.providerStore.saveFile.bind(command_helper.providerStore),
+    command_helper.providerStore,
   );
   const validCredentials = await account.testCredentials();
   if (!validCredentials) {

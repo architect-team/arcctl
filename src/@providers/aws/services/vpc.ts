@@ -1,16 +1,17 @@
+import { Construct } from 'constructs';
 import { ResourceOutputs } from '../../../@resources/index.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
-import { InputValidators } from '../../service.ts';
+import { InputValidators } from '../../base.service.ts';
 import { TerraformResourceService } from '../../terraform.service.ts';
+import { AwsProvider as TerraformAwsProvider } from '../.gen/providers/aws/provider/index.ts';
 import { AwsCredentials } from '../credentials.ts';
 import { AwsVpcModule } from '../modules/vpc.ts';
 import AwsUtils from '../utils.ts';
 import { AwsRegionService } from './region.ts';
 
 export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredentials> {
-  constructor(private readonly credentials: AwsCredentials) {
-    super();
-  }
+  readonly terraform_version = '1.4.5';
+  readonly construct = AwsVpcModule;
 
   private normalizeVpc(region: string, vpc: AWS.EC2.Vpc): ResourceOutputs['vpc'] {
     return {
@@ -19,6 +20,13 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
       description: vpc.Tags?.find((tag) => tag.Key === 'Description')?.Value || '',
       region: region,
     };
+  }
+
+  public configureTerraformProviders(scope: Construct): TerraformAwsProvider {
+    return new TerraformAwsProvider(scope, 'aws', {
+      accessKey: this.credentials.accessKeyId,
+      secretKey: this.credentials.secretAccessKey,
+    });
   }
 
   get(id: string): Promise<ResourceOutputs['vpc'] | undefined> {
@@ -47,7 +55,7 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
 
   async list(
     filterOptions?: Partial<ResourceOutputs['vpc']>,
-    pagingOptions?: Partial<PagingOptions>,
+    _pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs['vpc']>> {
     const regions = await new AwsRegionService(this.credentials).list();
 
@@ -66,30 +74,27 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
 
     const vpcPromises = [];
     for (const region of regions.rows.filter((r) => (filterBy.region ? r.id === filterBy.region : true))) {
-      vpcPromises.push(
-        new Promise<void>(async (resolve, reject) => {
-          const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
-            .describeVpcs(
-              filterBy.name
-                ? {
-                  Filters: [
-                    {
-                      Name: 'tag:Name',
-                      Values: [filterBy.name],
-                    },
-                    ...defaultFilters,
-                  ],
-                }
-                : {
-                  Filters: defaultFilters,
-                },
-            )
-            .promise();
-          res.total += vpcData?.Vpcs?.length || 0;
-          res.rows.push(...(vpcData?.Vpcs || []).map((vpc) => this.normalizeVpc(region.id, vpc)));
-          resolve();
-        }),
-      );
+      vpcPromises.push((async () => {
+        const vpcData = await AwsUtils.getEC2(this.credentials, region.id)
+          .describeVpcs(
+            filterBy.name
+              ? {
+                Filters: [
+                  {
+                    Name: 'tag:Name',
+                    Values: [filterBy.name],
+                  },
+                  ...defaultFilters,
+                ],
+              }
+              : {
+                Filters: defaultFilters,
+              },
+          )
+          .promise();
+        res.total += vpcData?.Vpcs?.length || 0;
+        res.rows.push(...(vpcData?.Vpcs || []).map((vpc) => this.normalizeVpc(region.id, vpc)));
+      })());
     }
 
     await Promise.all(vpcPromises);
@@ -110,6 +115,4 @@ export class AwsVpcService extends TerraformResourceService<'vpc', AwsCredential
       },
     };
   }
-
-  construct = AwsVpcModule;
 }

@@ -1,137 +1,123 @@
 // https://www.terraform.io/docs/providers/aws/r/gamelift_fleet
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface GameliftFleetConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#build_id GameliftFleet#build_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#build_id GameliftFleet#build_id}
+  */
   readonly buildId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#description GameliftFleet#description}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#description GameliftFleet#description}
+  */
   readonly description?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#ec2_instance_type GameliftFleet#ec2_instance_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#ec2_instance_type GameliftFleet#ec2_instance_type}
+  */
   readonly ec2InstanceType: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#fleet_type GameliftFleet#fleet_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#fleet_type GameliftFleet#fleet_type}
+  */
   readonly fleetType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#id GameliftFleet#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#id GameliftFleet#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#instance_role_arn GameliftFleet#instance_role_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#instance_role_arn GameliftFleet#instance_role_arn}
+  */
   readonly instanceRoleArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#metric_groups GameliftFleet#metric_groups}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#metric_groups GameliftFleet#metric_groups}
+  */
   readonly metricGroups?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#name GameliftFleet#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#name GameliftFleet#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#new_game_session_protection_policy GameliftFleet#new_game_session_protection_policy}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#new_game_session_protection_policy GameliftFleet#new_game_session_protection_policy}
+  */
   readonly newGameSessionProtectionPolicy?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#script_id GameliftFleet#script_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#script_id GameliftFleet#script_id}
+  */
   readonly scriptId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#tags GameliftFleet#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#tags GameliftFleet#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#tags_all GameliftFleet#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#tags_all GameliftFleet#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * certificate_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#certificate_configuration GameliftFleet#certificate_configuration}
-   */
+  * certificate_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#certificate_configuration GameliftFleet#certificate_configuration}
+  */
   readonly certificateConfiguration?: GameliftFleetCertificateConfiguration;
   /**
-   * ec2_inbound_permission block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#ec2_inbound_permission GameliftFleet#ec2_inbound_permission}
-   */
-  readonly ec2InboundPermission?:
-    | GameliftFleetEc2InboundPermission[]
-    | cdktf.IResolvable;
+  * ec2_inbound_permission block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#ec2_inbound_permission GameliftFleet#ec2_inbound_permission}
+  */
+  readonly ec2InboundPermission?: GameliftFleetEc2InboundPermission[] | cdktf.IResolvable;
   /**
-   * resource_creation_limit_policy block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#resource_creation_limit_policy GameliftFleet#resource_creation_limit_policy}
-   */
+  * resource_creation_limit_policy block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#resource_creation_limit_policy GameliftFleet#resource_creation_limit_policy}
+  */
   readonly resourceCreationLimitPolicy?: GameliftFleetResourceCreationLimitPolicy;
   /**
-   * runtime_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#runtime_configuration GameliftFleet#runtime_configuration}
-   */
+  * runtime_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#runtime_configuration GameliftFleet#runtime_configuration}
+  */
   readonly runtimeConfiguration?: GameliftFleetRuntimeConfiguration;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#timeouts GameliftFleet#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#timeouts GameliftFleet#timeouts}
+  */
   readonly timeouts?: GameliftFleetTimeouts;
 }
 export interface GameliftFleetCertificateConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#certificate_type GameliftFleet#certificate_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#certificate_type GameliftFleet#certificate_type}
+  */
   readonly certificateType?: string;
 }
 
-export function gameliftFleetCertificateConfigurationToTerraform(
-  struct?:
-    | GameliftFleetCertificateConfigurationOutputReference
-    | GameliftFleetCertificateConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftFleetCertificateConfigurationToTerraform(struct?: GameliftFleetCertificateConfigurationOutputReference | GameliftFleetCertificateConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     certificate_type: cdktf.stringToTerraform(struct!.certificateType),
-  };
+  }
 }
 
 export class GameliftFleetCertificateConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftFleetCertificateConfiguration
-    | undefined {
+  public get internalValue(): GameliftFleetCertificateConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._certificateType !== undefined) {
@@ -141,20 +127,19 @@ export class GameliftFleetCertificateConfigurationOutputReference extends cdktf.
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftFleetCertificateConfiguration | undefined,
-  ) {
+  public set internalValue(value: GameliftFleetCertificateConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._certificateType = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._certificateType = value.certificateType;
     }
   }
 
   // certificate_type - computed: false, optional: true, required: false
-  private _certificateType?: string;
+  private _certificateType?: string; 
   public get certificateType() {
     return this.getStringAttribute('certificate_type');
   }
@@ -171,40 +156,34 @@ export class GameliftFleetCertificateConfigurationOutputReference extends cdktf.
 }
 export interface GameliftFleetEc2InboundPermission {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#from_port GameliftFleet#from_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#from_port GameliftFleet#from_port}
+  */
   readonly fromPort: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#ip_range GameliftFleet#ip_range}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#ip_range GameliftFleet#ip_range}
+  */
   readonly ipRange: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#protocol GameliftFleet#protocol}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#protocol GameliftFleet#protocol}
+  */
   readonly protocol: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#to_port GameliftFleet#to_port}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#to_port GameliftFleet#to_port}
+  */
   readonly toPort: number;
 }
 
-export function gameliftFleetEc2InboundPermissionToTerraform(
-  struct?: GameliftFleetEc2InboundPermission | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftFleetEc2InboundPermissionToTerraform(struct?: GameliftFleetEc2InboundPermission | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     from_port: cdktf.numberToTerraform(struct!.fromPort),
     ip_range: cdktf.stringToTerraform(struct!.ipRange),
     protocol: cdktf.stringToTerraform(struct!.protocol),
     to_port: cdktf.numberToTerraform(struct!.toPort),
-  };
+  }
 }
 
 export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.ComplexObject {
@@ -212,29 +191,16 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | GameliftFleetEc2InboundPermission
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GameliftFleetEc2InboundPermission | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -259,9 +225,7 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftFleetEc2InboundPermission | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: GameliftFleetEc2InboundPermission | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -269,10 +233,12 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
       this._ipRange = undefined;
       this._protocol = undefined;
       this._toPort = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._fromPort = value.fromPort;
@@ -283,7 +249,7 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
   }
 
   // from_port - computed: false, optional: false, required: true
-  private _fromPort?: number;
+  private _fromPort?: number; 
   public get fromPort() {
     return this.getNumberAttribute('from_port');
   }
@@ -296,7 +262,7 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
   }
 
   // ip_range - computed: false, optional: false, required: true
-  private _ipRange?: string;
+  private _ipRange?: string; 
   public get ipRange() {
     return this.getStringAttribute('ip_range');
   }
@@ -309,7 +275,7 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
   }
 
   // protocol - computed: false, optional: false, required: true
-  private _protocol?: string;
+  private _protocol?: string; 
   public get protocol() {
     return this.getStringAttribute('protocol');
   }
@@ -322,7 +288,7 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
   }
 
   // to_port - computed: false, optional: false, required: true
-  private _toPort?: number;
+  private _toPort?: number; 
   public get toPort() {
     return this.getNumberAttribute('to_port');
   }
@@ -336,92 +302,63 @@ export class GameliftFleetEc2InboundPermissionOutputReference extends cdktf.Comp
 }
 
 export class GameliftFleetEc2InboundPermissionList extends cdktf.ComplexList {
-  public internalValue?:
-    | GameliftFleetEc2InboundPermission[]
-    | cdktf.IResolvable;
+  public internalValue? : GameliftFleetEc2InboundPermission[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): GameliftFleetEc2InboundPermissionOutputReference {
-    return new GameliftFleetEc2InboundPermissionOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new GameliftFleetEc2InboundPermissionOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface GameliftFleetResourceCreationLimitPolicy {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#new_game_sessions_per_creator GameliftFleet#new_game_sessions_per_creator}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#new_game_sessions_per_creator GameliftFleet#new_game_sessions_per_creator}
+  */
   readonly newGameSessionsPerCreator?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#policy_period_in_minutes GameliftFleet#policy_period_in_minutes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#policy_period_in_minutes GameliftFleet#policy_period_in_minutes}
+  */
   readonly policyPeriodInMinutes?: number;
 }
 
-export function gameliftFleetResourceCreationLimitPolicyToTerraform(
-  struct?:
-    | GameliftFleetResourceCreationLimitPolicyOutputReference
-    | GameliftFleetResourceCreationLimitPolicy,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftFleetResourceCreationLimitPolicyToTerraform(struct?: GameliftFleetResourceCreationLimitPolicyOutputReference | GameliftFleetResourceCreationLimitPolicy): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    new_game_sessions_per_creator: cdktf.numberToTerraform(
-      struct!.newGameSessionsPerCreator,
-    ),
-    policy_period_in_minutes: cdktf.numberToTerraform(
-      struct!.policyPeriodInMinutes,
-    ),
-  };
+    new_game_sessions_per_creator: cdktf.numberToTerraform(struct!.newGameSessionsPerCreator),
+    policy_period_in_minutes: cdktf.numberToTerraform(struct!.policyPeriodInMinutes),
+  }
 }
 
 export class GameliftFleetResourceCreationLimitPolicyOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftFleetResourceCreationLimitPolicy
-    | undefined {
+  public get internalValue(): GameliftFleetResourceCreationLimitPolicy | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._newGameSessionsPerCreator !== undefined) {
       hasAnyValues = true;
-      internalValueResult.newGameSessionsPerCreator =
-        this._newGameSessionsPerCreator;
+      internalValueResult.newGameSessionsPerCreator = this._newGameSessionsPerCreator;
     }
     if (this._policyPeriodInMinutes !== undefined) {
       hasAnyValues = true;
@@ -430,14 +367,13 @@ export class GameliftFleetResourceCreationLimitPolicyOutputReference extends cdk
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftFleetResourceCreationLimitPolicy | undefined,
-  ) {
+  public set internalValue(value: GameliftFleetResourceCreationLimitPolicy | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._newGameSessionsPerCreator = undefined;
       this._policyPeriodInMinutes = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._newGameSessionsPerCreator = value.newGameSessionsPerCreator;
       this._policyPeriodInMinutes = value.policyPeriodInMinutes;
@@ -445,7 +381,7 @@ export class GameliftFleetResourceCreationLimitPolicyOutputReference extends cdk
   }
 
   // new_game_sessions_per_creator - computed: false, optional: true, required: false
-  private _newGameSessionsPerCreator?: number;
+  private _newGameSessionsPerCreator?: number; 
   public get newGameSessionsPerCreator() {
     return this.getNumberAttribute('new_game_sessions_per_creator');
   }
@@ -461,7 +397,7 @@ export class GameliftFleetResourceCreationLimitPolicyOutputReference extends cdk
   }
 
   // policy_period_in_minutes - computed: false, optional: true, required: false
-  private _policyPeriodInMinutes?: number;
+  private _policyPeriodInMinutes?: number; 
   public get policyPeriodInMinutes() {
     return this.getNumberAttribute('policy_period_in_minutes');
   }
@@ -478,37 +414,29 @@ export class GameliftFleetResourceCreationLimitPolicyOutputReference extends cdk
 }
 export interface GameliftFleetRuntimeConfigurationServerProcess {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#concurrent_executions GameliftFleet#concurrent_executions}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#concurrent_executions GameliftFleet#concurrent_executions}
+  */
   readonly concurrentExecutions: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#launch_path GameliftFleet#launch_path}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#launch_path GameliftFleet#launch_path}
+  */
   readonly launchPath: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#parameters GameliftFleet#parameters}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#parameters GameliftFleet#parameters}
+  */
   readonly parameters?: string;
 }
 
-export function gameliftFleetRuntimeConfigurationServerProcessToTerraform(
-  struct?: GameliftFleetRuntimeConfigurationServerProcess | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftFleetRuntimeConfigurationServerProcessToTerraform(struct?: GameliftFleetRuntimeConfigurationServerProcess | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    concurrent_executions: cdktf.numberToTerraform(
-      struct!.concurrentExecutions,
-    ),
+    concurrent_executions: cdktf.numberToTerraform(struct!.concurrentExecutions),
     launch_path: cdktf.stringToTerraform(struct!.launchPath),
     parameters: cdktf.stringToTerraform(struct!.parameters),
-  };
+  }
 }
 
 export class GameliftFleetRuntimeConfigurationServerProcessOutputReference extends cdktf.ComplexObject {
@@ -516,29 +444,16 @@ export class GameliftFleetRuntimeConfigurationServerProcessOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | GameliftFleetRuntimeConfigurationServerProcess
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GameliftFleetRuntimeConfigurationServerProcess | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -559,22 +474,19 @@ export class GameliftFleetRuntimeConfigurationServerProcessOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | GameliftFleetRuntimeConfigurationServerProcess
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: GameliftFleetRuntimeConfigurationServerProcess | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._concurrentExecutions = undefined;
       this._launchPath = undefined;
       this._parameters = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._concurrentExecutions = value.concurrentExecutions;
@@ -584,7 +496,7 @@ export class GameliftFleetRuntimeConfigurationServerProcessOutputReference exten
   }
 
   // concurrent_executions - computed: false, optional: false, required: true
-  private _concurrentExecutions?: number;
+  private _concurrentExecutions?: number; 
   public get concurrentExecutions() {
     return this.getNumberAttribute('concurrent_executions');
   }
@@ -597,7 +509,7 @@ export class GameliftFleetRuntimeConfigurationServerProcessOutputReference exten
   }
 
   // launch_path - computed: false, optional: false, required: true
-  private _launchPath?: string;
+  private _launchPath?: string; 
   public get launchPath() {
     return this.getStringAttribute('launch_path');
   }
@@ -610,7 +522,7 @@ export class GameliftFleetRuntimeConfigurationServerProcessOutputReference exten
   }
 
   // parameters - computed: false, optional: true, required: false
-  private _parameters?: string;
+  private _parameters?: string; 
   public get parameters() {
     return this.getStringAttribute('parameters');
   }
@@ -627,94 +539,61 @@ export class GameliftFleetRuntimeConfigurationServerProcessOutputReference exten
 }
 
 export class GameliftFleetRuntimeConfigurationServerProcessList extends cdktf.ComplexList {
-  public internalValue?:
-    | GameliftFleetRuntimeConfigurationServerProcess[]
-    | cdktf.IResolvable;
+  public internalValue? : GameliftFleetRuntimeConfigurationServerProcess[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): GameliftFleetRuntimeConfigurationServerProcessOutputReference {
-    return new GameliftFleetRuntimeConfigurationServerProcessOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): GameliftFleetRuntimeConfigurationServerProcessOutputReference {
+    return new GameliftFleetRuntimeConfigurationServerProcessOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface GameliftFleetRuntimeConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#game_session_activation_timeout_seconds GameliftFleet#game_session_activation_timeout_seconds}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#game_session_activation_timeout_seconds GameliftFleet#game_session_activation_timeout_seconds}
+  */
   readonly gameSessionActivationTimeoutSeconds?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#max_concurrent_game_session_activations GameliftFleet#max_concurrent_game_session_activations}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#max_concurrent_game_session_activations GameliftFleet#max_concurrent_game_session_activations}
+  */
   readonly maxConcurrentGameSessionActivations?: number;
   /**
-   * server_process block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#server_process GameliftFleet#server_process}
-   */
-  readonly serverProcess?:
-    | GameliftFleetRuntimeConfigurationServerProcess[]
-    | cdktf.IResolvable;
+  * server_process block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#server_process GameliftFleet#server_process}
+  */
+  readonly serverProcess?: GameliftFleetRuntimeConfigurationServerProcess[] | cdktf.IResolvable;
 }
 
-export function gameliftFleetRuntimeConfigurationToTerraform(
-  struct?:
-    | GameliftFleetRuntimeConfigurationOutputReference
-    | GameliftFleetRuntimeConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftFleetRuntimeConfigurationToTerraform(struct?: GameliftFleetRuntimeConfigurationOutputReference | GameliftFleetRuntimeConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    game_session_activation_timeout_seconds: cdktf.numberToTerraform(
-      struct!.gameSessionActivationTimeoutSeconds,
-    ),
-    max_concurrent_game_session_activations: cdktf.numberToTerraform(
-      struct!.maxConcurrentGameSessionActivations,
-    ),
-    server_process: cdktf.listMapper(
-      gameliftFleetRuntimeConfigurationServerProcessToTerraform,
-      true,
-    )(struct!.serverProcess),
-  };
+    game_session_activation_timeout_seconds: cdktf.numberToTerraform(struct!.gameSessionActivationTimeoutSeconds),
+    max_concurrent_game_session_activations: cdktf.numberToTerraform(struct!.maxConcurrentGameSessionActivations),
+    server_process: cdktf.listMapper(gameliftFleetRuntimeConfigurationServerProcessToTerraform, true)(struct!.serverProcess),
+  }
 }
 
 export class GameliftFleetRuntimeConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
@@ -723,13 +602,11 @@ export class GameliftFleetRuntimeConfigurationOutputReference extends cdktf.Comp
     const internalValueResult: any = {};
     if (this._gameSessionActivationTimeoutSeconds !== undefined) {
       hasAnyValues = true;
-      internalValueResult.gameSessionActivationTimeoutSeconds =
-        this._gameSessionActivationTimeoutSeconds;
+      internalValueResult.gameSessionActivationTimeoutSeconds = this._gameSessionActivationTimeoutSeconds;
     }
     if (this._maxConcurrentGameSessionActivations !== undefined) {
       hasAnyValues = true;
-      internalValueResult.maxConcurrentGameSessionActivations =
-        this._maxConcurrentGameSessionActivations;
+      internalValueResult.maxConcurrentGameSessionActivations = this._maxConcurrentGameSessionActivations;
     }
     if (this._serverProcess?.internalValue !== undefined) {
       hasAnyValues = true;
@@ -738,26 +615,23 @@ export class GameliftFleetRuntimeConfigurationOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftFleetRuntimeConfiguration | undefined,
-  ) {
+  public set internalValue(value: GameliftFleetRuntimeConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._gameSessionActivationTimeoutSeconds = undefined;
       this._maxConcurrentGameSessionActivations = undefined;
       this._serverProcess.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
-      this._gameSessionActivationTimeoutSeconds =
-        value.gameSessionActivationTimeoutSeconds;
-      this._maxConcurrentGameSessionActivations =
-        value.maxConcurrentGameSessionActivations;
+      this._gameSessionActivationTimeoutSeconds = value.gameSessionActivationTimeoutSeconds;
+      this._maxConcurrentGameSessionActivations = value.maxConcurrentGameSessionActivations;
       this._serverProcess.internalValue = value.serverProcess;
     }
   }
 
   // game_session_activation_timeout_seconds - computed: false, optional: true, required: false
-  private _gameSessionActivationTimeoutSeconds?: number;
+  private _gameSessionActivationTimeoutSeconds?: number; 
   public get gameSessionActivationTimeoutSeconds() {
     return this.getNumberAttribute('game_session_activation_timeout_seconds');
   }
@@ -773,7 +647,7 @@ export class GameliftFleetRuntimeConfigurationOutputReference extends cdktf.Comp
   }
 
   // max_concurrent_game_session_activations - computed: false, optional: true, required: false
-  private _maxConcurrentGameSessionActivations?: number;
+  private _maxConcurrentGameSessionActivations?: number; 
   public get maxConcurrentGameSessionActivations() {
     return this.getNumberAttribute('max_concurrent_game_session_activations');
   }
@@ -789,18 +663,11 @@ export class GameliftFleetRuntimeConfigurationOutputReference extends cdktf.Comp
   }
 
   // server_process - computed: false, optional: true, required: false
-  private _serverProcess =
-    new GameliftFleetRuntimeConfigurationServerProcessList(
-      this,
-      'server_process',
-      false,
-    );
+  private _serverProcess = new GameliftFleetRuntimeConfigurationServerProcessList(this, "server_process", false);
   public get serverProcess() {
     return this._serverProcess;
   }
-  public putServerProcess(
-    value: GameliftFleetRuntimeConfigurationServerProcess[] | cdktf.IResolvable,
-  ) {
+  public putServerProcess(value: GameliftFleetRuntimeConfigurationServerProcess[] | cdktf.IResolvable) {
     this._serverProcess.internalValue = value;
   }
   public resetServerProcess() {
@@ -813,33 +680,24 @@ export class GameliftFleetRuntimeConfigurationOutputReference extends cdktf.Comp
 }
 export interface GameliftFleetTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#create GameliftFleet#create}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#create GameliftFleet#create}
+  */
   readonly create?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#delete GameliftFleet#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet#delete GameliftFleet#delete}
+  */
   readonly delete?: string;
 }
 
-export function gameliftFleetTimeoutsToTerraform(
-  struct?:
-    | GameliftFleetTimeoutsOutputReference
-    | GameliftFleetTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function gameliftFleetTimeoutsToTerraform(struct?: GameliftFleetTimeoutsOutputReference | GameliftFleetTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     create: cdktf.stringToTerraform(struct!.create),
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class GameliftFleetTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -847,20 +705,14 @@ export class GameliftFleetTimeoutsOutputReference extends cdktf.ComplexObject {
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | GameliftFleetTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): GameliftFleetTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -877,18 +729,18 @@ export class GameliftFleetTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: GameliftFleetTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: GameliftFleetTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._create = value.create;
@@ -897,7 +749,7 @@ export class GameliftFleetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // create - computed: false, optional: true, required: false
-  private _create?: string;
+  private _create?: string; 
   public get create() {
     return this.getStringAttribute('create');
   }
@@ -913,7 +765,7 @@ export class GameliftFleetTimeoutsOutputReference extends cdktf.ComplexObject {
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -930,36 +782,33 @@ export class GameliftFleetTimeoutsOutputReference extends cdktf.ComplexObject {
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet aws_gamelift_fleet}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet aws_gamelift_fleet}
+*/
 export class GameliftFleet extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_gamelift_fleet';
+  public static readonly tfResourceType = "aws_gamelift_fleet";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet aws_gamelift_fleet} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options GameliftFleetConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: GameliftFleetConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/gamelift_fleet aws_gamelift_fleet} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options GameliftFleetConfig
+  */
+  public constructor(scope: Construct, id: string, config: GameliftFleetConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_gamelift_fleet',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -967,7 +816,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._buildId = config.buildId;
     this._description = config.description;
@@ -977,16 +826,13 @@ export class GameliftFleet extends cdktf.TerraformResource {
     this._instanceRoleArn = config.instanceRoleArn;
     this._metricGroups = config.metricGroups;
     this._name = config.name;
-    this._newGameSessionProtectionPolicy =
-      config.newGameSessionProtectionPolicy;
+    this._newGameSessionProtectionPolicy = config.newGameSessionProtectionPolicy;
     this._scriptId = config.scriptId;
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
-    this._certificateConfiguration.internalValue =
-      config.certificateConfiguration;
+    this._certificateConfiguration.internalValue = config.certificateConfiguration;
     this._ec2InboundPermission.internalValue = config.ec2InboundPermission;
-    this._resourceCreationLimitPolicy.internalValue =
-      config.resourceCreationLimitPolicy;
+    this._resourceCreationLimitPolicy.internalValue = config.resourceCreationLimitPolicy;
     this._runtimeConfiguration.internalValue = config.runtimeConfiguration;
     this._timeouts.internalValue = config.timeouts;
   }
@@ -1006,7 +852,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // build_id - computed: false, optional: true, required: false
-  private _buildId?: string;
+  private _buildId?: string; 
   public get buildId() {
     return this.getStringAttribute('build_id');
   }
@@ -1022,7 +868,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // description - computed: false, optional: true, required: false
-  private _description?: string;
+  private _description?: string; 
   public get description() {
     return this.getStringAttribute('description');
   }
@@ -1038,7 +884,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // ec2_instance_type - computed: false, optional: false, required: true
-  private _ec2InstanceType?: string;
+  private _ec2InstanceType?: string; 
   public get ec2InstanceType() {
     return this.getStringAttribute('ec2_instance_type');
   }
@@ -1051,7 +897,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // fleet_type - computed: false, optional: true, required: false
-  private _fleetType?: string;
+  private _fleetType?: string; 
   public get fleetType() {
     return this.getStringAttribute('fleet_type');
   }
@@ -1067,7 +913,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1083,7 +929,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // instance_role_arn - computed: false, optional: true, required: false
-  private _instanceRoleArn?: string;
+  private _instanceRoleArn?: string; 
   public get instanceRoleArn() {
     return this.getStringAttribute('instance_role_arn');
   }
@@ -1104,7 +950,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // metric_groups - computed: true, optional: true, required: false
-  private _metricGroups?: string[];
+  private _metricGroups?: string[]; 
   public get metricGroups() {
     return this.getListAttribute('metric_groups');
   }
@@ -1120,7 +966,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1133,7 +979,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // new_game_session_protection_policy - computed: false, optional: true, required: false
-  private _newGameSessionProtectionPolicy?: string;
+  private _newGameSessionProtectionPolicy?: string; 
   public get newGameSessionProtectionPolicy() {
     return this.getStringAttribute('new_game_session_protection_policy');
   }
@@ -1159,7 +1005,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // script_id - computed: false, optional: true, required: false
-  private _scriptId?: string;
+  private _scriptId?: string; 
   public get scriptId() {
     return this.getStringAttribute('script_id');
   }
@@ -1175,7 +1021,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1191,7 +1037,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -1207,17 +1053,11 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // certificate_configuration - computed: false, optional: true, required: false
-  private _certificateConfiguration =
-    new GameliftFleetCertificateConfigurationOutputReference(
-      this,
-      'certificate_configuration',
-    );
+  private _certificateConfiguration = new GameliftFleetCertificateConfigurationOutputReference(this, "certificate_configuration");
   public get certificateConfiguration() {
     return this._certificateConfiguration;
   }
-  public putCertificateConfiguration(
-    value: GameliftFleetCertificateConfiguration,
-  ) {
+  public putCertificateConfiguration(value: GameliftFleetCertificateConfiguration) {
     this._certificateConfiguration.internalValue = value;
   }
   public resetCertificateConfiguration() {
@@ -1229,17 +1069,11 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // ec2_inbound_permission - computed: false, optional: true, required: false
-  private _ec2InboundPermission = new GameliftFleetEc2InboundPermissionList(
-    this,
-    'ec2_inbound_permission',
-    true,
-  );
+  private _ec2InboundPermission = new GameliftFleetEc2InboundPermissionList(this, "ec2_inbound_permission", true);
   public get ec2InboundPermission() {
     return this._ec2InboundPermission;
   }
-  public putEc2InboundPermission(
-    value: GameliftFleetEc2InboundPermission[] | cdktf.IResolvable,
-  ) {
+  public putEc2InboundPermission(value: GameliftFleetEc2InboundPermission[] | cdktf.IResolvable) {
     this._ec2InboundPermission.internalValue = value;
   }
   public resetEc2InboundPermission() {
@@ -1251,17 +1085,11 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // resource_creation_limit_policy - computed: false, optional: true, required: false
-  private _resourceCreationLimitPolicy =
-    new GameliftFleetResourceCreationLimitPolicyOutputReference(
-      this,
-      'resource_creation_limit_policy',
-    );
+  private _resourceCreationLimitPolicy = new GameliftFleetResourceCreationLimitPolicyOutputReference(this, "resource_creation_limit_policy");
   public get resourceCreationLimitPolicy() {
     return this._resourceCreationLimitPolicy;
   }
-  public putResourceCreationLimitPolicy(
-    value: GameliftFleetResourceCreationLimitPolicy,
-  ) {
+  public putResourceCreationLimitPolicy(value: GameliftFleetResourceCreationLimitPolicy) {
     this._resourceCreationLimitPolicy.internalValue = value;
   }
   public resetResourceCreationLimitPolicy() {
@@ -1273,11 +1101,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // runtime_configuration - computed: false, optional: true, required: false
-  private _runtimeConfiguration =
-    new GameliftFleetRuntimeConfigurationOutputReference(
-      this,
-      'runtime_configuration',
-    );
+  private _runtimeConfiguration = new GameliftFleetRuntimeConfigurationOutputReference(this, "runtime_configuration");
   public get runtimeConfiguration() {
     return this._runtimeConfiguration;
   }
@@ -1293,10 +1117,7 @@ export class GameliftFleet extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new GameliftFleetTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new GameliftFleetTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -1323,32 +1144,16 @@ export class GameliftFleet extends cdktf.TerraformResource {
       fleet_type: cdktf.stringToTerraform(this._fleetType),
       id: cdktf.stringToTerraform(this._id),
       instance_role_arn: cdktf.stringToTerraform(this._instanceRoleArn),
-      metric_groups: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._metricGroups),
+      metric_groups: cdktf.listMapper(cdktf.stringToTerraform, false)(this._metricGroups),
       name: cdktf.stringToTerraform(this._name),
-      new_game_session_protection_policy: cdktf.stringToTerraform(
-        this._newGameSessionProtectionPolicy,
-      ),
+      new_game_session_protection_policy: cdktf.stringToTerraform(this._newGameSessionProtectionPolicy),
       script_id: cdktf.stringToTerraform(this._scriptId),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      certificate_configuration:
-        gameliftFleetCertificateConfigurationToTerraform(
-          this._certificateConfiguration.internalValue,
-        ),
-      ec2_inbound_permission: cdktf.listMapper(
-        gameliftFleetEc2InboundPermissionToTerraform,
-        true,
-      )(this._ec2InboundPermission.internalValue),
-      resource_creation_limit_policy:
-        gameliftFleetResourceCreationLimitPolicyToTerraform(
-          this._resourceCreationLimitPolicy.internalValue,
-        ),
-      runtime_configuration: gameliftFleetRuntimeConfigurationToTerraform(
-        this._runtimeConfiguration.internalValue,
-      ),
+      certificate_configuration: gameliftFleetCertificateConfigurationToTerraform(this._certificateConfiguration.internalValue),
+      ec2_inbound_permission: cdktf.listMapper(gameliftFleetEc2InboundPermissionToTerraform, true)(this._ec2InboundPermission.internalValue),
+      resource_creation_limit_policy: gameliftFleetResourceCreationLimitPolicyToTerraform(this._resourceCreationLimitPolicy.internalValue),
+      runtime_configuration: gameliftFleetRuntimeConfigurationToTerraform(this._runtimeConfiguration.internalValue),
       timeouts: gameliftFleetTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }

@@ -1,93 +1,76 @@
 // https://www.terraform.io/docs/providers/aws/d/glue_catalog_table
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsGlueCatalogTableConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsGlueCatalogTableConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#catalog_id DataAwsGlueCatalogTable#catalog_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#catalog_id DataAwsGlueCatalogTable#catalog_id}
+  */
   readonly catalogId?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#database_name DataAwsGlueCatalogTable#database_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#database_name DataAwsGlueCatalogTable#database_name}
+  */
   readonly databaseName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#id DataAwsGlueCatalogTable#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#id DataAwsGlueCatalogTable#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#name DataAwsGlueCatalogTable#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#name DataAwsGlueCatalogTable#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#query_as_of_time DataAwsGlueCatalogTable#query_as_of_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#query_as_of_time DataAwsGlueCatalogTable#query_as_of_time}
+  */
   readonly queryAsOfTime?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#transaction_id DataAwsGlueCatalogTable#transaction_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table#transaction_id DataAwsGlueCatalogTable#transaction_id}
+  */
   readonly transactionId?: number;
 }
-export interface DataAwsGlueCatalogTablePartitionIndex {}
+export interface DataAwsGlueCatalogTablePartitionIndex {
+}
 
-export function dataAwsGlueCatalogTablePartitionIndexToTerraform(
-  struct?: DataAwsGlueCatalogTablePartitionIndex,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTablePartitionIndexToTerraform(struct?: DataAwsGlueCatalogTablePartitionIndex): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTablePartitionIndexOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTablePartitionIndex
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTablePartitionIndex | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTablePartitionIndex | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTablePartitionIndex | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -109,70 +92,46 @@ export class DataAwsGlueCatalogTablePartitionIndexOutputReference extends cdktf.
 }
 
 export class DataAwsGlueCatalogTablePartitionIndexList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTablePartitionIndexOutputReference {
-    return new DataAwsGlueCatalogTablePartitionIndexOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTablePartitionIndexOutputReference {
+    return new DataAwsGlueCatalogTablePartitionIndexOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTablePartitionKeys {}
+export interface DataAwsGlueCatalogTablePartitionKeys {
+}
 
-export function dataAwsGlueCatalogTablePartitionKeysToTerraform(
-  struct?: DataAwsGlueCatalogTablePartitionKeys,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTablePartitionKeysToTerraform(struct?: DataAwsGlueCatalogTablePartitionKeys): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTablePartitionKeysOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): DataAwsGlueCatalogTablePartitionKeys | undefined {
@@ -181,12 +140,11 @@ export class DataAwsGlueCatalogTablePartitionKeysOutputReference extends cdktf.C
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTablePartitionKeys | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTablePartitionKeys | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -208,86 +166,59 @@ export class DataAwsGlueCatalogTablePartitionKeysOutputReference extends cdktf.C
 }
 
 export class DataAwsGlueCatalogTablePartitionKeysList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTablePartitionKeysOutputReference {
-    return new DataAwsGlueCatalogTablePartitionKeysOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTablePartitionKeysOutputReference {
+    return new DataAwsGlueCatalogTablePartitionKeysOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptorColumns {}
+export interface DataAwsGlueCatalogTableStorageDescriptorColumns {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorColumnsToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptorColumns,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorColumnsToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptorColumns): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptorColumns
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptorColumns | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableStorageDescriptorColumns | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptorColumns | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -303,7 +234,7 @@ export class DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference exte
   }
 
   // parameters - computed: true, optional: false, required: false
-  private _parameters = new cdktf.StringMap(this, 'parameters');
+  private _parameters = new cdktf.StringMap(this, "parameters");
   public get parameters() {
     return this._parameters;
   }
@@ -315,88 +246,59 @@ export class DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference exte
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorColumnsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorColumnsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId {}
+export interface DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaId | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -418,97 +320,65 @@ export class DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutp
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptorSchemaReference {}
+export interface DataAwsGlueCatalogTableStorageDescriptorSchemaReference {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorSchemaReferenceToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptorSchemaReference,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorSchemaReferenceToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptorSchemaReference): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptorSchemaReference
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptorSchemaReference | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableStorageDescriptorSchemaReference | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptorSchemaReference | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
 
   // schema_id - computed: true, optional: false, required: false
-  private _schemaId =
-    new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdList(
-      this,
-      'schema_id',
-      false,
-    );
+  private _schemaId = new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceSchemaIdList(this, "schema_id", false);
   public get schemaId() {
     return this._schemaId;
   }
@@ -525,86 +395,59 @@ export class DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceOutputRefere
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptorSerDeInfo {}
+export interface DataAwsGlueCatalogTableStorageDescriptorSerDeInfo {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorSerDeInfoToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptorSerDeInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorSerDeInfoToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptorSerDeInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptorSerDeInfo
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptorSerDeInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableStorageDescriptorSerDeInfo | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptorSerDeInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -615,7 +458,7 @@ export class DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference ex
   }
 
   // parameters - computed: true, optional: false, required: false
-  private _parameters = new cdktf.StringMap(this, 'parameters');
+  private _parameters = new cdktf.StringMap(this, "parameters");
   public get parameters() {
     return this._parameters;
   }
@@ -627,86 +470,59 @@ export class DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference ex
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSerDeInfoList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorSerDeInfoOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptorSkewedInfo {}
+export interface DataAwsGlueCatalogTableStorageDescriptorSkewedInfo {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorSkewedInfoToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptorSkewedInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorSkewedInfoToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptorSkewedInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptorSkewedInfo
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptorSkewedInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableStorageDescriptorSkewedInfo | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptorSkewedInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -717,10 +533,7 @@ export class DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference e
   }
 
   // skewed_column_value_location_maps - computed: true, optional: false, required: false
-  private _skewedColumnValueLocationMaps = new cdktf.StringMap(
-    this,
-    'skewed_column_value_location_maps',
-  );
+  private _skewedColumnValueLocationMaps = new cdktf.StringMap(this, "skewed_column_value_location_maps");
   public get skewedColumnValueLocationMaps() {
     return this._skewedColumnValueLocationMaps;
   }
@@ -732,86 +545,59 @@ export class DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference e
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSkewedInfoList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorSkewedInfoOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptorSortColumns {}
+export interface DataAwsGlueCatalogTableStorageDescriptorSortColumns {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorSortColumnsToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptorSortColumns,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorSortColumnsToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptorSortColumns): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSortColumnsOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptorSortColumns
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptorSortColumns | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableStorageDescriptorSortColumns | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptorSortColumns | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -828,86 +614,59 @@ export class DataAwsGlueCatalogTableStorageDescriptorSortColumnsOutputReference 
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorSortColumnsList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorSortColumnsOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorSortColumnsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorSortColumnsOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorSortColumnsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableStorageDescriptor {}
+export interface DataAwsGlueCatalogTableStorageDescriptor {
+}
 
-export function dataAwsGlueCatalogTableStorageDescriptorToTerraform(
-  struct?: DataAwsGlueCatalogTableStorageDescriptor,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableStorageDescriptorToTerraform(struct?: DataAwsGlueCatalogTableStorageDescriptor): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsGlueCatalogTableStorageDescriptor
-    | undefined {
+  public get internalValue(): DataAwsGlueCatalogTableStorageDescriptor | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableStorageDescriptor | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableStorageDescriptor | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -918,11 +677,7 @@ export class DataAwsGlueCatalogTableStorageDescriptorOutputReference extends cdk
   }
 
   // columns - computed: true, optional: false, required: false
-  private _columns = new DataAwsGlueCatalogTableStorageDescriptorColumnsList(
-    this,
-    'columns',
-    false,
-  );
+  private _columns = new DataAwsGlueCatalogTableStorageDescriptorColumnsList(this, "columns", false);
   public get columns() {
     return this._columns;
   }
@@ -953,51 +708,31 @@ export class DataAwsGlueCatalogTableStorageDescriptorOutputReference extends cdk
   }
 
   // parameters - computed: true, optional: false, required: false
-  private _parameters = new cdktf.StringMap(this, 'parameters');
+  private _parameters = new cdktf.StringMap(this, "parameters");
   public get parameters() {
     return this._parameters;
   }
 
   // schema_reference - computed: true, optional: false, required: false
-  private _schemaReference =
-    new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceList(
-      this,
-      'schema_reference',
-      false,
-    );
+  private _schemaReference = new DataAwsGlueCatalogTableStorageDescriptorSchemaReferenceList(this, "schema_reference", false);
   public get schemaReference() {
     return this._schemaReference;
   }
 
   // ser_de_info - computed: true, optional: false, required: false
-  private _serDeInfo =
-    new DataAwsGlueCatalogTableStorageDescriptorSerDeInfoList(
-      this,
-      'ser_de_info',
-      false,
-    );
+  private _serDeInfo = new DataAwsGlueCatalogTableStorageDescriptorSerDeInfoList(this, "ser_de_info", false);
   public get serDeInfo() {
     return this._serDeInfo;
   }
 
   // skewed_info - computed: true, optional: false, required: false
-  private _skewedInfo =
-    new DataAwsGlueCatalogTableStorageDescriptorSkewedInfoList(
-      this,
-      'skewed_info',
-      false,
-    );
+  private _skewedInfo = new DataAwsGlueCatalogTableStorageDescriptorSkewedInfoList(this, "skewed_info", false);
   public get skewedInfo() {
     return this._skewedInfo;
   }
 
   // sort_columns - computed: true, optional: false, required: false
-  private _sortColumns =
-    new DataAwsGlueCatalogTableStorageDescriptorSortColumnsList(
-      this,
-      'sort_columns',
-      false,
-    );
+  private _sortColumns = new DataAwsGlueCatalogTableStorageDescriptorSortColumnsList(this, "sort_columns", false);
   public get sortColumns() {
     return this._sortColumns;
   }
@@ -1009,70 +744,46 @@ export class DataAwsGlueCatalogTableStorageDescriptorOutputReference extends cdk
 }
 
 export class DataAwsGlueCatalogTableStorageDescriptorList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsGlueCatalogTableStorageDescriptorOutputReference {
-    return new DataAwsGlueCatalogTableStorageDescriptorOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsGlueCatalogTableStorageDescriptorOutputReference {
+    return new DataAwsGlueCatalogTableStorageDescriptorOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
-export interface DataAwsGlueCatalogTableTargetTable {}
+export interface DataAwsGlueCatalogTableTargetTable {
+}
 
-export function dataAwsGlueCatalogTableTargetTableToTerraform(
-  struct?: DataAwsGlueCatalogTableTargetTable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsGlueCatalogTableTargetTableToTerraform(struct?: DataAwsGlueCatalogTableTargetTable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
-  return {};
+  return {
+  }
 }
 
 export class DataAwsGlueCatalogTableTargetTableOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
   public get internalValue(): DataAwsGlueCatalogTableTargetTable | undefined {
@@ -1081,12 +792,11 @@ export class DataAwsGlueCatalogTableTargetTableOutputReference extends cdktf.Com
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: DataAwsGlueCatalogTableTargetTable | undefined,
-  ) {
+  public set internalValue(value: DataAwsGlueCatalogTableTargetTable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
     }
   }
@@ -1108,63 +818,52 @@ export class DataAwsGlueCatalogTableTargetTableOutputReference extends cdktf.Com
 }
 
 export class DataAwsGlueCatalogTableTargetTableList extends cdktf.ComplexList {
+
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): DataAwsGlueCatalogTableTargetTableOutputReference {
-    return new DataAwsGlueCatalogTableTargetTableOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new DataAwsGlueCatalogTableTargetTableOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table aws_glue_catalog_table}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table aws_glue_catalog_table}
+*/
 export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_glue_catalog_table';
+  public static readonly tfResourceType = "aws_glue_catalog_table";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table aws_glue_catalog_table} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsGlueCatalogTableConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsGlueCatalogTableConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/glue_catalog_table aws_glue_catalog_table} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsGlueCatalogTableConfig
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsGlueCatalogTableConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_glue_catalog_table',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1172,7 +871,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._catalogId = config.catalogId;
     this._databaseName = config.databaseName;
@@ -1192,7 +891,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // catalog_id - computed: true, optional: true, required: false
-  private _catalogId?: string;
+  private _catalogId?: string; 
   public get catalogId() {
     return this.getStringAttribute('catalog_id');
   }
@@ -1208,7 +907,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // database_name - computed: false, optional: false, required: true
-  private _databaseName?: string;
+  private _databaseName?: string; 
   public get databaseName() {
     return this.getStringAttribute('database_name');
   }
@@ -1226,7 +925,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1242,7 +941,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1260,33 +959,25 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // parameters - computed: true, optional: false, required: false
-  private _parameters = new cdktf.StringMap(this, 'parameters');
+  private _parameters = new cdktf.StringMap(this, "parameters");
   public get parameters() {
     return this._parameters;
   }
 
   // partition_index - computed: true, optional: false, required: false
-  private _partitionIndex = new DataAwsGlueCatalogTablePartitionIndexList(
-    this,
-    'partition_index',
-    false,
-  );
+  private _partitionIndex = new DataAwsGlueCatalogTablePartitionIndexList(this, "partition_index", false);
   public get partitionIndex() {
     return this._partitionIndex;
   }
 
   // partition_keys - computed: true, optional: false, required: false
-  private _partitionKeys = new DataAwsGlueCatalogTablePartitionKeysList(
-    this,
-    'partition_keys',
-    false,
-  );
+  private _partitionKeys = new DataAwsGlueCatalogTablePartitionKeysList(this, "partition_keys", false);
   public get partitionKeys() {
     return this._partitionKeys;
   }
 
   // query_as_of_time - computed: false, optional: true, required: false
-  private _queryAsOfTime?: string;
+  private _queryAsOfTime?: string; 
   public get queryAsOfTime() {
     return this.getStringAttribute('query_as_of_time');
   }
@@ -1307,11 +998,7 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // storage_descriptor - computed: true, optional: false, required: false
-  private _storageDescriptor = new DataAwsGlueCatalogTableStorageDescriptorList(
-    this,
-    'storage_descriptor',
-    false,
-  );
+  private _storageDescriptor = new DataAwsGlueCatalogTableStorageDescriptorList(this, "storage_descriptor", false);
   public get storageDescriptor() {
     return this._storageDescriptor;
   }
@@ -1322,17 +1009,13 @@ export class DataAwsGlueCatalogTable extends cdktf.TerraformDataSource {
   }
 
   // target_table - computed: true, optional: false, required: false
-  private _targetTable = new DataAwsGlueCatalogTableTargetTableList(
-    this,
-    'target_table',
-    false,
-  );
+  private _targetTable = new DataAwsGlueCatalogTableTargetTableList(this, "target_table", false);
   public get targetTable() {
     return this._targetTable;
   }
 
   // transaction_id - computed: false, optional: true, required: false
-  private _transactionId?: number;
+  private _transactionId?: number; 
   public get transactionId() {
     return this.getNumberAttribute('transaction_id');
   }

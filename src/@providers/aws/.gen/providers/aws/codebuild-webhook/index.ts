@@ -1,70 +1,63 @@
 // https://www.terraform.io/docs/providers/aws/r/codebuild_webhook
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface CodebuildWebhookConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#branch_filter CodebuildWebhook#branch_filter}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#branch_filter CodebuildWebhook#branch_filter}
+  */
   readonly branchFilter?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#build_type CodebuildWebhook#build_type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#build_type CodebuildWebhook#build_type}
+  */
   readonly buildType?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#id CodebuildWebhook#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#id CodebuildWebhook#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#project_name CodebuildWebhook#project_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#project_name CodebuildWebhook#project_name}
+  */
   readonly projectName: string;
   /**
-   * filter_group block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#filter_group CodebuildWebhook#filter_group}
-   */
+  * filter_group block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#filter_group CodebuildWebhook#filter_group}
+  */
   readonly filterGroup?: CodebuildWebhookFilterGroup[] | cdktf.IResolvable;
 }
 export interface CodebuildWebhookFilterGroupFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#exclude_matched_pattern CodebuildWebhook#exclude_matched_pattern}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#exclude_matched_pattern CodebuildWebhook#exclude_matched_pattern}
+  */
   readonly excludeMatchedPattern?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#pattern CodebuildWebhook#pattern}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#pattern CodebuildWebhook#pattern}
+  */
   readonly pattern: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#type CodebuildWebhook#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#type CodebuildWebhook#type}
+  */
   readonly type: string;
 }
 
-export function codebuildWebhookFilterGroupFilterToTerraform(
-  struct?: CodebuildWebhookFilterGroupFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codebuildWebhookFilterGroupFilterToTerraform(struct?: CodebuildWebhookFilterGroupFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    exclude_matched_pattern: cdktf.booleanToTerraform(
-      struct!.excludeMatchedPattern,
-    ),
+    exclude_matched_pattern: cdktf.booleanToTerraform(struct!.excludeMatchedPattern),
     pattern: cdktf.stringToTerraform(struct!.pattern),
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.ComplexObject {
@@ -72,29 +65,16 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodebuildWebhookFilterGroupFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodebuildWebhookFilterGroupFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -115,19 +95,19 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodebuildWebhookFilterGroupFilter | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodebuildWebhookFilterGroupFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._excludeMatchedPattern = undefined;
       this._pattern = undefined;
       this._type = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._excludeMatchedPattern = value.excludeMatchedPattern;
@@ -137,7 +117,7 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   }
 
   // exclude_matched_pattern - computed: false, optional: true, required: false
-  private _excludeMatchedPattern?: boolean | cdktf.IResolvable;
+  private _excludeMatchedPattern?: boolean | cdktf.IResolvable; 
   public get excludeMatchedPattern() {
     return this.getBooleanAttribute('exclude_matched_pattern');
   }
@@ -153,7 +133,7 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   }
 
   // pattern - computed: false, optional: false, required: true
-  private _pattern?: string;
+  private _pattern?: string; 
   public get pattern() {
     return this.getStringAttribute('pattern');
   }
@@ -166,7 +146,7 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -180,61 +160,41 @@ export class CodebuildWebhookFilterGroupFilterOutputReference extends cdktf.Comp
 }
 
 export class CodebuildWebhookFilterGroupFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | CodebuildWebhookFilterGroupFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : CodebuildWebhookFilterGroupFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CodebuildWebhookFilterGroupFilterOutputReference {
-    return new CodebuildWebhookFilterGroupFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CodebuildWebhookFilterGroupFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface CodebuildWebhookFilterGroup {
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#filter CodebuildWebhook#filter}
-   */
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook#filter CodebuildWebhook#filter}
+  */
   readonly filter?: CodebuildWebhookFilterGroupFilter[] | cdktf.IResolvable;
 }
 
-export function codebuildWebhookFilterGroupToTerraform(
-  struct?: CodebuildWebhookFilterGroup | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function codebuildWebhookFilterGroupToTerraform(struct?: CodebuildWebhookFilterGroup | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    filter: cdktf.listMapper(
-      codebuildWebhookFilterGroupFilterToTerraform,
-      true,
-    )(struct!.filter),
-  };
+    filter: cdktf.listMapper(codebuildWebhookFilterGroupFilterToTerraform, true)(struct!.filter),
+  }
 }
 
 export class CodebuildWebhookFilterGroupOutputReference extends cdktf.ComplexObject {
@@ -242,29 +202,16 @@ export class CodebuildWebhookFilterGroupOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | CodebuildWebhookFilterGroup
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): CodebuildWebhookFilterGroup | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -277,17 +224,17 @@ export class CodebuildWebhookFilterGroupOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: CodebuildWebhookFilterGroup | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: CodebuildWebhookFilterGroup | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._filter.internalValue = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._filter.internalValue = value.filter;
@@ -295,17 +242,11 @@ export class CodebuildWebhookFilterGroupOutputReference extends cdktf.ComplexObj
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new CodebuildWebhookFilterGroupFilterList(
-    this,
-    'filter',
-    false,
-  );
+  private _filter = new CodebuildWebhookFilterGroupFilterList(this, "filter", false);
   public get filter() {
     return this._filter;
   }
-  public putFilter(
-    value: CodebuildWebhookFilterGroupFilter[] | cdktf.IResolvable,
-  ) {
+  public putFilter(value: CodebuildWebhookFilterGroupFilter[] | cdktf.IResolvable) {
     this._filter.internalValue = value;
   }
   public resetFilter() {
@@ -318,65 +259,53 @@ export class CodebuildWebhookFilterGroupOutputReference extends cdktf.ComplexObj
 }
 
 export class CodebuildWebhookFilterGroupList extends cdktf.ComplexList {
-  public internalValue?: CodebuildWebhookFilterGroup[] | cdktf.IResolvable;
+  public internalValue? : CodebuildWebhookFilterGroup[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): CodebuildWebhookFilterGroupOutputReference {
-    return new CodebuildWebhookFilterGroupOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new CodebuildWebhookFilterGroupOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook aws_codebuild_webhook}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook aws_codebuild_webhook}
+*/
 export class CodebuildWebhook extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_codebuild_webhook';
+  public static readonly tfResourceType = "aws_codebuild_webhook";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook aws_codebuild_webhook} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options CodebuildWebhookConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: CodebuildWebhookConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/codebuild_webhook aws_codebuild_webhook} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options CodebuildWebhookConfig
+  */
+  public constructor(scope: Construct, id: string, config: CodebuildWebhookConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_codebuild_webhook',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -384,7 +313,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._branchFilter = config.branchFilter;
     this._buildType = config.buildType;
@@ -398,7 +327,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   // ==========
 
   // branch_filter - computed: false, optional: true, required: false
-  private _branchFilter?: string;
+  private _branchFilter?: string; 
   public get branchFilter() {
     return this.getStringAttribute('branch_filter');
   }
@@ -414,7 +343,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // build_type - computed: false, optional: true, required: false
-  private _buildType?: string;
+  private _buildType?: string; 
   public get buildType() {
     return this.getStringAttribute('build_type');
   }
@@ -430,7 +359,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -451,7 +380,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // project_name - computed: false, optional: false, required: true
-  private _projectName?: string;
+  private _projectName?: string; 
   public get projectName() {
     return this.getStringAttribute('project_name');
   }
@@ -474,17 +403,11 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
   }
 
   // filter_group - computed: false, optional: true, required: false
-  private _filterGroup = new CodebuildWebhookFilterGroupList(
-    this,
-    'filter_group',
-    true,
-  );
+  private _filterGroup = new CodebuildWebhookFilterGroupList(this, "filter_group", true);
   public get filterGroup() {
     return this._filterGroup;
   }
-  public putFilterGroup(
-    value: CodebuildWebhookFilterGroup[] | cdktf.IResolvable,
-  ) {
+  public putFilterGroup(value: CodebuildWebhookFilterGroup[] | cdktf.IResolvable) {
     this._filterGroup.internalValue = value;
   }
   public resetFilterGroup() {
@@ -505,10 +428,7 @@ export class CodebuildWebhook extends cdktf.TerraformResource {
       build_type: cdktf.stringToTerraform(this._buildType),
       id: cdktf.stringToTerraform(this._id),
       project_name: cdktf.stringToTerraform(this._projectName),
-      filter_group: cdktf.listMapper(
-        codebuildWebhookFilterGroupToTerraform,
-        true,
-      )(this._filterGroup.internalValue),
+      filter_group: cdktf.listMapper(codebuildWebhookFilterGroupToTerraform, true)(this._filterGroup.internalValue),
     };
   }
 }

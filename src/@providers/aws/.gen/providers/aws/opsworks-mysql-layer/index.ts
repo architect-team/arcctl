@@ -1,188 +1,181 @@
 // https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
 export interface OpsworksMysqlLayerConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#auto_assign_elastic_ips OpsworksMysqlLayer#auto_assign_elastic_ips}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#auto_assign_elastic_ips OpsworksMysqlLayer#auto_assign_elastic_ips}
+  */
   readonly autoAssignElasticIps?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#auto_assign_public_ips OpsworksMysqlLayer#auto_assign_public_ips}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#auto_assign_public_ips OpsworksMysqlLayer#auto_assign_public_ips}
+  */
   readonly autoAssignPublicIps?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#auto_healing OpsworksMysqlLayer#auto_healing}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#auto_healing OpsworksMysqlLayer#auto_healing}
+  */
   readonly autoHealing?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_configure_recipes OpsworksMysqlLayer#custom_configure_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_configure_recipes OpsworksMysqlLayer#custom_configure_recipes}
+  */
   readonly customConfigureRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_deploy_recipes OpsworksMysqlLayer#custom_deploy_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_deploy_recipes OpsworksMysqlLayer#custom_deploy_recipes}
+  */
   readonly customDeployRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_instance_profile_arn OpsworksMysqlLayer#custom_instance_profile_arn}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_instance_profile_arn OpsworksMysqlLayer#custom_instance_profile_arn}
+  */
   readonly customInstanceProfileArn?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_json OpsworksMysqlLayer#custom_json}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_json OpsworksMysqlLayer#custom_json}
+  */
   readonly customJson?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_security_group_ids OpsworksMysqlLayer#custom_security_group_ids}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_security_group_ids OpsworksMysqlLayer#custom_security_group_ids}
+  */
   readonly customSecurityGroupIds?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_setup_recipes OpsworksMysqlLayer#custom_setup_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_setup_recipes OpsworksMysqlLayer#custom_setup_recipes}
+  */
   readonly customSetupRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_shutdown_recipes OpsworksMysqlLayer#custom_shutdown_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_shutdown_recipes OpsworksMysqlLayer#custom_shutdown_recipes}
+  */
   readonly customShutdownRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_undeploy_recipes OpsworksMysqlLayer#custom_undeploy_recipes}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#custom_undeploy_recipes OpsworksMysqlLayer#custom_undeploy_recipes}
+  */
   readonly customUndeployRecipes?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#drain_elb_on_shutdown OpsworksMysqlLayer#drain_elb_on_shutdown}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#drain_elb_on_shutdown OpsworksMysqlLayer#drain_elb_on_shutdown}
+  */
   readonly drainElbOnShutdown?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#elastic_load_balancer OpsworksMysqlLayer#elastic_load_balancer}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#elastic_load_balancer OpsworksMysqlLayer#elastic_load_balancer}
+  */
   readonly elasticLoadBalancer?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#id OpsworksMysqlLayer#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#id OpsworksMysqlLayer#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#install_updates_on_boot OpsworksMysqlLayer#install_updates_on_boot}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#install_updates_on_boot OpsworksMysqlLayer#install_updates_on_boot}
+  */
   readonly installUpdatesOnBoot?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#instance_shutdown_timeout OpsworksMysqlLayer#instance_shutdown_timeout}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#instance_shutdown_timeout OpsworksMysqlLayer#instance_shutdown_timeout}
+  */
   readonly instanceShutdownTimeout?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#name OpsworksMysqlLayer#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#name OpsworksMysqlLayer#name}
+  */
   readonly name?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#root_password OpsworksMysqlLayer#root_password}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#root_password OpsworksMysqlLayer#root_password}
+  */
   readonly rootPassword?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#root_password_on_all_instances OpsworksMysqlLayer#root_password_on_all_instances}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#root_password_on_all_instances OpsworksMysqlLayer#root_password_on_all_instances}
+  */
   readonly rootPasswordOnAllInstances?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#stack_id OpsworksMysqlLayer#stack_id}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#stack_id OpsworksMysqlLayer#stack_id}
+  */
   readonly stackId: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#system_packages OpsworksMysqlLayer#system_packages}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#system_packages OpsworksMysqlLayer#system_packages}
+  */
   readonly systemPackages?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#tags OpsworksMysqlLayer#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#tags OpsworksMysqlLayer#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#tags_all OpsworksMysqlLayer#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#tags_all OpsworksMysqlLayer#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#use_ebs_optimized_instances OpsworksMysqlLayer#use_ebs_optimized_instances}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#use_ebs_optimized_instances OpsworksMysqlLayer#use_ebs_optimized_instances}
+  */
   readonly useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
   /**
-   * cloudwatch_configuration block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#cloudwatch_configuration OpsworksMysqlLayer#cloudwatch_configuration}
-   */
+  * cloudwatch_configuration block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#cloudwatch_configuration OpsworksMysqlLayer#cloudwatch_configuration}
+  */
   readonly cloudwatchConfiguration?: OpsworksMysqlLayerCloudwatchConfiguration;
   /**
-   * ebs_volume block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#ebs_volume OpsworksMysqlLayer#ebs_volume}
-   */
+  * ebs_volume block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#ebs_volume OpsworksMysqlLayer#ebs_volume}
+  */
   readonly ebsVolume?: OpsworksMysqlLayerEbsVolume[] | cdktf.IResolvable;
   /**
-   * load_based_auto_scaling block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#load_based_auto_scaling OpsworksMysqlLayer#load_based_auto_scaling}
-   */
+  * load_based_auto_scaling block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#load_based_auto_scaling OpsworksMysqlLayer#load_based_auto_scaling}
+  */
   readonly loadBasedAutoScaling?: OpsworksMysqlLayerLoadBasedAutoScaling;
 }
 export interface OpsworksMysqlLayerCloudwatchConfigurationLogStreams {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#batch_count OpsworksMysqlLayer#batch_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#batch_count OpsworksMysqlLayer#batch_count}
+  */
   readonly batchCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#batch_size OpsworksMysqlLayer#batch_size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#batch_size OpsworksMysqlLayer#batch_size}
+  */
   readonly batchSize?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#buffer_duration OpsworksMysqlLayer#buffer_duration}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#buffer_duration OpsworksMysqlLayer#buffer_duration}
+  */
   readonly bufferDuration?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#datetime_format OpsworksMysqlLayer#datetime_format}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#datetime_format OpsworksMysqlLayer#datetime_format}
+  */
   readonly datetimeFormat?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#encoding OpsworksMysqlLayer#encoding}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#encoding OpsworksMysqlLayer#encoding}
+  */
   readonly encoding?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#file OpsworksMysqlLayer#file}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#file OpsworksMysqlLayer#file}
+  */
   readonly file: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#file_fingerprint_lines OpsworksMysqlLayer#file_fingerprint_lines}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#file_fingerprint_lines OpsworksMysqlLayer#file_fingerprint_lines}
+  */
   readonly fileFingerprintLines?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#initial_position OpsworksMysqlLayer#initial_position}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#initial_position OpsworksMysqlLayer#initial_position}
+  */
   readonly initialPosition?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#log_group_name OpsworksMysqlLayer#log_group_name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#log_group_name OpsworksMysqlLayer#log_group_name}
+  */
   readonly logGroupName: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#multiline_start_pattern OpsworksMysqlLayer#multiline_start_pattern}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#multiline_start_pattern OpsworksMysqlLayer#multiline_start_pattern}
+  */
   readonly multilineStartPattern?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#time_zone OpsworksMysqlLayer#time_zone}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#time_zone OpsworksMysqlLayer#time_zone}
+  */
   readonly timeZone?: string;
 }
 
-export function opsworksMysqlLayerCloudwatchConfigurationLogStreamsToTerraform(
-  struct?:
-    | OpsworksMysqlLayerCloudwatchConfigurationLogStreams
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksMysqlLayerCloudwatchConfigurationLogStreamsToTerraform(struct?: OpsworksMysqlLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     batch_count: cdktf.numberToTerraform(struct!.batchCount),
@@ -191,16 +184,12 @@ export function opsworksMysqlLayerCloudwatchConfigurationLogStreamsToTerraform(
     datetime_format: cdktf.stringToTerraform(struct!.datetimeFormat),
     encoding: cdktf.stringToTerraform(struct!.encoding),
     file: cdktf.stringToTerraform(struct!.file),
-    file_fingerprint_lines: cdktf.stringToTerraform(
-      struct!.fileFingerprintLines,
-    ),
+    file_fingerprint_lines: cdktf.stringToTerraform(struct!.fileFingerprintLines),
     initial_position: cdktf.stringToTerraform(struct!.initialPosition),
     log_group_name: cdktf.stringToTerraform(struct!.logGroupName),
-    multiline_start_pattern: cdktf.stringToTerraform(
-      struct!.multilineStartPattern,
-    ),
+    multiline_start_pattern: cdktf.stringToTerraform(struct!.multilineStartPattern),
     time_zone: cdktf.stringToTerraform(struct!.timeZone),
-  };
+  }
 }
 
 export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference extends cdktf.ComplexObject {
@@ -208,29 +197,16 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | OpsworksMysqlLayerCloudwatchConfigurationLogStreams
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): OpsworksMysqlLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -283,12 +259,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | OpsworksMysqlLayerCloudwatchConfigurationLogStreams
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: OpsworksMysqlLayerCloudwatchConfigurationLogStreams | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -303,10 +274,12 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
       this._logGroupName = undefined;
       this._multilineStartPattern = undefined;
       this._timeZone = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._batchCount = value.batchCount;
@@ -324,7 +297,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // batch_count - computed: false, optional: true, required: false
-  private _batchCount?: number;
+  private _batchCount?: number; 
   public get batchCount() {
     return this.getNumberAttribute('batch_count');
   }
@@ -340,7 +313,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // batch_size - computed: false, optional: true, required: false
-  private _batchSize?: number;
+  private _batchSize?: number; 
   public get batchSize() {
     return this.getNumberAttribute('batch_size');
   }
@@ -356,7 +329,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // buffer_duration - computed: false, optional: true, required: false
-  private _bufferDuration?: number;
+  private _bufferDuration?: number; 
   public get bufferDuration() {
     return this.getNumberAttribute('buffer_duration');
   }
@@ -372,7 +345,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // datetime_format - computed: false, optional: true, required: false
-  private _datetimeFormat?: string;
+  private _datetimeFormat?: string; 
   public get datetimeFormat() {
     return this.getStringAttribute('datetime_format');
   }
@@ -388,7 +361,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // encoding - computed: false, optional: true, required: false
-  private _encoding?: string;
+  private _encoding?: string; 
   public get encoding() {
     return this.getStringAttribute('encoding');
   }
@@ -404,7 +377,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // file - computed: false, optional: false, required: true
-  private _file?: string;
+  private _file?: string; 
   public get file() {
     return this.getStringAttribute('file');
   }
@@ -417,7 +390,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // file_fingerprint_lines - computed: false, optional: true, required: false
-  private _fileFingerprintLines?: string;
+  private _fileFingerprintLines?: string; 
   public get fileFingerprintLines() {
     return this.getStringAttribute('file_fingerprint_lines');
   }
@@ -433,7 +406,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // initial_position - computed: false, optional: true, required: false
-  private _initialPosition?: string;
+  private _initialPosition?: string; 
   public get initialPosition() {
     return this.getStringAttribute('initial_position');
   }
@@ -449,7 +422,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // log_group_name - computed: false, optional: false, required: true
-  private _logGroupName?: string;
+  private _logGroupName?: string; 
   public get logGroupName() {
     return this.getStringAttribute('log_group_name');
   }
@@ -462,7 +435,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // multiline_start_pattern - computed: false, optional: true, required: false
-  private _multilineStartPattern?: string;
+  private _multilineStartPattern?: string; 
   public get multilineStartPattern() {
     return this.getStringAttribute('multiline_start_pattern');
   }
@@ -478,7 +451,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
   }
 
   // time_zone - computed: false, optional: true, required: false
-  private _timeZone?: string;
+  private _timeZone?: string; 
   public get timeZone() {
     return this.getStringAttribute('time_zone');
   }
@@ -495,91 +468,60 @@ export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference 
 }
 
 export class OpsworksMysqlLayerCloudwatchConfigurationLogStreamsList extends cdktf.ComplexList {
-  public internalValue?:
-    | OpsworksMysqlLayerCloudwatchConfigurationLogStreams[]
-    | cdktf.IResolvable;
+  public internalValue? : OpsworksMysqlLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference {
-    return new OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference {
+    return new OpsworksMysqlLayerCloudwatchConfigurationLogStreamsOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface OpsworksMysqlLayerCloudwatchConfiguration {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#enabled OpsworksMysqlLayer#enabled}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#enabled OpsworksMysqlLayer#enabled}
+  */
   readonly enabled?: boolean | cdktf.IResolvable;
   /**
-   * log_streams block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#log_streams OpsworksMysqlLayer#log_streams}
-   */
-  readonly logStreams?:
-    | OpsworksMysqlLayerCloudwatchConfigurationLogStreams[]
-    | cdktf.IResolvable;
+  * log_streams block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#log_streams OpsworksMysqlLayer#log_streams}
+  */
+  readonly logStreams?: OpsworksMysqlLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable;
 }
 
-export function opsworksMysqlLayerCloudwatchConfigurationToTerraform(
-  struct?:
-    | OpsworksMysqlLayerCloudwatchConfigurationOutputReference
-    | OpsworksMysqlLayerCloudwatchConfiguration,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksMysqlLayerCloudwatchConfigurationToTerraform(struct?: OpsworksMysqlLayerCloudwatchConfigurationOutputReference | OpsworksMysqlLayerCloudwatchConfiguration): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enabled: cdktf.booleanToTerraform(struct!.enabled),
-    log_streams: cdktf.listMapper(
-      opsworksMysqlLayerCloudwatchConfigurationLogStreamsToTerraform,
-      true,
-    )(struct!.logStreams),
-  };
+    log_streams: cdktf.listMapper(opsworksMysqlLayerCloudwatchConfigurationLogStreamsToTerraform, true)(struct!.logStreams),
+  }
 }
 
 export class OpsworksMysqlLayerCloudwatchConfigurationOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksMysqlLayerCloudwatchConfiguration
-    | undefined {
+  public get internalValue(): OpsworksMysqlLayerCloudwatchConfiguration | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enabled !== undefined) {
@@ -593,14 +535,13 @@ export class OpsworksMysqlLayerCloudwatchConfigurationOutputReference extends cd
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksMysqlLayerCloudwatchConfiguration | undefined,
-  ) {
+  public set internalValue(value: OpsworksMysqlLayerCloudwatchConfiguration | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enabled = undefined;
       this._logStreams.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enabled = value.enabled;
       this._logStreams.internalValue = value.logStreams;
@@ -608,7 +549,7 @@ export class OpsworksMysqlLayerCloudwatchConfigurationOutputReference extends cd
   }
 
   // enabled - computed: false, optional: true, required: false
-  private _enabled?: boolean | cdktf.IResolvable;
+  private _enabled?: boolean | cdktf.IResolvable; 
   public get enabled() {
     return this.getBooleanAttribute('enabled');
   }
@@ -624,20 +565,11 @@ export class OpsworksMysqlLayerCloudwatchConfigurationOutputReference extends cd
   }
 
   // log_streams - computed: false, optional: true, required: false
-  private _logStreams =
-    new OpsworksMysqlLayerCloudwatchConfigurationLogStreamsList(
-      this,
-      'log_streams',
-      false,
-    );
+  private _logStreams = new OpsworksMysqlLayerCloudwatchConfigurationLogStreamsList(this, "log_streams", false);
   public get logStreams() {
     return this._logStreams;
   }
-  public putLogStreams(
-    value:
-      | OpsworksMysqlLayerCloudwatchConfigurationLogStreams[]
-      | cdktf.IResolvable,
-  ) {
+  public putLogStreams(value: OpsworksMysqlLayerCloudwatchConfigurationLogStreams[] | cdktf.IResolvable) {
     this._logStreams.internalValue = value;
   }
   public resetLogStreams() {
@@ -650,45 +582,39 @@ export class OpsworksMysqlLayerCloudwatchConfigurationOutputReference extends cd
 }
 export interface OpsworksMysqlLayerEbsVolume {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#encrypted OpsworksMysqlLayer#encrypted}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#encrypted OpsworksMysqlLayer#encrypted}
+  */
   readonly encrypted?: boolean | cdktf.IResolvable;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#iops OpsworksMysqlLayer#iops}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#iops OpsworksMysqlLayer#iops}
+  */
   readonly iops?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#mount_point OpsworksMysqlLayer#mount_point}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#mount_point OpsworksMysqlLayer#mount_point}
+  */
   readonly mountPoint: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#number_of_disks OpsworksMysqlLayer#number_of_disks}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#number_of_disks OpsworksMysqlLayer#number_of_disks}
+  */
   readonly numberOfDisks: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#raid_level OpsworksMysqlLayer#raid_level}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#raid_level OpsworksMysqlLayer#raid_level}
+  */
   readonly raidLevel?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#size OpsworksMysqlLayer#size}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#size OpsworksMysqlLayer#size}
+  */
   readonly size: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#type OpsworksMysqlLayer#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#type OpsworksMysqlLayer#type}
+  */
   readonly type?: string;
 }
 
-export function opsworksMysqlLayerEbsVolumeToTerraform(
-  struct?: OpsworksMysqlLayerEbsVolume | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksMysqlLayerEbsVolumeToTerraform(struct?: OpsworksMysqlLayerEbsVolume | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     encrypted: cdktf.booleanToTerraform(struct!.encrypted),
@@ -698,7 +624,7 @@ export function opsworksMysqlLayerEbsVolumeToTerraform(
     raid_level: cdktf.stringToTerraform(struct!.raidLevel),
     size: cdktf.numberToTerraform(struct!.size),
     type: cdktf.stringToTerraform(struct!.type),
-  };
+  }
 }
 
 export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObject {
@@ -706,29 +632,16 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | OpsworksMysqlLayerEbsVolume
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): OpsworksMysqlLayerEbsVolume | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -765,9 +678,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksMysqlLayerEbsVolume | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: OpsworksMysqlLayerEbsVolume | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
@@ -778,10 +689,12 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
       this._raidLevel = undefined;
       this._size = undefined;
       this._type = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._encrypted = value.encrypted;
@@ -795,7 +708,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // encrypted - computed: false, optional: true, required: false
-  private _encrypted?: boolean | cdktf.IResolvable;
+  private _encrypted?: boolean | cdktf.IResolvable; 
   public get encrypted() {
     return this.getBooleanAttribute('encrypted');
   }
@@ -811,7 +724,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // iops - computed: false, optional: true, required: false
-  private _iops?: number;
+  private _iops?: number; 
   public get iops() {
     return this.getNumberAttribute('iops');
   }
@@ -827,7 +740,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // mount_point - computed: false, optional: false, required: true
-  private _mountPoint?: string;
+  private _mountPoint?: string; 
   public get mountPoint() {
     return this.getStringAttribute('mount_point');
   }
@@ -840,7 +753,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // number_of_disks - computed: false, optional: false, required: true
-  private _numberOfDisks?: number;
+  private _numberOfDisks?: number; 
   public get numberOfDisks() {
     return this.getNumberAttribute('number_of_disks');
   }
@@ -853,7 +766,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // raid_level - computed: false, optional: true, required: false
-  private _raidLevel?: string;
+  private _raidLevel?: string; 
   public get raidLevel() {
     return this.getStringAttribute('raid_level');
   }
@@ -869,7 +782,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // size - computed: false, optional: false, required: true
-  private _size?: number;
+  private _size?: number; 
   public get size() {
     return this.getNumberAttribute('size');
   }
@@ -882,7 +795,7 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
   }
 
   // type - computed: false, optional: true, required: false
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -899,76 +812,59 @@ export class OpsworksMysqlLayerEbsVolumeOutputReference extends cdktf.ComplexObj
 }
 
 export class OpsworksMysqlLayerEbsVolumeList extends cdktf.ComplexList {
-  public internalValue?: OpsworksMysqlLayerEbsVolume[] | cdktf.IResolvable;
+  public internalValue? : OpsworksMysqlLayerEbsVolume[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
+  * @param index the index of the item to return
+  */
   public get(index: number): OpsworksMysqlLayerEbsVolumeOutputReference {
-    return new OpsworksMysqlLayerEbsVolumeOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+    return new OpsworksMysqlLayerEbsVolumeOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface OpsworksMysqlLayerLoadBasedAutoScalingDownscaling {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#alarms OpsworksMysqlLayer#alarms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#alarms OpsworksMysqlLayer#alarms}
+  */
   readonly alarms?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#cpu_threshold OpsworksMysqlLayer#cpu_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#cpu_threshold OpsworksMysqlLayer#cpu_threshold}
+  */
   readonly cpuThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#ignore_metrics_time OpsworksMysqlLayer#ignore_metrics_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#ignore_metrics_time OpsworksMysqlLayer#ignore_metrics_time}
+  */
   readonly ignoreMetricsTime?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#instance_count OpsworksMysqlLayer#instance_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#instance_count OpsworksMysqlLayer#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#load_threshold OpsworksMysqlLayer#load_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#load_threshold OpsworksMysqlLayer#load_threshold}
+  */
   readonly loadThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#memory_threshold OpsworksMysqlLayer#memory_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#memory_threshold OpsworksMysqlLayer#memory_threshold}
+  */
   readonly memoryThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#thresholds_wait_time OpsworksMysqlLayer#thresholds_wait_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#thresholds_wait_time OpsworksMysqlLayer#thresholds_wait_time}
+  */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksMysqlLayerLoadBasedAutoScalingDownscalingToTerraform(
-  struct?:
-    | OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference
-    | OpsworksMysqlLayerLoadBasedAutoScalingDownscaling,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksMysqlLayerLoadBasedAutoScalingDownscalingToTerraform(struct?: OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference | OpsworksMysqlLayerLoadBasedAutoScalingDownscaling): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -978,26 +874,21 @@ export function opsworksMysqlLayerLoadBasedAutoScalingDownscalingToTerraform(
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  };
+  }
 }
 
 export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksMysqlLayerLoadBasedAutoScalingDownscaling
-    | undefined {
+  public get internalValue(): OpsworksMysqlLayerLoadBasedAutoScalingDownscaling | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -1031,9 +922,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksMysqlLayerLoadBasedAutoScalingDownscaling | undefined,
-  ) {
+  public set internalValue(value: OpsworksMysqlLayerLoadBasedAutoScalingDownscaling | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -1043,7 +932,8 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1056,7 +946,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[];
+  private _alarms?: string[]; 
   public get alarms() {
     return this.getListAttribute('alarms');
   }
@@ -1072,7 +962,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // cpu_threshold - computed: false, optional: true, required: false
-  private _cpuThreshold?: number;
+  private _cpuThreshold?: number; 
   public get cpuThreshold() {
     return this.getNumberAttribute('cpu_threshold');
   }
@@ -1088,7 +978,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // ignore_metrics_time - computed: false, optional: true, required: false
-  private _ignoreMetricsTime?: number;
+  private _ignoreMetricsTime?: number; 
   public get ignoreMetricsTime() {
     return this.getNumberAttribute('ignore_metrics_time');
   }
@@ -1104,7 +994,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1120,7 +1010,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // load_threshold - computed: false, optional: true, required: false
-  private _loadThreshold?: number;
+  private _loadThreshold?: number; 
   public get loadThreshold() {
     return this.getNumberAttribute('load_threshold');
   }
@@ -1136,7 +1026,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // memory_threshold - computed: false, optional: true, required: false
-  private _memoryThreshold?: number;
+  private _memoryThreshold?: number; 
   public get memoryThreshold() {
     return this.getNumberAttribute('memory_threshold');
   }
@@ -1152,7 +1042,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
   }
 
   // thresholds_wait_time - computed: false, optional: true, required: false
-  private _thresholdsWaitTime?: number;
+  private _thresholdsWaitTime?: number; 
   public get thresholdsWaitTime() {
     return this.getNumberAttribute('thresholds_wait_time');
   }
@@ -1169,47 +1059,39 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference ex
 }
 export interface OpsworksMysqlLayerLoadBasedAutoScalingUpscaling {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#alarms OpsworksMysqlLayer#alarms}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#alarms OpsworksMysqlLayer#alarms}
+  */
   readonly alarms?: string[];
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#cpu_threshold OpsworksMysqlLayer#cpu_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#cpu_threshold OpsworksMysqlLayer#cpu_threshold}
+  */
   readonly cpuThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#ignore_metrics_time OpsworksMysqlLayer#ignore_metrics_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#ignore_metrics_time OpsworksMysqlLayer#ignore_metrics_time}
+  */
   readonly ignoreMetricsTime?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#instance_count OpsworksMysqlLayer#instance_count}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#instance_count OpsworksMysqlLayer#instance_count}
+  */
   readonly instanceCount?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#load_threshold OpsworksMysqlLayer#load_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#load_threshold OpsworksMysqlLayer#load_threshold}
+  */
   readonly loadThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#memory_threshold OpsworksMysqlLayer#memory_threshold}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#memory_threshold OpsworksMysqlLayer#memory_threshold}
+  */
   readonly memoryThreshold?: number;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#thresholds_wait_time OpsworksMysqlLayer#thresholds_wait_time}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#thresholds_wait_time OpsworksMysqlLayer#thresholds_wait_time}
+  */
   readonly thresholdsWaitTime?: number;
 }
 
-export function opsworksMysqlLayerLoadBasedAutoScalingUpscalingToTerraform(
-  struct?:
-    | OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference
-    | OpsworksMysqlLayerLoadBasedAutoScalingUpscaling,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksMysqlLayerLoadBasedAutoScalingUpscalingToTerraform(struct?: OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference | OpsworksMysqlLayerLoadBasedAutoScalingUpscaling): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     alarms: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.alarms),
@@ -1219,26 +1101,21 @@ export function opsworksMysqlLayerLoadBasedAutoScalingUpscalingToTerraform(
     load_threshold: cdktf.numberToTerraform(struct!.loadThreshold),
     memory_threshold: cdktf.numberToTerraform(struct!.memoryThreshold),
     thresholds_wait_time: cdktf.numberToTerraform(struct!.thresholdsWaitTime),
-  };
+  }
 }
 
 export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksMysqlLayerLoadBasedAutoScalingUpscaling
-    | undefined {
+  public get internalValue(): OpsworksMysqlLayerLoadBasedAutoScalingUpscaling | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._alarms !== undefined) {
@@ -1272,9 +1149,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksMysqlLayerLoadBasedAutoScalingUpscaling | undefined,
-  ) {
+  public set internalValue(value: OpsworksMysqlLayerLoadBasedAutoScalingUpscaling | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._alarms = undefined;
@@ -1284,7 +1159,8 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
       this._loadThreshold = undefined;
       this._memoryThreshold = undefined;
       this._thresholdsWaitTime = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._alarms = value.alarms;
       this._cpuThreshold = value.cpuThreshold;
@@ -1297,7 +1173,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // alarms - computed: false, optional: true, required: false
-  private _alarms?: string[];
+  private _alarms?: string[]; 
   public get alarms() {
     return this.getListAttribute('alarms');
   }
@@ -1313,7 +1189,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // cpu_threshold - computed: false, optional: true, required: false
-  private _cpuThreshold?: number;
+  private _cpuThreshold?: number; 
   public get cpuThreshold() {
     return this.getNumberAttribute('cpu_threshold');
   }
@@ -1329,7 +1205,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // ignore_metrics_time - computed: false, optional: true, required: false
-  private _ignoreMetricsTime?: number;
+  private _ignoreMetricsTime?: number; 
   public get ignoreMetricsTime() {
     return this.getNumberAttribute('ignore_metrics_time');
   }
@@ -1345,7 +1221,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // instance_count - computed: false, optional: true, required: false
-  private _instanceCount?: number;
+  private _instanceCount?: number; 
   public get instanceCount() {
     return this.getNumberAttribute('instance_count');
   }
@@ -1361,7 +1237,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // load_threshold - computed: false, optional: true, required: false
-  private _loadThreshold?: number;
+  private _loadThreshold?: number; 
   public get loadThreshold() {
     return this.getNumberAttribute('load_threshold');
   }
@@ -1377,7 +1253,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // memory_threshold - computed: false, optional: true, required: false
-  private _memoryThreshold?: number;
+  private _memoryThreshold?: number; 
   public get memoryThreshold() {
     return this.getNumberAttribute('memory_threshold');
   }
@@ -1393,7 +1269,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
   }
 
   // thresholds_wait_time - computed: false, optional: true, required: false
-  private _thresholdsWaitTime?: number;
+  private _thresholdsWaitTime?: number; 
   public get thresholdsWaitTime() {
     return this.getNumberAttribute('thresholds_wait_time');
   }
@@ -1410,64 +1286,47 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference exte
 }
 export interface OpsworksMysqlLayerLoadBasedAutoScaling {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#enable OpsworksMysqlLayer#enable}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#enable OpsworksMysqlLayer#enable}
+  */
   readonly enable?: boolean | cdktf.IResolvable;
   /**
-   * downscaling block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#downscaling OpsworksMysqlLayer#downscaling}
-   */
+  * downscaling block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#downscaling OpsworksMysqlLayer#downscaling}
+  */
   readonly downscaling?: OpsworksMysqlLayerLoadBasedAutoScalingDownscaling;
   /**
-   * upscaling block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#upscaling OpsworksMysqlLayer#upscaling}
-   */
+  * upscaling block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer#upscaling OpsworksMysqlLayer#upscaling}
+  */
   readonly upscaling?: OpsworksMysqlLayerLoadBasedAutoScalingUpscaling;
 }
 
-export function opsworksMysqlLayerLoadBasedAutoScalingToTerraform(
-  struct?:
-    | OpsworksMysqlLayerLoadBasedAutoScalingOutputReference
-    | OpsworksMysqlLayerLoadBasedAutoScaling,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function opsworksMysqlLayerLoadBasedAutoScalingToTerraform(struct?: OpsworksMysqlLayerLoadBasedAutoScalingOutputReference | OpsworksMysqlLayerLoadBasedAutoScaling): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     enable: cdktf.booleanToTerraform(struct!.enable),
-    downscaling: opsworksMysqlLayerLoadBasedAutoScalingDownscalingToTerraform(
-      struct!.downscaling,
-    ),
-    upscaling: opsworksMysqlLayerLoadBasedAutoScalingUpscalingToTerraform(
-      struct!.upscaling,
-    ),
-  };
+    downscaling: opsworksMysqlLayerLoadBasedAutoScalingDownscalingToTerraform(struct!.downscaling),
+    upscaling: opsworksMysqlLayerLoadBasedAutoScalingUpscalingToTerraform(struct!.upscaling),
+  }
 }
 
 export class OpsworksMysqlLayerLoadBasedAutoScalingOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | OpsworksMysqlLayerLoadBasedAutoScaling
-    | undefined {
+  public get internalValue(): OpsworksMysqlLayerLoadBasedAutoScaling | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._enable !== undefined) {
@@ -1485,15 +1344,14 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingOutputReference extends cdktf
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: OpsworksMysqlLayerLoadBasedAutoScaling | undefined,
-  ) {
+  public set internalValue(value: OpsworksMysqlLayerLoadBasedAutoScaling | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._enable = undefined;
       this._downscaling.internalValue = undefined;
       this._upscaling.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._enable = value.enable;
       this._downscaling.internalValue = value.downscaling;
@@ -1502,7 +1360,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingOutputReference extends cdktf
   }
 
   // enable - computed: false, optional: true, required: false
-  private _enable?: boolean | cdktf.IResolvable;
+  private _enable?: boolean | cdktf.IResolvable; 
   public get enable() {
     return this.getBooleanAttribute('enable');
   }
@@ -1518,17 +1376,11 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingOutputReference extends cdktf
   }
 
   // downscaling - computed: false, optional: true, required: false
-  private _downscaling =
-    new OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference(
-      this,
-      'downscaling',
-    );
+  private _downscaling = new OpsworksMysqlLayerLoadBasedAutoScalingDownscalingOutputReference(this, "downscaling");
   public get downscaling() {
     return this._downscaling;
   }
-  public putDownscaling(
-    value: OpsworksMysqlLayerLoadBasedAutoScalingDownscaling,
-  ) {
+  public putDownscaling(value: OpsworksMysqlLayerLoadBasedAutoScalingDownscaling) {
     this._downscaling.internalValue = value;
   }
   public resetDownscaling() {
@@ -1540,11 +1392,7 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingOutputReference extends cdktf
   }
 
   // upscaling - computed: false, optional: true, required: false
-  private _upscaling =
-    new OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference(
-      this,
-      'upscaling',
-    );
+  private _upscaling = new OpsworksMysqlLayerLoadBasedAutoScalingUpscalingOutputReference(this, "upscaling");
   public get upscaling() {
     return this._upscaling;
   }
@@ -1561,36 +1409,33 @@ export class OpsworksMysqlLayerLoadBasedAutoScalingOutputReference extends cdktf
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer aws_opsworks_mysql_layer}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer aws_opsworks_mysql_layer}
+*/
 export class OpsworksMysqlLayer extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_opsworks_mysql_layer';
+  public static readonly tfResourceType = "aws_opsworks_mysql_layer";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer aws_opsworks_mysql_layer} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options OpsworksMysqlLayerConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: OpsworksMysqlLayerConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/opsworks_mysql_layer aws_opsworks_mysql_layer} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options OpsworksMysqlLayerConfig
+  */
+  public constructor(scope: Construct, id: string, config: OpsworksMysqlLayerConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_opsworks_mysql_layer',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -1598,7 +1443,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._autoAssignElasticIps = config.autoAssignElasticIps;
     this._autoAssignPublicIps = config.autoAssignPublicIps;
@@ -1624,8 +1469,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
     this._tags = config.tags;
     this._tagsAll = config.tagsAll;
     this._useEbsOptimizedInstances = config.useEbsOptimizedInstances;
-    this._cloudwatchConfiguration.internalValue =
-      config.cloudwatchConfiguration;
+    this._cloudwatchConfiguration.internalValue = config.cloudwatchConfiguration;
     this._ebsVolume.internalValue = config.ebsVolume;
     this._loadBasedAutoScaling.internalValue = config.loadBasedAutoScaling;
   }
@@ -1640,7 +1484,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // auto_assign_elastic_ips - computed: false, optional: true, required: false
-  private _autoAssignElasticIps?: boolean | cdktf.IResolvable;
+  private _autoAssignElasticIps?: boolean | cdktf.IResolvable; 
   public get autoAssignElasticIps() {
     return this.getBooleanAttribute('auto_assign_elastic_ips');
   }
@@ -1656,7 +1500,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // auto_assign_public_ips - computed: false, optional: true, required: false
-  private _autoAssignPublicIps?: boolean | cdktf.IResolvable;
+  private _autoAssignPublicIps?: boolean | cdktf.IResolvable; 
   public get autoAssignPublicIps() {
     return this.getBooleanAttribute('auto_assign_public_ips');
   }
@@ -1672,7 +1516,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // auto_healing - computed: false, optional: true, required: false
-  private _autoHealing?: boolean | cdktf.IResolvable;
+  private _autoHealing?: boolean | cdktf.IResolvable; 
   public get autoHealing() {
     return this.getBooleanAttribute('auto_healing');
   }
@@ -1688,7 +1532,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_configure_recipes - computed: false, optional: true, required: false
-  private _customConfigureRecipes?: string[];
+  private _customConfigureRecipes?: string[]; 
   public get customConfigureRecipes() {
     return this.getListAttribute('custom_configure_recipes');
   }
@@ -1704,7 +1548,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_deploy_recipes - computed: false, optional: true, required: false
-  private _customDeployRecipes?: string[];
+  private _customDeployRecipes?: string[]; 
   public get customDeployRecipes() {
     return this.getListAttribute('custom_deploy_recipes');
   }
@@ -1720,7 +1564,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_instance_profile_arn - computed: false, optional: true, required: false
-  private _customInstanceProfileArn?: string;
+  private _customInstanceProfileArn?: string; 
   public get customInstanceProfileArn() {
     return this.getStringAttribute('custom_instance_profile_arn');
   }
@@ -1736,7 +1580,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_json - computed: false, optional: true, required: false
-  private _customJson?: string;
+  private _customJson?: string; 
   public get customJson() {
     return this.getStringAttribute('custom_json');
   }
@@ -1752,7 +1596,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_security_group_ids - computed: false, optional: true, required: false
-  private _customSecurityGroupIds?: string[];
+  private _customSecurityGroupIds?: string[]; 
   public get customSecurityGroupIds() {
     return cdktf.Fn.tolist(this.getListAttribute('custom_security_group_ids'));
   }
@@ -1768,7 +1612,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_setup_recipes - computed: false, optional: true, required: false
-  private _customSetupRecipes?: string[];
+  private _customSetupRecipes?: string[]; 
   public get customSetupRecipes() {
     return this.getListAttribute('custom_setup_recipes');
   }
@@ -1784,7 +1628,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_shutdown_recipes - computed: false, optional: true, required: false
-  private _customShutdownRecipes?: string[];
+  private _customShutdownRecipes?: string[]; 
   public get customShutdownRecipes() {
     return this.getListAttribute('custom_shutdown_recipes');
   }
@@ -1800,7 +1644,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // custom_undeploy_recipes - computed: false, optional: true, required: false
-  private _customUndeployRecipes?: string[];
+  private _customUndeployRecipes?: string[]; 
   public get customUndeployRecipes() {
     return this.getListAttribute('custom_undeploy_recipes');
   }
@@ -1816,7 +1660,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // drain_elb_on_shutdown - computed: false, optional: true, required: false
-  private _drainElbOnShutdown?: boolean | cdktf.IResolvable;
+  private _drainElbOnShutdown?: boolean | cdktf.IResolvable; 
   public get drainElbOnShutdown() {
     return this.getBooleanAttribute('drain_elb_on_shutdown');
   }
@@ -1832,7 +1676,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // elastic_load_balancer - computed: false, optional: true, required: false
-  private _elasticLoadBalancer?: string;
+  private _elasticLoadBalancer?: string; 
   public get elasticLoadBalancer() {
     return this.getStringAttribute('elastic_load_balancer');
   }
@@ -1848,7 +1692,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -1864,7 +1708,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // install_updates_on_boot - computed: false, optional: true, required: false
-  private _installUpdatesOnBoot?: boolean | cdktf.IResolvable;
+  private _installUpdatesOnBoot?: boolean | cdktf.IResolvable; 
   public get installUpdatesOnBoot() {
     return this.getBooleanAttribute('install_updates_on_boot');
   }
@@ -1880,7 +1724,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // instance_shutdown_timeout - computed: false, optional: true, required: false
-  private _instanceShutdownTimeout?: number;
+  private _instanceShutdownTimeout?: number; 
   public get instanceShutdownTimeout() {
     return this.getNumberAttribute('instance_shutdown_timeout');
   }
@@ -1896,7 +1740,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: true, required: false
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -1912,7 +1756,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // root_password - computed: false, optional: true, required: false
-  private _rootPassword?: string;
+  private _rootPassword?: string; 
   public get rootPassword() {
     return this.getStringAttribute('root_password');
   }
@@ -1928,7 +1772,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // root_password_on_all_instances - computed: false, optional: true, required: false
-  private _rootPasswordOnAllInstances?: boolean | cdktf.IResolvable;
+  private _rootPasswordOnAllInstances?: boolean | cdktf.IResolvable; 
   public get rootPasswordOnAllInstances() {
     return this.getBooleanAttribute('root_password_on_all_instances');
   }
@@ -1944,7 +1788,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // stack_id - computed: false, optional: false, required: true
-  private _stackId?: string;
+  private _stackId?: string; 
   public get stackId() {
     return this.getStringAttribute('stack_id');
   }
@@ -1957,7 +1801,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // system_packages - computed: false, optional: true, required: false
-  private _systemPackages?: string[];
+  private _systemPackages?: string[]; 
   public get systemPackages() {
     return cdktf.Fn.tolist(this.getListAttribute('system_packages'));
   }
@@ -1973,7 +1817,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -1989,7 +1833,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -2005,7 +1849,7 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // use_ebs_optimized_instances - computed: false, optional: true, required: false
-  private _useEbsOptimizedInstances?: boolean | cdktf.IResolvable;
+  private _useEbsOptimizedInstances?: boolean | cdktf.IResolvable; 
   public get useEbsOptimizedInstances() {
     return this.getBooleanAttribute('use_ebs_optimized_instances');
   }
@@ -2021,17 +1865,11 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // cloudwatch_configuration - computed: false, optional: true, required: false
-  private _cloudwatchConfiguration =
-    new OpsworksMysqlLayerCloudwatchConfigurationOutputReference(
-      this,
-      'cloudwatch_configuration',
-    );
+  private _cloudwatchConfiguration = new OpsworksMysqlLayerCloudwatchConfigurationOutputReference(this, "cloudwatch_configuration");
   public get cloudwatchConfiguration() {
     return this._cloudwatchConfiguration;
   }
-  public putCloudwatchConfiguration(
-    value: OpsworksMysqlLayerCloudwatchConfiguration,
-  ) {
+  public putCloudwatchConfiguration(value: OpsworksMysqlLayerCloudwatchConfiguration) {
     this._cloudwatchConfiguration.internalValue = value;
   }
   public resetCloudwatchConfiguration() {
@@ -2043,17 +1881,11 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // ebs_volume - computed: false, optional: true, required: false
-  private _ebsVolume = new OpsworksMysqlLayerEbsVolumeList(
-    this,
-    'ebs_volume',
-    true,
-  );
+  private _ebsVolume = new OpsworksMysqlLayerEbsVolumeList(this, "ebs_volume", true);
   public get ebsVolume() {
     return this._ebsVolume;
   }
-  public putEbsVolume(
-    value: OpsworksMysqlLayerEbsVolume[] | cdktf.IResolvable,
-  ) {
+  public putEbsVolume(value: OpsworksMysqlLayerEbsVolume[] | cdktf.IResolvable) {
     this._ebsVolume.internalValue = value;
   }
   public resetEbsVolume() {
@@ -2065,17 +1897,11 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
   }
 
   // load_based_auto_scaling - computed: false, optional: true, required: false
-  private _loadBasedAutoScaling =
-    new OpsworksMysqlLayerLoadBasedAutoScalingOutputReference(
-      this,
-      'load_based_auto_scaling',
-    );
+  private _loadBasedAutoScaling = new OpsworksMysqlLayerLoadBasedAutoScalingOutputReference(this, "load_based_auto_scaling");
   public get loadBasedAutoScaling() {
     return this._loadBasedAutoScaling;
   }
-  public putLoadBasedAutoScaling(
-    value: OpsworksMysqlLayerLoadBasedAutoScaling,
-  ) {
+  public putLoadBasedAutoScaling(value: OpsworksMysqlLayerLoadBasedAutoScaling) {
     this._loadBasedAutoScaling.internalValue = value;
   }
   public resetLoadBasedAutoScaling() {
@@ -2092,77 +1918,33 @@ export class OpsworksMysqlLayer extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      auto_assign_elastic_ips: cdktf.booleanToTerraform(
-        this._autoAssignElasticIps,
-      ),
-      auto_assign_public_ips: cdktf.booleanToTerraform(
-        this._autoAssignPublicIps,
-      ),
+      auto_assign_elastic_ips: cdktf.booleanToTerraform(this._autoAssignElasticIps),
+      auto_assign_public_ips: cdktf.booleanToTerraform(this._autoAssignPublicIps),
       auto_healing: cdktf.booleanToTerraform(this._autoHealing),
-      custom_configure_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customConfigureRecipes),
-      custom_deploy_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customDeployRecipes),
-      custom_instance_profile_arn: cdktf.stringToTerraform(
-        this._customInstanceProfileArn,
-      ),
+      custom_configure_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customConfigureRecipes),
+      custom_deploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customDeployRecipes),
+      custom_instance_profile_arn: cdktf.stringToTerraform(this._customInstanceProfileArn),
       custom_json: cdktf.stringToTerraform(this._customJson),
-      custom_security_group_ids: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customSecurityGroupIds),
-      custom_setup_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customSetupRecipes),
-      custom_shutdown_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customShutdownRecipes),
-      custom_undeploy_recipes: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._customUndeployRecipes),
+      custom_security_group_ids: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSecurityGroupIds),
+      custom_setup_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customSetupRecipes),
+      custom_shutdown_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customShutdownRecipes),
+      custom_undeploy_recipes: cdktf.listMapper(cdktf.stringToTerraform, false)(this._customUndeployRecipes),
       drain_elb_on_shutdown: cdktf.booleanToTerraform(this._drainElbOnShutdown),
       elastic_load_balancer: cdktf.stringToTerraform(this._elasticLoadBalancer),
       id: cdktf.stringToTerraform(this._id),
-      install_updates_on_boot: cdktf.booleanToTerraform(
-        this._installUpdatesOnBoot,
-      ),
-      instance_shutdown_timeout: cdktf.numberToTerraform(
-        this._instanceShutdownTimeout,
-      ),
+      install_updates_on_boot: cdktf.booleanToTerraform(this._installUpdatesOnBoot),
+      instance_shutdown_timeout: cdktf.numberToTerraform(this._instanceShutdownTimeout),
       name: cdktf.stringToTerraform(this._name),
       root_password: cdktf.stringToTerraform(this._rootPassword),
-      root_password_on_all_instances: cdktf.booleanToTerraform(
-        this._rootPasswordOnAllInstances,
-      ),
+      root_password_on_all_instances: cdktf.booleanToTerraform(this._rootPasswordOnAllInstances),
       stack_id: cdktf.stringToTerraform(this._stackId),
-      system_packages: cdktf.listMapper(
-        cdktf.stringToTerraform,
-        false,
-      )(this._systemPackages),
+      system_packages: cdktf.listMapper(cdktf.stringToTerraform, false)(this._systemPackages),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      use_ebs_optimized_instances: cdktf.booleanToTerraform(
-        this._useEbsOptimizedInstances,
-      ),
-      cloudwatch_configuration:
-        opsworksMysqlLayerCloudwatchConfigurationToTerraform(
-          this._cloudwatchConfiguration.internalValue,
-        ),
-      ebs_volume: cdktf.listMapper(
-        opsworksMysqlLayerEbsVolumeToTerraform,
-        true,
-      )(this._ebsVolume.internalValue),
-      load_based_auto_scaling:
-        opsworksMysqlLayerLoadBasedAutoScalingToTerraform(
-          this._loadBasedAutoScaling.internalValue,
-        ),
+      use_ebs_optimized_instances: cdktf.booleanToTerraform(this._useEbsOptimizedInstances),
+      cloudwatch_configuration: opsworksMysqlLayerCloudwatchConfigurationToTerraform(this._cloudwatchConfiguration.internalValue),
+      ebs_volume: cdktf.listMapper(opsworksMysqlLayerEbsVolumeToTerraform, true)(this._ebsVolume.internalValue),
+      load_based_auto_scaling: opsworksMysqlLayerLoadBasedAutoScalingToTerraform(this._loadBasedAutoScaling.internalValue),
     };
   }
 }

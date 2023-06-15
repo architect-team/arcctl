@@ -1,86 +1,73 @@
 // https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface EmrcontainersVirtualClusterConfig
-  extends cdktf.TerraformMetaArguments {
+export interface EmrcontainersVirtualClusterConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#id EmrcontainersVirtualCluster#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#id EmrcontainersVirtualCluster#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#name EmrcontainersVirtualCluster#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#name EmrcontainersVirtualCluster#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#tags EmrcontainersVirtualCluster#tags}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#tags EmrcontainersVirtualCluster#tags}
+  */
   readonly tags?: { [key: string]: string };
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#tags_all EmrcontainersVirtualCluster#tags_all}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#tags_all EmrcontainersVirtualCluster#tags_all}
+  */
   readonly tagsAll?: { [key: string]: string };
   /**
-   * container_provider block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#container_provider EmrcontainersVirtualCluster#container_provider}
-   */
+  * container_provider block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#container_provider EmrcontainersVirtualCluster#container_provider}
+  */
   readonly containerProvider: EmrcontainersVirtualClusterContainerProvider;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#timeouts EmrcontainersVirtualCluster#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#timeouts EmrcontainersVirtualCluster#timeouts}
+  */
   readonly timeouts?: EmrcontainersVirtualClusterTimeouts;
 }
 export interface EmrcontainersVirtualClusterContainerProviderInfoEksInfo {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#namespace EmrcontainersVirtualCluster#namespace}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#namespace EmrcontainersVirtualCluster#namespace}
+  */
   readonly namespace?: string;
 }
 
-export function emrcontainersVirtualClusterContainerProviderInfoEksInfoToTerraform(
-  struct?:
-    | EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputReference
-    | EmrcontainersVirtualClusterContainerProviderInfoEksInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function emrcontainersVirtualClusterContainerProviderInfoEksInfoToTerraform(struct?: EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputReference | EmrcontainersVirtualClusterContainerProviderInfoEksInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     namespace: cdktf.stringToTerraform(struct!.namespace),
-  };
+  }
 }
 
 export class EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EmrcontainersVirtualClusterContainerProviderInfoEksInfo
-    | undefined {
+  public get internalValue(): EmrcontainersVirtualClusterContainerProviderInfoEksInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._namespace !== undefined) {
@@ -90,20 +77,19 @@ export class EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputRefere
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EmrcontainersVirtualClusterContainerProviderInfoEksInfo | undefined,
-  ) {
+  public set internalValue(value: EmrcontainersVirtualClusterContainerProviderInfoEksInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._namespace = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._namespace = value.namespace;
     }
   }
 
   // namespace - computed: false, optional: true, required: false
-  private _namespace?: string;
+  private _namespace?: string; 
   public get namespace() {
     return this.getStringAttribute('namespace');
   }
@@ -120,51 +106,35 @@ export class EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputRefere
 }
 export interface EmrcontainersVirtualClusterContainerProviderInfo {
   /**
-   * eks_info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#eks_info EmrcontainersVirtualCluster#eks_info}
-   */
+  * eks_info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#eks_info EmrcontainersVirtualCluster#eks_info}
+  */
   readonly eksInfo: EmrcontainersVirtualClusterContainerProviderInfoEksInfo;
 }
 
-export function emrcontainersVirtualClusterContainerProviderInfoToTerraform(
-  struct?:
-    | EmrcontainersVirtualClusterContainerProviderInfoOutputReference
-    | EmrcontainersVirtualClusterContainerProviderInfo,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function emrcontainersVirtualClusterContainerProviderInfoToTerraform(struct?: EmrcontainersVirtualClusterContainerProviderInfoOutputReference | EmrcontainersVirtualClusterContainerProviderInfo): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    eks_info:
-      emrcontainersVirtualClusterContainerProviderInfoEksInfoToTerraform(
-        struct!.eksInfo,
-      ),
-  };
+    eks_info: emrcontainersVirtualClusterContainerProviderInfoEksInfoToTerraform(struct!.eksInfo),
+  }
 }
 
 export class EmrcontainersVirtualClusterContainerProviderInfoOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EmrcontainersVirtualClusterContainerProviderInfo
-    | undefined {
+  public get internalValue(): EmrcontainersVirtualClusterContainerProviderInfo | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._eksInfo?.internalValue !== undefined) {
@@ -174,30 +144,23 @@ export class EmrcontainersVirtualClusterContainerProviderInfoOutputReference ext
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EmrcontainersVirtualClusterContainerProviderInfo | undefined,
-  ) {
+  public set internalValue(value: EmrcontainersVirtualClusterContainerProviderInfo | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._eksInfo.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._eksInfo.internalValue = value.eksInfo;
     }
   }
 
   // eks_info - computed: false, optional: false, required: true
-  private _eksInfo =
-    new EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputReference(
-      this,
-      'eks_info',
-    );
+  private _eksInfo = new EmrcontainersVirtualClusterContainerProviderInfoEksInfoOutputReference(this, "eks_info");
   public get eksInfo() {
     return this._eksInfo;
   }
-  public putEksInfo(
-    value: EmrcontainersVirtualClusterContainerProviderInfoEksInfo,
-  ) {
+  public putEksInfo(value: EmrcontainersVirtualClusterContainerProviderInfoEksInfo) {
     this._eksInfo.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -207,63 +170,48 @@ export class EmrcontainersVirtualClusterContainerProviderInfoOutputReference ext
 }
 export interface EmrcontainersVirtualClusterContainerProvider {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#id EmrcontainersVirtualCluster#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#id EmrcontainersVirtualCluster#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#type EmrcontainersVirtualCluster#type}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#type EmrcontainersVirtualCluster#type}
+  */
   readonly type: string;
   /**
-   * info block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#info EmrcontainersVirtualCluster#info}
-   */
+  * info block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#info EmrcontainersVirtualCluster#info}
+  */
   readonly info: EmrcontainersVirtualClusterContainerProviderInfo;
 }
 
-export function emrcontainersVirtualClusterContainerProviderToTerraform(
-  struct?:
-    | EmrcontainersVirtualClusterContainerProviderOutputReference
-    | EmrcontainersVirtualClusterContainerProvider,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function emrcontainersVirtualClusterContainerProviderToTerraform(struct?: EmrcontainersVirtualClusterContainerProviderOutputReference | EmrcontainersVirtualClusterContainerProvider): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     id: cdktf.stringToTerraform(struct!.id),
     type: cdktf.stringToTerraform(struct!.type),
-    info: emrcontainersVirtualClusterContainerProviderInfoToTerraform(
-      struct!.info,
-    ),
-  };
+    info: emrcontainersVirtualClusterContainerProviderInfoToTerraform(struct!.info),
+  }
 }
 
 export class EmrcontainersVirtualClusterContainerProviderOutputReference extends cdktf.ComplexObject {
   private isEmptyObject = false;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EmrcontainersVirtualClusterContainerProvider
-    | undefined {
+  public get internalValue(): EmrcontainersVirtualClusterContainerProvider | undefined {
     let hasAnyValues = this.isEmptyObject;
     const internalValueResult: any = {};
     if (this._id !== undefined) {
@@ -281,15 +229,14 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EmrcontainersVirtualClusterContainerProvider | undefined,
-  ) {
+  public set internalValue(value: EmrcontainersVirtualClusterContainerProvider | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this._id = undefined;
       this._type = undefined;
       this._info.internalValue = undefined;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this._id = value.id;
       this._type = value.type;
@@ -298,7 +245,7 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
   }
 
   // id - computed: false, optional: false, required: true
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -311,7 +258,7 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
   }
 
   // type - computed: false, optional: false, required: true
-  private _type?: string;
+  private _type?: string; 
   public get type() {
     return this.getStringAttribute('type');
   }
@@ -324,11 +271,7 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
   }
 
   // info - computed: false, optional: false, required: true
-  private _info =
-    new EmrcontainersVirtualClusterContainerProviderInfoOutputReference(
-      this,
-      'info',
-    );
+  private _info = new EmrcontainersVirtualClusterContainerProviderInfoOutputReference(this, "info");
   public get info() {
     return this._info;
   }
@@ -342,28 +285,19 @@ export class EmrcontainersVirtualClusterContainerProviderOutputReference extends
 }
 export interface EmrcontainersVirtualClusterTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#delete EmrcontainersVirtualCluster#delete}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster#delete EmrcontainersVirtualCluster#delete}
+  */
   readonly delete?: string;
 }
 
-export function emrcontainersVirtualClusterTimeoutsToTerraform(
-  struct?:
-    | EmrcontainersVirtualClusterTimeoutsOutputReference
-    | EmrcontainersVirtualClusterTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function emrcontainersVirtualClusterTimeoutsToTerraform(struct?: EmrcontainersVirtualClusterTimeoutsOutputReference | EmrcontainersVirtualClusterTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     delete: cdktf.stringToTerraform(struct!.delete),
-  };
+  }
 }
 
 export class EmrcontainersVirtualClusterTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -371,20 +305,14 @@ export class EmrcontainersVirtualClusterTimeoutsOutputReference extends cdktf.Co
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | EmrcontainersVirtualClusterTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): EmrcontainersVirtualClusterTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -397,17 +325,17 @@ export class EmrcontainersVirtualClusterTimeoutsOutputReference extends cdktf.Co
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value: EmrcontainersVirtualClusterTimeouts | cdktf.IResolvable | undefined,
-  ) {
+  public set internalValue(value: EmrcontainersVirtualClusterTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._delete = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._delete = value.delete;
@@ -415,7 +343,7 @@ export class EmrcontainersVirtualClusterTimeoutsOutputReference extends cdktf.Co
   }
 
   // delete - computed: false, optional: true, required: false
-  private _delete?: string;
+  private _delete?: string; 
   public get delete() {
     return this.getStringAttribute('delete');
   }
@@ -432,36 +360,33 @@ export class EmrcontainersVirtualClusterTimeoutsOutputReference extends cdktf.Co
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster aws_emrcontainers_virtual_cluster}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster aws_emrcontainers_virtual_cluster}
+*/
 export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType = 'aws_emrcontainers_virtual_cluster';
+  public static readonly tfResourceType = "aws_emrcontainers_virtual_cluster";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster aws_emrcontainers_virtual_cluster} Resource
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options EmrcontainersVirtualClusterConfig
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: EmrcontainersVirtualClusterConfig,
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/r/emrcontainers_virtual_cluster aws_emrcontainers_virtual_cluster} Resource
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options EmrcontainersVirtualClusterConfig
+  */
+  public constructor(scope: Construct, id: string, config: EmrcontainersVirtualClusterConfig) {
     super(scope, id, {
       terraformResourceType: 'aws_emrcontainers_virtual_cluster',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -469,7 +394,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._name = config.name;
@@ -489,7 +414,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -505,7 +430,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -518,7 +443,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // tags - computed: false, optional: true, required: false
-  private _tags?: { [key: string]: string };
+  private _tags?: { [key: string]: string }; 
   public get tags() {
     return this.getStringMapAttribute('tags');
   }
@@ -534,7 +459,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // tags_all - computed: true, optional: true, required: false
-  private _tagsAll?: { [key: string]: string };
+  private _tagsAll?: { [key: string]: string }; 
   public get tagsAll() {
     return this.getStringMapAttribute('tags_all');
   }
@@ -550,17 +475,11 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // container_provider - computed: false, optional: false, required: true
-  private _containerProvider =
-    new EmrcontainersVirtualClusterContainerProviderOutputReference(
-      this,
-      'container_provider',
-    );
+  private _containerProvider = new EmrcontainersVirtualClusterContainerProviderOutputReference(this, "container_provider");
   public get containerProvider() {
     return this._containerProvider;
   }
-  public putContainerProvider(
-    value: EmrcontainersVirtualClusterContainerProvider,
-  ) {
+  public putContainerProvider(value: EmrcontainersVirtualClusterContainerProvider) {
     this._containerProvider.internalValue = value;
   }
   // Temporarily expose input value. Use with caution.
@@ -569,10 +488,7 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts = new EmrcontainersVirtualClusterTimeoutsOutputReference(
-    this,
-    'timeouts',
-  );
+  private _timeouts = new EmrcontainersVirtualClusterTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -597,13 +513,8 @@ export class EmrcontainersVirtualCluster extends cdktf.TerraformResource {
       name: cdktf.stringToTerraform(this._name),
       tags: cdktf.hashMapper(cdktf.stringToTerraform)(this._tags),
       tags_all: cdktf.hashMapper(cdktf.stringToTerraform)(this._tagsAll),
-      container_provider:
-        emrcontainersVirtualClusterContainerProviderToTerraform(
-          this._containerProvider.internalValue,
-        ),
-      timeouts: emrcontainersVirtualClusterTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      container_provider: emrcontainersVirtualClusterContainerProviderToTerraform(this._containerProvider.internalValue),
+      timeouts: emrcontainersVirtualClusterTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

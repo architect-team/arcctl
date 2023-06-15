@@ -1,60 +1,52 @@
 // https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments
 // generated from terraform resource schema
-import * as cdktf from 'cdktf';
+
 import { Construct } from 'constructs';
+import * as cdktf from 'cdktf';
 
 // Configuration
 
-export interface DataAwsEc2TransitGatewayVpcAttachmentsConfig
-  extends cdktf.TerraformMetaArguments {
+export interface DataAwsEc2TransitGatewayVpcAttachmentsConfig extends cdktf.TerraformMetaArguments {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#id DataAwsEc2TransitGatewayVpcAttachments#id}
-   *
-   * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
-   * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#id DataAwsEc2TransitGatewayVpcAttachments#id}
+  *
+  * Please be aware that the id field is automatically added to all resources in Terraform providers using a Terraform provider SDK version below 2.
+  * If you experience problems setting this value it might not be settable. Please take a look at the provider documentation to ensure it should be settable.
+  */
   readonly id?: string;
   /**
-   * filter block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#filter DataAwsEc2TransitGatewayVpcAttachments#filter}
-   */
-  readonly filter?:
-    | DataAwsEc2TransitGatewayVpcAttachmentsFilter[]
-    | cdktf.IResolvable;
+  * filter block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#filter DataAwsEc2TransitGatewayVpcAttachments#filter}
+  */
+  readonly filter?: DataAwsEc2TransitGatewayVpcAttachmentsFilter[] | cdktf.IResolvable;
   /**
-   * timeouts block
-   *
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#timeouts DataAwsEc2TransitGatewayVpcAttachments#timeouts}
-   */
+  * timeouts block
+  * 
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#timeouts DataAwsEc2TransitGatewayVpcAttachments#timeouts}
+  */
   readonly timeouts?: DataAwsEc2TransitGatewayVpcAttachmentsTimeouts;
 }
 export interface DataAwsEc2TransitGatewayVpcAttachmentsFilter {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#name DataAwsEc2TransitGatewayVpcAttachments#name}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#name DataAwsEc2TransitGatewayVpcAttachments#name}
+  */
   readonly name: string;
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#values DataAwsEc2TransitGatewayVpcAttachments#values}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#values DataAwsEc2TransitGatewayVpcAttachments#values}
+  */
   readonly values: string[];
 }
 
-export function dataAwsEc2TransitGatewayVpcAttachmentsFilterToTerraform(
-  struct?: DataAwsEc2TransitGatewayVpcAttachmentsFilter | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsEc2TransitGatewayVpcAttachmentsFilterToTerraform(struct?: DataAwsEc2TransitGatewayVpcAttachmentsFilter | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     name: cdktf.stringToTerraform(struct!.name),
     values: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.values),
-  };
+  }
 }
 
 export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends cdktf.ComplexObject {
@@ -62,29 +54,16 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param complexObjectIndex the index of this item in the list
-   * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-    complexObjectIndex: number,
-    complexObjectIsFromSet: boolean,
-  ) {
-    super(
-      terraformResource,
-      terraformAttribute,
-      complexObjectIsFromSet,
-      complexObjectIndex,
-    );
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param complexObjectIndex the index of this item in the list
+  * @param complexObjectIsFromSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string, complexObjectIndex: number, complexObjectIsFromSet: boolean) {
+    super(terraformResource, terraformAttribute, complexObjectIsFromSet, complexObjectIndex);
   }
 
-  public get internalValue():
-    | DataAwsEc2TransitGatewayVpcAttachmentsFilter
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsEc2TransitGatewayVpcAttachmentsFilter | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -101,21 +80,18 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsEc2TransitGatewayVpcAttachmentsFilter
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsEc2TransitGatewayVpcAttachmentsFilter | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._name = undefined;
       this._values = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._name = value.name;
@@ -124,7 +100,7 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
   }
 
   // name - computed: false, optional: false, required: true
-  private _name?: string;
+  private _name?: string; 
   public get name() {
     return this.getStringAttribute('name');
   }
@@ -137,7 +113,7 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
   }
 
   // values - computed: false, optional: false, required: true
-  private _values?: string[];
+  private _values?: string[]; 
   public get values() {
     return this.getListAttribute('values');
   }
@@ -151,61 +127,39 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference extends
 }
 
 export class DataAwsEc2TransitGatewayVpcAttachmentsFilterList extends cdktf.ComplexList {
-  public internalValue?:
-    | DataAwsEc2TransitGatewayVpcAttachmentsFilter[]
-    | cdktf.IResolvable;
+  public internalValue? : DataAwsEc2TransitGatewayVpcAttachmentsFilter[] | cdktf.IResolvable
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
-   */
-  constructor(
-    protected terraformResource: cdktf.IInterpolatingParent,
-    protected terraformAttribute: string,
-    protected wrapsSet: boolean,
-  ) {
-    super(terraformResource, terraformAttribute, wrapsSet);
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  * @param wrapsSet whether the list is wrapping a set (will add tolist() to be able to access an item via an index)
+  */
+  constructor(protected terraformResource: cdktf.IInterpolatingParent, protected terraformAttribute: string, protected wrapsSet: boolean) {
+    super(terraformResource, terraformAttribute, wrapsSet)
   }
 
   /**
-   * @param index the index of the item to return
-   */
-  public get(
-    index: number,
-  ): DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference {
-    return new DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference(
-      this.terraformResource,
-      this.terraformAttribute,
-      index,
-      this.wrapsSet,
-    );
+  * @param index the index of the item to return
+  */
+  public get(index: number): DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference {
+    return new DataAwsEc2TransitGatewayVpcAttachmentsFilterOutputReference(this.terraformResource, this.terraformAttribute, index, this.wrapsSet);
   }
 }
 export interface DataAwsEc2TransitGatewayVpcAttachmentsTimeouts {
   /**
-   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#read DataAwsEc2TransitGatewayVpcAttachments#read}
-   */
+  * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments#read DataAwsEc2TransitGatewayVpcAttachments#read}
+  */
   readonly read?: string;
 }
 
-export function dataAwsEc2TransitGatewayVpcAttachmentsTimeoutsToTerraform(
-  struct?:
-    | DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference
-    | DataAwsEc2TransitGatewayVpcAttachmentsTimeouts
-    | cdktf.IResolvable,
-): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) {
-    return struct;
-  }
+export function dataAwsEc2TransitGatewayVpcAttachmentsTimeoutsToTerraform(struct?: DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference | DataAwsEc2TransitGatewayVpcAttachmentsTimeouts | cdktf.IResolvable): any {
+  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
   if (cdktf.isComplexElement(struct)) {
-    throw new Error(
-      'A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration',
-    );
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
     read: cdktf.stringToTerraform(struct!.read),
-  };
+  }
 }
 
 export class DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference extends cdktf.ComplexObject {
@@ -213,20 +167,14 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference exten
   private resolvableValue?: cdktf.IResolvable;
 
   /**
-   * @param terraformResource The parent resource
-   * @param terraformAttribute The attribute on the parent resource this class is referencing
-   */
-  public constructor(
-    terraformResource: cdktf.IInterpolatingParent,
-    terraformAttribute: string,
-  ) {
+  * @param terraformResource The parent resource
+  * @param terraformAttribute The attribute on the parent resource this class is referencing
+  */
+  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false, 0);
   }
 
-  public get internalValue():
-    | DataAwsEc2TransitGatewayVpcAttachmentsTimeouts
-    | cdktf.IResolvable
-    | undefined {
+  public get internalValue(): DataAwsEc2TransitGatewayVpcAttachmentsTimeouts | cdktf.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -239,20 +187,17 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference exten
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(
-    value:
-      | DataAwsEc2TransitGatewayVpcAttachmentsTimeouts
-      | cdktf.IResolvable
-      | undefined,
-  ) {
+  public set internalValue(value: DataAwsEc2TransitGatewayVpcAttachmentsTimeouts | cdktf.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._read = undefined;
-    } else if (cdktf.Tokenization.isResolvable(value)) {
+    }
+    else if (cdktf.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
-    } else {
+    }
+    else {
       this.isEmptyObject = Object.keys(value).length === 0;
       this.resolvableValue = undefined;
       this._read = value.read;
@@ -260,7 +205,7 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference exten
   }
 
   // read - computed: false, optional: true, required: false
-  private _read?: string;
+  private _read?: string; 
   public get read() {
     return this.getStringAttribute('read');
   }
@@ -277,37 +222,33 @@ export class DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference exten
 }
 
 /**
- * Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments aws_ec2_transit_gateway_vpc_attachments}
- */
+* Represents a {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments aws_ec2_transit_gateway_vpc_attachments}
+*/
 export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataSource {
+
   // =================
   // STATIC PROPERTIES
   // =================
-  public static readonly tfResourceType =
-    'aws_ec2_transit_gateway_vpc_attachments';
+  public static readonly tfResourceType = "aws_ec2_transit_gateway_vpc_attachments";
 
   // ===========
   // INITIALIZER
   // ===========
 
   /**
-   * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments aws_ec2_transit_gateway_vpc_attachments} Data Source
-   *
-   * @param scope The scope in which to define this construct
-   * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
-   * @param options DataAwsEc2TransitGatewayVpcAttachmentsConfig = {}
-   */
-  public constructor(
-    scope: Construct,
-    id: string,
-    config: DataAwsEc2TransitGatewayVpcAttachmentsConfig = {},
-  ) {
+  * Create a new {@link https://www.terraform.io/docs/providers/aws/d/ec2_transit_gateway_vpc_attachments aws_ec2_transit_gateway_vpc_attachments} Data Source
+  *
+  * @param scope The scope in which to define this construct
+  * @param id The scoped construct ID. Must be unique amongst siblings in the same scope
+  * @param options DataAwsEc2TransitGatewayVpcAttachmentsConfig = {}
+  */
+  public constructor(scope: Construct, id: string, config: DataAwsEc2TransitGatewayVpcAttachmentsConfig = {}) {
     super(scope, id, {
       terraformResourceType: 'aws_ec2_transit_gateway_vpc_attachments',
       terraformGeneratorMetadata: {
         providerName: 'aws',
         providerVersion: '4.61.0',
-        providerVersionConstraint: '4.61.0',
+        providerVersionConstraint: '4.61.0'
       },
       provider: config.provider,
       dependsOn: config.dependsOn,
@@ -315,7 +256,7 @@ export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataS
       lifecycle: config.lifecycle,
       provisioners: config.provisioners,
       connection: config.connection,
-      forEach: config.forEach,
+      forEach: config.forEach
     });
     this._id = config.id;
     this._filter.internalValue = config.filter;
@@ -327,7 +268,7 @@ export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataS
   // ==========
 
   // id - computed: true, optional: true, required: false
-  private _id?: string;
+  private _id?: string; 
   public get id() {
     return this.getStringAttribute('id');
   }
@@ -348,17 +289,11 @@ export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataS
   }
 
   // filter - computed: false, optional: true, required: false
-  private _filter = new DataAwsEc2TransitGatewayVpcAttachmentsFilterList(
-    this,
-    'filter',
-    true,
-  );
+  private _filter = new DataAwsEc2TransitGatewayVpcAttachmentsFilterList(this, "filter", true);
   public get filter() {
     return this._filter;
   }
-  public putFilter(
-    value: DataAwsEc2TransitGatewayVpcAttachmentsFilter[] | cdktf.IResolvable,
-  ) {
+  public putFilter(value: DataAwsEc2TransitGatewayVpcAttachmentsFilter[] | cdktf.IResolvable) {
     this._filter.internalValue = value;
   }
   public resetFilter() {
@@ -370,11 +305,7 @@ export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataS
   }
 
   // timeouts - computed: false, optional: true, required: false
-  private _timeouts =
-    new DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference(
-      this,
-      'timeouts',
-    );
+  private _timeouts = new DataAwsEc2TransitGatewayVpcAttachmentsTimeoutsOutputReference(this, "timeouts");
   public get timeouts() {
     return this._timeouts;
   }
@@ -396,13 +327,8 @@ export class DataAwsEc2TransitGatewayVpcAttachments extends cdktf.TerraformDataS
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
       id: cdktf.stringToTerraform(this._id),
-      filter: cdktf.listMapper(
-        dataAwsEc2TransitGatewayVpcAttachmentsFilterToTerraform,
-        true,
-      )(this._filter.internalValue),
-      timeouts: dataAwsEc2TransitGatewayVpcAttachmentsTimeoutsToTerraform(
-        this._timeouts.internalValue,
-      ),
+      filter: cdktf.listMapper(dataAwsEc2TransitGatewayVpcAttachmentsFilterToTerraform, true)(this._filter.internalValue),
+      timeouts: dataAwsEc2TransitGatewayVpcAttachmentsTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
 }

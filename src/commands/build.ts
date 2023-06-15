@@ -59,7 +59,6 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     }
     return stdout;
   }, async (options) => {
-    console.log(options);
     return '';
   });
 

@@ -4,106 +4,48 @@ import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
 import { CrudResourceService } from '../../crud.service.ts';
+import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
-
-type DockerPsItem = {
-  Command: string;
-  ID: string;
-  Names: string;
-  Networks: string;
-  State: string;
-};
-
-type DockerInspectionResults = {
-  Id: string;
-  Created: string;
-  Path: string;
-  Args: string[];
-  State: {
-    Status: string;
-    Running: boolean;
-    Paused: boolean;
-    Restarting: boolean;
-    Dead: boolean;
-  };
-  HostConfig: {
-    PortBindings: {
-      [key: string]: [{
-        HostIp: string;
-        HostPort: string;
-      }];
-    };
-  };
-  Image: string;
-  ResolvConfPath: string;
-  Name: string;
-  Driver: string;
-  Platform: string;
-  Config: {
-    Hostname: string;
-    Domainname: string;
-    Tty: boolean;
-    Cmd: string[];
-    Labels: Record<string, string>;
-    Env: string[];
-    ExposedPorts: {
-      // deno-lint-ignore ban-types
-      [key: string]: {};
-    };
-    Entrypoint: string[];
-  };
-  NetworkSettings: {
-    Networks: {
-      [key: string]: {
-        Aliases: string[];
-        NetworkID: string;
-        EndpointID: string;
-        Gateway: string;
-        IPAddress: string;
-      };
-    };
-  };
-};
+import { DockerInspectionResults } from '../types.ts';
+import { DockerPodService } from './pod.ts';
 
 export class DockerDeploymentService extends CrudResourceService<'deployment', DockerCredentials> {
+  podService: DockerPodService;
+
+  public constructor(accountName: string, credentials: DockerCredentials, providerStore: ProviderStore) {
+    super(accountName, credentials, providerStore);
+    this.podService = new DockerPodService(accountName, credentials, providerStore);
+  }
+
   private async inspect(id: string): Promise<DockerInspectionResults | undefined> {
-    const { stdout } = await exec('docker', { args: ['inspect', id] });
+    const { stdout } = await exec('docker', { args: ['inspect', id.replaceAll('/', '--')] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     return rawContents.length > 0 ? rawContents[0] : undefined;
   }
 
   async get(id: string): Promise<ResourceOutputs['deployment'] | undefined> {
-    const res = await this.inspect(id);
-    return res
-      ? {
-        id: res.Id,
-        labels: res.Config.Labels,
-      }
-      : undefined;
+    const listRes = await this.list();
+    return listRes.rows.find((row) => row.id === id);
   }
 
   async list(
     filterOptions?: Partial<ResourceOutputs['deployment']> | undefined,
     _pagingOptions?: Partial<PagingOptions> | undefined,
   ): Promise<PagingResponse<ResourceOutputs['deployment']>> {
-    const args = ['ps', '--format', 'json'];
-
-    for (const [key, value] of Object.entries(filterOptions?.labels || {})) {
-      args.push('--filter', `label=${key}=${value}`);
-    }
-
-    const { stdout } = await exec('docker', { args });
-    const rows = stdout.includes('\n') ? stdout.split('\n').filter((row) => Boolean(row)) : [stdout];
-    const rawOutput: DockerPsItem[] = JSON.parse(`[${rows.join(',')}]`);
-
-    const inspectedResults = await Promise.all(rawOutput.map(async (row) => {
-      const res = await this.get(row.Names);
-      return res!;
-    }));
+    const res = await this.podService.list({
+      labels: {
+        ...filterOptions?.labels,
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.deployment': '',
+      },
+    });
 
     return {
-      total: inspectedResults.length,
-      rows: inspectedResults,
+      total: res.total,
+      rows: res.rows.map((row) => ({
+        id: row.labels?.['io.architect.arcctl.deployment'] || 'unknown',
+        labels: row.labels,
+      })),
     };
   }
 
@@ -144,7 +86,13 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push('-p', `${port.port}:${port.target_port}`);
     }
 
-    const labels = inputs.labels || {};
+    let labels = inputs.labels || {};
+    labels = {
+      ...labels,
+      'io.architect': 'arcctl',
+      'io.architect.arcctl.deployment': inputs.name,
+    };
+
     for (const [key, value] of Object.entries(labels)) {
       args.push('--label', `${key}=${value}`);
     }
@@ -155,13 +103,13 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push(...(typeof inputs.command === 'string' ? [inputs.command] : inputs.command));
     }
 
-    const { code, stdout, stderr } = await exec('docker', { args });
+    const { code, stderr } = await exec('docker', { args });
     if (code !== 0) {
       throw new Error(stderr || 'Deployment failed');
     }
 
     return {
-      id: stdout.replace(/^\s+|\s+$/g, ''),
+      id: inputs.name,
       labels,
     };
   }
@@ -176,12 +124,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       throw new Error(`No deployment with ID ${id}`);
     }
 
-    const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', id] });
+    const { code: stopCode, stderr: stopStderr } = await exec('docker', { args: ['stop', inspection.Id] });
     if (stopCode !== 0) {
       throw new Error(stopStderr);
     }
 
-    const { code: rmCode, stderr: rmStderr } = await exec('docker', { args: ['rm', id] });
+    const { code: rmCode, stderr: rmStderr } = await exec('docker', { args: ['rm', inspection.Id] });
     if (rmCode !== 0) {
       throw new Error(rmStderr);
     }
@@ -230,7 +178,20 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push('-p', `${port!.port}:${port!.target_port}`);
     }
 
-    const labels = (inputs.labels || inspection.Config.Labels || {}) as Record<string, string>;
+    let labels = inspection.Config.Labels;
+    if (inputs.labels && inputs.name) {
+      labels = {
+        ...inputs.labels,
+        'io.architect': 'arcctl',
+        'io.architect.arcctl.deployment': inputs.name,
+      };
+    } else if (inputs.labels) {
+      labels = {
+        ...labels,
+        ...inputs.labels as Record<string, string>,
+      };
+    }
+
     for (const [key, value] of Object.entries(labels)) {
       args.push('--label', `${key}=${value}`);
     }
@@ -260,12 +221,12 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       return Promise.resolve();
     }
 
-    const { code, stderr } = await exec('docker', { args: ['stop', id] });
+    const { code, stderr } = await exec('docker', { args: ['stop', match.id] });
     if (code !== 0) {
       throw new Error(stderr || 'Failed to stop deployment');
     }
 
-    const { code: rmCode, stderr: rmStderr } = await exec('docker', { args: ['rm', id] });
+    const { code: rmCode, stderr: rmStderr } = await exec('docker', { args: ['rm', match.id] });
     if (rmCode !== 0) {
       throw new Error(rmStderr || 'Failed to remove deployment');
     }

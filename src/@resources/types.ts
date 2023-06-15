@@ -40,6 +40,8 @@ import type nodeInputs from './node/inputs.ts';
 import type nodeOutputs from './node/outputs.ts';
 import type nodeSizeInputs from './nodeSize/inputs.ts';
 import type nodeSizeOutputs from './nodeSize/outputs.ts';
+import type podInputs from './pod/inputs.ts';
+import type podOutputs from './pod/outputs.ts';
 import type regionInputs from './region/inputs.ts';
 import type regionOutputs from './region/outputs.ts';
 import type secretInputs from './secret/inputs.ts';
@@ -75,6 +77,7 @@ export type ResourceType =
   | 'namespace'
   | 'node'
   | 'nodeSize'
+  | 'pod'
   | 'region'
   | 'secret'
   | 'service'
@@ -104,6 +107,7 @@ export const ResourceTypeList: ResourceType[] = [
   'namespace',
   'node',
   'nodeSize',
+  'pod',
   'region',
   'secret',
   'service',
@@ -197,6 +201,10 @@ export type ResourceInputs = {
     type: 'nodeSize';
     account?: string;
   } & nodeSizeInputs;
+  'pod': {
+    type: 'pod';
+    account?: string;
+  } & podInputs;
   'region': {
     type: 'region';
     account?: string;
@@ -287,6 +295,9 @@ export type ResourceOutputs = {
   'nodeSize': {
     id: string;
   } & nodeSizeOutputs;
+  'pod': {
+    id: string;
+  } & podOutputs;
   'region': {
     id: string;
   } & regionOutputs;

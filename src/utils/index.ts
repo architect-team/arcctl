@@ -1,1 +1,1 @@
-export * from './config.ts';
+export { CloudCtlConfig } from './config.ts';

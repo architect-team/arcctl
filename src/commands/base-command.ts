@@ -412,7 +412,9 @@ export class CommandHelper {
     }
 
     if (answer === 'create-new') {
+      console.log(`Inputs for ${property.name}`);
       const node = await this.promptForNewResource(graph, provider, property.name, data);
+      console.log(`End ${property.name} inputs`);
       return `\${{ ${node.id}.id }}`;
     } else if (answer === 'none') {
       return undefined;

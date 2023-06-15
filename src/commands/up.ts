@@ -1,5 +1,6 @@
 import { ImageRepository } from '@architect-io/arc-oci';
 import cliSpinners from 'cli-spinners';
+import { existsSync } from 'std/fs/exists.ts';
 import winston, { Logger } from 'winston';
 import { CloudNode } from '../cloud-graph/index.ts';
 import { parseEnvironment } from '../environments/index.ts';
@@ -41,9 +42,13 @@ async function up_action(options: UpOptions, ...components: string[]): Promise<v
   const lastPipeline = await command_helper.getPipelineForDatacenter(datacenterRecord);
   const environment = await parseEnvironment({});
 
-  for (const tag of components) {
-    const imageRepository = new ImageRepository(tag);
-    await command_helper.componentStore.getComponentConfig(tag);
+  for (let tag_or_path of components) {
+    if (existsSync(tag_or_path)) {
+      tag_or_path = await command_helper.componentStore.add(tag_or_path);
+    }
+
+    const imageRepository = new ImageRepository(tag_or_path);
+    await command_helper.componentStore.getComponentConfig(tag_or_path);
     environment.addComponent({
       image: imageRepository,
     });

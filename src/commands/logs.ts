@@ -84,7 +84,7 @@ export const streamLogs = async (options: LogsOptions, environment: string): Pro
         new WritableStream({
           write: (chunk: string) => {
             const extraSpaces = maxIdLength - step.id.length + 1;
-            console.log(rgb24(step.id + new Array(extraSpaces).join(' ') + ' | ' + chunk, config.color));
+            console.log(rgb24(step.id + new Array(extraSpaces).join(' ') + ' | ', config.color) + chunk);
           },
         }),
       );

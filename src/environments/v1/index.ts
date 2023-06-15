@@ -316,7 +316,7 @@ export default class EnvironmentV1 extends Environment {
   public addComponent(metadata: ComponentMetadata): void {
     this.components = this.components || {};
     this.components[metadata.image.repository] = this.components[metadata.image.repository] || {};
-    this.components[metadata.image.repository].source = metadata.image.toString();
+    this.components[metadata.image.repository].source = metadata.image.toString().replace(/:latest$/, '');
     for (const [key, subdomain] of Object.entries(metadata.ingresses || {})) {
       this.components[metadata.image.repository].ingresses = this.components[metadata.image.repository].ingresses || {};
       this.components[metadata.image.repository].ingresses![key] = {

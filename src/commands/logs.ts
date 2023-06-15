@@ -35,15 +35,10 @@ async function logs_action(options: LogsOptions, environment: string): Promise<v
   );
 
   let maxIdLength = 0;
-  const colors: Record<string, { r: number; g: number; b: number }> = {};
-  for (const step of activeSteps) {
-    maxIdLength = Math.max(maxIdLength, step.id.length);
-    colors[step.id] = {
-      r: Math.floor(Math.random() * 156) + 100,
-      g: Math.floor(Math.random() * 156) + 100,
-      b: Math.floor(Math.random() * 156) + 100,
-    };
-  }
+  const streams: Record<string, {
+    stream: ReadableStream<Uint8Array>;
+    color: { r: number; g: number; b: number };
+  }> = {};
 
   for (const step of activeSteps) {
     const account = command_helper.providerStore.getProvider(step.inputs!.account!);
@@ -58,12 +53,45 @@ async function logs_action(options: LogsOptions, environment: string): Promise<v
       Deno.exit(1);
     }
 
-    service.logs(step.outputs!.id, options).pipeThrough(new TextDecoderStream()).pipeThrough(new TextLineStream())
+    const stream = service.logs(step.outputs!.id, options);
+    if (stream) {
+      maxIdLength = Math.max(maxIdLength, step.id.length);
+      streams[step.id] = {
+        stream,
+        color: {
+          r: Math.floor(Math.random() * 156) + 100,
+          g: Math.floor(Math.random() * 156) + 100,
+          b: Math.floor(Math.random() * 156) + 100,
+        },
+      };
+    }
+  }
+
+  for (const [step_id, config] of Object.entries(streams)) {
+    const step = activeSteps.find((step) => step.id === step_id);
+    if (!step) {
+      console.error(`Couldn't find pipeline step with ID: ${step_id}`);
+      Deno.exit(1);
+    }
+
+    const account = command_helper.providerStore.getProvider(step.inputs!.account!);
+    if (!account) {
+      console.error(`The ${step.id} resource is using an invalid account: ${step.inputs!.account}`);
+      Deno.exit(1);
+    }
+
+    const service = account.resources[step.type];
+    if (!service) {
+      console.error(`The ${account.type} provider doesn't support ${step.type} resources`);
+      Deno.exit(1);
+    }
+
+    config.stream.pipeThrough(new TextDecoderStream()).pipeThrough(new TextLineStream())
       .pipeTo(
         new WritableStream({
           write: (chunk: string) => {
-            const extraSpaces = maxIdLength - step.id.length;
-            console.log(rgb24(step.id + new Array(extraSpaces).join(' ') + ' | ' + chunk, colors[step.id]));
+            const extraSpaces = maxIdLength - step.id.length + 1;
+            console.log(rgb24(step.id + new Array(extraSpaces).join(' ') + ' | ' + chunk, config.color));
           },
         }),
       );

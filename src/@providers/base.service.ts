@@ -54,8 +54,8 @@ export abstract class ResourceService<T extends ResourceType, C extends Provider
     pagingOptions?: Partial<PagingOptions>,
   ): Promise<PagingResponse<ResourceOutputs[T]>>;
 
-  logs(_id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
-    return new ReadableStream<Uint8Array>();
+  logs(_id: string, _options?: LogsOptions): ReadableStream<Uint8Array> | undefined {
+    return undefined;
   }
 }
 

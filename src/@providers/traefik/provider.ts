@@ -15,17 +15,20 @@ export default class TraefikProvider extends Provider<TraefikCredentials> {
     namespace: new TraefikNamespaceService(this.name, this.credentials, this.providerStore),
   };
 
-  public testCredentials(): Promise<boolean> {
+  public async testCredentials(): Promise<boolean> {
     switch (this.credentials.type) {
       case 'volume': {
         const account = this.providerStore.getProvider(this.credentials.account);
         if (!account) {
-          return Promise.resolve(false);
+          return false;
         } else if (!account.resources.task || !('apply' in account.resources.task)) {
-          return Promise.resolve(false);
+          return false;
+        } else if (!account.resources.volume) {
+          return false;
         }
 
-        return Promise.resolve(true);
+        const volume = await account.resources.volume.get(this.credentials.volume);
+        return Boolean(volume);
       }
     }
   }

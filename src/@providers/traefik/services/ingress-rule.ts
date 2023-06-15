@@ -35,13 +35,13 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
     const config = yaml.load(contents) as TraefikFormattedIngressRule;
 
     let host = '';
-    const hostMatches = config.http.routers[id].rule.match(/Host\(`(.*)`\)/);
+    const hostMatches = config.http.routers[id].rule.match(/Host\(`([^\s]+)`\)/);
     if (hostMatches && hostMatches.length > 1) {
       host = hostMatches[1];
     }
 
     let ingressPath = '/';
-    const pathMatches = config.http.routers[id].rule.match(/PathPrefix\(`(.*)`\)/);
+    const pathMatches = config.http.routers[id].rule.match(/PathPrefix\(`([^\s]+)`\)/);
     if (pathMatches && pathMatches.length > 1) {
       ingressPath = pathMatches[1];
     }
@@ -164,10 +164,10 @@ export class TraefikIngressRuleService extends CrudResourceService<'ingressRule'
 
     const host = hostParts.join('.');
     // deno-fmt-ignore
-    const rules = ['Host(`' + host + '`)'];
+    const rules = ['Host(\\\`' + host + '\\\`)'];
     if (inputs.path) {
       // deno-fmt-ignore
-      rules.push('PathPrefix(`' + inputs.path + '`)');
+      rules.push('PathPrefix(\\\`' + inputs.path + '\\\`)');
     }
 
     const newEntry: TraefikFormattedIngressRule = {

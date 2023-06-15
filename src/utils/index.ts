@@ -1,1 +1,3 @@
-export { CloudCtlConfig } from './config.ts';
+import CloudCtlConfig from './config.ts';
+
+export default CloudCtlConfig;

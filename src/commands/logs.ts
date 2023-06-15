@@ -7,14 +7,7 @@ type LogsOptions = {
   tail?: number;
 } & GlobalOptions;
 
-const LogsCommand = BaseCommand()
-  .description('Stream logs from running cloud resources in an environment')
-  .arguments('<environment:string>')
-  .option('-f, --follow [follow:boolean]', 'Whether or not to continuously follow the logs', { default: false })
-  .option('-n, --tail <tail:number>', 'Number of lines to show from the end of the logs')
-  .action(logs_action);
-
-async function logs_action(options: LogsOptions, environment: string): Promise<void> {
+export const streamLogs = async (options: LogsOptions, environment: string): Promise<void> => {
   const command_helper = new CommandHelper(options);
   const environmentRecord = await command_helper.environmentStore.get(environment);
   if (!environmentRecord) {
@@ -59,9 +52,9 @@ async function logs_action(options: LogsOptions, environment: string): Promise<v
       streams[step.id] = {
         stream,
         color: {
-          r: Math.floor(Math.random() * 156) + 100,
+          r: Math.floor(Math.random() * 206) + 50,
           g: Math.floor(Math.random() * 156) + 100,
-          b: Math.floor(Math.random() * 156) + 100,
+          b: Math.floor(Math.random() * 106) + 150,
         },
       };
     }
@@ -96,6 +89,11 @@ async function logs_action(options: LogsOptions, environment: string): Promise<v
         }),
       );
   }
-}
+};
 
-export default LogsCommand;
+export default BaseCommand()
+  .description('Stream logs from running cloud resources in an environment')
+  .arguments('<environment:string>')
+  .option('-f, --follow [follow:boolean]', 'Whether or not to continuously follow the logs', { default: false })
+  .option('-n, --tail <tail:number>', 'Number of lines to show from the end of the logs')
+  .action(streamLogs);

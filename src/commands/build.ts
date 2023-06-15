@@ -57,28 +57,31 @@ async function build_action(options: BuildOptions, context_file: string): Promis
     if (code !== 0) {
       throw new Error(stderr);
     }
-    return stdout;
+    return stdout.replace(/^\s+|\s+$/g, '');
   }, async (options) => {
     return '';
   });
 
-  const digest = await command_helper.componentStore.add(component);
-  console.log(`Digest: ${digest}`);
+  let digest = await command_helper.componentStore.add(component);
 
   if (options.tag) {
     for (const tag of options.tag) {
-      component.tag(async (sourceRef: string, targetName: string) => {
+      component = await component.tag(async (sourceRef: string, targetName: string) => {
         const imageRepository = new ImageRepository(tag);
         const suffix = imageRepository.tag ? ':' + imageRepository.tag : '';
-        const targetRef = path.join(imageRepository.registry, `${targetName}${suffix}`);
+        const targetRef = path.join(imageRepository.registry, `${imageRepository.repository}--${targetName}${suffix}`);
 
         await exec('docker', { args: ['tag', sourceRef, targetRef] });
         return targetRef;
       });
 
+      digest = await command_helper.componentStore.add(component);
       command_helper.componentStore.tag(digest, tag);
+      console.log(`Digest: ${digest}`);
       console.log(`Tagged: ${tag}`);
     }
+  } else {
+    console.log(`Digest: ${digest}`);
   }
 }
 

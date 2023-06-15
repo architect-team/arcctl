@@ -19,7 +19,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
   }
 
   private async inspect(id: string): Promise<DockerInspectionResults | undefined> {
-    const { stdout } = await exec('docker', { args: ['inspect', id.replaceAll('/', '--')] });
+    const { stdout } = await exec('docker', { args: ['inspect', id] });
     const rawContents: DockerInspectionResults[] = JSON.parse(stdout);
     return rawContents.length > 0 ? rawContents[0] : undefined;
   }
@@ -111,7 +111,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     labels = {
       ...labels,
       'io.architect': 'arcctl',
-      'io.architect.arcctl.deployment': inputs.name,
+      'io.architect.arcctl.deployment': containerName,
     };
 
     for (const [key, value] of Object.entries(labels)) {
@@ -130,7 +130,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
     }
 
     return {
-      id: inputs.name,
+      id: containerName,
       labels,
     };
   }
@@ -204,7 +204,7 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       labels = {
         ...inputs.labels,
         'io.architect': 'arcctl',
-        'io.architect.arcctl.deployment': inputs.name,
+        'io.architect.arcctl.deployment': containerName,
       };
     } else if (inputs.labels) {
       labels = {
@@ -224,13 +224,13 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
       args.push(...(typeof command === 'string' ? [command] : command));
     }
 
-    const { code, stdout, stderr } = await exec('docker', { args });
+    const { code, stderr } = await exec('docker', { args });
     if (code !== 0) {
       throw new Error(stderr || 'Deployment failed');
     }
 
     return {
-      id: stdout.replace(/^\s+|\s+$/g, ''),
+      id: containerName,
       labels,
     };
   }

@@ -11,13 +11,7 @@ type DestroyResourceOptons = {
   verbose: boolean;
 } & GlobalOptions;
 
-const DestroyEnvironmentCommand = BaseCommand()
-  .description('Destroy all the resources in the specified environment')
-  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
-  .arguments('<name:string>')
-  .action(destroy_environment_action);
-
-async function destroy_environment_action(options: DestroyResourceOptons, name: string) {
+export const destroyEnvironment = async (options: DestroyResourceOptons, name: string) => {
   const command_helper = new CommandHelper(options);
 
   const environmentRecord = await promptForEnvironment(command_helper, name);
@@ -82,7 +76,7 @@ async function destroy_environment_action(options: DestroyResourceOptons, name: 
       console.error(err);
       Deno.exit(1);
     });
-}
+};
 
 async function promptForEnvironment(command_helper: CommandHelper, name?: string): Promise<EnvironmentRecord> {
   const environmentRecords = await command_helper.environmentStore.find();
@@ -109,4 +103,8 @@ async function promptForEnvironment(command_helper: CommandHelper, name?: string
   return selected;
 }
 
-export default DestroyEnvironmentCommand;
+export default BaseCommand()
+  .description('Destroy all the resources in the specified environment')
+  .option('-v, --verbose', 'Turn on verbose logs', { default: false })
+  .arguments('<name:string>')
+  .action(destroyEnvironment);

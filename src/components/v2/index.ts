@@ -119,44 +119,53 @@ export default class ComponentV2 extends Component {
 
   private addBuildsToGraph(graph: CloudGraph, context: GraphContext): CloudGraph {
     for (const [build_key, build_config] of Object.entries(this.builds || {})) {
-      const build_node = new CloudNode({
-        name: build_key,
-        component: context.component.name,
-        environment: context.environment,
-        inputs: {
-          type: 'dockerBuild',
-          repository: context.component.name,
-          component_source: context.component.source,
-          context: context.component.debug &&
-              build_config.debug &&
-              build_config.debug.context
-            ? build_config.debug.context
-            : build_config.context,
-          dockerfile: context.component.debug &&
-              build_config.debug &&
-              build_config.debug.context
-            ? build_config.debug.dockerfile
-            : build_config.dockerfile || 'Dockerfile',
-          args: context.component.debug &&
-              build_config.debug &&
-              build_config.debug.args
-            ? build_config.debug.args
-            : build_config.args || {},
-          ...(context.component.debug &&
-              build_config.debug &&
-              build_config.debug.target
-            ? {
-              target: build_config.debug.target,
-            }
-            : build_config.target
-            ? {
-              target: build_config.target,
-            }
-            : {}),
-        },
-      });
+      if (build_config.image) {
+        this.deployments = JSON.parse(
+          JSON.stringify(this.deployments || {}).replace(
+            new RegExp('\\${{\\s?builds\\.' + build_key + '\\.image\\s?}}', 'g'),
+            () => build_config.image!,
+          ),
+        );
+      } else {
+        const build_node = new CloudNode({
+          name: build_key,
+          component: context.component.name,
+          environment: context.environment,
+          inputs: {
+            type: 'dockerBuild',
+            repository: context.component.name,
+            component_source: context.component.source,
+            context: context.component.debug &&
+                build_config.debug &&
+                build_config.debug.context
+              ? build_config.debug.context
+              : build_config.context,
+            dockerfile: context.component.debug &&
+                build_config.debug &&
+                build_config.debug.context
+              ? build_config.debug.dockerfile
+              : build_config.dockerfile || 'Dockerfile',
+            args: context.component.debug &&
+                build_config.debug &&
+                build_config.debug.args
+              ? build_config.debug.args
+              : build_config.args || {},
+            ...(context.component.debug &&
+                build_config.debug &&
+                build_config.debug.target
+              ? {
+                target: build_config.debug.target,
+              }
+              : build_config.target
+              ? {
+                target: build_config.target,
+              }
+              : {}),
+          },
+        });
 
-      graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, build_node));
+        graph.insertNodes(parseExpressionRefs(graph, this.dependencies || {}, context, build_node));
+      }
     }
 
     return graph;
@@ -412,7 +421,8 @@ export default class ComponentV2 extends Component {
   public async tag(tagFn: DockerTagFn): Promise<Component> {
     for (const [buildName, buildConfig] of Object.entries(this.builds || {})) {
       if (buildConfig.image) {
-        this.builds![buildName].image = await tagFn(buildConfig.image, buildName);
+        const newTag = await tagFn(buildConfig.image, buildName);
+        this.builds![buildName].image = newTag;
       }
     }
 

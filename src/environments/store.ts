@@ -1,6 +1,6 @@
+import * as path from 'std/path/mod.ts';
 import { Environment } from './environment.ts';
 import { parseEnvironment } from './parser.ts';
-import * as path from 'std/path/mod.ts';
 
 export type EnvironmentRecord = {
   name: string;
@@ -69,7 +69,7 @@ export class EnvironmentStore {
     } else {
       allEnvironments.push(input);
     }
-    this.saveAll(allEnvironments);
+    await this.saveAll(allEnvironments);
   }
 
   public async remove(name: string): Promise<void> {

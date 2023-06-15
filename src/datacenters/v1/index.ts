@@ -258,7 +258,7 @@ export default class DatacenterV1 extends Datacenter {
     }
 
     // Parse/stringify to deep copy the object.
-    // Don't want depenendant_variables metadata key to end up in the json dumped datacenter
+    // Don't want dependant_variables metadata key to end up in the json dumped datacenter
     const variables: ParsedVariablesType = JSON.parse(JSON.stringify(this.variables));
     const variable_names = new Set(Object.keys(variables));
     const variable_regex = /\${{\s?variables\.([\w-]+)\s?}}/;
@@ -268,8 +268,8 @@ export default class DatacenterV1 extends Datacenter {
         if (typeof metadata_value === 'string' && variable_regex.test(metadata_value)) {
           const match = metadata_value.match(variable_regex);
           if (match && match.length > 1) {
-            if (!variables[variable_name].depenendant_variables) {
-              variables[variable_name].depenendant_variables = [];
+            if (!variables[variable_name].dependant_variables) {
+              variables[variable_name].dependant_variables = [];
             }
 
             const variable_value = match[1];
@@ -279,7 +279,7 @@ export default class DatacenterV1 extends Datacenter {
               );
             }
 
-            variables[variable_name].depenendant_variables?.push({
+            variables[variable_name].dependant_variables?.push({
               key: metadata_key as keyof VariablesMetadata,
               value: match[1],
             });

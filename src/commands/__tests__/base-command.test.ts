@@ -48,7 +48,7 @@ describe('CommandHelper methods', () => {
       var1: {
         type: 'region',
         arcctlAccount: '${{ variables.var2 }}',
-        depenendant_variables: [{ key: 'arcctlAccount', value: 'var2' }],
+        dependant_variables: [{ key: 'arcctlAccount', value: 'var2' }],
       },
       var2: {
         type: 'arcctlAccount',
@@ -79,12 +79,12 @@ describe('CommandHelper methods', () => {
       var1: {
         type: 'region',
         arcctlAccount: '${{ variables.var2 }}',
-        depenendant_variables: [{ key: 'arcctlAccount', value: 'var2' }],
+        dependant_variables: [{ key: 'arcctlAccount', value: 'var2' }],
       },
       var2: {
         type: 'arcctlAccount',
         provider: '${{ variables.var3 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var3' }],
+        dependant_variables: [{ key: 'provider', value: 'var3' }],
       },
       var3: {
         type: 'string',
@@ -126,7 +126,7 @@ describe('CommandHelper methods', () => {
         type: 'arcctlAccount',
         provider: '${{ variables.var1 }}',
         region: '${{ variables.var2 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var1' }, { key: 'region', value: 'var2' }],
+        dependant_variables: [{ key: 'provider', value: 'var1' }, { key: 'region', value: 'var2' }],
       },
     };
 
@@ -160,12 +160,12 @@ describe('CommandHelper methods', () => {
       var1: {
         type: 'string',
         provider: '${{ variables.var2 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var2' }],
+        dependant_variables: [{ key: 'provider', value: 'var2' }],
       },
       var2: {
         type: 'string',
         provider: '${{ variables.var1 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var1' }],
+        dependant_variables: [{ key: 'provider', value: 'var1' }],
       },
     };
 
@@ -181,17 +181,17 @@ describe('CommandHelper methods', () => {
       var1: {
         type: 'string',
         provider: '${{ variables.var3 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var3' }],
+        dependant_variables: [{ key: 'provider', value: 'var3' }],
       },
       var2: {
         type: 'string',
         provider: '${{ variables.var1 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var1' }],
+        dependant_variables: [{ key: 'provider', value: 'var1' }],
       },
       var3: {
         type: 'string',
         provider: '${{ variables.var2 }}',
-        depenendant_variables: [{ key: 'provider', value: 'var2' }],
+        dependant_variables: [{ key: 'provider', value: 'var2' }],
       },
     };
 

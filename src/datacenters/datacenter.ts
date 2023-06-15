@@ -19,7 +19,7 @@ export type ParsedVariablesMetadata = VariablesMetadata & {
    * `key` is the VariablesMetadata key the variable is for,
    * and `value` is the variable that needs to be fulfilled.
    */
-  depenendant_variables?: { key: keyof VariablesMetadata; value: string }[];
+  dependant_variables?: { key: keyof VariablesMetadata; value: string }[];
 };
 
 /**

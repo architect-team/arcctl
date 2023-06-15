@@ -781,7 +781,7 @@ export class CommandHelper {
       // Fill in metadata that relied on this variable
       for (const next_variable of sorted_vars) {
         if (next_variable.dependencies.has(variable.name)) {
-          const dependency = variables[next_variable.name].depenendant_variables?.find((dep) =>
+          const dependency = variables[next_variable.name].dependant_variables?.find((dep) =>
             dep.value === variable.name
           )!;
 
@@ -845,7 +845,7 @@ export class CommandHelper {
     const variable_graph: Record<string, Set<string>> = {};
     for (const [variable_name, variable_metadata] of Object.entries(variables)) {
       const var_dependencies = new Set(
-        variable_metadata.depenendant_variables ? variable_metadata.depenendant_variables.map((v) => v.value) : [],
+        variable_metadata.dependant_variables ? variable_metadata.dependant_variables.map((v) => v.value) : [],
       );
       variable_graph[variable_name] = var_dependencies;
     }

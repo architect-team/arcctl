@@ -513,26 +513,31 @@ export class CommandHelper {
   public async promptForAccount(
     options: {
       account?: string;
+      prompt_accounts?: Provider[];
       type?: ResourceType;
       action?: 'list' | 'get' | 'create' | 'update' | 'delete';
       message?: string;
     } = {},
   ): Promise<Provider> {
     const allAccounts = this.providerStore.getProviders();
-    const filteredAccounts: Provider[] = [];
-    for (const p of allAccounts) {
-      if (options.type && p.resources[options.type]) {
-        const service = p.resources[options.type]!;
-        if (
-          !options.action ||
-          options.action in service ||
-          (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
-        ) {
+    let filteredAccounts: Provider[] = [];
+    if (!options.prompt_accounts) {
+      for (const p of allAccounts) {
+        if (options.type && p.resources[options.type]) {
+          const service = p.resources[options.type]!;
+          if (
+            !options.action ||
+            options.action in service ||
+            (['create', 'update', 'delete'].includes(options.action) && 'construct' in service)
+          ) {
+            filteredAccounts.push(p);
+          }
+        } else if (!options.type) {
           filteredAccounts.push(p);
         }
-      } else if (!options.type) {
-        filteredAccounts.push(p);
       }
+    } else {
+      filteredAccounts = options.prompt_accounts;
     }
 
     let account;
@@ -800,36 +805,18 @@ export class CommandHelper {
     } else if (metadata.type === 'number') {
       return NumberPrompt.prompt({ message });
     } else if (metadata.type === 'arcctlAccount') {
-      const account_name = await Input.prompt({ message });
       const provider_name = metadata.provider ||
         (await Select.prompt({
           message: `What provider will this account connect to?`,
           options: Object.keys(SupportedProviders),
         }));
 
-      // TODO: This is copy pasted from add/account.ts, should probably be extracted
-      const provider_type = provider_name as keyof typeof SupportedProviders;
-
-      const credentials = await this.promptForCredentials(provider_type);
-      const account = new SupportedProviders[provider_type](
-        name,
-        credentials as any,
-        this.providerStore,
-      );
-      const validCredentials = await account.testCredentials();
-      if (!validCredentials) {
-        throw new Error('Invalid credentials');
-      }
-
-      try {
-        this.providerStore.saveProvider(account);
-        console.log(`${account.name} account registered`);
-      } catch (ex: any) {
-        console.error(ex.message);
-        Deno.exit(1);
-      }
-
-      return account_name;
+      const existing_accounts = this.providerStore.getProviders().filter((p) => p.type === provider_name);
+      const account = await this.promptForAccount({
+        prompt_accounts: existing_accounts,
+        message: message,
+      });
+      return account.name;
     } else {
       // In this case, metadata.type is a non-special-case ResourceInputs key.
       if (!metadata.arcctlAccount) {
@@ -842,7 +829,7 @@ export class CommandHelper {
 
       return this.promptForResourceID(graph, provider, {
         name: name as ResourceType,
-        schema: { properties: { description: metadata.description } } as any,
+        schema: { description: message } as any,
       });
     }
   }

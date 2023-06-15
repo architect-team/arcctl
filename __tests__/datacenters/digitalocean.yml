@@ -2,24 +2,18 @@ secrets:
   account: local
 
 variables:
-  foo:
+  region:
+    type: region
+    description: Region to put resources in
+    arcctlAccount: ${{ variables.doAccount }}
+  doAccount:
+    description: Name of your registered DigitalOcean account.
+    required: true
+    type: arcctlAccount
+    provider: digitalocean
+  dnsZone:
     type: string
-    description: Foobar
-  bar:
-    type: string
-    description: ${{ variables.foob }}
-  # region:
-  #   type: region
-  #   description: Region to put resources in
-  #   arcctlAccount: ${{ variables.doAccount }}
-  # doAccount:
-  #   description: Name of your registered DigitalOcean account.
-  #   required: true
-  #   type: arcctlAccount
-  #   provider: digitalocean
-  # dnsZone:
-  #   type: string
-  #   description: Name of DNS zone for DNS records
+    description: Name of DNS zone for DNS records
 
 resources:
   vpc:
@@ -41,7 +35,6 @@ resources:
 
 accounts:
   cluster:
-    # TODO: Cluster name variable?
     name: do-personal-cluster
     provider: kubernetes
     credentials:

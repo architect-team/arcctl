@@ -40,11 +40,12 @@ await build({
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
 });
-
+console.log('COPYING LICENSE AND README')
 // Copy files from the root dir into npm package.
 await Deno.copyFile('LICENSE.md', path.join(build_dir, 'LICENSE.md'));
 await Deno.copyFile('README.md', path.join(build_dir, 'README.md'));
 
+console.log('COPYING OTHER FILES')
 // Copy all *.schema.json files into the npm package
 for await (const dirEntry of walk(path.join(__dirname, '..', '..', 'src'))) {
   if (dirEntry.isFile && dirEntry.name.endsWith('.schema.json')) {
@@ -54,3 +55,4 @@ for await (const dirEntry of walk(path.join(__dirname, '..', '..', 'src'))) {
     await Deno.copyFile(dirEntry.path, path.join(build_dir, 'script', ...src_relative_path));
   }
 }
+console.log('FINISHED COPY')

@@ -1,3 +1,7 @@
+import { TerraformOutput } from 'cdktf';
+import { Buffer } from 'https://deno.land/std@0.177.0/node/internal/buffer.mjs';
+import { BehaviorSubject } from 'rxjs';
+import * as path from 'std/path/mod.ts';
 import { ProviderCredentials } from '../@providers/credentials.ts';
 import { ResourceModule } from '../@providers/module.ts';
 import { ResourceStatus } from '../@providers/status.ts';
@@ -7,10 +11,6 @@ import TerraformPlugin, { TerraformVersion } from '../plugins/terraform-plugin.t
 import CloudCtlConfig from './config.ts';
 import { getLogger } from './logger.ts';
 import { CldCtlTerraformStack } from './stack.ts';
-import { TerraformOutput } from 'cdktf';
-import { Buffer } from 'https://deno.land/std@0.177.0/node/internal/buffer.mjs';
-import { BehaviorSubject } from 'rxjs';
-import * as path from 'std/path/mod.ts';
 
 export default class Terraform {
   private static terraformPlugin?: TerraformPlugin;
@@ -168,7 +168,7 @@ export default class Terraform {
         throw new Error(`Missing ID for the ${module.node.id} resource`);
       }
 
-      const imports = await module.genImports(resourceData.credentials, resourceData.id);
+      const imports = await module.genImports(resourceData.id, resourceData.credentials);
 
       import_records[module.node.id] = imports;
     }

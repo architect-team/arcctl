@@ -6,6 +6,7 @@ import { Confirm, Input, Number as NumberPrompt, prompt, Secret, Select } from '
 import logUpdate from 'log-update';
 import { deepMerge } from 'std/collections/deep_merge.ts';
 import * as path from 'std/path/mod.ts';
+import { WritableResourceService } from '../@providers/base.service.ts';
 import { Provider, ProviderStore, SupportedProviders } from '../@providers/index.ts';
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
@@ -440,8 +441,12 @@ export class CommandHelper {
       console.error('Invalid json schema');
     }
 
-    const validators = provider.resources[resourceType]?.validators;
-    const validator = validators ? (validators as any)[property.name] : undefined;
+    const resource = provider.resources[resourceType];
+    let validator = undefined;
+    if (resource && 'validators' in resource) {
+      const validators = resource.validators;
+      validator = validators ? (validators as any)[property.name] : undefined;
+    }
 
     if (data[property.name]) {
       return data[property.name] as any;
@@ -637,13 +642,14 @@ export class CommandHelper {
       Deno.exit(1);
     }
 
-    if (service.presets?.length) {
+    const writableService = service as unknown as WritableResourceService<T, Provider>;
+    if (writableService.presets && writableService.presets.length > 0) {
       const result = await Select.prompt({
         message: 'Please select one of our default configurations or customize the creation of your resource.',
-        options: [...service.presets.map((p) => p.display), 'custom'],
+        options: [...writableService.presets.map((p) => p.display), 'custom'],
       });
 
-      let service_preset_values = service.presets.find((p) => p.display === result)?.values;
+      let service_preset_values = writableService.presets.find((p) => p.display === result)?.values;
       if (!service_preset_values || result === 'custom') {
         service_preset_values = {};
       }

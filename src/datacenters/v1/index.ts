@@ -405,10 +405,7 @@ export default class DatacenterV1 extends Datacenter {
               ([key, value]) => key in node.inputs && (node.inputs as any)[key] === value,
             );
 
-          if (!doesMatchNode) {
-            console.log(`skipping: ${hook}`);
-            continue;
-          }
+          if (!doesMatchNode) continue;
 
           const replaceHookExpressions = <T>(
             resources: { [key: string]: InputSchema },

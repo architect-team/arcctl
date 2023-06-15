@@ -82,7 +82,6 @@ export class PipelineStep<T extends ResourceType = ResourceType> {
         this.inputs?.account || '',
       );
       if (!account) {
-        console.log(this);
         subscriber.error(new Error(`Invalid account: ${this.inputs?.account}`));
         return;
       }

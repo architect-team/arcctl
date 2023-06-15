@@ -123,7 +123,7 @@ export default class DatacenterV1 extends Datacenter {
   private replaceDatacenterResourceRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?resources\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?resources\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, resource_id, resource_key) => {
           const resource = this.resources?.[resource_id];
           if (!resource) {
@@ -152,7 +152,7 @@ export default class DatacenterV1 extends Datacenter {
   private replaceDatacenterAccountRefs<T>(graph: CloudGraph, from_node_id: string, contents: T): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?accounts\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?accounts\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, account_id, resource_key) => {
           const account = this.accounts?.[account_id];
           if (!account) {
@@ -186,7 +186,7 @@ export default class DatacenterV1 extends Datacenter {
   ): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?environment\.resources\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?environment\.resources\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, resource_id, resource_key) => {
           const resource = this.environment?.resources?.[resource_id];
           if (!resource) {
@@ -221,7 +221,7 @@ export default class DatacenterV1 extends Datacenter {
   ): T {
     return JSON.parse(
       JSON.stringify(contents).replace(
-        /\${{\s?environment\.accounts\.([\w-]+)\.(\S+)\s?}}/g,
+        /\${{\s*?environment\.accounts\.([\w-]+)\.(\S+)\s*?}}/g,
         (full_ref, account_id, resource_key) => {
           const account = this.environment?.accounts?.[account_id];
           if (!account) {
@@ -249,7 +249,7 @@ export default class DatacenterV1 extends Datacenter {
   }
 
   private replaceEnvironmentNameRefs<T>(environmentName: string, contents: T): T {
-    return JSON.parse(JSON.stringify(contents).replace(/\${{\s?environment\.name\s?}}/g, environmentName));
+    return JSON.parse(JSON.stringify(contents).replace(/\${{\s*?environment\.name\s*?}}/g, environmentName));
   }
 
   public getVariables(): ParsedVariablesType {
@@ -261,7 +261,7 @@ export default class DatacenterV1 extends Datacenter {
     // Don't want dependant_variables metadata key to end up in the json dumped datacenter
     const variables: ParsedVariablesType = JSON.parse(JSON.stringify(this.variables));
     const variable_names = new Set(Object.keys(variables));
-    const variable_regex = /\${{\s?variables\.([\w-]+)\s?}}/;
+    const variable_regex = /\${{\s*?variables\.([\w-]+)\s*?}}/;
 
     for (const [variable_name, variable_metadata] of Object.entries(variables)) {
       for (const [metadata_key, metadata_value] of Object.entries(variable_metadata)) {
@@ -303,7 +303,7 @@ export default class DatacenterV1 extends Datacenter {
           replace_variable_values(value as Record<string, unknown>);
         } else if (typeof value === 'string') {
           obj[key] = value.replace(
-            /\${{\s?variables\.([\w-]+)\s?}}/g,
+            /\${{\s*?variables\.([\w-]+)\s*?}}/g,
             (_full_ref, variable_name) => {
               const variable_value = variables[variable_name];
               if (variable_value === undefined) {
@@ -416,7 +416,7 @@ export default class DatacenterV1 extends Datacenter {
           ): T =>
             JSON.parse(
               JSON.stringify(contents)
-                .replace(/\${{\s?this\.resources\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, resource_id, resource_key) => {
+                .replace(/\${{\s*?this\.resources\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, resource_id, resource_key) => {
                   const resource = resources?.[resource_id];
                   if (!resource) {
                     throw new Error(`Invalid expression: ${full_ref}`);
@@ -438,7 +438,7 @@ export default class DatacenterV1 extends Datacenter {
 
                   return `\${{ ${target_node_id}.${resource_key} }}`;
                 })
-                .replace(/\${{\s?this\.accounts\.([\w-]+)\.(\S+)\s?}}/g, (full_ref, account_id, resource_key) => {
+                .replace(/\${{\s*?this\.accounts\.([\w-]+)\.(\S+)\s*?}}/g, (full_ref, account_id, resource_key) => {
                   const account = accounts?.[account_id];
                   if (!account) {
                     throw new Error(`Invalid expression: ${full_ref}`);
@@ -461,7 +461,7 @@ export default class DatacenterV1 extends Datacenter {
                   return `\${{ ${target_node_id}.${resource_key} }}`;
                 })
                 .replace(
-                  /\${{\s?this\.(\S+)\s?}}/g,
+                  /\${{\s*?this\.(\S+)\s*?}}/g,
                   (_, node_key: string) => {
                     return this.getNestedValue(node, node_key.split('.'));
                   },
@@ -507,7 +507,7 @@ export default class DatacenterV1 extends Datacenter {
                             hook_node_id,
                             JSON.parse(
                               JSON.stringify(resource_config).replace(
-                                /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                                /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
                                 (_, key: string) => {
                                   graph.insertEdges(
                                     new CloudEdge({
@@ -569,7 +569,7 @@ export default class DatacenterV1 extends Datacenter {
                             hook_node_id,
                             JSON.parse(
                               JSON.stringify(account_config).replace(
-                                /\${{\s?this\.outputs\.(\S+)\s?}}/g,
+                                /\${{\s*?this\.outputs\.(\S+)\s*?}}/g,
                                 (_, key: string) => {
                                   graph.insertEdges(
                                     new CloudEdge({

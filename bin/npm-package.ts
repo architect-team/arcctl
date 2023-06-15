@@ -28,7 +28,7 @@ await build({
   },
   package: {
     name: '@architect-io/arcctl',
-    version: '0.0.17-rc', // TODO: replace with Deno.args[0]
+    version: '0.0.18-rc', // TODO: replace with Deno.args[0]
     description:
       'arcctl standardizes the interfaces for common cloud resources like VPCs, managed kubernetes clusters, and more, making it easier for developers to create and manage on-demand cloud infrastructure',
     license: 'Apache-2.0',
@@ -40,14 +40,11 @@ await build({
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
 });
-console.log('COPYING LICENSE AND README')
+
 // Copy files from the root dir into npm package.
 await Deno.copyFile('LICENSE.md', path.join(build_dir, 'LICENSE.md'));
 await Deno.copyFile('README.md', path.join(build_dir, 'README.md'));
 
-console.log('COPYING OTHER FILES')
-console.log(path.join(__dirname, '..', 'src'))
-console.log(build_dir)
 // Copy all *.schema.json files into the npm package
 for await (const dirEntry of walk(path.join(__dirname, '..', 'src'))) {
   if (dirEntry.isFile && dirEntry.name.endsWith('.schema.json')) {
@@ -57,4 +54,3 @@ for await (const dirEntry of walk(path.join(__dirname, '..', 'src'))) {
     await Deno.copyFile(dirEntry.path, path.join(build_dir, 'script', ...src_relative_path));
   }
 }
-console.log('FINISHED COPY')

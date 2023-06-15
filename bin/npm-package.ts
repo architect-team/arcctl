@@ -39,20 +39,6 @@ await build({
     dependencies: package_json.dependencies,
   },
   importMap: path.join(build_dir, '..', 'import_map.json'),
-  postBuild() {
-    Deno.copyFileSync(
-      'src/components/component.schema.json',
-      'build/esm/components/component.schema.json',
-    );
-    Deno.copyFileSync(
-      'src/environments/environment.schema.json',
-      'build/esm/environments/environment.schema.json',
-    );
-    Deno.copyFileSync(
-      'src/datacenters/datacenter.schema.json',
-      'build/esm/datacenters/datacenter.schema.json',
-    );
-  },
 });
 
 // Copy files from the root dir into npm package.
@@ -63,17 +49,8 @@ await Deno.copyFile('README.md', path.join(build_dir, 'README.md'));
 for await (const dirEntry of walk(path.join(__dirname, '..', '..', 'src'))) {
   if (dirEntry.isFile && dirEntry.name.endsWith('.schema.json')) {
     // Get rid of everything up to  the src/ folder
-    const src_relative_path = dirEntry.path.replace(
-      new RegExp(`.*${path.SEP}src${path.SEP}`),
-      '',
-    ).split(path.SEP);
-    await Deno.copyFile(
-      dirEntry.path,
-      path.join(build_dir, 'esm', ...src_relative_path),
-    );
-    await Deno.copyFile(
-      dirEntry.path,
-      path.join(build_dir, 'script', ...src_relative_path),
-    );
+    const src_relative_path = dirEntry.path.replace(new RegExp(`.*${path.SEP}src${path.SEP}`), '').split(path.SEP);
+    await Deno.copyFile(dirEntry.path, path.join(build_dir, 'esm', ...src_relative_path));
+    await Deno.copyFile(dirEntry.path, path.join(build_dir, 'script', ...src_relative_path));
   }
 }

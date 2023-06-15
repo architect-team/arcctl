@@ -895,7 +895,7 @@ export class CommandHelper {
 
     for (const edge of graph[node]) {
       if (discovered.has(edge)) {
-        throw Error(`Cycle detected from ${node} -> ${edge}`);
+        throw Error(`A circular dependency has been found between the variables '${node}' and '${edge}'`);
       }
       if (!finished.has(edge)) {
         this.topologicalSort(graph, edge, discovered, finished, result);

@@ -1,18 +1,38 @@
 secrets:
   account: local
 
+variables:
+  foo:
+    type: string
+    description: Foobar
+  bar:
+    type: string
+    description: ${{ variables.foo }}
+  # region:
+  #   type: region
+  #   description: Region to put resources in
+  #   arcctlAccount: ${{ variables.doAccount }}
+  # doAccount:
+  #   description: Name of your registered DigitalOcean account.
+  #   required: true
+  #   type: arcctlAccount
+  #   provider: digitalocean
+  # dnsZone:
+  #   type: string
+  #   description: Name of DNS zone for DNS records
+
 resources:
   vpc:
     type: vpc
     name: arcctl-datacenter
-    account: do-personal
-    region: nyc1
+    account: ${{ variables.doAccount }}
+    region: ${{ variables.region }}
   cluster:
     type: kubernetesCluster
-    account: do-personal
     name: arcctl-datacenter
     kubernetesVersion: 1.26.5-do.0
-    region: nyc1
+    account: ${{ variables.doAccount }}
+    region: ${{ variables.region }}
     vpc: ${{ resources.vpc.id }}
     nodePools:
       - name: pool1
@@ -21,6 +41,7 @@ resources:
 
 accounts:
   cluster:
+    # TODO: Cluster name variable?
     name: do-personal-cluster
     provider: kubernetes
     credentials:
@@ -50,27 +71,27 @@ environment:
       resources:
         db:
           type: database
-          account: do-personal
+          account: ${{ variables.doAccount }}
           name: ${{ this.id }}
           databaseVersion: ${{ this.inputs.databaseVersion }}
           databaseSize: db-s-1vcpu-1gb
           databaseType: ${{ this.inputs.databaseType }}
           vpc: ${{ resources.vpc.id }}
-          region: nyc1
-      account: do-personal
+          region: ${{ variables.region }}
+      account: ${{ variables.doAccount }}
       database: ${{ this.resources.db.id }}
     - when:
         type: ingressRule
       resources:
         dnsRecord:
           type: dnsRecord
-          account: do-personal
-          dnsZone: davidthor.me
+          account: ${{ variables.doAccount }}
+          dnsZone: ${{ variables.dnsZone }}
           subdomain: ${{ this.inputs.subdomain }}
           recordType: A
           content: ${{ this.outputs.loadBalancerHostname }}
       registry: nginx
       namespace: ${{ environment.resources.namespace.id }}
-      dnsZone: muesch.me
+      dnsZone: ${{ variables.dnsZone }}
     - account: ${{ accounts.cluster.id }}
       namespace: ${{ environment.resources.namespace.id }}

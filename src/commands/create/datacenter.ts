@@ -27,7 +27,19 @@ async function create_datacenter_action(options: CreateDatacenterOptions, name: 
 
   try {
     const datacenter = await parseDatacenter(config_path);
-    const graph = await datacenter.enrichGraph(new CloudGraph());
+    let graph = new CloudGraph();
+    const vars = await command_helper.promptForVariables(graph, datacenter.getVariables());
+    console.log(vars);
+    Deno.exit(1);
+
+    datacenter.setVariableValues({
+      doAccount: 'test_account',
+      region: 'nyc-dont-exist',
+      dnsZone: undefined,
+    });
+
+    graph = await datacenter.enrichGraph(new CloudGraph());
+
     const pipeline = Pipeline.plan({
       before: new Pipeline(),
       after: graph,

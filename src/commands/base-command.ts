@@ -10,7 +10,13 @@ import { Provider, ProviderStore, SupportedProviders } from '../@providers/index
 import { ResourceType, ResourceTypeList } from '../@resources/index.ts';
 import { CloudEdge, CloudGraph, CloudNode } from '../cloud-graph/index.ts';
 import { ComponentStore } from '../component-store/index.ts';
-import { Datacenter, DatacenterRecord, DatacenterStore } from '../datacenters/index.ts';
+import {
+  Datacenter,
+  DatacenterRecord,
+  DatacenterStore,
+  ParsedVariablesMetadata,
+  ParsedVariablesType,
+} from '../datacenters/index.ts';
 import { EnvironmentStore } from '../environments/index.ts';
 import { Pipeline, PipelineStep } from '../pipeline/index.ts';
 import CloudCtlConfig from '../utils/config.ts';
@@ -406,9 +412,7 @@ export class CommandHelper {
     }
 
     if (answer === 'create-new') {
-      console.log(`Inputs for ${property.name}`);
       const node = await this.promptForNewResource(graph, provider, property.name, data);
-      console.log(`End ${property.name} inputs`);
       return `\${{ ${node.id}.id }}`;
     } else if (answer === 'none') {
       return undefined;
@@ -748,5 +752,164 @@ export class CommandHelper {
       }
     }
     Deno.exit(1);
+  }
+
+  /**
+   * Prompts for all variables required by a datacenter.
+   * If variables cannot be prompted in a valid order (e.g. a cycle in variable dependencies),
+   * an error is thrown.
+   */
+  public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
+    // TODO(tyler): Currently no error if a variable points to a field that does not exist
+    const variable_inputs: Record<string, unknown> = {};
+    const sorted_vars = this.sortVariables(variables);
+
+    while (sorted_vars.length > 0) {
+      const variable = sorted_vars.shift()!;
+
+      const variable_value = await this.promptForVariableFromMetadata(
+        graph,
+        variable.name,
+        variable.metadata,
+      );
+
+      variable_inputs[variable.name] = variable_value;
+      // Fill in metadata that relied on this variable
+      for (const next_variable of sorted_vars) {
+        if (next_variable.dependencies.has(variable.name)) {
+          const dependency = variables[next_variable.name].depenendant_variables?.find((dep) =>
+            dep.value === variable.name
+          )!;
+
+          (next_variable.metadata as Record<string, unknown>)[dependency.key] = variable_value;
+        }
+      }
+    }
+    return variable_inputs;
+  }
+
+  private async promptForVariableFromMetadata(
+    graph: CloudGraph,
+    name: string,
+    metadata: ParsedVariablesMetadata,
+  ): Promise<string | boolean | number | undefined> {
+    const message = `${name}: ${metadata.description}`;
+    if (metadata.type === 'string') {
+      return Input.prompt({ message });
+    } else if (metadata.type === 'boolean') {
+      return Confirm.prompt({ message });
+    } else if (metadata.type === 'number') {
+      return NumberPrompt.prompt({ message });
+    } else if (metadata.type === 'arcctlAccount') {
+      const account_name = await Input.prompt({ message });
+      const provider_name = metadata.provider ||
+        (await Select.prompt({
+          message: `What provider will this account connect to?`,
+          options: Object.keys(SupportedProviders),
+        }));
+
+      // TODO: This is copy pasted from add/account.ts, should probably be extracted
+      const provider_type = provider_name as keyof typeof SupportedProviders;
+
+      const credentials = await this.promptForCredentials(provider_type);
+      const account = new SupportedProviders[provider_type](
+        name,
+        credentials as any,
+        this.providerStore,
+      );
+      const validCredentials = await account.testCredentials();
+      if (!validCredentials) {
+        throw new Error('Invalid credentials');
+      }
+
+      try {
+        this.providerStore.saveProvider(account);
+        console.log(`${account.name} account registered`);
+      } catch (ex: any) {
+        console.error(ex.message);
+        Deno.exit(1);
+      }
+
+      return account_name;
+    } else {
+      // In this case, metadata.type is a non-special-case ResourceInputs key.
+      if (!metadata.arcctlAccount) {
+        throw new Error(`Resource type ${metadata.type} cannot be prompted for without setting arcctlAccount.`);
+      }
+      const provider = this.providerStore.getProvider(metadata.arcctlAccount);
+      if (!provider) {
+        throw new Error(`Provider ${metadata.arcctlAccount} does not exist.`);
+      }
+
+      return this.promptForResourceID(graph, provider, {
+        name: name as ResourceType,
+        schema: { properties: { description: metadata.description } } as any,
+      });
+    }
+  }
+
+  /*
+   * Sort ParsedVariablesType into an order that can be prompted for, ensuring variables that
+   * depend on other variables get resolved first. If no valid order exists (e.g., there are cycles),
+   * this raises an error.
+   */
+  protected sortVariables(
+    variables: ParsedVariablesType,
+  ): { name: string; metadata: ParsedVariablesMetadata; dependencies: Set<string> }[] {
+    const variable_graph: Record<string, Set<string>> = {};
+    for (const [variable_name, variable_metadata] of Object.entries(variables)) {
+      const var_dependencies = new Set(
+        variable_metadata.depenendant_variables ? variable_metadata.depenendant_variables.map((v) => v.value) : [],
+      );
+      variable_graph[variable_name] = var_dependencies;
+    }
+
+    const result: string[] = [];
+    const discovered = new Set<string>();
+    const finished = new Set<string>();
+    for (const var_name of Object.keys(variable_graph)) {
+      if (!finished.has(var_name) && !discovered.has(var_name)) {
+        this.topologicalSort(variable_graph, var_name, discovered, finished, result);
+      }
+    }
+    // We must reverse the topological sort to get the correct ordering - the edges in this
+    // graph are variables the node depends on, so those dependencies must be prompted for first.
+    result.reverse();
+
+    const vars = [];
+    for (const var_name of result) {
+      vars.push({
+        name: var_name,
+        metadata: variables[var_name],
+        dependencies: variable_graph[var_name],
+      });
+    }
+    return vars;
+  }
+
+  /**
+   * Topologically sort the graph, and raise an error if a cycle is detected.
+   */
+  private topologicalSort(
+    graph: Record<string, Set<string>>,
+    node: string,
+    discovered: Set<string>,
+    finished: Set<string>,
+    result: string[],
+  ) {
+    discovered.add(node);
+
+    for (const edge of graph[node]) {
+      if (discovered.has(edge)) {
+        throw Error(`Cycle detected from ${node} -> ${edge}`);
+      }
+      if (!finished.has(edge)) {
+        this.topologicalSort(graph, edge, discovered, finished, result);
+      }
+    }
+
+    discovered.delete(node);
+    finished.add(node);
+    result.unshift(node);
   }
 }

@@ -98,9 +98,7 @@
                     "type": "object"
                   },
                   "args": {
-                    "additionalProperties": {
-                      "type": "string"
-                    },
+                    "additionalProperties": false,
                     "type": "object"
                   },
                   "autoscaling": {
@@ -116,7 +114,16 @@
                     "type": "object"
                   },
                   "chart": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Chart to be installed",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "command": {
                     "anyOf": [
@@ -130,16 +137,46 @@
                     ]
                   },
                   "component_source": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Source of the component that contains the build context",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "content": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "context": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Docker build context relative to the component root",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "cpu": {
                     "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       {
                         "type": "number"
                       },
@@ -151,38 +188,139 @@
                     ]
                   },
                   "credentials": {
-                    "additionalProperties": {
-                      "additionalProperties": false,
-                      "type": "object"
-                    },
+                    "additionalProperties": false,
                     "type": "object"
                   },
                   "data": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Data to populate the secret with",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "database": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Unique ID of the database backing this schema",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "databaseSchema": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "The schema the user should have access to",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "databaseSize": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Size of the database instance to create",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "databaseType": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "The type of database engine to use",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Type of database required by the schema",
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "databaseVersion": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Refers to the unique ID of a `databaseVersion` response",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Version of the database type the schema creation process expects",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "description": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Human-readable description of the database",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Description of the cluster",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Description for the VPC",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "dnsZone": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "dockerfile": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "default": "Dockerfile",
+                        "description": "Path to the dockerfile relative to the context",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "entrypoint": {
                     "anyOf": [
@@ -200,34 +338,70 @@
                     "type": "object"
                   },
                   "exposed_ports": {
-                    "items": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "port": {
-                          "type": "number"
-                        },
-                        "target_port": {
-                          "type": "number"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
+                    "additionalProperties": false,
+                    "type": "object"
                   },
                   "external_hostname": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "External address to point to",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "host": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Host of the target database",
+                        "type": "string"
+                      },
+                      {
+                        "description": "The host address of the underlying database",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "hostPath": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Path on the host machine to mount the volume to",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "image": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "Image the container runs from",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "internal": {
                     "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       {
                         "default": false,
                         "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -241,17 +415,47 @@
                     ]
                   },
                   "kubernetesVersion": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Version of the kubernetes control plane to use",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "labels": {
                     "additionalProperties": false,
                     "type": "object"
                   },
                   "loadBalancerType": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "What type of load balancer to create",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "memory": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "Amount of memory to allocate to the container",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "modules": {
                     "additionalProperties": {
@@ -269,37 +473,135 @@
                     "type": "object"
                   },
                   "name": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Name of the new account",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Unique name for the database",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name to give to the new schema",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Deployment name",
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name of the helm release",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name to give to the ingress rule resource",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name of the cluster",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name for the new load balancer",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name for the secret",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Hostname to listen on",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name to give to the volume resource",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Name of the VPC",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "namespace": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "Namespace the deployment should be in",
+                        "type": "string"
+                      },
+                      {
+                        "default": "default",
+                        "description": "The namespace to install the release in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Namespace to put the ingress rule in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "A namespace to put the load balancer in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Namespace the secret should be place in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Resource namespace",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "nodePools": {
-                    "items": {
-                      "additionalProperties": false,
-                      "properties": {
-                        "count": {
-                          "type": "number"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "nodeSize": {
-                          "type": "string"
-                        }
-                      },
-                      "type": "object"
-                    },
-                    "type": "array"
+                    "additionalProperties": false,
+                    "type": "object"
                   },
                   "path": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "default": "/",
+                        "description": "The path the ingress rule listens on",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "platform": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Target platform the deployment will run on",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "port": {
                     "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
                       {
                         "description": "Port of the target database",
                         "type": [
@@ -392,25 +694,114 @@
                     "type": "object"
                   },
                   "protocol": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Protocol the target database responds to",
+                        "type": "string"
+                      },
+                      {
+                        "description": "The protocol of the underlying database",
+                        "type": "string"
+                      },
+                      {
+                        "default": "http",
+                        "description": "The protocol the ingress rule listens for traffic on",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "provider": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Cloud provider the account connects to",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "recordType": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "region": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Unique ID of the region to run the database in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Region the cluster should live in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Region the VPC exists in",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "registry": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "default": "registry.architect.io",
+                        "description": "Registry the artifact will be pushed to",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Unique ID of the service registry this rule will be stored in",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "replicas": {
-                    "type": "number"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "default": 1,
+                        "description": "Number of replicas of the deployment to run",
+                        "type": "number"
+                      }
+                    ]
                   },
                   "repository": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "The repository to push the artifact to",
+                        "type": "string"
+                      },
+                      {
+                        "description": "The URL of the repository where the chart lives",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "resources": {
                     "additionalProperties": {
@@ -763,13 +1154,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "databaseSize",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -790,13 +1181,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "databaseType",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -1819,13 +2210,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "kubernetesVersion",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -1892,13 +2283,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "loadBalancerType",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -1950,13 +2341,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "node",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -1977,13 +2368,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "nodeSize",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -2004,13 +2395,13 @@
                           "if": {
                             "properties": {
                               "type": {
-                                "const": "region",
-                                "type": "string"
+                                "properties": {},
+                                "type": "object"
                               }
                             }
                           },
                           "then": {
-                            "additionalProperties": false,
+                            "additionalProperties": {},
                             "properties": {
                               "account": {
                                 "type": "string"
@@ -2394,8 +2785,6 @@
                             "cronjob",
                             "database",
                             "databaseSchema",
-                            "databaseSize",
-                            "databaseType",
                             "databaseUser",
                             "databaseVersion",
                             "deployment",
@@ -2405,13 +2794,8 @@
                             "helmChart",
                             "ingressRule",
                             "kubernetesCluster",
-                            "kubernetesVersion",
                             "loadBalancer",
-                            "loadBalancerType",
                             "namespace",
-                            "node",
-                            "nodeSize",
-                            "region",
                             "secret",
                             "service",
                             "task",
@@ -2428,87 +2812,255 @@
                     "type": "object"
                   },
                   "schedule": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "service": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Service the ingress forwards traffic to",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "sidecars": {
                     "additionalProperties": false,
                     "type": "object"
                   },
                   "subdomain": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "description": "The subdomain the ingress rule listens on",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "tag": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "default": "latest",
+                        "description": "Tag to assign to the image",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "target": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Name of a intermediate build stage to target",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "target_deployment": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Target deployment name",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "target_port": {
-                    "type": "number"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Target port",
+                        "type": "number"
+                      }
+                    ]
                   },
                   "target_protocol": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "default": "http",
+                        "description": "Protocol",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "ttl": {
-                    "type": "number"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   },
                   "type": {
-                    "enum": [
-                      "arcctlAccount",
-                      "cronjob",
-                      "database",
-                      "databaseSchema",
-                      "databaseSize",
-                      "databaseType",
-                      "databaseUser",
-                      "databaseVersion",
-                      "deployment",
-                      "dnsRecord",
-                      "dnsZone",
-                      "dockerBuild",
-                      "helmChart",
-                      "ingressRule",
-                      "kubernetesCluster",
-                      "kubernetesVersion",
-                      "loadBalancer",
-                      "loadBalancerType",
-                      "namespace",
-                      "node",
-                      "nodeSize",
-                      "region",
-                      "secret",
-                      "service",
-                      "task",
-                      "volume",
-                      "vpc"
-                    ],
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "const": "arcctlAccount",
+                        "type": "string"
+                      },
+                      {
+                        "const": "cronjob",
+                        "type": "string"
+                      },
+                      {
+                        "const": "database",
+                        "type": "string"
+                      },
+                      {
+                        "const": "databaseSchema",
+                        "type": "string"
+                      },
+                      {
+                        "const": "databaseUser",
+                        "type": "string"
+                      },
+                      {
+                        "const": "databaseVersion",
+                        "type": "string"
+                      },
+                      {
+                        "const": "deployment",
+                        "type": "string"
+                      },
+                      {
+                        "const": "dnsRecord",
+                        "type": "string"
+                      },
+                      {
+                        "const": "dnsZone",
+                        "type": "string"
+                      },
+                      {
+                        "const": "dockerBuild",
+                        "type": "string"
+                      },
+                      {
+                        "const": "helmChart",
+                        "type": "string"
+                      },
+                      {
+                        "const": "ingressRule",
+                        "type": "string"
+                      },
+                      {
+                        "const": "kubernetesCluster",
+                        "type": "string"
+                      },
+                      {
+                        "const": "loadBalancer",
+                        "type": "string"
+                      },
+                      {
+                        "const": "namespace",
+                        "type": "string"
+                      },
+                      {
+                        "const": "secret",
+                        "type": "string"
+                      },
+                      {
+                        "const": "service",
+                        "type": "string"
+                      },
+                      {
+                        "const": "task",
+                        "type": "string"
+                      },
+                      {
+                        "const": "volume",
+                        "type": "string"
+                      },
+                      {
+                        "const": "vpc",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "username": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Username of the user to create",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "values": {
-                    "additionalProperties": {
-                      "additionalProperties": false,
-                      "type": "object"
-                    },
+                    "additionalProperties": false,
                     "type": "object"
                   },
                   "version": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "The exact chart version to install. Otherwise will use the latest.",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "volume_mounts": {
                     "additionalProperties": false,
                     "type": "object"
                   },
                   "vpc": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "type": "object"
+                      },
+                      {
+                        "description": "Unique ID of the VPC to run the database in",
+                        "type": "string"
+                      },
+                      {
+                        "description": "VPC the cluster should live in",
+                        "type": "string"
+                      }
+                    ]
                   },
                   "when": {
                     "additionalProperties": false,
@@ -2517,9 +3069,7 @@
                         "type": "string"
                       },
                       "args": {
-                        "additionalProperties": {
-                          "type": "string"
-                        },
+                        "additionalProperties": false,
                         "type": "object"
                       },
                       "autoscaling": {
@@ -2535,7 +3085,16 @@
                         "type": "object"
                       },
                       "chart": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Chart to be installed",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "command": {
                         "anyOf": [
@@ -2549,16 +3108,46 @@
                         ]
                       },
                       "component_source": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Source of the component that contains the build context",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "content": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "context": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Docker build context relative to the component root",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "cpu": {
                         "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
                           {
                             "type": "number"
                           },
@@ -2570,38 +3159,139 @@
                         ]
                       },
                       "credentials": {
-                        "additionalProperties": {
-                          "additionalProperties": false,
-                          "type": "object"
-                        },
+                        "additionalProperties": false,
                         "type": "object"
                       },
                       "data": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Data to populate the secret with",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "database": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Unique ID of the database backing this schema",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseSchema": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The schema the user should have access to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseSize": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Size of the database instance to create",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseType": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The type of database engine to use",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Type of database required by the schema",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "databaseVersion": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Refers to the unique ID of a `databaseVersion` response",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Version of the database type the schema creation process expects",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "description": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Human-readable description of the database",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Description of the cluster",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Description for the VPC",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "dnsZone": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "The DNS zone (aka base URL) that the ingress rule listens on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "dockerfile": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "Dockerfile",
+                            "description": "Path to the dockerfile relative to the context",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "entrypoint": {
                         "anyOf": [
@@ -2619,34 +3309,70 @@
                         "type": "object"
                       },
                       "exposed_ports": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "port": {
-                              "type": "number"
-                            },
-                            "target_port": {
-                              "type": "number"
-                            }
-                          },
-                          "type": "object"
-                        },
-                        "type": "array"
+                        "additionalProperties": false,
+                        "type": "object"
                       },
                       "external_hostname": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "External address to point to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "host": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Host of the target database",
+                            "type": "string"
+                          },
+                          {
+                            "description": "The host address of the underlying database",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "hostPath": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Path on the host machine to mount the volume to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "image": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Image the container runs from",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "internal": {
                         "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
                           {
                             "default": false,
                             "description": "Whether or not this should be fulfilled by an internal load balancer (e.g. no public IP)",
@@ -2660,50 +3386,178 @@
                         ]
                       },
                       "kubernetesVersion": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Version of the kubernetes control plane to use",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "labels": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "loadBalancerType": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "What type of load balancer to create",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "memory": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Amount of memory to allocate to the container",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "name": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Name of the new account",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Unique name for the database",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name to give to the new schema",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Deployment name",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name of the helm release",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name to give to the ingress rule resource",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name of the cluster",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name for the new load balancer",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name for the secret",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Hostname to listen on",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name to give to the volume resource",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Name of the VPC",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "namespace": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "Namespace the deployment should be in",
+                            "type": "string"
+                          },
+                          {
+                            "default": "default",
+                            "description": "The namespace to install the release in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Namespace to put the ingress rule in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "A namespace to put the load balancer in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Namespace the secret should be place in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Resource namespace",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "nodePools": {
-                        "items": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "count": {
-                              "type": "number"
-                            },
-                            "name": {
-                              "type": "string"
-                            },
-                            "nodeSize": {
-                              "type": "string"
-                            }
-                          },
-                          "type": "object"
-                        },
-                        "type": "array"
+                        "additionalProperties": false,
+                        "type": "object"
                       },
                       "path": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "/",
+                            "description": "The path the ingress rule listens on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "platform": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Target platform the deployment will run on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "port": {
                         "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
                           {
                             "description": "Port of the target database",
                             "type": [
@@ -2796,56 +3650,229 @@
                         "type": "object"
                       },
                       "protocol": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Protocol the target database responds to",
+                            "type": "string"
+                          },
+                          {
+                            "description": "The protocol of the underlying database",
+                            "type": "string"
+                          },
+                          {
+                            "default": "http",
+                            "description": "The protocol the ingress rule listens for traffic on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "provider": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Cloud provider the account connects to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "recordType": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "region": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Unique ID of the region to run the database in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Region the cluster should live in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Region the VPC exists in",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "registry": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "registry.architect.io",
+                            "description": "Registry the artifact will be pushed to",
+                            "type": "string"
+                          },
+                          {
+                            "description": "Unique ID of the service registry this rule will be stored in",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "replicas": {
-                        "type": "number"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": 1,
+                            "description": "Number of replicas of the deployment to run",
+                            "type": "number"
+                          }
+                        ]
                       },
                       "repository": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The repository to push the artifact to",
+                            "type": "string"
+                          },
+                          {
+                            "description": "The URL of the repository where the chart lives",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "schedule": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
                       },
                       "service": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Service the ingress forwards traffic to",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "sidecars": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "subdomain": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "description": "The subdomain the ingress rule listens on",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "tag": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "latest",
+                            "description": "Tag to assign to the image",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Name of a intermediate build stage to target",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target_deployment": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Target deployment name",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "target_port": {
-                        "type": "number"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Target port",
+                            "type": "number"
+                          }
+                        ]
                       },
                       "target_protocol": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "default": "http",
+                            "description": "Protocol",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "ttl": {
-                        "type": "number"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
                       },
                       "type": {
                         "enum": [
@@ -2880,24 +3907,52 @@
                         "type": "string"
                       },
                       "username": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Username of the user to create",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "values": {
-                        "additionalProperties": {
-                          "additionalProperties": false,
-                          "type": "object"
-                        },
+                        "additionalProperties": false,
                         "type": "object"
                       },
                       "version": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "The exact chart version to install. Otherwise will use the latest.",
+                            "type": "string"
+                          }
+                        ]
                       },
                       "volume_mounts": {
                         "additionalProperties": false,
                         "type": "object"
                       },
                       "vpc": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object"
+                          },
+                          {
+                            "description": "Unique ID of the VPC to run the database in",
+                            "type": "string"
+                          },
+                          {
+                            "description": "VPC the cluster should live in",
+                            "type": "string"
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -3277,13 +4332,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "databaseSize",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -3304,13 +4359,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "databaseType",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -4333,13 +5388,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "kubernetesVersion",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -4406,13 +5461,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "loadBalancerType",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -4464,13 +5519,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "node",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -4491,13 +5546,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "nodeSize",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -4518,13 +5573,13 @@
                     "if": {
                       "properties": {
                         "type": {
-                          "const": "region",
-                          "type": "string"
+                          "properties": {},
+                          "type": "object"
                         }
                       }
                     },
                     "then": {
-                      "additionalProperties": false,
+                      "additionalProperties": {},
                       "properties": {
                         "account": {
                           "type": "string"
@@ -4908,8 +5963,6 @@
                       "cronjob",
                       "database",
                       "databaseSchema",
-                      "databaseSize",
-                      "databaseType",
                       "databaseUser",
                       "databaseVersion",
                       "deployment",
@@ -4919,13 +5972,8 @@
                       "helmChart",
                       "ingressRule",
                       "kubernetesCluster",
-                      "kubernetesVersion",
                       "loadBalancer",
-                      "loadBalancerType",
                       "namespace",
-                      "node",
-                      "nodeSize",
-                      "region",
                       "secret",
                       "service",
                       "task",
@@ -5312,13 +6360,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "databaseSize",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -5339,13 +6387,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "databaseType",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -6368,13 +7416,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "kubernetesVersion",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -6441,13 +7489,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "loadBalancerType",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -6499,13 +7547,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "node",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -6526,13 +7574,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "nodeSize",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -6553,13 +7601,13 @@
                 "if": {
                   "properties": {
                     "type": {
-                      "const": "region",
-                      "type": "string"
+                      "properties": {},
+                      "type": "object"
                     }
                   }
                 },
                 "then": {
-                  "additionalProperties": false,
+                  "additionalProperties": {},
                   "properties": {
                     "account": {
                       "type": "string"
@@ -6943,8 +7991,6 @@
                   "cronjob",
                   "database",
                   "databaseSchema",
-                  "databaseSize",
-                  "databaseType",
                   "databaseUser",
                   "databaseVersion",
                   "deployment",
@@ -6954,13 +8000,8 @@
                   "helmChart",
                   "ingressRule",
                   "kubernetesCluster",
-                  "kubernetesVersion",
                   "loadBalancer",
-                  "loadBalancerType",
                   "namespace",
-                  "node",
-                  "nodeSize",
-                  "region",
                   "secret",
                   "service",
                   "task",
@@ -6993,6 +8034,144 @@
           "required": [
             "account"
           ],
+          "type": "object"
+        },
+        "variables": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "arcctlAccount": {
+                "type": "string"
+              },
+              "cronjob": {
+                "type": "string"
+              },
+              "database": {
+                "type": "string"
+              },
+              "databaseSchema": {
+                "type": "string"
+              },
+              "databaseSize": {
+                "type": "string"
+              },
+              "databaseType": {
+                "type": "string"
+              },
+              "databaseUser": {
+                "type": "string"
+              },
+              "databaseVersion": {
+                "type": "string"
+              },
+              "deployment": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "dnsRecord": {
+                "type": "string"
+              },
+              "dnsZone": {
+                "type": "string"
+              },
+              "dockerBuild": {
+                "type": "string"
+              },
+              "helmChart": {
+                "type": "string"
+              },
+              "ingressRule": {
+                "type": "string"
+              },
+              "kubernetesCluster": {
+                "type": "string"
+              },
+              "kubernetesVersion": {
+                "type": "string"
+              },
+              "loadBalancer": {
+                "type": "string"
+              },
+              "loadBalancerType": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "node": {
+                "type": "string"
+              },
+              "nodeSize": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "secret": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              },
+              "task": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "arcctlAccount",
+                  "cronjob",
+                  "database",
+                  "databaseSchema",
+                  "databaseSize",
+                  "databaseType",
+                  "databaseUser",
+                  "databaseVersion",
+                  "deployment",
+                  "dnsRecord",
+                  "dnsZone",
+                  "dockerBuild",
+                  "helmChart",
+                  "ingressRule",
+                  "kubernetesCluster",
+                  "kubernetesVersion",
+                  "loadBalancer",
+                  "loadBalancerType",
+                  "namespace",
+                  "node",
+                  "nodeSize",
+                  "region",
+                  "secret",
+                  "service",
+                  "task",
+                  "volume",
+                  "vpc",
+                  "string",
+                  "number",
+                  "boolean"
+                ],
+                "type": "string"
+              },
+              "volume": {
+                "type": "string"
+              },
+              "vpc": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "type": "object"
+          },
+          "description": "Variables whose values will be prompted for when creating the datacenter",
           "type": "object"
         },
         "version": {

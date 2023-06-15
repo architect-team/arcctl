@@ -8,7 +8,6 @@ variables:
     arcctlAccount: ${{ variables.doAccount }}
   doAccount:
     description: Name of your registered DigitalOcean account.
-    required: true
     type: arcctlAccount
     provider: digitalocean
   dnsZone:

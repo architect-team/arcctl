@@ -2,14 +2,17 @@ import { ResourceInputs } from '../@resources/index.ts';
 import { CloudGraph } from '../cloud-graph/index.ts';
 
 export type VariablesMetadata = {
-  description?: string;
-  required?: boolean;
-  // TODO: this type isn't possible apparently, schema gen fails
-  // provider?: keyof typeof SupportedProviders;
-  provider?: string;
   type: keyof ResourceInputs | 'string' | 'number' | 'boolean';
-} & { [key in keyof ResourceInputs]?: string }; // TODO: maybe should be more limited
+  description?: string;
+  provider?: string;
+  value?: string | number | boolean;
+} & { [key in keyof ResourceInputs]?: string };
 
+/**
+ * Returned by the Datacenter with additional metadata
+ * not part of the datacenter schema to track variables
+ * and the keys they point to.
+ */
 export type ParsedVariablesMetadata = VariablesMetadata & {
   /*
    * Array of variables referenced by this variable metadata.
@@ -19,6 +22,9 @@ export type ParsedVariablesMetadata = VariablesMetadata & {
   depenendant_variables?: { key: keyof VariablesMetadata; value: string }[];
 };
 
+/**
+ * Type used by schema variables to prompt for values
+ */
 export type ParsedVariablesType = {
   [key: string]: ParsedVariablesMetadata;
 };
@@ -29,12 +35,6 @@ export type DatacenterSecretsConfig = {
 };
 
 export abstract class Datacenter {
-  protected variable_values: Record<string, unknown>;
-
-  constructor() {
-    this.variable_values = {};
-  }
-
   public abstract enrichGraph(
     /**
      * Graph of resources the environment defines

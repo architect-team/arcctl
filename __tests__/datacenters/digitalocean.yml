@@ -7,7 +7,7 @@ variables:
     description: Foobar
   bar:
     type: string
-    description: ${{ variables.foo }}
+    description: ${{ variables.foob }}
   # region:
   #   type: region
   #   description: Region to put resources in

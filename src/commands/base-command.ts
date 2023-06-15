@@ -760,7 +760,6 @@ export class CommandHelper {
    * an error is thrown.
    */
   public async promptForVariables(graph: CloudGraph, variables: ParsedVariablesType): Promise<Record<string, unknown>> {
-    // TODO(tyler): Currently no error if a variable points to a field that does not exist
     const variable_inputs: Record<string, unknown> = {};
     const sorted_vars = this.sortVariables(variables);
 

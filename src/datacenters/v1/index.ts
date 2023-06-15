@@ -280,6 +280,8 @@ export default class DatacenterV1 extends Datacenter {
     const variables: ParsedVariablesType = { ...this.variables };
     const variable_regex = /\${{\s?variables\.([\w-]+)\s?}}/;
 
+    const variable_names = new Set(Object.keys(variables));
+
     for (const [variable_name, variable_metadata] of Object.entries(variables)) {
       for (const [metadata_key, metadata_value] of Object.entries(variable_metadata)) {
         if (typeof metadata_value === 'string' && variable_regex.test(metadata_value)) {
@@ -288,8 +290,16 @@ export default class DatacenterV1 extends Datacenter {
             if (!variables[variable_name].depenendant_variables) {
               variables[variable_name].depenendant_variables = [];
             }
+
+            const variable_value = match[1];
+            if (!variable_names.has(variable_value)) {
+              throw new Error(
+                `Variable reference '${metadata_key}: ${metadata_value}' references variable '${variable_value}' that does not exist.`,
+              );
+            }
+
             variables[variable_name].depenendant_variables?.push({
-              key: metadata_key,
+              key: metadata_key as keyof VariablesMetadata,
               value: match[1],
             });
           }

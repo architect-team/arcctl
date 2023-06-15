@@ -3,6 +3,7 @@ import { ResourceInputs, ResourceOutputs } from '../../../@resources/index.ts';
 import { exec } from '../../../utils/command.ts';
 import { PagingOptions, PagingResponse } from '../../../utils/paging.ts';
 import { DeepPartial } from '../../../utils/types.ts';
+import { LogsOptions } from '../../base.service.ts';
 import { CrudResourceService } from '../../crud.service.ts';
 import { ProviderStore } from '../../store.ts';
 import { DockerCredentials } from '../credentials.ts';
@@ -47,6 +48,26 @@ export class DockerDeploymentService extends CrudResourceService<'deployment', D
         labels: row.labels,
       })),
     };
+  }
+
+  logs(id: string, options?: LogsOptions): ReadableStream<Uint8Array> {
+    const args = ['logs', id.replaceAll('/', '--')];
+
+    if (options?.follow) {
+      args.push('-f');
+    }
+
+    if (options?.tail) {
+      args.push('--tail', options.tail.toString());
+    }
+
+    const cmd = new Deno.Command('docker', {
+      stdout: 'piped',
+      stderr: 'piped',
+      args,
+    });
+    const child = cmd.spawn();
+    return child.stdout;
   }
 
   async create(

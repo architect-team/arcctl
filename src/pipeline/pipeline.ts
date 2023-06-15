@@ -233,10 +233,6 @@ export class Pipeline {
           status: {
             state: 'pending',
           },
-          resource: {
-            id: newNode.resource_id,
-            account: newNode.account || '',
-          },
         });
         pipeline.insertSteps(newStep);
         replacements[oldId] = newStep.id;
@@ -249,10 +245,6 @@ export class Pipeline {
           action: 'update',
           status: {
             state: 'pending',
-          },
-          resource: {
-            id: newNode.resource_id,
-            account: newNode.account || '',
           },
         });
         pipeline.insertSteps(newExecutable);

@@ -46,6 +46,8 @@ await Deno.copyFile('LICENSE.md', path.join(build_dir, 'LICENSE.md'));
 await Deno.copyFile('README.md', path.join(build_dir, 'README.md'));
 
 console.log('COPYING OTHER FILES')
+console.log(path.join(__dirname, '..', '..', 'src'))
+console.log(build_dir)
 // Copy all *.schema.json files into the npm package
 for await (const dirEntry of walk(path.join(__dirname, '..', '..', 'src'))) {
   if (dirEntry.isFile && dirEntry.name.endsWith('.schema.json')) {
